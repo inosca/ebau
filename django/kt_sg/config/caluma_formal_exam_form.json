@@ -906,7 +906,7 @@
     "pk": "formelle-vorpruefung-bemerkung",
     "fields": {
       "created_at": "2026-03-12T10:43:47.218Z",
-      "modified_at": "2026-03-12T13:17:24.157Z",
+      "modified_at": "2026-06-03T12:47:48.778Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -924,7 +924,9 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-snippets-textarea"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,

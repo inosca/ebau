@@ -789,6 +789,22 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 32,
+    "fields": {
+      "resource": 10,
+      "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 33,
+    "fields": {
+      "resource": 10,
+      "role": 6
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
@@ -906,6 +922,19 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 10,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/snippets-admin.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 10
+    }
+  },
+  {
     "model": "core.resourcet",
     "pk": 1,
     "fields": {
@@ -992,6 +1021,16 @@
       "resource": 9,
       "language": "de",
       "name": "Vorlagenverwaltung",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 10,
+    "fields": {
+      "resource": 10,
+      "language": "de",
+      "name": "Textbausteine",
       "description": null
     }
   }

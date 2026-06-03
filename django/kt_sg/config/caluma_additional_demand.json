@@ -242,7 +242,7 @@
     "pk": "additional-demand-comment",
     "fields": {
       "created_at": "2025-01-31T13:46:17.158Z",
-      "modified_at": "2026-03-18T10:02:10.694Z",
+      "modified_at": "2026-06-04T08:28:46.248Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -260,7 +260,9 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-snippets-textarea"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -276,7 +278,7 @@
     "pk": "additional-demand-comment-fill",
     "fields": {
       "created_at": "2025-01-31T13:49:26.996Z",
-      "modified_at": "2026-03-18T09:58:45.835Z",
+      "modified_at": "2026-06-04T08:29:10.087Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -294,7 +296,9 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-snippets-textarea"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,

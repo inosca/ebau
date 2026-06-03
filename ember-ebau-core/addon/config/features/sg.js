@@ -7,15 +7,18 @@ export default {
   },
   workItems: {
     v2: true,
+    snippets: true,
   },
   instanceOverview: {
     useSpecialId: true,
   },
   communications: {
     enabled: true,
+    snippets: true,
   },
   rejection: {
     revert: true,
+    snippets: true,
   },
   alexandria: {
     showSearchLinkLabel: true,
@@ -34,5 +37,14 @@ export default {
   instanceMarks: true,
   dms: {
     enableSystemTemplateEditing: true,
+  },
+  journal: {
+    snippets: true,
+  },
+  billing: {
+    snippets: true,
+  },
+  deadlines: {
+    snippets: true,
   },
 };
