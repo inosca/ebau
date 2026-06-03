@@ -37,6 +37,19 @@ def caluma_option(outer_ref):
     return Option.objects.filter(pk=OuterRef(outer_ref)).values("label__de")[:1]
 
 
+def parse_number(val):
+    """Attempt to convert a value to int or float; return original if it fails."""
+    if not isinstance(val, str):  # pragma: no cover
+        return val
+    try:
+        return int(val)
+    except ValueError:
+        try:
+            return float(val)
+        except ValueError:
+            return val
+
+
 def generate_bab_statistics_export_file(start_date, end_date):
     start_date = parse_datetime(start_date)
     end_date = parse_datetime(end_date)
@@ -409,6 +422,8 @@ class BabStatisticsExportView(InstanceQuerysetMixin, ListAPIView):
             start_date=start_date, end_date=end_date
         )
 
-        sheet_data = [header] + data
+        cleaned_data = [[parse_number(cell) for cell in row] for row in data]
+
+        sheet_data = [header] + cleaned_data
 
         return make_xlsx_response(sheet_data, "export.xlsx")
