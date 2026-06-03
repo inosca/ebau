@@ -15762,6 +15762,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'NAME_OF_MUNICIPAL_AUTHORITY': dict({
+      'aliases': list([
+        dict({
+          'de': 'NAME_GEMEINDEBAUBEHOERDE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name der Gemeindebaubehörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'NEBENBESTIMMUNGEN': dict({
       'aliases': list([
         dict({
@@ -22067,6 +22079,7 @@
     'DATUM_PRUEFUNG_DURCH_GEMEINDE': '1. Januar 2023',
     'GEMEINDE': 'Altdorf',
     'HAUSNUMMER': 4,
+    'NAME_GEMEINDEBAUBEHOERDE': 'Gemeindebaubehörde Altdorf',
     'PUBLIKATIONSDATUM': '1. Januar 2023',
     'ZONE': 'Zone 123, Wasserzone, Altes Haus',
   })

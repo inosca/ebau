@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-12 10:56+0200\n"
+"POT-Creation-Date: 2026-05-27 09:52+0200\n"
 "PO-Revision-Date: 2025-05-26 15:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2975,6 +2975,14 @@ msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "Publication documents without obligation"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "NAME_OF_MUNICIPAL_AUTHORITY"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Name of the municipal authority"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py

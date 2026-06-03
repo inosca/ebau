@@ -982,7 +982,7 @@ def test_dms_placeholders_ur(
         website="https://gemeinde.ch",
         service_group__name="Sekretariate Gemeindebaubehörden",
     )
-    location = location_factory(communal_federal_number=1)
+    location = location_factory(communal_federal_number=1, name="Altdorf")
     group = group_factory()
     group.locations.set([location])
     municipality.groups.set([group])
@@ -1041,6 +1041,7 @@ def test_dms_placeholders_ur(
         "PUBLIKATIONSDATUM",
         "DATUM_PRUEFUNG_DURCH_GEMEINDE",
         "DATUM_DOSSIER_VOLLSTAENDIG",
+        "NAME_GEMEINDEBAUBEHOERDE",
     ]
 
     assert {
