@@ -110905,7 +110905,7 @@
     "fields": {
       "resource": 20006,
       "language": "de",
-      "name": "Meine Dossiers",
+      "name": "Dossiers",
       "description": "Dossier list for Leitbehörde (Caluma)"
     }
   },
@@ -110915,7 +110915,7 @@
     "fields": {
       "resource": 20007,
       "language": "de",
-      "name": "Meine Dossiers",
+      "name": "Dossiers",
       "description": "Dossier list for Services (Caluma)"
     }
   },
@@ -110925,7 +110925,7 @@
     "fields": {
       "resource": 20008,
       "language": "de",
-      "name": "Meine Dossiers",
+      "name": "Dossiers",
       "description": "Dossier list for Baukontrolle (Caluma)"
     }
   },
@@ -110975,7 +110975,7 @@
     "fields": {
       "resource": 20006,
       "language": "fr",
-      "name": "Mes dossiers",
+      "name": "Dossiers",
       "description": null
     }
   },
@@ -110985,7 +110985,7 @@
     "fields": {
       "resource": 20007,
       "language": "fr",
-      "name": "Mes dossiers",
+      "name": "Dossiers",
       "description": null
     }
   },
@@ -110995,7 +110995,7 @@
     "fields": {
       "resource": 20008,
       "language": "fr",
-      "name": "Mes dossiers",
+      "name": "Dossiers",
       "description": null
     }
   },
