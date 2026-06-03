@@ -24242,6 +24242,30 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 123,
+    "fields": {
+      "resource": 11,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 124,
+    "fields": {
+      "resource": 11,
+      "role": 11
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 125,
+    "fields": {
+      "resource": 11,
+      "role": 7
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 9,
     "fields": {
