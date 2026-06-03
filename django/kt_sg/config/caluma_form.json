@@ -1582,7 +1582,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "gesuchstellerin",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -1597,7 +1597,22 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "grundeigentuemerin",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.grundeigentuemerin-abweichend",
+    "fields": {
+      "created_at": "2026-06-02T12:06:19.586Z",
+      "modified_at": "2026-06-02T12:06:19.586Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "grundeigentuemerin-abweichend",
+      "sort": 4
     }
   },
   {
@@ -1612,7 +1627,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-titel",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -1627,7 +1642,22 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "projektverfasserin",
-      "sort": 3
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.projektverfasserin-abweichend",
+    "fields": {
+      "created_at": "2026-06-02T12:04:44.180Z",
+      "modified_at": "2026-06-02T12:04:44.180Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "projektverfasserin-abweichend",
+      "sort": 6
     }
   },
   {
@@ -1643,6 +1673,21 @@
       "form": "personalien",
       "question": "rechnungsempfaengerin",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.rechnungsempfaengerin-abweichend",
+    "fields": {
+      "created_at": "2026-06-02T12:05:41.089Z",
+      "modified_at": "2026-06-02T12:05:41.089Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "rechnungsempfaengerin-abweichend",
+      "sort": 2
     }
   },
   {
@@ -1898,21 +1943,6 @@
       "form": "personalien-tabelle",
       "question": "zusatzinformation",
       "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "personalien.weitere-personen",
-    "fields": {
-      "created_at": "2026-02-11T08:59:01.564Z",
-      "modified_at": "2026-02-11T08:59:01.564Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "personalien",
-      "question": "weitere-personen",
-      "sort": 4
     }
   },
   {
@@ -2973,6 +3003,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "grundeigentuemerin-abweichend-ja",
+    "fields": {
+      "created_at": "2026-06-02T12:06:19.367Z",
+      "modified_at": "2026-06-02T12:06:19.368Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "grundeigentuemerin-abweichend-nein",
+    "fields": {
+      "created_at": "2026-06-02T12:06:19.374Z",
+      "modified_at": "2026-06-02T12:06:19.374Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "heizungssystem-erneuert-oder-veraendert-ja",
     "fields": {
       "created_at": "2026-05-19T15:12:04.991Z",
@@ -3415,6 +3479,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "projektverfasserin-abweichend-ja",
+    "fields": {
+      "created_at": "2026-06-02T12:04:43.970Z",
+      "modified_at": "2026-06-02T12:04:43.970Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "projektverfasserin-abweichend-nein",
+    "fields": {
+      "created_at": "2026-06-02T12:04:43.945Z",
+      "modified_at": "2026-06-02T12:04:43.945Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rechnungsempfaengerin-abweichend-ja",
+    "fields": {
+      "created_at": "2026-06-02T12:05:40.881Z",
+      "modified_at": "2026-06-02T12:05:40.881Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rechnungsempfaengerin-abweichend-nein",
+    "fields": {
+      "created_at": "2026-06-02T12:05:40.879Z",
+      "modified_at": "2026-06-02T12:05:40.879Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "regenwasser-ja",
     "fields": {
       "created_at": "2026-05-20T07:06:59.406Z",
@@ -3713,57 +3845,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "weitere-personen-grundeigentuemerin",
-    "fields": {
-      "created_at": "2026-02-11T08:59:01.458Z",
-      "modified_at": "2026-03-12T12:13:47.067Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Grundeigentümer/in / Bevollmächtiger / Baurechtsgeber/in / Baurechtsnehmer/in\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "weitere-personen-projektverfasserin",
-    "fields": {
-      "created_at": "2026-02-11T08:59:01.460Z",
-      "modified_at": "2026-02-11T08:59:01.460Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Projektverfasser/in\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "weitere-personen-rechnungsempfaengerin",
-    "fields": {
-      "created_at": "2026-02-11T08:59:01.460Z",
-      "modified_at": "2026-03-12T12:14:27.699Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Rechnungsadresse\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -5565,7 +5646,7 @@
     "pk": "grundeigentuemerin",
     "fields": {
       "created_at": "2026-02-11T09:01:49.124Z",
-      "modified_at": "2026-03-12T12:14:07.125Z",
+      "modified_at": "2026-06-02T12:07:33.698Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -5573,7 +5654,7 @@
       "label": "{\"de\": \"Grundeigentümer/in / Bevollmächtiger / Baurechtsgeber/in / Baurechtsnehmer/in\", \"fr\": null, \"it\": null}",
       "type": "table",
       "is_required": "true",
-      "is_hidden": "!(\"weitere-personen-grundeigentuemerin\" in \"weitere-personen\"|answer)",
+      "is_hidden": "\"grundeigentuemerin-abweichend\"|answer != \"grundeigentuemerin-abweichend-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -5591,6 +5672,37 @@
       },
       "data_source": null,
       "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "grundeigentuemerin-abweichend",
+    "fields": {
+      "created_at": "2026-06-02T12:06:19.480Z",
+      "modified_at": "2026-06-02T12:06:19.480Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundeigentümer/in / Bevollmächtiger / Baurechtsgeber/in / Baurechtsnehmer/in abweichend?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -6946,7 +7058,7 @@
     "pk": "projektverfasserin",
     "fields": {
       "created_at": "2026-02-11T09:01:32.259Z",
-      "modified_at": "2026-02-11T09:07:03.386Z",
+      "modified_at": "2026-06-02T12:07:19.535Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -6954,7 +7066,7 @@
       "label": "{\"de\": \"Projektverfasser/in\", \"fr\": null, \"it\": null}",
       "type": "table",
       "is_required": "true",
-      "is_hidden": "!(\"weitere-personen-projektverfasserin\" in \"weitere-personen\"|answer)",
+      "is_hidden": "\"projektverfasserin-abweichend\"|answer != \"projektverfasserin-abweichend-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -6982,10 +7094,41 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "projektverfasserin-abweichend",
+    "fields": {
+      "created_at": "2026-06-02T12:04:44.073Z",
+      "modified_at": "2026-06-02T12:04:44.073Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektverfasser/in abweichend?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "rechnungsempfaengerin",
     "fields": {
       "created_at": "2026-02-11T09:02:52.599Z",
-      "modified_at": "2026-02-11T09:08:01.351Z",
+      "modified_at": "2026-06-02T12:07:48.450Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -6993,7 +7136,7 @@
       "label": "{\"de\": \"Rechnungsempfänger/in\", \"fr\": null, \"it\": null}",
       "type": "table",
       "is_required": "true",
-      "is_hidden": "!(\"weitere-personen-rechnungsempfaengerin\" in \"weitere-personen\"|answer)",
+      "is_hidden": "\"rechnungsempfaengerin-abweichend\"|answer != \"rechnungsempfaengerin-abweichend-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -7011,6 +7154,37 @@
       },
       "data_source": null,
       "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rechnungsempfaengerin-abweichend",
+    "fields": {
+      "created_at": "2026-06-02T12:05:40.988Z",
+      "modified_at": "2026-06-02T12:05:40.988Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rechnungsempfänger/in abweichend?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -7624,37 +7798,6 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "weitere-personen",
-    "fields": {
-      "created_at": "2026-02-11T08:59:01.512Z",
-      "modified_at": "2026-03-12T12:14:27.757Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Sind neben der Gesuchstellerin/dem Gesuchsteller weitere Personen beteiligt?\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -8613,6 +8756,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "grundeigentuemerin-abweichend.grundeigentuemerin-abweichend-ja",
+    "fields": {
+      "created_at": "2026-06-02T12:06:19.491Z",
+      "modified_at": "2026-06-02T12:06:19.491Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundeigentuemerin-abweichend",
+      "option": "grundeigentuemerin-abweichend-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "grundeigentuemerin-abweichend.grundeigentuemerin-abweichend-nein",
+    "fields": {
+      "created_at": "2026-06-02T12:06:19.487Z",
+      "modified_at": "2026-06-02T12:06:19.487Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundeigentuemerin-abweichend",
+      "option": "grundeigentuemerin-abweichend-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "heizungssystem-erneuert-oder-veraendert.heizungssystem-erneuert-oder-veraendert-ja",
     "fields": {
       "created_at": "2026-05-19T15:12:05.122Z",
@@ -9003,6 +9176,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "projektverfasserin-abweichend.projektverfasserin-abweichend-ja",
+    "fields": {
+      "created_at": "2026-06-02T12:04:44.086Z",
+      "modified_at": "2026-06-02T12:04:44.086Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "projektverfasserin-abweichend",
+      "option": "projektverfasserin-abweichend-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "projektverfasserin-abweichend.projektverfasserin-abweichend-nein",
+    "fields": {
+      "created_at": "2026-06-02T12:04:44.082Z",
+      "modified_at": "2026-06-02T12:04:44.082Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "projektverfasserin-abweichend",
+      "option": "projektverfasserin-abweichend-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rechnungsempfaengerin-abweichend.rechnungsempfaengerin-abweichend-ja",
+    "fields": {
+      "created_at": "2026-06-02T12:05:40.997Z",
+      "modified_at": "2026-06-02T12:05:40.997Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rechnungsempfaengerin-abweichend",
+      "option": "rechnungsempfaengerin-abweichend-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rechnungsempfaengerin-abweichend.rechnungsempfaengerin-abweichend-nein",
+    "fields": {
+      "created_at": "2026-06-02T12:05:40.994Z",
+      "modified_at": "2026-06-02T12:05:40.994Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rechnungsempfaengerin-abweichend",
+      "option": "rechnungsempfaengerin-abweichend-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "regenwasser.regenwasser-ja",
     "fields": {
       "created_at": "2026-05-20T07:06:59.516Z",
@@ -9269,51 +9502,6 @@
       "question": "wasserkraftanlage-erneruert-oder-veraendert",
       "option": "wasserkraftanlage-erneruert-oder-veraendert-nein",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "weitere-personen.weitere-personen-grundeigentuemerin",
-    "fields": {
-      "created_at": "2026-03-12T12:14:27.764Z",
-      "modified_at": "2026-03-12T12:14:27.764Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "weitere-personen",
-      "option": "weitere-personen-grundeigentuemerin",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "weitere-personen.weitere-personen-projektverfasserin",
-    "fields": {
-      "created_at": "2026-03-12T12:14:27.765Z",
-      "modified_at": "2026-03-12T12:14:27.765Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "weitere-personen",
-      "option": "weitere-personen-projektverfasserin",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "weitere-personen.weitere-personen-rechnungsempfaengerin",
-    "fields": {
-      "created_at": "2026-03-12T12:14:27.761Z",
-      "modified_at": "2026-03-12T12:14:27.761Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "weitere-personen",
-      "option": "weitere-personen-rechnungsempfaengerin",
-      "sort": 2
     }
   },
   {
