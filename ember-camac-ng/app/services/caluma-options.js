@@ -73,7 +73,12 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     });
   }
 
-  async _fetchIfNotCached(modelName, idFilter, identifiers) {
+  async _fetchIfNotCached(
+    modelName,
+    idFilter,
+    identifiers,
+    extraQueryParams = {},
+  ) {
     const cachedIdentifiers = this.store
       .peekAll(modelName)
       .map((model) => model.id);
@@ -85,7 +90,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     if (uncachedIdentifiers.length) {
       await this.store.query(modelName, {
         [idFilter]: String(uncachedIdentifiers),
-        ...(idFilter === "service_id" && { show_only_active: false }),
+        ...extraQueryParams,
       });
     }
 
@@ -97,7 +102,9 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
   }
 
   resolveGroups(identifiers) {
-    return this._fetchIfNotCached("public-service", "service_id", identifiers);
+    return this._fetchIfNotCached("public-service", "service_id", identifiers, {
+      exclude_disabled: false,
+    });
   }
 
   _getFilter(filter) {

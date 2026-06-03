@@ -19,7 +19,11 @@ from camac.caluma.api import CalumaApi
 from camac.constants import kt_uri as uri_constants
 from camac.core.utils import canton_aware
 from camac.document.filters import RESTJSONFilter
-from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
+from camac.filters import (
+    CharMultiValueFilter,
+    ExcludeDisabledFilter,
+    NumberMultiValueFilter,
+)
 from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
 from camac.instance.views import InstanceView
@@ -40,6 +44,14 @@ class LocationFilterSet(FilterSet):
 
 
 class PublicServiceFilterSet(FilterSet):
+    def __init__(self, data=None, *args, **kwargs):
+        data = data.copy()
+
+        if "exclude_disabled" not in data:
+            # Exclude disabled services by default unless 'exclude_disabled=False' is passed.
+            data["exclude_disabled"] = True
+        super().__init__(data, *args, **kwargs)
+
     service_id = NumberMultiValueFilter()
     has_parent = BooleanFilter(
         field_name="service_parent", lookup_expr="isnull", exclude=True
@@ -62,7 +74,7 @@ class PublicServiceFilterSet(FilterSet):
     is_active_service_for_instance = NumberFilter(
         method="filter_is_active_service_for_instance"
     )
-    show_only_active = BooleanFilter(method="filter_show_only_active")
+    exclude_disabled = ExcludeDisabledFilter(field_name="disabled")
 
     # ?provider_for=geometer;999111 (service id)
     provider_for = CharFilter(method="filter_provider_for")
@@ -105,12 +117,6 @@ class PublicServiceFilterSet(FilterSet):
             if len(filters) > 0
             else queryset
         )
-
-    def filter_show_only_active(self, queryset, name, value):
-        if not value:
-            return models.Service.objects.all()
-
-        return queryset
 
     @permission_aware
     def _available_in_distribution(self, queryset, name, value):
