@@ -1,0 +1,1228 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "anfrage-intern-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:59:14.311Z",
+      "modified_at": "2026-05-29T14:01:00.210Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Anfrage intern\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"v2\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 8,
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "anfrage-intern"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "baugesuch-mit-uvp-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:36:25.549Z",
+      "modified_at": "2026-05-29T13:37:22.783Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baugesuch mit UVP\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"v2\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 2,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "baugesuch-mit-uvp"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "baugesuch-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:25:27.021Z",
+      "modified_at": "2026-05-29T13:34:35.094Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baugesuch\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"v2\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "baugesuch"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "nutzung-bauvorhaben-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.389Z",
+      "modified_at": "2026-05-29T13:21:29.465Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Triage\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "nutzung-bauvorhaben"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "plangenehmigungsverfahren-bund-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:51:39.243Z",
+      "modified_at": "2026-05-29T13:51:46.624Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Plangenehmigungsverfahren Bund\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"v2\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 7,
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "plangenehmigungsverfahren-bund"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "plangenehmigungsverfahren-gas-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:53:56.445Z",
+      "modified_at": "2026-05-29T13:54:02.773Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Plangenehmigungsverfahren Gas\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"v2\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 3,
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "plangenehmigungsverfahren-gas"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "spezialformulare-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:21:54.861Z",
+      "modified_at": "2026-05-29T13:21:54.861Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Spezialformulare\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "spezialformulare"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "vorentscheid-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:37:49.383Z",
+      "modified_at": "2026-05-29T13:50:31.577Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vorentscheid\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"v2\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 3,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "vorentscheid"
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-intern-v2.allgemeine-informationen-pgv-bund",
+    "fields": {
+      "created_at": "2026-05-29T13:59:14.329Z",
+      "modified_at": "2026-05-29T13:59:14.329Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "anfrage-intern-v2",
+      "question": "allgemeine-informationen-pgv-bund",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-intern-v2.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2026-05-29T13:59:14.348Z",
+      "modified_at": "2026-05-29T13:59:14.348Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "anfrage-intern-v2",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-intern-v2.einreichen",
+    "fields": {
+      "created_at": "2026-05-29T13:59:14.354Z",
+      "modified_at": "2026-05-29T13:59:14.354Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "anfrage-intern-v2",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-intern-v2.flaechenbilanz-form",
+    "fields": {
+      "created_at": "2026-05-29T13:59:14.343Z",
+      "modified_at": "2026-05-29T13:59:14.343Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "anfrage-intern-v2",
+      "question": "flaechenbilanz-form",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-intern-v2.nutzung-bauvorhaben-form-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:59:35.290Z",
+      "modified_at": "2026-05-29T13:59:35.290Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anfrage-intern-v2",
+      "question": "nutzung-bauvorhaben-form-v2",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-mit-uvp-v2.allgemeine-informationen",
+    "fields": {
+      "created_at": "2026-05-29T13:36:25.564Z",
+      "modified_at": "2026-05-29T13:36:25.564Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-mit-uvp-v2",
+      "question": "allgemeine-informationen",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-mit-uvp-v2.bestaetigung",
+    "fields": {
+      "created_at": "2026-05-29T13:36:25.596Z",
+      "modified_at": "2026-05-29T13:36:25.596Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-mit-uvp-v2",
+      "question": "bestaetigung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-mit-uvp-v2.dokumente",
+    "fields": {
+      "created_at": "2026-05-29T13:36:25.588Z",
+      "modified_at": "2026-05-29T13:36:25.588Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-mit-uvp-v2",
+      "question": "dokumente",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-mit-uvp-v2.eingabequittung",
+    "fields": {
+      "created_at": "2026-05-29T13:36:25.602Z",
+      "modified_at": "2026-05-29T13:36:25.602Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-mit-uvp-v2",
+      "question": "eingabequittung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-mit-uvp-v2.einreichen",
+    "fields": {
+      "created_at": "2026-05-29T13:36:25.609Z",
+      "modified_at": "2026-05-29T13:36:25.609Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-mit-uvp-v2",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-mit-uvp-v2.nutzung-bauvorhaben-form-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:36:42.638Z",
+      "modified_at": "2026-05-29T13:36:42.638Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-mit-uvp-v2",
+      "question": "nutzung-bauvorhaben-form-v2",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-mit-uvp-v2.spezialformulare-form-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:36:46.325Z",
+      "modified_at": "2026-05-29T13:36:46.325Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-mit-uvp-v2",
+      "question": "spezialformulare-form-v2",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v2.allgemeine-informationen",
+    "fields": {
+      "created_at": "2026-05-29T13:25:27.035Z",
+      "modified_at": "2026-05-29T13:25:27.035Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-v2",
+      "question": "allgemeine-informationen",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v2.bestaetigung",
+    "fields": {
+      "created_at": "2026-05-29T13:25:27.065Z",
+      "modified_at": "2026-05-29T13:25:27.065Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-v2",
+      "question": "bestaetigung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v2.dokumente",
+    "fields": {
+      "created_at": "2026-05-29T13:25:27.058Z",
+      "modified_at": "2026-05-29T13:25:27.058Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-v2",
+      "question": "dokumente",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v2.eingabequittung",
+    "fields": {
+      "created_at": "2026-05-29T13:25:27.072Z",
+      "modified_at": "2026-05-29T13:25:27.072Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-v2",
+      "question": "eingabequittung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v2.einreichen",
+    "fields": {
+      "created_at": "2026-05-29T13:25:27.078Z",
+      "modified_at": "2026-05-29T13:25:27.078Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-v2",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v2.nutzung-bauvorhaben-form-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:27:26.854Z",
+      "modified_at": "2026-05-29T13:27:26.854Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v2",
+      "question": "nutzung-bauvorhaben-form-v2",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v2.spezialformulare-form-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:28:57.238Z",
+      "modified_at": "2026-05-29T13:28:57.238Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v2",
+      "question": "spezialformulare-form-v2",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.441Z",
+      "modified_at": "2026-05-29T13:21:25.441Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "ausserhalb-bauzone",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.betroffene-strassen",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.483Z",
+      "modified_at": "2026-05-29T13:21:25.483Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "betroffene-strassen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.das-bauvorhaben-befindet-sich-in",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.502Z",
+      "modified_at": "2026-05-29T13:21:25.502Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "das-bauvorhaben-befindet-sich-in",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.das-bauvorhaben-befindet-sich-in-pgv-bund",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.509Z",
+      "modified_at": "2026-05-29T13:21:25.509Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "das-bauvorhaben-befindet-sich-in-pgv-bund",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.denkmalschutzobjekt",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.469Z",
+      "modified_at": "2026-05-29T13:21:25.469Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "denkmalschutzobjekt",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.einbau-grundwasserspiegel",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.516Z",
+      "modified_at": "2026-05-29T13:21:25.516Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "einbau-grundwasserspiegel",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.kantonale-brandschutzbewilligung-erforderlich",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.523Z",
+      "modified_at": "2026-05-29T13:21:25.523Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "kantonale-brandschutzbewilligung-erforderlich",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.kantonale-brandschutzbewilligung-nutzungen",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.532Z",
+      "modified_at": "2026-05-29T13:21:25.532Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "kantonale-brandschutzbewilligung-nutzungen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.kantonsstrassen",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.475Z",
+      "modified_at": "2026-05-29T13:21:25.475Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "kantonsstrassen",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.reklame-geplant",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.490Z",
+      "modified_at": "2026-05-29T13:21:25.490Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "reklame-geplant",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.rodung",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.462Z",
+      "modified_at": "2026-05-29T13:21:25.462Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "rodung",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.sind-arbeitnehmende-betroffen-pgv-gas",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.540Z",
+      "modified_at": "2026-05-29T13:21:25.540Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "sind-arbeitnehmende-betroffen-pgv-gas",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.triage-titel",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.418Z",
+      "modified_at": "2026-05-29T13:21:25.418Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "triage-titel",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.waldareal",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.455Z",
+      "modified_at": "2026-05-29T13:21:25.455Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "waldareal",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.wollen-sie-eine-abbruchpraemie-beantragen",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.448Z",
+      "modified_at": "2026-05-29T13:21:25.448Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "wollen-sie-eine-abbruchpraemie-beantragen",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.zweckbestimmung",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.427Z",
+      "modified_at": "2026-05-29T13:21:25.427Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "zweckbestimmung",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v2.zweckbestimmung-beschreibung",
+    "fields": {
+      "created_at": "2026-05-29T13:21:25.434Z",
+      "modified_at": "2026-05-29T13:21:25.434Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v2",
+      "question": "zweckbestimmung-beschreibung",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-bund-v2.allgemeine-informationen-pgv-bund",
+    "fields": {
+      "created_at": "2026-05-29T13:51:39.264Z",
+      "modified_at": "2026-05-29T13:51:39.264Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-bund-v2",
+      "question": "allgemeine-informationen-pgv-bund",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-bund-v2.dokumente-pgv-gas-ref",
+    "fields": {
+      "created_at": "2026-05-29T13:51:39.290Z",
+      "modified_at": "2026-05-29T13:51:39.290Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-bund-v2",
+      "question": "dokumente-pgv-gas-ref",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-bund-v2.einreichen",
+    "fields": {
+      "created_at": "2026-05-29T13:51:39.298Z",
+      "modified_at": "2026-05-29T13:51:39.298Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-bund-v2",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-bund-v2.flaechenbilanz-form",
+    "fields": {
+      "created_at": "2026-05-29T13:51:39.282Z",
+      "modified_at": "2026-05-29T13:51:39.282Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-bund-v2",
+      "question": "flaechenbilanz-form",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-bund-v2.nutzung-bauvorhaben-form-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:51:54.522Z",
+      "modified_at": "2026-05-29T13:51:54.522Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-bund-v2",
+      "question": "nutzung-bauvorhaben-form-v2",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-gas-v2.allgemeine-informationen-pgv-gas",
+    "fields": {
+      "created_at": "2026-05-29T13:53:56.462Z",
+      "modified_at": "2026-05-29T13:53:56.462Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-gas-v2",
+      "question": "allgemeine-informationen-pgv-gas",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-gas-v2.arbeitssicherheit-pgv-gas",
+    "fields": {
+      "created_at": "2026-05-29T13:53:56.478Z",
+      "modified_at": "2026-05-29T13:53:56.478Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-gas-v2",
+      "question": "arbeitssicherheit-pgv-gas",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-gas-v2.dokumente-pgv-gas-ref",
+    "fields": {
+      "created_at": "2026-05-29T13:53:56.485Z",
+      "modified_at": "2026-05-29T13:53:56.485Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-gas-v2",
+      "question": "dokumente-pgv-gas-ref",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-gas-v2.eingabequittung",
+    "fields": {
+      "created_at": "2026-05-29T13:53:56.491Z",
+      "modified_at": "2026-05-29T13:53:56.491Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-gas-v2",
+      "question": "eingabequittung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-gas-v2.einreichen",
+    "fields": {
+      "created_at": "2026-05-29T13:53:56.496Z",
+      "modified_at": "2026-05-29T13:53:56.496Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-gas-v2",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-gas-v2.flaechenbilanz-form",
+    "fields": {
+      "created_at": "2026-05-29T13:54:12.671Z",
+      "modified_at": "2026-05-29T13:54:12.671Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-gas-v2",
+      "question": "flaechenbilanz-form",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-gas-v2.nutzung-bauvorhaben-form-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:54:27.038Z",
+      "modified_at": "2026-05-29T13:54:27.038Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-gas-v2",
+      "question": "nutzung-bauvorhaben-form-v2",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v2.abbruchpraemie-form",
+    "fields": {
+      "created_at": "2026-05-29T13:21:54.950Z",
+      "modified_at": "2026-05-29T13:21:54.950Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "spezialformulare-v2",
+      "question": "abbruchpraemie-form",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v2.ableitung-von-industrie-und-gewerbeabwasser",
+    "fields": {
+      "created_at": "2026-05-29T13:21:54.936Z",
+      "modified_at": "2026-05-29T13:21:54.936Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "spezialformulare-v2",
+      "question": "ableitung-von-industrie-und-gewerbeabwasser",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v2.arbeitssicherheit",
+    "fields": {
+      "created_at": "2026-05-29T13:21:54.916Z",
+      "modified_at": "2026-05-29T13:21:54.916Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "spezialformulare-v2",
+      "question": "arbeitssicherheit",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v2.entsorgung-und-bodenschutz",
+    "fields": {
+      "created_at": "2026-05-29T13:21:54.908Z",
+      "modified_at": "2026-05-29T13:21:54.908Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "spezialformulare-v2",
+      "question": "entsorgung-und-bodenschutz",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v2.flaechenbilanz-form",
+    "fields": {
+      "created_at": "2026-05-29T13:21:54.943Z",
+      "modified_at": "2026-05-29T13:21:54.943Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "spezialformulare-v2",
+      "question": "flaechenbilanz-form",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v2.gebaeudetechnik",
+    "fields": {
+      "created_at": "2026-05-29T13:21:54.929Z",
+      "modified_at": "2026-05-29T13:21:54.929Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "spezialformulare-v2",
+      "question": "gebaeudetechnik",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v2.gewerbe",
+    "fields": {
+      "created_at": "2026-05-29T13:21:54.901Z",
+      "modified_at": "2026-05-29T13:21:54.901Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "spezialformulare-v2",
+      "question": "gewerbe",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v2.grundstueckentwaesserung",
+    "fields": {
+      "created_at": "2026-05-29T13:21:54.923Z",
+      "modified_at": "2026-05-29T13:21:54.923Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "spezialformulare-v2",
+      "question": "grundstueckentwaesserung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v2.landwirtschaft",
+    "fields": {
+      "created_at": "2026-05-29T13:21:54.886Z",
+      "modified_at": "2026-05-29T13:21:54.886Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "spezialformulare-v2",
+      "question": "landwirtschaft",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v2.reklamen-formular",
+    "fields": {
+      "created_at": "2026-05-29T13:21:54.877Z",
+      "modified_at": "2026-05-29T13:21:54.877Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "spezialformulare-v2",
+      "question": "reklamen-formular",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v2.wohnen",
+    "fields": {
+      "created_at": "2026-05-29T13:21:54.894Z",
+      "modified_at": "2026-05-29T13:21:54.894Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "spezialformulare-v2",
+      "question": "wohnen",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-v2.allgemeine-informationen",
+    "fields": {
+      "created_at": "2026-05-29T13:37:49.400Z",
+      "modified_at": "2026-05-29T13:37:49.400Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorentscheid-v2",
+      "question": "allgemeine-informationen",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-v2.bestaetigung",
+    "fields": {
+      "created_at": "2026-05-29T13:37:49.435Z",
+      "modified_at": "2026-05-29T13:37:49.435Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorentscheid-v2",
+      "question": "bestaetigung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-v2.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2026-05-29T13:37:49.428Z",
+      "modified_at": "2026-05-29T13:37:49.428Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorentscheid-v2",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-v2.eingabequittung",
+    "fields": {
+      "created_at": "2026-05-29T13:37:49.442Z",
+      "modified_at": "2026-05-29T13:37:49.442Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorentscheid-v2",
+      "question": "eingabequittung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-v2.einreichen",
+    "fields": {
+      "created_at": "2026-05-29T13:37:49.448Z",
+      "modified_at": "2026-05-29T13:37:49.448Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorentscheid-v2",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-v2.nutzung-bauvorhaben-form-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:38:01.376Z",
+      "modified_at": "2026-05-29T13:38:01.376Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorentscheid-v2",
+      "question": "nutzung-bauvorhaben-form-v2",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-v2.spezialformulare-form-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:38:05.788Z",
+      "modified_at": "2026-05-29T13:38:05.788Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorentscheid-v2",
+      "question": "spezialformulare-form-v2",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nutzung-bauvorhaben-form-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:27:26.738Z",
+      "modified_at": "2026-05-29T13:59:51.617Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Triage\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "nutzung-bauvorhaben-v2",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "spezialformulare-form-v2",
+    "fields": {
+      "created_at": "2026-05-29T13:28:57.133Z",
+      "modified_at": "2026-05-29T13:37:14.374Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zusatzformulare\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "spezialformulare-v2",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  }
+]

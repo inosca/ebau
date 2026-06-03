@@ -7,18 +7,18 @@ mutation CreateBuildingPermitWorkflow {
       allowForms: [
         "anfrage"
         "baugesuch"
+        "baugesuch-v2"
         "baugesuch-mit-uvp"
+        "baugesuch-mit-uvp-v2"
         "plangenehmigungsverfahren-bund"
+        "plangenehmigungsverfahren-bund-v2"
         "plangenehmigungsverfahren-gas"
+        "plangenehmigungsverfahren-gas-v2"
         "reklame"
         "vorentscheid"
+        "vorentscheid-v2"
         "baugesuch-migration"
         "uvp-migration"
-        "baugesuch-v2"
-        "baugesuch-mit-uvp-v2"
-        "plangenehmigungsverfahren-bund-v2"
-        "plangenehmigungsverfahren-gas-v2"
-        "vorentscheid-v2"
       ]
       isPublished: true
     }

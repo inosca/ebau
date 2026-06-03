@@ -38,7 +38,8 @@ export default class InstancesNewController extends Controller {
       .filter(({ node }) => node.meta["is-creatable"] && node.isPublished)
       .filter((form) =>
         this.permissions.some(
-          (permission) => permission.slug === removeVersion(form.node.slug),
+          (permission) =>
+            removeVersion(permission.slug) === removeVersion(form.node.slug),
         ),
       )
       .reduce((acc, form) => {

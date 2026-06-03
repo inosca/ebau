@@ -152,7 +152,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Baubewilligung erteilt\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form == \"plangenehmigungsverfahren-bund\"",
+      "is_hidden": "\"plangenehmigungsverfahren-bund\"  in info.case.root.form",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -169,7 +169,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kenntnisnahme\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form == \"plangenehmigungsverfahren-bund\"",
+      "is_hidden": "\"plangenehmigungsverfahren-bund\"  in info.case.root.form",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -220,7 +220,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Teilbaubewilligung mit teilweiser Abweisung mit/ohne Rückbau\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form == \"plangenehmigungsverfahren-bund\"",
+      "is_hidden": "\"plangenehmigungsverfahren-bund\"  in info.case.root.form",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -371,7 +371,7 @@
       "label": "{\"de\": \"Entscheidtyp\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "\"entscheid-entscheid\"|answer != \"entscheid-entscheid-abweisung\"\n||\ninfo.case.root.form == \"plangenehmigungsverfahren-bund\"",
+      "is_hidden": "\"entscheid-entscheid\"|answer != \"entscheid-entscheid-abweisung\" || \"plangenehmigungsverfahren-bund\" in info.case.root.form",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",

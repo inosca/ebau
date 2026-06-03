@@ -798,6 +798,7 @@ DUMP = {
                 "caluma_objection_form": generate_form_dump_config(
                     regex=r"^einwendung(en)?"
                 ),
+                "caluma_form_v2": generate_form_dump_config(version=2),
             },
             "EXCLUDED_MODELS": [
                 "user.Group",
