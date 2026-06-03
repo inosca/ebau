@@ -6,7 +6,7 @@ export default class ConstructionMonitoringConstructionStageConstructionStepRout
   @service constructionMonitoring;
   @service ebauModules;
 
-  async model({ construction_step_id }) {
+  async model({ construction_step_id: constructionStepId }) {
     const constructionStageId = this.modelFor(
       this.ebauModules.resolveModuleRoute(
         "construction-monitoring",
@@ -23,7 +23,7 @@ export default class ConstructionMonitoringConstructionStageConstructionStepRout
     return {
       constructionStageId,
       constructionStageChildCaseId,
-      constructionStepId: construction_step_id,
+      constructionStepId,
     };
   }
 }

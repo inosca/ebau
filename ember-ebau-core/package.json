@@ -89,7 +89,7 @@
     "uuid": "13.0.0"
   },
   "devDependencies": {
-    "@adfinis/eslint-config": "3.0.0",
+    "@adfinis/eslint-config": "3.1.0",
     "@babel/core": "7.26.10",
     "@babel/eslint-parser": "7.28.6",
     "@babel/plugin-proposal-decorators": "7.25.9",
