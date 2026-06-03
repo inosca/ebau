@@ -15,7 +15,7 @@ mutation CreateFormalExamTask {
     input: {
       slug: "formal-exam"
       form: "formelle-vorpruefung"
-      name: "Formelle Vorpüfung"
+      name: "Formelle Prüfung"
       addressGroups: "[\"municipality\"]|groups"
       controlGroups: "[\"municipality\"]|groups"
       leadTime: 432000 # 5 days
