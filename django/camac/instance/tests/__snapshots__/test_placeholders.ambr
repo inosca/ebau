@@ -10531,11 +10531,6 @@
             'de': 'beschwerdeverfahren_augenschein',
           }),
         ]),
-        'beschwerdeverfahren.beschwerdeverfahren_bemerkung': list([
-          dict({
-            'de': 'beschwerdeverfahren_bemerkung',
-          }),
-        ]),
         'beschwerdeverfahren.beschwerdeverfahren_beschwerdefuehrer': list([
           dict({
             'de': 'beschwerdeverfahren_beschwerdefuehrer',
@@ -10606,9 +10601,9 @@
             'de': 'beschwerdeverfahren_replik_eingereicht',
           }),
         ]),
-        'beschwerdeverfahren.beschwerdeverfahren_start_sistierung': list([
+        'beschwerdeverfahren.beschwerdeverfahren_sistierung': list([
           dict({
-            'de': 'beschwerdeverfahren_start_sistierung',
+            'de': 'beschwerdeverfahren_sistierung',
           }),
         ]),
         'beschwerdeverfahren.beschwerdeverfahren_vernehmlassung_erledigt': list([
@@ -10624,6 +10619,11 @@
         'beschwerdeverfahren.beschwerdeverfahren_weiterzug_durch_beschwerdegegner': list([
           dict({
             'de': 'beschwerdeverfahren_weiterzug_durch_beschwerdegegner',
+          }),
+        ]),
+        'beschwerdeverfahren.bewilligungsverfahren_bemerkung': list([
+          dict({
+            'de': 'bewilligungsverfahren_bemerkung',
           }),
         ]),
         'bewilligungsverfahren_abschreibung': list([
@@ -19883,7 +19883,6 @@
     'bauverwaltung.beschwerdeverfahren',
     'bauverwaltung.beschwerdeverfahren[]',
     'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_augenschein',
-    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_bemerkung',
     'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_beschwerdefuehrer',
     'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_betreff',
     'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_duplik_eingereicht',
@@ -19898,10 +19897,11 @@
     'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_geschaeft_nr',
     'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_rechtskraeftig_per',
     'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_replik_eingereicht',
-    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_start_sistierung',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_sistierung',
     'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_vernehmlassung_erledigt',
     'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_weiterzug_durch',
     'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_weiterzug_durch_beschwerdegegner',
+    'bauverwaltung.beschwerdeverfahren[].bewilligungsverfahren_bemerkung',
     'bauverwaltung.bewilligungsverfahren_abschreibung',
     'bauverwaltung.bewilligungsverfahren_bewilligung_antrag_um_verlaengerung',
     'bauverwaltung.bewilligungsverfahren_bewilligung_bis',

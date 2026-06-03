@@ -2545,8 +2545,8 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "beschwerdeverfahren.beschwerdeverfahren_augenschein": [
                 "BESCHWERDEVERFAHREN_AUGENSCHEIN"
             ],
-            "beschwerdeverfahren.beschwerdeverfahren_bemerkung": [
-                "BESCHWERDEVERFAHREN_BEMERKUNG"
+            "beschwerdeverfahren.bewilligungsverfahren_bemerkung": [
+                "BEWILLIGUNGSVERFAHREN_BEMERKUNG"
             ],
             "beschwerdeverfahren.beschwerdeverfahren_beschwerdefuehrer": [
                 "BESCHWERDEVERFAHREN_BESCHWERDEFUEHRER"
@@ -2590,8 +2590,8 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "beschwerdeverfahren.beschwerdeverfahren_replik_eingereicht": [
                 "BESCHWERDEVERFAHREN_REPLIK_EINGEREICHT"
             ],
-            "beschwerdeverfahren.beschwerdeverfahren_start_sistierung": [
-                "BESCHWERDEVERFAHREN_START_SISTIERUNG"
+            "beschwerdeverfahren.beschwerdeverfahren_sistierung": [
+                "BESCHWERDEVERFAHREN_SISTIERUNG"
             ],
             "beschwerdeverfahren.beschwerdeverfahren_vernehmlassung_erledigt": [
                 "BESCHWERDEVERFAHREN_VERNEHMLASSUNG_ERLEDIGT"
