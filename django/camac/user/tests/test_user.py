@@ -298,3 +298,75 @@ def test_user_admin_for_service_filter(
     assert len(result) == len(admins)
 
     assert set(int(r["id"]) for r in result) == set([a.user.pk for a in admins])
+
+
+def test_accessible_instance_filter_with_permissions(
+    db,
+    admin_client,
+    be_instance,
+    be_permissions_settings,
+    access_level,
+    instance_acl_factory,
+    group_factory,
+    user_group_factory,
+    service_factory,
+):
+    default_group = admin_client.user.groups.first()
+    inactive_service = service_factory(disabled=True)
+    be_instance.services.add(inactive_service)
+
+    # This group has access
+    group1 = group_factory(
+        name="Group with access",
+        service=be_instance.services.first(),
+    )
+
+    # This group does not have access
+    group2 = group_factory(
+        name="Group without access",
+        service=service_factory(),
+    )
+    # This group has access but a service is disabled
+    group3 = group_factory(
+        name="Group disabled service",
+        service=inactive_service,
+    )
+
+    user_group_factory(group=group1, user=admin_client.user)
+    user_group_factory(group=group2, user=admin_client.user)
+    user_group_factory(group=group3, user=admin_client.user)
+
+    instance_acl_factory(
+        instance=be_instance,
+        service=be_instance.services.first(),
+        access_level=access_level,
+        grant_type="SERVICE",
+    )
+    instance_acl_factory(
+        instance=be_instance,
+        service=be_instance.services.last(),
+        access_level=access_level,
+        grant_type="SERVICE",
+    )
+    response = admin_client.get(
+        reverse("group-list"), {"accessible_instance": be_instance.pk}
+    )
+
+    data = response.json()["data"]
+    received_groups = [e["id"] for e in data]
+    assert str(default_group.pk) in received_groups
+    assert str(group1.pk) in received_groups
+    assert str(group2.pk) not in received_groups
+    assert str(group3.pk) in received_groups
+
+    # if no accessible instance is passed, all groups are returned
+    new_response = admin_client.get(reverse("group-list"), {"accessible_instance": ""})
+    new_data = new_response.json()["data"]
+    assert response.status_code == status.HTTP_200_OK
+
+    new_received_groups = [e["id"] for e in new_data]
+
+    assert str(default_group.pk) in new_received_groups
+    assert str(group1.pk) in new_received_groups
+    assert str(group2.pk) in new_received_groups
+    assert str(group3.pk) in new_received_groups
