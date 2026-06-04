@@ -361,7 +361,7 @@
     "pk": "appeal-complainants-table",
     "fields": {
       "created_at": "2023-03-14T09:09:30.291Z",
-      "modified_at": "2023-06-27T16:19:54.644Z",
+      "modified_at": "2026-06-04T14:43:18.673Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -381,8 +381,6 @@
           "name-juristische-person-gesuchstellerin",
           "name-gesuchstellerin",
           "vorname-gesuchstellerin",
-          "telefon-oder-mobile-gesuchstellerin",
-          "e-mail-gesuchstellerin",
           "vertreterin"
         ]
       },
@@ -432,7 +430,7 @@
     "pk": "appeal-opponents-table",
     "fields": {
       "created_at": "2023-03-14T09:10:16.045Z",
-      "modified_at": "2023-06-27T16:20:00.771Z",
+      "modified_at": "2026-06-04T14:43:33.490Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -450,8 +448,6 @@
       "meta": {
         "columnsToDisplay": [
           "vertreterin",
-          "e-mail-gesuchstellerin",
-          "telefon-oder-mobile-gesuchstellerin",
           "vorname-gesuchstellerin",
           "name-gesuchstellerin",
           "name-juristische-person-gesuchstellerin"
