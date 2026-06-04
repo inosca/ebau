@@ -177,6 +177,7 @@ module.exports = function (environment) {
           "vorabklaerung-dokument-begruendung-v5",
           "sicherungsmassnahme-dokument-begruendung-v5",
           "berechnungen-abstellplaetze-dokument-begruendung-v5",
+          "berechnungen-abstellplaetze-dokument-begruendung-v7",
           "ausnuetzung-dokument-begruendung-v5",
           "gruenflaeche-dokument-begruendung-v5",
           "ueberbauung-dokument-begruendung-v5",
