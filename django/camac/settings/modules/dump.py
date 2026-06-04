@@ -463,6 +463,7 @@ DUMP = {
                 "caluma_form_v4": generate_form_dump_config(version=4),
                 "caluma_form_v5": generate_form_dump_config(version=5),
                 "caluma_form_v6": generate_form_dump_config(version=6),
+                "caluma_form_v7": generate_form_dump_config(version=7),
                 "caluma_dossier_import_form": generate_form_dump_config(
                     regex=r"^migriertes-dossier(-daten)?$"
                 ),
