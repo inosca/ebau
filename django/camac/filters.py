@@ -9,7 +9,12 @@ from django.db.models.constants import LOOKUP_SEP
 from django.utils import translation
 from django.utils.translation import get_language
 from django_filters.constants import EMPTY_VALUES
-from django_filters.rest_framework import BaseInFilter, CharFilter, NumberFilter
+from django_filters.rest_framework import (
+    BaseInFilter,
+    BooleanFilter,
+    CharFilter,
+    NumberFilter,
+)
 from rest_framework.filters import OrderingFilter, SearchFilter
 
 
@@ -210,3 +215,15 @@ class TranslatedOrderingFilter(OrderingFilter):
         }
 
         return qs.annotate(**ann)
+
+
+class ExcludeDisabledFilter(BooleanFilter):
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault("exclude", True)
+        super().__init__(*args, **kwargs)
+
+    def filter(self, qs, value):
+        if not value or value in EMPTY_VALUES:
+            return qs
+
+        return qs.filter(disabled=0)

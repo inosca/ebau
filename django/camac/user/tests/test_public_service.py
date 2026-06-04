@@ -432,20 +432,20 @@ def test_public_service_filter_available_in_ruleset_for_service_value_handling(
 @pytest.mark.parametrize(
     "filter_value,expected_count,expected_services",
     [
-        (True, 2, ["active-1", "active-2"]),  # When filter is applied
+        (True, 2, ["active-1", "active-2"]),  # Explicitly excluding disabled
         (
             False,
             4,
             ["active-1", "active-2", "inactive-1", "inactive-2"],
-        ),  # When filter is False - should return all
+        ),  # Explicitly including disabled (should return all)
         (
             "",
             2,
             ["active-1", "active-2"],
-        ),  # When filter is empty - same as filter is True
+        ),  # Fallback it to exclude disabled
     ],
 )
-def test_public_service_filter_show_only_active(
+def test_public_service_filter_exclude_disabled(
     admin_client,
     service_factory,
     filter_value,
@@ -457,19 +457,19 @@ def test_public_service_filter_show_only_active(
     service.save()
 
     service_factory(name="active-2")
-    service_factory(name="inactive-1", disabled=True)
-    service_factory(name="inactive-2", disabled=True)
+    service_factory(name="inactive-1", disabled=1)
+    service_factory(name="inactive-2", disabled=1)
 
     data = {}
-    if filter_value != "":  # Don't add parameter for empty string test
-        data["show_only_active"] = filter_value
+    if filter_value != "":  # Don't add parameter to test the __init__ default behavior
+        data["exclude_disabled"] = filter_value
 
     response = admin_client.get(reverse("publicservice-list"), data=data)
 
     assert response.status_code == status.HTTP_200_OK
 
-    data = response.json()["data"]
-    assert len(data) == expected_count
+    response_data = response.json()["data"]
+    assert len(response_data) == expected_count
     assert expected_services == sorted(
-        [item["attributes"]["name"] for item in response.json()["data"]]
+        [item["attributes"]["name"] for item in response_data]
     )

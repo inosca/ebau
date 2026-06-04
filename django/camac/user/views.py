@@ -278,7 +278,7 @@ class ServiceView(MultilangMixin, ModelViewSet):
 class PublicServiceView(MultilangMixin, ReadOnlyModelViewSet):
     filterset_class = filters.PublicServiceFilterSet
     serializer_class = serializers.PublicServiceSerializer
-    queryset = models.Service.objects.filter(disabled=False)
+    queryset = models.Service.objects.all()
     search_fields = ("name", "trans__name")
     ordering_fields = ("name", "service_group__name")
 
