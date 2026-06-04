@@ -8,6 +8,7 @@ from camac.permissions.conditions import (
     IsCreatedByService,
     IsModification,
     IsPaper,
+    IsService,
     IsUnversionedForm,
     IsWorkflow,
     RequireInstanceState,
@@ -314,6 +315,18 @@ MODULE_REVISION_HISTORY_READ = (
     STATES_ALL_INTERNAL
     & ROLES_INTERNAL
     & (NO_CORRECTION_IN_PROGRESS | ROLES_INTERNAL_NO_READONLY)
+)
+
+RPG2_CONDITION = RequireWorkItem("rpg2") & NO_CORRECTION_IN_PROGRESS
+
+MODULE_RPG2_READ = (
+    RPG2_CONDITION & IsService(["agr-bauen", "agr-kantonsplanung"]) & ROLES_INTERNAL
+)
+
+MODULE_RPG2_WRITE = (
+    RPG2_CONDITION
+    & IsService(["agr-bauen", "agr-kantonsplanung"])
+    & ROLES_INTERNAL_NO_READONLY
 )
 
 MODULE_SB1_READ = RequireWorkItem("sb1", WORK_ITEM_STATUS_COMPLETED)
@@ -1125,6 +1138,7 @@ BE_PERMISSIONS_SETTINGS = {
             ("documents-write", SUPPORT_CONDITION),
             ("form-read", SUPPORT_CONDITION),
             ("form-write", SUPPORT_CONDITION),
+            ("form-rpg2-read", RPG2_CONDITION),
             ("form-sb1-read", MODULE_PORTAL_SB1_READ),
             ("form-sb1-write", MODULE_PORTAL_SB1_READ),
             ("form-sb2-read", MODULE_PORTAL_SB2_READ),
@@ -1177,6 +1191,8 @@ BE_PERMISSIONS_SETTINGS = {
             ("documents-write", MODULE_DOCUMENTS_WRITE),
             ("dms-generate-read", MODULE_DMS_GENERATE),
             ("form-read", MODULE_FORM_READ),
+            ("form-rpg2-read", MODULE_RPG2_READ),
+            ("form-rpg2-write", MODULE_RPG2_WRITE),
             ("form-sb1-read", MODULE_SB1_READ),
             ("form-sb2-read", MODULE_SB2_READ),
             ("history-read", MODULE_HISTORY),

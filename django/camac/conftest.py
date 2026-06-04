@@ -615,6 +615,7 @@ def caluma_workflow_config_be(
         settings.ROOT_DIR("kt_bern/config/caluma_appeal_form.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_additional_demand.json"),
+        settings.ROOT_DIR("kt_bern/config/caluma_rpg2_form.json"),
     )
 
     workflows = caluma_workflow_models.Workflow.objects.all()
@@ -988,6 +989,7 @@ def caluma_forms_be(settings, add_general_questions, add_yes_no_question):
     caluma_form_models.Form.objects.create(slug="sb1-v2")
     caluma_form_models.Form.objects.create(slug="sb2")
     caluma_form_models.Form.objects.create(slug="nfd")
+    caluma_form_models.Form.objects.create(slug="rpg2")
     caluma_form_models.Form.objects.create(slug="additional-demand")
     caluma_form_models.Form.objects.create(slug="migriertes-dossier")
     caluma_form_models.Form.objects.create(slug="personalien")

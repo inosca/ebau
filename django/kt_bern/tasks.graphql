@@ -265,3 +265,15 @@ mutation CreateCadastralSurveyTask {
     clientMutationId
   }
 }
+
+mutation CreateRpg2Task {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "rpg2"
+      name: "RPG Datenerfassung"
+      form: "rpg2"
+    }
+  ) {
+    clientMutationId
+  }
+}

@@ -33,7 +33,7 @@
       "phone": "",
       "disabled": 0,
       "language": "de",
-      "last_login": "2024-07-03T13:29:12.895Z",
+      "last_login": "2026-05-31T13:50:48.707Z",
       "address": null,
       "city": null,
       "zip": null,
@@ -117077,7 +117077,7 @@
     "model": "user.service",
     "pk": 20034,
     "fields": {
-      "slug": null,
+      "slug": "agr-kantonsplanung",
       "service_group": 1,
       "service_parent": null,
       "name": null,
