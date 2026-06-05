@@ -19,14 +19,13 @@ export default class extends Ability {
 
   get isActiveOrInvolvedLeadAuthority() {
     if (hasFeature("noInstanceService")) {
-      let instanceServices = this.model?.get("instance.services") ?? [];
-      instanceServices = instanceServices.map((service) =>
-        parseInt(service.id),
-      );
-      return instanceServices.includes(parseInt(this.ebauModules.serviceId));
+      // only SZ does not use instance services
+      return this.isActiveInstanceService;
     }
 
-    return this.isActiveInstanceService;
+    let instanceServices = this.model?.get("instance.services") ?? [];
+    instanceServices = instanceServices.map((service) => parseInt(service.id));
+    return instanceServices.includes(parseInt(this.ebauModules.serviceId));
   }
 
   async canCreate() {
