@@ -7,8 +7,8 @@ from camac.statistics.filters import InstanceFilterBackend, WorkItemFilterBacken
 
 
 @pytest.fixture
-def instance_qs(statistics_ag_instance):
-    return Instance.objects.filter(pk=statistics_ag_instance.pk)
+def instance_qs(statistics_ag_instance_afb):
+    return Instance.objects.filter(pk=statistics_ag_instance_afb.pk)
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -148,12 +148,13 @@ def test_excludes_dossiers_with_pending_inquiries(
     statistics_ag_instance_afb,
     active_inquiry_factory,
 ):
-    """Hide dossiers that still have any pending inquiry to current service."""
+    """Hide dossiers with pending inquiries only when filtering by completing date."""
     instance_qs = Instance.objects.filter(pk=statistics_ag_instance_afb.pk)
     backend = InstanceFilterBackend()
-    request = Request(rf.get("/"))
-    request.group = group
+    params = {"completing_date_after": "2025-01-01"}
 
+    request = Request(rf.get("/", data=params))
+    request.group = group
     assert len(backend._filter_instances(request, instance_qs)) == 1
 
     active_inquiry_factory(
@@ -161,4 +162,47 @@ def test_excludes_dossiers_with_pending_inquiries(
         addressed_service=group.service,
         status=WorkItem.STATUS_READY,
     )
+
+    # with completing_date filter active: pending inquiry hides the dossier.
+    request = Request(rf.get("/", data=params))
+    request.group = group
     assert len(backend._filter_instances(request, instance_qs)) == 0
+
+    # without completing_date filter: pending inquiry must NOT hide the dossier.
+    request = Request(rf.get("/"))
+    request.group = group
+    assert len(backend._filter_instances(request, instance_qs)) == 1
+
+
+@pytest.mark.parametrize("role__name", ["Service"])
+def test_inquiry_dates_pivot_to_afb_for_other_services(
+    rf,
+    group,
+    statistics_ag_instance_afb,
+    service_factory,
+    service_group_factory,
+):
+    """Cantonal service filters with inquiry dates of the AfB."""
+    instance_qs = Instance.objects.filter(pk=statistics_ag_instance_afb.pk)
+    backend = InstanceFilterBackend()
+
+    cantonal_group = service_group_factory(name="service-cantonal")
+    other_service = service_factory(service_group=cantonal_group)
+    group.service = other_service
+    group.save()
+
+    request = Request(rf.get("/", data={"first_inquiry_date_after": "2024-12-01"}))
+    request.group = group
+    assert len(backend._filter_instances(request, instance_qs)) == 1
+
+    request = Request(rf.get("/", data={"completing_date_after": "2025-01-01"}))
+    request.group = group
+    assert len(backend._filter_instances(request, instance_qs)) == 1
+
+    request = Request(rf.get("/"))
+    request.group = group
+    annotated = backend.filter_queryset(
+        request, instance_qs, ["first_inquiry_date", "completing_date"]
+    ).first()
+    assert str(annotated.first_inquiry_date) == "2025-01-01"
+    assert str(annotated.completing_date) == "2025-01-30"

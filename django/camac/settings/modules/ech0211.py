@@ -776,6 +776,16 @@ ECH0211 = {
             DocumentAPIFeature.FILES_UPLOAD,
             DocumentAPIFeature.FILES_DELETE,
             DocumentAPIFeature.FILES_DOWNLOAD,
+            DocumentAPIFeature.DOCUMENTS_READ,
+            DocumentAPIFeature.DOCUMENTS_DELETE,
+            DocumentAPIFeature.DOCUMENTS_VOID_ADD,
+            DocumentAPIFeature.DOCUMENTS_VOID_REMOVE,
+            DocumentAPIFeature.DOCUMENTS_DECISION_ADD,
+            DocumentAPIFeature.DOCUMENTS_DECISION_REMOVE,
+            DocumentAPIFeature.DOCUMENTS_PUBLICATION_ADD,
+            DocumentAPIFeature.DOCUMENTS_PUBLICATION_REMOVE,
+            DocumentAPIFeature.DOCUMENTS_SENSITIVE_ADD,
+            DocumentAPIFeature.DOCUMENTS_SENSITIVE_REMOVE,
         ],
         "ALLOW_SUBMIT_BY_MUNICIPALITY": True,
         "STATUS_NOTIFICATION_TYPES": [
@@ -823,6 +833,7 @@ ECH0211 = {
         "ACCOMPANYING_REPORT": {
             "ALEXANDRIA_CATEGORY": "beteiligte-behörden",
             "ENABLE_ORGANISATION_EXTENSION": True,
+            "ENABLE_ANSWER_EXTENSION": True,
         },
         "REDIRECTS": {
             r"instance/<int:instance_id>/": "/cases/%(instance_id)i",
@@ -840,6 +851,7 @@ ECH0211 = {
             "ALLOWED_STATES": ["subm", "distribution-init", "circulation", "decision"],
             "ONLY_DECLINE": [],
             "SKIP_TASKS_ON_APPROVAL": ["formal-exam", "distribution"],
+            "SKIP_TASKS_ON_DECLINED": ["formal-exam", "distribution"],
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
         },

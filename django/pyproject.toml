@@ -184,6 +184,7 @@ omit = [
     "camac/instance/management/commands/fix_ech_sb1.py",
     "camac/instance/management/commands/gr_export_instance_documents.py",
     "camac/instance/management/commands/gr_export_instance_municipalities.py",
+    "camac/instance/management/commands/ag_coordinate_correction.py",
     "camac/timelines/management/commands/migrate_form_timelines.py",
     "camac/core/management/commands/fix_applicants.py",
     "camac/communications/management/commands/migrate_message_attachment_links.py",

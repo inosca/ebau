@@ -306,7 +306,9 @@ def test_dossier_annotations_all_columns(db, ag_statistics_settings, snapshot):
     """Calling _dossier_annotations without requested_columns returns all."""
 
     backend = InstanceFilterBackend()
-    annotations = backend._dossier_annotations(service_id=1, requested_columns=None)
+    annotations = backend._dossier_annotations(
+        service_id=1, inquiry_service_id=1, requested_columns=None
+    )
 
     assert sorted(annotations.keys()) == snapshot
 
