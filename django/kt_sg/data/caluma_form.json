@@ -144,6 +144,118 @@
     }
   },
   {
+    "model": "caluma_form.document",
+    "pk": "06a22ae9-2638-7d01-8000-7d90f2d1a7c4",
+    "fields": {
+      "created_at": "2026-06-05T11:10:10.389Z",
+      "modified_at": "2026-06-05T11:10:18.513Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "form": "wohnen-berechnung-anzahl-schutzplaetze-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "06a22af0-f047-700f-8000-9f74ddf2d1d1",
+    "fields": {
+      "created_at": "2026-06-05T11:12:15.017Z",
+      "modified_at": "2026-06-05T11:12:37.955Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "form": "personalien-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "06a22af2-8802-7267-8000-51fd8351aefc",
+    "fields": {
+      "created_at": "2026-06-05T11:12:40.500Z",
+      "modified_at": "2026-06-05T11:12:59.336Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "form": "waermeerzeugung-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "06a22af3-f008-741e-8000-caf773c466f0",
+    "fields": {
+      "created_at": "2026-06-05T11:13:03.002Z",
+      "modified_at": "2026-06-05T11:13:11.454Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "form": "brenner-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "06a22af4-8e11-77d7-8000-cd63121663a0",
+    "fields": {
+      "created_at": "2026-06-05T11:13:12.879Z",
+      "modified_at": "2026-06-05T11:13:17.333Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "form": "einzelfeuerung-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "06a22af4-f156-7566-8000-9a645f67ca2d",
+    "fields": {
+      "created_at": "2026-06-05T11:13:19.083Z",
+      "modified_at": "2026-06-05T11:13:25.766Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "form": "abgasanlage-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "06a22af5-76f5-72b6-8000-550f44da9d0b",
+    "fields": {
+      "created_at": "2026-06-05T11:13:27.435Z",
+      "modified_at": "2026-06-05T11:13:32.621Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "form": "brennstoff-fuer-raumwaerme-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
     "model": "caluma_form.answer",
     "pk": "069958a6-73ad-70db-8000-b93575ea5a09",
     "fields": {
@@ -902,13 +1014,13 @@
     "pk": "069b2c0f-a3a9-79da-8000-1f6af08b7e51",
     "fields": {
       "created_at": "2026-03-12T13:34:50.229Z",
-      "modified_at": "2026-03-12T13:34:50.229Z",
+      "modified_at": "2026-06-05T11:09:19.089Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-umbau",
-      "value": ["art-des-vorhabens-umbau-wohnhaus"],
+      "value": ["art-des-vorhabens-umbau-kleinbaute"],
       "meta": {},
       "document": "069958a6-7204-712c-8000-71d5f39de78c",
       "date": null
@@ -1023,13 +1135,16 @@
     "pk": "069b2c12-d64c-7485-8000-e43a60ee1f76",
     "fields": {
       "created_at": "2026-03-12T13:35:41.393Z",
-      "modified_at": "2026-03-12T13:35:41.393Z",
+      "modified_at": "2026-06-05T11:11:52.388Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-umbau",
-      "value": ["art-des-vorhabens-umbau-wohnhaus"],
+      "value": [
+        "art-des-vorhabens-umbau-wohnhaus",
+        "art-des-vorhabens-umbau-gastronomiebetrieb"
+      ],
       "meta": {},
       "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
       "date": null
@@ -1380,13 +1495,13 @@
     "pk": "06a0d647-a6ae-771f-8000-39ec992c9688",
     "fields": {
       "created_at": "2026-05-20T07:36:26.417Z",
-      "modified_at": "2026-05-20T07:36:26.417Z",
+      "modified_at": "2026-06-05T11:11:54.295Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "heizungssystem-erneuert-oder-veraendert",
-      "value": "heizungssystem-erneuert-oder-veraendert-nein",
+      "value": "heizungssystem-erneuert-oder-veraendert-ja",
       "meta": {},
       "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
       "date": null
@@ -2105,6 +2220,907 @@
     }
   },
   {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae5-5651-7318-8000-b005cef27baf",
+    "fields": {
+      "created_at": "2026-06-05T11:09:09.395Z",
+      "modified_at": "2026-06-05T11:09:09.395Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "projektverfasserin-abweichend",
+      "value": "projektverfasserin-abweichend-nein",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae5-601a-7082-8000-882c5e74b834",
+    "fields": {
+      "created_at": "2026-06-05T11:09:10.006Z",
+      "modified_at": "2026-06-05T11:09:10.006Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundeigentuemerin-abweichend",
+      "value": "grundeigentuemerin-abweichend-nein",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae5-6ba7-74a1-8000-95d5e295c604",
+    "fields": {
+      "created_at": "2026-06-05T11:09:10.728Z",
+      "modified_at": "2026-06-05T11:09:10.728Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rechnungsempfaengerin-abweichend",
+      "value": "rechnungsempfaengerin-abweichend-nein",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae6-9f77-7f99-8000-2a3f97ac45d1",
+    "fields": {
+      "created_at": "2026-06-05T11:09:29.967Z",
+      "modified_at": "2026-06-05T11:09:29.967Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundeigentuemerin-abweichend",
+      "value": "grundeigentuemerin-abweichend-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae6-a7f3-7102-8000-727262df268e",
+    "fields": {
+      "created_at": "2026-06-05T11:09:30.497Z",
+      "modified_at": "2026-06-05T11:09:30.497Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "projektverfasserin-abweichend",
+      "value": "projektverfasserin-abweichend-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae6-b8df-74a7-8000-54fafe97e598",
+    "fields": {
+      "created_at": "2026-06-05T11:09:31.554Z",
+      "modified_at": "2026-06-05T11:09:31.554Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rechnungsempfaengerin-abweichend",
+      "value": "rechnungsempfaengerin-abweichend-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae7-bd63-7362-8000-db965424ff32",
+    "fields": {
+      "created_at": "2026-06-05T11:09:47.836Z",
+      "modified_at": "2026-06-05T11:09:47.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "brandschutznachweis",
+      "value": "brandschutznachweis-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae9-19ed-71bd-8000-e733ba7aa005",
+    "fields": {
+      "created_at": "2026-06-05T11:10:09.620Z",
+      "modified_at": "2026-06-05T11:10:09.620Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "planung-schutzraum",
+      "value": ["planung-schutzraum-erstellung"],
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae9-2727-70a0-8000-b68bed6dd7d2",
+    "fields": {
+      "created_at": "2026-06-05T11:10:10.447Z",
+      "modified_at": "2026-06-05T11:10:18.710Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "zimmer-total",
+      "value": 42,
+      "meta": {},
+      "document": "06a22ae9-2638-7d01-8000-7d90f2d1a7c4",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae9-738a-7cd8-8000-7f655d5fd4b6",
+    "fields": {
+      "created_at": "2026-06-05T11:10:15.221Z",
+      "modified_at": "2026-06-05T11:10:15.221Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wohnungen",
+      "value": 14,
+      "meta": {},
+      "document": "06a22ae9-2638-7d01-8000-7d90f2d1a7c4",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae9-93fc-7e7a-8000-c6a89208b1c9",
+    "fields": {
+      "created_at": "2026-06-05T11:10:17.249Z",
+      "modified_at": "2026-06-05T11:10:17.249Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zimmer-pro-wohnung",
+      "value": 3,
+      "meta": {},
+      "document": "06a22ae9-2638-7d01-8000-7d90f2d1a7c4",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae9-a7ca-7364-8000-cfa751c3b182",
+    "fields": {
+      "created_at": "2026-06-05T11:10:18.487Z",
+      "modified_at": "2026-06-05T11:10:18.487Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wohnen-berechnung-schutzplaetze",
+      "value": null,
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae9-abca-7241-8000-72ffbb5627e2",
+    "fields": {
+      "created_at": "2026-06-05T11:10:18.737Z",
+      "modified_at": "2026-06-05T11:10:18.768Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "wohnen-total-zimmer",
+      "value": 42,
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22ae9-ac14-79bf-8000-0f36b1db3f9b",
+    "fields": {
+      "created_at": "2026-06-05T11:10:18.755Z",
+      "modified_at": "2026-06-05T11:10:18.786Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "wohnen-anzahl-schutzplaetze",
+      "value": 28,
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22aef-ffff-77b9-8000-fd96dab763cf",
+    "fields": {
+      "created_at": "2026-06-05T11:12:00Z",
+      "modified_at": "2026-06-05T11:12:01.253Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "betriebskonzept-verpflegungskonzept",
+      "value": "betriebskonzept-verpflegungskonzept-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af0-2ccb-7759-8000-5b90dc2143c3",
+    "fields": {
+      "created_at": "2026-06-05T11:12:02.800Z",
+      "modified_at": "2026-06-05T11:12:02.800Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-betriebs",
+      "value": ["art-des-betriebs-restaurant-kantine"],
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af0-4292-7b7c-8000-9f894d25c7f6",
+    "fields": {
+      "created_at": "2026-06-05T11:12:04.161Z",
+      "modified_at": "2026-06-05T11:12:04.161Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzung",
+      "value": ["nutzung-gewerbsmaessig"],
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af0-55f2-74b1-8000-fb00c541f73e",
+    "fields": {
+      "created_at": "2026-06-05T11:12:05.371Z",
+      "modified_at": "2026-06-05T11:12:05.371Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gibt-es-ein-speiseangebot",
+      "value": "gibt-es-ein-speiseangebot-ja",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af0-6b3d-7eec-8000-230ffc83d354",
+    "fields": {
+      "created_at": "2026-06-05T11:12:06.702Z",
+      "modified_at": "2026-06-05T11:12:06.702Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "speiseangebot",
+      "value": ["speiseangebot-warm"],
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af0-8c27-7b07-8000-c211e4560e40",
+    "fields": {
+      "created_at": "2026-06-05T11:12:08.759Z",
+      "modified_at": "2026-06-05T11:12:08.759Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anzahl-warme-mahlzeiten-pro-tag",
+      "value": 7,
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af0-a539-7587-8000-6cae57c7c0ab",
+    "fields": {
+      "created_at": "2026-06-05T11:12:10.326Z",
+      "modified_at": "2026-06-05T11:12:10.326Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zubereitung",
+      "value": ["zubereitung-gas-elektroherd"],
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af1-0162-72ba-8000-5afbc0bff38c",
+    "fields": {
+      "created_at": "2026-06-05T11:12:16.086Z",
+      "modified_at": "2026-06-05T11:12:16.086Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "e-mail",
+      "value": "admin@example.com",
+      "meta": {},
+      "document": "06a22af0-f047-700f-8000-9f74ddf2d1d1",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af1-0190-76e9-8000-a4a2e2c954e4",
+    "fields": {
+      "created_at": "2026-06-05T11:12:16.097Z",
+      "modified_at": "2026-06-05T11:12:16.097Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "name",
+      "value": "Administrator",
+      "meta": {},
+      "document": "06a22af0-f047-700f-8000-9f74ddf2d1d1",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af1-01bf-7ef2-8000-0f63c11b5d8d",
+    "fields": {
+      "created_at": "2026-06-05T11:12:16.109Z",
+      "modified_at": "2026-06-05T11:12:16.109Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorname",
+      "value": "Static",
+      "meta": {},
+      "document": "06a22af0-f047-700f-8000-9f74ddf2d1d1",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af1-32b4-71a4-8000-773885a47b47",
+    "fields": {
+      "created_at": "2026-06-05T11:12:19.169Z",
+      "modified_at": "2026-06-05T11:12:29.906Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "strasse-und-nr",
+      "value": "Teststrasse 66",
+      "meta": {},
+      "document": "06a22af0-f047-700f-8000-9f74ddf2d1d1",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af1-702d-784e-8000-9ec76a4ad773",
+    "fields": {
+      "created_at": "2026-06-05T11:12:23.011Z",
+      "modified_at": "2026-06-05T11:12:23.011Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "plz",
+      "value": "3000",
+      "meta": {},
+      "document": "06a22af0-f047-700f-8000-9f74ddf2d1d1",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af1-7cf6-7597-8000-f607f035201a",
+    "fields": {
+      "created_at": "2026-06-05T11:12:23.810Z",
+      "modified_at": "2026-06-05T11:12:23.810Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ort",
+      "value": "Bern",
+      "meta": {},
+      "document": "06a22af0-f047-700f-8000-9f74ddf2d1d1",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af1-9f97-72c5-8000-9d6a177d4ce1",
+    "fields": {
+      "created_at": "2026-06-05T11:12:25.974Z",
+      "modified_at": "2026-06-05T11:12:25.974Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "land",
+      "value": "Schweiz",
+      "meta": {},
+      "document": "06a22af0-f047-700f-8000-9f74ddf2d1d1",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af2-1c84-736b-8000-bb4ce9ce90fa",
+    "fields": {
+      "created_at": "2026-06-05T11:12:33.782Z",
+      "modified_at": "2026-06-05T11:12:33.782Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "telefon",
+      "value": "01231212",
+      "meta": {},
+      "document": "06a22af0-f047-700f-8000-9f74ddf2d1d1",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af2-4606-781b-8000-080baab73043",
+    "fields": {
+      "created_at": "2026-06-05T11:12:36.377Z",
+      "modified_at": "2026-06-05T11:12:36.377Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "juristische-person",
+      "value": "juristische-person-nein",
+      "meta": {},
+      "document": "06a22af0-f047-700f-8000-9f74ddf2d1d1",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af2-5ef3-7de0-8000-045e95a9d042",
+    "fields": {
+      "created_at": "2026-06-05T11:12:37.934Z",
+      "modified_at": "2026-06-05T11:12:37.934Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "qs-verantwortlicher",
+      "value": null,
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af2-c9cf-71d6-8000-403747f730c2",
+    "fields": {
+      "created_at": "2026-06-05T11:12:44.613Z",
+      "modified_at": "2026-06-05T11:12:44.613Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stand",
+      "value": "stand-ausserbetriebnahme",
+      "meta": {},
+      "document": "06a22af2-8802-7267-8000-51fd8351aefc",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af2-e2ee-7797-8000-c0e6d4259554",
+    "fields": {
+      "created_at": "2026-06-05T11:12:46.183Z",
+      "modified_at": "2026-06-05T11:12:46.183Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "waermeerzeugung-feuerungstyp",
+      "value": "waermeerzeugung-feuerungstyp-zentralheizung",
+      "meta": {},
+      "document": "06a22af2-8802-7267-8000-51fd8351aefc",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af3-65e0-7338-8000-91d2fe4e6352",
+    "fields": {
+      "created_at": "2026-06-05T11:12:54.367Z",
+      "modified_at": "2026-06-05T11:12:54.367Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "fabrikat-typ",
+      "value": "Unbekannt",
+      "meta": {},
+      "document": "06a22af2-8802-7267-8000-51fd8351aefc",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af3-767c-7333-8000-cc4f99757b42",
+    "fields": {
+      "created_at": "2026-06-05T11:12:55.405Z",
+      "modified_at": "2026-06-05T11:12:55.405Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gesamtleistung",
+      "value": 99,
+      "meta": {},
+      "document": "06a22af2-8802-7267-8000-51fd8351aefc",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af3-9b52-73b2-8000-52d068449fce",
+    "fields": {
+      "created_at": "2026-06-05T11:12:57.707Z",
+      "modified_at": "2026-06-05T11:12:57.707Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "brennstoff",
+      "value": ["brennstoff-heizoel"],
+      "meta": {},
+      "document": "06a22af2-8802-7267-8000-51fd8351aefc",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af3-b4e7-75bf-8000-74664627bbf4",
+    "fields": {
+      "created_at": "2026-06-05T11:12:59.306Z",
+      "modified_at": "2026-06-05T11:12:59.306Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "waermeerzeugung",
+      "value": null,
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af4-3764-715e-8000-544b0d9d8080",
+    "fields": {
+      "created_at": "2026-06-05T11:13:07.462Z",
+      "modified_at": "2026-06-05T11:13:07.462Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "fabrikat-typ",
+      "value": "Unbekannt",
+      "meta": {},
+      "document": "06a22af3-f008-741e-8000-caf773c466f0",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af4-4c63-77fe-8000-f937482d9c46",
+    "fields": {
+      "created_at": "2026-06-05T11:13:08.774Z",
+      "modified_at": "2026-06-05T11:13:08.774Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stand",
+      "value": "stand-ausserbetriebnahme",
+      "meta": {},
+      "document": "06a22af3-f008-741e-8000-caf773c466f0",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af4-6275-78ff-8000-21445e152669",
+    "fields": {
+      "created_at": "2026-06-05T11:13:10.153Z",
+      "modified_at": "2026-06-05T11:13:10.153Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gesamtleistung",
+      "value": 99,
+      "meta": {},
+      "document": "06a22af3-f008-741e-8000-caf773c466f0",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af4-76f7-7da2-8000-956cbcfc1906",
+    "fields": {
+      "created_at": "2026-06-05T11:13:11.435Z",
+      "modified_at": "2026-06-05T11:13:11.435Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "brenner",
+      "value": null,
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af4-abdc-7c0e-8000-96e254bddb8c",
+    "fields": {
+      "created_at": "2026-06-05T11:13:14.741Z",
+      "modified_at": "2026-06-05T11:13:14.741Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "einzelfeuerung-feuerungstyp",
+      "value": "einzelfeuerung-feuerungstyp-chemineeofen-typ-b1",
+      "meta": {},
+      "document": "06a22af4-8e11-77d7-8000-cd63121663a0",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af4-c587-777e-8000-be86a6d9f36f",
+    "fields": {
+      "created_at": "2026-06-05T11:13:16.345Z",
+      "modified_at": "2026-06-05T11:13:16.345Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "brennstoff",
+      "value": ["brennstoff-heizoel"],
+      "meta": {},
+      "document": "06a22af4-8e11-77d7-8000-cd63121663a0",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af4-d4f9-755f-8000-eefeac456891",
+    "fields": {
+      "created_at": "2026-06-05T11:13:17.311Z",
+      "modified_at": "2026-06-05T11:13:17.311Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "einzelfeuerung",
+      "value": null,
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af5-1e09-7ec1-8000-a4ca8b3f94a3",
+    "fields": {
+      "created_at": "2026-06-05T11:13:21.877Z",
+      "modified_at": "2026-06-05T11:13:21.877Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stand",
+      "value": "stand-ausserbetriebnahme",
+      "meta": {},
+      "document": "06a22af4-f156-7566-8000-9a645f67ca2d",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af5-30f3-7ea9-8000-29853babd5ed",
+    "fields": {
+      "created_at": "2026-06-05T11:13:23.059Z",
+      "modified_at": "2026-06-05T11:13:23.059Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "standorttyp",
+      "value": "standorttyp-aussen-an-fassade",
+      "meta": {},
+      "document": "06a22af4-f156-7566-8000-9a645f67ca2d",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af5-4426-7e92-8000-d21eda3a1321",
+    "fields": {
+      "created_at": "2026-06-05T11:13:24.259Z",
+      "modified_at": "2026-06-05T11:13:24.259Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "fabrikat-typ",
+      "value": "Unbekannt",
+      "meta": {},
+      "document": "06a22af4-f156-7566-8000-9a645f67ca2d",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af5-5bfe-78da-8000-c89d086a2694",
+    "fields": {
+      "created_at": "2026-06-05T11:13:25.749Z",
+      "modified_at": "2026-06-05T11:13:25.749Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "abgasanlage",
+      "value": null,
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af5-9a00-7fe0-8000-845e6ec4ef6a",
+    "fields": {
+      "created_at": "2026-06-05T11:13:29.625Z",
+      "modified_at": "2026-06-05T11:13:30.408Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "tank-anzahl",
+      "value": 12,
+      "meta": {},
+      "document": "06a22af5-76f5-72b6-8000-550f44da9d0b",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af5-b7db-7395-8000-53453dfee3a4",
+    "fields": {
+      "created_at": "2026-06-05T11:13:31.491Z",
+      "modified_at": "2026-06-05T11:13:31.491Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stand",
+      "value": "stand-ausserbetriebnahme",
+      "meta": {},
+      "document": "06a22af5-76f5-72b6-8000-550f44da9d0b",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af5-c97b-7152-8000-8a3b42781336",
+    "fields": {
+      "created_at": "2026-06-05T11:13:32.592Z",
+      "modified_at": "2026-06-05T11:13:32.592Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "brennstoff-fuer-raumwaerme",
+      "value": null,
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af6-0049-7b81-8000-84e7171c6aeb",
+    "fields": {
+      "created_at": "2026-06-05T11:13:36.018Z",
+      "modified_at": "2026-06-05T11:13:44.239Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzvolumen-pro-tank",
+      "value": 100,
+      "meta": {},
+      "document": "06a22af5-76f5-72b6-8000-550f44da9d0b",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a22af7-79c7-7d98-8000-337d2b6d87d3",
+    "fields": {
+      "created_at": "2026-06-05T11:13:59.611Z",
+      "modified_at": "2026-06-05T11:13:59.611Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-heizungssystems",
+      "value": ["art-des-heizungssystems-gasfeuerung"],
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
     "model": "caluma_form.answerdocument",
     "pk": "069958ac-ecfc-76ba-8000-59c4790b3758",
     "fields": {
@@ -2161,6 +3177,111 @@
       "modified_by_group": null,
       "answer": "069b2c12-67fb-7f76-8000-799def719923",
       "document": "06a0d659-c93a-71a4-8000-ef2023c68768",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "06a22ae9-a80b-7ce9-8000-c642c11563ed",
+    "fields": {
+      "created_at": "2026-06-05T11:10:18.503Z",
+      "modified_at": "2026-06-05T11:10:18.503Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "06a22ae9-a7ca-7364-8000-cfa751c3b182",
+      "document": "06a22ae9-2638-7d01-8000-7d90f2d1a7c4",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "06a22af2-5f29-78f4-8000-64674215ff5c",
+    "fields": {
+      "created_at": "2026-06-05T11:12:37.947Z",
+      "modified_at": "2026-06-05T11:12:37.947Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "06a22af2-5ef3-7de0-8000-045e95a9d042",
+      "document": "06a22af0-f047-700f-8000-9f74ddf2d1d1",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "06a22af3-b519-7a24-8000-ad5f4c8a00d8",
+    "fields": {
+      "created_at": "2026-06-05T11:12:59.318Z",
+      "modified_at": "2026-06-05T11:12:59.318Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "06a22af3-b4e7-75bf-8000-74664627bbf4",
+      "document": "06a22af2-8802-7267-8000-51fd8351aefc",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "06a22af4-7725-7608-8000-7f3d8e78a4cc",
+    "fields": {
+      "created_at": "2026-06-05T11:13:11.446Z",
+      "modified_at": "2026-06-05T11:13:11.446Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "06a22af4-76f7-7da2-8000-956cbcfc1906",
+      "document": "06a22af3-f008-741e-8000-caf773c466f0",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "06a22af4-d52c-7986-8000-da3516e2795a",
+    "fields": {
+      "created_at": "2026-06-05T11:13:17.323Z",
+      "modified_at": "2026-06-05T11:13:17.323Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "06a22af4-d4f9-755f-8000-eefeac456891",
+      "document": "06a22af4-8e11-77d7-8000-cd63121663a0",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "06a22af5-5c29-79b8-8000-e168c6d0f77f",
+    "fields": {
+      "created_at": "2026-06-05T11:13:25.760Z",
+      "modified_at": "2026-06-05T11:13:25.760Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "06a22af5-5bfe-78da-8000-c89d086a2694",
+      "document": "06a22af4-f156-7566-8000-9a645f67ca2d",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "06a22af5-c9cf-7d30-8000-9ca17bbeaccd",
+    "fields": {
+      "created_at": "2026-06-05T11:13:32.613Z",
+      "modified_at": "2026-06-05T11:13:32.613Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "06a22af5-c97b-7152-8000-8a3b42781336",
+      "document": "06a22af5-76f5-72b6-8000-550f44da9d0b",
       "sort": 1
     }
   },
@@ -2258,6 +3379,22 @@
       "label": "{\"de\": \"Static Administrator\", \"fr\": null, \"it\": null}",
       "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
       "question": "benutzer"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "06a22af1-9f76-7dc9-8000-bfbdbbc43b47",
+    "fields": {
+      "created_at": "2026-06-05T11:12:25.966Z",
+      "modified_at": "2026-06-05T11:12:25.967Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "Schweiz",
+      "label": "{\"de\": \"Schweiz\", \"fr\": null, \"it\": null}",
+      "document": "06a22af0-f047-700f-8000-9f74ddf2d1d1",
+      "question": "land"
     }
   }
 ]
