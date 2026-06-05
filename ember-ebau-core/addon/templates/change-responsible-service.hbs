@@ -42,6 +42,7 @@
         @options={{this.selectableServicesWithoutOwnService}}
         @disabled={{this.change.isRunning}}
         @selected={{this.selectedService}}
+        @noMatchesMessage={{t "global.noMatch"}}
         @onChange={{fn (mut this.selectedService)}}
         @placeholder={{t "change-responsible-service.choose"}}
         class="uk-select"

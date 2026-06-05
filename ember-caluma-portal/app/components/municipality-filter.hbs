@@ -4,6 +4,7 @@
     <PowerSelect
       class="uk-margin-bottom"
       @selected={{this.selectedMunicipality}}
+      @noMatchesMessage={{t "global.noMatch"}}
       @options={{this.municipalities}}
       @searchEnabled={{true}}
       @searchField="label"

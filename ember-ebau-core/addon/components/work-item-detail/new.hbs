@@ -11,6 +11,7 @@
           @allowClear={{true}}
           @options={{this.workItemTemplates.records}}
           @selected={{this.selectedTemplate}}
+          @noMatchesMessage={{t "global.noMatch"}}
           @placeholder={{t "workItems.templates.select"}}
           @onChange={{fn (mut this.selectedTemplate)}}
           class="uk-select"
