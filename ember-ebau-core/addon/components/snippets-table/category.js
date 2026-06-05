@@ -54,7 +54,7 @@ export default class SnippetsTableCategory extends Component {
     try {
       const response = await this.fetch.fetch(
         `/api/v1/notification-templates/update_purposes?current=${this.args.category}&new=${this.name}`,
-        { method: "GET" },
+        { method: "PATCH" },
       );
 
       if (!response.ok) {
