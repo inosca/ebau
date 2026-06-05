@@ -11671,6 +11671,63 @@
       'nested_aliases': dict({
       }),
     }),
+    'objections': dict({
+      'aliases': list([
+        dict({
+          'de': 'objections',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Einsprachen',
+      }),
+      'nested_aliases': dict({
+        'creation_date': list([
+          dict({
+            'de': 'creation_date',
+          }),
+        ]),
+        'participants': list([
+          dict({
+            'de': 'participants',
+          }),
+        ]),
+        'participants.address': list([
+          dict({
+            'de': 'address',
+          }),
+        ]),
+        'participants.city': list([
+          dict({
+            'de': 'city',
+          }),
+        ]),
+        'participants.company': list([
+          dict({
+            'de': 'company',
+          }),
+        ]),
+        'participants.email': list([
+          dict({
+            'de': 'email',
+          }),
+        ]),
+        'participants.name': list([
+          dict({
+            'de': 'name',
+          }),
+        ]),
+        'participants.phone': list([
+          dict({
+            'de': 'phone',
+          }),
+        ]),
+        'title': list([
+          dict({
+            'de': 'title',
+          }),
+        ]),
+      }),
+    }),
     'publication_date': dict({
       'aliases': list([
         dict({
@@ -20108,6 +20165,18 @@
     'field_vertreter_mit_vollmacht[].vorname',
     'identifier',
     'location',
+    'objections',
+    'objections[]',
+    'objections[].creation_date',
+    'objections[].participants',
+    'objections[].participants[]',
+    'objections[].participants[].address',
+    'objections[].participants[].city',
+    'objections[].participants[].company',
+    'objections[].participants[].email',
+    'objections[].participants[].name',
+    'objections[].participants[].phone',
+    'objections[].title',
     'publication_date',
     'publications',
     'publications[]',
@@ -22522,8 +22591,8 @@
         }),
       ]),
       'bewilligungsverfahren_gr_sitzung_beschluss': 'foo',
-      'bewilligungsverfahren_gr_sitzung_bewilligungsdatum': '13.07.2010',
-      'bewilligungsverfahren_gr_sitzung_datum': '26.09.1990',
+      'bewilligungsverfahren_gr_sitzung_bewilligungsdatum': '22.03.1984',
+      'bewilligungsverfahren_gr_sitzung_datum': '27.05.1990',
       'bewilligungsverfahren_sistierung': list([
       ]),
       'bewilligungsverfahren_sitzung_baukommission': list([
@@ -22539,10 +22608,29 @@
     'billing_total_uncharged': '1’110.00',
     'billing_total_uncharged_kanton': '666.00',
     'billing_total_uncharged_kommunal': '444.00',
-    'date_bau_einspracheentscheid': '13.07.2010',
+    'date_bau_einspracheentscheid': '22.03.1984',
     'date_dossiereingang': '14.10.2020',
     'date_dossiervollstandig': '25.10.2020',
     'date_start_zirkulation': '05.11.2020',
+    'einsprachen': list([
+      dict({
+        'creation_date': '23.12.2020',
+        'participants': list([
+          dict({
+            'address': 'Malone Corner',
+            'adresse': 'Malone Corner',
+            'city': 'North Brendan',
+            'company': 'James Todd',
+            'firma': 'James Todd',
+            'name': 'Michael Burton',
+            'phone': '671-276-7342x95469',
+            'telefon': '671-276-7342x95469',
+          }),
+        ]),
+        'titel': '',
+        'title': '',
+      }),
+    ]),
     'field_bauherrschaft': list([
       dict({
         'ADDRESS': 'Teststrasse 3, 5678 Musterdorf',
@@ -22651,6 +22739,25 @@
     ]),
     'identifier': 'X-12-34-5678',
     'location': 'Schübelbach',
+    'objections': list([
+      dict({
+        'creation_date': '23.12.2020',
+        'participants': list([
+          dict({
+            'address': 'Malone Corner',
+            'adresse': 'Malone Corner',
+            'city': 'North Brendan',
+            'company': 'James Todd',
+            'firma': 'James Todd',
+            'name': 'Michael Burton',
+            'phone': '671-276-7342x95469',
+            'telefon': '671-276-7342x95469',
+          }),
+        ]),
+        'titel': '',
+        'title': '',
+      }),
+    ]),
     'ort': 'Schübelbach',
     'publication_date': '27. Oktober 2011',
     'publications': list([

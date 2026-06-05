@@ -2839,6 +2839,10 @@ msgid "Building authority"
 msgstr "Bauverwaltung"
 
 #: camac/instance/placeholders/serializers.py
+msgid "Objections"
+msgstr "Einsprachen"
+
+#: camac/instance/placeholders/serializers.py
 msgid "FIELD_BAUHERRSCHAFT"
 msgstr ""
 

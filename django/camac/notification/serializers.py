@@ -249,7 +249,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     billing_total_uncharged_kommunal = serializers.SerializerMethodField()
     billing_total_uncharged_kanton = serializers.SerializerMethodField()
     my_activations = serializers.SerializerMethodField()
-    objections = serializers.SerializerMethodField()
+    objections = (
+        serializers.SerializerMethodField()
+    )  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
     bauverwaltung = serializers.SerializerMethodField()
     responsible_person = (
         serializers.SerializerMethodField()
@@ -885,7 +887,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             many=True,
         ).data
 
-    def get_objections(self, instance):
+    def get_objections(
+        self, instance
+    ):  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
         objections = instance.objections.all()
 
         for objection in objections:
