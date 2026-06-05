@@ -6,17 +6,8 @@ global:
   title: "eBau Berna"
   page-title: "Portale eBau-BE"
   versionPrefix: "v"
-  continue: "Avanti"
-  delete: "Elimina"
-  cancel: "Annulla"
-  back: "Indietro"
-  save: "Salva"
-  ok: "Ok"
   urec: "URec"
-  yes: "Sì"
-  no: "No"
   stampIcon: "Documento con timbro"
-  applicant: "Richiedente"
 
 nav:
   form: "Modulo"

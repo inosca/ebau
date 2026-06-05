@@ -6,17 +6,8 @@ global:
   title: "eBau Berne"
   page-title: "Portail eBau-BE"
   versionPrefix: "v"
-  continue: "Suivante"
-  delete: "Effacer"
-  cancel: "Casser"
-  back: "Retour"
-  save: "Enregistrer"
-  ok: "Ok"
-  urec: ""
-  yes: "Oui"
-  no: "Non"
+  urec: "URec"
   stampIcon: "Document avec cachet"
-  applicant: "Requérant/e"
 
 nav:
   form: "Formulaire"
