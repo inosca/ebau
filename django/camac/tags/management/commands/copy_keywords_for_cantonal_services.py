@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
-from django.db import transaction
 from django.db.models import Q
+from tqdm import tqdm
 
 from camac.tags.models import Keyword
 from camac.user.models import Service
@@ -18,38 +18,40 @@ class Command(BaseCommand):
             help="Create data for real",
         )
 
-    @transaction.atomic()
     def handle(self, *args, **options):
-        tid = transaction.savepoint()
-
-        new_keywords = []
-        new_relations = []
         cantonal_services = Service.objects.filter(
             service_group__slug="service-cantonal"
         )
 
         through = Keyword.instances.through
-        for keyword in Keyword.objects.filter(
-            Q(service__slug="afb")
-            & (Q(name__startswith="BVUAFB") | Q(name__startswith="EBPA"))
-        ):
-            for service in cantonal_services:
+        for service in tqdm(cantonal_services):
+            tqdm.write(f"Preparing {service.get_name()}")
+            new_keywords = []
+            new_relations = []
+            existing = Keyword.objects.filter(
+                Q(service=service)
+                & (Q(name__startswith="BVUAFB") | Q(name__startswith="EBPA"))
+            ).values_list("name", flat=True)
+            keywords = (
+                Keyword.objects.filter(
+                    Q(service__slug="afb")
+                    & (Q(name__startswith="BVUAFB") | Q(name__startswith="EBPA"))
+                )
+                .exclude(name__in=existing)
+                .prefetch_related("instances")
+            )
+            for keyword in keywords:
                 new_kw = Keyword(name=keyword.name, service=service)
                 new_keywords.append(new_kw)
                 for instance in keyword.instances.all():
                     new_relations.append(through(keyword=new_kw, instance=instance))
 
-        self.stdout.write(f"Prepared {len(new_keywords)} keywords to save.")
-        Keyword.objects.bulk_create(new_keywords)
+            tqdm.write(
+                f"prepared {len(new_keywords)} keywords, {len(new_relations)} relations"
+            )
+            if options["commit"]:
+                Keyword.objects.bulk_create(new_keywords)
+                through.objects.bulk_create(new_relations)
 
-        self.stdout.write(
-            f"Prepared {len(new_relations)} keyword-instance relations to save."
-        )
-        through.objects.bulk_create(new_relations)
-
-        if options["commit"]:
-            transaction.savepoint_commit(tid)
-            self.stdout.write("saved to db.")
-        else:
-            transaction.savepoint_rollback(tid)
-            self.stdout.write("nothing saved. Pass --commit to save.")
+        if not options["commit"]:
+            tqdm.write("nothing saved. Pass --commit to save.")
