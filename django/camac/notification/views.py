@@ -140,7 +140,7 @@ class NotificationTemplateView(ModelViewSet):
 
     @action(
         detail=False,
-        methods=["get"],
+        methods=["PATCH"],
     )
     def update_purposes(self, request):
         current_purpose = request.query_params.get("current")
@@ -152,15 +152,15 @@ class NotificationTemplateView(ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        models.NotificationTemplate.objects.filter(purpose=current_purpose).update(
-            purpose=new_purpose
-        )
+        self.get_queryset().filter(
+            purpose=current_purpose, type="textcomponent"
+        ).update(purpose=new_purpose)
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
 
     @action(
         detail=False,
-        methods=["delete"],
+        methods=["DELETE"],
     )
     def delete_by_purpose(self, request):
         purpose = request.query_params.get("purpose")
@@ -173,6 +173,6 @@ class NotificationTemplateView(ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        models.NotificationTemplate.objects.filter(purpose=purpose).delete()
+        self.get_queryset().filter(purpose=purpose, type="textcomponent").delete()
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)

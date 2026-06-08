@@ -11,7 +11,6 @@ from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
 )
-from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import EmailMessage
 from django.core.management import call_command
 from django.urls import reverse
@@ -27,6 +26,8 @@ from camac.notification.serializers import (
     PermissionlessNotificationTemplateSendmailSerializer,
 )
 from camac.tests.form_utils import FormUtils
+
+from ..models import NotificationTemplate
 
 
 @pytest.mark.parametrize(
@@ -1655,31 +1656,94 @@ def test_ur_placeholders(
     )
 
 
-def test_notification_template_update_purposes(admin_client, notification_template):
-    url = reverse("notificationtemplate-update-purposes")
-
-    admin_client.get(
-        url, {"current": notification_template.purpose, "new": "NewPurpose"}
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_notification_template_update_purposes(
+    db, admin_client, notification_template_factory, service, service_factory
+):
+    different_service = service_factory()
+    notification_template_factory.create_batch(
+        5, purpose="test", type="textcomponent", service=different_service
     )
 
-    notification_template.refresh_from_db()
+    notification_template_factory.create_batch(
+        5, purpose="test", type="textcomponent", service=service
+    )
 
-    assert notification_template.purpose == "NewPurpose"
+    url = reverse("notificationtemplate-update-purposes")
+    response = admin_client.patch(url + "?current=test&new=NewPurpose")
+    assert response.status_code == status.HTTP_204_NO_CONTENT
 
-    response = admin_client.get(url)
+    # assert that we've only updated our own 5 templates
+    templates = NotificationTemplate.objects.filter(purpose="NewPurpose")
+    assert templates.count() == 5
+    assert set(templates.values_list("service_id", flat=True)) == {service.pk}
+
+    # check if the validation works
+    response = admin_client.patch(url)
     assert response.status_code == status.HTTP_400_BAD_REQUEST
 
 
-def test_notification_template_delete_by_purpose(admin_client, notification_template):
+@pytest.mark.parametrize("role__name", ["Applicant"])
+def test_notification_template_update_purposes_applicant(
+    db, admin_client, notification_template_factory, service_factory
+):
+    notification_template_factory.create_batch(
+        5, purpose="test", type="textcomponent", service=service_factory()
+    )
+    url = reverse("notificationtemplate-update-purposes")
+
+    response = admin_client.patch(url + "?current=test&new=NewPurpose")
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+    # assert that we haven't rename any templates
+    assert NotificationTemplate.objects.filter(purpose="NewPurpose").count() == 0
+    assert NotificationTemplate.objects.filter(purpose="test").count() == 5
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_notification_template_delete_by_purpose(
+    db, admin_client, notification_template_factory, service, service_factory
+):
+    notification_template_factory.create_batch(
+        5, purpose="my_templates", type="textcomponent", service=service
+    )
+
+    different_service = service_factory()
+    notification_template_factory.create_batch(
+        5, purpose="my_templates", type="textcomponent", service=different_service
+    )
     url = reverse("notificationtemplate-delete-by-purpose")
 
-    admin_client.delete(url + "?purpose=" + notification_template.purpose)
+    assert NotificationTemplate.objects.all().count() == 10
 
-    with pytest.raises(ObjectDoesNotExist):
-        notification_template.refresh_from_db()
+    response = admin_client.delete(url + "?purpose=my_templates")
+    assert response.status_code == status.HTTP_204_NO_CONTENT
 
-    response = admin_client.delete(url)
+    assert NotificationTemplate.objects.all().count() == 5
+
+    # check if the validation works
+    response = admin_client.delete(url + "?purpose=")
     assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+
+@pytest.mark.parametrize("role__name", ["Applicant"])
+def test_notification_template_delete_by_purpose_applicant(
+    db, admin_client, notification_template_factory, service_factory
+):
+    notification_template_factory.create_batch(
+        5, purpose="test", type="textcomponent", service=service_factory()
+    )
+    url = reverse("notificationtemplate-list")
+
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    assert not response.json()["data"]
+
+    url = reverse("notificationtemplate-delete-by-purpose")
+
+    response = admin_client.delete(url + "?purpose=test")
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+    # assert that we haven't deleted any templates
+    assert NotificationTemplate.objects.filter(purpose="test").count() == 5
 
 
 @pytest.mark.parametrize(
