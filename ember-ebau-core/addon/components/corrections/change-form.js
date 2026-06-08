@@ -1,20 +1,34 @@
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
-import { tracked } from "@glimmer/tracking";
+import documentValidityQuery from "@projectcaluma/ember-form/gql/queries/document-validity.graphql";
+import { queryManager } from "ember-apollo-client";
 import { task } from "ember-concurrency";
 import { confirm } from "ember-uikit";
 import { trackedFunction } from "reactiveweb/function";
 import { localCopy } from "tracked-toolbox";
+
+import getCaseMetaQuery from "ember-ebau-core/gql/queries/get-case-meta.graphql";
 
 export default class CorrectionsChangeForm extends Component {
   @service fetch;
   @service intl;
   @service notification;
   @service ebauModules;
+  @queryManager apollo;
 
   @localCopy("args.instance.calumaForm") form;
-  @tracked showHint = false;
+
+  documentId = trackedFunction(this, async () => {
+    return await this.apollo.query(
+      {
+        query: getCaseMetaQuery,
+        fetchPolicy: "network-only",
+        variables: { instanceId: this.args.instance.id },
+      },
+      "allCases.edges.0.node.document.id",
+    );
+  });
 
   availableForms = trackedFunction(this, async () => {
     const response = await this.fetch.fetch(
@@ -30,6 +44,26 @@ export default class CorrectionsChangeForm extends Component {
     this.form = event.target.value;
   }
 
+  isValid = trackedFunction(this, async () => {
+    const documentId = this.documentId.value;
+    if (!documentId) {
+      return null;
+    }
+
+    return await this.apollo.query(
+      {
+        query: documentValidityQuery,
+        fetchPolicy: "network-only",
+        variables: { id: documentId },
+      },
+      "documentValidity.edges.0.node.isValid",
+    );
+  });
+
+  get showHint() {
+    return !this.isValid.isLoading && this.isValid.value === false;
+  }
+
   save = task({ drop: true }, async (event) => {
     event.preventDefault();
 
@@ -38,7 +72,7 @@ export default class CorrectionsChangeForm extends Component {
     }
 
     try {
-      const response = await this.fetch.fetch(
+      await this.fetch.fetch(
         `/api/v1/instances/${this.args.instance.id}/change-form`,
         {
           method: "POST",
@@ -58,9 +92,9 @@ export default class CorrectionsChangeForm extends Component {
       } else {
         await this.args.instance.reload();
 
-        // If the response is 200 instead of 204, the form is not valid after
-        // the change and the user needs to be made aware of it.
-        this.showHint = response.status === 200;
+        // reload document validity after changing the form, to show the hint
+        // if the form is invalid.
+        await this.isValid.retry();
 
         this.notification.success(
           this.intl.t("corrections.change-form.success"),
