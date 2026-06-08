@@ -39,21 +39,19 @@ def construction_control(instance_service_factory, be_instance, service_factory)
 
 
 @pytest.mark.parametrize(
-    "decision,expected_instance_state,expected_text",
+    "construction_monitoring_enabled,decision,expected_instance_state,expected_text",
     [
-        (
-            "APPROVED",
-            "construction-acceptance",
-            "Bauentscheid verfügt",
-        ),
-        (
-            "REJECTED",
-            "finished",
-            "Bauentscheid verfügt",
-        ),
+        # with construction monitoring, positive decision leads to decided state,
+        # after starting the construction monitoring, instance goes to construction acceptance state.
+        (True, "APPROVED", "decided", "Bauentscheid verfügt"),
+        (True, "REJECTED", "finished", "Bauentscheid verfügt"),
+        # without construction monitoring, positive decision directly leads to
+        # construction acceptance state.
+        (False, "APPROVED", "construction-acceptance", "Bauentscheid verfügt"),
+        (False, "REJECTED", "finished", "Bauentscheid verfügt"),
     ],
 )
-def test_complete_decision(
+def test_complete_decision_gr(
     db,
     gr_instance,
     caluma_admin_user,
@@ -65,15 +63,20 @@ def test_complete_decision(
     instance_state_factory,
     decision,
     decision_settings,
+    construction_monitoring_enabled,
     expected_instance_state,
     expected_text,
+    gr_construction_monitoring_settings,
     settings,
     application_settings,
     gr_decision_settings,
     gr_ech0211_settings,
+    set_application_gr,
 ):
-    settings.APPLICATION_NAME = "kt_gr"
-    instance_state_factory(name=expected_instance_state)
+    gr_construction_monitoring_settings["ENABLED"] = construction_monitoring_enabled
+    instance_state_factory(name="construction-acceptance")
+    instance_state_factory(name="decided")
+    instance_state_factory(name="finished")
 
     application_settings["NOTIFICATIONS"] = {}
 

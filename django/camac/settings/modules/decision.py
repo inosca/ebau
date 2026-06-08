@@ -108,7 +108,10 @@ DECISION = {
             "POSITIVE",
             "POSITIVE_WITH_RESERVATION",
         ],
-        "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "construction-acceptance",
+        # Note: while construction monitoring is not active, this will be `construction-acceptance`
+        # instead.
+        # See django/camac/instance/domain_logic/decision.py::post_complete_decision_building_permit
+        "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "decided",
     },
     "kt_ag": {
         "ENABLED": True,

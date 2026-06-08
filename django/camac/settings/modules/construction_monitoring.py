@@ -165,7 +165,7 @@ CONSTRUCTION_MONITORING = {
     },
     "kt_gr": {
         "ENABLED": env.bool("CONSTRUCTION_MONITORING_ENABLED", default=False),
-        "PREVIOUS_INSTANCE_STATE": "decision",
+        "PREVIOUS_INSTANCE_STATE": "decided",
         "CONSTRUCTION_MONITORING_INSTANCE_STATE": "construction-acceptance",
         "GEOMETER_MUNICIPALITY": {
             "QUESTION": "schnurgeruestabnahme-durch",

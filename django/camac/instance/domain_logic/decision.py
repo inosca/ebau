@@ -41,6 +41,12 @@ class DecisionLogic:
                     cls.copy_responsible_person_lead_authority(
                         instance, construction_control
                     )
+            elif settings.APPLICATION_NAME == "kt_gr" and (
+                not settings.CONSTRUCTION_MONITORING
+                or not settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
+            ):
+                # todo: remove this clause when construction monitoring is on production.
+                instance.set_instance_state("construction-acceptance", camac_user)
             else:
                 instance.set_instance_state(
                     settings.DECISION["INSTANCE_STATE_AFTER_POSITIVE_DECISION"],

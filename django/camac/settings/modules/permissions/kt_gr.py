@@ -20,6 +20,7 @@ STATES_ALL = RequireInstanceState(
         "init-distribution",
         "circulation",
         "decision",
+        "decided",
         "construction-acceptance",
         "finished",
         # Special cases
@@ -29,7 +30,9 @@ STATES_ALL = RequireInstanceState(
     ]
 )
 STATES_ACCESSIBLE = STATES_ALL & ~RequireInstanceState(["rejected"])
-STATES_POST_DECISION = RequireInstanceState(["construction-acceptance", "finished"])
+STATES_POST_DECISION = RequireInstanceState(
+    ["decided", "construction-acceptance", "finished"]
+)
 
 # Form rules
 FORMS_ONLY_BUILDING_PERMIT = IsForm([*BAUGESUCH_FORMS, *SOLARANLAGE_FORMS])
