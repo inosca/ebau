@@ -3256,24 +3256,6 @@ def ag_placeholders_settings(
 
 
 @pytest.fixture
-def sz_placeholders_settings(
-    request,
-    settings,
-    placeholders_settings,
-):
-    """Module-specific settings for placeholders (canton SZ)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=placeholders_settings,
-        settings_name="PLACEHOLDERS",
-        import_path="camac.settings.modules.placeholders.PLACEHOLDERS",
-        canton="kt_schwyz",
-        disable=False,
-    )
-
-
-@pytest.fixture
 def sg_placeholders_settings(
     request,
     settings,
@@ -3287,6 +3269,24 @@ def sg_placeholders_settings(
         settings_name="PLACEHOLDERS",
         import_path="camac.settings.modules.placeholders.PLACEHOLDERS",
         canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def sz_placeholders_settings(
+    request,
+    settings,
+    placeholders_settings,
+):
+    """Module-specific settings for placeholders (canton SZ)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=placeholders_settings,
+        settings_name="PLACEHOLDERS",
+        import_path="camac.settings.modules.placeholders.PLACEHOLDERS",
+        canton="kt_schwyz",
         disable=False,
     )
 

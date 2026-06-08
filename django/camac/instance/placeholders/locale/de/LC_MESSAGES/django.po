@@ -2759,6 +2759,30 @@ msgstr ""
 "Nummer und Amtsblattnummer (ist gleich KW, wenn nicht anders angegeben)"
 
 #: camac/instance/placeholders/serializers.py
+msgid "Total amount billed by municipality"
+msgstr "Aufwand Gemeinde"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Total amount billed by canton"
+msgstr "Aufwand Kanton"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Total amount billed"
+msgstr "Aufwand Total"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Total unbilled amount by municipality"
+msgstr "Unverrechneter Aufwand Gemeinde"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Total unbilled amount billed by canton"
+msgstr "Unverrechneter Aufwand Kanton"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Total unbilled amount"
+msgstr "Unverrechneter Aufwand Total"
+
+#: camac/instance/placeholders/serializers.py
 msgid "Date instance completed"
 msgstr "Datum «Dossier vollständig»"
 

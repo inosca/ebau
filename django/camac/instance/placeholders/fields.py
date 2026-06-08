@@ -390,12 +390,20 @@ class CurrentUserField(UserField):
 
 
 class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
-    def __init__(self, own=False, total=False, only_not_charged=False, **kwargs):
+    def __init__(
+        self,
+        own=False,
+        total=False,
+        only_not_charged=False,
+        only_for_organization: BillingV2Entry.Organizations = None,
+        **kwargs,
+    ):
         super().__init__(is_collection=not total, **kwargs)
 
         self.own = own
         self.total = total
         self.only_not_charged = only_not_charged
+        self.only_for_organization = only_for_organization
 
     @property
     def nested_aliases(self):
@@ -538,6 +546,9 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
 
         if self.only_not_charged:
             queryset = queryset.filter(date_charged__isnull=True)
+
+        if self.only_for_organization:
+            queryset = queryset.filter(organization=self.only_for_organization)
 
         return queryset.order_by("organization", "pk")
 
