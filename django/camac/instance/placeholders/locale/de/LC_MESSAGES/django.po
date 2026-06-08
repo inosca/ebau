@@ -2787,6 +2787,10 @@ msgid "DATE_START_ZIRKULATION_HELP_TEXT"
 msgstr "Datum, an dem der Kanton zur Zirkulation eingeladen wurde"
 
 #: camac/instance/placeholders/serializers.py
+msgid "Dossier number"
+msgstr "Gesuchsnummer"
+
+#: camac/instance/placeholders/serializers.py
 msgid "FIELD_BAUHERRSCHAFT"
 msgstr ""
 

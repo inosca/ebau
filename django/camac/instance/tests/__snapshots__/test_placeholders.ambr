@@ -11203,6 +11203,18 @@
         ]),
       }),
     }),
+    'identifier': dict({
+      'aliases': list([
+        dict({
+          'de': 'identifier',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Gesuchsnummer',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'publication_date': dict({
       'aliases': list([
         dict({
@@ -19558,6 +19570,7 @@
     'field_vertreter_mit_vollmacht[].vertreter_titel',
     'field_vertreter_mit_vollmacht[].vertreter_vorname',
     'field_vertreter_mit_vollmacht[].vorname',
+    'identifier',
     'publication_date',
     'publications',
     'publications[]',
@@ -22068,6 +22081,7 @@
     'field_standort_spezialbezeichnung': '',
     'field_vertreter_mit_vollmacht': list([
     ]),
+    'identifier': 'X-12-34-5678',
     'publication_date': '27. Oktober 2011',
     'publications': list([
       dict({

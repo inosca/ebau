@@ -2783,6 +2783,10 @@ msgid "DATE_START_ZIRKULATION_HELP_TEXT"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
+msgid "Dossier number"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
 msgid "FIELD_BAUHERRSCHAFT"
 msgstr ""
 

@@ -1269,6 +1269,10 @@ def test_dms_placeholders_sz(
         workflow_date=today - timezone.timedelta(days=44),
     )
 
+    placeholders.append("identifier")
+    sz_instance.identifier = "X-12-34-5678"
+    sz_instance.save()
+
     response = admin_client.get(
         reverse("instance-dms-placeholders", args=[sz_instance.pk])
     )
