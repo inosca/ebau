@@ -254,6 +254,10 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     responsible_person = (
         serializers.SerializerMethodField()
     )  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
+    bauverwaltung = (
+        serializers.SerializerMethodField()
+    )  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
+    responsible_person = serializers.SerializerMethodField()
     schlussabnahme_uhrzeit = serializers.SerializerMethodField()
     schlussabnahme_datum = serializers.SerializerMethodField()
     notes = serializers.SerializerMethodField()
@@ -897,7 +901,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return objections
 
-    def get_bauverwaltung(self, instance):
+    def get_bauverwaltung(
+        self, instance
+    ):  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
         if not settings.APPLICATION.get("INSTANCE_MERGE_CONFIG"):
             return {}
 
