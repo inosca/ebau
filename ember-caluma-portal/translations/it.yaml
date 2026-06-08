@@ -276,6 +276,7 @@ instances:
     sb1: "Autocertificazione 1"
     sb1-v2: "Autocertificazione 1"
     sb2: "Autocertificazione 2"
+    form: "Modulo"
 
   applicants:
     municipality-access: "Accesso del comune"

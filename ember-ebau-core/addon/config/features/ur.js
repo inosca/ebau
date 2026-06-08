@@ -32,4 +32,7 @@ export default {
   },
   support: true,
   instancePaperFilterDefault: true,
+  instanceOverview: {
+    useFormNameAsTabTitle: true,
+  },
 };

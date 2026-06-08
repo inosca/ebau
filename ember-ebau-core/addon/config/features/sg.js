@@ -11,6 +11,7 @@ export default {
   },
   instanceOverview: {
     useSpecialId: true,
+    useFormNameAsTabTitle: true,
   },
   communications: {
     enabled: true,
