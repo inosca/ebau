@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_gwr_data[kt_gr-gr_master_data_case]
+# name: test_gwr_data[kt_gr-gr_master_data_case-Municipality]
   dict({
     'buildingPermitIssueDate': None,
     'client': dict({
@@ -72,7 +72,7 @@
     ]),
   })
 # ---
-# name: test_gwr_data[kt_schwyz-sz_master_data_case_gwr]
+# name: test_gwr_data[kt_schwyz-sz_master_data_case_gwr-Municipality]
   dict({
     'buildingPermitIssueDate': None,
     'client': dict({
@@ -153,7 +153,7 @@
     ]),
   })
 # ---
-# name: test_gwr_data[kt_schwyz-sz_master_data_case_gwr_v2]
+# name: test_gwr_data[kt_schwyz-sz_master_data_case_gwr_v2-Municipality]
   dict({
     'buildingPermitIssueDate': None,
     'client': dict({
@@ -245,7 +245,7 @@
     ]),
   })
 # ---
-# name: test_gwr_data[kt_so-so_master_data_case]
+# name: test_gwr_data[kt_so-so_master_data_case-Municipality]
   dict({
     'buildingPermitIssueDate': None,
     'client': dict({
@@ -351,7 +351,7 @@
     ]),
   })
 # ---
-# name: test_gwr_data[kt_uri-ur_master_data_case_gwr]
+# name: test_gwr_data[kt_uri-ur_master_data_case_gwr-Municipality]
   dict({
     'buildingPermitIssueDate': '2021-07-20',
     'client': dict({

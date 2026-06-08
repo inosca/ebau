@@ -67,9 +67,9 @@ def dwelling_data(dwelling):
 
 
 class GwrSerializer(serializers.Serializer):
-    def __init__(self, case, *args, **kwargs):
-        super().__init__(case, *args, **kwargs)
-        self.master_data = MasterData(case)
+    def __init__(self, instance, *args, **kwargs):
+        super().__init__(instance, *args, **kwargs)
+        self.master_data = MasterData.from_case_id(instance.case_id)
 
     officialConstructionProjectFileNo = serializers.SerializerMethodField()
 
@@ -90,7 +90,7 @@ class GwrSerializer(serializers.Serializer):
     projectCompletionDate = serializers.SerializerMethodField()
     work = serializers.SerializerMethodField()
 
-    def get_client(self, case):
+    def get_client(self, instance):
         applicants = self.master_data.applicants
 
         if not applicants or not len(applicants):
@@ -133,33 +133,33 @@ class GwrSerializer(serializers.Serializer):
         }
 
     @catch_and_log()
-    def get_officialConstructionProjectFileNo(self, case):
+    def get_officialConstructionProjectFileNo(self, instance):
         # TODO Configure this for SZ
         return self.master_data.dossier_number
 
     @catch_and_log()
-    def get_constructionProjectDescription(self, case):
+    def get_constructionProjectDescription(self, instance):
         return self.master_data.proposal
 
     @catch_and_log()
-    def get_constructionLocalisation(self, case):
+    def get_constructionLocalisation(self, instance):
         return {"municipalityName": self.master_data.municipality_name}
 
     @catch_and_log()
-    def get_typeOfConstructionProject(self, case):
+    def get_typeOfConstructionProject(self, instance):
         return self.master_data.category[0]
 
     @catch_and_log()
-    def get_typeOfConstruction(self, case):
+    def get_typeOfConstruction(self, instance):
         # TODO Configure this for BE and SZ
         return self.master_data.type_of_construction[0]["art_der_hochbaute"]
 
     @catch_and_log()
-    def get_totalCostsOfProject(self, case):
+    def get_totalCostsOfProject(self, instance):
         return self.master_data.construction_costs
 
     @catch_and_log()
-    def get_realestateIdentification(self, case):
+    def get_realestateIdentification(self, instance):
         plot_data = self.master_data.plot_data[0]
         return {
             "number": plot_data.get("plot_number"),
@@ -167,25 +167,25 @@ class GwrSerializer(serializers.Serializer):
         }
 
     @catch_and_log()
-    def get_projectAnnouncementDate(self, case):
+    def get_projectAnnouncementDate(self, instance):
         # TODO Configure this for SZ
         submit_date = self.master_data.submit_date
         return submit_date.date().isoformat() if submit_date else None
 
     @catch_and_log()
-    def get_buildingPermitIssueDate(self, case):
+    def get_buildingPermitIssueDate(self, instance):
         # TODO Configure this for BE and SZ
         decision_date = self.master_data.decision_date
         return decision_date.date().isoformat() if decision_date else None
 
     @catch_and_log()
-    def get_projectStartDate(self, case):
+    def get_projectStartDate(self, instance):
         # TODO Configure this for BE and SZ
         start_date = self.master_data.construction_start_date
         return start_date.date().isoformat() if start_date else None
 
     @catch_and_log()
-    def get_projectCompletionDate(self, case):
+    def get_projectCompletionDate(self, instance):
         # TODO Configure this for BE and SZ
         end_date = self.master_data.construction_end_date
         return end_date.date().isoformat() if end_date else None
@@ -267,7 +267,7 @@ class GwrSerializer(serializers.Serializer):
         )
 
     @catch_and_log(fallback=[])
-    def get_work(self, case):
+    def get_work(self, instance):
         # TODO Configure this for BE
         buildings = self.master_data.buildings
 
@@ -298,12 +298,12 @@ class GwrSerializer(serializers.Serializer):
                         building, is_heating=False, is_main_heating=False
                     ),
                     "realestateIdentification": (
-                        self.get_realestateIdentification(case)
+                        self.get_realestateIdentification(instance)
                         if settings.APPLICATION_NAME in ["kt_uri", "kt_so"]
                         else None
                     ),
                     "buildingEntrance": (
-                        self.get_buildingEntrance(case)
+                        self.get_buildingEntrance(instance)
                         if settings.APPLICATION_NAME == "kt_so"
                         else None
                     ),
@@ -314,7 +314,7 @@ class GwrSerializer(serializers.Serializer):
         ]
 
     @catch_and_log()
-    def get_buildingEntrance(self, case):
+    def get_buildingEntrance(self, instance):
         zip = None
 
         if len(self.master_data.plot_data):
@@ -323,13 +323,13 @@ class GwrSerializer(serializers.Serializer):
         return {"locality": {"swissZipCode": zip}}
 
     @catch_and_log()
-    def get_typeOfPermit(self, case):
+    def get_typeOfPermit(self, instance):
         # TODO Configure this for BE and SZ
         reason = self.master_data.approval_reason
         return int(reason) if reason else None
 
     @catch_and_log()
-    def get_typeOfClient(self, case):
+    def get_typeOfClient(self, instance):
         # TODO Configure this for BE and SZ
         type_of_applicant = (
             self.master_data.type_of_applicant

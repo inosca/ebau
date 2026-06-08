@@ -592,8 +592,7 @@ class InstanceView(
     )
     def gwr_data(self, request, pk):
         """Export instance data to GWR."""
-        case = workflow_models.Case.objects.get(instance__pk=pk)
-        resolver = gwr_lookups.GwrSerializer(case)
+        resolver = gwr_lookups.GwrSerializer(self.get_object())
 
         return response.Response(resolver.data)
 
