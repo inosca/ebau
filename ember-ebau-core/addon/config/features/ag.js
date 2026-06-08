@@ -84,4 +84,7 @@ export default {
     snippets: true,
   },
   instanceMarks: true,
+  instanceOverview: {
+    useFormNameAsTabTitle: true,
+  },
 };

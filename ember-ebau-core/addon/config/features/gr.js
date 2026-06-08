@@ -71,4 +71,7 @@ export default {
   distribution: {
     showAllServices: true,
   },
+  instanceOverview: {
+    useFormNameAsTabTitle: false,
+  },
 };

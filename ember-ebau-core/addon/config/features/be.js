@@ -70,4 +70,7 @@ export default {
   staticFaq: true,
   modificationConfirm: true,
   instanceSupport: true,
+  instanceOverview: {
+    useFormNameAsTabTitle: true,
+  },
 };

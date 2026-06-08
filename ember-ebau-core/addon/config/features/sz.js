@@ -31,4 +31,7 @@ export default {
     v2: true,
   },
   noInstanceService: true,
+  instanceOverview: {
+    useFormNameAsTabTitle: true,
+  },
 };
