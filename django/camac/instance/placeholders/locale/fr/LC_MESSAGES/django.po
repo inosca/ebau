@@ -228,6 +228,30 @@ msgid "STATEMENT"
 msgstr "AFFIRMATION"
 
 #: camac/instance/placeholders/fields.py
+msgid "NOTICES"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "NOTICE_TYPE"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "CONTENT"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "CIRCULATION_STATUS"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "CIRCULATION_ANSWER"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "REASON"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
 msgid "DATE_POSTMARK"
 msgstr ""
 
@@ -2836,6 +2860,14 @@ msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "Objections"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Activations"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "My activations"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py

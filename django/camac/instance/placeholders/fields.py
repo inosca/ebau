@@ -712,18 +712,16 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
         status=None,
         **kwargs,
     ):
-        if not props:
-            props = settings.PLACEHOLDERS.get("INQUIRY_DEFAULT_FIELDS", [])
 
-        all_nested_aliases = {
+        available_nested_aliases = {
             "ANTWORT": [_("ANSWER")],
             "SACHBEARBEITUNG_ENTSCHEID": [_("CLERK_DECISION")],
             "BEANTWORTET": [_("ANSWERED")],
             "BEANTWORTET_TIMESTAMP": [_("ANSWERED_TIMESTAMP")],
             "ERSTELLT": [_("CREATED")],
             "ERSTELLT_TIMESTAMP": [_("CREATED_TIMESTAMP")],
-            "FACHSTELLE": [_("SERVICE")],
-            "FRIST": [_("DEADLINE")],
+            "FACHSTELLE": [{"default": _("SERVICE"), "sz": "SERVICE"}],
+            "FRIST": [{"default": _("DEADLINE"), "sz": "DEADLINE_DATE"}],
             "NAME": [_("NAME")],
             "BESCHREIBUNG": [_("DESCRIPTION")],
             "NEBENBESTIMMUNGEN": [_("ANCILLARY_CLAUSES")],
@@ -747,16 +745,42 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
             "SACHVERHALT": [_("SITUATION")],
             "ERWAEGUNGEN": [_("CONSIDERATIONS")],
             "BEURTEILUNG": [_("STATEMENT")],
+            "MELDUNGEN": [{"default": _("NOTICES"), "sz": "NOTICES"}],
+            "MELDUNGEN.ART": [{"default": _("NOTICE_TYPE"), "sz": "NOTICE_TYPE"}],
+            "MELDUNGEN.INHALT": [{"default": _("CONTENT"), "sz": "CONTENT"}],
+            "ZIRKULATION_STATUS": [
+                {"default": _("CIRCULATION_STATUS"), "sz": "CIRCULATION_STATUS"}
+            ],
+            "ZIRKULATION_ANTWORT": [
+                {"default": _("CIRCULATION_ANSWER"), "sz": "CIRCULATION_ANSWER"}
+            ],
+            "REASON": [{"default": _("REASON"), "sz": "REASON"}],
         }
 
-        nested_aliases = (
-            {key: all_nested_aliases[key] for _, key in props}
-            if all([isinstance(prop, tuple) for prop in props])
-            else {}
-        )
+        # Select nested aliases from available nested aliases by
+        # placeholder settings (i. e. INQUIRY_DEFAULT_FIELDS) or `props` kwarg
+        # if overridden in field's call site.
+        if not props:
+            props = settings.PLACEHOLDERS.get("INQUIRY_DEFAULT_FIELDS", [])
+
+        alias_names = []
+
+        # Only add nested aliases if all props or `INQUIRY_DEFAULT_FIELDS`
+        # actually map an attribute to a nested alias name. Otherwise the
+        # value is treated as primitive.
+        selection = {}
+        if all([isinstance(prop_config, tuple) for prop_config in props]):
+            alias_names = [prop[1] for prop in props]
+            selection = {
+                attrib: aliases
+                for attrib, aliases in available_nested_aliases.items()
+                if attrib.split(".")[0] in alias_names
+            }
 
         super().__init__(
-            nested_aliases=nested_aliases, is_collection=join_by is None, **kwargs
+            nested_aliases=selection,
+            is_collection=join_by is None,
+            **kwargs,
         )
 
         self.only_own = only_own
@@ -774,6 +798,48 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
 
     def get_prop_key(self, prop):
         return prop[1] if isinstance(prop, tuple) else prop
+
+    @staticmethod
+    def get_circulation_state(inquiry):
+        if inquiry.status == WorkItem.STATUS_READY:
+            return (
+                "REVIEW"
+                if inquiry.child_case.work_items.filter(
+                    status=WorkItem.STATUS_READY,
+                    task_id=settings.DISTRIBUTION.get("INQUIRY_ANSWER_CHECK_TASK", ""),
+                ).exists()
+                else "RUN"
+            )
+
+        return (
+            "OK"
+            if inquiry.case.parent_work_item.status == WorkItem.STATUS_READY
+            else "DONE"
+        )
+
+    @staticmethod
+    def get_notices(inquiry):
+        """Get all answers to the inquiry.
+
+        NOTE: the keys ART and INHALT for each notice are rendered in caps and translated
+        to comply with the placeholder's convention to map selected props to uppercase
+        alias names.
+        """
+        return (
+            [
+                {
+                    "ART": str(answer.question.label),
+                    "INHALT": answer.value,
+                }
+                for answer in (
+                    inquiry.child_case.document.answers.select_related("question")
+                    .filter(question__type=Question.TYPE_TEXTAREA)
+                    .order_by("-question__formquestion__sort")
+                )
+            ]
+            if inquiry.child_case
+            else None
+        )
 
     def get_prop_value(self, inquiry, prop):
         prop_mapping = {
@@ -807,6 +873,8 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                 if i.case.parent_work_item.status == WorkItem.STATUS_COMPLETED
                 else None
             ),
+            "circulation_state": lambda i: self.get_circulation_state(i),
+            "notices": lambda i: self.get_notices(i),
         }
 
         if isinstance(prop, tuple):

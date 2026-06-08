@@ -1247,6 +1247,10 @@ def test_dms_placeholders_sz(
     caluma_document_factory,
     form_utils: FormUtils,
     objection_participant_factory,
+    active_inquiry_factory,
+    service_factory,
+    service_group,
+    service,
     faker,
     snapshot,
 ):
@@ -1417,6 +1421,50 @@ def test_dms_placeholders_sz(
         city=faker.city(),
         phone=faker.phone_number(),
     )
+
+    # SETUP CIRCULATION
+    # required for placeholders
+    #  - my_activations
+    #  - activations
+    placeholders.extend(["activations", "my_activations"])
+
+    inquiry_service = service_factory(name="Fachstelle")
+
+    application_settings["INTER_SERVICE_GROUP_VISIBILITIES"] = {
+        service_group.pk: [inquiry_service.service_group.pk],
+    }
+
+    inquiry = active_inquiry_factory(
+        addressed_service=inquiry_service,
+        status=WorkItem.STATUS_COMPLETED,
+        created_at=make_aware(datetime(2018, 3, 15)),
+        deadline=make_aware(datetime(2018, 4, 30)),
+        closed_at=make_aware(datetime(2018, 4, 15)),
+    )
+    active_inquiry_factory(addressed_service=service_factory())
+    active_inquiry_factory(addressed_service=service)
+
+    form_utils.add_answer(
+        inquiry.document,
+        "inquiry-remark",
+        "Grund",
+    )
+    form_utils.add_answer(
+        inquiry.child_case.document,
+        "inquiry-answer-status",
+        "inquiry-answer-status-final",
+    )
+    form_utils.add_answer(
+        inquiry.child_case.document,
+        "inquiry-answer-request",
+        "Inhalt Antrag!",
+    )
+    form_utils.add_answer(
+        inquiry.child_case.document,
+        "inquiry-answer-hint",
+        "Inhalt Hinweis!",
+    )
+    ## END CIRCULATION SETUP
 
     response = admin_client.get(
         reverse("instance-dms-placeholders", args=[sz_instance.pk])

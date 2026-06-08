@@ -11457,6 +11457,38 @@
 # ---
 # name: test_dms_placeholders_docs[kt_schwyz]
   dict({
+    'activations': dict({
+      'aliases': list([
+        dict({
+          'de': 'activations',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Fachberichte',
+      }),
+      'nested_aliases': dict({
+        'BEANTWORTET': list([
+          dict({
+            'de': 'answered',
+          }),
+        ]),
+        'ERSTELLT': list([
+          dict({
+            'de': 'created',
+          }),
+        ]),
+        'FRIST': list([
+          dict({
+            'de': 'deadline_date',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'name',
+          }),
+        ]),
+      }),
+    }),
     'bauverwaltung': dict({
       'aliases': list([
         dict({
@@ -12689,10 +12721,42 @@
       'nested_aliases': dict({
       }),
     }),
+    'my_activations': dict({
+      'aliases': list([
+        dict({
+          'de': 'my_activations',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Fachberichte Fachstelle (Eigener Fachbereich)',
+      }),
+      'nested_aliases': dict({
+        'BEANTWORTET': list([
+          dict({
+            'de': 'answered',
+          }),
+        ]),
+        'ERSTELLT': list([
+          dict({
+            'de': 'created',
+          }),
+        ]),
+        'FRIST': list([
+          dict({
+            'de': 'deadline_date',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'name',
+          }),
+        ]),
+      }),
+    }),
     'objections': dict({
       'aliases': list([
         dict({
-          'de': 'objections',
+          'de': 'einsprachen',
         }),
       ]),
       'description': dict({
@@ -12711,7 +12775,7 @@
         ]),
         'participants.address': list([
           dict({
-            'de': 'address',
+            'de': 'adresse',
           }),
         ]),
         'participants.city': list([
@@ -12721,7 +12785,7 @@
         ]),
         'participants.company': list([
           dict({
-            'de': 'company',
+            'de': 'firma',
           }),
         ]),
         'participants.email': list([
@@ -12736,12 +12800,12 @@
         ]),
         'participants.phone': list([
           dict({
-            'de': 'phone',
+            'de': 'telefon',
           }),
         ]),
         'title': list([
           dict({
-            'de': 'title',
+            'de': 'titel',
           }),
         ]),
       }),
@@ -20965,6 +21029,12 @@
 # ---
 # name: test_dms_placeholders_docs_available_placeholders[set_application_sz]
   list([
+    'activations',
+    'activations[]',
+    'activations[].answered',
+    'activations[].created',
+    'activations[].deadline_date',
+    'activations[].name',
     'bauverwaltung',
     'bauverwaltung.baukontrolle_baugespannkontrolle_bemerkungen',
     'bauverwaltung.baukontrolle_baugespannkontrolle_datum',
@@ -21044,6 +21114,18 @@
     'date_dossiereingang',
     'date_dossiervollstandig',
     'date_start_zirkulation',
+    'einsprachen',
+    'einsprachen[]',
+    'einsprachen[].creation_date',
+    'einsprachen[].participants',
+    'einsprachen[].participants[]',
+    'einsprachen[].participants[].adresse',
+    'einsprachen[].participants[].city',
+    'einsprachen[].participants[].email',
+    'einsprachen[].participants[].firma',
+    'einsprachen[].participants[].name',
+    'einsprachen[].participants[].telefon',
+    'einsprachen[].titel',
     'field_bauherrschaft',
     'field_bauherrschaft[]',
     'field_bauherrschaft[].adresse',
@@ -21183,18 +21265,12 @@
     'field_vertreter_mit_vollmacht[].vorname',
     'identifier',
     'location',
-    'objections',
-    'objections[]',
-    'objections[].creation_date',
-    'objections[].participants',
-    'objections[].participants[]',
-    'objections[].participants[].address',
-    'objections[].participants[].city',
-    'objections[].participants[].company',
-    'objections[].participants[].email',
-    'objections[].participants[].name',
-    'objections[].participants[].phone',
-    'objections[].title',
+    'my_activations',
+    'my_activations[]',
+    'my_activations[].answered',
+    'my_activations[].created',
+    'my_activations[].deadline_date',
+    'my_activations[].name',
     'publication_date',
     'publications',
     'publications[]',
@@ -23600,6 +23676,110 @@
 # ---
 # name: test_dms_placeholders_sz[Gemeinde]
   dict({
+    'activations': list([
+      dict({
+        'BEANTWORTET': '14.04.2018',
+        'DATUM_ENDE': '',
+        'DATUM_START': '20.12.2020',
+        'ERSTELLT': '14.03.2018',
+        'FACHSTELLE': 'Fachstelle',
+        'FRIST': '29.04.2018',
+        'MELDUNGEN': list([
+          dict({
+            'ART': 'Antrag',
+            'INHALT': 'Inhalt Antrag!',
+            'content': 'Inhalt Antrag!',
+            'notice_type': 'Antrag',
+          }),
+          dict({
+            'ART': 'Hinweis',
+            'INHALT': 'Inhalt Hinweis!',
+            'content': 'Inhalt Hinweis!',
+            'notice_type': 'Hinweis',
+          }),
+        ]),
+        'NAME': 'Fachstelle',
+        'REASON': 'Grund',
+        'ZIRKULATION_ANTWORT': 'Abschliessend beurteilbar',
+        'ZIRKULATION_STATUS': 'OK',
+        'answered': '14.04.2018',
+        'circulation_answer': 'Abschliessend beurteilbar',
+        'circulation_status': 'OK',
+        'created': '14.03.2018',
+        'date_end': '',
+        'date_start': '20.12.2020',
+        'deadline_date': '29.04.2018',
+        'name': 'Fachstelle',
+        'notices': list([
+          dict({
+            'ART': 'Antrag',
+            'INHALT': 'Inhalt Antrag!',
+            'content': 'Inhalt Antrag!',
+            'notice_type': 'Antrag',
+          }),
+          dict({
+            'ART': 'Hinweis',
+            'INHALT': 'Inhalt Hinweis!',
+            'content': 'Inhalt Hinweis!',
+            'notice_type': 'Hinweis',
+          }),
+        ]),
+        'reason': 'Grund',
+        'service': 'Fachstelle',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'DATUM_ENDE': '',
+        'DATUM_START': '20.12.2020',
+        'ERSTELLT': '20.12.2020',
+        'FACHSTELLE': 'Jasmine Phelps',
+        'FRIST': '28.06.2001',
+        'MELDUNGEN': list([
+        ]),
+        'NAME': 'Jasmine Phelps',
+        'REASON': '',
+        'ZIRKULATION_ANTWORT': '',
+        'ZIRKULATION_STATUS': 'RUN',
+        'answered': '',
+        'circulation_answer': '',
+        'circulation_status': 'RUN',
+        'created': '20.12.2020',
+        'date_end': '',
+        'date_start': '20.12.2020',
+        'deadline_date': '28.06.2001',
+        'name': 'Jasmine Phelps',
+        'notices': list([
+        ]),
+        'reason': '',
+        'service': 'Jasmine Phelps',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'DATUM_ENDE': '',
+        'DATUM_START': '20.12.2020',
+        'ERSTELLT': '20.12.2020',
+        'FACHSTELLE': 'Alex Smith',
+        'FRIST': '21.07.2012',
+        'MELDUNGEN': list([
+        ]),
+        'NAME': 'Alex Smith',
+        'REASON': '',
+        'ZIRKULATION_ANTWORT': '',
+        'ZIRKULATION_STATUS': 'RUN',
+        'answered': '',
+        'circulation_answer': '',
+        'circulation_status': 'RUN',
+        'created': '20.12.2020',
+        'date_end': '',
+        'date_start': '20.12.2020',
+        'deadline_date': '21.07.2012',
+        'name': 'Alex Smith',
+        'notices': list([
+        ]),
+        'reason': '',
+        'service': 'Alex Smith',
+      }),
+    ]),
     'bauverwaltung': dict({
       'baukontrolle_realisierung_table': list([
       ]),
@@ -23757,6 +23937,34 @@
     ]),
     'identifier': 'X-12-34-5678',
     'location': 'Schübelbach',
+    'my_activations': list([
+      dict({
+        'BEANTWORTET': '',
+        'DATUM_ENDE': '',
+        'DATUM_START': '20.12.2020',
+        'ERSTELLT': '20.12.2020',
+        'FACHSTELLE': 'Alex Smith',
+        'FRIST': '21.07.2012',
+        'MELDUNGEN': list([
+        ]),
+        'NAME': 'Alex Smith',
+        'REASON': '',
+        'ZIRKULATION_ANTWORT': '',
+        'ZIRKULATION_STATUS': 'RUN',
+        'answered': '',
+        'circulation_answer': '',
+        'circulation_status': 'RUN',
+        'created': '20.12.2020',
+        'date_end': '',
+        'date_start': '20.12.2020',
+        'deadline_date': '21.07.2012',
+        'name': 'Alex Smith',
+        'notices': list([
+        ]),
+        'reason': '',
+        'service': 'Alex Smith',
+      }),
+    ]),
     'objections': list([
       dict({
         'creation_date': '23.12.2020',
@@ -23776,7 +23984,6 @@
         'title': '',
       }),
     ]),
-    'ort': 'Schübelbach',
     'publication_date': '27. Oktober 2011',
     'publications': list([
       dict({
@@ -23792,7 +23999,6 @@
         'journal_number': 43,
       }),
     ]),
-    'publikationsdatum': '27. Oktober 2011',
     'responsible_person': 'Brittany Chapman',
   })
 # ---

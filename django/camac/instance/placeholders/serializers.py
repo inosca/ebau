@@ -2690,6 +2690,16 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "participants.email": ["EMAIL"],
         },
         is_collection=True,
+    )
+    activations = fields.InquiriesField(
+        aliases=["ACTIVATIONS"],
+        description=_("Activations"),
+        static_translations=True,
+    )
+    my_activations = fields.InquiriesField(
+        only_own=True,
+        aliases=["MY_ACTIVATIONS"],
+        description=_("My activations"),
         static_translations=True,
     )
     field_bauherrschaft = fields.MasterDataPersonObjectField(
