@@ -11287,6 +11287,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'location': dict({
+      'aliases': list([
+        dict({
+          'de': 'location',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Standortgemeinde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'publication_date': dict({
       'aliases': list([
         dict({
@@ -19649,6 +19661,7 @@
     'field_vertreter_mit_vollmacht[].vertreter_vorname',
     'field_vertreter_mit_vollmacht[].vorname',
     'identifier',
+    'location',
     'publication_date',
     'publications',
     'publications[]',
@@ -22166,6 +22179,8 @@
     'field_vertreter_mit_vollmacht': list([
     ]),
     'identifier': 'X-12-34-5678',
+    'location': 'Schübelbach',
+    'ort': 'Schübelbach',
     'publication_date': '27. Oktober 2011',
     'publications': list([
       dict({
