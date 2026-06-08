@@ -2390,6 +2390,12 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         parser=compact_human_readable_date,
         static_translations=True,
     )
+    responsible_person = fields.ResponsibleUserField(
+        source="full_name",
+        aliases=["RESPONSIBLE_PERSON"],
+        static_translations=True,
+        description=_("Name of the responsible employee"),
+    )
     field_bauherrschaft = fields.MasterDataPersonObjectField(
         source="applicants",
         aliases=[_("FIELD_BAUHERRSCHAFT")],
