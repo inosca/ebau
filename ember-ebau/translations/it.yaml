@@ -19,8 +19,5 @@ nav:
 
 global:
   title: "eBau"
-  wait: "Attendi"
-  openMenu: "Apri menu"
-  form: "Modulo"
   noGroups: "<strong>Attenzione:</strong> non dispone ancora dei diritti."
   noGroupsHelp: "Si rivolga alle persone della sua organizzazione che ricoprono il ruolo «Amministrazione», loro saranno in grado di assegnarle i relativi diritti."

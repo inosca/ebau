@@ -1,5 +1,2 @@
 global:
-  wait: "Veuillez patienter"
-  openMenu: "Ouvrir le menu"
-  form: "Formulaire"
   technicalInfo: "Détails techniques"

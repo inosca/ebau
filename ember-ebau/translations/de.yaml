@@ -19,9 +19,6 @@ nav:
 
 global:
   title: "eBau"
-  wait: "Bitte warten"
-  openMenu: "Menu öffnen"
-  form: "Formular"
   noGroups: "<strong>Achtung:</strong> Sie haben noch keine Berechtigungen."
   noGroupsHelp: "Bitte melden Sie sich bei den Administrator/innen Ihrer Organisation, diese können Ihnen die entsprechenden Berechtigungen erteilen."
 
