@@ -11,6 +11,10 @@
       }}
       @compare={{this.compareContext}}
       @context={{hash instanceId=this.model.id}}
+      @navigationWidth={{array
+        "uk-width-1-1"
+        (if (has-feature "form.extraWide") "uk-width-1-4@m" "uk-width-1-3@m")
+      }}
     >
       <:formHeader>
         {{#if (gt formTimelines.length 1)}}

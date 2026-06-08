@@ -2,9 +2,11 @@ import Controller, { inject as controller } from "@ember/controller";
 import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import apolloQuery from "ember-ebau-core/resources/apollo";
 
 import getInstanceCaseQuery from "caluma-portal/gql/queries/get-instance-case.graphql";
+import { isEmbedded } from "caluma-portal/helpers/is-embedded";
 
 export default class InstancesEditFormController extends Controller {
   @service calumaStore;
@@ -58,5 +60,19 @@ export default class InstancesEditFormController extends Controller {
     const changes = raw?.meta["additional-demand-changes"] ?? [];
 
     return changes.length > 0;
+  }
+
+  get navigationWidth() {
+    const classes = ["uk-width-1-1"];
+
+    if (isEmbedded()) {
+      classes.push("uk-width-1-3@s");
+    } else if (hasFeature("form.extraWide")) {
+      classes.push("uk-width-1-4@m");
+    } else {
+      classes.push("uk-width-1-3@m");
+    }
+
+    return classes;
   }
 }
