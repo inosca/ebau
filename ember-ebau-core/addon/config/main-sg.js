@@ -30,6 +30,7 @@ const config = {
     specialId: "dossier-number",
     parcel: "parzellen",
     parcelNumber: "parzellennummer",
+    buildingLawNumber: "baurecht-nummer",
     firstNameApplicant: "vorname",
     lastNameApplicant: "name",
     juristicNameApplicant: "juristische-person-name",
