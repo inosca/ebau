@@ -25,7 +25,8 @@ defmodule Caluma.Form.Changes.SyncFormTree do
 
   defp create_questions!(form_slug, questions, action_opts) do
     questions
-    |> Enum.with_index(1)
+    |> Enum.reverse()
+    |> Enum.with_index()
     |> Enum.each(fn {question_spec, sort} ->
       create_question!(form_slug, question_spec, sort, action_opts)
     end)
@@ -75,7 +76,25 @@ defmodule Caluma.Form.Changes.SyncFormTree do
       )
     end
 
-    create_or_assert_form_question!(form_slug, slug, sort, action_opts)
+    existing_form_question =
+      Caluma.Form.get_form_question_by_form_and_question!(
+        form_slug,
+        slug,
+        Keyword.put(action_opts, :not_found_error?, false)
+      )
+
+    if existing_form_question do
+      Caluma.Form.assert_form_question_compatible!(
+        existing_form_question,
+        sort,
+        action_opts
+      )
+    else
+      Caluma.Form.create_form_question!(
+        %{form_id: form_slug, question_id: slug, sort: sort},
+        action_opts
+      )
+    end
   end
 
   defp nested_form_attrs(type, slug, question_spec) when type in [:form, :table] do
@@ -90,28 +109,6 @@ defmodule Caluma.Form.Changes.SyncFormTree do
   end
 
   defp nested_form_attrs(_type, _slug, _question_spec), do: nil
-
-  defp create_or_assert_form_question!(form_slug, question_slug, sort, action_opts) do
-    existing_form_question =
-      Caluma.Form.get_form_question_by_form_and_question!(
-        form_slug,
-        question_slug,
-        Keyword.put(action_opts, :not_found_error?, false)
-      )
-
-    if existing_form_question do
-      Caluma.Form.assert_form_question_compatible!(
-        existing_form_question,
-        sort,
-        action_opts
-      )
-    else
-      Caluma.Form.create_form_question!(
-        %{form_id: form_slug, question_id: question_slug, sort: sort},
-        action_opts
-      )
-    end
-  end
 
   defp existing_question_type!(nil, slug) do
     raise ArgumentError,
