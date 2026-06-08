@@ -309,5 +309,7 @@ omit = [
     "camac/permissions/management/commands/grant_permission_for_afb_instances_to_all_cantonal_services_ag.py",
     # AG Dossier Import Skeleton
     "camac/dossier_import/config/kt_ag.py",
+    # AG Restore groups of users
+    "camac/user/management/commands/user_backup.py",
 ]
 show_missing = true
