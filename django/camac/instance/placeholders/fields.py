@@ -29,7 +29,6 @@ from camac.caluma.utils import (
     work_item_by_addressed_service_condition,
 )
 from camac.core.translations import (
-    get_available_languages,
     get_translations_canton_aware,
 )
 from camac.tags.models import Keyword
@@ -106,9 +105,24 @@ class AliasedMixin:
         self.is_collection = is_collection
         self.static_translations = static_translations
 
+    @staticmethod
+    def sort_aliases(aliases):
+        """Return sorted aliases.
+
+        Aliases may be strings or dicts that configure overrides for a config.
+        """
+        return sorted(
+            aliases,
+            key=lambda x: (
+                x.get(settings.APPLICATION["SHORT_NAME"], x["default"])
+                if isinstance(x, dict)
+                else x
+            ),
+        )
+
     @property
     def aliases(self):
-        return sorted(self._aliases)
+        return self.sort_aliases(self._aliases)
 
     @property
     def nested_aliases(self):
@@ -142,24 +156,20 @@ class AliasedMixin:
 
         """
         if flat:
-            if self.static_translations:
-                return set([to_configured_case(alias)])
-
             return set(
                 [
                     to_configured_case(alias_t)
-                    for alias_t in get_translations_canton_aware(alias).values()
+                    for alias_t in get_translations_canton_aware(
+                        alias, static=self.static_translations
+                    ).values()
                 ]
             )
 
-        if self.static_translations:
-            return {
-                lang: to_configured_case(alias) for lang, _ in get_available_languages()
-            }
-
         return {
             lang: to_configured_case(alias_t)
-            for lang, alias_t in get_translations_canton_aware(alias).items()
+            for lang, alias_t in get_translations_canton_aware(
+                alias, static=self.static_translations
+            ).items()
         }
 
     def get_docs(

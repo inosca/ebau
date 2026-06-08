@@ -1523,53 +1523,87 @@ def test_aliased_placeholder_field(
 
     class PlaceholderTestSerializer(DMSPlaceholdersSerializer):
         test_literal_field = AliasedMethodField(
-            aliases=[_("TEST_CAT"), _("TEST_BAT")], static_translations=False
+            aliases=[{"default": _("TEST_CAT"), "test": _("TEST_BAT")}, _("TEST_CAT")],
+            static_translations=False,
         )
         test_literal_field_untransl = AliasedMethodField(
             method_name="get_test_literal_field",
-            aliases=["TEST_CAT", "TEST_BAT"],
+            aliases=[{"default": "TEST_BAT", "test": "UNTRANSL_CAT"}, "UNTRANSL_BAT"],
             static_translations=True,
         )
         test_list_field = AliasedMethodField(
-            aliases=[_("TEST_LIST_CATS"), _("TEST_LIST_BATS")],
+            aliases=[
+                {"default": _("TEST_LIST_CATS"), "test": _("TEST_LIST_BATS")},
+                _("TEST_LIST_CATS"),
+            ],
             static_translations=False,
             is_collection=True,
         )
         test_list_field_untransl = AliasedMethodField(
             method_name="get_test_literal_field",
-            aliases=["TEST_LIST_CATS", "TEST_LIST_BATS"],
+            aliases=["UNTRANSL_LIST_CATS", "UNTRANSL_LIST_BATS"],
             static_translations=True,
             is_collection=True,
         )
         test_nested_collection_field = AliasedMethodField(
-            aliases=[_("TEST_CAT_OBJECTS"), _("TEST_BAT_OBJECTS")],
+            aliases=[
+                {"default": _("TEST_CAT_OBJECTS"), "test": _("TEST_BAT_OBJECTS")},
+                ("TEST_CAT_OBJECTS"),
+            ],
             is_collection=True,
             static_translations=False,
             nested_aliases={
-                "NAME": [_("TEST_CAT")],
-                "NESTED": [_("TEST_NEST")],
-                "NESTED.NAME": [_("TEST_BAT")],
+                "NAME": [
+                    {"default": _("TEST_CAT"), "test": _("TEST_BAT")},
+                    _("TEST_CAT"),
+                ],
+                "NESTED": [
+                    {"default": _("TEST_NEST"), "test": _("TEST_CAT")},
+                    _("TEST_NEST"),
+                ],
+                "NESTED.NAME": [
+                    {"defaut": _("TEST_BAT"), "test": _("TEST_CAT")},
+                    _("TEST_BAT"),
+                ],
             },
         )
         test_nested_collection_field_untransl = AliasedMethodField(
             method_name="get_test_nested_collection_field",
-            aliases=["TEST_CAT_OBJECTS", "TEST_BAT_OBJECTS"],
+            aliases=["UNTRANSL_CAT_OBJECTS", "UNTRANSL_BAT_OBJECTS"],
             is_collection=True,
             static_translations=True,
             nested_aliases={
-                "NAME": ["TEST_CAT"],
-                "NESTED": ["TEST_NEST"],
-                "NESTED.NAME": ["TEST_BAT"],
+                "NAME": [
+                    {"default": _("TEST_CAT"), "test": "UNTRANSL_NAME"},
+                    _("TEST_CAT"),
+                ],
+                "NESTED": [
+                    {"default": _("TEST_NEST"), "test": "UNTRANSL_NESTED"},
+                    _("TEST_NEST"),
+                ],
+                "NESTED.NAME": [
+                    {"defaut": _("TEST_BAT"), "test": "UNTRANSL_NESTED_NAME"},
+                    _("TEST_BAT"),
+                ],
             },
         )
         test_nested_obj_field = AliasedMethodField(
-            aliases=[_("TEST_CAT"), _("TEST_BAT")],
+            aliases=[{"default": _("TEST_CAT"), "test": _("TEST_BAT")}, _("TEST_CAT")],
             is_collection=False,
             static_translations=False,
             nested_aliases={
-                "NAME": [_("TEST_CAT")],
-                "NESTED": [_("TEST_NEST")],
-                "NESTED.NAME": [_("TEST_BAT")],
+                "NAME": [
+                    {"default": _("TEST_CAT"), "test": _("TEST_BAT")},
+                    _("TEST_CAT"),
+                ],
+                "NESTED": [
+                    {"default": _("TEST_NEST"), "test": _("TEST_CAT")},
+                    _("TEST_NEST"),
+                ],
+                "NESTED.NAME": [
+                    {"defaut": _("TEST_BAT"), "test": _("TEST_CAT")},
+                    _("TEST_BAT"),
+                ],
             },
         )
         test_nested_obj_field_untransl = AliasedMethodField(
@@ -1578,9 +1612,18 @@ def test_aliased_placeholder_field(
             is_collection=False,
             static_translations=True,
             nested_aliases={
-                "NAME": ["TEST_CAT"],
-                "NESTED": ["TEST_NEST"],
-                "NESTED.NAME": ["TEST_BAT"],
+                "NAME": [
+                    {"default": _("TEST_CAT"), "test": "UNTRANSL_NAME"},
+                    "UNTRANSL_CAT",
+                ],
+                "NESTED": [
+                    {"default": _("TEST_NEST"), "test": "UNTRANSL_NESTED"},
+                    "UNTRANSL_NEST",
+                ],
+                "NESTED.NAME": [
+                    {"defaut": _("TEST_BAT"), "test": "UNTRANSL_NESTED_NAME"},
+                    "UNTRANS_BAT",
+                ],
             },
         )
 
