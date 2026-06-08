@@ -36,16 +36,15 @@ if config_env() in [:dev, :prod] do
     ]
 end
 
-if config_env() == :dev do
-  config :ebau, Ebau.Repo,
-    username: System.get_env("DATABASE_USER", "camac"),
-    password: System.get_env("DATABASE_PASSWORD", "camac"),
-    hostname: System.get_env("DATABASE_HOST", "localhost"),
-    database: System.get_env("DATABASE_NAME", System.fetch_env!("APPLICATION")),
-    stacktrace: true,
-    show_sensitive_data_on_connection_error: true,
-    pool_size: 10
-end
+config :ebau, Ebau.Repo,
+  username: System.get_env("DATABASE_USER", "camac"),
+  password: System.get_env("DATABASE_PASSWORD", "camac"),
+  hostname: System.get_env("DATABASE_HOST", "localhost"),
+  port: String.to_integer(System.get_env("DATABASE_PORT", "5432")),
+  database: System.get_env("DATABASE_NAME", System.fetch_env!("APPLICATION")),
+  ssl: System.get_env("DATABASE_ENABLE_SSL") == "true",
+  pool_size: String.to_integer(System.get_env("POOL_SIZE", "10")),
+  pool_count: String.to_integer(System.get_env("POOL_COUNT", "1"))
 
 config :ebau, EbauWeb.Endpoint,
   http: [port: String.to_integer(System.get_env("PORT", "4000"))],
@@ -58,14 +57,14 @@ config :ebau, :keycloak,
   scopes: System.get_env("KEYCLOAK_SCOPES", "openid email"),
   email_claim: System.get_env("DJANGO_OIDC_EMAIL_CLAIM", "email")
 
-if config_env() == :prod do
-  database_url =
-    System.get_env("DATABASE_URL") ||
-      raise """
-      environment variable DATABASE_URL is missing.
-      For example: ecto://USER:PASS@HOST/DATABASE
-      """
+if config_env() == :dev do
+  config :ebau, Ebau.Repo,
+    stacktrace: true,
+    show_sensitive_data_on_connection_error: true,
+    pool_size: 10
+end
 
+if config_env() == :prod do
   maybe_ipv6 = if System.get_env("ECTO_IPV6") in ~w(true 1), do: [:inet6], else: []
 
   # The secret key base is used to sign/encrypt cookies and other secrets.
@@ -80,15 +79,9 @@ if config_env() == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
-  host = System.get_env("PHX_HOST") || "example.com"
+  host = System.get_env("BASE_URL")
 
-  config :ebau, Ebau.Repo,
-    # ssl: true,
-    url: database_url,
-    pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-    # For machines with several cores, consider starting multiple pools of `pool_size`
-    # pool_count: 4,
-    socket_options: maybe_ipv6
+  config :ebau, Ebau.Repo, socket_options: maybe_ipv6
 
   config :ebau, EbauWeb.Endpoint,
     url: [host: host, port: 443, scheme: "https"],
@@ -106,7 +99,10 @@ if config_env() == :prod do
   config :ebau,
     token_signing_secret:
       System.get_env("TOKEN_SIGNING_SECRET") ||
-        raise("Missing environment variable `TOKEN_SIGNING_SECRET`!")
+        raise("""
+        Missing environment variable `TOKEN_SIGNING_SECRET`!
+        You can generate one by calling: mix phx.gen.secret
+        """)
 
   # ## SSL Support
   #
