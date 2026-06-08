@@ -584,7 +584,12 @@ class InstanceView(
         super().perform_destroy(instance)
 
     @swagger_auto_schema(auto_schema=None)
-    @action(methods=["get"], detail=True, renderer_classes=[JSONRenderer])
+    @action(
+        methods=["get"],
+        detail=True,
+        url_path="gwr-data",
+        renderer_classes=[JSONRenderer],
+    )
     def gwr_data(self, request, pk):
         """Export instance data to GWR."""
         case = workflow_models.Case.objects.get(instance__pk=pk)
