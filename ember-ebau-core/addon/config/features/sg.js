@@ -47,4 +47,7 @@ export default {
   deadlines: {
     snippets: true,
   },
+  form: {
+    extraWide: true,
+  },
 };

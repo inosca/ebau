@@ -4,12 +4,7 @@
 </aside>
 
 <CaseHeader @case={{this.case}} @fullscreen={{this.useFullScreen}} />
-<div
-  class={{if
-    this.useFullScreen
-    "full-screen-content"
-    "uk-container main-content"
-  }}
->
+
+<div class={{this.containerClass}}>
   {{outlet}}
 </div>

@@ -6,7 +6,13 @@
     <BeNavbar />
   {{/if}}
   <section
-    class="uk-container uk-container-large uk-padding"
+    class="uk-container
+      {{if
+        (has-feature 'form.extraWide')
+        'uk-container-xlarge'
+        'uk-container-large'
+      }}
+      uk-padding"
   >{{outlet}}</section>
 </main>
 {{#if (is-application "so")}}

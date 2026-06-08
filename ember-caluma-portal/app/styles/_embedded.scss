@@ -1,9 +1,9 @@
 body.embedded main {
   > section.uk-container {
     padding: 0;
+  }
 
-    .embedded-content {
-      margin-left: 25px;
-    }
+  .cf-content > form.embedded-content {
+    margin-left: 25px;
   }
 }

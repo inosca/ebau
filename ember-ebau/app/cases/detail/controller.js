@@ -2,6 +2,7 @@ import Controller from "@ember/controller";
 import { service } from "@ember/service";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 export default class DetailController extends Controller {
   @service router;
@@ -26,5 +27,22 @@ export default class DetailController extends Controller {
 
   get case() {
     return this.cases.value?.[0];
+  }
+
+  get containerClass() {
+    if (this.useFullScreen) {
+      return "full-screen-content";
+    }
+
+    const classes = ["uk-container", "main-content"];
+
+    if (
+      hasFeature("form.extraWide") &&
+      this.router.isActive("cases.detail.form")
+    ) {
+      classes.push("uk-container-xlarge");
+    }
+
+    return classes.join(" ");
   }
 }
