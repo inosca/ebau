@@ -25,12 +25,8 @@ defmodule Ebau.MasterData.ProjectAuthor do
   end
 
   policies do
-    policy action_type([:create, :update, :destroy]) do
-      forbid_if always()
-    end
-
     policy action_type(:read) do
-      authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL, via: [:family, :case]}
+      authorize_if accessing_from(Ebau.Instances.Instance, :project_authors)
     end
   end
 end

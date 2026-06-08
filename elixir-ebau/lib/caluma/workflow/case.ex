@@ -53,7 +53,8 @@ defmodule Caluma.Workflow.Case do
   end
 
   relationships do
-    belongs_to :document, Caluma.Form.Document, domain: Caluma.Form
+    belongs_to :document, Caluma.Form.Document
+    belongs_to :family, Caluma.Workflow.Case
 
     belongs_to :workflow, Caluma.Workflow.Workflow do
       allow_nil? false

@@ -23,17 +23,32 @@ defmodule Caluma.Form.AnswerDocument do
   end
 
   policies do
-    policy action_type([:create, :update, :destroy]) do
+    policy action_type([:create, :destroy]) do
       forbid_if always()
     end
 
-    policy action_type(:read) do
+    policy action_type([:read, :update]) do
       authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL, via: [:document, :family, :case]}
     end
   end
 
   actions do
     defaults [:read, :destroy, create: :*, update: :*]
+
+    read :get_by_document_and_question do
+      argument :question_id, :string
+      argument :document_id, :uuid
+
+      filter expr(
+               answer.document_id == ^arg(:document_id) and
+                 answer.question_id == ^arg(:question_id)
+             )
+    end
+
+    update :shift_sort_up do
+      description "Atomically increments sort by 1. Called before inserting a new row document at position 0."
+      change atomic_update(:sort, expr(sort + 1))
+    end
   end
 
   attributes do

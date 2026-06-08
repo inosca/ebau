@@ -14,8 +14,8 @@ defmodule Ebau.User.Policies.IsAdminRole do
   end
 
   @impl true
-  def match?(%{role: role}, _context, _options) when is_binary(role) do
-    String.ends_with?(role, "-admin")
+  def match?(%{role: %{slug: slug}}, _context, _options) do
+    String.ends_with?(slug, "-admin")
   end
 
   @impl true

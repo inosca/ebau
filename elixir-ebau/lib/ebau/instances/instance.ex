@@ -180,6 +180,16 @@ defmodule Ebau.Instances.Instance do
   policies do
     policy action_type(:read) do
       authorize_if expr(exists(active_instance_acls, user_id == ^actor([:user, :id])))
+      authorize_if expr(exists(active_instance_acls, service_id == ^actor([:service, :id])))
+
+      authorize_if expr(
+                     exists(
+                       active_instance_acls,
+                       service_group_id == ^actor([:service, :service_group, :id])
+                     )
+                   )
+
+      authorize_if expr(exists(active_instance_acls, role_id == ^actor([:role, :id])))
     end
 
     policy action_type([:create, :update, :destroy]) do

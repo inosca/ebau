@@ -17,12 +17,15 @@ defmodule EbauWeb.Plugs.KeycloakBearerAuth do
          [group_id | _] <- Plug.Conn.get_req_header(conn, "x-camac-group"),
          {:ok, user} <- EbauWeb.OAuth2.fetch_user(token),
          {:ok, group} <-
-           Ebau.User.get_group_for_actor(group_id, load: [:service, :role], actor: %{user: user}) do
+           Ebau.User.get_group_for_actor(group_id,
+             load: [:role, service: [:service_group]],
+             actor: %{user: user}
+           ) do
       Ash.PlugHelpers.set_actor(conn, %Ebau.Actor{
         user: user,
         group: group,
         service: group.service,
-        role: group.role.slug
+        role: group.role
       })
     else
       error ->

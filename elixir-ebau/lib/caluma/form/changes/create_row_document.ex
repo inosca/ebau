@@ -32,18 +32,12 @@ defmodule Caluma.Form.Changes.CreateRowDocument do
       |> Ash.Changeset.force_change_attribute(:family_id, parent_id)
       |> Ash.Changeset.manage_relationship(:form, %{slug: question.row_form_id}, type: :append)
       |> Ash.Changeset.before_action(fn cs ->
-        # Shift existing rows up in one UPDATE
-        Ebau.Repo.query!(
-          """
-          UPDATE caluma_form_answerdocument
-          SET sort = sort + 1
-          WHERE answer_id = (
-            SELECT id FROM caluma_form_answer
-            WHERE document_id = $1 AND question_id = $2
-          )
-          """,
-          [parent_id, slug]
+        Caluma.Form.AnswerDocument
+        |> Ash.Query.for_read(:get_by_document_and_question,
+          document_id: parent_id,
+          question_id: question.slug
         )
+        |> Ash.bulk_update!(:shift_sort_up, actor: context.actor)
 
         cs
       end)

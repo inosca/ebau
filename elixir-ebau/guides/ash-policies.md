@@ -106,8 +106,8 @@ defmodule Ebau.User.Policies.IsAdminRole do
   def describe(_opts), do: "actor role ends with -admin"
 
   @impl true
-  def match?(%{role: role}, _context, _opts) when is_binary(role) do
-    String.ends_with?(role, "-admin")
+  def match?(%{role: %{slug: slug}}, _context, _options) do
+    String.ends_with?(slug, "-admin")
   end
 
   def match?(_, _, _), do: false
