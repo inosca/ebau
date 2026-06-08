@@ -549,9 +549,9 @@ ECH0211 = {
             "umweltschutzorganisationen",
         ],
         "NOTICE_RULING": {
-            "ALLOWED_STATES": ["decision", "circulation"],
+            "ALLOWED_STATES": ["subm", "decision", "circulation"],
             "ONLY_DECLINE": ["distribution-init"],
-            "SKIP_TASKS_ON_APPROVAL": ["distribution"],
+            "SKIP_TASKS_ON_APPROVAL": ["formal-exam", "distribution"],
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
         },
