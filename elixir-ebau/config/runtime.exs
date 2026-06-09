@@ -36,19 +36,21 @@ if config_env() in [:dev, :prod] do
     ]
 end
 
-config :ebau, Ebau.Repo,
-  username: System.get_env("DATABASE_USER", "camac"),
-  password: System.get_env("DATABASE_PASSWORD", "camac"),
-  hostname: System.get_env("DATABASE_HOST", "localhost"),
-  port: String.to_integer(System.get_env("DATABASE_PORT", "5432")),
-  database: System.get_env("DATABASE_NAME", System.fetch_env!("APPLICATION")),
-  ssl: System.get_env("DATABASE_ENABLE_SSL") == "true",
-  pool_size: String.to_integer(System.get_env("POOL_SIZE", "10")),
-  pool_count: String.to_integer(System.get_env("POOL_COUNT", "1"))
+if config_env() != :test do
+  config :ebau, Ebau.Repo,
+    username: System.get_env("DATABASE_USER", "camac"),
+    password: System.get_env("DATABASE_PASSWORD", "camac"),
+    hostname: System.get_env("DATABASE_HOST", "localhost"),
+    port: String.to_integer(System.get_env("DATABASE_PORT", "5432")),
+    database: System.get_env("DATABASE_NAME", System.fetch_env!("APPLICATION")),
+    ssl: System.get_env("DATABASE_ENABLE_SSL") == "true",
+    pool_size: String.to_integer(System.get_env("POOL_SIZE", "10")),
+    pool_count: String.to_integer(System.get_env("POOL_COUNT", "1"))
 
-config :ebau, EbauWeb.Endpoint,
-  http: [port: String.to_integer(System.get_env("PORT", "4000"))],
-  url: [path: System.get_env("URL_PREFIX", "/")]
+  config :ebau, EbauWeb.Endpoint,
+    http: [port: String.to_integer(System.get_env("PORT", "4000"))],
+    url: [path: System.get_env("URL_PREFIX", "/")]
+end
 
 config :ebau, :keycloak,
   url: System.get_env("KEYCLOAK_URL", "http://ebau-keycloak.localhost/auth/"),
