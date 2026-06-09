@@ -68,7 +68,7 @@
     "pk": "baugesuch-v7",
     "fields": {
       "created_at": "2026-04-23T09:18:36.971Z",
-      "modified_at": "2026-04-27T15:11:51.897Z",
+      "modified_at": "2026-04-28T09:14:50.163Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -120,6 +120,24 @@
       "is_published": false,
       "is_archived": false,
       "source": "dokumente-v5"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "spezialformulare-v7",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.822Z",
+      "modified_at": "2026-04-28T09:09:24.125Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Spezialformulare\", \"fr\": \"Formulaires spéciaux\", \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Spezialformulare (v7)\", \"fr\": \"Baugesuch > Spezialformulare (v7)\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "spezialformulare-v5"
     }
   },
   {
@@ -345,17 +363,17 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch-generell-v7.spezialformulare-v5",
+    "pk": "baugesuch-generell-v7.spezialformulare-v7",
     "fields": {
-      "created_at": "2026-04-23T09:19:08.145Z",
-      "modified_at": "2026-04-23T09:19:08.145Z",
+      "created_at": "2026-04-28T09:11:38.071Z",
+      "modified_at": "2026-04-28T09:11:38.071Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch-generell-v7",
-      "question": "spezialformulare-v5",
-      "sort": 5
+      "question": "spezialformulare-v7",
+      "sort": 4
     }
   },
   {
@@ -465,17 +483,17 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch-mit-uvp-v7.spezialformulare-v5",
+    "pk": "baugesuch-mit-uvp-v7.spezialformulare-v7",
     "fields": {
-      "created_at": "2026-04-23T09:19:38.148Z",
-      "modified_at": "2026-04-23T09:19:38.148Z",
+      "created_at": "2026-04-28T09:11:09.738Z",
+      "modified_at": "2026-04-28T09:11:09.738Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v7",
-      "question": "spezialformulare-v5",
-      "sort": 5
+      "question": "spezialformulare-v7",
+      "sort": 4
     }
   },
   {
@@ -585,17 +603,17 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch-v7.spezialformulare-v5",
+    "pk": "baugesuch-v7.spezialformulare-v7",
     "fields": {
-      "created_at": "2026-04-23T09:18:36.985Z",
-      "modified_at": "2026-04-23T09:18:36.985Z",
+      "created_at": "2026-04-28T09:10:01.432Z",
+      "modified_at": "2026-04-28T09:10:01.432Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch-v7",
-      "question": "spezialformulare-v5",
-      "sort": 5
+      "question": "spezialformulare-v7",
+      "sort": 4
     }
   },
   {
@@ -2745,6 +2763,396 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.allgemeine-angaben-zum-betrieb-v5",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.869Z",
+      "modified_at": "2026-04-28T09:09:03.869Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "allgemeine-angaben-zum-betrieb-v5",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.anschluss-elektrizitaet-v5",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.887Z",
+      "modified_at": "2026-04-28T09:09:03.887Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "anschluss-elektrizitaet-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.anschluss-gas-v5",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.892Z",
+      "modified_at": "2026-04-28T09:09:03.892Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "anschluss-gas-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.890Z",
+      "modified_at": "2026-04-28T09:09:03.890Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.896Z",
+      "modified_at": "2026-04-28T09:09:03.896Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "anschluss-trinkwasserinstallation-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.anschluss-wasser-abwasserinstallationen-v5",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.899Z",
+      "modified_at": "2026-04-28T09:09:03.899Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "anschluss-wasser-abwasserinstallationen-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.bauvorhaben-in-konsultationsbereichen-v3",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.853Z",
+      "modified_at": "2026-04-28T09:09:03.853Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "bauvorhaben-in-konsultationsbereichen-v3",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.benuetzung-oeffentlichem-terrain-v5",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.885Z",
+      "modified_at": "2026-04-28T09:09:03.885Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "benuetzung-oeffentlichem-terrain-v5",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.biologische-sicherheit-v3",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.851Z",
+      "modified_at": "2026-04-28T09:09:03.851Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "biologische-sicherheit-v3",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.entsorgung",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.864Z",
+      "modified_at": "2026-04-28T09:09:03.864Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "entsorgung",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.erdbebensicherheit-v5",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.882Z",
+      "modified_at": "2026-04-28T09:09:03.882Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "erdbebensicherheit-v5",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.gastgewerbe-allgemein",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.841Z",
+      "modified_at": "2026-04-28T09:09:03.841Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "gastgewerbe-allgemein",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.gastgewerbe-fumoir",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.844Z",
+      "modified_at": "2026-04-28T09:09:03.844Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "gastgewerbe-fumoir",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.hindernisfreies-bauen",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.879Z",
+      "modified_at": "2026-04-28T09:09:03.879Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "hindernisfreies-bauen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.immissionsschutz-laermschutz",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.838Z",
+      "modified_at": "2026-04-28T09:09:03.838Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "immissionsschutz-laermschutz",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.immissionsschutz-v7",
+    "fields": {
+      "created_at": "2026-04-28T09:13:03.126Z",
+      "modified_at": "2026-04-28T09:13:03.126Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "immissionsschutz-v7",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.maschinen-und-anlagen",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.872Z",
+      "modified_at": "2026-04-28T09:09:03.872Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "maschinen-und-anlagen",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.naturgefahren",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.876Z",
+      "modified_at": "2026-04-28T09:09:03.876Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "naturgefahren",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.personalien-betreiberin-der-anlage",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.866Z",
+      "modified_at": "2026-04-28T09:09:03.866Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "personalien-betreiberin-der-anlage",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.personalien-gastgewerbe",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.840Z",
+      "modified_at": "2026-04-28T09:09:03.840Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "personalien-gastgewerbe",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.reklame",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.862Z",
+      "modified_at": "2026-04-28T09:09:03.862Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "reklame",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.solar-und-sendeanlagen-v3",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.856Z",
+      "modified_at": "2026-04-28T09:09:03.856Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "solar-und-sendeanlagen-v3",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.stoerfallvorsorge-v3",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.847Z",
+      "modified_at": "2026-04-28T09:09:03.847Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "stoerfallvorsorge-v3",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.waermepumpen",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.835Z",
+      "modified_at": "2026-04-28T09:09:03.835Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "waermepumpen",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.wald",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.858Z",
+      "modified_at": "2026-04-28T09:09:03.858Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "wald",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.zivilschutz-v5",
+    "fields": {
+      "created_at": "2026-04-28T09:09:03.832Z",
+      "modified_at": "2026-04-28T09:09:03.832Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "zivilschutz-v5",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "vorabklaerung-vollstaendig-v7.1-allgemeine-informationen-v5",
     "fields": {
       "created_at": "2026-04-23T09:20:11.205Z",
@@ -2850,17 +3258,17 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "vorabklaerung-vollstaendig-v7.spezialformulare-v5",
+    "pk": "vorabklaerung-vollstaendig-v7.spezialformulare-v7",
     "fields": {
-      "created_at": "2026-04-23T09:20:11.212Z",
-      "modified_at": "2026-04-23T09:20:11.212Z",
+      "created_at": "2026-04-28T09:12:04.345Z",
+      "modified_at": "2026-04-28T09:12:04.345Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v7",
-      "question": "spezialformulare-v5",
-      "sort": 5
+      "question": "spezialformulare-v7",
+      "sort": 4
     }
   },
   {
@@ -3317,6 +3725,68 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "dokumente-v7",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "immissionsschutz-v7",
+    "fields": {
+      "created_at": "2026-04-28T09:13:03.066Z",
+      "modified_at": "2026-04-28T09:19:33.500Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Immissionsschutz I\", \"fr\": \"Protection contre les immissions\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\n  'bauten-mit-mehr-als-30-grossvieheinheiten-ja' == 'bauten-mit-mehr-als-30-grossvieheinheiten'|answer ||\n  'werden-neue-hofduengeranlagen-erstellt-ja' ==\n'werden-neue-hofduengeranlagen-erstellt'|answer ||\n[\n  'baubeschrieb-neubau', \n  'baubeschrieb-um-ausbau', \n  'baubeschrieb-erweiterung-anbau',\n  'baubeschrieb-umnutzung',\n  'baubeschrieb-technische-anlage',\n  'baubeschrieb-andere'\n] intersects 'baubeschrieb'|answer ||\n[\n  'nutzungsart-industrie',\n  'nutzungsart-gewerbe',\n  'nutzungsart-gastgewerbe',\n  'nutzungsart-landwirtschaft',\n  'nutzungsart-dienstleistung'\n] intersects 'nutzungsart'|answer ||\n[\n  'feuerungsanlagen-ol-oder-gasfeuerungen-350-kw',\n  'feuerungsanlagen-holzfeuerungen'\n] intersects 'feuerungsanlagen'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "immissionsschutz",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "spezialformulare-v7",
+    "fields": {
+      "created_at": "2026-04-28T09:10:01.368Z",
+      "modified_at": "2026-04-28T09:10:10.422Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spezialformulare\", \"fr\": \"Formulaires spéciaux\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "spezialformulare-v7",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
