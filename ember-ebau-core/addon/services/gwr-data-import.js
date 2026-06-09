@@ -5,7 +5,7 @@ export default class GwrDataImportService extends Service {
 
   async fetchImportData(instanceId) {
     const data = await this.fetch.fetch(
-      `/api/v1/instances/${instanceId}/gwr_data`,
+      `/api/v1/instances/${instanceId}/gwr-data`,
       {
         headers: {
           accept: "application/json",

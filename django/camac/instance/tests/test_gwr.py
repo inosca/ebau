@@ -4,6 +4,7 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 
+@pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
     "canton_name,master_data_case",
     [
