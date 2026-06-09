@@ -65,6 +65,11 @@ const config = {
       createTask: "create-publication",
       dateRanges: [["publikation-start", "publikation-ende"]],
     },
+    neighbors: {
+      task: "fill-information-of-neighbors",
+      createTask: "create-information-of-neighbors",
+      dateRanges: [["bauanzeige-start", "bauanzeige-ende"]],
+    },
   },
 };
 

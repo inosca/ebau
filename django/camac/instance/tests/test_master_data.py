@@ -255,7 +255,7 @@ def test_master_data_is_form_resolver(
             lf("sg_master_data_settings"),
             "de",
             lf("sg_master_data_case"),
-            16,
+            23,
             id="SG",
         ),
     ],

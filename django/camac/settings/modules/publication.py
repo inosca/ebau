@@ -148,6 +148,7 @@ PUBLICATION = {
         "SHOW_MAIN_FORM": True,
         "RANGE_QUESTIONS": {
             "PUBLIC": [("publikation-start", "publikation-ende")],
+            "NEIGHBORS": [("bauanzeige-start", "bauanzeige-ende")],
         },
     },
 }

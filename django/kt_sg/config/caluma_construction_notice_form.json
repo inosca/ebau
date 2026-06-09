@@ -1,0 +1,479 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "bauanzeige",
+    "fields": {
+      "created_at": "2026-06-09T11:48:14.131Z",
+      "modified_at": "2026-06-09T11:48:14.131Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bauanzeige\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige.bauanzeige-ende",
+    "fields": {
+      "created_at": "2026-06-09T11:53:27.286Z",
+      "modified_at": "2026-06-09T11:53:27.286Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige",
+      "question": "bauanzeige-ende",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige.bauanzeige-grundeigentuemer",
+    "fields": {
+      "created_at": "2026-06-18T13:38:42.630Z",
+      "modified_at": "2026-06-18T13:38:42.630Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige",
+      "question": "bauanzeige-grundeigentuemer",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige.bauanzeige-qr-code",
+    "fields": {
+      "created_at": "2026-06-09T12:12:15.711Z",
+      "modified_at": "2026-06-09T12:12:15.711Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige",
+      "question": "bauanzeige-qr-code",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige.bauanzeige-start",
+    "fields": {
+      "created_at": "2026-06-09T11:54:09.882Z",
+      "modified_at": "2026-06-09T11:54:09.882Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige",
+      "question": "bauanzeige-start",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige.bauanzeige-stichworte",
+    "fields": {
+      "created_at": "2026-06-09T11:55:13.295Z",
+      "modified_at": "2026-06-09T11:55:13.295Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige",
+      "question": "bauanzeige-stichworte",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige.bauanzeige-text",
+    "fields": {
+      "created_at": "2026-06-09T11:56:24.189Z",
+      "modified_at": "2026-06-09T11:56:24.189Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige",
+      "question": "bauanzeige-text",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauanzeige-stichworte-bauen-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2026-06-18T13:50:53.478Z",
+      "modified_at": "2026-06-18T13:50:53.478Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauen ausserhalb Bauzone\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauanzeige-stichworte-gesuch-zur-nutzung-des-oeffentlichen-grundes-gesteigerter-gemeingebrauch",
+    "fields": {
+      "created_at": "2026-06-18T13:50:53.423Z",
+      "modified_at": "2026-06-18T13:50:53.423Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesuch zur Nutzung des öffentlichen Grundes (gesteigerter Gemeingebrauch)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauanzeige-stichworte-gewaesser",
+    "fields": {
+      "created_at": "2026-06-18T13:50:53.432Z",
+      "modified_at": "2026-06-18T13:50:53.432Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gewässer\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauanzeige-stichworte-schutzgebiet-betroffen",
+    "fields": {
+      "created_at": "2026-06-18T13:50:53.477Z",
+      "modified_at": "2026-06-18T13:50:53.477Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzgebiet betroffen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauanzeige-stichworte-wald-betroffen",
+    "fields": {
+      "created_at": "2026-06-18T13:50:53.466Z",
+      "modified_at": "2026-06-18T13:50:53.466Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wald betroffen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauanzeige-ende",
+    "fields": {
+      "created_at": "2026-06-09T11:53:27.196Z",
+      "modified_at": "2026-06-18T13:48:28.563Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ende der Bauanzeige\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "date-after-question": "bauanzeige-start"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[\"date-after\"]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauanzeige-grundeigentuemer",
+    "fields": {
+      "created_at": "2026-06-18T13:38:42.534Z",
+      "modified_at": "2026-06-18T13:39:08.118Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzuschreibende Grundeigentümer\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "juristische-person-name",
+          "vorname",
+          "name",
+          "strasse-und-nr",
+          "plz",
+          "ort"
+        ]
+      },
+      "data_source": null,
+      "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauanzeige-qr-code",
+    "fields": {
+      "created_at": "2026-06-09T12:12:15.622Z",
+      "modified_at": "2026-06-09T12:12:15.622Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"QR Code\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"QR Code\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "qr-code"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauanzeige-start",
+    "fields": {
+      "created_at": "2026-06-09T11:54:09.787Z",
+      "modified_at": "2026-06-09T11:54:17.327Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Start der Bauanzeige\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauanzeige-stichworte",
+    "fields": {
+      "created_at": "2026-06-09T11:55:13.196Z",
+      "modified_at": "2026-06-18T13:50:53.584Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stichworte\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauanzeige-text",
+    "fields": {
+      "created_at": "2026-06-09T11:56:24.100Z",
+      "modified_at": "2026-06-09T11:57:02.976Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zusätzlicher Publikationstext\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Stammdaten werden bereits durch das System erfasst. Hier können Sie zusätzlichen Text ergänzen.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "widgetOverride": "cf-snippets-textarea"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauanzeige-stichworte.bauanzeige-stichworte-bauen-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2026-06-18T13:50:53.603Z",
+      "modified_at": "2026-06-18T13:50:53.603Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauanzeige-stichworte",
+      "option": "bauanzeige-stichworte-bauen-ausserhalb-bauzone",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauanzeige-stichworte.bauanzeige-stichworte-gesuch-zur-nutzung-des-oeffentlichen-grundes-gesteigerter-gemeingebrauch",
+    "fields": {
+      "created_at": "2026-06-18T13:50:53.595Z",
+      "modified_at": "2026-06-18T13:50:53.595Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauanzeige-stichworte",
+      "option": "bauanzeige-stichworte-gesuch-zur-nutzung-des-oeffentlichen-grundes-gesteigerter-gemeingebrauch",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauanzeige-stichworte.bauanzeige-stichworte-gewaesser",
+    "fields": {
+      "created_at": "2026-06-18T13:50:53.598Z",
+      "modified_at": "2026-06-18T13:50:53.598Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauanzeige-stichworte",
+      "option": "bauanzeige-stichworte-gewaesser",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauanzeige-stichworte.bauanzeige-stichworte-schutzgebiet-betroffen",
+    "fields": {
+      "created_at": "2026-06-18T13:50:53.591Z",
+      "modified_at": "2026-06-18T13:50:53.591Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauanzeige-stichworte",
+      "option": "bauanzeige-stichworte-schutzgebiet-betroffen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauanzeige-stichworte.bauanzeige-stichworte-wald-betroffen",
+    "fields": {
+      "created_at": "2026-06-18T13:50:53.600Z",
+      "modified_at": "2026-06-18T13:50:53.600Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauanzeige-stichworte",
+      "option": "bauanzeige-stichworte-wald-betroffen",
+      "sort": 4
+    }
+  }
+]
