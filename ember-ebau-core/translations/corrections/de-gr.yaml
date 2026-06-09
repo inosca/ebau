@@ -3,4 +3,7 @@ corrections:
     description: "Die Funktion «Dossier korrigieren» erlaubt kleine Korrekturen am Gesuchsformular durch die Gemeinde (z.B. Präzisierungen des Baubeschriebs). Wesentliche Änderungen sind durch die Gesuchstellenden am Formular über die Nachforderung (Änderungen am Gesuchsformular erlauben) vorzunehmen."
     description-applicant-correction: "Damit Gesuchstellende ihre Angaben im Gesuchsformular anpassen, erstellen Sie eine Nachforderung mit der Option «Änderungen am Gesuchsformular erlauben»."
     link-applicant-correction: "Nachforderung"
-    
+
+  change-form:
+    invalid-form-hint: |-
+      <strong>Achtung:</strong> Das Formular dieses Dossiers ist nun nicht vollständig ausgefüllt. Erstellen Sie an die Gesuchstellenden eine Nachforderung mit der Option «Änderungen am Gesuchsformular erlauben» und fordern Sie eine neue Eingabequittung ein.
