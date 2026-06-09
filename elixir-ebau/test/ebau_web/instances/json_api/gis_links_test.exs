@@ -2,8 +2,8 @@ defmodule EbauWeb.Instances.GisLinksTest do
   use EbauWeb.ConnCase, async: true
 
   setup %{conn: conn} do
-    Ebau.User.create_role!(%{slug: "municipality-admin"}, authorize?: false)
-    Ebau.User.create_role!(%{slug: "municipality"}, authorize?: false)
+    Ebau.User.create_role!(%{slug: "municipality-admin"}, authorize?: false, actor: nil)
+    Ebau.User.create_role!(%{slug: "municipality"}, authorize?: false, actor: nil)
 
     actor = Ebau.Test.UserHelper.create_actor!(%{role: %{slug: "municipality-admin"}})
 

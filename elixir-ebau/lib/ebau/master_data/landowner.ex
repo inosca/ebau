@@ -24,6 +24,10 @@ defmodule Ebau.MasterData.Landowner do
   end
 
   policies do
+    policy action_type([:create, :update, :destroy]) do
+      forbid_if always()
+    end
+
     policy action_type(:read) do
       authorize_if accessing_from(Ebau.Instances.Instance, :landowners)
     end

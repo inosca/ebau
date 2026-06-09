@@ -33,11 +33,12 @@ defmodule Caluma.Form.Changes.CreateRowDocument do
       |> Ash.Changeset.manage_relationship(:form, %{slug: question.row_form_id}, type: :append)
       |> Ash.Changeset.before_action(fn cs ->
         Caluma.Form.AnswerDocument
-        |> Ash.Query.for_read(:get_by_document_and_question,
-          document_id: parent_id,
-          question_id: question.slug
+        |> Ash.Query.for_read(
+          :get_by_document_and_question,
+          %{document_id: parent_id, question_id: question.slug},
+          actor: context.actor
         )
-        |> Ash.bulk_update!(:shift_sort_up, actor: context.actor)
+        |> Ash.bulk_update!(:shift_sort_up, %{}, actor: context.actor, authorize?: false)
 
         cs
       end)

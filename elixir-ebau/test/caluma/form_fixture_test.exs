@@ -31,12 +31,12 @@ defmodule Caluma.FormFixtureTest do
           ]
         },
         load: [questions: [row_form: :questions]],
-        authorize?: false
+        authorize?: false, actor: nil
       )
 
     assert form.slug == "baugesuch"
 
-    document = Caluma.Form.create_document!(%{form: %{slug: form.slug}}, authorize?: false)
+    document = Caluma.Form.create_document!(%{form: %{slug: form.slug}}, authorize?: false, actor: nil)
 
     assert document.form_id == "baugesuch"
 
@@ -80,7 +80,7 @@ defmodule Caluma.FormFixtureTest do
           }
         ]
       },
-      authorize?: false
+      authorize?: false, actor: nil
     )
 
     form =
@@ -101,7 +101,7 @@ defmodule Caluma.FormFixtureTest do
           ]
         },
         load: [questions: [row_form: :questions]],
-        authorize?: false
+        authorize?: false, actor: nil
       )
 
     assert_question("attachments", :table, row_form_id: "attachments")
@@ -111,7 +111,7 @@ defmodule Caluma.FormFixtureTest do
   end
 
   defp assert_question(slug, type, attrs \\ []) do
-    question = Caluma.Form.get_question_by_slug!(slug, authorize?: false)
+    question = Caluma.Form.get_question_by_slug!(slug, authorize?: false, actor: nil)
 
     assert question.type == type
 
@@ -126,7 +126,7 @@ defmodule Caluma.FormFixtureTest do
       Caluma.Form.get_form_question_by_form_and_question!(
         form_id,
         question_id,
-        authorize?: false
+        authorize?: false, actor: nil
       )
 
     assert form_question.sort == sort

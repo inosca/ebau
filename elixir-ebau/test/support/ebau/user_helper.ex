@@ -76,7 +76,7 @@ defmodule Ebau.Test.UserHelper do
           surname: "user",
           language: :de
         },
-        authorize?: false
+        authorize?: false, actor: nil
       )
 
     group =
@@ -85,13 +85,13 @@ defmodule Ebau.Test.UserHelper do
           users: [user],
           role: %{slug: get_in(args, [:role, :slug]) || "municipality-admin"}
         },
-        authorize?: false
+        authorize?: false, actor: nil, load: [:role]
       )
 
     service_group_slug = get_in(args, [:service_group, :slug]) || "municipality"
 
     service_attrs =
-      case Ebau.User.get_service_group_by_slug(service_group_slug, authorize?: false) do
+      case Ebau.User.get_service_group_by_slug(service_group_slug, authorize?: false, actor: nil) do
         {:error, _error} ->
           %{
             name: "default-service",
@@ -110,13 +110,13 @@ defmodule Ebau.Test.UserHelper do
           }
       end
 
-    service = Ebau.User.create_service!(service_attrs, authorize?: false)
+    service = Ebau.User.create_service!(service_attrs, authorize?: false, actor: nil)
 
     %Ebau.Actor{
       user: user,
       group: group,
       service: service,
-      role: group.role.slug
+      role: group.role
     }
   end
 end

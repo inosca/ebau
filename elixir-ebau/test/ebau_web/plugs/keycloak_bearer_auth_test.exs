@@ -33,7 +33,7 @@ defmodule EbauWeb.Plugs.KeycloakBearerAuthTest do
     end
 
     test "sets actor on conn when authentication succeeds", %{conn: conn} do
-      Ebau.User.create_role!(%{slug: "municipality-admin"}, authorize?: false)
+      Ebau.User.create_role!(%{slug: "municipality-admin"}, authorize?: false, actor: nil)
       actor = Ebau.Test.UserHelper.create_actor!(%{role: %{slug: "municipality-admin"}})
 
       conn = authenticated_rest_api_conn(conn, actor)

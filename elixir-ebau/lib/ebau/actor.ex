@@ -15,7 +15,7 @@ defmodule Ebau.Actor do
     user: user,
     group: group,
     service: group.service,
-    role: group.role.slug
+    role: group.role
   }
   ```
 
@@ -49,7 +49,7 @@ defmodule Ebau.Actor do
           user: Ebau.User.User.t(),
           group: Ebau.User.Group.t(),
           service: Ebau.User.Service.t(),
-          role: String.t()
+          role: Ebau.User.Role.t()
         }
 
   @enforce_keys [:user, :group, :service, :role]

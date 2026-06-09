@@ -2,18 +2,18 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
   use Ebau.DataCase, async: true
 
   setup do
-    Ebau.User.create_role!(%{slug: "municipality-admin"}, authorize?: false)
+    Ebau.User.create_role!(%{slug: "municipality-admin"}, authorize?: false, actor: nil)
 
     Caluma.Workflow.create_workflow!(%{slug: "building-permit", name: %{"de" => "workflow"}},
-      authorize?: false
+      authorize?: false, actor: nil
     )
 
     actor = Ebau.Test.UserHelper.create_actor!(%{role: %{slug: "municipality-admin"}})
 
     caluma_case =
-      Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}}, authorize?: false)
+      Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}}, authorize?: false, actor: nil)
 
-    instance = Ebau.Instances.create_instance!(%{case: %{id: caluma_case.id}}, authorize?: false)
+    instance = Ebau.Instances.create_instance!(%{case: %{id: caluma_case.id}}, authorize?: false, actor: nil)
 
     Caluma.Form.create_form_tree!(
       %{
@@ -43,12 +43,12 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
           }
         ]
       },
-      authorize?: false
+      authorize?: false, actor: nil
     )
 
     doc =
       Caluma.Form.create_document!(%{form: %{slug: "baugesuch"}, case: %{id: caluma_case.id}},
-        authorize?: false
+        authorize?: false, actor: nil
       )
 
     Caluma.Form.create_row_document!(
@@ -58,7 +58,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
         %{question_id: "lagekoordinaten-nord", value: 123.0},
         %{question_id: "lagekoordinaten-ost", value: 456.0}
       ],
-      authorize?: false
+      authorize?: false, actor: nil
     )
 
     gis_link =
@@ -82,7 +82,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
   } do
     Ebau.Permissions.grant_acl_for_instance!(
       %{instance: %{id: instance.id}, user: %{id: actor.user.id}},
-      authorize?: false
+      authorize?: false, actor: nil
     )
 
     gis_link =
@@ -104,12 +104,12 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
         %{question_id: "lagekoordinaten-nord", value: 999.0},
         %{question_id: "lagekoordinaten-ost", value: 888.0}
       ],
-      authorize?: false
+      authorize?: false, actor: nil
     )
 
     Ebau.Permissions.grant_acl_for_instance!(
       %{instance: %{id: instance.id}, user: %{id: actor.user.id}},
-      authorize?: false
+      authorize?: false, actor: nil
     )
 
     gis_link =
@@ -123,14 +123,14 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
     gis_link: gis_link
   } do
     empty_case =
-      Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}}, authorize?: false)
+      Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}}, authorize?: false, actor: nil)
 
     empty_instance =
-      Ebau.Instances.create_instance!(%{case: %{id: empty_case.id}}, authorize?: false)
+      Ebau.Instances.create_instance!(%{case: %{id: empty_case.id}}, authorize?: false, actor: nil)
 
     Ebau.Permissions.grant_acl_for_instance!(
       %{instance: %{id: empty_instance.id}, user: %{id: actor.user.id}},
-      authorize?: false
+      authorize?: false, actor: nil
     )
 
     gis_link =
