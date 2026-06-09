@@ -2177,15 +2177,14 @@ class CalumaInstanceChangeFormSerializer(serializers.Serializer):
         case.document.form_id = validated_data["form"]
         case.document.save()
 
+        response_data = None
         try:
             DocumentValidator().validate(
                 instance.case.document,
                 self.context["request"].caluma_info.context.user,
             )
         except CustomValidationError:
-            return response.Response(
-                data={"messages": ["form_invalid"]}, status=status.HTTP_200_OK
-            )
+            response_data = {"messages": ["form_invalid"]}
 
         # create a history entry
         create_history_entry(
@@ -2194,7 +2193,10 @@ class CalumaInstanceChangeFormSerializer(serializers.Serializer):
             gettext_noop("Changed form type"),
         )
 
-        return response.Response(status=status.HTTP_204_NO_CONTENT)
+        if response_data is None:
+            return response.Response(status=status.HTTP_204_NO_CONTENT)
+
+        return response.Response(response_data, status=status.HTTP_200_OK)
 
     class Meta:
         resource_name = "instance-change-forms"
