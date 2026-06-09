@@ -32,7 +32,5 @@ defmodule Ebau.MasterData.TypeOfConstruction do
   caluma_document do
     answer :art_der_hochbaute, :string,
       question_id: {Ebau.Caluma.CantonResolver, %{default: "typ-des-bauwerks"}}
-
-    # TODO: value_mapping from string to integer codes (e.g. "typ-des-bauwerks-einfamilienhaus" -> 6271)
   end
 end

@@ -132,43 +132,6 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswer do
     )
   end
 
-
-  defp boolean_array_expr(answer_expr, mapping) do
-    expr(
-      if is_nil(^answer_expr) do
-        nil
-      else
-        fragment(
-          """
-          (
-            SELECT COALESCE(
-              array_agg(
-                CASE (?::jsonb ->> elem.value)
-                  WHEN 'true' THEN true
-                  WHEN 'false' THEN false
-                  ELSE NULL
-                END
-                ORDER BY elem.ord
-              ),
-              ARRAY[]::boolean[]
-            )
-            FROM jsonb_array_elements_text(
-              CASE jsonb_typeof(?::jsonb)
-                WHEN 'array' THEN ?::jsonb
-                ELSE jsonb_build_array(?::jsonb)
-              END
-            ) WITH ORDINALITY AS elem(value, ord)
-          )
-          """,
-          ^mapping,
-          ^answer_expr,
-          ^answer_expr,
-          ^answer_expr
-        )
-      end
-    )
-  end
-
   defp integer_array_expr(answer_expr, mapping) do
     expr(
       if is_nil(^answer_expr) do
