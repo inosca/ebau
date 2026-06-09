@@ -42,6 +42,7 @@ export default {
     },
   },
   defaultOrder: "dossierNumber",
+  parcelSlugs: [answerSlugs.parcelNumber, answerSlugs.buildingLawNumber],
   addressSlugs: [answerSlugs.objectStreet, answerSlugs.objectLocation],
   personalDetailsSlugs: [
     answerSlugs.juristicNameApplicant,
