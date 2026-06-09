@@ -6952,6 +6952,22 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 610,
+    "fields": {
+      "role": 11,
+      "service": 12,
+      "disabled": 0,
+      "name": "Amt für Raumentwicklung (Ortsplanung) als Leitbehörde",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.grouplocation",
     "pk": 1,
     "fields": {
@@ -32565,6 +32581,14 @@
     "fields": {
       "group": 458,
       "location": 33
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3371,
+    "fields": {
+      "group": 610,
+      "location": 45
     }
   },
   {

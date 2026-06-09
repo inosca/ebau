@@ -660,6 +660,21 @@
     }
   },
   {
+    "model": "user.location",
+    "pk": 45,
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "AREOp",
+      "district_number": null,
+      "section_number": null,
+      "name": "Amt für Raumentwicklung (Ortsplanung)",
+      "commune_name": "Amt für Raumentwicklung (Ortsplanung)",
+      "district_name": null,
+      "section_name": null,
+      "zip": null
+    }
+  },
+  {
     "model": "user.role",
     "pk": 1,
     "fields": {
