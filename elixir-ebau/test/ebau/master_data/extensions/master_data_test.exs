@@ -171,12 +171,12 @@ defmodule Caluma.Workflow.Extensions.CaseTest do
       assert calc.type == {:array, Ash.Type.String}
     end
 
-    test "supports integer mapped values" do
+    test "supports float mapped values" do
       calc = Enum.find(Ash.Resource.Info.calculations(TestResource), &(&1.name == :code_tags))
       {_mod, opts} = calc.calculation
 
-      assert calc.type == {:array, Ash.Type.Integer}
-      assert opts[:mapping] == %{"tag-a" => 1, "tag-b" => 2}
+      assert calc.type == {:array, Ash.Type.Float}
+      assert opts[:mapping] == %{"tag-a" => 1.5, "tag-b" => 2.8}
     end
 
     test "supports canton-specific mappings" do
