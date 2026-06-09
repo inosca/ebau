@@ -1,0 +1,7 @@
+# enable all Swiss locales, plus english
+# (there's no Rumansch in Debian, so can't really support that)
+en_US.UTF-8 UTF-8
+
+de_CH.UTF-8 UTF-8
+fr_CH.UTF-8 UTF-8
+it_CH.UTF-8 UTF-8
