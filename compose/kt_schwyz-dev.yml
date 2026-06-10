@@ -19,7 +19,7 @@ services:
     ports:
       - "80:80"
     networks:
-      ebau.localhost:
+      default:
         aliases:
           - ebau.localhost
           - ebau-portal.localhost
@@ -90,8 +90,6 @@ services:
     env_file:
       - ../garage/compose-env/dev-ebau.conf
       - ../garage/compose-env/dev-alexandria.conf
-    networks:
-      - ebau.localhost
     command: devserver
 
   celery:
@@ -109,29 +107,21 @@ services:
     environment:
       BROKER_URL: redis://default:valkey@valkey:6379/0 # gitleaks:allow
       FLOWER_URL_PREFIX: celery-flower
-    networks:
-      - ebau.localhost
 
   ember:
     environment:
       KEYCLOAK_HOST: http://ebau-keycloak.localhost
       GIS_HOST: map-t.geo.sz.ch
-    networks:
-      - ebau.localhost
 
   ember-camac-ng:
     environment:
       APP_ENV: development
-    networks:
-      - ebau.localhost
 
 
   cache:
     image: memcached:1.6-alpine
     ports:
       - "11211:11211"
-    networks:
-      - ebau.localhost
 
   clamav:
     image: acr.run/camac-ng/camac-ng/clamav:2.6.99
@@ -147,8 +137,6 @@ services:
       MAX_FILE_SIZE: 60M
       MAX_SCAN_SIZE: 200M
       STREAM_MAX_LENGTH: 60M
-    networks:
-      - ebau.localhost
 
   db:
     image: postgres:16-bookworm
@@ -161,8 +149,6 @@ services:
     volumes:
       - pg16data:/var/lib/postgresql/data
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
-    networks:
-      - ebau.localhost
     command: -c max_locks_per_transaction=128
 
   document-merge-service:
@@ -198,8 +184,6 @@ services:
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions
       - ../document-merge-service/${APPLICATION}:/tmp/document-merge-service
-    networks:
-      - ebau.localhost
     command: devserver
 
   keycloak:
@@ -217,8 +201,6 @@ services:
       KC_HOSTNAME: ebau-keycloak.localhost
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: camac
-    networks:
-      - ebau.localhost
     command:
       [
         "start",
@@ -229,8 +211,6 @@ services:
 
   mailpit:
     image: axllent/mailpit
-    networks:
-      - ebau.localhost
     environment:
       MP_WEBROOT: mailpit
 
@@ -247,8 +227,6 @@ services:
       MB_DB_USER: camac
       MB_DB_PASS: camac
       MB_DB_DBNAME: metabase
-    networks:
-      - ebau.localhost
 
   garage:
     volumes:
@@ -257,8 +235,6 @@ services:
       - ../garage/garage.toml:/etc/garage.toml:ro
     env_file:
       - ../garage/compose-env/dev-garage.conf
-    networks:
-      - ebau.localhost
 
   garage-webui:
     image: khairul169/garage-webui:latest
@@ -269,8 +245,6 @@ services:
     environment:
       API_BASE_URL: "http://garage:3903"
       S3_ENDPOINT_URL: "http://garage:3900"
-    networks:
-      - ebau.localhost
     depends_on:
       - garage
 
@@ -278,18 +252,11 @@ services:
     image: zrrrzzt/docker-unoconv-webservice:8.9.4
     ports:
       - "3000:3000"
-    networks:
-      - ebau.localhost
 
   valkey:
     image: valkey/valkey:9.0
     volumes:
       - valkey_data:/data
-    networks:
-      - ebau.localhost
-
-networks:
-  ebau.localhost:
 
 volumes:
   djangomedia:

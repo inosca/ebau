@@ -1,8 +1,6 @@
 services:
   cache:
     image: memcached:1.6-alpine
-    networks:
-      - ebau.localhost
 
   proxy:
     image: nginx:1.29-alpine
@@ -15,8 +13,6 @@ services:
     volumes:
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
-    networks:
-      - ebau.localhost
 
   db:
     image: postgres:15-bullseye
@@ -27,8 +23,6 @@ services:
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
       - pg15data:/var/lib/postgresql/data
-    networks:
-      - ebau.localhost
     command: -c fsync=off -c full_page_writes=off -c synchronous_commit=off -c wal_level=minimal -c max_wal_senders=0 -c archive_mode=off -c max_locks_per_transaction=128
 
   django: &django
@@ -80,8 +74,6 @@ services:
       - djangotmpmedia:/tmp/camac/tmpfiles
       - ../django:/app
       - ../artifacts:/app/artifacts
-    networks:
-      - ebau.localhost
 
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG:-master}
@@ -95,8 +87,6 @@ services:
       target: prod
     depends_on:
       - django
-    networks:
-      - ebau.localhost
     environment:
       - ENV=docker
 
@@ -113,8 +103,6 @@ services:
     depends_on:
       - keycloak
       - django
-    networks:
-      - ebau.localhost
     environment:
       - ENV=docker
 
@@ -128,8 +116,6 @@ services:
       args:
         WORKSPACE: ember-camac-ng
       target: prod
-    networks:
-      - ebau.localhost
 
   ember-ebau:
     image: acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_REF_SLUG:-master}
@@ -141,21 +127,15 @@ services:
       args:
         WORKSPACE: ember-ebau
       target: prod
-    networks:
-      - ebau.localhost
     environment:
       - ENV=docker
 
 
   mailpit:
     image: axllent/mailpit
-    networks:
-      - ebau.localhost
 
   unoconv:
     image: zrrrzzt/docker-unoconv-webservice:8.9.4
-    networks:
-      - ebau.localhost
 
   keycloak:
     image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_REF_SLUG:-master}
@@ -172,8 +152,6 @@ services:
       - KC_HOSTNAME=ebau-keycloak.localhost
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=camac
-    networks:
-      - ebau.localhost
 
   document-merge-service:
     image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_REF_SLUG:-master}
@@ -186,8 +164,6 @@ services:
     depends_on:
       - db
       - cache
-    networks:
-      - ebau.localhost
     environment:
       - ENV=dev
       - CACHE_LOCATION=cache:11211
@@ -212,8 +188,6 @@ services:
       - ../garage/garage.toml:/etc/garage.toml:ro
     env_file:
       - ../garage/compose-env/dev-garage.conf
-    networks:
-      - ebau.localhost
 
   housing-stat-proxy:
     image: acr.run/camac-ng/camac-ng/housing-stat-proxy:${CI_COMMIT_REF_SLUG:-master}
@@ -231,6 +205,3 @@ volumes:
     driver: local
   garage_data:
     driver: local
-
-networks:
-  ebau.localhost:

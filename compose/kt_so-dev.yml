@@ -2,8 +2,6 @@ services:
   cache:
     image: memcached:1.6-alpine
     user: memcache:memcache
-    networks:
-      - ebau.localhost
 
   proxy:
     image: nginxinc/nginx-unprivileged:1.29-alpine
@@ -27,7 +25,7 @@ services:
     ports:
       - "80:80"
     networks:
-      ebau.localhost:
+      default:
         aliases:
           - ember-ebau.localhost
           - ebau-portal.localhost
@@ -44,8 +42,6 @@ services:
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
       - pg15data:/var/lib/postgresql/data
-    networks:
-      - ebau.localhost
     ports:
       - "5432:5432"
 
@@ -114,8 +110,6 @@ services:
     env_file:
       - ../garage/compose-env/dev-ebau.conf
       - ../garage/compose-env/dev-alexandria.conf
-    networks:
-      - ebau.localhost
     tty: true
     stdin_open: true
     command: devserver
@@ -196,8 +190,6 @@ services:
       ENABLE_TOKEN_EXCHANGE: ${ENABLE_TOKEN_EXCHANGE:-false}
       ENABLE_WATERMARK: true
       WATERMARK: local
-    networks:
-      - ebau.localhost
 
   ember-ebau:
     user: nginx:nginx
@@ -208,8 +200,6 @@ services:
       ENABLE_WATERMARK: true
       WATERMARK: local
       ALEXANDRIA_MANABI_ALLOWED_MIMETYPES: application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-    networks:
-      - ebau.localhost
 
   keycloak:
     user: keycloak:keycloak
@@ -226,8 +216,6 @@ services:
       KC_FEATURES: token-exchange:v1,admin-fine-grained-authz:v1
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
-    networks:
-      - ebau.localhost
     command:
       [
         "start",
@@ -239,8 +227,6 @@ services:
   mailpit:
     image: axllent/mailpit
     user: ${UID}
-    networks:
-      - ebau.localhost
     environment:
       MP_WEBROOT: mailpit
 
@@ -250,8 +236,6 @@ services:
       - cache
       - db
       - garage
-    networks:
-      - ebau.localhost
     cap_add:
       - CAP_SYS_ADMIN
     security_opt:
@@ -283,8 +267,6 @@ services:
       - ../garage/garage.toml:/etc/garage.toml:ro
     env_file:
       - ../garage/compose-env/dev-garage.conf
-    networks:
-      - ebau.localhost
 
   garage-webui:
     image: khairul169/garage-webui:latest
@@ -295,8 +277,6 @@ services:
     environment:
       API_BASE_URL: "http://garage:3903"
       S3_ENDPOINT_URL: "http://garage:3900"
-    networks:
-      - ebau.localhost
     depends_on:
       - garage
 
@@ -311,29 +291,21 @@ services:
       - garage_data:/data/garage_data
       - garage_meta:/data/garage_meta
     command: /bin/sh -c "chown ${UID} -R /data;"
-    networks:
-      - ebau.localhost
 
   tika:
     image: apache/tika:3.2.3.0-full
     user: ${UID}
-    networks:
-      - ebau.localhost
 
   redis:
     image: redis:8.4
     volumes:
       - redis_data:/redis/data
-    networks:
-      - ebau.localhost
 
   flower:
     image: mher/flower:2.0
     environment:
       BROKER_URL: redis://default:redis@redis:6379/0 # gitleaks:allow
       FLOWER_URL_PREFIX: celery-flower
-    networks:
-      - ebau.localhost
 
   elixir:
     build:
@@ -350,8 +322,6 @@ services:
       - elixir-ebau_build:/app/_build # caching the _build folder to a local volume
       - elixir-ebau_dependencies:/app/deps # caching the dependencies to a local volume
       - elixir-ebau_language-server:/app/.elixir_ls # caching the language server to a local volume
-    networks:
-      - ebau.localhost
     depends_on:
       - db
     environment:
@@ -361,9 +331,6 @@ services:
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_HOST=db
       - URL_PREFIX=/elixir
-
-networks:
-  ebau.localhost:
 
 volumes:
   pg15data:

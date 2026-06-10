@@ -2,8 +2,6 @@ services:
   cache:
     ports:
       - "11211:11211"
-    networks:
-      - ebau.localhost
 
   proxy:
     volumes:
@@ -17,7 +15,7 @@ services:
     ports:
       - "80:80"
     networks:
-      ebau.localhost:
+      default:
         aliases:
           - ebau.localhost
           - ebau-portal.localhost
@@ -28,8 +26,6 @@ services:
 
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
-    networks:
-      - ebau.localhost
 
   clamav:
     profiles:
@@ -38,8 +34,6 @@ services:
       - "3310:3310"
     environment:
       - ENABLE_DEFINITIONS_UPDATE=false
-    networks:
-      - ebau.localhost
 
   db:
     ports:
@@ -49,8 +43,6 @@ services:
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
       - pg15data:/var/lib/postgresql/data
-    networks:
-      - ebau.localhost
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:master
@@ -91,16 +83,12 @@ services:
     env_file:
       - ../garage/compose-env/dev-ebau.conf
       - ../garage/compose-env/dev-alexandria.conf
-    networks:
-      - ebau.localhost
     command: devserver
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
     environment:
       ENABLE_WATERMARK: true
-    networks:
-      - ebau.localhost
 
   celery:
     <<: *django
@@ -130,22 +118,16 @@ services:
       - valkey_data:/data
     env_file:
       - ../valkey/valkey-env/valkey.conf
-    networks:
-      - ebau.localhost
 
   flower:
     image: mher/flower:2.0
     environment:
       BROKER_URL: redis://default:valkey@valkey:6379/0 # gitleaks:allow
       FLOWER_URL_PREFIX: celery-flower
-    networks:
-      - ebau.localhost
 
 
   mailpit:
     image: axllent/mailpit
-    networks:
-      - ebau.localhost
     environment:
       - MP_WEBROOT=mailpit
 
@@ -163,8 +145,6 @@ services:
       - KC_HOSTNAME=ebau-keycloak.localhost
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=camac
-    networks:
-      - ebau.localhost
     command:
       [
         "start",
@@ -175,8 +155,6 @@ services:
 
   document-merge-service:
     image: acr.run/camac-ng/camac-ng/document-merge-service:master
-    networks:
-      - ebau.localhost
     cap_add:
       - CAP_SYS_ADMIN
     security_opt:
@@ -208,8 +186,6 @@ services:
       - ../garage/garage.toml:/etc/garage.toml:ro
     env_file:
       - ../garage/compose-env/dev-garage.conf
-    networks:
-      - ebau.localhost
 
   garage-webui:
     image: khairul169/garage-webui:latest
@@ -220,13 +196,8 @@ services:
     environment:
       API_BASE_URL: "http://garage:3903"
       S3_ENDPOINT_URL: "http://garage:3900"
-    networks:
-      - ebau.localhost
     depends_on:
       - garage
-
-networks:
-  ebau.localhost:
 
 volumes:
   garage_meta:
