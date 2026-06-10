@@ -6,6 +6,7 @@ import pytest
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
+from django.db.models import Q
 from django.urls import reverse
 from django.utils import timezone
 from rest_framework import status
@@ -19,6 +20,7 @@ from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.tests.form_utils import FormUtils
 from camac.user.models import ServiceRelation
+from camac.utils import get_unversioned_slug
 
 
 @pytest.mark.parametrize("instance_state__name", ["submitted"])
@@ -840,34 +842,72 @@ def test_submitted_so(so_access_levels, so_instance, instance_acl_factory):
     assert not the_acl.is_active()
 
 
+@pytest.mark.parametrize(
+    "form_slug, have_demolition_premium_acl",
+    [
+        ("baugesuch-reklamegesuch-v12", False),
+        ("abbruchpraemie", True),
+    ],
+)
 @pytest.mark.django_db
-def test_decision_involve_tax_administration_sz(
-    sz_permissions_settings,
+def test_decision_acls_sz(
+    # fixtures
+    caluma_work_item_factory,
+    form_factory,
+    service_factory,
+    set_application_sz,
     sz_access_levels,
     sz_instance,
-    set_application_sz,
-    service_factory,
-    caluma_work_item_factory,
+    sz_permissions_settings,
+    # params
+    form_slug,
+    have_demolition_premium_acl,
 ):
+    form = form_factory(name=form_slug)
+    form.family = form_factory(name=get_unversioned_slug(form_slug))
+    form.save()
+    sz_instance.form = form
+    sz_instance.save()
+
     tax_administration = service_factory.create(
         slug=set_application_sz["TAX_ADMINISTRATION"]
     )
+    rpg2_premium_payment_service = service_factory.create(
+        slug=set_application_sz["RPG2_DEMOLITION_PREMIUM_PAYMENT_SERVICE"]
+    )
 
-    assert not InstanceACL.objects.filter(
+    # Partial filters for less repetition:
+    instance_service_acl_filter = Q(
         instance=sz_instance,
         grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
-        access_level="read",
-        service=tax_administration,
+    )
+    tax_admin_acl_filter = Q(access_level="read", service=tax_administration)
+    rpg2_acl_filter = Q(
+        access_level="rpg2-demolition-premium-service",
+        service=rpg2_premium_payment_service,
+    )
+
+    # Ensure there's no ACLs:
+    assert not InstanceACL.objects.filter(
+        instance_service_acl_filter & (tax_admin_acl_filter | rpg2_acl_filter)
     ).exists()
 
     events.core.Trigger.decision_decreed(None, sz_instance)
 
+    # Ensure tax admin now has an ACL:
     assert InstanceACL.objects.filter(
-        instance=sz_instance,
-        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
-        access_level="read",
-        service=tax_administration,
+        instance_service_acl_filter & tax_admin_acl_filter
     ).exists()
+
+    # Ensure the Abbruchprämie ACLs are correctly (un)set:
+    if have_demolition_premium_acl:
+        assert InstanceACL.objects.filter(
+            instance_service_acl_filter & tax_admin_acl_filter
+        ).exists()
+    else:
+        assert not InstanceACL.objects.filter(
+            instance_service_acl_filter & rpg2_acl_filter
+        ).exists()
 
 
 @pytest.mark.parametrize(

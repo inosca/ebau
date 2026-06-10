@@ -41,6 +41,8 @@ MODULE_FORM = STATES_ALL_INTERNAL
 
 MODULE_INTEGRITY_DASHBOARD = STATES_ALL_INTERNAL & ~RequireInstanceState(["subm"])
 
+MODULE_WORK_ITEMS = STATES_ALL_INTERNAL
+
 
 # Access level config part
 SZ_PERMISSIONS_SETTINGS = {
@@ -52,6 +54,15 @@ SZ_PERMISSIONS_SETTINGS = {
             ("documents-read", MODULE_DOCUMENT),
             ("form-read", MODULE_FORM),
             ("integrity-dashboard-read", MODULE_INTEGRITY_DASHBOARD),
+        ],
+        "rpg2-demolition-premium-service": [
+            ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
+            ("distribution-read", MODULE_DISTRIBUTION),
+            ("documents-read", MODULE_DOCUMENT),
+            ("form-read", MODULE_FORM),
+            ("integrity-dashboard-read", MODULE_INTEGRITY_DASHBOARD),
+            ("work-items-read", MODULE_WORK_ITEMS),
         ],
     },
     "ENABLED": True,
