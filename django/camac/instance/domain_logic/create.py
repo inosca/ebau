@@ -238,7 +238,7 @@ class CreateInstanceLogic:
         Same as generic generate_instance with one exception:
         For internal instances service_id is added to
         the second position and the seq_zero_padding is set to 4.
-        Example: IG-6-23-014
+        Example: IG-6-23-0014
         """
         separator = "-"
 
