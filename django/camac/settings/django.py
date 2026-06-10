@@ -190,6 +190,7 @@ APPLICATIONS = {
         "SHORT_NAME": "test",
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": True,
+        "AVAILABLE_LANGUAGES": ["de", "fr", "it"],
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         # Mapping between camac role and instance permission.

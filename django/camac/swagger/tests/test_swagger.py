@@ -39,9 +39,17 @@ def test_swagger_schema(
 ):
     reload_urlconf("camac.urls")
     reload_urlconf("camac.ech0211.urls")
-    response = admin_client.get(reverse("schema-json", args=["json"]))
+
+    # ensure debug stuff is not causing false positives below
+    with caplog.at_level("INFO"):
+        response = admin_client.get(reverse("schema-json", args=["json"]))
+
     assert response.status_code == status.HTTP_200_OK
-    assert not len(caplog.messages)
+
+    # Ignore localisation messages here, even warnings (demo app)
+    log_messages = [rec for rec in caplog.records if rec.module != "middleware"]
+
+    assert not log_messages
 
 
 @pytest.mark.parametrize("application_name", settings.APPLICATIONS.keys())
