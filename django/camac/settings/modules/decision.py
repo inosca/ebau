@@ -142,6 +142,17 @@ DECISION = {
         "ENABLED": True,
         "INSTANCE_STATE_AFTER_NEGATIVE_DECISION": "decided",
         "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "decided",
+        "QUESTIONS": {
+            "DECISION": "entscheid-entscheid",
+            "DATE": "entscheid-datum",
+        },
+        "ANSWERS": {
+            "DECISION": {
+                "APPROVED": "entscheid-entscheid-bewilligt",
+                "REJECTED": "entscheid-entscheid-abgelehnt",
+                "WITHDRAWAL": "entscheid-entscheid-abgeschrieben-rueckzug",
+            },
+        },
     },
     "test": {
         "ENABLED": True,

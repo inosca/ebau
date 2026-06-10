@@ -17,7 +17,7 @@ mutation CreateFlowAfterSubmit {
     input: {
       workflow: "building-permit"
       tasks: ["submit"]
-      next: "['formal-exam', 'init-additional-demand', 'create-manual-workitems']|tasks"
+      next: "['formal-exam', 'init-additional-demand', 'create-manual-workitems', 'withdrawal-request']|tasks"
     }
   ) {
     clientMutationId
@@ -79,6 +79,18 @@ mutation CreateFlowAfterDecision {
       tasks: ["decision"]
       next: "[]|tasks"
       redoable: "'distribution'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterWithdrawal {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["withdrawal-request"]
+      next: "[\"withdrawal-check\"]|tasks"
     }
   ) {
     clientMutationId

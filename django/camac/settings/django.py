@@ -3195,6 +3195,8 @@ APPLICATIONS = {
                         "create-publication",
                         "init-additional-demand",
                         "additional-demand",
+                        "withdrawal-request",
+                        "withdrawal-check",
                     ],
                 },
             },

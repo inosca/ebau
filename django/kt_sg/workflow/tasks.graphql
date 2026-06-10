@@ -111,3 +111,30 @@ mutation CreateDecisionTask {
     clientMutationId
   }
 }
+
+mutation CreateWithdrawalRequestTask {
+  saveSimpleTask(
+    input: {
+      slug: "withdrawal-request"
+      name: "Rückzug beantragen"
+      addressGroups: "[\"applicant\"]"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateWithdrawalCheckTask {
+  saveSimpleTask(
+    input: {
+      slug: "withdrawal-check"
+      name: "Rückzug prüfen"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 432000 # 5 days
+      meta: "{\"is-manually-completable\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}

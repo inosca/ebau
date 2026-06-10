@@ -390,7 +390,7 @@ class RequireWorkItem(Check):
     """Require instance to have a work item of a given task."""
 
     task_id: str
-    status: Optional[str] = None
+    status: Optional[str | List[str]] = None
     addressed_to_current_service: Optional[bool] = False
     condition_name: str | None = None
 
@@ -402,7 +402,10 @@ class RequireWorkItem(Check):
         )
 
         if self.status:
-            work_items = work_items.filter(status=self.status)
+            if isinstance(self.status, list):
+                work_items = work_items.filter(status__in=self.status)
+            else:
+                work_items = work_items.filter(status=self.status)
 
         if self.addressed_to_current_service:
             work_items = work_items.filter(
