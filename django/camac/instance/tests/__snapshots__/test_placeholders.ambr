@@ -8649,6 +8649,20 @@
       'nested_aliases': dict({
       }),
     }),
+    'ALLE_ANLAGEERRICHTER_NAME_ADRESSE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_ANLAGEERRICHTER_NAME_ADRESSE',
+          'it': 'TUTTE_COSTRUTTOREIMPIANTO_NOME_INDIRIZZO',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen und Adressen aller Errichter der Anlagen',
+        'it': "Nomi e indirizzi di tutte costruttore dell'impianto",
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'ALLE_GESUCHSTELLER': dict({
       'aliases': list([
         dict({
@@ -8813,6 +8827,20 @@
       'description': dict({
         'de': 'Telefonnummern aller Projektverfasser/innen',
         'it': 'Numeri di telefono di tutte le progettiste/tutti i progettisti',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_QSS_VERANTWORTLICHEN_NAME_ADRESSE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_QSS_VERANTWORTLICHEN_NAME_ADRESSE',
+          'it': 'TUTTE_GGQ_RESPONSABILE_NOME_INDIRIZZO',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen und Adressen aller Verantwortlichen Personen QSS',
+        'it': 'Nomi e indirizzi di tutte le persone responsabili GGQ',
       }),
       'nested_aliases': dict({
       }),
@@ -18946,6 +18974,7 @@
 # name: test_dms_placeholders_docs_available_placeholders[set_application_gr]
   list([
     'ADRESSE',
+    'ALLE_ANLAGEERRICHTER_NAME_ADRESSE',
     'ALLE_GESUCHSTELLER',
     'ALLE_GESUCHSTELLER_EMAIL',
     'ALLE_GESUCHSTELLER_NAME_ADRESSE',
@@ -18958,6 +18987,7 @@
     'ALLE_PROJEKTVERFASSER_EMAIL',
     'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
     'ALLE_PROJEKTVERFASSER_TELEFON',
+    'ALLE_QSS_VERANTWORTLICHEN_NAME_ADRESSE',
     'AMZ_ANZAHL_RAEUME',
     'AMZ_ANZAHL_SCHUTZPLAETZE',
     'AMZ_ANZAHL_SPITALBETTEN',
@@ -19262,6 +19292,8 @@
     'TIPO_DOSSIER',
     'TITEL_BAUVORHABEN',
     'TITOLO_PROGETTO',
+    'TUTTE_COSTRUTTOREIMPIANTO_NOME_INDIRIZZO',
+    'TUTTE_GGQ_RESPONSABILE_NOME_INDIRIZZO',
     'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO',
     'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO_NOME_INDIRIZZO',
     'TUTTE_LE_PERSONE_RICHIEDENTI',
@@ -20593,6 +20625,7 @@
   dict({
     'ADDRESS': 'Teststrasse 12, Testhausen',
     'ADRESSE': 'Teststrasse 12, Testhausen',
+    'ALLE_ANLAGEERRICHTER_NAME_ADRESSE': 'Anlage AG, Anlageerichter Verantworlicher, Teststrasse 100, 1234 Musterdorf',
     'ALLE_GESUCHSTELLER': 'Test AG, Esther Tester',
     'ALLE_GESUCHSTELLER_EMAIL': 'example@example.com',
     'ALLE_GESUCHSTELLER_NAME_ADDRESS': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
@@ -20608,6 +20641,7 @@
     'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
     'ALLE_PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
     'ALLE_PROJEKTVERFASSER_TELEFON': '+41781234567',
+    'ALLE_QSS_VERANTWORTLICHEN_NAME_ADRESSE': 'QSS AG, QSS Verantworlicher, Teststrasse 100, 1234 Musterdorf',
     'AMZ_ANZAHL_RAEUME': 100,
     'AMZ_ANZAHL_SCHUTZPLAETZE': 50,
     'AMZ_ANZAHL_SPITALBETTEN': 10,
@@ -21281,6 +21315,8 @@
     'TITEL_BAUVORHABEN': 'Projektänderung',
     'TITOLO_PROGETTO': 'Projektänderung',
     'TODAY': '30. August 2021',
+    'TUTTE_COSTRUTTOREIMPIANTO_NOME_INDIRIZZO': 'Anlage AG, Anlageerichter Verantworlicher, Teststrasse 100, 1234 Musterdorf',
+    'TUTTE_GGQ_RESPONSABILE_NOME_INDIRIZZO': 'QSS AG, QSS Verantworlicher, Teststrasse 100, 1234 Musterdorf',
     'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO': 'Sandra Beispiel',
     'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO_NOME_INDIRIZZO': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
     'TUTTE_LE_PERSONE_RICHIEDENTI': 'Test AG, Esther Tester',

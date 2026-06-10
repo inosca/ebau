@@ -2096,6 +2096,68 @@ MASTER_DATA = {
                     }
                 },
             ),
+            "responsible_qss": (
+                "table",
+                "verantwortliche-person-qss",
+                {
+                    "column_mapping": {
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
+                        "is_juristic_person": (
+                            "juristische-person-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
+                    }
+                },
+            ),
+            "system_builder": (
+                "table",
+                "errichter-haustechnik",
+                {
+                    "column_mapping": {
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
+                        "is_juristic_person": (
+                            "juristische-person-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
+                    }
+                },
+            ),
             "application_type": ("form_name",),
             "dossier_number": ("case_meta", "dossier-number"),
             "project": ("answer", "baubeschrieb", {"value_parser": "option"}),

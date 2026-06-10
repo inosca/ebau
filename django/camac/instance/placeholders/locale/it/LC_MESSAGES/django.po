@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-02 16:45+0200\n"
+"POT-Creation-Date: 2026-06-10 09:14+0200\n"
 "PO-Revision-Date: 2025-05-26 15:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1439,6 +1439,22 @@ msgstr "COLLAUDO_OSSERVAZIONI"
 #: camac/instance/placeholders/serializers.py
 msgid "Observations for the construction acceptance"
 msgstr "Osservazioni sul collaudo"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ALL_QSS_RESPONSIBLE_NAME_ADDRESS"
+msgstr "TUTTE_GGQ_RESPONSABILE_NOME_INDIRIZZO"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Names and addresses of all QSS responsibles"
+msgstr "Nomi e indirizzi di tutte le persone responsabili GGQ"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ALL_SYSTEM_BUILDER_NAME_ADDRESS"
+msgstr "TUTTE_COSTRUTTOREIMPIANTO_NOME_INDIRIZZO"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Names and addresses of all system builders"
+msgstr "Nomi e indirizzi di tutte costruttore dell'impianto"
 
 #: camac/instance/placeholders/serializers.py
 msgid "PROJECT"
