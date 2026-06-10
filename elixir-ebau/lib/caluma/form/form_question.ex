@@ -38,6 +38,7 @@ defmodule Caluma.Form.FormQuestion do
     defaults [:destroy]
 
     read :read do
+      primary? true
       prepare build(sort: [sort: :desc])
     end
 

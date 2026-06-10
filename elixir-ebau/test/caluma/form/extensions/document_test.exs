@@ -49,8 +49,8 @@ defmodule Caluma.Form.Extensions.DocumentTest do
       assert rel.destination == Caluma.Form.Document
     end
 
-    test "adds a :min_answer_document_sort aggregate" do
-      agg = Ash.Resource.Info.aggregate(TestResource, :min_answer_document_sort)
+    test "adds a :sort aggregate" do
+      agg = Ash.Resource.Info.aggregate(TestResource, :sort)
       assert agg != nil
       assert agg.kind == :min
       assert agg.relationship_path == [:answer_documents]

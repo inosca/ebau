@@ -24,11 +24,12 @@ defmodule Caluma.Form.Changes.SyncFormTree do
   end
 
   defp create_questions!(form_slug, questions, action_opts) do
+    total = length(questions)
+
     questions
-    |> Enum.reverse()
     |> Enum.with_index()
-    |> Enum.each(fn {question_spec, sort} ->
-      create_question!(form_slug, question_spec, sort, action_opts)
+    |> Enum.each(fn {question_spec, idx} ->
+      create_question!(form_slug, question_spec, total - idx - 1, action_opts)
     end)
   end
 

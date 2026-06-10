@@ -30,7 +30,7 @@ defmodule Caluma.FormFixtureTest do
             }
           ]
         },
-        load: [questions: [row_form: :questions]],
+        load: [form_questions: [question: [row_form: :form_questions]]],
         authorize?: false, actor: nil
       )
 
@@ -56,11 +56,11 @@ defmodule Caluma.FormFixtureTest do
            ]
 
     assert_form_question_sort("baugesuch", "parzellen", 1)
-    assert_form_question_sort("baugesuch", "parzellen-2", 2)
+    assert_form_question_sort("baugesuch", "parzellen-2", 0)
     assert_form_question_sort("parzellen", "lagekoordinaten-nord", 1)
-    assert_form_question_sort("parzellen", "lagekoordinaten-ost", 2)
+    assert_form_question_sort("parzellen", "lagekoordinaten-ost", 0)
     assert_form_question_sort("parzellen-2", "lagekoordinaten-nord", 1)
-    assert_form_question_sort("parzellen-2", "lagekoordinaten-ost", 2)
+    assert_form_question_sort("parzellen-2", "lagekoordinaten-ost", 0)
   end
 
   test "reuses nested table forms across different root forms" do
@@ -100,14 +100,14 @@ defmodule Caluma.FormFixtureTest do
             }
           ]
         },
-        load: [questions: [row_form: :questions]],
+        load: [form_questions: [question: [row_form: :form_questions]]],
         authorize?: false, actor: nil
       )
 
     assert_question("attachments", :table, row_form_id: "attachments")
     assert row_form_question_slugs(form, "attachments") == ["attachment-title"]
-    assert_form_question_sort("baugesuch-b", "attachments", 1)
-    assert_form_question_sort("attachments", "attachment-title", 1)
+    assert_form_question_sort("baugesuch-b", "attachments", 0)
+    assert_form_question_sort("attachments", "attachment-title", 0)
   end
 
   defp assert_question(slug, type, attrs \\ []) do
@@ -134,10 +134,11 @@ defmodule Caluma.FormFixtureTest do
   end
 
   defp row_form_question_slugs(form, question_slug) do
-    form.questions
-    |> Enum.find(&(&1.slug == question_slug))
+    form.form_questions
+    |> Enum.find(&(&1.question_id == question_slug))
+    |> Map.fetch!(:question)
     |> Map.fetch!(:row_form)
-    |> Map.fetch!(:questions)
-    |> Enum.map(& &1.slug)
+    |> Map.fetch!(:form_questions)
+    |> Enum.map(& &1.question_id)
   end
 end

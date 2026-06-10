@@ -223,7 +223,7 @@ defmodule Caluma.Workflow.Extensions.Case.Transformer do
         {:ok, rel} =
           Ash.Resource.Builder.build_relationship(:has_many, table.name, table.resource,
             no_attributes?: true,
-            sort: [min_answer_document_sort: :asc]
+            sort: [sort: :desc]
           )
 
         rel_with_filter = %{

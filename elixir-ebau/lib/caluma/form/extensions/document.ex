@@ -278,7 +278,7 @@ defmodule Caluma.Form.Extensions.Document.Transformer do
   defp add_aggregates(dsl_state) do
     {:ok, agg} =
       Ash.Resource.Builder.build_aggregate(
-        :min_answer_document_sort,
+        :sort,
         :min,
         :answer_documents,
         field: :sort
@@ -418,7 +418,7 @@ defmodule Caluma.Form.Extensions.Document.AnswerTransformer do
     {:ok, rel} =
       Ash.Resource.Builder.build_relationship(:has_many, table.name, table.resource,
         no_attributes?: true,
-        sort: [min_answer_document_sort: :asc]
+        sort: [sort: :desc]
       )
 
     rel_with_filter = %{
