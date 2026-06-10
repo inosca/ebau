@@ -464,6 +464,7 @@ APPLICATIONS = {
             "bavs": "PS",
             "bazl": "PL",
             "vbs": "PV",
+            "abbruchpraemie": "AP",
             "uebrige": "PU",
         },
         "INSTANCE_MERGE_CONFIG": {
