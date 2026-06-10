@@ -32,6 +32,10 @@ export default {
     120009, // init-distribution
     120010, // construction-acceptance
     120011, // rejected
+    120012, // withdrawn
+    120013, // withdrawal
+    120014, // to-finish
+    120015, // decided
   ],
   answerSlugs: {
     objectStreet: "street-and-housenumber",
