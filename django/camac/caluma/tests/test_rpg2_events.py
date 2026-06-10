@@ -6,6 +6,7 @@ from camac.caluma.extensions.events.rpg2 import (
     is_rpg2_relevant_form,
     is_rpg2_service_addressed,
 )
+from camac.user.models import Service
 from camac.utils import get_unversioned_slug
 
 
@@ -19,6 +20,11 @@ def be_rpg2_services(db, service_factory):
         service_factory(slug="agr-bauen"),
         service_factory(slug="agr-kantonsplanung"),
     )
+
+
+@pytest.fixture
+def ag_rpg2_service():
+    return Service.objects.get(slug="afb")
 
 
 @pytest.mark.parametrize(
@@ -191,4 +197,120 @@ def test_work_item_creation_idempotent_be(
     inquiry_factory_be(to_service=agr_bauen, sent=True)
     inquiry_factory_be(to_service=agr_kantonsplanung, sent=True)
     work_items = _rpg2_work_items(case=distribution_case_be)
+    assert work_items.count() == 1
+
+
+def test_created_on_inquiry_send_ag(
+    db,
+    ag_rpg2_settings,
+    distribution_case_ag,
+    inquiry_factory_ag,
+    disable_ech0211_settings,
+    ag_rpg2_service,
+):
+    # add the distribution_case's document form slug to the allowed_forms list
+    ag_rpg2_settings.allowed_forms.append(
+        get_unversioned_slug(distribution_case_ag.document.form_id)
+    )
+    inquiry_factory_ag(to_service=ag_rpg2_service, sent=True)
+
+    work_items = _rpg2_work_items(case=distribution_case_ag)
+    assert work_items.count() == 1
+    work_item = work_items.get()
+    assert work_item.status == WorkItem.STATUS_READY
+    assert work_item.addressed_groups == [str(ag_rpg2_service.pk)]
+    assert work_item.document
+    assert work_item.document.form_id == "rpg2"
+
+
+def test_not_created_for_other_services_ag(
+    db,
+    ag_rpg2_settings,
+    inquiry_factory_ag,
+    disable_ech0211_settings,
+    service_factory,
+    distribution_case_ag,
+):
+    # add the distribution_case's document form slug to the allowed_forms list
+    ag_rpg2_settings.allowed_forms.append(
+        get_unversioned_slug(distribution_case_ag.document.form_id)
+    )
+    inquiry_factory_ag(
+        to_service=service_factory(slug="some-other-fachstelle"), sent=True
+    )
+    assert _rpg2_work_items(distribution_case_ag).count() == 0
+
+
+def test_not_created_for_drafted_inquiry_ag(
+    db,
+    ag_rpg2_settings,
+    distribution_case_ag,
+    inquiry_factory_ag,
+    disable_ech0211_settings,
+    ag_rpg2_service,
+):
+    # add the distribution_case's document form slug to the allowed_forms list
+    ag_rpg2_settings.allowed_forms.append(
+        get_unversioned_slug(distribution_case_ag.document.form_id)
+    )
+    inquiry_factory_ag(to_service=ag_rpg2_service, sent=False)
+    assert _rpg2_work_items(distribution_case_ag).count() == 0
+
+
+def test_not_created_when_disabled_ag(
+    db,
+    rpg2_settings,
+    distribution_case_ag,
+    inquiry_factory_ag,
+    disable_ech0211_settings,
+    ag_rpg2_service,
+):
+    rpg2_settings.enabled = False
+    inquiry_factory_ag(to_service=ag_rpg2_service, sent=True)
+    assert _rpg2_work_items(distribution_case_ag).count() == 0
+
+
+def test_not_created_when_allowed_forms_unset_ag(
+    db,
+    ag_rpg2_settings,
+    distribution_case_ag,
+    inquiry_factory_ag,
+    disable_ech0211_settings,
+    ag_rpg2_service,
+):
+    ag_rpg2_settings.allowed_forms = []
+    inquiry_factory_ag(to_service=ag_rpg2_service, sent=True)
+    assert _rpg2_work_items(distribution_case_ag).count() == 0
+
+
+def test_not_created_for_disallowed_form_ag(
+    db,
+    ag_rpg2_settings,
+    distribution_case_ag,
+    inquiry_factory_ag,
+    disable_ech0211_settings,
+    ag_rpg2_service,
+):
+    Document.objects.filter(pk=distribution_case_ag.document.pk).update(
+        form_id="internes-dossier",
+    )
+    inquiry_factory_ag(to_service=ag_rpg2_service, sent=True)
+    assert _rpg2_work_items(distribution_case_ag).count() == 0
+
+
+def test_work_item_creation_idempotent_ag(
+    db,
+    ag_rpg2_settings,
+    distribution_case_ag,
+    inquiry_factory_ag,
+    disable_ech0211_settings,
+    ag_rpg2_service,
+):
+    # add the distribution_case's document form slug to the allowed_forms list
+    ag_rpg2_settings.allowed_forms.append(
+        get_unversioned_slug(distribution_case_ag.document.form_id)
+    )
+    inquiry_factory_ag(to_service=ag_rpg2_service, sent=True)
+    inquiry_factory_ag(to_service=ag_rpg2_service, sent=True)
+    work_items = _rpg2_work_items(case=distribution_case_ag)
     assert work_items.count() == 1

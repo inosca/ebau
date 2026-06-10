@@ -3828,6 +3828,24 @@ def be_rpg2_settings(
 
 
 @pytest.fixture
+def ag_rpg2_settings(
+    request,
+    settings,
+    rpg2_settings,
+):
+    """Module-specific settings for rpg2 (canton AG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=rpg2_settings,
+        settings_name="RPG2",
+        import_path="camac.settings.modules.rpg2.RPG2",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def rulesets_settings(
     request,
     settings,

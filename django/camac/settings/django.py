@@ -2789,6 +2789,7 @@ APPLICATIONS = {
                 "kantonale-pruefung",
                 "einwendungen",
                 "vorlaeufige-pruefung",
+                "rpg2",
             ],
             "FORM_PERMISSIONS_MAPPING": {
                 "form-einwendungen-write": "legal-submissions-write",
@@ -2821,7 +2822,11 @@ APPLICATIONS = {
                 # specific work items
                 "archive-instance": {
                     "cancel": ["create-manual-workitems"],
-                    "skip": ["check-pa", "cantonal-exam"],
+                    "skip": [
+                        "check-pa",
+                        "cantonal-exam",
+                        "rpg2",
+                    ],
                 },
                 "fill-publication": {"complete": ["publication"]},
                 "fill-information-of-neighbors": {

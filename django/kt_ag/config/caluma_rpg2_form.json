@@ -1,0 +1,4293 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "rpg2",
+    "fields": {
+      "created_at": "2026-05-15T09:45:49.621Z",
+      "modified_at": "2026-05-19T14:13:04.377Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"RPG Datenerfassung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "rpg2-versiegelte-entsiegelte-flaechen",
+    "fields": {
+      "created_at": "2026-05-18T15:53:03.725Z",
+      "modified_at": "2026-05-18T15:53:03.725Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Versiegelte / entsiegelte Flächen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2.rpg2-anzahl-gebaeude-abbruch",
+    "fields": {
+      "created_at": "2026-05-18T14:52:40.984Z",
+      "modified_at": "2026-05-18T14:52:40.984Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2",
+      "question": "rpg2-anzahl-gebaeude-abbruch",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2.rpg2-anzahl-gebaeude-unter-schutz",
+    "fields": {
+      "created_at": "2026-05-18T14:53:24.631Z",
+      "modified_at": "2026-05-18T14:53:24.631Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2",
+      "question": "rpg2-anzahl-gebaeude-unter-schutz",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2.rpg2-anzahl-neue-gebaeude",
+    "fields": {
+      "created_at": "2026-05-15T09:52:32.086Z",
+      "modified_at": "2026-05-15T09:52:32.086Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2",
+      "question": "rpg2-anzahl-neue-gebaeude",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2.rpg2-bewilligungsgrund",
+    "fields": {
+      "created_at": "2026-05-18T15:47:37.057Z",
+      "modified_at": "2026-05-18T15:47:37.057Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2",
+      "question": "rpg2-bewilligungsgrund",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2.rpg2-gebaeude-bemerkungen",
+    "fields": {
+      "created_at": "2026-05-18T14:54:22.362Z",
+      "modified_at": "2026-05-18T14:54:22.362Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2",
+      "question": "rpg2-gebaeude-bemerkungen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2.rpg2-hinweis-versiegelt-oder-entsiegelt",
+    "fields": {
+      "created_at": "2026-05-18T15:23:53.227Z",
+      "modified_at": "2026-05-18T15:23:53.227Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2",
+      "question": "rpg2-hinweis-versiegelt-oder-entsiegelt",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2.rpg2-realisiert",
+    "fields": {
+      "created_at": "2026-05-19T14:25:23.854Z",
+      "modified_at": "2026-05-19T14:25:23.854Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2",
+      "question": "rpg2-realisiert",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2.rpg2-versiegelte-entsiegelte-flaechen",
+    "fields": {
+      "created_at": "2026-05-19T14:22:36.172Z",
+      "modified_at": "2026-05-19T14:22:36.172Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2",
+      "question": "rpg2-versiegelte-entsiegelte-flaechen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2.rpg2-versiegelt-oder-entsiegelt",
+    "fields": {
+      "created_at": "2026-05-18T14:55:33.985Z",
+      "modified_at": "2026-05-18T14:55:33.985Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2",
+      "question": "rpg2-versiegelt-oder-entsiegelt",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2-versiegelte-entsiegelte-flaechen.rpg2-art-versiegelung-entsiegelung",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.709Z",
+      "modified_at": "2026-05-19T13:57:53.709Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2-versiegelte-entsiegelte-flaechen",
+      "question": "rpg2-art-versiegelung-entsiegelung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2-versiegelte-entsiegelte-flaechen.rpg2-flaeche-quadrat-meter",
+    "fields": {
+      "created_at": "2026-05-19T14:11:10.845Z",
+      "modified_at": "2026-05-19T14:11:10.845Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2-versiegelte-entsiegelte-flaechen",
+      "question": "rpg2-flaeche-quadrat-meter",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2-versiegelte-entsiegelte-flaechen.rpg2-materialisierung-neu-versiegelten-flaechen",
+    "fields": {
+      "created_at": "2026-05-19T14:00:33.986Z",
+      "modified_at": "2026-05-19T14:00:33.986Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2-versiegelte-entsiegelte-flaechen",
+      "question": "rpg2-materialisierung-neu-versiegelten-flaechen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2-versiegelte-entsiegelte-flaechen.rpg2-materialisierung-neu-versiegelten-flaechen-beschreibung",
+    "fields": {
+      "created_at": "2026-05-19T14:01:28.539Z",
+      "modified_at": "2026-05-19T14:01:28.539Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2-versiegelte-entsiegelte-flaechen",
+      "question": "rpg2-materialisierung-neu-versiegelten-flaechen-beschreibung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2-versiegelte-entsiegelte-flaechen.rpg2-nutzung-versiegelten-flaechen",
+    "fields": {
+      "created_at": "2026-05-19T14:02:50.122Z",
+      "modified_at": "2026-05-19T14:02:50.122Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2-versiegelte-entsiegelte-flaechen",
+      "question": "rpg2-nutzung-versiegelten-flaechen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2-versiegelte-entsiegelte-flaechen.rpg2-nutzung-versiegelten-flaechen-beschreibung",
+    "fields": {
+      "created_at": "2026-05-19T14:07:46.096Z",
+      "modified_at": "2026-05-19T14:07:46.096Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2-versiegelte-entsiegelte-flaechen",
+      "question": "rpg2-nutzung-versiegelten-flaechen-beschreibung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rpg2-versiegelte-entsiegelte-flaechen.rpg2-wann-wurde-flaeche-versiegelt",
+    "fields": {
+      "created_at": "2026-05-19T14:10:43.806Z",
+      "modified_at": "2026-05-19T14:10:43.806Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2-versiegelte-entsiegelte-flaechen",
+      "question": "rpg2-wann-wurde-flaeche-versiegelt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-art-versiegelung-entsiegelung-entsiegelt-erschliessung",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.575Z",
+      "modified_at": "2026-05-19T13:57:53.575Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsiegelte / renaturierte Flächen (Erschliessung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-art-versiegelung-entsiegelung-entsiegelt-gebaeude",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.539Z",
+      "modified_at": "2026-05-19T13:57:53.539Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsiegelte / renaturierte Flächen (Gebäude)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-art-versiegelung-entsiegelung-entsiegelt-umgebung",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.559Z",
+      "modified_at": "2026-05-19T13:57:53.559Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsiegelte / renaturierte Flächen (Umgebung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-art-versiegelung-entsiegelung-neue-versiegelte-flaechen-erschliessung",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.533Z",
+      "modified_at": "2026-05-19T13:57:53.533Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neue versiegelte Flächen (Erschliessung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-art-versiegelung-entsiegelung-neue-versiegelte-flaechen-gebaeude",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.564Z",
+      "modified_at": "2026-05-19T13:57:53.564Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neue versiegelte Flächen (Gebäude)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-art-versiegelung-entsiegelung-neue-versiegelte-flaechen-umgebung",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.578Z",
+      "modified_at": "2026-05-19T13:57:53.578Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neue versiegelte Flächen (Umgebung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a01",
+    "fields": {
+      "created_at": "2025-01-16T12:00:01.681Z",
+      "modified_at": "2026-06-08T07:25:41.501Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A01 / Art. 16 Ökologische Massnahmen, Biotope\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a02",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.028Z",
+      "modified_at": "2026-06-08T07:25:41.502Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A02 / Art. 16a Landw. Wohnbauten, neue freistehende Gebäude\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a03",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.026Z",
+      "modified_at": "2026-06-08T07:25:41.524Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A03 / Art. 16a Landw. Wohnbauten, An- und Umbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a04",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.110Z",
+      "modified_at": "2026-06-08T07:25:41.500Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A04 / Art. 16a Aussiedlungen (Kombination mit weiteren Codes)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a05",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.082Z",
+      "modified_at": "2026-06-08T07:25:41.513Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A05 / Art. 16a Landw. Remisen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a06",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.068Z",
+      "modified_at": "2026-06-08T07:25:41.522Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A06 / Art. 16a Landw. Tierställe\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a07",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.099Z",
+      "modified_at": "2026-06-08T07:25:41.604Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A07 / Art. 16a Gemüsebau und produzierender Gartenbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a08",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.204Z",
+      "modified_at": "2026-06-08T07:25:41.571Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A08 / Art. 16a Obstanlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a09",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.197Z",
+      "modified_at": "2026-06-08T07:25:41.611Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A09 / Art. 16a Rebanlagen, Rebhäuschen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a10",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.186Z",
+      "modified_at": "2026-06-08T07:25:41.607Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A10 / Art. 16a Übrige Spezialkulturen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a11",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.238Z",
+      "modified_at": "2026-06-08T07:25:41.622Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A11 / Art. 16a Terrainveränderungen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a12",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.233Z",
+      "modified_at": "2026-06-08T07:25:41.612Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A12 / Art. 16a Landw. Energiegewinnung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a13",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.260Z",
+      "modified_at": "2026-06-08T07:25:41.665Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A13 / Art. 16a_bis Landw. Pferdehaltung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a14",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.321Z",
+      "modified_at": "2026-06-08T07:25:41.699Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A14 / Art. 16a Abs. 3 Landw. Bauten in landw. Spezialzonen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a15",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.350Z",
+      "modified_at": "2026-06-08T07:25:41.701Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A15 / Art. 16a Übrige landw. Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a16",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.349Z",
+      "modified_at": "2026-06-08T07:25:41.704Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A16 / Art. 18 Bauten in nichtlandw. Spezialzonen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a17",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.375Z",
+      "modified_at": "2026-06-08T07:25:41.712Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A17 / Art. 18a Solaranlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a18",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.414Z",
+      "modified_at": "2026-06-08T07:25:41.714Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A18 / Art. 24 Bienenhäuser\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a19",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.394Z",
+      "modified_at": "2026-06-08T07:25:41.745Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A19 / Art. 24 Deponien\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a20",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.468Z",
+      "modified_at": "2026-06-08T07:25:41.791Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A20 / Art. 24 Materialabbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a21",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.493Z",
+      "modified_at": "2026-06-08T07:25:41.779Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A21 / Art. 24 Schiessanlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a22",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.558Z",
+      "modified_at": "2026-06-08T07:25:41.778Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A22 / Art. 24 Sendeanlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a23",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.511Z",
+      "modified_at": "2026-06-08T07:25:41.818Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A23 / Art. 24 Siedlungsentwässerung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a24",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.551Z",
+      "modified_at": "2026-06-08T07:25:41.804Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A24 / Art. 24 Erholungsnutzung / Tourismus\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a25",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.572Z",
+      "modified_at": "2026-06-08T07:25:41.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A25 / Art. 24 Wasserversorgung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a26",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.641Z",
+      "modified_at": "2026-06-08T07:25:41.860Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A26 / Art. 24 Übrige standortgebundene Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a27",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.631Z",
+      "modified_at": "2026-06-08T07:25:41.874Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A27 / Art. 24a Zweckänderung ohne bauliche Massnahmen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a28",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.673Z",
+      "modified_at": "2026-06-08T07:25:41.875Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A28 / Art. 24b Nichtlandw. Nebenbetrieb\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a29",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.691Z",
+      "modified_at": "2026-06-08T07:25:41.909Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A29 / Art. 24c Besitzstandsgeschützte Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a30",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.707Z",
+      "modified_at": "2026-06-08T07:25:41.907Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A30 / Art. 24c Besitzstandsgeschützte Bauten, Ersatzbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a31",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.734Z",
+      "modified_at": "2026-06-08T07:25:41.916Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A31 / Art. 24d Neurechtliche Wohnbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a32",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.800Z",
+      "modified_at": "2026-06-08T07:25:41.950Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A32 / Art. 24d Geschützte Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a33",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.808Z",
+      "modified_at": "2026-06-08T07:25:41.961Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A33 / Art. 24e Hobbymässige Tierhaltung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a34",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.846Z",
+      "modified_at": "2026-06-08T07:25:41.979Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A34 / Art. 37a Gewerbliche Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a35",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.981Z",
+      "modified_at": "2026-06-08T07:25:41.983Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A35 / Strassen, Wege (Art. 16a und 24)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a36",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.848Z",
+      "modified_at": "2026-06-08T07:25:41.997Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A36 / Wald, zonenkonforme Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-a37",
+    "fields": {
+      "created_at": "2025-01-16T12:04:50.003Z",
+      "modified_at": "2026-06-08T07:25:42.012Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"A37 / Wald, zonenfremde Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b01",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.656Z",
+      "modified_at": "2026-06-08T07:25:42.042Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B01 / Landw. Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b02",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.725Z",
+      "modified_at": "2026-06-08T07:25:42.057Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B02 / Materialabbau/Deponien\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b03",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.759Z",
+      "modified_at": "2026-06-08T07:25:42.067Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B03 / Öffentliche Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b04",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.755Z",
+      "modified_at": "2026-06-08T07:25:42.068Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B04 / Erschliessungen (Parkplätze)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b05",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.740Z",
+      "modified_at": "2026-06-08T07:25:42.090Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B05 / Erschliessungen (neuer Anschluss an Kantonsstrasse)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b06",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.723Z",
+      "modified_at": "2026-06-08T07:25:42.106Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B06 / Erschliessungen (Strassen / Wege)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b07",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.870Z",
+      "modified_at": "2026-06-08T07:25:42.131Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B07 / Leitungen (Kanalisation / Wasserleitungen / Gasleitungen)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b08",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.881Z",
+      "modified_at": "2026-06-08T07:25:42.154Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B08 / Sendeanlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b09",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.899Z",
+      "modified_at": "2026-06-08T07:25:42.159Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B09 / Weitere Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b10",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.914Z",
+      "modified_at": "2026-06-08T07:25:42.153Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B10 / Wohnbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b11",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.885Z",
+      "modified_at": "2026-06-08T07:25:42.177Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B11 / Klein- und Nebenbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b12",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.933Z",
+      "modified_at": "2026-06-08T07:25:42.195Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B12 / Metzgereien\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b13",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.002Z",
+      "modified_at": "2026-06-08T07:25:42.231Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B13 / Gewerbe unter Störfallverordnung (z.B. Chemie)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b14",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.041Z",
+      "modified_at": "2026-06-08T07:25:42.240Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B14 / Gewerbe-/Industriebauten (div)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b15",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.061Z",
+      "modified_at": "2026-06-08T07:25:42.248Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B15 / Restaurant / Hotel\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b16",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.009Z",
+      "modified_at": "2026-06-08T07:25:42.261Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B16 / Garagen-/Tankstellen-Gewerbe\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b17",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.084Z",
+      "modified_at": "2026-06-08T07:25:42.289Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B17 / Verkaufsgewerbe\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b18",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.085Z",
+      "modified_at": "2026-06-08T07:25:42.291Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B18 / Reklamenanlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-b19",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.111Z",
+      "modified_at": "2026-06-08T07:25:42.331Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"B19 / Solaranlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-c01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.598Z",
+      "modified_at": "2026-06-08T07:25:42.466Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"C01 / EleG Anhörung PGV Transformatorenstation ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-c02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.661Z",
+      "modified_at": "2026-06-08T07:25:42.462Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"C02 / EleG Anhörung PGV Transformatorenstation vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-c03",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.664Z",
+      "modified_at": "2026-06-08T07:25:42.504Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"C03 / EleG Anhörung PGV 16kV-Leitung ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-c04",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.635Z",
+      "modified_at": "2026-06-08T07:25:42.449Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"C04 / EleG Anhörung PGV 16kV-Leitung vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-c05",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.647Z",
+      "modified_at": "2026-06-08T07:25:42.609Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"C05 / EleG Anhörung PGV 50/110kV-Leitung ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-c06",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.599Z",
+      "modified_at": "2026-06-08T07:25:42.604Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"C06 / EleG Anhörung PGV 50/110kV-Leitung vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-c07",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.756Z",
+      "modified_at": "2026-06-08T07:25:42.516Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"C07 / EleG Anhörung PGV 220/380kV-Leitung ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-c08",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.828Z",
+      "modified_at": "2026-06-08T07:25:42.533Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"C08 / EleG Anhörung PGV 220/380kV-Leitung vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-c09",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.811Z",
+      "modified_at": "2026-06-08T07:25:42.536Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"C09 / EleG Anhörung PGV Niederspannung (BLN & LKB) ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-c10",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.802Z",
+      "modified_at": "2026-06-08T07:25:42.576Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"C10 / EleG Anhörung PGV Niederspannung (BLN & LKB) vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-c11",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.825Z",
+      "modified_at": "2026-06-08T07:25:42.588Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"C11 / EleG Anhörung PGV weitere Bauten und Anlagen im Energiesektor\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-d01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.819Z",
+      "modified_at": "2026-06-08T07:25:42.608Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"D01 / EBG Anhörung PGV Eisenbahnen ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-d02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.880Z",
+      "modified_at": "2026-06-08T07:25:42.618Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"D02 / EBG Anhörung PGV Eisenbahnen vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-e01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.943Z",
+      "modified_at": "2026-06-08T07:25:42.645Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"E01 / MG Anhörung PGV ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-e02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.929Z",
+      "modified_at": "2026-06-08T07:25:42.679Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"E02 / MG Anhörung PGV vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-f01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.954Z",
+      "modified_at": "2026-06-08T07:25:42.676Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"F01 / RLG Anhörung PGV > 5bar- Leitung ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-f02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.982Z",
+      "modified_at": "2026-06-08T07:25:42.700Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"F02 / RLG Anhörung PGV > 5bar- Leitung vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-f03",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.978Z",
+      "modified_at": "2026-06-08T07:25:42.725Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"F03 / RLG Anhörung PGV Druckreduzier- und Messstationen (DRS/DRM)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-f04",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.034Z",
+      "modified_at": "2026-06-08T07:25:42.697Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"F04 / RLG Anhörung PGV weitere Bauten und Anlagen der Gasversorgung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-g01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.083Z",
+      "modified_at": "2026-06-08T07:25:42.913Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"G01 / RLG PGV 1- 5bar- Leitung ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-gas\", \"plangenehmigungsverfahren-gas-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-g02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.092Z",
+      "modified_at": "2026-06-08T07:25:42.936Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"G02 / RLG PGV 1- 5bar- Leitung vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-gas\", \"plangenehmigungsverfahren-gas-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-g03",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.139Z",
+      "modified_at": "2026-06-08T07:25:42.942Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"G03 / RLG PGV Druckreduzier- und Messstationen (DRS/DRM)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-gas\", \"plangenehmigungsverfahren-gas-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-g04",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.146Z",
+      "modified_at": "2026-06-08T07:25:42.930Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"G04 / RLG PGV weitere Bauten und Anlagen der Gasversorgung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-gas\", \"plangenehmigungsverfahren-gas-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-h01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.131Z",
+      "modified_at": "2026-06-08T07:25:42.781Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"H01 / LFG Anhörung PGV ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-h02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.207Z",
+      "modified_at": "2026-06-08T07:25:42.788Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"H02 / LFG Anhörung PGV vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-i01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.257Z",
+      "modified_at": "2026-06-08T07:25:42.832Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"I01 / NSG Anhörung PGV ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-i02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.221Z",
+      "modified_at": "2026-06-08T07:25:42.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"I02 / NSG Anhörung PGV vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-k01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.278Z",
+      "modified_at": "2026-06-08T07:25:42.880Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"K01 / KEG Anhörung PGV ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-bewilligungsgrund-k02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.276Z",
+      "modified_at": "2026-06-08T07:25:42.888Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"K02 / KEG Anhörung PGV ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(info.case.root.form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-bund-v2\"])\n&& !(\"-migration\" in info.case.root.form)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-materialisierung-neu-versiegelten-flaechen-andere",
+    "fields": {
+      "created_at": "2026-05-19T14:00:33.863Z",
+      "modified_at": "2026-05-19T14:00:33.863Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-materialisierung-neu-versiegelten-flaechen-belag",
+    "fields": {
+      "created_at": "2026-05-19T14:00:33.855Z",
+      "modified_at": "2026-05-19T14:00:33.855Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Belag\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-materialisierung-neu-versiegelten-flaechen-beton",
+    "fields": {
+      "created_at": "2026-05-19T14:00:33.864Z",
+      "modified_at": "2026-05-19T14:00:33.864Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beton\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-materialisierung-neu-versiegelten-flaechen-betonsteine",
+    "fields": {
+      "created_at": "2026-05-19T14:00:33.842Z",
+      "modified_at": "2026-05-19T14:00:33.842Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betonsteine (Verbundsteine)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-nutzung-versiegelten-flaechen-andere",
+    "fields": {
+      "created_at": "2026-05-19T14:02:49.960Z",
+      "modified_at": "2026-05-19T14:02:49.960Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-nutzung-versiegelten-flaechen-ausnahmebewilligung-artikel-24ff-rpg",
+    "fields": {
+      "created_at": "2026-05-19T14:02:49.945Z",
+      "modified_at": "2026-05-19T14:02:49.945Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ausnahmebewilligung Artikel 24ff RPG\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-nutzung-versiegelten-flaechen-energie",
+    "fields": {
+      "created_at": "2026-05-19T14:02:49.926Z",
+      "modified_at": "2026-05-19T14:02:49.926Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Energie\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-nutzung-versiegelten-flaechen-erschliessung-verkehr-kantonale-und-nationale-projekte",
+    "fields": {
+      "created_at": "2026-05-19T14:02:49.969Z",
+      "modified_at": "2026-05-19T14:02:49.969Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erschliessung, Verkehr (kantonale und nationale Projekte)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-nutzung-versiegelten-flaechen-erschliessung-verkehr-kommunale-und-private-projekte",
+    "fields": {
+      "created_at": "2026-05-19T14:02:49.946Z",
+      "modified_at": "2026-05-19T14:02:49.946Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erschliessung, Verkehr (kommunale und private Projekte)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-nutzung-versiegelten-flaechen-landwirtschaft",
+    "fields": {
+      "created_at": "2026-05-19T14:02:49.959Z",
+      "modified_at": "2026-05-19T14:02:49.959Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Landwirtschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-nutzung-versiegelten-flaechen-tourismus",
+    "fields": {
+      "created_at": "2026-05-19T14:02:49.943Z",
+      "modified_at": "2026-05-19T14:02:49.943Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Tourismus\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-nutzung-versiegelten-flaechen-wald-projekte-fuer-die-waldbewirtschaftung",
+    "fields": {
+      "created_at": "2026-05-19T14:02:49.974Z",
+      "modified_at": "2026-05-19T14:02:49.974Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wald (Projekte für die Waldbewirtschaftung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-realisiert-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:25:23.350Z",
+      "modified_at": "2026-05-19T14:25:23.350Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-realisiert-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:25:23.345Z",
+      "modified_at": "2026-05-19T14:25:23.345Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-versiegelt-oder-entsiegelt-ja",
+    "fields": {
+      "created_at": "2026-05-18T14:55:33.855Z",
+      "modified_at": "2026-05-18T14:55:33.855Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-versiegelt-oder-entsiegelt-nein",
+    "fields": {
+      "created_at": "2026-05-18T14:55:33.878Z",
+      "modified_at": "2026-05-18T14:55:33.879Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-wann-wurde-flaeche-versiegelt-nach-29-sept-2023",
+    "fields": {
+      "created_at": "2026-05-19T14:10:43.697Z",
+      "modified_at": "2026-05-19T14:10:43.697Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nach dem 29. Sept. 2023\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rpg2-wann-wurde-flaeche-versiegelt-vor-29-sept-2023",
+    "fields": {
+      "created_at": "2026-05-19T14:10:43.694Z",
+      "modified_at": "2026-05-19T14:10:43.694Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vor dem 29. Sept. 2023\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-anzahl-gebaeude-abbruch",
+    "fields": {
+      "created_at": "2026-05-18T14:52:40.779Z",
+      "modified_at": "2026-05-18T14:52:40.779Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Gebäude > 6 m² die abgebrochen werden\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-anzahl-gebaeude-unter-schutz",
+    "fields": {
+      "created_at": "2026-05-18T14:53:24.568Z",
+      "modified_at": "2026-05-18T14:53:24.568Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Gebäude > 6 m² die neu unter Schutz gestellt wurden\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-anzahl-neue-gebaeude",
+    "fields": {
+      "created_at": "2026-05-15T09:52:32.015Z",
+      "modified_at": "2026-05-15T09:52:32.015Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl neue Gebäude > 6 m² (neu erstellte Bauten)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-art-versiegelung-entsiegelung",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.624Z",
+      "modified_at": "2026-05-19T13:57:53.624Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Ver- bzw. Entsiegelung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-bewilligungsgrund",
+    "fields": {
+      "created_at": "2025-01-16T12:00:01.743Z",
+      "modified_at": "2026-06-08T07:25:43.079Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rechtliche Grundlage RPG / RPV\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-flaeche-quadrat-meter",
+    "fields": {
+      "created_at": "2026-05-19T14:11:10.784Z",
+      "modified_at": "2026-05-19T14:11:10.784Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fläche (m²)\", \"fr\": null, \"it\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "step": null,
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-gebaeude-bemerkungen",
+    "fields": {
+      "created_at": "2026-05-18T14:54:22.319Z",
+      "modified_at": "2026-06-03T08:45:15.861Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen (z.B. betreffend die Praxis zur Beurteilung von Gebäuden)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-hinweis-versiegelt-oder-entsiegelt",
+    "fields": {
+      "created_at": "2026-05-18T15:23:53.178Z",
+      "modified_at": "2026-05-18T15:28:39.427Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweistext\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n  (\n    ('rpg2-anzahl-neue-gebaeude'|answer && 'rpg2-anzahl-neue-gebaeude'|answer > 0)\n    || ('rpg2-anzahl-gebaeude-abbruch'|answer && 'rpg2-anzahl-gebaeude-abbruch'|answer > 0)\n    || ('rpg2-anzahl-gebaeude-unter-schutz'|answer && 'rpg2-anzahl-gebaeude-unter-schutz'|answer > 0)\n  )\n  &&\n  'rpg2-versiegelt-oder-entsiegelt-ja' == 'rpg2-versiegelt-oder-entsiegelt'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\">\\n<p>\\nBitte erfassen Sie die ver- oder entsiegelten Flächen der betroffenen Gebäude.\\n</p></div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-materialisierung-neu-versiegelten-flaechen",
+    "fields": {
+      "created_at": "2026-05-19T14:00:33.928Z",
+      "modified_at": "2026-05-19T14:00:33.928Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Materialisierung der neu versiegelten Flächen\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-materialisierung-neu-versiegelten-flaechen-beschreibung",
+    "fields": {
+      "created_at": "2026-05-19T14:01:28.494Z",
+      "modified_at": "2026-05-19T14:01:28.494Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\n  'rpg2-materialisierung-neu-versiegelten-flaechen-andere' == 'rpg2-materialisierung-neu-versiegelten-flaechen'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-nutzung-versiegelten-flaechen",
+    "fields": {
+      "created_at": "2026-05-19T14:02:50.055Z",
+      "modified_at": "2026-05-19T14:02:50.055Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzung der versiegelten Flächen\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-nutzung-versiegelten-flaechen-beschreibung",
+    "fields": {
+      "created_at": "2026-05-19T14:07:46.034Z",
+      "modified_at": "2026-05-21T15:13:06.941Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\n  'rpg2-nutzung-versiegelten-flaechen-andere' == 'rpg2-nutzung-versiegelten-flaechen'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-realisiert",
+    "fields": {
+      "created_at": "2026-05-19T14:25:23.582Z",
+      "modified_at": "2026-05-19T14:25:23.582Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Realisiert?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-versiegelte-entsiegelte-flaechen",
+    "fields": {
+      "created_at": "2026-05-19T14:22:35.882Z",
+      "modified_at": "2026-05-19T14:23:26.224Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Versiegelte / entsiegelte Flächen\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "!(\n  'rpg2-versiegelt-oder-entsiegelt-ja' == 'rpg2-versiegelt-oder-entsiegelt'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "rpg2-art-versiegelung-entsiegelung",
+          "rpg2-materialisierung-neu-versiegelten-flaechen",
+          "rpg2-nutzung-versiegelten-flaechen",
+          "rpg2-flaeche-quadrat-meter"
+        ]
+      },
+      "data_source": null,
+      "row_form": "rpg2-versiegelte-entsiegelte-flaechen",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-versiegelt-oder-entsiegelt",
+    "fields": {
+      "created_at": "2026-05-18T14:55:33.923Z",
+      "modified_at": "2026-05-18T14:55:33.923Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden Flächen neu versiegelt oder entsiegelt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-wann-wurde-flaeche-versiegelt",
+    "fields": {
+      "created_at": "2026-05-19T14:10:43.753Z",
+      "modified_at": "2026-05-19T14:10:43.753Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wann wurde die Fläche versiegelt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\n  'rpg2-art-versiegelung-entsiegelung'|answer in ['rpg2-art-versiegelung-entsiegelung-entsiegelt-gebaeude', 'rpg2-art-versiegelung-entsiegelung-entsiegelt-umgebung', 'rpg2-art-versiegelung-entsiegelung-entsiegelt-erschliessung']\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-art-versiegelung-entsiegelung.rpg2-art-versiegelung-entsiegelung-entsiegelt-erschliessung",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.629Z",
+      "modified_at": "2026-05-19T13:57:53.629Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-art-versiegelung-entsiegelung",
+      "option": "rpg2-art-versiegelung-entsiegelung-entsiegelt-erschliessung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-art-versiegelung-entsiegelung.rpg2-art-versiegelung-entsiegelung-entsiegelt-gebaeude",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.635Z",
+      "modified_at": "2026-05-19T13:57:53.635Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-art-versiegelung-entsiegelung",
+      "option": "rpg2-art-versiegelung-entsiegelung-entsiegelt-gebaeude",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-art-versiegelung-entsiegelung.rpg2-art-versiegelung-entsiegelung-entsiegelt-umgebung",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.632Z",
+      "modified_at": "2026-05-19T13:57:53.632Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-art-versiegelung-entsiegelung",
+      "option": "rpg2-art-versiegelung-entsiegelung-entsiegelt-umgebung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-art-versiegelung-entsiegelung.rpg2-art-versiegelung-entsiegelung-neue-versiegelte-flaechen-erschliessung",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.638Z",
+      "modified_at": "2026-05-19T13:57:53.638Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-art-versiegelung-entsiegelung",
+      "option": "rpg2-art-versiegelung-entsiegelung-neue-versiegelte-flaechen-erschliessung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-art-versiegelung-entsiegelung.rpg2-art-versiegelung-entsiegelung-neue-versiegelte-flaechen-gebaeude",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.644Z",
+      "modified_at": "2026-05-19T13:57:53.644Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-art-versiegelung-entsiegelung",
+      "option": "rpg2-art-versiegelung-entsiegelung-neue-versiegelte-flaechen-gebaeude",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-art-versiegelung-entsiegelung.rpg2-art-versiegelung-entsiegelung-neue-versiegelte-flaechen-umgebung",
+    "fields": {
+      "created_at": "2026-05-19T13:57:53.641Z",
+      "modified_at": "2026-05-19T13:57:53.641Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-art-versiegelung-entsiegelung",
+      "option": "rpg2-art-versiegelung-entsiegelung-neue-versiegelte-flaechen-umgebung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a01",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.166Z",
+      "modified_at": "2026-06-08T07:25:43.166Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a01",
+      "sort": 85
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a02",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.165Z",
+      "modified_at": "2026-06-08T07:25:43.165Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a02",
+      "sort": 84
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a03",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.164Z",
+      "modified_at": "2026-06-08T07:25:43.164Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a03",
+      "sort": 83
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a04",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.163Z",
+      "modified_at": "2026-06-08T07:25:43.163Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a04",
+      "sort": 82
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a05",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.162Z",
+      "modified_at": "2026-06-08T07:25:43.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a05",
+      "sort": 81
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a06",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.161Z",
+      "modified_at": "2026-06-08T07:25:43.161Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a06",
+      "sort": 80
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a07",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.160Z",
+      "modified_at": "2026-06-08T07:25:43.160Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a07",
+      "sort": 79
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a08",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.159Z",
+      "modified_at": "2026-06-08T07:25:43.159Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a08",
+      "sort": 78
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a09",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.157Z",
+      "modified_at": "2026-06-08T07:25:43.157Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a09",
+      "sort": 77
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a10",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.156Z",
+      "modified_at": "2026-06-08T07:25:43.156Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a10",
+      "sort": 76
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a11",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.155Z",
+      "modified_at": "2026-06-08T07:25:43.155Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a11",
+      "sort": 75
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a12",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.154Z",
+      "modified_at": "2026-06-08T07:25:43.154Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a12",
+      "sort": 74
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a13",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.153Z",
+      "modified_at": "2026-06-08T07:25:43.153Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a13",
+      "sort": 73
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a14",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.152Z",
+      "modified_at": "2026-06-08T07:25:43.152Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a14",
+      "sort": 72
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a15",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.151Z",
+      "modified_at": "2026-06-08T07:25:43.151Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a15",
+      "sort": 71
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a16",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.150Z",
+      "modified_at": "2026-06-08T07:25:43.150Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a16",
+      "sort": 70
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a17",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.149Z",
+      "modified_at": "2026-06-08T07:25:43.149Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a17",
+      "sort": 69
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a18",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.148Z",
+      "modified_at": "2026-06-08T07:25:43.148Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a18",
+      "sort": 68
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a19",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.147Z",
+      "modified_at": "2026-06-08T07:25:43.147Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a19",
+      "sort": 67
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a20",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.146Z",
+      "modified_at": "2026-06-08T07:25:43.146Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a20",
+      "sort": 66
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a21",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.145Z",
+      "modified_at": "2026-06-08T07:25:43.145Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a21",
+      "sort": 65
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a22",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.144Z",
+      "modified_at": "2026-06-08T07:25:43.144Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a22",
+      "sort": 64
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a23",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.143Z",
+      "modified_at": "2026-06-08T07:25:43.143Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a23",
+      "sort": 63
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a24",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.142Z",
+      "modified_at": "2026-06-08T07:25:43.142Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a24",
+      "sort": 62
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a25",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.140Z",
+      "modified_at": "2026-06-08T07:25:43.140Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a25",
+      "sort": 61
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a26",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.139Z",
+      "modified_at": "2026-06-08T07:25:43.139Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a26",
+      "sort": 60
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a27",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.138Z",
+      "modified_at": "2026-06-08T07:25:43.138Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a27",
+      "sort": 59
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a28",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.137Z",
+      "modified_at": "2026-06-08T07:25:43.137Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a28",
+      "sort": 58
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a29",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.136Z",
+      "modified_at": "2026-06-08T07:25:43.136Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a29",
+      "sort": 57
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a30",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.135Z",
+      "modified_at": "2026-06-08T07:25:43.135Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a30",
+      "sort": 56
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a31",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.134Z",
+      "modified_at": "2026-06-08T07:25:43.134Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a31",
+      "sort": 55
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a32",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.133Z",
+      "modified_at": "2026-06-08T07:25:43.133Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a32",
+      "sort": 54
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a33",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.132Z",
+      "modified_at": "2026-06-08T07:25:43.132Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a33",
+      "sort": 53
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a34",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.131Z",
+      "modified_at": "2026-06-08T07:25:43.131Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a34",
+      "sort": 52
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a35",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.130Z",
+      "modified_at": "2026-06-08T07:25:43.130Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a35",
+      "sort": 51
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a36",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.129Z",
+      "modified_at": "2026-06-08T07:25:43.129Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a36",
+      "sort": 50
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-a37",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.128Z",
+      "modified_at": "2026-06-08T07:25:43.128Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-a37",
+      "sort": 49
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b01",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.127Z",
+      "modified_at": "2026-06-08T07:25:43.127Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b01",
+      "sort": 48
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b02",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.126Z",
+      "modified_at": "2026-06-08T07:25:43.126Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b02",
+      "sort": 47
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b03",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.125Z",
+      "modified_at": "2026-06-08T07:25:43.125Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b03",
+      "sort": 46
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b04",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.124Z",
+      "modified_at": "2026-06-08T07:25:43.124Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b04",
+      "sort": 45
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b05",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.123Z",
+      "modified_at": "2026-06-08T07:25:43.123Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b05",
+      "sort": 44
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b06",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.121Z",
+      "modified_at": "2026-06-08T07:25:43.121Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b06",
+      "sort": 43
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b07",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.120Z",
+      "modified_at": "2026-06-08T07:25:43.120Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b07",
+      "sort": 42
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b08",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.119Z",
+      "modified_at": "2026-06-08T07:25:43.119Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b08",
+      "sort": 41
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b09",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.118Z",
+      "modified_at": "2026-06-08T07:25:43.118Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b09",
+      "sort": 40
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b10",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.117Z",
+      "modified_at": "2026-06-08T07:25:43.117Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b10",
+      "sort": 39
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b11",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.116Z",
+      "modified_at": "2026-06-08T07:25:43.116Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b11",
+      "sort": 38
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b12",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.115Z",
+      "modified_at": "2026-06-08T07:25:43.115Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b12",
+      "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b13",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.114Z",
+      "modified_at": "2026-06-08T07:25:43.114Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b13",
+      "sort": 36
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b14",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.113Z",
+      "modified_at": "2026-06-08T07:25:43.113Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b14",
+      "sort": 35
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b15",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.112Z",
+      "modified_at": "2026-06-08T07:25:43.112Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b15",
+      "sort": 34
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b16",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.111Z",
+      "modified_at": "2026-06-08T07:25:43.111Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b16",
+      "sort": 33
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b17",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.110Z",
+      "modified_at": "2026-06-08T07:25:43.110Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b17",
+      "sort": 32
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b18",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.109Z",
+      "modified_at": "2026-06-08T07:25:43.109Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b18",
+      "sort": 31
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-b19",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.108Z",
+      "modified_at": "2026-06-08T07:25:43.108Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-b19",
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-c01",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.107Z",
+      "modified_at": "2026-06-08T07:25:43.107Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-c01",
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-c02",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.106Z",
+      "modified_at": "2026-06-08T07:25:43.106Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-c02",
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-c03",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.105Z",
+      "modified_at": "2026-06-08T07:25:43.105Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-c03",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-c04",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.104Z",
+      "modified_at": "2026-06-08T07:25:43.104Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-c04",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-c05",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.103Z",
+      "modified_at": "2026-06-08T07:25:43.103Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-c05",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-c06",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.102Z",
+      "modified_at": "2026-06-08T07:25:43.102Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-c06",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-c07",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.101Z",
+      "modified_at": "2026-06-08T07:25:43.101Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-c07",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-c08",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.100Z",
+      "modified_at": "2026-06-08T07:25:43.100Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-c08",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-c09",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.099Z",
+      "modified_at": "2026-06-08T07:25:43.099Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-c09",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-c10",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.098Z",
+      "modified_at": "2026-06-08T07:25:43.098Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-c10",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-c11",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.097Z",
+      "modified_at": "2026-06-08T07:25:43.097Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-c11",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-d01",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.096Z",
+      "modified_at": "2026-06-08T07:25:43.096Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-d01",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-d02",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.095Z",
+      "modified_at": "2026-06-08T07:25:43.095Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-d02",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-e01",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.094Z",
+      "modified_at": "2026-06-08T07:25:43.094Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-e01",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-e02",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.094Z",
+      "modified_at": "2026-06-08T07:25:43.094Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-e02",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-f01",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.093Z",
+      "modified_at": "2026-06-08T07:25:43.093Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-f01",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-f02",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.092Z",
+      "modified_at": "2026-06-08T07:25:43.092Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-f02",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-f03",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.091Z",
+      "modified_at": "2026-06-08T07:25:43.091Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-f03",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-f04",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.090Z",
+      "modified_at": "2026-06-08T07:25:43.090Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-f04",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-g01",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.089Z",
+      "modified_at": "2026-06-08T07:25:43.089Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-g01",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-g02",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.089Z",
+      "modified_at": "2026-06-08T07:25:43.089Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-g02",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-g03",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.088Z",
+      "modified_at": "2026-06-08T07:25:43.088Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-g03",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-g04",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.087Z",
+      "modified_at": "2026-06-08T07:25:43.087Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-g04",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-h01",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.086Z",
+      "modified_at": "2026-06-08T07:25:43.086Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-h01",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-h02",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.086Z",
+      "modified_at": "2026-06-08T07:25:43.086Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-h02",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-i01",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.085Z",
+      "modified_at": "2026-06-08T07:25:43.085Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-i01",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-i02",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.084Z",
+      "modified_at": "2026-06-08T07:25:43.084Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-i02",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-k01",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.083Z",
+      "modified_at": "2026-06-08T07:25:43.083Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-k01",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-bewilligungsgrund.rpg2-bewilligungsgrund-k02",
+    "fields": {
+      "created_at": "2026-06-08T07:25:43.082Z",
+      "modified_at": "2026-06-08T07:25:43.082Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-bewilligungsgrund",
+      "option": "rpg2-bewilligungsgrund-k02",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-materialisierung-neu-versiegelten-flaechen.rpg2-materialisierung-neu-versiegelten-flaechen-andere",
+    "fields": {
+      "created_at": "2026-05-19T14:00:33.931Z",
+      "modified_at": "2026-05-19T14:00:33.931Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-materialisierung-neu-versiegelten-flaechen",
+      "option": "rpg2-materialisierung-neu-versiegelten-flaechen-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-materialisierung-neu-versiegelten-flaechen.rpg2-materialisierung-neu-versiegelten-flaechen-belag",
+    "fields": {
+      "created_at": "2026-05-19T14:00:33.935Z",
+      "modified_at": "2026-05-19T14:00:33.935Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-materialisierung-neu-versiegelten-flaechen",
+      "option": "rpg2-materialisierung-neu-versiegelten-flaechen-belag",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-materialisierung-neu-versiegelten-flaechen.rpg2-materialisierung-neu-versiegelten-flaechen-beton",
+    "fields": {
+      "created_at": "2026-05-19T14:00:33.936Z",
+      "modified_at": "2026-05-19T14:00:33.936Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-materialisierung-neu-versiegelten-flaechen",
+      "option": "rpg2-materialisierung-neu-versiegelten-flaechen-beton",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-materialisierung-neu-versiegelten-flaechen.rpg2-materialisierung-neu-versiegelten-flaechen-betonsteine",
+    "fields": {
+      "created_at": "2026-05-19T14:00:33.933Z",
+      "modified_at": "2026-05-19T14:00:33.933Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-materialisierung-neu-versiegelten-flaechen",
+      "option": "rpg2-materialisierung-neu-versiegelten-flaechen-betonsteine",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-nutzung-versiegelten-flaechen.rpg2-nutzung-versiegelten-flaechen-andere",
+    "fields": {
+      "created_at": "2026-05-19T14:02:50.059Z",
+      "modified_at": "2026-05-19T14:02:50.059Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-nutzung-versiegelten-flaechen",
+      "option": "rpg2-nutzung-versiegelten-flaechen-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-nutzung-versiegelten-flaechen.rpg2-nutzung-versiegelten-flaechen-ausnahmebewilligung-artikel-24ff-rpg",
+    "fields": {
+      "created_at": "2026-05-19T14:02:50.062Z",
+      "modified_at": "2026-05-19T14:02:50.062Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-nutzung-versiegelten-flaechen",
+      "option": "rpg2-nutzung-versiegelten-flaechen-ausnahmebewilligung-artikel-24ff-rpg",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-nutzung-versiegelten-flaechen.rpg2-nutzung-versiegelten-flaechen-energie",
+    "fields": {
+      "created_at": "2026-05-19T14:02:50.067Z",
+      "modified_at": "2026-05-19T14:02:50.067Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-nutzung-versiegelten-flaechen",
+      "option": "rpg2-nutzung-versiegelten-flaechen-energie",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-nutzung-versiegelten-flaechen.rpg2-nutzung-versiegelten-flaechen-erschliessung-verkehr-kantonale-und-nationale-projekte",
+    "fields": {
+      "created_at": "2026-05-19T14:02:50.064Z",
+      "modified_at": "2026-05-19T14:02:50.064Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-nutzung-versiegelten-flaechen",
+      "option": "rpg2-nutzung-versiegelten-flaechen-erschliessung-verkehr-kantonale-und-nationale-projekte",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-nutzung-versiegelten-flaechen.rpg2-nutzung-versiegelten-flaechen-erschliessung-verkehr-kommunale-und-private-projekte",
+    "fields": {
+      "created_at": "2026-05-19T14:02:50.065Z",
+      "modified_at": "2026-05-19T14:02:50.065Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-nutzung-versiegelten-flaechen",
+      "option": "rpg2-nutzung-versiegelten-flaechen-erschliessung-verkehr-kommunale-und-private-projekte",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-nutzung-versiegelten-flaechen.rpg2-nutzung-versiegelten-flaechen-landwirtschaft",
+    "fields": {
+      "created_at": "2026-05-19T14:02:50.070Z",
+      "modified_at": "2026-05-19T14:02:50.070Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-nutzung-versiegelten-flaechen",
+      "option": "rpg2-nutzung-versiegelten-flaechen-landwirtschaft",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-nutzung-versiegelten-flaechen.rpg2-nutzung-versiegelten-flaechen-tourismus",
+    "fields": {
+      "created_at": "2026-05-19T14:02:50.068Z",
+      "modified_at": "2026-05-19T14:02:50.068Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-nutzung-versiegelten-flaechen",
+      "option": "rpg2-nutzung-versiegelten-flaechen-tourismus",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-nutzung-versiegelten-flaechen.rpg2-nutzung-versiegelten-flaechen-wald-projekte-fuer-die-waldbewirtschaftung",
+    "fields": {
+      "created_at": "2026-05-19T14:02:50.066Z",
+      "modified_at": "2026-05-19T14:02:50.066Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-nutzung-versiegelten-flaechen",
+      "option": "rpg2-nutzung-versiegelten-flaechen-wald-projekte-fuer-die-waldbewirtschaftung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-realisiert.rpg2-realisiert-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:25:23.594Z",
+      "modified_at": "2026-05-19T14:25:23.594Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-realisiert",
+      "option": "rpg2-realisiert-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-realisiert.rpg2-realisiert-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:25:23.590Z",
+      "modified_at": "2026-05-19T14:25:23.590Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-realisiert",
+      "option": "rpg2-realisiert-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-versiegelt-oder-entsiegelt.rpg2-versiegelt-oder-entsiegelt-ja",
+    "fields": {
+      "created_at": "2026-05-18T14:55:33.934Z",
+      "modified_at": "2026-05-18T14:55:33.934Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-versiegelt-oder-entsiegelt",
+      "option": "rpg2-versiegelt-oder-entsiegelt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-versiegelt-oder-entsiegelt.rpg2-versiegelt-oder-entsiegelt-nein",
+    "fields": {
+      "created_at": "2026-05-18T14:55:33.927Z",
+      "modified_at": "2026-05-18T14:55:33.927Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-versiegelt-oder-entsiegelt",
+      "option": "rpg2-versiegelt-oder-entsiegelt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-wann-wurde-flaeche-versiegelt.rpg2-wann-wurde-flaeche-versiegelt-nach-29-sept-2023",
+    "fields": {
+      "created_at": "2026-05-19T14:10:43.756Z",
+      "modified_at": "2026-05-19T14:10:43.756Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-wann-wurde-flaeche-versiegelt",
+      "option": "rpg2-wann-wurde-flaeche-versiegelt-nach-29-sept-2023",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rpg2-wann-wurde-flaeche-versiegelt.rpg2-wann-wurde-flaeche-versiegelt-vor-29-sept-2023",
+    "fields": {
+      "created_at": "2026-05-19T14:10:43.759Z",
+      "modified_at": "2026-05-19T14:10:43.759Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rpg2-wann-wurde-flaeche-versiegelt",
+      "option": "rpg2-wann-wurde-flaeche-versiegelt-vor-29-sept-2023",
+      "sort": 2
+    }
+  }
+]
