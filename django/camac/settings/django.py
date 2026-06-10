@@ -827,6 +827,8 @@ APPLICATIONS = {
         "THUMBNAIL_SIZE": "x300",
         "DOCUMENT_BACKEND": "camac-ng",
         "SCRUB_FORMFIELD_KEYS_FOR_PUBLIC": ["tel", "email"],
+        # TODO: Move to RPG2 module settings once the dust settles:
+        "RPG2_DEMOLITION_PREMIUM_PAYMENT_SERVICE": "zentrale-dienste-are",
     },
     "kt_bern": {
         "SHORT_NAME": "be",
