@@ -8046,6 +8046,7 @@
       "hint": "Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein. Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\n\nUnter den Begriff *Grundstücksangaben* fallen Gesuchsunterlagen wie z. B. Katasterplan, Grundbuchauszug, Dienstbarkeiten.",
       "type": "document",
       "required": true,
+      "active-expression": "form != 'abbruchpraemie' || 'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
       "config": {}
     },
     "dokument-gutachten-nachweise-begrundungen": {
@@ -8053,6 +8054,7 @@
       "hint": "Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\n\nUnter die Begriffe *Gutachten, Nachweise, Begründungen* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverständnis Nachbarn, Nutzungsberechnungen, energetische Nachweise, Lärmschutznachweise, Brandschutznachweise, Durchflussnachweise.",
       "type": "document",
       "required": false,
+      "active-expression": "form != 'abbruchpraemie' || 'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
       "config": {}
     },
     "dokument-projektplane-projektbeschrieb": {
@@ -8060,6 +8062,7 @@
       "hint": "Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\n\nUnter die Begriffe *Projektpläne und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Situationspläne, Grundrisse, Schnitt- und Fassadenpläne, Kanalisationspläne, Siedlungsentwässerungspläne, Umgebungspläne, Projektbeschrieb, Planverzeichnis.",
       "type": "document",
       "required": true,
+      "active-expression": "form != 'abbruchpraemie' || 'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
       "config": {}
     },
     "dokument-weitere-gesuchsunterlagen": {
@@ -8067,6 +8070,7 @@
       "hint": "Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\n\nUnter den Begriff *Weitere Gesuchsunterlagen* fallen Gesuchsunterlagen wie z. B. Anschlussgesuch Elektrizitätswerk, Anschlussgesuch Gas, Anschlussgesuch Wasser, andere Gesuchsunterlagen.",
       "type": "document",
       "required": false,
+      "active-expression": "form != 'abbruchpraemie' || 'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
       "config": {}
     },
     "dokument-freigegeben": {
@@ -10657,7 +10661,7 @@
       "label": "Ihr Bauvorhaben betrifft einen belasteten Standort. Die zuständige kantonale Fachstelle benötigt für die Beurteilung zusätzliche Unterlagen (Altlastenuntersuchungen, eine baubedingte Gefährdungsabschätzung und/oder ein Aushub- und Entsorgungskonzept nach Art. 16 VVEA). Weitere Informationen zu den benötigten Unterlagen entnehmen Sie dem Ablaufschema &laquo;<a href=\"/assets/documents/20201029_Ablaufschema_Bauen_auf_belasteten_Standorten.pdf\" title=\"Herunterladen\" target=\"_blank\">Bauen auf belasteten Standorten</a>&raquo;.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.a020a.kataster_belasteter_standorte' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.polygon' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.punkt' in 'layer'|value|mapby('name')",
+      "active-expression": "(form != 'abbruchpraemie' || 'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value) && ('ms:ch.sz.a020a.kataster_belasteter_standorte' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.polygon' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.punkt' in 'layer'|value|mapby('name'))",
       "config": {
         "options": ["Vorhanden"]
       }
