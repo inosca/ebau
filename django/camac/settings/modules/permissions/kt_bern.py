@@ -38,7 +38,7 @@ STATES_ALL_INTERNAL = RequireInstanceState(
         "finished",  # Abgeschlossen
         "rejected",  # Zurückgewiesen
         "correction",  # In Korrektur
-        # TODO: Is instance state "corrected" still needed?
+        # old instance state for corrected dossiers
         "corrected",  # Korrigiert von Leitbehörde
         "archived",  # Archiviert
         # preliminary clarification
@@ -63,6 +63,8 @@ STATES_INTERNAL_NO_CORRECTION = RequireInstanceState(
         "conclusion",  # Zum Abschluss
         "finished",  # Abgeschlossen
         "rejected",  # Zurückgewiesen
+        # old instance state for corrected dossiers
+        "corrected",  # Korrigiert von Leitbehörde
         "archived",  # Archiviert
         # preliminary clarification
         "evaluated",  # Beurteilung abgeschlossen
