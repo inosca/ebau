@@ -52,6 +52,22 @@ defmodule Caluma.Form.Calculations.DocumentAnswer do
     expr(^ref)
   end
 
+  @doc """
+  Like `init/1` but also validates that a `mapping` option is present and is
+  either a plain map or a `{module, opts}` resolver tuple. Used by the mapped
+  answer calculations.
+  """
+  def init_with_mapping(opts) do
+    with {:ok, opts} <- init(opts),
+         :ok <- validate_mapping(opts[:mapping]) do
+      {:ok, opts}
+    end
+  end
+
+  defp validate_mapping(m) when is_map(m), do: :ok
+  defp validate_mapping({mod, _}) when is_atom(mod), do: :ok
+  defp validate_mapping(_), do: {:error, "mapping must be a map or {module, opts} tuple"}
+
   def resolve_mapping(mapping, _context) when is_map(mapping), do: mapping
   def resolve_mapping({mod, opts}, context), do: mod.resolve(opts, context)
 end

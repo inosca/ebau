@@ -14,13 +14,14 @@ defmodule EbauWeb.OAuth2 do
   alias Assent.Strategy.OAuth2
 
   defp config do
-    keycloak_config = keycloak_config()
+    keycloak_config = Ebau.Secrets.keycloak_config()
     auth_url = Keyword.fetch!(keycloak_config, :url)
     realm = Keyword.fetch!(keycloak_config, :realm)
 
     [
       base_url: auth_url,
-      user_url: "#{auth_url}realms/#{realm}/protocol/openid-connect/userinfo"
+      user_url:
+        String.trim_trailing(auth_url, "/") <> "/realms/#{realm}/protocol/openid-connect/userinfo"
     ]
   end
 
@@ -32,18 +33,16 @@ defmodule EbauWeb.OAuth2 do
   claim is then used to look up the matching local user.
   """
   def fetch_user(token) do
-    email_claim = keycloak_config() |> Keyword.fetch!(:email_claim)
-
     EbauWeb.TokenCache.fetch(token, fn ->
+      email_claim = Ebau.Secrets.keycloak_config() |> Keyword.get(:email_claim, "email")
+
       with {:ok, userinfo} <- OAuth2.fetch_user(config(), %{"access_token" => token}),
            {:ok, email} <- Map.fetch(userinfo, email_claim) do
-        Ebau.User.get_user_by_email(email, authorize?: false)
+        Ebau.User.get_user_by_email(email, authorize?: false, actor: nil)
       else
         :error -> {:error, {:missing_claim, email_claim}}
         {:error, _reason} = error -> error
       end
     end)
   end
-
-  defp keycloak_config, do: Application.fetch_env!(:ebau, :keycloak)
 end

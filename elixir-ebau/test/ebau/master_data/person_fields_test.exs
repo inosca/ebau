@@ -5,7 +5,8 @@ defmodule Ebau.MasterData.PersonFieldsTest do
     use Ash.Resource,
       otp_app: :ebau,
       data_layer: AshPostgres.DataLayer,
-      extensions: [Caluma.Form.Extensions.Document, Ebau.MasterData.PersonFields],
+      extensions: [Caluma.Form.Extensions.Document],
+      fragments: [Ebau.MasterData.PersonFields],
       domain: nil
 
     postgres do
@@ -67,7 +68,7 @@ defmodule Ebau.MasterData.PersonFieldsTest do
       end
     end
 
-    test "each calculation references an auto-generated has_one relationship" do
+    test "each calculation uses either a has_one relationship or a question_id resolver" do
       calculations = Ash.Resource.Info.calculations(TestResource)
       relationships = Ash.Resource.Info.relationships(TestResource)
 

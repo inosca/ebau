@@ -19,15 +19,7 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswer do
   alias Caluma.Form.Calculations.DocumentAnswer
 
   @impl true
-  def init(opts) do
-    with {:ok, opts} <- DocumentAnswer.init(opts) do
-      case opts[:mapping] do
-        m when is_map(m) -> {:ok, opts}
-        {mod, _} when is_atom(mod) -> {:ok, opts}
-        _ -> {:error, "mapping must be a map or {module, opts} tuple"}
-      end
-    end
-  end
+  def init(opts), do: DocumentAnswer.init_with_mapping(opts)
 
   @impl true
   def load(_query, opts, _context) do

@@ -151,17 +151,16 @@ defmodule Ebau.Legacy.ConfigLoader do
       |> Enum.flat_map(&read_entries!/1)
       |> Enum.filter(&(&1["model"] in @supported_models))
 
-    {:ok, _result} =
-      Repo.transaction(fn ->
-        groups = Enum.group_by(entries, & &1["model"])
+    Repo.transaction(fn ->
+      groups = Enum.group_by(entries, & &1["model"])
 
-        import_roles!(groups["user.role"] || [])
-        import_service_groups!(groups["user.servicegroup"] || [])
-        import_forms!(groups["caluma_form.form"] || [])
-        import_questions!(groups["caluma_form.question"] || [])
-        import_workflows!(groups["caluma_workflow.workflow"] || [])
-        import_form_questions!(groups["caluma_form.formquestion"] || [])
-      end)
+      import_roles!(groups["user.role"] || [])
+      import_service_groups!(groups["user.servicegroup"] || [])
+      import_forms!(groups["caluma_form.form"] || [])
+      import_questions!(groups["caluma_form.question"] || [])
+      import_workflows!(groups["caluma_workflow.workflow"] || [])
+      import_form_questions!(groups["caluma_form.formquestion"] || [])
+    end)
 
     :ok
   end
@@ -191,79 +190,32 @@ defmodule Ebau.Legacy.ConfigLoader do
     end
   end
 
-  defp import_roles!([]), do: :ok
+  defp import_roles!(entries), do: bulk_upsert!("ROLE", entries, &role_row/1, [:ROLE_ID])
 
-  defp import_roles!(entries) do
-    Repo.insert_all(
-      "ROLE",
-      Enum.map(entries, &role_row/1),
+  defp import_service_groups!(entries),
+    do: bulk_upsert!("SERVICE_GROUP", entries, &service_group_row/1, [:SERVICE_GROUP_ID])
+
+  defp import_forms!(entries), do: bulk_upsert!("caluma_form_form", entries, &form_row/1, [:slug])
+
+  defp import_questions!(entries),
+    do: bulk_upsert!("caluma_form_question", entries, &question_row/1, [:slug])
+
+  defp import_workflows!(entries),
+    do: bulk_upsert!("caluma_workflow_workflow", entries, &workflow_row/1, [:slug])
+
+  defp import_form_questions!(entries),
+    do:
+      bulk_upsert!("caluma_form_formquestion", entries, &form_question_row/1, [
+        :form_id,
+        :question_id
+      ])
+
+  defp bulk_upsert!(_table, [], _row_fn, _conflict_target), do: :ok
+
+  defp bulk_upsert!(table, entries, row_fn, conflict_target) do
+    Repo.insert_all(table, Enum.map(entries, row_fn),
       on_conflict: :nothing,
-      conflict_target: [:ROLE_ID]
-    )
-
-    :ok
-  end
-
-  defp import_service_groups!([]), do: :ok
-
-  defp import_service_groups!(entries) do
-    Repo.insert_all(
-      "SERVICE_GROUP",
-      Enum.map(entries, &service_group_row/1),
-      on_conflict: :nothing,
-      conflict_target: [:SERVICE_GROUP_ID]
-    )
-
-    :ok
-  end
-
-  defp import_forms!([]), do: :ok
-
-  defp import_forms!(entries) do
-    Repo.insert_all(
-      "caluma_form_form",
-      Enum.map(entries, &form_row/1),
-      on_conflict: :nothing,
-      conflict_target: [:slug]
-    )
-
-    :ok
-  end
-
-  defp import_questions!([]), do: :ok
-
-  defp import_questions!(entries) do
-    Repo.insert_all(
-      "caluma_form_question",
-      Enum.map(entries, &question_row/1),
-      on_conflict: :nothing,
-      conflict_target: [:slug]
-    )
-
-    :ok
-  end
-
-  defp import_workflows!([]), do: :ok
-
-  defp import_workflows!(entries) do
-    Repo.insert_all(
-      "caluma_workflow_workflow",
-      Enum.map(entries, &workflow_row/1),
-      on_conflict: :nothing,
-      conflict_target: [:slug]
-    )
-
-    :ok
-  end
-
-  defp import_form_questions!([]), do: :ok
-
-  defp import_form_questions!(entries) do
-    Repo.insert_all(
-      "caluma_form_formquestion",
-      Enum.map(entries, &form_question_row/1),
-      on_conflict: :nothing,
-      conflict_target: [:id]
+      conflict_target: conflict_target
     )
 
     :ok
@@ -288,14 +240,19 @@ defmodule Ebau.Legacy.ConfigLoader do
     }
   end
 
-  defp form_row(%{"pk" => slug, "fields" => fields}) do
+  defp audit_fields(fields) do
     %{
       created_at: timestamp(fields["created_at"]),
       modified_at: timestamp(fields["modified_at"]),
       created_by_user: fields["created_by_user"],
       created_by_group: fields["created_by_group"],
       modified_by_user: fields["modified_by_user"],
-      modified_by_group: fields["modified_by_group"],
+      modified_by_group: fields["modified_by_group"]
+    }
+  end
+
+  defp form_row(%{"pk" => slug, "fields" => fields}) do
+    Map.merge(audit_fields(fields), %{
       slug: slug,
       name: json_map!(fields["name"]),
       description: json_map(fields["description"]),
@@ -303,17 +260,11 @@ defmodule Ebau.Legacy.ConfigLoader do
       is_published: fields["is_published"] || false,
       is_archived: fields["is_archived"] || false,
       source_id: fields["source"]
-    }
+    })
   end
 
   defp question_row(%{"pk" => slug, "fields" => fields}) do
-    %{
-      created_at: timestamp(fields["created_at"]),
-      modified_at: timestamp(fields["modified_at"]),
-      created_by_user: fields["created_by_user"],
-      created_by_group: fields["created_by_group"],
-      modified_by_user: fields["modified_by_user"],
-      modified_by_group: fields["modified_by_group"],
+    Map.merge(audit_fields(fields), %{
       slug: slug,
       label: json_map!(fields["label"]),
       type: fields["type"],
@@ -335,17 +286,11 @@ defmodule Ebau.Legacy.ConfigLoader do
       calc_dependents: json_list(fields["calc_dependents"]),
       calc_expression: fields["calc_expression"],
       hint_text: json_map(fields["hint_text"])
-    }
+    })
   end
 
   defp workflow_row(%{"pk" => slug, "fields" => fields}) do
-    %{
-      created_at: timestamp(fields["created_at"]),
-      modified_at: timestamp(fields["modified_at"]),
-      created_by_user: fields["created_by_user"],
-      created_by_group: fields["created_by_group"],
-      modified_by_user: fields["modified_by_user"],
-      modified_by_group: fields["modified_by_group"],
+    Map.merge(audit_fields(fields), %{
       slug: slug,
       name: json_map!(fields["name"]),
       description: json_map(fields["description"]),
@@ -353,22 +298,16 @@ defmodule Ebau.Legacy.ConfigLoader do
       is_published: fields["is_published"] || false,
       is_archived: fields["is_archived"] || false,
       allow_all_forms: fields["allow_all_forms"] || false
-    }
+    })
   end
 
   defp form_question_row(%{"pk" => id, "fields" => fields}) do
-    %{
-      created_at: timestamp(fields["created_at"]),
-      modified_at: timestamp(fields["modified_at"]),
-      created_by_user: fields["created_by_user"],
-      created_by_group: fields["created_by_group"],
-      modified_by_user: fields["modified_by_user"],
-      modified_by_group: fields["modified_by_group"],
+    Map.merge(audit_fields(fields), %{
       id: id,
       sort: fields["sort"] || 0,
       form_id: fields["form"],
       question_id: fields["question"]
-    }
+    })
   end
 
   defp timestamp(nil), do: nil

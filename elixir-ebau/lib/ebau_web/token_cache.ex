@@ -11,6 +11,8 @@ defmodule EbauWeb.TokenCache do
   use GenServer
 
   @table :token_cache
+  # TODO Cached tokens are valid for 5 minutes even if revoked.
+  # This is known and also implemented the same way in django.
   @cleanup_interval to_timeout(minute: 5)
   @max_cache_ttl 300
 

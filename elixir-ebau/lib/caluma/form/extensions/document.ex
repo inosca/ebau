@@ -384,7 +384,7 @@ defmodule Caluma.Form.Extensions.Document.AnswerTransformer do
     )
   end
 
-  defp add_calc(dsl, name, type, mod, opts) do
+  def add_calc(dsl, name, type, mod, opts) do
     {:ok, calc} = Ash.Resource.Builder.build_calculation(name, type, {mod, opts})
     Spark.Dsl.Transformer.add_entity(dsl, [:calculations], calc)
   end
@@ -392,7 +392,10 @@ defmodule Caluma.Form.Extensions.Document.AnswerTransformer do
   # The resource IS the document, so the parent's primary key is `id`.
   @parent_doc_id_ref %Ash.Query.Ref{attribute: :id}
 
-  defp add_answer_relationship(dsl, rel_name, question_id) do
+  def answer_relationship_name(name), do: :"_#{name}_answer"
+
+  @doc false
+  def add_answer_relationship(dsl, rel_name, question_id, parent_doc_id_ref) do
     source = Spark.Dsl.Transformer.get_persisted(dsl, :module)
     slugs = all_question_slugs(question_id)
 
@@ -404,15 +407,18 @@ defmodule Caluma.Form.Extensions.Document.AnswerTransformer do
     rel_with_filter = %{
       rel
       | source: source,
-        filter: Caluma.Form.AnswerFilters.answer_filter(@parent_doc_id_ref, slugs)
+        filter: Caluma.Form.AnswerFilters.answer_filter(parent_doc_id_ref, slugs)
     }
 
     Spark.Dsl.Transformer.add_entity(dsl, [:relationships], rel_with_filter)
   end
 
-  defp answer_relationship_name(name), do: :"_#{name}_answer"
+  defp add_answer_relationship(dsl, rel_name, question_id) do
+    add_answer_relationship(dsl, rel_name, question_id, @parent_doc_id_ref)
+  end
 
-  defp add_table_relationship(dsl, table, source) do
+  @doc false
+  def add_table_relationship(dsl, table, source, parent_doc_id_ref) do
     question_ids = all_question_slugs(table.question_id)
 
     {:ok, rel} =
@@ -424,30 +430,18 @@ defmodule Caluma.Form.Extensions.Document.AnswerTransformer do
     rel_with_filter = %{
       rel
       | source: source,
-        filter: Caluma.Form.AnswerFilters.table_filter(@parent_doc_id_ref, question_ids)
+        filter: Caluma.Form.AnswerFilters.table_filter(parent_doc_id_ref, question_ids)
     }
 
     Spark.Dsl.Transformer.add_entity(dsl, [:relationships], rel_with_filter)
   end
 
+  defp add_table_relationship(dsl, table, source) do
+    add_table_relationship(dsl, table, source, @parent_doc_id_ref)
+  end
+
   @doc false
   def all_question_slugs(id) when is_binary(id), do: [id]
   def all_question_slugs(ids) when is_list(ids), do: Enum.uniq(ids)
-
-  def all_question_slugs({_mod, opts}) do
-    opts
-    |> extract_all_strings()
-    |> Enum.uniq()
-  end
-
-  defp extract_all_strings(map) when is_map(map) do
-    Enum.flat_map(map, fn {_k, v} -> extract_all_strings(v) end)
-  end
-
-  defp extract_all_strings(str) when is_binary(str), do: [str]
-
-  defp extract_all_strings(list) when is_list(list),
-    do: Enum.flat_map(list, &extract_all_strings/1)
-
-  defp extract_all_strings(_), do: []
+  def all_question_slugs({mod, opts}), do: {mod, opts}
 end

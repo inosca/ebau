@@ -15,10 +15,8 @@ defmodule Ebau.MasterData.Applicant do
     domain: Ebau.MasterData,
     data_layer: AshPostgres.DataLayer,
     authorizers: Ash.Policy.Authorizer,
-    extensions: [
-      Caluma.Form.Extensions.Document,
-      Ebau.MasterData.PersonFields
-    ]
+    extensions: [Caluma.Form.Extensions.Document],
+    fragments: [Ebau.MasterData.PersonFields]
 
   postgres do
     table "caluma_form_document"

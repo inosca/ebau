@@ -17,29 +17,44 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
 
   @impl true
   def calculate(records, _opts, context) do
-    instance =
-      Ebau.Instances.get_instance_by_id!(
-        context.arguments.instance_id,
-        Keyword.put(Ash.Context.to_opts(context), :load, plot_data: [:coord_north, :coord_east])
-      )
+    case Ebau.Instances.get_instance_by_id(
+           context.arguments.instance_id,
+           Keyword.put(Ash.Context.to_opts(context), :load, plot_data: [:coord_north, :coord_east])
+         ) do
+      {:ok, instance} ->
+        coords = first_plot_coords(List.first(instance.plot_data))
+        Enum.map(records, &set_coordinate_param(&1.placeholder, coords))
 
-    coords = first_plot_coords(List.first(instance.plot_data))
-    Enum.map(records, &set_coordinate_param(&1.placeholder, coords))
+      {:error, %Ash.Error.Query.NotFound{}} ->
+        {:error,
+         Ash.Error.Query.InvalidArgument.exception(field: :instance_id, message: "not found")}
+
+      {:error, error} ->
+        {:error, error}
+    end
   end
 
-  defp first_plot_coords(nil), do: ","
-  defp first_plot_coords(plot), do: "#{coord_int(plot.coord_east)},#{coord_int(plot.coord_north)}"
+  defp first_plot_coords(nil), do: {:error}
+
+  defp first_plot_coords(plot) do
+    case {coord_int(plot.coord_east), coord_int(plot.coord_north)} do
+      {{:ok, coord_east}, {:ok, coord_north}} -> {:ok, "#{coord_east},#{coord_north}"}
+      _ -> {:error}
+    end
+  end
 
   defp coord_int(value) when is_binary(value) do
     case Float.parse(value) do
-      {float, _rest} -> Integer.to_string(trunc(float))
-      :error -> ""
+      {float, _rest} -> {:ok, Integer.to_string(trunc(float))}
+      :error -> {:error}
     end
   end
 
   defp coord_int(_), do: ""
 
-  defp set_coordinate_param(url, coords) do
+  defp set_coordinate_param(url, {:error}), do: url
+
+  defp set_coordinate_param(url, {:ok, coords}) do
     uri = URI.parse(url)
 
     query =

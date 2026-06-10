@@ -31,6 +31,15 @@ defmodule Ebau.Policies.Checks.HasActiveInstanceACL do
   use Ash.Policy.FilterCheck
 
   @impl true
+  def init(opts) do
+    if Keyword.has_key?(opts, :via) do
+      {:ok, opts}
+    else
+      {:error, "requires the :via option"}
+    end
+  end
+
+  @impl true
   def describe(opts) do
     "actor has an active instance ACL via #{Enum.join(full_path(opts), ".")}"
   end
@@ -42,10 +51,12 @@ defmodule Ebau.Policies.Checks.HasActiveInstanceACL do
     has_user_acl = expr(exists(^path, user_id == ^actor([:user, :id])))
     has_role_acl = expr(exists(^path, role_id == ^actor([:role, :id])))
     has_service_acl = expr(exists(^path, service_id == ^actor([:service, :id])))
-    has_service_group_acl = expr(exists(^path, service_group_id == ^actor([:service_group, :id])))
+
+    has_service_group_acl =
+      expr(exists(^path, service_group_id == ^actor([:service, :service_group, :id])))
 
     expr(^has_user_acl or ^has_role_acl or ^has_service_acl or ^has_service_group_acl)
   end
 
-  defp full_path(opts), do: (opts[:via] || []) ++ [:instance, :active_instance_acls]
+  defp full_path(opts), do: (opts[:via] || []) ++ [:active_instance_acls]
 end

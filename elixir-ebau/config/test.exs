@@ -1,10 +1,6 @@
 import Config
 
-# Configure your database
-#
 # The MIX_TEST_PARTITION environment variable can be used
-
-# In test we don't send emails
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :ebau, Ebau.Mailer, adapter: Swoosh.Adapters.Test
@@ -29,6 +25,12 @@ config :ebau,
   legacy_fixture_root: Path.expand("../priv/test_fixtures", __DIR__)
 
 config :ebau, token_signing_secret: "9sflOmq636a7ftJq2gp72FlyeWS4/yIl"
+
+config :ebau, :keycloak,
+  url: "http://localhost:1/",
+  realm: "test",
+  email_claim: "email",
+  scopes: "openid"
 
 # Print only warnings and errors during test
 config :logger, level: :warning

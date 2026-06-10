@@ -1,5 +1,5 @@
 defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
-  @shortdoc "Bootstraps legacy schema from priv/repo/legacy_structure.sql"
+  @shortdoc "Bootstraps legacy schema from priv/repo/ebau_schema.sql"
 
   @moduledoc """
   Imports the legacy schema SQL dump into the configured database.
@@ -21,7 +21,7 @@ defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
     sql_path =
       Mix.Project.project_file()
       |> Path.dirname()
-      |> Path.join("priv/repo/legacy_structure.sql")
+      |> Path.join("priv/repo/ebau_schema.sql")
 
     ensure_case_insensitive_collation!()
 

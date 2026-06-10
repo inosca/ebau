@@ -62,8 +62,7 @@ defmodule Ebau.User.User do
       argument :user_info, :map, allow_nil?: false
       argument :oauth_tokens, :map, allow_nil?: false
       prepare AshAuthentication.Strategy.OAuth2.SignInPreparation
-
-      filter expr(email == get_path(^arg(:user_info), [:email]))
+      prepare Ebau.User.Preparations.SignInFilter
     end
   end
 

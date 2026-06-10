@@ -24,9 +24,9 @@ defmodule EbauWeb.InitialiseScope do
     {:cont, assign(socket, :scope, scope)}
   end
 
-  defp get_canton_short_name do
+  def get_canton_short_name do
     case System.fetch_env!("APPLICATION") do
-      "kt_bern" -> :be
+      "kt_gr" -> :gr
       "kt_so" -> :so
     end
   end

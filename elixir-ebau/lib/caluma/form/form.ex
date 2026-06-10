@@ -97,7 +97,6 @@ defmodule Caluma.Form.Form do
       """
 
       require_atomic? false
-      accept []
 
       argument :name, Caluma.Form.Types.LocalizedField do
         description "Expected name for the existing form, if provided."
@@ -150,15 +149,12 @@ defmodule Caluma.Form.Form do
     end
 
     many_to_many :questions, Caluma.Form.Question do
-      through Caluma.Form.FormQuestion
-      source_attribute :slug
-      source_attribute_on_join_resource :form_id
-      destination_attribute :slug
-      destination_attribute_on_join_resource :question_id
+      join_relationship :form_questions
     end
 
     has_many :form_questions, Caluma.Form.FormQuestion do
       source_attribute :slug
+      sort sort: :desc
     end
   end
 end

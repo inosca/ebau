@@ -31,7 +31,9 @@ defmodule Ebau.Secrets do
   defp oauth2_secret(:base_url) do
     keycloak_config = keycloak_config()
 
-    "#{Keyword.fetch!(keycloak_config, :url)}realms/#{Keyword.fetch!(keycloak_config, :realm)}"
+    realm = Keyword.fetch!(keycloak_config, :realm)
+    url = Keyword.fetch!(keycloak_config, :url)
+    String.trim_trailing(url, "/") <> "/realms/#{realm}"
   end
 
   defp oauth2_secret(:authorization_params) do
@@ -39,8 +41,15 @@ defmodule Ebau.Secrets do
   end
 
   defp oauth2_secret(:redirect_uri) do
-    Endpoint.url() <> "/auth"
+    url_path =
+      case get_in(Application.get_env(:ebau, EbauWeb.Endpoint, []), [:url, :path]) do
+        nil -> ""
+        "/" -> ""
+        path -> String.trim_trailing(path, "/")
+      end
+
+    Endpoint.url() <> url_path <> "/auth"
   end
 
-  defp keycloak_config, do: Application.fetch_env!(:ebau, :keycloak)
+  def keycloak_config, do: Application.fetch_env!(:ebau, :keycloak)
 end

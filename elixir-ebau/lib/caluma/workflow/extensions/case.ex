@@ -152,64 +152,42 @@ defmodule Caluma.Workflow.Extensions.Case.Transformer do
   defp parent_doc_id_ref(through),
     do: %Ash.Query.Ref{relationship_path: [through], attribute: :document_id}
 
-  defp answer_relationship_name(name), do: :"_#{name}_answer"
-
-  defp add_answer_relationship(dsl, rel_name, question_id, through) do
-    source = Spark.Dsl.Transformer.get_persisted(dsl, :module)
-    slugs = AnswerTransformer.all_question_slugs(question_id)
-
-    {:ok, rel} =
-      Ash.Resource.Builder.build_relationship(:has_one, rel_name, Caluma.Form.Answer,
-        no_attributes?: true
-      )
-
-    rel_with_filter = %{
-      rel
-      | source: source,
-        filter: Caluma.Form.AnswerFilters.answer_filter(parent_doc_id_ref(through), slugs)
-    }
-
-    Spark.Dsl.Transformer.add_entity(dsl, [:relationships], rel_with_filter)
-  end
-
-  defp add_calc(dsl, name, type, mod, opts) do
-    {:ok, calc} = Ash.Resource.Builder.build_calculation(name, type, {mod, opts})
-    Spark.Dsl.Transformer.add_entity(dsl, [:calculations], calc)
-  end
-
   # -- Entity builders --
 
   defp add_document_entities(dsl_state, through) do
     source = Spark.Dsl.Transformer.get_persisted(dsl_state, :module)
+    doc_id_ref = parent_doc_id_ref(through)
 
     dsl_state
     |> Spark.Dsl.Transformer.get_entities([:caluma_case, :caluma_document])
     |> Enum.reduce(dsl_state, fn
       %Document.Answer{} = answer, dsl ->
-        rel_name = answer_relationship_name(answer.name)
+        rel_name = AnswerTransformer.answer_relationship_name(answer.name)
 
         dsl
-        |> add_answer_relationship(rel_name, answer.question_id, through)
-        |> add_calc(answer.name, answer.type, Caluma.Form.Calculations.DocumentAnswer,
+        |> AnswerTransformer.add_answer_relationship(rel_name, answer.question_id, doc_id_ref)
+        |> AnswerTransformer.add_calc(answer.name, answer.type,
+          Caluma.Form.Calculations.DocumentAnswer,
           relationship: rel_name
         )
 
       %Document.MappedAnswer{} = mapped, dsl ->
-        rel_name = answer_relationship_name(mapped.name)
+        rel_name = AnswerTransformer.answer_relationship_name(mapped.name)
 
         dsl
-        |> add_answer_relationship(rel_name, mapped.question_id, through)
-        |> add_calc(mapped.name, mapped.type, Caluma.Form.Calculations.MappedDocumentAnswer,
+        |> AnswerTransformer.add_answer_relationship(rel_name, mapped.question_id, doc_id_ref)
+        |> AnswerTransformer.add_calc(mapped.name, mapped.type,
+          Caluma.Form.Calculations.MappedDocumentAnswer,
           relationship: rel_name,
           mapping: mapped.mapping
         )
 
       %Document.MappedListAnswer{} = mapped, dsl ->
-        rel_name = answer_relationship_name(mapped.name)
+        rel_name = AnswerTransformer.answer_relationship_name(mapped.name)
 
         dsl
-        |> add_answer_relationship(rel_name, mapped.question_id, through)
-        |> add_calc(
+        |> AnswerTransformer.add_answer_relationship(rel_name, mapped.question_id, doc_id_ref)
+        |> AnswerTransformer.add_calc(
           mapped.name,
           {:array, mapped.type},
           Caluma.Form.Calculations.MappedListDocumentAnswer,
@@ -218,22 +196,7 @@ defmodule Caluma.Workflow.Extensions.Case.Transformer do
         )
 
       %Document.Table{} = table, dsl ->
-        question_ids = AnswerTransformer.all_question_slugs(table.question_id)
-
-        {:ok, rel} =
-          Ash.Resource.Builder.build_relationship(:has_many, table.name, table.resource,
-            no_attributes?: true,
-            sort: [sort: :desc]
-          )
-
-        rel_with_filter = %{
-          rel
-          | source: source,
-            filter:
-              Caluma.Form.AnswerFilters.table_filter(parent_doc_id_ref(through), question_ids)
-        }
-
-        Spark.Dsl.Transformer.add_entity(dsl, [:relationships], rel_with_filter)
+        AnswerTransformer.add_table_relationship(dsl, table, source, doc_id_ref)
 
       _, dsl ->
         dsl

@@ -28,7 +28,8 @@ defmodule Caluma.Form.AnswerDocument do
     end
 
     policy action_type([:read, :update]) do
-      authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL, via: [:document, :family, :case]}
+      authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL,
+                    via: [:document, :family, :case, :instance]}
     end
   end
 
@@ -55,6 +56,7 @@ defmodule Caluma.Form.AnswerDocument do
     uuid_primary_key :id
 
     attribute :sort, :integer do
+      allow_nil? false
       default 0
       constraints min: 0
     end

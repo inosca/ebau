@@ -33,9 +33,7 @@ defmodule Ebau.Permissions.InstanceACL do
     defaults [:read]
 
     read :active do
-      filter expr(start_time < now() and (is_nil(end_time) or end_time > now()))
-      # hardcoded for now to only show lead authority stuff
-      filter expr(grant_type == "SERVICE")
+      filter expr(start_time <= now() and (is_nil(end_time) or end_time > now()))
     end
 
     create :create do
@@ -48,8 +46,13 @@ defmodule Ebau.Permissions.InstanceACL do
   end
 
   policies do
-    policy action(:active) do
+    policy action_type(:read) do
+      # TODO: This only show own, would need to be Ebau.Policies.Checks.HasActiveInstanceACL
+      # + All the rules from the permission module.
       authorize_if relates_to_actor_via(:user, field: :user)
+      authorize_if relates_to_actor_via(:service, field: :service)
+      authorize_if expr(service_group_id == ^actor([:service, :service_group, :id]))
+      authorize_if relates_to_actor_via(:role, field: :role)
     end
 
     policy action_type(:create) do

@@ -140,7 +140,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
         actor: actor
       )
 
-    assert gis_link.gis_link_for_instance == "https://example.com?c=%2C"
+    assert gis_link.gis_link_for_instance == "https://example.com?c=999%2C999"
   end
 
   test "denies access to gis links for instances without an ACL", %{
