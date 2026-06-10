@@ -1711,3 +1711,62 @@ def test_resolve_after_construction_step_item(
     assert CustomDynamicTasks().resolve_after_construction_step_item(
         None, None, prev_work_item, {}
     ) == [next_task.pk]
+
+
+@pytest.mark.django_db
+def test_resolve_after_decision_abbruchpraemie_sz(
+    application_settings,
+    caluma_admin_user,
+    caluma_work_item_factory,
+    form_factory,
+    instance_state_factory,
+    mocker,
+    set_application_sz,
+    service,
+    service_factory,
+    sz_instance,
+):
+    redac_state = instance_state_factory(name="redac")
+    done_state = instance_state_factory(name="done")
+    mocker.patch("camac.notification.utils.send_mail", return_value=None)
+
+    payment_service = service_factory(
+        slug=application_settings["RPG2_DEMOLITION_PREMIUM_PAYMENT_SERVICE"],
+    )
+
+    form = form_factory(name="abbruchpraemie")
+    form.family = form
+    form.save()
+
+    sz_instance.instance_state = redac_state
+    sz_instance.form = form
+    sz_instance.save()
+
+    wi_decide = caluma_work_item_factory(
+        task_id="make-decision",
+        case=sz_instance.case,
+        child_case=None,
+        addressed_groups=[service.pk],
+        controlling_groups=[service.pk],
+        status=WorkItem.STATUS_READY,
+    )
+
+    assert not WorkItem.objects.filter(
+        task_id="pay-demolition-premium",
+        case=sz_instance.case,
+        addressed_groups=[payment_service.pk],
+        controlling_groups=[service.pk],
+        status=WorkItem.STATUS_READY,
+    ).exists()
+
+    complete_work_item(work_item=wi_decide, user=caluma_admin_user)
+    sz_instance.refresh_from_db()
+
+    assert sz_instance.instance_state == done_state
+    assert WorkItem.objects.filter(
+        task_id="pay-demolition-premium",
+        case=sz_instance.case,
+        addressed_groups=[payment_service.pk],
+        controlling_groups=[service.pk],
+        status=WorkItem.STATUS_READY,
+    ).exists()

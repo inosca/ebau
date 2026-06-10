@@ -620,7 +620,18 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     # After decision in Kt. SZ and Kt. UR
     @register_dynamic_task("after-make-decision")
+    @canton_aware
     def resolve_after_make_decision(self, case, user, prev_work_item, context):
+        return self._resolve_after_make_decision(case, user, prev_work_item, context)
+
+    def resolve_after_make_decision_sz(self, case, user, prev_work_item, context):
+        if form_family := case.instance.form.family:
+            if form_family.name == "abbruchpraemie":
+                return [settings.APPLICATION["RPG2_DEMOLITION_PREMIUM_PAYMENT_TASK"]]
+
+        return self._resolve_after_make_decision(case, user, prev_work_item, context)
+
+    def _resolve_after_make_decision(self, case, user, prev_work_item, context):
         if can_perform_construction_monitoring(case.instance):
             return ["init-construction-monitoring"]
 

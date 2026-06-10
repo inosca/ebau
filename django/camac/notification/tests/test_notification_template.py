@@ -2394,3 +2394,20 @@ def test_get_recipients_invited_to_schlussabnahme_projekt(
     assert serializer._get_recipients_invited_to_schlussabnahme_projekt(instance) == [
         {"to": service.email}
     ]
+
+
+@pytest.mark.django_db
+def test_recipient_type_rpg2_demolition_premium_payment_service_sz(
+    application_settings,
+    instance,
+    service_factory,
+    set_application_sz,
+):
+    service = service_factory(
+        slug=application_settings["RPG2_DEMOLITION_PREMIUM_PAYMENT_SERVICE"],
+    )
+    serializer = serializers.NotificationTemplateSendmailSerializer()
+    result = serializer._get_recipients_rpg2_demolition_premium_payment_service(
+        instance
+    )
+    assert result == [{"to": service.email}]

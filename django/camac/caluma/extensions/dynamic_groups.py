@@ -280,3 +280,15 @@ class CustomDynamicGroups(BaseDynamicGroups):
     @register_dynamic_group("koor-np")
     def resolve_koor_np(self, task, case, user, prev_work_item, context, **kwargs):
         return [str(Service.objects.get(slug="koor-np").pk)]
+
+    @register_dynamic_group("rpg2-demolition-premium-service")
+    def resolve_rpg2_demolition_premium_service(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
+        return [
+            str(
+                Service.objects.get(
+                    slug=settings.APPLICATION["RPG2_DEMOLITION_PREMIUM_PAYMENT_SERVICE"]
+                ).pk
+            )
+        ]

@@ -298,6 +298,7 @@ APPLICATIONS = {
             "involved_in_construction_step",
             "geometer",
             "tax_administration",
+            "rpg2_demolition_premium_payment_service",
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "DOCUMENT_BACKEND": "camac-ng",
@@ -421,6 +422,7 @@ APPLICATIONS = {
             "involved_in_construction_step",
             "geometer",
             "tax_administration",
+            "rpg2_demolition_premium_payment_service",
         ],
         "PUBLICATION_DURATION": timedelta(days=20),
         "PUBLICATION_ATTACHMENT_SECTION": [4],
@@ -829,6 +831,8 @@ APPLICATIONS = {
         "SCRUB_FORMFIELD_KEYS_FOR_PUBLIC": ["tel", "email"],
         # TODO: Move to RPG2 module settings once the dust settles:
         "RPG2_DEMOLITION_PREMIUM_PAYMENT_SERVICE": "zentrale-dienste-are",
+        "RPG2_DEMOLITION_PREMIUM_PAYMENT_TASK": "pay-demolition-premium",
+        "RPG2_DEMOLITION_PREMIUM_PAYMENT_NOTIFICATION_TEMPLATE": "pay-demolition-premium",
     },
     "kt_bern": {
         "SHORT_NAME": "be",
