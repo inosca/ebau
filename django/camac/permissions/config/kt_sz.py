@@ -16,10 +16,10 @@ class PermissionEventHandlerSZ(
                 access_level="read",
                 service=geometer_service,
             )
-        if get_tax_administration():
+        if tax_admin_service := get_tax_administration():
             self.manager.grant(
                 instance,
                 grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
                 access_level="read",
-                service=get_tax_administration(),
+                service=tax_admin_service,
             )
