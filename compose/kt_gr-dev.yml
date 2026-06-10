@@ -2,8 +2,6 @@ services:
   cache:
     ports:
       - "11211:11211"
-    networks:
-      - ebau.localhost
 
   proxy:
     volumes:
@@ -24,7 +22,7 @@ services:
     ports:
       - "80:80"
     networks:
-      ebau.localhost:
+      default:
         aliases:
           - ember-ebau.localhost
           - ebau-portal.localhost
@@ -42,8 +40,6 @@ services:
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
       - pg15data:/var/lib/postgresql/data
-    networks:
-      - ebau.localhost
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:master
@@ -91,15 +87,11 @@ services:
     env_file:
       - ../garage/compose-env/dev-ebau.conf
       - ../garage/compose-env/dev-alexandria.conf
-    networks:
-      - ebau.localhost
     tty: true
     stdin_open: true
     command: devserver
 
   dummy-eeba:
-    networks:
-      - ebau.localhost
     build:
       context: ../dummy-eeba-server
       dockerfile: Dockerfile
@@ -113,16 +105,12 @@ services:
     build:
       args:
         - ENABLE_WATERMARK=true
-    networks:
-      - ebau.localhost
 
   ember-ebau:
     image: acr.run/camac-ng/camac-ng/ember-ebau:master
     build:
       args:
         - ENABLE_WATERMARK=true
-    networks:
-      - ebau.localhost
 
   keycloak:
     depends_on:
@@ -139,8 +127,6 @@ services:
       - KEYCLOAK_ADMIN_PASSWORD=camac
       - KC_SPI_OAUTH2_TOKEN_EXCHANGE_DEFAULT_PROVIDER=standard
       - KC_SPI_OAUTH2_TOKEN_EXCHANGE_EBAU_ENABLED=false
-    networks:
-      - ebau.localhost
     command:
       [
         "start",
@@ -150,8 +136,6 @@ services:
       ]
 
   mailpit:
-    networks:
-      - ebau.localhost
     environment:
       - MP_WEBROOT=mailpit
 
@@ -159,8 +143,6 @@ services:
     image: acr.run/camac-ng/camac-ng/document-merge-service:master
     depends_on:
       - db
-    networks:
-      - ebau.localhost
     cap_add:
       - CAP_SYS_ADMIN
     security_opt:
@@ -191,8 +173,6 @@ services:
       - ../garage/garage.toml:/etc/garage.toml:ro
     env_file:
       - ../garage/compose-env/dev-garage.conf
-    networks:
-      - ebau.localhost
 
   garage-webui:
     image: khairul169/garage-webui:latest
@@ -203,8 +183,6 @@ services:
     environment:
       API_BASE_URL: "http://garage:3903"
       S3_ENDPOINT_URL: "http://garage:3900"
-    networks:
-      - ebau.localhost
     depends_on:
       - garage
 
@@ -215,16 +193,6 @@ services:
       - "3310:3310"
     environment:
       - ENABLE_DEFINITIONS_UPDATE=false
-    networks:
-      - ebau.localhost
-
-  tika:
-    networks:
-      - ebau.localhost
-
-  redis:
-    networks:
-      - ebau.localhost
 
   celery:
     <<: *django
@@ -255,8 +223,6 @@ services:
       - elixir-ebau_build:/app/_build # caching the _build folder to a local volume
       - elixir-ebau_dependencies:/app/deps # caching the dependencies to a local volume
       - elixir-ebau_language-server:/app/.elixir_ls # caching the language server to a local volume
-    networks:
-      - ebau.localhost
     depends_on:
       - db
     environment:
@@ -266,9 +232,6 @@ services:
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_HOST=db
       - URL_PREFIX=/elixir
-
-networks:
-  ebau.localhost:
 
 volumes:
   elixir-ebau_build:

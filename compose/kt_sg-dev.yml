@@ -20,7 +20,7 @@ services:
     ports:
       - "80:80"
     networks:
-      ebau.localhost:
+      default:
         aliases:
           - ember-ebau.localhost
           - ebau-portal.localhost
@@ -36,8 +36,6 @@ services:
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
       - pg18data:/var/lib/postgresql
-    networks:
-      - ebau.localhost
 
   django: &django
     user: ${UID}
@@ -104,8 +102,6 @@ services:
     env_file:
       - ../garage/compose-env/dev-ebau.conf
       - ../garage/compose-env/dev-alexandria.conf
-    networks:
-      - ebau.localhost
     tty: true
     stdin_open: true
     command: devserver
@@ -145,8 +141,6 @@ services:
       INTERNAL_URL: http://ember-ebau.localhost
       ENABLE_WATERMARK: true
       WATERMARK: local
-    networks:
-      - ebau.localhost
 
   ember-ebau:
     user: nginx:nginx
@@ -155,8 +149,6 @@ services:
       PORTAL_URL: http://ebau-portal.localhost
       ENABLE_WATERMARK: true
       WATERMARK: local
-    networks:
-      - ebau.localhost
 
   keycloak:
     user: keycloak:keycloak
@@ -171,8 +163,6 @@ services:
       KC_HOSTNAME: ebau-keycloak.localhost
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
-    networks:
-      - ebau.localhost
     command:
       [
         "start",
@@ -184,8 +174,6 @@ services:
   mailpit:
     image: axllent/mailpit
     user: ${UID}
-    networks:
-      - ebau.localhost
     environment:
       MP_WEBROOT: mailpit
 
@@ -195,8 +183,6 @@ services:
       - valkey
       - db
       - garage
-    networks:
-      - ebau.localhost
     cap_add:
       - CAP_SYS_ADMIN
     security_opt:
@@ -234,21 +220,15 @@ services:
       - garage_meta:/data/garage_meta
       - garage_data:/data/garage_data
     command: /bin/sh -c "chown ${UID} -R /data;"
-    networks:
-      - ebau.localhost
 
   tika:
     image: apache/tika:3.2.3.0-full
     user: ${UID}
-    networks:
-      - ebau.localhost
 
   valkey:
     image: valkey/valkey:9.0
     volumes:
       - valkey_data:/data
-    networks:
-      - ebau.localhost
     ports:
       # Only needed in dev environments to use RedisInsight for debugging
       - "6379:6379"
@@ -260,8 +240,6 @@ services:
       - ../garage/garage.toml:/etc/garage.toml:ro
     env_file:
       - ../garage/compose-env/dev-garage.conf
-    networks:
-      - ebau.localhost
 
   garage-webui:
     image: khairul169/garage-webui:latest
@@ -272,8 +250,6 @@ services:
     environment:
       API_BASE_URL: "http://garage:3903"
       S3_ENDPOINT_URL: "http://garage:3900"
-    networks:
-      - ebau.localhost
     depends_on:
       - garage
 
@@ -282,11 +258,6 @@ services:
     environment:
       BROKER_URL: redis://default:redis@redis:6379/0 # gitleaks:allow
       FLOWER_URL_PREFIX: celery-flower
-    networks:
-      - ebau.localhost
-
-networks:
-  ebau.localhost:
 
 volumes:
   pg18data:

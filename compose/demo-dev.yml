@@ -2,8 +2,6 @@ services:
   cache:
     ports:
       - "11211:11211"
-    networks:
-      - ebau.localhost
 
   proxy:
     volumes:
@@ -11,7 +9,7 @@ services:
     ports:
       - "80:80"
     networks:
-      ebau.localhost:
+      default:
         aliases:
           - ember-ebau.localhost
           - ebau-portal.localhost
@@ -30,8 +28,6 @@ services:
       - POSTGRES_PASSWORD=camac
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
-    networks:
-      - ebau.localhost
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:master
@@ -55,8 +51,6 @@ services:
       - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       - PYTHONDONTWRITEBYTECODE=1
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
-    networks:
-      - ebau.localhost
     tty: true
     stdin_open: true
     command: devserver
@@ -65,13 +59,9 @@ services:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
     environment:
       - BE_GIS_URL=https://www.map2-test.apps.be.ch
-    networks:
-      - ebau.localhost
 
   ember-ebau:
     image: acr.run/camac-ng/camac-ng/ember-ebau:master
-    networks:
-      - ebau.localhost
 
   keycloak:
     volumes:
@@ -83,18 +73,12 @@ services:
       - KC_HOSTNAME=ebau-keycloak.localhost
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=camac
-    networks:
-      - ebau.localhost
 
   mailpit:
-    networks:
-      - ebau.localhost
     environment:
       - MP_WEBROOT=mailpit
 
   document-merge-service:
-    networks:
-      - ebau.localhost
     environment:
       - ENV=dev
       - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
@@ -117,8 +101,6 @@ services:
       - DATABASE_PASSWORD=camac
       - ALLOWED_HOSTS=*
       - OIDC_OP_USER_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
-    networks:
-      - ebau.localhost
 
   garage:
     build:
@@ -128,8 +110,6 @@ services:
       - garage_data:/var/lib/garage/data/
     env_file:
       - ../garage/compose-env/dev-garage.conf
-    networks:
-      - ebau.localhost
 
   garage-webui:
     image: khairul169/garage-webui:latest
@@ -140,15 +120,6 @@ services:
     environment:
       API_BASE_URL: "http://garage:3903"
       S3_ENDPOINT_URL: "http://garage:3900"
-    networks:
-      - ebau.localhost
     depends_on:
       - garage
 
-
-networks:
-  ebau.localhost:
-  garage_meta:
-    driver: local
-  garage_data:
-    driver: local
