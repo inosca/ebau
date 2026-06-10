@@ -1032,6 +1032,18 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("CONSTRUCTION_ACCEPTANCE_OBSERVATIONS")],
         description=_("Observations for the construction acceptance"),
     )
+    alle_qss_verantwortlichen_name_adresse = fields.MasterDataPersonField(
+        source="responsible_qss",
+        fields="__all__",
+        aliases=[_("ALL_QSS_RESPONSIBLE_NAME_ADDRESS")],
+        description=_("Names and addresses of all QSS responsibles"),
+    )
+    alle_anlageerrichter_name_adresse = fields.MasterDataPersonField(
+        source="system_builder",
+        fields="__all__",
+        aliases=[_("ALL_SYSTEM_BUILDER_NAME_ADDRESS")],
+        description=_("Names and addresses of all system builders"),
+    )
 
     def get_zonenplan(self, instance):
         answer = Answer.objects.filter(

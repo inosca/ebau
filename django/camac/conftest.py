@@ -2368,6 +2368,42 @@ def gr_master_data_case(
             },
         ],
     )
+    form_utils.add_table_answer(
+        document,
+        "verantwortliche-person-qss",
+        [
+            {
+                "vorname-gesuchstellerin": "QSS",
+                "name-gesuchstellerin": "Verantworlicher",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "QSS AG",
+                "strasse-gesuchstellerin": "Teststrasse",
+                "nummer-gesuchstellerin": 100,
+                "ort-gesuchstellerin": "Musterdorf",
+                "plz-gesuchstellerin": 1234,
+                "e-mail-gesuchstellerin": "qss@example.com",
+                "telefon-oder-mobile-gesuchstellerin": "+417979797",
+            }
+        ],
+    )
+    form_utils.add_table_answer(
+        document,
+        "errichter-haustechnik",
+        [
+            {
+                "vorname-gesuchstellerin": "Anlageerichter",
+                "name-gesuchstellerin": "Verantworlicher",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "Anlage AG",
+                "strasse-gesuchstellerin": "Teststrasse",
+                "nummer-gesuchstellerin": 100,
+                "ort-gesuchstellerin": "Musterdorf",
+                "plz-gesuchstellerin": 1234,
+                "e-mail-gesuchstellerin": "anlagen@example.com",
+                "telefon-oder-mobile-gesuchstellerin": "+417979797",
+            }
+        ],
+    )
 
     return gr_instance.case
 
