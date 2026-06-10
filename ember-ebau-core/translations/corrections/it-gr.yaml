@@ -3,4 +3,7 @@ corrections:
     description: "La funzione «Correggi dossier» consente al Comune di apportare piccole correzioni al modulo di richiesta (ad es. precisazioni della descrizione del progetto). Le modifiche sostanziali devono essere effettuate dai richiedenti nel modulo tramite una richiesta di precisazioni (Consentire modifiche al modulo di richiesta)."
     description-applicant-correction: "Per consentire ai richiedenti di modificare i dati nel formulario della domanda, create una richiesta di precisazioni con l’opzione «Consentire modifiche al modulo di richiesta»."
     link-applicant-correction: "Richiesta di precisazioni"
-    
+
+  change-form:
+    invalid-form-hint: |-
+      <strong>Achtung:</strong> Das Formular dieses Dossiers ist nun nicht vollständig ausgefüllt. Erstellen Sie an die Gesuchstellenden eine Nachforderung mit der Option «Änderungen am Gesuchsformular erlauben» und fordern Sie eine neue Eingabequittung ein.
