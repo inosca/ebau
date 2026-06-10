@@ -4,8 +4,6 @@ import Config
 #
 # The MIX_TEST_PARTITION environment variable can be used
 
-config :ash, :policies, show_policy_breakdown?: true
-
 # In test we don't send emails
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
@@ -35,9 +33,6 @@ config :ebau, token_signing_secret: "9sflOmq636a7ftJq2gp72FlyeWS4/yIl"
 # Print only warnings and errors during test
 config :logger, level: :warning
 
-# Initialize plugs at runtime for faster test compilation
-config :phoenix, :plug_init_mode, :runtime
-
 # Sort query params output of verified routes for robust url comparisons
 config :phoenix,
   sort_verified_routes_query_params: true
@@ -46,5 +41,3 @@ config :phoenix,
 config :phoenix_live_view,
   enable_expensive_runtime_checks: true
 
-# Disable swoosh api client as it is only required for production adapters
-config :swoosh, :api_client, false

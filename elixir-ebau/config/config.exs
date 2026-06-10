@@ -1,23 +1,9 @@
-# This file is responsible for configuring your application
-# and its dependencies with the aid of the Config module.
-#
-# This configuration file is loaded before any dependency and
-# is restricted to this project.
-
-# General application configuration
 import Config
 
 config :ash_json_api,
   show_public_calculations_when_loaded?: true,
   authorize_update_destroy_with_error?: true
 
-# Configure the mailer
-#
-# By default it uses the "Local" adapter which stores the emails
-# locally. You can see the emails in your browser, at "/dev/mailbox".
-#
-# For production it's recommended to configure a different adapter
-# at the `config/runtime.exs`.
 config :ebau, Ebau.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure the endpoint
@@ -29,6 +15,7 @@ config :ebau, EbauWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Ebau.PubSub,
+  # LiveView not yet in use — promote to an env var when it is.
   live_view: [signing_salt: "IJufaPql"]
 
 config :ebau,
@@ -70,5 +57,11 @@ config :spark,
     "Ash.Resource": [section_order: [:json_api]],
     "Ash.Domain": [section_order: [:json_api]]
   ]
+
+if config_env() in [:dev, :test] do
+  config :ash, :policies, show_policy_breakdown?: true
+  config :phoenix, :plug_init_mode, :runtime
+  config :swoosh, :api_client, false
+end
 
 import_config "#{config_env()}.exs"
