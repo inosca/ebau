@@ -36,15 +36,30 @@ end
 
 This authorizes reads when `resource.service_id == actor.service.id`.
 
-For instance-level access, we check ACLs:
+For instance-level access, use `Ebau.Policies.Checks.HasActiveInstanceACL`. It is a
+`FilterCheck` that checks whether the actor matches any active instance ACL (by user,
+role, service, or service group) reachable through a given relationship path:
 
 ```elixir
-policy action(:list_instances) do
-  authorize_if expr(
-    exists(active_instance_acls, user_id == ^actor([:user, :id]))
-  )
+# Resource is the instance (or has instance.active_instance_acls directly)
+policy action_type(:read) do
+  authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL, via: []}
+end
+
+# Resource relates to a case through a single relationship
+policy action_type(:read) do
+  authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL, via: [:case]}
+end
+
+# Multi-hop: row document → root document → case
+policy action_type(:read) do
+  authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL, via: [:family, :case]}
 end
 ```
+
+The `via:` option names the relationship steps from the current resource to a
+`Caluma.Workflow.Case`. The check then traverses `case.instance.active_instance_acls`
+and matches the actor's user id, role id, service id, and service group id.
 
 ### Reference data (allow reads, forbid writes)
 

@@ -5,7 +5,7 @@ defmodule Ebau.Policies.Checks.HasActiveInstanceACL do
 
   The `:via` option names the relationship steps from the current resource to
   a `Caluma.Workflow.Case`. The check then traverses `case.instance.active_instance_acls`
-  and matches `user_id` against the actor's user id.
+  and matches against the actor's user id, role id, service id, or service group id (any match authorizes).
 
   ## Examples
 
