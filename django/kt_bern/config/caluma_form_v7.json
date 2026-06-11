@@ -1,6 +1,60 @@
 [
   {
     "model": "caluma_form.form",
+    "pk": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+    "fields": {
+      "created_at": "2026-06-11T13:13:55.161Z",
+      "modified_at": "2026-06-11T13:13:55.161Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Aussenflächen und Anlagen: Angaben zum Abbruchobjekt\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Aussenflächen und Anlagen: Angaben zum Abbruchobjekt (v7)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7",
+    "fields": {
+      "created_at": "2026-06-11T09:29:47.216Z",
+      "modified_at": "2026-06-11T09:31:06.156Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gebäude: Angaben zum Abbruchobjekt\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Gebäude: Angaben zum Abbruchobjekt (v7)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "abbruchpraemie-v7",
+    "fields": {
+      "created_at": "2026-06-11T07:41:16.982Z",
+      "modified_at": "2026-06-11T07:41:16.982Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Abbruchprämie (v7)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "abstellplaetze-v7",
     "fields": {
       "created_at": "2026-04-27T11:38:08.622Z",
@@ -305,6 +359,381 @@
       "is_published": false,
       "is_archived": false,
       "source": "zonenvorschriften-schutzzonen-v2"
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7.abbruchanlagen-abzubrechende-flaeche-rekultiviert-v7",
+    "fields": {
+      "created_at": "2026-06-11T13:20:20.982Z",
+      "modified_at": "2026-06-11T13:20:20.982Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+      "question": "abbruchanlagen-abzubrechende-flaeche-rekultiviert-v7",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7.abbruchanlagen-abzubrechende-flaeche-v7",
+    "fields": {
+      "created_at": "2026-06-11T13:19:20.919Z",
+      "modified_at": "2026-06-11T13:19:20.919Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+      "question": "abbruchanlagen-abzubrechende-flaeche-v7",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7.abbruchanlagen-abzubrechende-stuetzmauer-breite-v7",
+    "fields": {
+      "created_at": "2026-06-11T14:15:50.697Z",
+      "modified_at": "2026-06-11T14:15:50.697Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+      "question": "abbruchanlagen-abzubrechende-stuetzmauer-breite-v7",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7.abbruchanlagen-abzubrechende-stuetzmauer-hoehe-v7",
+    "fields": {
+      "created_at": "2026-06-11T14:16:19.495Z",
+      "modified_at": "2026-06-11T14:16:19.495Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+      "question": "abbruchanlagen-abzubrechende-stuetzmauer-hoehe-v7",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7.abbruchanlagen-abzubrechende-stuetzmauer-laenge-v7",
+    "fields": {
+      "created_at": "2026-06-11T14:14:49.161Z",
+      "modified_at": "2026-06-11T14:14:49.161Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+      "question": "abbruchanlagen-abzubrechende-stuetzmauer-laenge-v7",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7.abbruchanlagen-abzubrechende-stuetzmauer-v7",
+    "fields": {
+      "created_at": "2026-06-11T14:49:04.704Z",
+      "modified_at": "2026-06-11T14:49:04.705Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+      "question": "abbruchanlagen-abzubrechende-stuetzmauer-v7",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7.abbruchanlagen-gebaeude-v7",
+    "fields": {
+      "created_at": "2026-06-11T13:17:47.133Z",
+      "modified_at": "2026-06-11T13:17:47.133Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+      "question": "abbruchanlagen-gebaeude-v7",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7.abbruchanlagen-parzellennummer-v7",
+    "fields": {
+      "created_at": "2026-06-11T13:18:09.146Z",
+      "modified_at": "2026-06-11T13:18:09.146Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+      "question": "abbruchanlagen-parzellennummer-v7",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7.abbruchgebaeude-adresse-nr-v7",
+    "fields": {
+      "created_at": "2026-06-11T09:46:14.071Z",
+      "modified_at": "2026-06-11T09:46:14.071Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-gebaeude-v7",
+      "question": "abbruchgebaeude-adresse-nr-v7",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7.abbruchgebaeude-adresse-ort-v7",
+    "fields": {
+      "created_at": "2026-06-11T10:54:35.982Z",
+      "modified_at": "2026-06-11T10:54:35.983Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-gebaeude-v7",
+      "question": "abbruchgebaeude-adresse-ort-v7",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7.abbruchgebaeude-adresse-plz-v7",
+    "fields": {
+      "created_at": "2026-06-11T11:09:03.782Z",
+      "modified_at": "2026-06-11T11:09:03.782Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-gebaeude-v7",
+      "question": "abbruchgebaeude-adresse-plz-v7",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7.abbruchgebaeude-adresse-strasse-flurname-v7",
+    "fields": {
+      "created_at": "2026-06-11T09:42:41.658Z",
+      "modified_at": "2026-06-11T09:42:41.658Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-gebaeude-v7",
+      "question": "abbruchgebaeude-adresse-strasse-flurname-v7",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7.abbruchgebaeude-adresse-uebereinstimmt-v7",
+    "fields": {
+      "created_at": "2026-06-11T09:36:30.528Z",
+      "modified_at": "2026-06-11T09:36:30.528Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-gebaeude-v7",
+      "question": "abbruchgebaeude-adresse-uebereinstimmt-v7",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7.abbruchgebaeude-bezeichnung-v7",
+    "fields": {
+      "created_at": "2026-06-11T09:32:51.668Z",
+      "modified_at": "2026-06-11T09:32:51.668Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-gebaeude-v7",
+      "question": "abbruchgebaeude-bezeichnung-v7",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7.abbruchgebaeude-egid-v7",
+    "fields": {
+      "created_at": "2026-06-11T12:46:21.623Z",
+      "modified_at": "2026-06-11T12:46:21.623Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-gebaeude-v7",
+      "question": "abbruchgebaeude-egid-v7",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7.abbruchgebaeude-gebaeudeflaeche-rekultiviert-v7",
+    "fields": {
+      "created_at": "2026-06-11T12:48:59.631Z",
+      "modified_at": "2026-06-11T12:48:59.631Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-gebaeude-v7",
+      "question": "abbruchgebaeude-gebaeudeflaeche-rekultiviert-v7",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7.abbruchgebaeude-gebaeudeflaeche-v7",
+    "fields": {
+      "created_at": "2026-06-11T12:47:26.656Z",
+      "modified_at": "2026-06-11T12:47:26.656Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-gebaeude-v7",
+      "question": "abbruchgebaeude-gebaeudeflaeche-v7",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7.abbruchgebaeude-gebaeudevolumen-unterirdisch-v7",
+    "fields": {
+      "created_at": "2026-06-11T12:50:01.414Z",
+      "modified_at": "2026-06-11T12:50:01.414Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-gebaeude-v7",
+      "question": "abbruchgebaeude-gebaeudevolumen-unterirdisch-v7",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7.abbruchgebaeude-gebaeudevolumen-v7",
+    "fields": {
+      "created_at": "2026-06-11T12:49:30.407Z",
+      "modified_at": "2026-06-11T12:49:30.407Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-gebaeude-v7",
+      "question": "abbruchgebaeude-gebaeudevolumen-v7",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7.abbruchgebaeude-parzellennummer-v7",
+    "fields": {
+      "created_at": "2026-06-11T12:46:08.842Z",
+      "modified_at": "2026-06-11T12:46:08.842Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-gebaeude-v7",
+      "question": "abbruchgebaeude-parzellennummer-v7",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie-v7.abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+    "fields": {
+      "created_at": "2026-06-11T13:23:00.200Z",
+      "modified_at": "2026-06-11T13:23:00.200Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie-v7",
+      "question": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie-v7.abbruchobjekt-angaben-gebaeude-v7",
+    "fields": {
+      "created_at": "2026-06-11T09:28:16.393Z",
+      "modified_at": "2026-06-11T09:28:16.393Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie-v7",
+      "question": "abbruchobjekt-angaben-gebaeude-v7",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie-v7.eigentuemerschaft-identisch-v7",
+    "fields": {
+      "created_at": "2026-06-11T08:14:44.857Z",
+      "modified_at": "2026-06-11T08:14:44.857Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie-v7",
+      "question": "eigentuemerschaft-identisch-v7",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie-v7.lediglich-mit-seilbahn-helikopter-zugaenglich-v7",
+    "fields": {
+      "created_at": "2026-06-12T09:01:03.285Z",
+      "modified_at": "2026-06-12T09:01:03.285Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie-v7",
+      "question": "lediglich-mit-seilbahn-helikopter-zugaenglich-v7",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie-v7.personalien-eigentuemerin-v7",
+    "fields": {
+      "created_at": "2026-06-11T08:21:15.010Z",
+      "modified_at": "2026-06-11T08:21:15.010Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie-v7",
+      "question": "personalien-eigentuemerin-v7",
+      "sort": 4
     }
   },
   {
@@ -3249,6 +3678,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v7.abbruchpraemie-v7",
+    "fields": {
+      "created_at": "2026-06-11T07:42:56.609Z",
+      "modified_at": "2026-06-11T07:42:56.609Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v7",
+      "question": "abbruchpraemie-v7",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "spezialformulare-v7.allgemeine-angaben-zum-betrieb-v5",
     "fields": {
       "created_at": "2026-04-28T09:09:03.869Z",
@@ -3259,7 +3703,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "allgemeine-angaben-zum-betrieb-v5",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -3274,7 +3718,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "anschluss-elektrizitaet-v5",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -3289,7 +3733,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "anschluss-gas-v5",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3304,7 +3748,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -3319,7 +3763,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "anschluss-trinkwasserinstallation-v5",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3334,7 +3778,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "anschluss-wasser-abwasserinstallationen-v5",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3349,7 +3793,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "bauvorhaben-in-konsultationsbereichen-v3",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -3364,7 +3808,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "benuetzung-oeffentlichem-terrain-v5",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -3379,7 +3823,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "biologische-sicherheit-v3",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -3394,7 +3838,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "entsorgung",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -3409,7 +3853,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "erdbebensicherheit-v5",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -3424,7 +3868,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "flaechenbilanz-v7",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -3439,7 +3883,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "gastgewerbe-allgemein",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -3454,7 +3898,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "gastgewerbe-fumoir",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -3469,7 +3913,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "hindernisfreies-bauen",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -3484,7 +3928,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "immissionsschutz-laermschutz",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -3499,7 +3943,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "immissionsschutz-v7",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -3514,7 +3958,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "maschinen-und-anlagen",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -3529,7 +3973,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "naturgefahren",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -3544,7 +3988,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "personalien-betreiberin-der-anlage",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -3559,7 +4003,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "personalien-gastgewerbe",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -3574,7 +4018,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "reklame",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -3589,7 +4033,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "solar-und-sendeanlagen-v3",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -3604,7 +4048,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "stoerfallvorsorge-v3",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -3619,7 +4063,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "waermepumpen",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -3634,7 +4078,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "wald",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -3649,7 +4093,22 @@
       "modified_by_group": null,
       "form": "spezialformulare-v7",
       "question": "zivilschutz-v5",
-      "sort": 27
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "triage-v7.abbruchpraemie-beantragt-v7",
+    "fields": {
+      "created_at": "2026-06-11T07:52:29.282Z",
+      "modified_at": "2026-06-11T07:52:29.282Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "triage-v7",
+      "question": "abbruchpraemie-beantragt-v7",
+      "sort": 19
     }
   },
   {
@@ -3664,7 +4123,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "ableitung-in-guellegrube-v2",
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -3679,7 +4138,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "aussenlaerm",
-      "sort": 38
+      "sort": 39
     }
   },
   {
@@ -3694,7 +4153,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "bau-im-wald-oder-innerhalb-von-30-m-abstand",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -3709,7 +4168,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "bauten-mit-mehr-als-30-grossvieheinheiten",
-      "sort": 36
+      "sort": 37
     }
   },
   {
@@ -3799,7 +4258,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "brandbelastung",
-      "sort": 42
+      "sort": 43
     }
   },
   {
@@ -3814,7 +4273,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "feuerungsanlagen",
-      "sort": 37
+      "sort": 38
     }
   },
   {
@@ -3829,7 +4288,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "gefaehrliche-stoffe",
-      "sort": 40
+      "sort": 41
     }
   },
   {
@@ -3964,7 +4423,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "ist-ein-fumoir-betroffen",
-      "sort": 43
+      "sort": 44
     }
   },
   {
@@ -3994,7 +4453,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "maschinelle-arbeitsmittel",
-      "sort": 41
+      "sort": 42
     }
   },
   {
@@ -4009,7 +4468,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "maschinen-aus-den-folgenden-kategorien",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -4024,7 +4483,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "nutzungsart",
-      "sort": 48
+      "sort": 49
     }
   },
   {
@@ -4039,7 +4498,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "sind-belange-des-gewaesserschutzes-betroffen-v2",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -4054,7 +4513,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "triagefrage-bauvorhaben-in-konsultationsbereichen-titel-v3",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -4069,7 +4528,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "triagefrage-bauvorhaben-in-konsultationsbereichen-v3",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -4084,7 +4543,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "triagefrage-biologische-sicherheit-titel-optional-v3",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -4099,7 +4558,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "triagefrage-biologische-sicherheit-titel-v3",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -4114,7 +4573,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "triagefrage-biologische-sicherheit-v3",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -4129,7 +4588,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "triagefrage-stoerfallvorsorge-titel-v3",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -4144,7 +4603,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "triagefrage-stoerfallvorsorge-v3",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -4174,7 +4633,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "um-was-fuer-ein-gebaeude-handelt-es-sich",
-      "sort": 44
+      "sort": 45
     }
   },
   {
@@ -4189,7 +4648,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "um-was-handelt-es-sich-bei-dem-kleinbauvorhaben",
-      "sort": 47
+      "sort": 48
     }
   },
   {
@@ -4204,7 +4663,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "versiegelt-oder-entsiegelt-v7",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -4219,7 +4678,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "verunreinigte-abluft",
-      "sort": 39
+      "sort": 40
     }
   },
   {
@@ -4234,7 +4693,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "was-fuer-ein-vorhaben",
-      "sort": 46
+      "sort": 47
     }
   },
   {
@@ -4249,7 +4708,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "wassergefaehrdende-explosive-stoffe",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -4264,7 +4723,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "weitere-vorhaben",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -4279,7 +4738,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "welche-art-vorhaben",
-      "sort": 45
+      "sort": 46
     }
   },
   {
@@ -4324,7 +4783,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -4339,7 +4798,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "werden-neue-hofduengeranlagen-erstellt",
-      "sort": 35
+      "sort": 36
     }
   },
   {
@@ -4354,7 +4813,7 @@
       "modified_by_group": null,
       "form": "triage-v7",
       "question": "werden-siloanlagen-erstellt",
-      "sort": 34
+      "sort": 35
     }
   },
   {
@@ -4914,6 +5373,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "abbruchgebaeude-adresse-uebereinstimmt-v7-ja",
+    "fields": {
+      "created_at": "2026-06-11T09:36:30.439Z",
+      "modified_at": "2026-06-11T09:36:30.439Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "abbruchgebaeude-adresse-uebereinstimmt-v7-nein",
+    "fields": {
+      "created_at": "2026-06-11T09:36:30.437Z",
+      "modified_at": "2026-06-11T09:36:30.437Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "abbruchpraemie-beantragt-v7-ja",
+    "fields": {
+      "created_at": "2026-06-11T07:52:29.098Z",
+      "modified_at": "2026-06-11T07:52:29.098Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "abbruchpraemie-beantragt-v7-nein",
+    "fields": {
+      "created_at": "2026-06-11T07:52:29.100Z",
+      "modified_at": "2026-06-11T07:52:29.100Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "art-versiegelung-entsiegelung-v7-entsiegelte-flaechen",
     "fields": {
       "created_at": "2026-06-03T13:09:33.755Z",
@@ -5016,6 +5543,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "eigentuemerschaft-identisch-v7-ja",
+    "fields": {
+      "created_at": "2026-06-11T08:14:44.686Z",
+      "modified_at": "2026-06-11T08:14:44.686Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "eigentuemerschaft-identisch-v7-nein",
+    "fields": {
+      "created_at": "2026-06-11T08:14:44.688Z",
+      "modified_at": "2026-06-11T08:14:44.688Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lediglich-mit-seilbahn-helikopter-zugaenglich-v7-ja",
+    "fields": {
+      "created_at": "2026-06-12T09:01:03.199Z",
+      "modified_at": "2026-06-12T09:01:03.199Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lediglich-mit-seilbahn-helikopter-zugaenglich-v7-nein",
+    "fields": {
+      "created_at": "2026-06-12T09:01:03.200Z",
+      "modified_at": "2026-06-12T09:01:03.200Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "ortsbildschutzgebiet-v7-ja",
     "fields": {
       "created_at": "2026-04-28T13:53:22.615Z",
@@ -5092,7 +5687,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -5114,6 +5709,819 @@
       "is_archived": false,
       "meta": {},
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchanlagen-abzubrechende-flaeche-rekultiviert-v7",
+    "fields": {
+      "created_at": "2026-06-11T13:20:20.941Z",
+      "modified_at": "2026-06-11T13:20:20.941Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"davon wird rekultiviert (m²)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchanlagen-abzubrechende-flaeche-v7",
+    "fields": {
+      "created_at": "2026-06-11T13:19:20.885Z",
+      "modified_at": "2026-06-11T13:25:20.019Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abzubrechende Fläche (m²)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "null != 'abbruchanlagen-abzubrechende-flaeche-rekultiviert-v7'|answer",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchanlagen-abzubrechende-stuetzmauer-breite-v7",
+    "fields": {
+      "created_at": "2026-06-11T14:15:50.657Z",
+      "modified_at": "2026-06-11T14:15:50.657Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Breite (m)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchanlagen-abzubrechende-stuetzmauer-hoehe-v7",
+    "fields": {
+      "created_at": "2026-06-11T14:16:19.456Z",
+      "modified_at": "2026-06-11T14:16:19.456Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Höhe (m)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchanlagen-abzubrechende-stuetzmauer-laenge-v7",
+    "fields": {
+      "created_at": "2026-06-11T14:14:49.114Z",
+      "modified_at": "2026-06-11T14:14:49.114Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Länge (m)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchanlagen-abzubrechende-stuetzmauer-v7",
+    "fields": {
+      "created_at": "2026-06-11T14:49:04.669Z",
+      "modified_at": "2026-06-11T14:49:04.669Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abzubrechende Stützmauer\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Abzubrechende Stützmauer\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchanlagen-gebaeude-v7",
+    "fields": {
+      "created_at": "2026-06-11T13:17:47.096Z",
+      "modified_at": "2026-06-11T13:17:47.096Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zugehöriges Gebäude\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchanlagen-parzellennummer-v7",
+    "fields": {
+      "created_at": "2026-06-11T13:18:09.107Z",
+      "modified_at": "2026-06-11T13:18:09.107Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parzellennummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchgebaeude-adresse-nr-v7",
+    "fields": {
+      "created_at": "2026-06-11T09:46:14.028Z",
+      "modified_at": "2026-06-11T09:46:14.029Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nr\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!('abbruchgebaeude-adresse-uebereinstimmt-v7-nein'=='abbruchgebaeude-adresse-uebereinstimmt-v7'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchgebaeude-adresse-ort-v7",
+    "fields": {
+      "created_at": "2026-06-11T10:54:35.880Z",
+      "modified_at": "2026-06-11T10:54:35.880Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ort\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!('abbruchgebaeude-adresse-uebereinstimmt-v7-nein'=='abbruchgebaeude-adresse-uebereinstimmt-v7'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchgebaeude-adresse-plz-v7",
+    "fields": {
+      "created_at": "2026-06-11T11:09:03.740Z",
+      "modified_at": "2026-06-11T11:09:03.740Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"PLZ\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "!('abbruchgebaeude-adresse-uebereinstimmt-v7-nein'=='abbruchgebaeude-adresse-uebereinstimmt-v7'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": 9999,
+        "min_value": 1111
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchgebaeude-adresse-strasse-flurname-v7",
+    "fields": {
+      "created_at": "2026-06-11T09:42:41.614Z",
+      "modified_at": "2026-06-11T09:43:38.101Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse/Flurname\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!('abbruchgebaeude-adresse-uebereinstimmt-v7-nein'=='abbruchgebaeude-adresse-uebereinstimmt-v7'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchgebaeude-adresse-uebereinstimmt-v7",
+    "fields": {
+      "created_at": "2026-06-11T09:36:30.481Z",
+      "modified_at": "2026-06-11T09:36:30.481Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stimmt die im Abschnitt \\\"Grundstück\\\" angegebene Adresse mit der Adresse des Abbruchgebäudes überein?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchgebaeude-bezeichnung-v7",
+    "fields": {
+      "created_at": "2026-06-11T09:32:51.629Z",
+      "modified_at": "2026-06-11T09:32:51.629Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäude / Bezeichnung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"z.B. MFH A\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchgebaeude-egid-v7",
+    "fields": {
+      "created_at": "2026-06-11T12:46:21.431Z",
+      "modified_at": "2026-06-11T12:46:21.431Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"EGID\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchgebaeude-gebaeudeflaeche-rekultiviert-v7",
+    "fields": {
+      "created_at": "2026-06-11T12:48:59.586Z",
+      "modified_at": "2026-06-11T12:48:59.586Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"davon wird rekultiviert (m²)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchgebaeude-gebaeudeflaeche-v7",
+    "fields": {
+      "created_at": "2026-06-11T12:47:26.619Z",
+      "modified_at": "2026-06-11T13:12:40.862Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäudefläche (m²)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "null != 'abbruchgebaeude-gebaeudeflaeche-rekultiviert-v7'|answer",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchgebaeude-gebaeudevolumen-unterirdisch-v7",
+    "fields": {
+      "created_at": "2026-06-11T12:50:01.373Z",
+      "modified_at": "2026-06-11T12:50:01.373Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"davon unterirdisch (m³)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchgebaeude-gebaeudevolumen-v7",
+    "fields": {
+      "created_at": "2026-06-11T12:49:30.369Z",
+      "modified_at": "2026-06-11T13:03:37.206Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäudevolumen (m³)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "null != 'abbruchgebaeude-gebaeudevolumen-unterirdisch-v7'|answer",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchgebaeude-parzellennummer-v7",
+    "fields": {
+      "created_at": "2026-06-11T12:46:08.799Z",
+      "modified_at": "2026-06-11T12:46:08.799Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parzellennummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+    "fields": {
+      "created_at": "2026-06-11T13:23:00.157Z",
+      "modified_at": "2026-06-11T15:10:42.807Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aussenflächen und Anlagen: Angaben zum Abbruchobjekt\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "abbruchanlagen-abzubrechende-flaeche-rekultiviert-v7",
+          "abbruchanlagen-abzubrechende-flaeche-v7",
+          "abbruchanlagen-parzellennummer-v7",
+          "abbruchanlagen-gebaeude-v7"
+        ]
+      },
+      "data_source": null,
+      "row_form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchobjekt-angaben-gebaeude-v7",
+    "fields": {
+      "created_at": "2026-06-11T09:28:16.349Z",
+      "modified_at": "2026-06-11T15:10:02.467Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäude: Angaben zum Abbruchobjekt\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "abbruchgebaeude-bezeichnung-v7",
+          "abbruchgebaeude-gebaeudeflaeche-v7",
+          "abbruchgebaeude-gebaeudeflaeche-rekultiviert-v7",
+          "abbruchgebaeude-gebaeudevolumen-v7",
+          "abbruchgebaeude-gebaeudevolumen-unterirdisch-v7"
+        ]
+      },
+      "data_source": null,
+      "row_form": "abbruchobjekt-angaben-gebaeude-v7",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchpraemie-beantragt-v7",
+    "fields": {
+      "created_at": "2026-06-11T07:52:29.190Z",
+      "modified_at": "2026-06-11T07:54:20.521Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauen ausserhalb Bauzone: Wird eine Abbruchprämie beantragt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Eigentümer von Bauten und Anlagen, die ausserhalb der Bauzonen liegen, erhalten bei deren Abbruch eine Abbruchprämie. Bei der Beseitigung von Bauten und Anlagen mit landwirtschaftlicher oder touristischer Nutzung wird die Abbruchprämie auch ausgerichtet, wenn ein Ersatzneubau erstellt wird (Art. 5a Abs. 1 RPG). Nähere Regelungen Artikel 4 bis 10 EV RPG2 und Themenblatt Abbruchprämie auf der Homepage RPG2 des AGR [www.be.ch/rpg2](https://www.raumplanung.dij.be.ch/de/raumplanungsgesetz2.html)\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchpraemie-v7",
+    "fields": {
+      "created_at": "2026-06-11T07:42:56.532Z",
+      "modified_at": "2026-06-11T08:01:15.346Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"abbruchpraemie-beantragt-v7-ja\"==\"abbruchpraemie-beantragt-v7\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "abbruchpraemie-v7",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
     }
   },
   {
@@ -5547,6 +6955,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "eigentuemerschaft-identisch-v7",
+    "fields": {
+      "created_at": "2026-06-11T08:14:44.759Z",
+      "modified_at": "2026-06-11T08:14:44.759Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist die gesuchstellende Person identisch mit der Eigentümerschaft der abzubrechenden Bauten und Anlagen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "flaechenbilanz-v7",
     "fields": {
       "created_at": "2026-06-03T12:54:07.488Z",
@@ -5675,6 +7114,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "lediglich-mit-seilbahn-helikopter-zugaenglich-v7",
+    "fields": {
+      "created_at": "2026-06-12T09:01:03.239Z",
+      "modified_at": "2026-06-12T09:01:03.239Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist die abzubrechende Baute lediglich mit Seilbahn oder Helikopter zugänglich?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bei der Beurteilung der Verkehrslage wird abgestützt auf die gesamtschweizerische Anleitung für die Schätzung des landwirtschaftlichen Ertragswertes vom 31. Januar 2018, Anhang zur Verordnung über das bäuerliche Bodenrecht (VBB) vom 4. Oktober 1993, Ziffer 2 Verkehrslage von Böden und Ökonomiegebäuden. Die Anleitung legt für die Verkehrslage von Böden und Ökonomiegebäuden Noten fest anhand der Qualität der Zufahrt (ganzjährige Befahrbarkeit des schlechtesten Stückes): mit Lastwagen befahrbare Strasse Note 4 nur mit Traktor oder Transporter befahrbarer Weg Note 3 Seilbahn Note 2 Fuss- oder Saumweg Note 1 Vorhaben, die der Note 3 und 4 zugerechnet werden, können pauschal berechnet werden. Für Vorhaben mit Verkehrslage Note 1 und 2 ist eine Abbruchofferte erforderlich.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "nutzung-bauvorhaben-v7",
     "fields": {
       "created_at": "2026-06-03T11:50:56.644Z",
@@ -5727,6 +7197,37 @@
       "meta": {},
       "data_source": null,
       "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "personalien-eigentuemerin-v7",
+    "fields": {
+      "created_at": "2026-06-11T08:21:14.940Z",
+      "modified_at": "2026-06-11T08:25:42.024Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eigentümer/in der abzubrechenden Bauten und Anlagen (falls nicht mit Gesuchsteller/in identisch)\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "!('eigentuemerschaft-identisch-v7-nein'=='eigentuemerschaft-identisch-v7'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "personalien-tabelle",
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -5998,6 +7499,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "abbruchgebaeude-adresse-uebereinstimmt-v7.abbruchgebaeude-adresse-uebereinstimmt-v7-ja",
+    "fields": {
+      "created_at": "2026-06-11T09:36:30.488Z",
+      "modified_at": "2026-06-11T09:36:30.488Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "abbruchgebaeude-adresse-uebereinstimmt-v7",
+      "option": "abbruchgebaeude-adresse-uebereinstimmt-v7-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abbruchgebaeude-adresse-uebereinstimmt-v7.abbruchgebaeude-adresse-uebereinstimmt-v7-nein",
+    "fields": {
+      "created_at": "2026-06-11T09:36:30.485Z",
+      "modified_at": "2026-06-11T09:36:30.485Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "abbruchgebaeude-adresse-uebereinstimmt-v7",
+      "option": "abbruchgebaeude-adresse-uebereinstimmt-v7-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abbruchpraemie-beantragt-v7.abbruchpraemie-beantragt-v7-ja",
+    "fields": {
+      "created_at": "2026-06-11T07:54:20.530Z",
+      "modified_at": "2026-06-11T07:54:20.530Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "abbruchpraemie-beantragt-v7",
+      "option": "abbruchpraemie-beantragt-v7-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abbruchpraemie-beantragt-v7.abbruchpraemie-beantragt-v7-nein",
+    "fields": {
+      "created_at": "2026-06-11T07:54:20.527Z",
+      "modified_at": "2026-06-11T07:54:20.527Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "abbruchpraemie-beantragt-v7",
+      "option": "abbruchpraemie-beantragt-v7-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "art-versiegelung-entsiegelung-v7.art-versiegelung-entsiegelung-v7-entsiegelte-flaechen",
     "fields": {
       "created_at": "2026-06-03T13:09:33.826Z",
@@ -6083,6 +7644,66 @@
       "modified_by_group": null,
       "question": "berechnungen-abstellplaetze-dokument-v7",
       "option": "berechnungen-abstellplaetze-dokument-v7-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "eigentuemerschaft-identisch-v7.eigentuemerschaft-identisch-v7-ja",
+    "fields": {
+      "created_at": "2026-06-11T08:14:44.767Z",
+      "modified_at": "2026-06-11T08:14:44.767Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "eigentuemerschaft-identisch-v7",
+      "option": "eigentuemerschaft-identisch-v7-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "eigentuemerschaft-identisch-v7.eigentuemerschaft-identisch-v7-nein",
+    "fields": {
+      "created_at": "2026-06-11T08:14:44.764Z",
+      "modified_at": "2026-06-11T08:14:44.764Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "eigentuemerschaft-identisch-v7",
+      "option": "eigentuemerschaft-identisch-v7-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lediglich-mit-seilbahn-helikopter-zugaenglich-v7.lediglich-mit-seilbahn-helikopter-zugaenglich-v7-ja",
+    "fields": {
+      "created_at": "2026-06-12T09:01:03.246Z",
+      "modified_at": "2026-06-12T09:01:03.246Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "lediglich-mit-seilbahn-helikopter-zugaenglich-v7",
+      "option": "lediglich-mit-seilbahn-helikopter-zugaenglich-v7-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lediglich-mit-seilbahn-helikopter-zugaenglich-v7.lediglich-mit-seilbahn-helikopter-zugaenglich-v7-nein",
+    "fields": {
+      "created_at": "2026-06-12T09:01:03.242Z",
+      "modified_at": "2026-06-12T09:01:03.242Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "lediglich-mit-seilbahn-helikopter-zugaenglich-v7",
+      "option": "lediglich-mit-seilbahn-helikopter-zugaenglich-v7-nein",
       "sort": 1
     }
   },
