@@ -4,7 +4,7 @@
     "pk": "baugesuch-generell-v6",
     "fields": {
       "created_at": "2025-10-31T14:04:13.994Z",
-      "modified_at": "2025-10-31T14:04:20.871Z",
+      "modified_at": "2026-06-11T11:09:39.336Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -17,7 +17,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "baugesuch-generell-v5"
     }
@@ -27,7 +27,7 @@
     "pk": "baugesuch-mit-uvp-v6",
     "fields": {
       "created_at": "2025-10-31T14:03:24.810Z",
-      "modified_at": "2025-10-31T14:03:31.122Z",
+      "modified_at": "2026-06-11T11:09:24.742Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -40,7 +40,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "baugesuch-mit-uvp-v5"
     }
@@ -50,7 +50,7 @@
     "pk": "baugesuch-v6",
     "fields": {
       "created_at": "2025-10-31T14:02:40.654Z",
-      "modified_at": "2025-10-31T14:02:47.657Z",
+      "modified_at": "2026-06-11T11:09:30.254Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -63,7 +63,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "baugesuch-v5"
     }
@@ -109,7 +109,7 @@
     "pk": "vorabklaerung-vollstaendig-v6",
     "fields": {
       "created_at": "2025-10-31T14:05:03.650Z",
-      "modified_at": "2025-10-31T14:05:16.612Z",
+      "modified_at": "2026-06-11T11:09:53.422Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -122,7 +122,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "vorabklaerung-vollstaendig-v5"
     }
