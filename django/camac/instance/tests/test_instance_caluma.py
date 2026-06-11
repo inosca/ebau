@@ -2521,6 +2521,22 @@ def test_instance_delete(
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.parametrize(
+    "source_modification,copy_modification",
+    [
+        (False, False),
+        pytest.param(
+            False,
+            True,
+            marks=pytest.mark.xfail(
+                reason="a modification should not finalize its source if it isn't a modification"
+            ),
+        ),
+        # Functionally equivalent since copies of modifications are always modifications
+        (True, False),
+        (True, True),
+    ],
+)
 def test_rejection(
     db,
     admin_client,
@@ -2532,11 +2548,15 @@ def test_rejection(
     mock_generate_and_store_pdf,
     application_settings,
     rejection_settings,
+    project_modification_settings,
+    source_modification,
+    copy_modification,
     caluma_admin_user,
     disable_ech0211_settings,
     form_utils: FormUtils,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
+    project_modification_settings["ALLOW_FORMS"] = ["main-form"]
 
     new_state = instance_state_factory(name="new")
     subm_state = instance_state_factory(name="subm")
@@ -2558,6 +2578,12 @@ def test_rejection(
     source_instance = Instance.objects.get(pk=source_instance_id)
     source_instance.instance_state = rejected_state
     source_instance.save()
+    CalumaApi().update_or_create_answer(
+        source_instance.case.document,
+        "projektaenderung",
+        "projektaenderung-ja" if source_modification else "projektaenderung-nein",
+        caluma_admin_user,
+    )
     workflow_api.suspend_case(source_instance.case, caluma_admin_user)
 
     copy_response = admin_client.post(
@@ -2567,7 +2593,7 @@ def test_rejection(
                 "type": "instances",
                 "attributes": {
                     "copy-source": str(source_instance_id),
-                    "is-modification": False,
+                    "is-modification": copy_modification,
                 },
             }
         },

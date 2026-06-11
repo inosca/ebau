@@ -1405,7 +1405,12 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             and source_instance
             and source_instance.instance_state.name
             == settings.REJECTION["INSTANCE_STATE"]
-            and not caluma_api.is_modification(instance)
+            # prevent changing the instance state to complete when
+            # the source is not a modification and the copy is a modification
+            and (
+                caluma_api.is_modification(instance)
+                == caluma_api.is_modification(source_instance)
+            )
         ):
             if settings.REJECTION["INSTANCE_STATE_REJECTION_COMPLETE"]:
                 source_instance.set_instance_state(
