@@ -920,7 +920,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'bd457d3b-2fc8-4ae0-8fcf-26c1baae1d71',
+              '76835a12-22da-4a02-9ecc-ba8c5684f733',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -942,7 +942,7 @@
           'task': 'from-template-and-read',
           'unread': False,
         }),
-        'id': 'bd457d3b-2fc8-4ae0-8fcf-26c1baae1d71',
+        'id': '76835a12-22da-4a02-9ecc-ba8c5684f733',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -979,7 +979,7 @@
           'direct-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'mrs-fight-whether',
+              'major-else-end',
               'no-placeholder',
             ]),
             'route': 'foo.bar.baz',
@@ -987,7 +987,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '2397ee74-7cca-4fdb-b4a9-690d9ca063e6',
+              '723179aa-fe46-454f-bc3b-dae9bc3e3eef',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -1009,7 +1009,7 @@
           'task': 'from-task',
           'unread': True,
         }),
-        'id': '2397ee74-7cca-4fdb-b4a9-690d9ca063e6',
+        'id': '723179aa-fe46-454f-bc3b-dae9bc3e3eef',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -1047,7 +1047,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'da0f7fb4-7b6e-49a0-afb2-4a39b2acea8d',
+              '3c7745f7-76ea-4185-962a-50102ee59450',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -1069,7 +1069,7 @@
           'task': 'assigned',
           'unread': True,
         }),
-        'id': 'da0f7fb4-7b6e-49a0-afb2-4a39b2acea8d',
+        'id': '3c7745f7-76ea-4185-962a-50102ee59450',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -1110,13 +1110,13 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '7101b858-5020-492b-9f4e-84e8083e252c',
+              '262d6450-df77-4d64-be8d-d0211d282d2b',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
-          'instance-name': 'Prof. Nils Kramer B.Sc.',
+          'instance-name': 'Ulrich Rädel',
           'is-addressed-to-current-service': True,
           'is-assigned-to-current-user': False,
           'is-controlled-by-current-service': False,
@@ -1132,7 +1132,7 @@
           'task': 'target-deadline-date',
           'unread': True,
         }),
-        'id': '7101b858-5020-492b-9f4e-84e8083e252c',
+        'id': '262d6450-df77-4d64-be8d-d0211d282d2b',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -1169,7 +1169,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '5f61ed6d-b041-451c-9b00-9fea6014c59f',
+              '436cb675-102e-4113-8edc-64cbf8a0bab8',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -1191,7 +1191,7 @@
           'task': 'completed',
           'unread': True,
         }),
-        'id': '5f61ed6d-b041-451c-9b00-9fea6014c59f',
+        'id': '436cb675-102e-4113-8edc-64cbf8a0bab8',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
