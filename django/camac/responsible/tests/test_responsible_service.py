@@ -77,8 +77,8 @@ def test_responsible_service_create(
         )
         work_item.refresh_from_db()
         assert work_item.assigned_users[0] == instance.user.username
-        assert len(mailoutbox) == 1
-        assert mailoutbox[0].to[0] == instance.user.email
+        # there is no email notification sent when the user being assigned is the user making the request.
+        assert len(mailoutbox) == 0
 
 
 @pytest.mark.parametrize(
@@ -152,8 +152,8 @@ def test_responsible_service_update(
             work_item.assigned_users[0] == responsible_service.responsible_user.username
         )
         assert other_work_item.assigned_users == []
-        assert len(mailoutbox) == 1
-        assert mailoutbox[0].to[0] == responsible_service.responsible_user.email
+        # there is no email notification sent when the user being assigned is the user making the request.
+        assert len(mailoutbox) == 0
 
 
 @pytest.mark.parametrize("has_previous_responsible_user", [True, False])
@@ -244,3 +244,40 @@ def test_update_work_item_assigned_user_ag(
         assert work_item_unassigned.assigned_users == [new_user.username]
         assert work_item_assigned_old.assigned_users == [old_user.username]
         assert work_item_bypassed_assigned.assigned_users == [old_user.username]
+
+
+@pytest.mark.parametrize("is_self_assignment", [True, False])
+def test_send_notification(
+    db,
+    application_settings,
+    mailoutbox,
+    notification_template,
+    be_instance,
+    service,
+    group,
+    admin_user,
+    user_factory,
+    responsible_service_factory,
+    is_self_assignment,
+):
+    application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_USER"] = {
+        "template_slug": notification_template.slug,
+    }
+
+    assigned_user = admin_user if is_self_assignment else user_factory(username="other")
+
+    responsible_service = responsible_service_factory(
+        instance=be_instance,
+        service=service,
+        responsible_user=assigned_user,
+    )
+
+    ResponsibleServiceDomainLogic.send_notification(
+        responsible_service, admin_user, group
+    )
+
+    if is_self_assignment:
+        assert len(mailoutbox) == 0
+    else:
+        assert len(mailoutbox) == 1
+        assert mailoutbox[0].to[0] == assigned_user.email
