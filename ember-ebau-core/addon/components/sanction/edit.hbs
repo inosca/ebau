@@ -21,6 +21,7 @@
   >
     <PowerSelect
       @selected={{f.model.assignedService}}
+      @noMatchesMessage={{t "global.noMatch"}}
       @searchEnabled={{true}}
       @searchField="name"
       @onChange={{fn (mut f.model.assignedService)}}

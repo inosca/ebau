@@ -6,17 +6,8 @@ global:
   title: "eBau Bern"
   page-title: "Portal eBau-BE"
   versionPrefix: "v"
-  continue: "Weiter"
-  delete: "Löschen"
-  cancel: "Abbrechen"
-  back: "Zurück"
-  save: "Speichern"
-  ok: "Ok"
   urec: "URec"
-  yes: "Ja"
-  no: "Nein"
   stampIcon: "Dokument mit Stempel"
-  applicant: "Gesuchsteller"
 
 nav:
   form: "Formular"

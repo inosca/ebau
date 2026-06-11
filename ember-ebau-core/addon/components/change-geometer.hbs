@@ -16,6 +16,7 @@
       @renderInPlace={{true}}
       @options={{this.municipalities.records}}
       @selected={{this.selectedService}}
+      @noMatchesMessage={{t "global.noMatch"}}
       @onChange={{this.selectService}}
       @disabled={{this.runningTasks}}
       class="uk-select"
@@ -46,6 +47,7 @@
       @renderInPlace={{true}}
       @options={{this.geometers.records}}
       @selected={{this.selectedGeometer}}
+      @noMatchesMessage={{t "global.noMatch"}}
       @onChange={{fn (mut this.selectedGeometer)}}
       @disabled={{this.runningTasks}}
       class="uk-select"
