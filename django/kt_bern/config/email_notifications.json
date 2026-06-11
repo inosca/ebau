@@ -696,6 +696,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 74,
+    "fields": {
+      "slug": "change-responsible-user",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -1389,6 +1401,18 @@
       "purpose": "Wiedereröffnung einer Stellungnahme",
       "subject": "Hinweis zum Verfahrensablauf (eBau Nr. {{EBAU_NUMBER}}) / Précision sur le déroulement de la procédure (n° eBau {{EBAU_NUMBER}})",
       "body": "Guten Tag\r\n\r\nIhre Stellungnahme zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde wiedereröffnet und kann überarbeitet werden.\r\n\r\nBemerkung: {{INQUIRY_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n\r\n{{CURRENT_SERVICE_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre prise de position relative au dossier eBau n° {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été rouverte et peut être remaniée.\r\n\r\nRemarque: {{INQUIRY_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n\r\n{{CURRENT_SERVICE_FR}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 106,
+    "fields": {
+      "template": 74,
+      "template_slug": "change-responsible-user",
+      "language": "de",
+      "purpose": "Dossier-Zuständigkeit",
+      "subject": "Neue Zuständigkeit bei eBau-Dossier / Nouvelle compétence pour le dossier eBau",
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen Eingang mit der Dossier-Nr. {{INSTANCE_ID}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) welches zur Bearbeitung Ihnen zugewiesen wurde.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\nBonjour,\r\n\r\nDans eBau, un dossier portant le numéro {{INSTANCE_ID}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) vous a été attribué pour traitement.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe courriel a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\neBau."
     }
   }
 ]

@@ -78,6 +78,8 @@ class ResponsibleServiceDomainLogic:
     @classmethod
     def send_notification(cls, responsible_service: ResponsibleService, user, group):
         """Send a notification to the new responsible user of the instance."""
+        if responsible_service.responsible_user.id == user.id:
+            return
         config = settings.APPLICATION["NOTIFICATIONS"].get("CHANGE_RESPONSIBLE_USER")
 
         if config:

@@ -967,6 +967,7 @@ APPLICATIONS = {
                 "template_slug": "02-benachrichtigung-baubewilligungsbehorde",
                 "recipient_types": ["leitbehoerde"],
             },
+            "CHANGE_RESPONSIBLE_USER": {"template_slug": "change-responsible-user"},
             "DECISION": [
                 {
                     "template_slug": "08-entscheid-gesuchsteller",
