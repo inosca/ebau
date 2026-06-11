@@ -2554,6 +2554,7 @@ def sg_master_data_case(
 
     form_utils.add_answer(document, "is-paper", "is-paper-no")
     form_utils.add_answer(document, "beschreibung-bauvorhaben", "Neues EFH")
+    form_utils.add_answer(document, "gesamtkosten", 1_234_567)
     form_utils.add_answer(document, "strasse-und-nr", "Lämmlisbrunnenstrasse 54")
     form_utils.add_table_answer(
         document,

@@ -121,11 +121,15 @@ DJANGO_ADMIN = {
         "ENABLED_MODELS": [
             "alexandria_core.Category",
             "alexandria_core.Mark",
+            "billing.BillingV2EntryTemplate",
             "core.InstanceResource",
             "core.Resource",
             "gis.GISDataSource",
             "notification.NotificationTemplate",
             "tags.InstanceMark",
+        ],
+        "CUSTOMER_MANAGED_MODELS": [
+            "billing.BillingV2EntryTemplate",
         ],
     },
 }

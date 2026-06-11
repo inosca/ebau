@@ -621,6 +621,7 @@
         'zip': '8993',
       }),
     ]),
+    'construction_costs': 1234567,
     'decision_date': datetime.date(2026, 5, 18),
     'dossier_number': '2026-99',
     'information_of_neighbors_required': False,

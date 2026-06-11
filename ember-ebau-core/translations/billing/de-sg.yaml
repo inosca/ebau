@@ -1,0 +1,4 @@
+billing:
+  # For now, we explicitly remove this comment as it will be wrong as soon as we
+  # have integrations for external billing systems
+  info: ""

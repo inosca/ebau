@@ -125,4 +125,8 @@ BILLING = ModuleConfig[BillingConfig](
             hidden_fields=["remark"], hidden_calculation_modes=["ag_processing_fee"]
         ),
     ),
+    kt_sg=BillingConfig(
+        enabled=True,
+        admin=BillingDjangoAdminConfig(hidden_fields=["organization"]),
+    ),
 )

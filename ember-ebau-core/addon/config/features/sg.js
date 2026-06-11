@@ -43,6 +43,11 @@ export default {
     snippets: true,
   },
   billing: {
+    charge: true,
+    reducedTaxRate: true,
+    displayService: true,
+    applyConstructionCosts: true,
+    remark: true,
     snippets: true,
   },
   deadlines: {
