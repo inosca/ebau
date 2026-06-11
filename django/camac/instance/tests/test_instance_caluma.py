@@ -3945,3 +3945,56 @@ def test_instance_keywords_visibility_aware(
         kw_current2.pk,
         kw_other1.pk,
     }
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Municipality", lf("admin_user"))]
+)
+@pytest.mark.parametrize(
+    "municipality_ids,expected_count",
+    [
+        ([], 3),
+        (["1"], 1),
+        ("1,2", 2),
+        ("1,2,3", 3),
+    ],
+)
+def test_filter_municipality_multiselect(
+    admin_user,
+    admin_client,
+    ag_instance,
+    instance_with_case,
+    instance_factory,
+    caluma_answer_factory,
+    caluma_case_factory,
+    municipality_ids,
+    expected_count,
+):
+    # instances with another municipality
+    other_instance_1 = instance_factory(
+        case=caluma_case_factory(), group=ag_instance.group
+    )
+    other_instance_2 = instance_factory(
+        case=caluma_case_factory(), group=ag_instance.group
+    )
+
+    caluma_answer_factory(
+        document=ag_instance.case.document, question_id="gemeinde", value="1"
+    )
+    caluma_answer_factory(
+        document=other_instance_1.case.document, question_id="gemeinde", value="2"
+    )
+    caluma_answer_factory(
+        document=other_instance_2.case.document, question_id="gemeinde", value="3"
+    )
+
+    url = reverse("instance-list")
+    response = admin_client.get(
+        url, data={"municipality_multiselect": municipality_ids}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    json = response.json()
+
+    assert len(json["data"]) == expected_count

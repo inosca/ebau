@@ -16,7 +16,12 @@ from camac.conftest import parse_xlsx_response
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
-from camac.instance.filters import CaseBabFilter, CaseSuspendedFilter
+from camac.instance.filters import (
+    ApplicationCodesFilter,
+    CalumaYesNoFilter,
+    CaseBabFilter,
+    CaseSuspendedFilter,
+)
 from camac.instance.models import FormField, Instance, InstanceGroup, InstanceState
 from camac.permissions import api as permissions_api
 from camac.tests.form_utils import FormUtils
@@ -2609,6 +2614,127 @@ def test_case_suspended_filter_ag(
     suspended_filter.parent = parent_mock
 
     queryset = suspended_filter.filter(queryset=Instance.objects, value=search)
+
+    cases_result = queryset.all()
+    assert len(cases_result) == expected
+
+
+@pytest.mark.parametrize(
+    "codes,expected",
+    [
+        ([], 3),
+        ("", 3),
+        (["kantonale-pruefung-gesuchscodes-a01"], 1),
+        ("kantonale-pruefung-gesuchscodes-a01", 1),
+        (
+            [
+                "kantonale-pruefung-gesuchscodes-a01",
+                "kantonale-pruefung-gesuchscodes-a02",
+            ],
+            2,
+        ),
+    ],
+)
+def test_application_codes_filter_ag(
+    db,
+    admin_client,
+    rf,
+    group,
+    mocker,
+    ag_instance,
+    instance_factory,
+    instance_with_case,
+    caluma_work_item_factory,
+    caluma_answer_factory,
+    codes,
+    expected,
+):
+
+    # create an instance without code answers
+    instance_factory()
+
+    cantonal_exam_work_item_1 = caluma_work_item_factory(
+        task_id="cantonal-exam",
+        case=ag_instance.case,
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+        addressed_groups=[str(admin_client.user.groups.first().service_id)],
+    )
+    cantonal_exam_work_item_2 = caluma_work_item_factory(
+        task_id="cantonal-exam",
+        case=instance_with_case(instance=instance_factory()).case,
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+        addressed_groups=[str(admin_client.user.groups.first().service_id)],
+    )
+    caluma_answer_factory(
+        document=cantonal_exam_work_item_1.document,
+        question_id="kantonale-pruefung-gesuchscodes",
+        value=codes,
+    )
+    caluma_answer_factory(
+        document=cantonal_exam_work_item_2.document,
+        question_id="kantonale-pruefung-gesuchscodes",
+        value="kantonale-pruefung-gesuchscodes-a02",
+    )
+    request = rf.request()
+    request.group = group
+    application_codes_filter = ApplicationCodesFilter()
+    parent_mock = mocker.MagicMock()
+    parent_mock.request = request
+    application_codes_filter.parent = parent_mock
+
+    queryset = application_codes_filter.filter(qs=Instance.objects.all(), value=codes)
+
+    cases_result = queryset.all()
+    assert len(cases_result) == expected
+
+
+@pytest.mark.parametrize(
+    "filter,expected",
+    [
+        (1, 1),
+        (0, 0),
+        ("", 1),
+    ],
+)
+def test_retroactive_building_permit_filter_ag(
+    db,
+    rf,
+    admin_client,
+    group,
+    mocker,
+    ag_instance,
+    filter,
+    expected,
+    caluma_work_item_factory,
+    caluma_answer_factory,
+):
+    cantonal_exam_work_item = caluma_work_item_factory(
+        task_id="cantonal-exam",
+        case=ag_instance.case,
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+        addressed_groups=[str(admin_client.user.groups.first().service_id)],
+    )
+    caluma_answer_factory(
+        document=cantonal_exam_work_item.document,
+        question_id="kantonale-pruefung-nachtraegliches-baugesuch",
+        value="kantonale-pruefung-nachtraegliches-baugesuch-ja",
+    )
+
+    request = rf.request()
+    request.group = group
+    caluma_yes_no_filter = CalumaYesNoFilter(
+        question="kantonale-pruefung-nachtraegliches-baugesuch",
+        task_id="cantonal-exam",
+        yes="ja",
+        no="nein",
+    )
+    parent_mock = mocker.MagicMock()
+    parent_mock.request = request
+    caluma_yes_no_filter.parent = parent_mock
+
+    queryset = caluma_yes_no_filter.filter(
+        queryset=Instance.objects.all(), value=filter
+    )
 
     cases_result = queryset.all()
     assert len(cases_result) == expected

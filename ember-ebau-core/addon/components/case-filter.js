@@ -23,6 +23,7 @@ import ToggleSwitchComponent from "ember-ebau-core/components/case-filter/toggle
 import caseTableConfig from "ember-ebau-core/config/case-table";
 import mainConfig from "ember-ebau-core/config/main";
 import decisionsQuery from "ember-ebau-core/gql/queries/decisions.graphql";
+import applicationCodesQuery from "ember-ebau-core/gql/queries/get-application-codes-answers.graphql";
 import getBuildingPermitQuestion from "ember-ebau-core/gql/queries/get-building-permit-question.graphql";
 import inquiryAnswersQuery from "ember-ebau-core/gql/queries/inquiry-answers.graphql";
 import municipalitiesQuery from "ember-ebau-core/gql/queries/municipalities.graphql";
@@ -333,6 +334,19 @@ export default class CaseFilterComponent extends Component {
     ];
   }
 
+  get retroactiveBuildingPermitOptions() {
+    return [
+      {
+        value: "1",
+        label: this.intl.t("cases.retroactiveBuildingPermit.retroactive"),
+      },
+      {
+        value: "0",
+        label: this.intl.t("cases.retroactiveBuildingPermit.not-retroactive"),
+      },
+    ];
+  }
+
   legalStateOerebOptions = trackedFunction(this, async () => {
     const response = await this.apollo.query(
       { query: oerebLegalStateAnswersQuery },
@@ -367,6 +381,15 @@ export default class CaseFilterComponent extends Component {
   inquiryAnswerOptions = trackedFunction(this, async () => {
     const response = await this.apollo.query(
       { query: inquiryAnswersQuery },
+      "allQuestions.edges",
+    );
+
+    return response[0]?.node.options.edges.map((edge) => edge.node);
+  });
+
+  applicationCodesOptions = trackedFunction(this, async () => {
+    const response = await this.apollo.query(
+      { query: applicationCodesQuery },
       "allQuestions.edges",
     );
 

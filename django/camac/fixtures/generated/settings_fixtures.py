@@ -630,6 +630,24 @@ def so_bab_settings(
 
 
 @pytest.fixture
+def ag_bab_settings(
+    request,
+    settings,
+    bab_settings,
+):
+    """Module-specific settings for bab (canton AG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=bab_settings,
+        settings_name="BAB",
+        import_path="camac.settings.modules.bab.BAB",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def billing_settings(
     request,
     settings,

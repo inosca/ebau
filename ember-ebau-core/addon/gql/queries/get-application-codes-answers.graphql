@@ -1,0 +1,19 @@
+query ApplicationCodesQuery {
+  allQuestions(filter: [{ slugs: ["kantonale-pruefung-gesuchscodes"] }]) {
+    edges {
+      node {
+        slug
+        ... on MultipleChoiceQuestion {
+          options {
+            edges {
+              node {
+                slug
+                label
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

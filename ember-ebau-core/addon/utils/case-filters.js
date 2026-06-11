@@ -207,6 +207,11 @@ export function getCamacFilters({
     inquiry_answer: filter.inquiryAnswer,
     is_suspended: filter.suspended,
     is_bab: filter.bab,
+    ...(macroCondition(getOwnConfig().application === "ag")
+      ? {
+          municipality_multiselect: filter.municipalityMultiselect,
+        }
+      : {}),
     ...(macroCondition(getOwnConfig().application === "ur")
       ? {
           location: filter.municipality,
@@ -232,6 +237,9 @@ export function getCamacFilters({
       keyword_search: filter.keywordSearch,
     },
     caluma: {
+      // AG-specific
+      is_retroactive_building_permit: filter.retroactiveBuildingPermit,
+      application_codes: filter.applicationCodes,
       // BE-specific
       is_modification: filter.modification,
       decision_date_before: filter.decisionDateBefore,

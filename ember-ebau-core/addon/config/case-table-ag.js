@@ -49,7 +49,7 @@ export default {
       "service-afb": [
         "form",
         "dossierNumber",
-        "municipality",
+        "municipalityMultiselect",
         "responsibleServiceUser",
         "address",
         "parcel",
@@ -65,6 +65,9 @@ export default {
         "instanceState",
         "paper",
         "suspended",
+        "bab",
+        "retroactiveBuildingPermit",
+        "applicationCodes",
       ],
       "service-cantonal": [
         "form",
