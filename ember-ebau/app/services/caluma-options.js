@@ -69,10 +69,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     "inquiry-answer-forward",
   ];
   static distributionInfoQuestionsAG = ["inquiry-answer-status"];
-  static distributionInfoQuestionsSG = [
-    "inquiry-answer-subject",
-    "inquiry-answer-status",
-  ];
+  static distributionInfoQuestionsSG = ["inquiry-answer-status"];
 
   @cantonAware
   static distributionStatusMapping = {};
