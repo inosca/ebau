@@ -1533,6 +1533,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-begruendung-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:20:53.685Z",
+      "modified_at": "2026-06-12T11:20:53.685Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-begruendung-v7",
+      "sort": 73
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:20:16.683Z",
+      "modified_at": "2026-06-12T11:20:16.683Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7",
+      "sort": 74
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente-v7.anschluss-sammelkanaele-vorfluter-dokument-begruendung-v5",
     "fields": {
       "created_at": "2026-04-27T14:16:29.216Z",
@@ -1543,7 +1573,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "anschluss-sammelkanaele-vorfluter-dokument-begruendung-v5",
-      "sort": 111
+      "sort": 121
     }
   },
   {
@@ -1558,7 +1588,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "anschluss-sammelkanaele-vorfluter-dokument-v5",
-      "sort": 112
+      "sort": 122
     }
   },
   {
@@ -1603,7 +1633,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "ausnuetzung-dokument-begruendung-v5",
-      "sort": 125
+      "sort": 135
     }
   },
   {
@@ -1618,7 +1648,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "ausnuetzung-dokument-v5",
-      "sort": 126
+      "sort": 136
     }
   },
   {
@@ -1693,7 +1723,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "berechnungen-abstellplaetze-dokument-begruendung-v7",
-      "sort": 127
+      "sort": 137
     }
   },
   {
@@ -1708,7 +1738,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "berechnungen-abstellplaetze-dokument-v7",
-      "sort": 128
+      "sort": 138
     }
   },
   {
@@ -1723,7 +1753,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "beschrieb-der-lueftung-dokument-begruendung-v5",
-      "sort": 83
+      "sort": 93
     }
   },
   {
@@ -1738,7 +1768,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "beschrieb-der-lueftung-dokument-v5",
-      "sort": 84
+      "sort": 94
     }
   },
   {
@@ -1783,7 +1813,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "betriebskonzept-gastgewerbe-dokument-begruendung-v5",
-      "sort": 85
+      "sort": 95
     }
   },
   {
@@ -1798,7 +1828,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "betriebskonzept-gastgewerbe-dokument-v5",
-      "sort": 86
+      "sort": 96
     }
   },
   {
@@ -1843,7 +1873,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "brandschutzkonzept-dokument-begruendung-v5",
-      "sort": 107
+      "sort": 117
     }
   },
   {
@@ -1858,7 +1888,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "brandschutzkonzept-dokument-v5",
-      "sort": 108
+      "sort": 118
     }
   },
   {
@@ -1873,7 +1903,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "brandschutzplan-dokument-begruendung-v5",
-      "sort": 105
+      "sort": 115
     }
   },
   {
@@ -1888,7 +1918,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "brandschutzplan-dokument-v5",
-      "sort": 106
+      "sort": 116
     }
   },
   {
@@ -1903,7 +1933,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "dokumente-infotext-bauprofile",
-      "sort": 137
+      "sort": 147
     }
   },
   {
@@ -2083,7 +2113,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "erdwaermensondendimensionierung-dokument-begruendung-v5",
-      "sort": 95
+      "sort": 105
     }
   },
   {
@@ -2098,7 +2128,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "erdwaermensondendimensionierung-dokument-v5",
-      "sort": 96
+      "sort": 106
     }
   },
   {
@@ -2133,6 +2163,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.flaechen-volumenberechnung-abbruchpraemie-dokument-begruendung-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:06:43.985Z",
+      "modified_at": "2026-06-12T11:06:43.985Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "flaechen-volumenberechnung-abbruchpraemie-dokument-begruendung-v7",
+      "sort": 79
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.flaechen-volumenberechnung-abbruchpraemie-dokument-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:02:17.833Z",
+      "modified_at": "2026-06-12T11:02:17.833Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "flaechen-volumenberechnung-abbruchpraemie-dokument-v7",
+      "sort": 80
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente-v7.formular-andere-thermoaktive-elemente-dokument-begruendung-v5",
     "fields": {
       "created_at": "2026-04-27T14:16:29.239Z",
@@ -2143,7 +2203,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "formular-andere-thermoaktive-elemente-dokument-begruendung-v5",
-      "sort": 99
+      "sort": 109
     }
   },
   {
@@ -2158,7 +2218,37 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "formular-andere-thermoaktive-elemente-dokument-v5",
-      "sort": 100
+      "sort": 110
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-begruendung-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:13:50.335Z",
+      "modified_at": "2026-06-12T11:13:50.335Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-begruendung-v7",
+      "sort": 77
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:11:18.704Z",
+      "modified_at": "2026-06-12T11:11:18.704Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7",
+      "sort": 78
     }
   },
   {
@@ -2203,7 +2293,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "geschossflaechen-dokument-begruendung-v5",
-      "sort": 119
+      "sort": 129
     }
   },
   {
@@ -2218,7 +2308,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "geschossflaechen-dokument-v5",
-      "sort": 120
+      "sort": 130
     }
   },
   {
@@ -2353,7 +2443,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "gruenflaeche-dokument-begruendung-v5",
-      "sort": 123
+      "sort": 133
     }
   },
   {
@@ -2368,7 +2458,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "gruenflaeche-dokument-v5",
-      "sort": 124
+      "sort": 134
     }
   },
   {
@@ -2383,7 +2473,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "grundriss-angabe-bodenflaeche-dokument-begruendung-v5",
-      "sort": 81
+      "sort": 91
     }
   },
   {
@@ -2398,7 +2488,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "grundriss-angabe-bodenflaeche-dokument-v5",
-      "sort": 82
+      "sort": 92
     }
   },
   {
@@ -2443,7 +2533,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "grundstuecksentwaesserungsplan-dokument-begruendung-v5",
-      "sort": 135
+      "sort": 145
     }
   },
   {
@@ -2458,7 +2548,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "grundstuecksentwaesserungsplan-dokument-v5",
-      "sort": 136
+      "sort": 146
     }
   },
   {
@@ -2473,7 +2563,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "hydrogeo-gutachten-dokument-begruendung-v5",
-      "sort": 91
+      "sort": 101
     }
   },
   {
@@ -2488,7 +2578,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "hydrogeo-gutachten-dokument-v5",
-      "sort": 92
+      "sort": 102
     }
   },
   {
@@ -2503,7 +2593,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "hydrogeologische-begleitung-dokument-begruendung-v5",
-      "sort": 93
+      "sort": 103
     }
   },
   {
@@ -2518,7 +2608,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "hydrogeologische-begleitung-dokument-v5",
-      "sort": 94
+      "sort": 104
     }
   },
   {
@@ -2533,7 +2623,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "inanspruchnahme-boden-dokument-begruendung-v5",
-      "sort": 113
+      "sort": 123
     }
   },
   {
@@ -2548,7 +2638,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "inanspruchnahme-boden-dokument-v5",
-      "sort": 114
+      "sort": 124
     }
   },
   {
@@ -2748,6 +2838,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.offerten-abbruch-abbruchpraemie-dokument-begruendung-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:16:46.849Z",
+      "modified_at": "2026-06-12T11:16:46.849Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "offerten-abbruch-abbruchpraemie-dokument-begruendung-v7",
+      "sort": 75
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.offerten-abbruch-abbruchpraemie-dokument-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:15:59.582Z",
+      "modified_at": "2026-06-12T11:15:59.582Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "offerten-abbruch-abbruchpraemie-dokument-v7",
+      "sort": 76
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente-v7.plaene-fumoir-dokument-begruendung-v5",
     "fields": {
       "created_at": "2026-04-27T14:16:29.298Z",
@@ -2758,7 +2878,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "plaene-fumoir-dokument-begruendung-v5",
-      "sort": 77
+      "sort": 87
     }
   },
   {
@@ -2773,7 +2893,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "plaene-fumoir-dokument-v5",
-      "sort": 78
+      "sort": 88
     }
   },
   {
@@ -2818,7 +2938,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "plane-gastgewerbebetrieb-dokument-begruendung-v5",
-      "sort": 79
+      "sort": 89
     }
   },
   {
@@ -2833,7 +2953,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "plane-gastgewerbebetrieb-dokument-v5",
-      "sort": 80
+      "sort": 90
     }
   },
   {
@@ -2878,7 +2998,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "qualitaetssicherungskonzept-dokument-begruendung-v5",
-      "sort": 103
+      "sort": 113
     }
   },
   {
@@ -2893,7 +3013,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "qualitaetssicherungskonzept-dokument-v5",
-      "sort": 104
+      "sort": 114
     }
   },
   {
@@ -2908,7 +3028,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "regierungsratsbeschluss-bauinventar-dokument-begruendung-v5",
-      "sort": 117
+      "sort": 127
     }
   },
   {
@@ -2923,7 +3043,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "regierungsratsbeschluss-bauinventar-dokument-v5",
-      "sort": 118
+      "sort": 128
     }
   },
   {
@@ -3088,7 +3208,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "schutzraum-dokument-begruendung-v5",
-      "sort": 87
+      "sort": 97
     }
   },
   {
@@ -3103,7 +3223,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "schutzraum-dokument-v5",
-      "sort": 88
+      "sort": 98
     }
   },
   {
@@ -3118,7 +3238,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "sicherungsleistung-befreit-dokument-begruendung-v5",
-      "sort": 89
+      "sort": 99
     }
   },
   {
@@ -3133,7 +3253,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "sicherungsleistung-befreit-dokument-v5",
-      "sort": 90
+      "sort": 100
     }
   },
   {
@@ -3148,7 +3268,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "sicherungsmassnahme-dokument-begruendung-v5",
-      "sort": 129
+      "sort": 139
     }
   },
   {
@@ -3163,7 +3283,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "sicherungsmassnahme-dokument-v5",
-      "sort": 130
+      "sort": 140
     }
   },
   {
@@ -3178,7 +3298,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "situationsplan-dokument-begruendung-v5",
-      "sort": 75
+      "sort": 85
     }
   },
   {
@@ -3193,7 +3313,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "situationsplan-dokument-v5",
-      "sort": 76
+      "sort": 86
     }
   },
   {
@@ -3228,6 +3348,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-begruendung-v7",
+    "fields": {
+      "created_at": "2026-06-12T10:42:10.056Z",
+      "modified_at": "2026-06-12T10:42:10.056Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-begruendung-v7",
+      "sort": 81
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7",
+    "fields": {
+      "created_at": "2026-06-12T09:52:07.600Z",
+      "modified_at": "2026-06-12T09:52:07.600Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7",
+      "sort": 82
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente-v7.situationsplan-mit-rpg2-flaechenangaben-dokument-begruendung-v7",
     "fields": {
       "created_at": "2026-06-03T13:49:22.561Z",
@@ -3238,7 +3388,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "situationsplan-mit-rpg2-flaechenangaben-dokument-begruendung-v7",
-      "sort": 73
+      "sort": 83
     }
   },
   {
@@ -3253,7 +3403,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "situationsplan-mit-rpg2-flaechenangaben-dokument-v7",
-      "sort": 74
+      "sort": 84
     }
   },
   {
@@ -3298,7 +3448,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "sondenmodell-mit-datenblatt-dokument-begruendung-v5",
-      "sort": 97
+      "sort": 107
     }
   },
   {
@@ -3313,7 +3463,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "sondenmodell-mit-datenblatt-dokument-v5",
-      "sort": 98
+      "sort": 108
     }
   },
   {
@@ -3328,7 +3478,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "ueberbauung-dokument-begruendung-v5",
-      "sort": 121
+      "sort": 131
     }
   },
   {
@@ -3343,7 +3493,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "ueberbauung-dokument-v5",
-      "sort": 122
+      "sort": 132
     }
   },
   {
@@ -3418,7 +3568,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "vertrag-zum-bauinventar-dokument-begruendung-v5",
-      "sort": 115
+      "sort": 125
     }
   },
   {
@@ -3433,7 +3583,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "vertrag-zum-bauinventar-dokument-v5",
-      "sort": 116
+      "sort": 126
     }
   },
   {
@@ -3478,7 +3628,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "vollmacht-dokument-begruendung-v5",
-      "sort": 133
+      "sort": 143
     }
   },
   {
@@ -3493,7 +3643,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "vollmacht-dokument-v5",
-      "sort": 134
+      "sort": 144
     }
   },
   {
@@ -3508,7 +3658,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "vorabklaerung-dokument-begruendung-v5",
-      "sort": 131
+      "sort": 141
     }
   },
   {
@@ -3523,7 +3673,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "vorabklaerung-dokument-v5",
-      "sort": 132
+      "sort": 142
     }
   },
   {
@@ -3538,7 +3688,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "weitere-angaben-regeneration-ews-dokument-begruendung-v5",
-      "sort": 101
+      "sort": 111
     }
   },
   {
@@ -3553,7 +3703,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "weitere-angaben-regeneration-ews-dokument-v5",
-      "sort": 102
+      "sort": 112
     }
   },
   {
@@ -3568,7 +3718,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "zustimmung-der-anstoesser-dokument-begruendung-v5",
-      "sort": 109
+      "sort": 119
     }
   },
   {
@@ -3583,7 +3733,7 @@
       "modified_by_group": null,
       "form": "dokumente-v7",
       "question": "zustimmung-der-anstoesser-dokument-v5",
-      "sort": 110
+      "sort": 120
     }
   },
   {
@@ -5441,6 +5591,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7-ja",
+    "fields": {
+      "created_at": "2026-06-12T11:20:16.584Z",
+      "modified_at": "2026-06-12T11:20:16.584Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hochgeladen\", \"fr\": \"Téléchargé\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7-nein",
+    "fields": {
+      "created_at": "2026-06-12T11:20:16.582Z",
+      "modified_at": "2026-06-12T11:20:16.582Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas nécessaire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "art-versiegelung-entsiegelung-v7-entsiegelte-flaechen",
     "fields": {
       "created_at": "2026-06-03T13:09:33.755Z",
@@ -5577,6 +5761,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "flaechen-volumenberechnung-abbruchpraemie-dokument-v7-ja",
+    "fields": {
+      "created_at": "2026-06-12T11:02:17.732Z",
+      "modified_at": "2026-06-12T11:02:17.732Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hochgeladen\", \"fr\": \"Téléchargé\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "flaechen-volumenberechnung-abbruchpraemie-dokument-v7-nein",
+    "fields": {
+      "created_at": "2026-06-12T11:02:17.734Z",
+      "modified_at": "2026-06-12T11:02:17.734Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas nécessaire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7-ja",
+    "fields": {
+      "created_at": "2026-06-12T11:11:18.607Z",
+      "modified_at": "2026-06-12T11:11:18.607Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hochgeladen\", \"fr\": \"Téléchargé\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7-nein",
+    "fields": {
+      "created_at": "2026-06-12T11:11:18.614Z",
+      "modified_at": "2026-06-12T11:11:18.614Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas nécessaire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "lediglich-mit-seilbahn-helikopter-zugaenglich-v7-ja",
     "fields": {
       "created_at": "2026-06-12T09:01:03.199Z",
@@ -5611,6 +5863,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "offerten-abbruch-abbruchpraemie-dokument-v7-ja",
+    "fields": {
+      "created_at": "2026-06-12T11:15:59.484Z",
+      "modified_at": "2026-06-12T11:15:59.484Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hochgeladen\", \"fr\": \"Téléchargé\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "offerten-abbruch-abbruchpraemie-dokument-v7-nein",
+    "fields": {
+      "created_at": "2026-06-12T11:15:59.486Z",
+      "modified_at": "2026-06-12T11:15:59.486Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas nécessaire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "ortsbildschutzgebiet-v7-ja",
     "fields": {
       "created_at": "2026-04-28T13:53:22.615Z",
@@ -5637,6 +5923,40 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7-ja",
+    "fields": {
+      "created_at": "2026-06-12T09:52:07.352Z",
+      "modified_at": "2026-06-12T09:52:07.352Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hochgeladen\", \"fr\": \"Téléchargé\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7-nein",
+    "fields": {
+      "created_at": "2026-06-12T09:52:07.332Z",
+      "modified_at": "2026-06-12T09:52:07.332Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas nécessaire\", \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -6591,6 +6911,76 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-begruendung-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:20:53.641Z",
+      "modified_at": "2026-06-12T11:20:53.641Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": \"Justification\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7-nein' in 'angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "documentCategory": "spezialformulare-rpg2"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:20:16.636Z",
+      "modified_at": "2026-06-12T11:20:16.636Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angaben über andere zugesprochene Finanzhilfen oder Beiträge im Zusammenhang mit dem vorgesehenen Abbruch\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"abbruchpraemie-beantragt-v7-ja\"==\"abbruchpraemie-beantragt-v7\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "vertical": "true",
+        "documentCategory": "spezialformulare-rpg2"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anzahl-abstellplaetze-fur-motorfahrzeuge-v7",
     "fields": {
       "created_at": "2026-04-27T14:07:38.363Z",
@@ -7017,6 +7407,76 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "flaechen-volumenberechnung-abbruchpraemie-dokument-begruendung-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:06:43.943Z",
+      "modified_at": "2026-06-12T11:08:23.961Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": \"Justification\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('flaechen-volumenberechnung-abbruchpraemie-dokument-v7-nein' in 'flaechen-volumenberechnung-abbruchpraemie-dokument-v7'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "documentCategory": "spezialformulare-rpg2"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "flaechen-volumenberechnung-abbruchpraemie-dokument-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:02:17.782Z",
+      "modified_at": "2026-06-12T11:08:30.940Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachvollziehbare Flächen- und Volumenberechnung (mit vermassten Plänen)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"abbruchpraemie-beantragt-v7-ja\"==\"abbruchpraemie-beantragt-v7\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "vertical": "true",
+        "documentCategory": "spezialformulare-rpg2"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "flaeche-quadrat-meter-v7",
     "fields": {
       "created_at": "2026-06-03T13:10:05.262Z",
@@ -7040,6 +7500,76 @@
         "min_value": null
       },
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-begruendung-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:13:50.292Z",
+      "modified_at": "2026-06-12T11:13:50.292Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": \"Justification\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7-nein' in 'fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "documentCategory": "spezialformulare-rpg2"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:11:18.654Z",
+      "modified_at": "2026-06-12T11:11:18.654Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fotodokumentation und andere zweckdienliche Unterlagen\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"abbruchpraemie-beantragt-v7-ja\"==\"abbruchpraemie-beantragt-v7\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "vertical": "true",
+        "documentCategory": "spezialformulare-rpg2"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -7176,6 +7706,76 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "offerten-abbruch-abbruchpraemie-dokument-begruendung-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:16:46.805Z",
+      "modified_at": "2026-06-12T11:16:46.805Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": \"Justification\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('offerten-abbruch-abbruchpraemie-dokument-v7-nein' in 'offerten-abbruch-abbruchpraemie-dokument-v7'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "documentCategory": "spezialformulare-rpg2"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "offerten-abbruch-abbruchpraemie-dokument-v7",
+    "fields": {
+      "created_at": "2026-06-12T11:15:59.537Z",
+      "modified_at": "2026-06-12T11:21:35.643Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Offerte(n) für den Abbruch (nur falls schwierige Verkehrslage)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"abbruchpraemie-beantragt-v7-ja\"==\"abbruchpraemie-beantragt-v7\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "vertical": "true",
+        "documentCategory": "spezialformulare-rpg2"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ortsbildschutzgebiet-v7",
     "fields": {
       "created_at": "2026-04-28T13:53:22.693Z",
@@ -7238,6 +7838,76 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-begruendung-v7",
+    "fields": {
+      "created_at": "2026-06-12T10:42:10.017Z",
+      "modified_at": "2026-06-12T10:43:22.320Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": \"Justification\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7-nein' in 'situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "documentCategory": "spezialformulare-rpg2"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7",
+    "fields": {
+      "created_at": "2026-06-12T09:52:07.395Z",
+      "modified_at": "2026-06-12T09:54:01.793Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan mit Angabe der Grundflächen der zum Rückbau vorgesehenen Gebäude und/oder Anlage\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"abbruchpraemie-beantragt-v7-ja\"==\"abbruchpraemie-beantragt-v7\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "vertical": "true",
+        "documentCategory": "spezialformulare-rpg2"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "situationsplan-mit-rpg2-flaechenangaben-dokument-begruendung-v7",
     "fields": {
       "created_at": "2026-06-03T13:49:22.514Z",
@@ -7260,7 +7930,7 @@
         "min_length": null
       },
       "meta": {
-        "documentCategory": "plaene"
+        "documentCategory": "spezialformulare-rpg2"
       },
       "data_source": null,
       "row_form": null,
@@ -7294,7 +7964,7 @@
       "configuration": {},
       "meta": {
         "vertical": "true",
-        "documentCategory": "plaene"
+        "documentCategory": "spezialformulare-rpg2"
       },
       "data_source": null,
       "row_form": null,
@@ -7559,6 +8229,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7.angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7-ja",
+    "fields": {
+      "created_at": "2026-06-12T11:20:16.641Z",
+      "modified_at": "2026-06-12T11:20:16.641Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7",
+      "option": "angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7.angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7-nein",
+    "fields": {
+      "created_at": "2026-06-12T11:20:16.639Z",
+      "modified_at": "2026-06-12T11:20:16.639Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7",
+      "option": "angaben-finanzhilfen-beitraege-abbruchpraemie-dokument-v7-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "art-versiegelung-entsiegelung-v7.art-versiegelung-entsiegelung-v7-entsiegelte-flaechen",
     "fields": {
       "created_at": "2026-06-03T13:09:33.826Z",
@@ -7679,6 +8379,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "flaechen-volumenberechnung-abbruchpraemie-dokument-v7.flaechen-volumenberechnung-abbruchpraemie-dokument-v7-ja",
+    "fields": {
+      "created_at": "2026-06-12T11:08:30.944Z",
+      "modified_at": "2026-06-12T11:08:30.944Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "flaechen-volumenberechnung-abbruchpraemie-dokument-v7",
+      "option": "flaechen-volumenberechnung-abbruchpraemie-dokument-v7-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "flaechen-volumenberechnung-abbruchpraemie-dokument-v7.flaechen-volumenberechnung-abbruchpraemie-dokument-v7-nein",
+    "fields": {
+      "created_at": "2026-06-12T11:08:30.943Z",
+      "modified_at": "2026-06-12T11:08:30.943Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "flaechen-volumenberechnung-abbruchpraemie-dokument-v7",
+      "option": "flaechen-volumenberechnung-abbruchpraemie-dokument-v7-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7.fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7-ja",
+    "fields": {
+      "created_at": "2026-06-12T11:11:18.659Z",
+      "modified_at": "2026-06-12T11:11:18.659Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7",
+      "option": "fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7.fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7-nein",
+    "fields": {
+      "created_at": "2026-06-12T11:11:18.657Z",
+      "modified_at": "2026-06-12T11:11:18.657Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7",
+      "option": "fotodokumentation-andere-unterlagen-abbruchpraemie-dokument-v7-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "lediglich-mit-seilbahn-helikopter-zugaenglich-v7.lediglich-mit-seilbahn-helikopter-zugaenglich-v7-ja",
     "fields": {
       "created_at": "2026-06-12T09:01:03.246Z",
@@ -7709,6 +8469,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "offerten-abbruch-abbruchpraemie-dokument-v7.offerten-abbruch-abbruchpraemie-dokument-v7-ja",
+    "fields": {
+      "created_at": "2026-06-12T11:21:35.646Z",
+      "modified_at": "2026-06-12T11:21:35.646Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "offerten-abbruch-abbruchpraemie-dokument-v7",
+      "option": "offerten-abbruch-abbruchpraemie-dokument-v7-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "offerten-abbruch-abbruchpraemie-dokument-v7.offerten-abbruch-abbruchpraemie-dokument-v7-nein",
+    "fields": {
+      "created_at": "2026-06-12T11:21:35.645Z",
+      "modified_at": "2026-06-12T11:21:35.645Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "offerten-abbruch-abbruchpraemie-dokument-v7",
+      "option": "offerten-abbruch-abbruchpraemie-dokument-v7-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "ortsbildschutzgebiet-v7.ortsbildschutzgebiet-v7-ja",
     "fields": {
       "created_at": "2026-04-28T13:53:47.414Z",
@@ -7734,6 +8524,36 @@
       "modified_by_group": null,
       "question": "ortsbildschutzgebiet-v7",
       "option": "ortsbildschutzgebiet-v7-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7.situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7-ja",
+    "fields": {
+      "created_at": "2026-06-12T10:57:41.810Z",
+      "modified_at": "2026-06-12T10:57:41.810Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7",
+      "option": "situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7.situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7-nein",
+    "fields": {
+      "created_at": "2026-06-12T10:57:41.809Z",
+      "modified_at": "2026-06-12T10:57:41.809Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7",
+      "option": "situationsplan-mit-abbruchpraemie-flaechenangaben-dokument-v7-nein",
       "sort": 1
     }
   },
