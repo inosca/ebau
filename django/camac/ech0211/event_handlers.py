@@ -15,11 +15,13 @@ from pyxb import (
     UnprocessedKeywordContentError,
 )
 
+from camac.caluma.models import Inquiry
 from camac.constants.kt_bern import (
     ECH_ACCOMPANYING_REPORT,
     ECH_CHANGE_RESPONSIBILITY,
     ECH_CLAIM,
     ECH_FILE_SUBSEQUENTLY,
+    ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG,
     ECH_SUBMIT,
     ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
 )
@@ -88,8 +90,11 @@ class BaseEventHandler:
     def get_xml(self, **kwargs):  # pragma: no cover
         raise NotImplementedError()
 
-    def create_message(self, xml):
-        if not self.message_receiver:
+    def create_message(self, xml, receiver=None, id=None):
+        message_id = id or self.message_id
+        message_receiver = receiver or self.message_receiver
+
+        if not message_receiver:
             # Due to possible misconfiguration of the instance, the
             # fallback to active_service might not work (and return
             # None). This needs to be caught
@@ -102,9 +107,9 @@ class BaseEventHandler:
 
         return Message.objects.create(
             body=xml,
-            receiver=self.message_receiver,
+            receiver=message_receiver,
             created_at=self.message_date,
-            id=self.message_id,
+            id=message_id,
             instance=self.instance,
         )
 
@@ -205,7 +210,26 @@ class StatusNotificationEventHandler(BaseEventHandler):
             raise
 
     def run(self):
-        xml = self.get_xml(self.get_message_type())
+        message_type = self.get_message_type()
+        xml = self.get_xml(message_type)
+
+        # In Kt. GR status message for "construction-monitoring" should also be
+        # created with ARE as receiver, if ARE is inquired.
+        if (
+            settings.APPLICATION_NAME == "kt_gr"
+            and settings.CONSTRUCTION_MONITORING
+            and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
+            and message_type == ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG
+        ):
+            service_are = Service.objects.get(slug="are")
+            if (
+                self.message_receiver != service_are
+                and Inquiry.objects.for_instance(self.instance)
+                .addressed_to(service_are)
+                .exists()
+            ):
+                self.create_message(xml, receiver=service_are, id=uuid4())
+
         return self.create_message(xml)
 
 
