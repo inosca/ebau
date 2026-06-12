@@ -11,8 +11,6 @@ index:
 
 instances:
   parcel: "Grundstücksnummer"
-  instance-id: "ID"
-  special-id: "Dossier-Nr."
   emptyText: "Erstellen Sie jetzt Ihr erstes Gesuch. Sie können es jederzeit schliessen und problemlos ein anderes Mal weiter ausfüllen bevor Sie es einreichen."
   furtherProcessingOfForm: "Dossier bearbeiten"
   processingOfForm: "Dossier bearbeiten"

@@ -6,8 +6,6 @@ index:
   welcome: "Benvenuti sul portale eBau del Cantone dei Grigioni"
 
 instances:
-  instance-id: "ID"
-  special-id: "N. dossier"
   rejectionText: "Tenere conto del riscontro dell'autorità direttiva (vedi testo «Motivazione del respingimento»). Se desidera rielaborare il dossier e trasmetterlo nuovamente può farlo qui. Si prega di osservare che sarà creata una copia del presente dossier."
   new:
     building-permit:
