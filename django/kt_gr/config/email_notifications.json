@@ -480,6 +480,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 41,
+    "fields": {
+      "slug": "leseberechtigung-erteilt",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -957,6 +969,18 @@
       "purpose": "Nachforderung abgebrochen",
       "subject": "Nachforderung von {{ADDITIONAL_DEMAND_SENDER_NAME_DE}} abgebrochen (Dossier-Nr. {{DOSSIER_NR}})",
       "body": "Guten Tag\r\n\r\nIm eBau wurde ihre Nachforderung abgebrochen im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 261,
+    "fields": {
+      "template": 41,
+      "template_slug": "leseberechtigung-erteilt",
+      "language": "de",
+      "purpose": "Leseberechtigung erteilt",
+      "subject": "Leseberechtigung in Dossier (Nr. {{ DOSSIER_NR }}) / autorizzazione alla lettura del dossier (Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nSie haben die Leseberechtigung auf das Dossier-Nr. {{DOSSIER_NR}} {{FORM_NAME_DE}} erhalten. Das Dossier ist{{READ_PERMISSION_END_DATE}}einsehbar unter folgendem Link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno\r\n\r\nAvete ricevuto l'autorizzazione alla lettura del dossier no. {{DOSSIER_NR}} {{FORM_NAME_DE}}. Il dossier può essere visionato al seguente link: \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n\r\n{{LEITBEHOERDE_NAME_IT}}"
     }
   }
 ]

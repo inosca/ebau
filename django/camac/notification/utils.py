@@ -68,6 +68,10 @@ def send_mail(
         **kwargs,
     }
 
+    acl_obj = kwargs.get("metainfo", {}).get("acl", False)
+    if acl_obj:
+        context = {**context, "acl": acl_obj}
+
     serializer = serializer(data=data, context=context)
     serializer.is_valid(raise_exception=True)
     serializer.save()
