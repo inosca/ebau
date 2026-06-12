@@ -17,9 +17,8 @@ def test_import_geometer(
     do_clear_relations,
     do_disable_geometers,
     application_settings,
+    multilang,
 ):
-    # for logging/printing to use the right values.
-    application_settings["IS_MULTILINGUAL"] = True
 
     # load data including test data
     some_municipality = service_factory(

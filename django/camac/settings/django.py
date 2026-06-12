@@ -150,8 +150,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "mozilla_django_oidc.middleware.SessionRefresh",
-    "django.middleware.locale.LocaleMiddleware",
-    "camac.middleware.SystemLocaleMiddleware",
+    "camac.middleware.EBauLocalePriority",
     "django.middleware.common.CommonMiddleware",
     "camac.user.middleware.GroupMiddleware",
     "camac.caluma.middleware.CalumaInfoMiddleware",
@@ -191,6 +190,7 @@ APPLICATIONS = {
         "SHORT_NAME": "test",
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": True,
+        "AVAILABLE_LANGUAGES": ["de", "fr", "it"],
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         # Mapping between camac role and instance permission.

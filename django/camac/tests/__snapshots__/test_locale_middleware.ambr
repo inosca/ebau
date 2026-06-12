@@ -1,0 +1,430 @@
+# serializer version: 1
+# name: test_locale_setting_priority[None-None-admin-de]
+  list([
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[None-None-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[None-de-admin-de]
+  list([
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[None-de-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[None-en-admin-de]
+  list([
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[None-en-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[None-en_GB-admin-de]
+  list([
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[None-en_GB-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[None-fr-admin-fr]
+  list([
+    "Detected language from accept-language header: 'fr'",
+    'Set system locale to fr_CH.UTF-8',
+    'Setting django language to fr',
+    'Setting request language to fr',
+  ])
+# ---
+# name: test_locale_setting_priority[None-fr-api-fr]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'fr'",
+    'Set system locale to fr_CH.UTF-8',
+    'Setting django language to fr',
+    'Setting request language to fr',
+  ])
+# ---
+# name: test_locale_setting_priority[de-None-admin-de]
+  list([
+    "Detected language from language cookie: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[de-None-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[de-de-admin-de]
+  list([
+    "Detected language from language cookie: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[de-de-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[de-en-admin-de]
+  list([
+    "Detected language from language cookie: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[de-en-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[de-en_GB-admin-de]
+  list([
+    "Detected language from language cookie: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[de-en_GB-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[de-fr-admin-de]
+  list([
+    "Detected language from language cookie: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[de-fr-api-fr]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'fr'",
+    'Set system locale to fr_CH.UTF-8',
+    'Setting django language to fr',
+    'Setting request language to fr',
+  ])
+# ---
+# name: test_locale_setting_priority[en-None-admin-de]
+  list([
+    "Detected language from language cookie: 'en'",
+    'Detected language en not allowed, falling back to de',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en-None-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en-de-admin-de]
+  list([
+    "Detected language from language cookie: 'en'",
+    'Detected language en not allowed, falling back to de',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en-de-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en-en-admin-de]
+  list([
+    "Detected language from language cookie: 'en'",
+    'Detected language en not allowed, falling back to de',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en-en-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en-en_GB-admin-de]
+  list([
+    "Detected language from language cookie: 'en'",
+    'Detected language en not allowed, falling back to de',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en-en_GB-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en-fr-admin-de]
+  list([
+    "Detected language from language cookie: 'en'",
+    'Detected language en not allowed, falling back to de',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en-fr-api-fr]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'fr'",
+    'Set system locale to fr_CH.UTF-8',
+    'Setting django language to fr',
+    'Setting request language to fr',
+  ])
+# ---
+# name: test_locale_setting_priority[en_GB-None-admin-de]
+  list([
+    "Detected language from language cookie: 'en_GB'",
+    'Detected language en_GB not allowed, falling back to de',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en_GB-None-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en_GB-de-admin-de]
+  list([
+    "Detected language from language cookie: 'en_GB'",
+    'Detected language en_GB not allowed, falling back to de',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en_GB-de-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en_GB-en-admin-de]
+  list([
+    "Detected language from language cookie: 'en_GB'",
+    'Detected language en_GB not allowed, falling back to de',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en_GB-en-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en_GB-en_GB-admin-de]
+  list([
+    "Detected language from language cookie: 'en_GB'",
+    'Detected language en_GB not allowed, falling back to de',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en_GB-en_GB-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en_GB-fr-admin-de]
+  list([
+    "Detected language from language cookie: 'en_GB'",
+    'Detected language en_GB not allowed, falling back to de',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[en_GB-fr-api-fr]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'fr'",
+    'Set system locale to fr_CH.UTF-8',
+    'Setting django language to fr',
+    'Setting request language to fr',
+  ])
+# ---
+# name: test_locale_setting_priority[fr-None-admin-fr]
+  list([
+    "Detected language from language cookie: 'fr'",
+    'Set system locale to fr_CH.UTF-8',
+    'Setting django language to fr',
+    'Setting request language to fr',
+  ])
+# ---
+# name: test_locale_setting_priority[fr-None-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[fr-de-admin-fr]
+  list([
+    "Detected language from language cookie: 'fr'",
+    'Set system locale to fr_CH.UTF-8',
+    'Setting django language to fr',
+    'Setting request language to fr',
+  ])
+# ---
+# name: test_locale_setting_priority[fr-de-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[fr-en-admin-fr]
+  list([
+    "Detected language from language cookie: 'fr'",
+    'Set system locale to fr_CH.UTF-8',
+    'Setting django language to fr',
+    'Setting request language to fr',
+  ])
+# ---
+# name: test_locale_setting_priority[fr-en-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[fr-en_GB-admin-fr]
+  list([
+    "Detected language from language cookie: 'fr'",
+    'Set system locale to fr_CH.UTF-8',
+    'Setting django language to fr',
+    'Setting request language to fr',
+  ])
+# ---
+# name: test_locale_setting_priority[fr-en_GB-api-de]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'de'",
+    'Set system locale to de_CH.UTF-8',
+    'Setting django language to de',
+    'Setting request language to de',
+  ])
+# ---
+# name: test_locale_setting_priority[fr-fr-admin-fr]
+  list([
+    "Detected language from language cookie: 'fr'",
+    'Set system locale to fr_CH.UTF-8',
+    'Setting django language to fr',
+    'Setting request language to fr',
+  ])
+# ---
+# name: test_locale_setting_priority[fr-fr-api-fr]
+  list([
+    'Disabling language cookie for non-django-admin URL',
+    "Detected language from accept-language header: 'fr'",
+    'Set system locale to fr_CH.UTF-8',
+    'Setting django language to fr',
+    'Setting request language to fr',
+  ])
+# ---

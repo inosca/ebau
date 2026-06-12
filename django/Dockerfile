@@ -51,11 +51,10 @@ RUN \
   && apt install /tmp/libmagic1_5.44-3_amd64.deb /tmp/libmagic-mgc_5.44-3_amd64.deb  -y --allow-downgrades \
   && rm -rf /var/lib/apt/lists/*
 
-
+ADD ./locale/system_etc_locale.gen /etc/locale.gen
 RUN \
   # Locale configuration
-  sed -i -e 's/# de_CH.UTF-8 UTF-8/de_CH.UTF-8 UTF-8/' /etc/locale.gen \
-  && dpkg-reconfigure --frontend=noninteractive locales \
+  dpkg-reconfigure --frontend=noninteractive locales \
   && update-locale LANG=de_CH.UTF-8 \
   # Fix ImageMagick policy for creating thumbnails
   && sed -i '/<\/policymap>/i \  <policy domain="coder" rights="read | write" pattern="PDF" />' /etc/ImageMagick-7/policy.xml

@@ -254,7 +254,7 @@ def test_service_list_multilingual(admin_client, service_t, size, multilang):
         assert json["data"][0]["attributes"]["name"] == service_t.name
 
 
-@pytest.mark.parametrize("multilang", [True, False])
+@pytest.mark.parametrize("is_multilang", [True, False])
 @pytest.mark.parametrize(
     "name,expected_status",
     [
@@ -266,15 +266,16 @@ def test_service_create(
     admin_client,
     application_settings,
     expected_status,
-    multilang,
+    is_multilang,
+    request,
     name,
     role_t,
     role,
     service_factory,
     service,
 ):
-    if multilang:
-        application_settings["IS_MULTILINGUAL"] = True
+    if is_multilang:
+        request.getfixturevalue("multilang")
         role_t.group_prefix = ""
         role_t.save()
         service_factory(trans__name="Existing", trans__language="de")
@@ -307,7 +308,7 @@ def test_service_create(
         new_service = Service.objects.get(pk=response.json()["data"]["id"])
         new_group = new_service.groups.first()
 
-        if multilang:
+        if is_multilang:
             assert new_service.name is None
             assert new_group.name is None
 
