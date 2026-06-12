@@ -1,19 +1,7 @@
 <LoadingOrNotfound @loading={{this.isLoading}} @hasPermission={{this.instance}}>
   {{#if (not (is-embedded))}}
     <div class="uk-position-relative">
-      <h2>
-        {{or this.case.type this.case.document.form.name}}
-        {{#if (not (has-feature "instanceOverview.useSpecialId"))}}
-          <span class="uk-text-light">
-            ({{t "instances.instance-id"}}
-            {{this.model}})
-          </span>
-        {{else if this.case.specialId}}
-          <span class="uk-text-light">
-            ({{this.case.specialId}})
-          </span>
-        {{/if}}
-      </h2>
+      <h2>{{this.case.title}}</h2>
       {{#if (has-feature "municipalityLogo")}}
         <ActiveMunicipalityLogo @case={{this.case}} />
       {{/if}}
