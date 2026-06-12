@@ -1198,6 +1198,32 @@ def test_publication_journal_number_override_sz(
     assert serializer.data["PUBLICATIONS"][0]["JOURNAL_NUMBER"] == expected_output
 
 
+@pytest.mark.parametrize("has_representative", (True, False))
+def test_objections_prefer_representative_participants_sz(
+    db,
+    sz_instance,
+    fake_request,
+    objection_participant_factory,
+    has_representative,
+):
+    participant = objection_participant_factory(
+        representative=has_representative, objection__instance=sz_instance
+    )
+    objection_participant_factory(objection=participant.objection, representative=0)
+    serializer = SzDMSPlaceholdersSerializer(
+        sz_instance, context={"request": fake_request}
+    )
+
+    serialized_participants = serializer.data["OBJECTIONS"][0]["PARTICIPANTS"]
+
+    if has_representative:  # assert that non-representative participants are dropped
+        assert len(serialized_participants) == 1
+        assert serialized_participants[0]["name"] == participant.name
+        return
+
+    assert len(serialized_participants) == 2
+
+
 @pytest.mark.parametrize("role__name", ["Gemeinde"])
 @pytest.mark.freeze_time("2020-12-20")
 def test_dms_placeholders_sz(
@@ -1220,11 +1246,11 @@ def test_dms_placeholders_sz(
     caluma_work_item_factory,
     caluma_document_factory,
     form_utils: FormUtils,
+    objection_participant_factory,
+    faker,
     snapshot,
 ):
 
-    placeholders = ["responsible_person", "publication_date", "publications"]
-    placeholders = ["publication_date", "publications"]
     # Add required placeholders here for verification they exist
     # in the response
     placeholders = [
@@ -1340,7 +1366,7 @@ def test_dms_placeholders_sz(
         case=sz_instance.case,
         status=WorkItem.STATUS_COMPLETED,
         task_id=sz_distribution_settings["DISTRIBUTION_INIT_TASK"],
-        closed_at=faker.Faker().past_datetime(tzinfo=timezone.timezone.utc).isoformat(),
+        closed_at=faker.past_datetime(tzinfo=timezone.timezone.utc).isoformat(),
     )
     work_item = caluma_work_item_factory(
         case=sz_instance.case,
@@ -1365,12 +1391,12 @@ def test_dms_placeholders_sz(
     form_utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
-        faker.Faker().past_datetime(tzinfo=timezone.timezone.utc).date().isoformat(),
+        faker.past_datetime(tzinfo=timezone.timezone.utc).date().isoformat(),
     )
     form_utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-datum",
-        faker.Faker().past_datetime(tzinfo=timezone.timezone.utc).date().isoformat(),
+        faker.past_datetime(tzinfo=timezone.timezone.utc).date().isoformat(),
     )
     form_utils.add_table_answer(
         work_item.document,
@@ -1381,6 +1407,15 @@ def test_dms_placeholders_sz(
                 "bewilligungsverfahren-sitzung-baukommission-bemerkung": "Foo Bar",
             }
         ],
+    )
+    # objections
+    placeholders.append("objections")
+    objection_participant_factory(
+        representative=1,
+        objection__instance=sz_instance,
+        address=faker.street_name(),
+        city=faker.city(),
+        phone=faker.phone_number(),
     )
 
     response = admin_client.get(

@@ -2669,6 +2669,23 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             ],
         },
     )
+    objections = fields.AliasedMethodField(
+        aliases=["OBJECTIONS"],
+        description=_("Objections"),
+        nested_aliases={
+            "title": ["TITLE"],
+            "creation_date": ["CREATION_DATE"],
+            "participants": ["PARTICIPANTS"],
+            "participants.company": ["COMPANY"],
+            "participants.name": ["NAME"],
+            "participants.address": ["ADDRESS"],
+            "participants.city": ["CITY"],
+            "participants.phone": ["PHONE"],
+            "participants.email": ["EMAIL"],
+        },
+        is_collection=True,
+        static_translations=True,
+    )
     field_bauherrschaft = fields.MasterDataPersonObjectField(
         source="applicants",
         aliases=[_("FIELD_BAUHERRSCHAFT")],
@@ -2817,6 +2834,32 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             answers[inflection.underscore(question.slug)] = question_answers
 
         return answers
+
+    def get_objections(self, instance):
+        objections = []
+        participants_attrs = ["company", "name", "address", "city", "phone"]
+        for objection in instance.objections.all():
+            participants_qs = objection.objection_participants.filter(representative=1)
+
+            if not participants_qs.exists():
+                participants_qs = objection.objection_participants.all()
+
+            participants = [
+                {key: getattr(p, key, None) or "" for key in participants_attrs}
+                for p in participants_qs
+            ]
+
+            objections.append(
+                {
+                    "title": objection.title,
+                    "creation_date": compact_human_readable_date(
+                        objection.creation_date
+                    ),
+                    "participants": participants,
+                }
+            )
+
+        return objections
 
     class Meta:
         exclude = list(DMSPlaceholdersSerializer._declared_fields.keys())
