@@ -235,6 +235,7 @@ def test_set_workflow_state_sz(
     expected_case_status,
     can_perform_construction_monitoring,
     settings,
+    set_application_sz,
 ):
     # The workflow is deciding based on the form.family.name if an instance can perform the
     # construction monitoring step or not. Therefore set the family name accordingly.

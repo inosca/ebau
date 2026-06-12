@@ -1020,8 +1020,8 @@ def test_decided_involve_geometer_sz(
     sz_construction_monitoring_settings,
     sz_instance,
     sz_permissions_settings,
+    set_application_sz,
 ):
-    settings.APPLICATION_NAME = "kt_schwyz"
     is_redac = instance_state_factory(name="redac")
     is_done = instance_state_factory(name="done")
     mocker.patch("camac.notification.utils.send_mail", return_value=None)
