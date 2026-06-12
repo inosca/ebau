@@ -1,0 +1,14 @@
+[ech0211]
+endpoint = "http://ember-ebau.localhost"
+
+[auth]
+endpoint = "http://ebau-keycloak.localhost"
+group_id = 10035
+
+[[auth.clients]]
+id = "ech-client"
+secret = "your-client-secret"
+
+# [[auth.clients]]
+# id = "gemeinde-davos"
+# secret = "other-client-secret"
