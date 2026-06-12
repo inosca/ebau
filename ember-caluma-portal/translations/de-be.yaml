@@ -6,6 +6,8 @@ info-table-errors:
 instances:
   downloadFormAsPdf: "Gesuchsformular herunterladen"
   downloadFormAsPdfText: "Hier können Sie das Gesuchsformular erneut herunterladen."
+  instance-id: "Dossier-Nr."
+  special-id: "eBau-Nr."
 support:
   technical: |-
     Bei technischen Problemen mit eBau prüfen Sie bitte die <a href="faq">FAQ Seite</a>.

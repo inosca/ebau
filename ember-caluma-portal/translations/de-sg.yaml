@@ -4,7 +4,3 @@ global:
 
 index:
   welcome: "Willkommen auf der Plattform eBauSG des Kantons St.Gallen"
-
-instances:
-  instance-id: "ID"
-  special-id: "Dossier-Nr."

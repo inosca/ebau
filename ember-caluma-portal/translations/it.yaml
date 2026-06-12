@@ -112,8 +112,8 @@ index:
 instances:
   title: "I miei dossier"
   logo: "Logo {service}"
-  instance-id: "N. dossier"
-  special-id: "N. eBau"
+  instance-id: "ID"
+  special-id: "N. dossier"
   type: "Tipo di domanda"
   submitDate: "Data di inoltro"
   submitDateFrom: "Data di inoltro dal"

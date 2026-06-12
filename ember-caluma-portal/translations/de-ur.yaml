@@ -9,8 +9,6 @@ index:
   welcome: "Willkommen im Portal für elektronische Verfahrenskoordination des Kantons Uri"
 
 instances:
-  instance-id: "ID"
-  special-id: "Dossier-Nr."
   description: "Vorhaben"
   address: "Strasse / Flurname"
   parcel: "Parzellen"
@@ -122,8 +120,8 @@ instances:
       zum Beispiel die Erstellung von Fundamenten und Stahlkonstruktionen) ist in der Regel ein
       Baugesuch erforderlich. Wenn Sie nicht sicher sind, welches Verfahren Sie wählen sollen,
       empfehlen wir Ihnen, die Frage der Baubewilligungspflicht mit der Gemeindebaubehörde zu
-      klären. \n\n **Solaranlage:** Mit diesem Formular können Sie der 
-      Gemeindebaubehörde die geplante Installation einer voraussichtlich baubewilligungsbefreiten 
+      klären. \n\n **Solaranlage:** Mit diesem Formular können Sie der
+      Gemeindebaubehörde die geplante Installation einer voraussichtlich baubewilligungsbefreiten
       Solaranlage melden. Das Formular ist so aufgebaut, dass je nach Art und Lage der Anlage und unter der
       Voraussetzung, dass die Fragen korrekt beantwortet werden, bereits im Formular geklärt
       wird, ob eine Baubewilligung notwendig ist. Wenn dies der Fall ist, werden Sie im Formular

@@ -113,8 +113,8 @@ index:
 instances:
   title: "Mes dossiers"
   logo: "Logo {service}"
-  instance-id: "Numéro de dossier"
-  special-id: "Numéro eBau"
+  instance-id: "ID"
+  special-id: "Numéro de dossier"
   type: "Type de demande"
   submitDate: "Date de soumission"
   submitDateFrom: "Date de soumission de"
