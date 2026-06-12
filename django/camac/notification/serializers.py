@@ -261,6 +261,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     schlussabnahme_uhrzeit = serializers.SerializerMethodField()
     schlussabnahme_datum = serializers.SerializerMethodField()
     notes = serializers.SerializerMethodField()
+    read_permission_end_date = serializers.SerializerMethodField()
 
     vorhaben = serializers.SerializerMethodField()
     parzelle = serializers.SerializerMethodField()
@@ -1084,6 +1085,14 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             return answer.value if answer else ""
 
         return ""
+
+    def get_read_permission_end_date(self, instance):
+        acl = self.context.get("acl")
+
+        if acl and acl.end_time:
+            return f" bis am {self.format_date(acl.end_time)} "
+
+        return " "
 
     def get_email_to_official_gazette(self, instance):
         work_item = instance.case.work_items.filter(task_id="fill-publication").last()
@@ -2037,7 +2046,11 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             user = None
 
             if self.context:
-                user = self.context["request"].user
+                request = self.context.get("request")
+                if request:
+                    user = request.user
+                else:
+                    user = self.context.get("user")
             elif settings.APPLICATION.get("SYSTEM_USER"):
                 user = User.objects.filter(
                     username=settings.APPLICATION.get("SYSTEM_USER")

@@ -2432,6 +2432,12 @@ APPLICATIONS = {
                     "recipient_types": ["are_bab"],
                 },
             },
+            "PERMISSION_ACL_GRANTED": [
+                {
+                    "template_slug": "leseberechtigung-erteilt",
+                    "recipient_types": ["acl_authorized"],
+                }
+            ],
         },
         "SUBSERVICE_ROLES": ["subservice"],
         "DOCUMENT_BACKEND": "alexandria",

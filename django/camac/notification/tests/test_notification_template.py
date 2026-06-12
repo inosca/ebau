@@ -538,6 +538,18 @@ def test_recipient_abwasser_uri(db, service_factory):
     assert serializer._get_recipients_abwasser_uri(None) == [{"to": awu_service.email}]
 
 
+def test_read_permission_end_date_placeholder(
+    db, instance_acl_factory, instance, settings
+):
+    now = timezone.now()
+    context = {"acl": instance_acl_factory(instance=instance, end_time=now)}
+    serializer = serializers.InstanceMergeSerializer(context=context)
+    assert (
+        serializer.get_read_permission_end_date(instance)
+        == f" bis am {now.strftime('%d.%m.%Y')} "
+    )
+
+
 @pytest.mark.parametrize("check_by_geometer", [True, False])
 @pytest.mark.parametrize("service__email", ["foo@bar.com"])
 def test_recipient_schnurgeruestabnahme_uri(
