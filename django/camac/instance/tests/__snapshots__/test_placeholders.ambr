@@ -5762,6 +5762,11 @@
             'de': 'BEANTWORTET',
           }),
         ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
         'ERSTELLT': list([
           dict({
             'de': 'ERSTELLT',
@@ -6553,6 +6558,11 @@
             'de': 'BEANTWORTET',
           }),
         ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
         'ERSTELLT': list([
           dict({
             'de': 'ERSTELLT',
@@ -6585,6 +6595,11 @@
             'de': 'BEANTWORTET',
           }),
         ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
         'ERSTELLT': list([
           dict({
             'de': 'ERSTELLT',
@@ -6615,6 +6630,11 @@
         'BEANTWORTET': list([
           dict({
             'de': 'BEANTWORTET',
+          }),
+        ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
           }),
         ]),
         'ERSTELLT': list([
@@ -11472,9 +11492,24 @@
             'de': 'answered',
           }),
         ]),
+        'DATUM_ENDE': list([
+          dict({
+            'de': 'date_end',
+          }),
+        ]),
+        'DATUM_START': list([
+          dict({
+            'de': 'date_start',
+          }),
+        ]),
         'ERSTELLT': list([
           dict({
             'de': 'created',
+          }),
+        ]),
+        'FACHSTELLE': list([
+          dict({
+            'de': 'service',
           }),
         ]),
         'FRIST': list([
@@ -11482,9 +11517,39 @@
             'de': 'deadline_date',
           }),
         ]),
+        'MELDUNGEN': list([
+          dict({
+            'de': 'notices',
+          }),
+        ]),
+        'MELDUNGEN.ART': list([
+          dict({
+            'de': 'notice_type',
+          }),
+        ]),
+        'MELDUNGEN.INHALT': list([
+          dict({
+            'de': 'content',
+          }),
+        ]),
         'NAME': list([
           dict({
             'de': 'name',
+          }),
+        ]),
+        'REASON': list([
+          dict({
+            'de': 'reason',
+          }),
+        ]),
+        'ZIRKULATION_ANTWORT': list([
+          dict({
+            'de': 'circulation_answer',
+          }),
+        ]),
+        'ZIRKULATION_STATUS': list([
+          dict({
+            'de': 'circulation_status',
           }),
         ]),
       }),
@@ -12736,9 +12801,24 @@
             'de': 'answered',
           }),
         ]),
+        'DATUM_ENDE': list([
+          dict({
+            'de': 'date_end',
+          }),
+        ]),
+        'DATUM_START': list([
+          dict({
+            'de': 'date_start',
+          }),
+        ]),
         'ERSTELLT': list([
           dict({
             'de': 'created',
+          }),
+        ]),
+        'FACHSTELLE': list([
+          dict({
+            'de': 'service',
           }),
         ]),
         'FRIST': list([
@@ -12746,9 +12826,39 @@
             'de': 'deadline_date',
           }),
         ]),
+        'MELDUNGEN': list([
+          dict({
+            'de': 'notices',
+          }),
+        ]),
+        'MELDUNGEN.ART': list([
+          dict({
+            'de': 'notice_type',
+          }),
+        ]),
+        'MELDUNGEN.INHALT': list([
+          dict({
+            'de': 'content',
+          }),
+        ]),
         'NAME': list([
           dict({
             'de': 'name',
+          }),
+        ]),
+        'REASON': list([
+          dict({
+            'de': 'reason',
+          }),
+        ]),
+        'ZIRKULATION_ANTWORT': list([
+          dict({
+            'de': 'circulation_answer',
+          }),
+        ]),
+        'ZIRKULATION_STATUS': list([
+          dict({
+            'de': 'circulation_status',
           }),
         ]),
       }),
@@ -15175,9 +15285,39 @@
         'de': 'In Dossier involvierte Stellen',
       }),
       'nested_aliases': dict({
+        'ABLEHNENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ABLEHNENDE_BEURTEILUNGEN',
+          }),
+        ]),
         'BEANTWORTET': list([
           dict({
             'de': 'BEANTWORTET',
+          }),
+        ]),
+        'BEANTWORTET_TIMESTAMP': list([
+          dict({
+            'de': 'BEANTWORTET_TIMESTAMP',
+          }),
+        ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
+        'DATUM_ENDE': list([
+          dict({
+            'de': 'DATUM_ENDE',
+          }),
+        ]),
+        'DATUM_START': list([
+          dict({
+            'de': 'DATUM_START',
+          }),
+        ]),
+        'EINSPRACHEN': list([
+          dict({
+            'de': 'EINSPRACHEN',
           }),
         ]),
         'ERSTELLT': list([
@@ -15185,14 +15325,54 @@
             'de': 'ERSTELLT',
           }),
         ]),
+        'ERSTELLT_TIMESTAMP': list([
+          dict({
+            'de': 'ERSTELLT_TIMESTAMP',
+          }),
+        ]),
         'FRIST': list([
           dict({
             'de': 'FRIST',
           }),
         ]),
+        'HINWEISE_AN_GESUCHSTELLERIN': list([
+          dict({
+            'de': 'HINWEISE_AN_GESUCHSTELLERIN',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE_ARP': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE_ARP',
+          }),
+        ]),
+        'NACHFORDERUNG': list([
+          dict({
+            'de': 'NACHFORDERUNG',
+          }),
+        ]),
         'NAME': list([
           dict({
             'de': 'NAME',
+          }),
+        ]),
+        'RUECKMELDUNG_FAZIT': list([
+          dict({
+            'de': 'RUECKMELDUNG_FAZIT',
+          }),
+        ]),
+        'VERSAND_ENTSCHEID_WEITERE_STELLEN': list([
+          dict({
+            'de': 'VERSAND_ENTSCHEID_WEITERE_STELLEN',
+          }),
+        ]),
+        'ZUSTIMMENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ZUSTIMMENDE_BEURTEILUNGEN',
           }),
         ]),
       }),
@@ -16461,9 +16641,39 @@
         'de': 'In Dossier involvierte Stellen, welche von dieser Stelle angefragt wurden',
       }),
       'nested_aliases': dict({
+        'ABLEHNENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ABLEHNENDE_BEURTEILUNGEN',
+          }),
+        ]),
         'BEANTWORTET': list([
           dict({
             'de': 'BEANTWORTET',
+          }),
+        ]),
+        'BEANTWORTET_TIMESTAMP': list([
+          dict({
+            'de': 'BEANTWORTET_TIMESTAMP',
+          }),
+        ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
+        'DATUM_ENDE': list([
+          dict({
+            'de': 'DATUM_ENDE',
+          }),
+        ]),
+        'DATUM_START': list([
+          dict({
+            'de': 'DATUM_START',
+          }),
+        ]),
+        'EINSPRACHEN': list([
+          dict({
+            'de': 'EINSPRACHEN',
           }),
         ]),
         'ERSTELLT': list([
@@ -16471,14 +16681,54 @@
             'de': 'ERSTELLT',
           }),
         ]),
+        'ERSTELLT_TIMESTAMP': list([
+          dict({
+            'de': 'ERSTELLT_TIMESTAMP',
+          }),
+        ]),
         'FRIST': list([
           dict({
             'de': 'FRIST',
           }),
         ]),
+        'HINWEISE_AN_GESUCHSTELLERIN': list([
+          dict({
+            'de': 'HINWEISE_AN_GESUCHSTELLERIN',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE_ARP': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE_ARP',
+          }),
+        ]),
+        'NACHFORDERUNG': list([
+          dict({
+            'de': 'NACHFORDERUNG',
+          }),
+        ]),
         'NAME': list([
           dict({
             'de': 'NAME',
+          }),
+        ]),
+        'RUECKMELDUNG_FAZIT': list([
+          dict({
+            'de': 'RUECKMELDUNG_FAZIT',
+          }),
+        ]),
+        'VERSAND_ENTSCHEID_WEITERE_STELLEN': list([
+          dict({
+            'de': 'VERSAND_ENTSCHEID_WEITERE_STELLEN',
+          }),
+        ]),
+        'ZUSTIMMENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ZUSTIMMENDE_BEURTEILUNGEN',
           }),
         ]),
       }),
@@ -16493,9 +16743,39 @@
         'de': 'In Dossier involvierte Fachstellen',
       }),
       'nested_aliases': dict({
+        'ABLEHNENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ABLEHNENDE_BEURTEILUNGEN',
+          }),
+        ]),
         'BEANTWORTET': list([
           dict({
             'de': 'BEANTWORTET',
+          }),
+        ]),
+        'BEANTWORTET_TIMESTAMP': list([
+          dict({
+            'de': 'BEANTWORTET_TIMESTAMP',
+          }),
+        ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
+        'DATUM_ENDE': list([
+          dict({
+            'de': 'DATUM_ENDE',
+          }),
+        ]),
+        'DATUM_START': list([
+          dict({
+            'de': 'DATUM_START',
+          }),
+        ]),
+        'EINSPRACHEN': list([
+          dict({
+            'de': 'EINSPRACHEN',
           }),
         ]),
         'ERSTELLT': list([
@@ -16503,14 +16783,54 @@
             'de': 'ERSTELLT',
           }),
         ]),
+        'ERSTELLT_TIMESTAMP': list([
+          dict({
+            'de': 'ERSTELLT_TIMESTAMP',
+          }),
+        ]),
         'FRIST': list([
           dict({
             'de': 'FRIST',
           }),
         ]),
+        'HINWEISE_AN_GESUCHSTELLERIN': list([
+          dict({
+            'de': 'HINWEISE_AN_GESUCHSTELLERIN',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE_ARP': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE_ARP',
+          }),
+        ]),
+        'NACHFORDERUNG': list([
+          dict({
+            'de': 'NACHFORDERUNG',
+          }),
+        ]),
         'NAME': list([
           dict({
             'de': 'NAME',
+          }),
+        ]),
+        'RUECKMELDUNG_FAZIT': list([
+          dict({
+            'de': 'RUECKMELDUNG_FAZIT',
+          }),
+        ]),
+        'VERSAND_ENTSCHEID_WEITERE_STELLEN': list([
+          dict({
+            'de': 'VERSAND_ENTSCHEID_WEITERE_STELLEN',
+          }),
+        ]),
+        'ZUSTIMMENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ZUSTIMMENDE_BEURTEILUNGEN',
           }),
         ]),
       }),
@@ -16525,9 +16845,39 @@
         'de': 'In Dossier involvierte Gemeinden',
       }),
       'nested_aliases': dict({
+        'ABLEHNENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ABLEHNENDE_BEURTEILUNGEN',
+          }),
+        ]),
         'BEANTWORTET': list([
           dict({
             'de': 'BEANTWORTET',
+          }),
+        ]),
+        'BEANTWORTET_TIMESTAMP': list([
+          dict({
+            'de': 'BEANTWORTET_TIMESTAMP',
+          }),
+        ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
+        'DATUM_ENDE': list([
+          dict({
+            'de': 'DATUM_ENDE',
+          }),
+        ]),
+        'DATUM_START': list([
+          dict({
+            'de': 'DATUM_START',
+          }),
+        ]),
+        'EINSPRACHEN': list([
+          dict({
+            'de': 'EINSPRACHEN',
           }),
         ]),
         'ERSTELLT': list([
@@ -16535,14 +16885,54 @@
             'de': 'ERSTELLT',
           }),
         ]),
+        'ERSTELLT_TIMESTAMP': list([
+          dict({
+            'de': 'ERSTELLT_TIMESTAMP',
+          }),
+        ]),
         'FRIST': list([
           dict({
             'de': 'FRIST',
           }),
         ]),
+        'HINWEISE_AN_GESUCHSTELLERIN': list([
+          dict({
+            'de': 'HINWEISE_AN_GESUCHSTELLERIN',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE_ARP': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE_ARP',
+          }),
+        ]),
+        'NACHFORDERUNG': list([
+          dict({
+            'de': 'NACHFORDERUNG',
+          }),
+        ]),
         'NAME': list([
           dict({
             'de': 'NAME',
+          }),
+        ]),
+        'RUECKMELDUNG_FAZIT': list([
+          dict({
+            'de': 'RUECKMELDUNG_FAZIT',
+          }),
+        ]),
+        'VERSAND_ENTSCHEID_WEITERE_STELLEN': list([
+          dict({
+            'de': 'VERSAND_ENTSCHEID_WEITERE_STELLEN',
+          }),
+        ]),
+        'ZUSTIMMENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ZUSTIMMENDE_BEURTEILUNGEN',
           }),
         ]),
       }),
@@ -19301,6 +19691,7 @@
     'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
     'FACHSTELLEN_KANTONAL[].BEANTWORTET',
+    'FACHSTELLEN_KANTONAL[].BEMERKUNGEN',
     'FACHSTELLEN_KANTONAL[].ERSTELLT',
     'FACHSTELLEN_KANTONAL[].FRIST',
     'FACHSTELLEN_KANTONAL[].NAME',
@@ -19372,24 +19763,28 @@
     'ZIRKULATION_ALLE',
     'ZIRKULATION_ALLE[]',
     'ZIRKULATION_ALLE[].BEANTWORTET',
+    'ZIRKULATION_ALLE[].BEMERKUNGEN',
     'ZIRKULATION_ALLE[].ERSTELLT',
     'ZIRKULATION_ALLE[].FRIST',
     'ZIRKULATION_ALLE[].NAME',
     'ZIRKULATION_ANGEFORDERT',
     'ZIRKULATION_ANGEFORDERT[]',
     'ZIRKULATION_ANGEFORDERT[].BEANTWORTET',
+    'ZIRKULATION_ANGEFORDERT[].BEMERKUNGEN',
     'ZIRKULATION_ANGEFORDERT[].ERSTELLT',
     'ZIRKULATION_ANGEFORDERT[].FRIST',
     'ZIRKULATION_ANGEFORDERT[].NAME',
     'ZIRKULATION_FACHSTELLEN',
     'ZIRKULATION_FACHSTELLEN[]',
     'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
+    'ZIRKULATION_FACHSTELLEN[].BEMERKUNGEN',
     'ZIRKULATION_FACHSTELLEN[].ERSTELLT',
     'ZIRKULATION_FACHSTELLEN[].FRIST',
     'ZIRKULATION_FACHSTELLEN[].NAME',
     'ZIRKULATION_GEMEINDEN',
     'ZIRKULATION_GEMEINDEN[]',
     'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
+    'ZIRKULATION_GEMEINDEN[].BEMERKUNGEN',
     'ZIRKULATION_GEMEINDEN[].ERSTELLT',
     'ZIRKULATION_GEMEINDEN[].FRIST',
     'ZIRKULATION_GEMEINDEN[].NAME',
@@ -20855,10 +21250,24 @@
     'ENTSCHEIDDOKUMENTE[].STICHWORTE',
     'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
+    'FACHSTELLEN_KANTONAL[].ABLEHNENDE_BEURTEILUNGEN',
     'FACHSTELLEN_KANTONAL[].BEANTWORTET',
+    'FACHSTELLEN_KANTONAL[].BEANTWORTET_TIMESTAMP',
+    'FACHSTELLEN_KANTONAL[].BEMERKUNGEN',
+    'FACHSTELLEN_KANTONAL[].DATUM_ENDE',
+    'FACHSTELLEN_KANTONAL[].DATUM_START',
+    'FACHSTELLEN_KANTONAL[].EINSPRACHEN',
     'FACHSTELLEN_KANTONAL[].ERSTELLT',
+    'FACHSTELLEN_KANTONAL[].ERSTELLT_TIMESTAMP',
     'FACHSTELLEN_KANTONAL[].FRIST',
+    'FACHSTELLEN_KANTONAL[].HINWEISE_AN_GESUCHSTELLERIN',
+    'FACHSTELLEN_KANTONAL[].HINWEISE_AN_LEITBEHOERDE',
+    'FACHSTELLEN_KANTONAL[].HINWEISE_AN_LEITBEHOERDE_ARP',
+    'FACHSTELLEN_KANTONAL[].NACHFORDERUNG',
     'FACHSTELLEN_KANTONAL[].NAME',
+    'FACHSTELLEN_KANTONAL[].RUECKMELDUNG_FAZIT',
+    'FACHSTELLEN_KANTONAL[].VERSAND_ENTSCHEID_WEITERE_STELLEN',
+    'FACHSTELLEN_KANTONAL[].ZUSTIMMENDE_BEURTEILUNGEN',
     'GEBUEHREN',
     'GEBUEHREN[]',
     'GEBUEHREN[].ANTEIL_PROZENT',
@@ -20996,28 +21405,84 @@
     'STATUS',
     'ZIRKULATION_ALLE',
     'ZIRKULATION_ALLE[]',
+    'ZIRKULATION_ALLE[].ABLEHNENDE_BEURTEILUNGEN',
     'ZIRKULATION_ALLE[].BEANTWORTET',
+    'ZIRKULATION_ALLE[].BEANTWORTET_TIMESTAMP',
+    'ZIRKULATION_ALLE[].BEMERKUNGEN',
+    'ZIRKULATION_ALLE[].DATUM_ENDE',
+    'ZIRKULATION_ALLE[].DATUM_START',
+    'ZIRKULATION_ALLE[].EINSPRACHEN',
     'ZIRKULATION_ALLE[].ERSTELLT',
+    'ZIRKULATION_ALLE[].ERSTELLT_TIMESTAMP',
     'ZIRKULATION_ALLE[].FRIST',
+    'ZIRKULATION_ALLE[].HINWEISE_AN_GESUCHSTELLERIN',
+    'ZIRKULATION_ALLE[].HINWEISE_AN_LEITBEHOERDE',
+    'ZIRKULATION_ALLE[].HINWEISE_AN_LEITBEHOERDE_ARP',
+    'ZIRKULATION_ALLE[].NACHFORDERUNG',
     'ZIRKULATION_ALLE[].NAME',
+    'ZIRKULATION_ALLE[].RUECKMELDUNG_FAZIT',
+    'ZIRKULATION_ALLE[].VERSAND_ENTSCHEID_WEITERE_STELLEN',
+    'ZIRKULATION_ALLE[].ZUSTIMMENDE_BEURTEILUNGEN',
     'ZIRKULATION_ANGEFORDERT',
     'ZIRKULATION_ANGEFORDERT[]',
+    'ZIRKULATION_ANGEFORDERT[].ABLEHNENDE_BEURTEILUNGEN',
     'ZIRKULATION_ANGEFORDERT[].BEANTWORTET',
+    'ZIRKULATION_ANGEFORDERT[].BEANTWORTET_TIMESTAMP',
+    'ZIRKULATION_ANGEFORDERT[].BEMERKUNGEN',
+    'ZIRKULATION_ANGEFORDERT[].DATUM_ENDE',
+    'ZIRKULATION_ANGEFORDERT[].DATUM_START',
+    'ZIRKULATION_ANGEFORDERT[].EINSPRACHEN',
     'ZIRKULATION_ANGEFORDERT[].ERSTELLT',
+    'ZIRKULATION_ANGEFORDERT[].ERSTELLT_TIMESTAMP',
     'ZIRKULATION_ANGEFORDERT[].FRIST',
+    'ZIRKULATION_ANGEFORDERT[].HINWEISE_AN_GESUCHSTELLERIN',
+    'ZIRKULATION_ANGEFORDERT[].HINWEISE_AN_LEITBEHOERDE',
+    'ZIRKULATION_ANGEFORDERT[].HINWEISE_AN_LEITBEHOERDE_ARP',
+    'ZIRKULATION_ANGEFORDERT[].NACHFORDERUNG',
     'ZIRKULATION_ANGEFORDERT[].NAME',
+    'ZIRKULATION_ANGEFORDERT[].RUECKMELDUNG_FAZIT',
+    'ZIRKULATION_ANGEFORDERT[].VERSAND_ENTSCHEID_WEITERE_STELLEN',
+    'ZIRKULATION_ANGEFORDERT[].ZUSTIMMENDE_BEURTEILUNGEN',
     'ZIRKULATION_FACHSTELLEN',
     'ZIRKULATION_FACHSTELLEN[]',
+    'ZIRKULATION_FACHSTELLEN[].ABLEHNENDE_BEURTEILUNGEN',
     'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
+    'ZIRKULATION_FACHSTELLEN[].BEANTWORTET_TIMESTAMP',
+    'ZIRKULATION_FACHSTELLEN[].BEMERKUNGEN',
+    'ZIRKULATION_FACHSTELLEN[].DATUM_ENDE',
+    'ZIRKULATION_FACHSTELLEN[].DATUM_START',
+    'ZIRKULATION_FACHSTELLEN[].EINSPRACHEN',
     'ZIRKULATION_FACHSTELLEN[].ERSTELLT',
+    'ZIRKULATION_FACHSTELLEN[].ERSTELLT_TIMESTAMP',
     'ZIRKULATION_FACHSTELLEN[].FRIST',
+    'ZIRKULATION_FACHSTELLEN[].HINWEISE_AN_GESUCHSTELLERIN',
+    'ZIRKULATION_FACHSTELLEN[].HINWEISE_AN_LEITBEHOERDE',
+    'ZIRKULATION_FACHSTELLEN[].HINWEISE_AN_LEITBEHOERDE_ARP',
+    'ZIRKULATION_FACHSTELLEN[].NACHFORDERUNG',
     'ZIRKULATION_FACHSTELLEN[].NAME',
+    'ZIRKULATION_FACHSTELLEN[].RUECKMELDUNG_FAZIT',
+    'ZIRKULATION_FACHSTELLEN[].VERSAND_ENTSCHEID_WEITERE_STELLEN',
+    'ZIRKULATION_FACHSTELLEN[].ZUSTIMMENDE_BEURTEILUNGEN',
     'ZIRKULATION_GEMEINDEN',
     'ZIRKULATION_GEMEINDEN[]',
+    'ZIRKULATION_GEMEINDEN[].ABLEHNENDE_BEURTEILUNGEN',
     'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
+    'ZIRKULATION_GEMEINDEN[].BEANTWORTET_TIMESTAMP',
+    'ZIRKULATION_GEMEINDEN[].BEMERKUNGEN',
+    'ZIRKULATION_GEMEINDEN[].DATUM_ENDE',
+    'ZIRKULATION_GEMEINDEN[].DATUM_START',
+    'ZIRKULATION_GEMEINDEN[].EINSPRACHEN',
     'ZIRKULATION_GEMEINDEN[].ERSTELLT',
+    'ZIRKULATION_GEMEINDEN[].ERSTELLT_TIMESTAMP',
     'ZIRKULATION_GEMEINDEN[].FRIST',
+    'ZIRKULATION_GEMEINDEN[].HINWEISE_AN_GESUCHSTELLERIN',
+    'ZIRKULATION_GEMEINDEN[].HINWEISE_AN_LEITBEHOERDE',
+    'ZIRKULATION_GEMEINDEN[].HINWEISE_AN_LEITBEHOERDE_ARP',
+    'ZIRKULATION_GEMEINDEN[].NACHFORDERUNG',
     'ZIRKULATION_GEMEINDEN[].NAME',
+    'ZIRKULATION_GEMEINDEN[].RUECKMELDUNG_FAZIT',
+    'ZIRKULATION_GEMEINDEN[].VERSAND_ENTSCHEID_WEITERE_STELLEN',
+    'ZIRKULATION_GEMEINDEN[].ZUSTIMMENDE_BEURTEILUNGEN',
     'ZUSTAENDIG_ABTEILUNG',
     'ZUSTAENDIG_EMAIL',
     'ZUSTAENDIG_MOBILE',
@@ -21032,9 +21497,19 @@
     'activations',
     'activations[]',
     'activations[].answered',
+    'activations[].circulation_answer',
+    'activations[].circulation_status',
     'activations[].created',
+    'activations[].date_end',
+    'activations[].date_start',
     'activations[].deadline_date',
     'activations[].name',
+    'activations[].notices',
+    'activations[].notices[]',
+    'activations[].notices[].content',
+    'activations[].notices[].notice_type',
+    'activations[].reason',
+    'activations[].service',
     'bauverwaltung',
     'bauverwaltung.baukontrolle_baugespannkontrolle_bemerkungen',
     'bauverwaltung.baukontrolle_baugespannkontrolle_datum',
@@ -21268,9 +21743,19 @@
     'my_activations',
     'my_activations[]',
     'my_activations[].answered',
+    'my_activations[].circulation_answer',
+    'my_activations[].circulation_status',
     'my_activations[].created',
+    'my_activations[].date_end',
+    'my_activations[].date_start',
     'my_activations[].deadline_date',
     'my_activations[].name',
+    'my_activations[].notices',
+    'my_activations[].notices[]',
+    'my_activations[].notices[].content',
+    'my_activations[].notices[].notice_type',
+    'my_activations[].reason',
+    'my_activations[].service',
     'publication_date',
     'publications',
     'publications[]',

@@ -15,7 +15,7 @@ PLACEHOLDERS = {
             "ZIP": "plz-gesuchstellerin",
             "TOWN": "ort-gesuchstellerin",
         },
-        "INQUIRY_DEFAULT_FIELDS": [
+        "INQUIRY_DEFAULT_PROPS": [
             ("service", "NAME"),
             ("deadline", "FRIST"),
             ("creation_date", "ERSTELLT"),
@@ -64,7 +64,7 @@ PLACEHOLDERS = {
             "REPRESENTATIVE_TEL": "vertretung-telefon",
             "REPRESENTATIVE_PO_BOX": "vertretung-postfach",
         },
-        "INQUIRY_DEFAULT_FIELDS": [
+        "INQUIRY_DEFAULT_PROPS": [
             ("start_date", "DATUM_START"),
             ("end_date", "DATUM_ENDE"),
             ("feedback", "RUECKMELDUNG_FAZIT"),
@@ -127,7 +127,7 @@ PLACEHOLDERS = {
     },
     "kt_ag": {
         "ENABLED": True,
-        "INQUIRY_DEFAULT_FIELDS": [
+        "INQUIRY_DEFAULT_PROPS": [
             ("remarks", "BEMERKUNGEN"),
         ],
         "INQUIRY_FIELD_MAPPINGS": {
@@ -144,7 +144,7 @@ PLACEHOLDERS = {
     "kt_schwyz": {
         "ENABLED": True,
         "PLACEHOLDER_CASE": "lower",
-        "INQUIRY_DEFAULT_FIELDS": [
+        "INQUIRY_DEFAULT_PROPS": [
             # Selects and maps Inquiry attributes to alias
             # <Inquiry attr>, <ALIAS>
             ("deadline", "FRIST"),
