@@ -136,7 +136,7 @@ export default class WorkItemListItemComponent extends Component {
     const now = DateTime.now();
     const targetDeadline = DateTime.fromISO(
       this.args.targetDeadlineDate.toISOString(),
-    );
+    ).endOf("day");
 
     if (targetDeadline <= now) {
       return "uk-text-danger";
