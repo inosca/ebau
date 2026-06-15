@@ -31,6 +31,7 @@ from rest_framework.mixins import (
     DestroyModelMixin,
     ListModelMixin,
     RetrieveModelMixin,
+    UpdateModelMixin,
 )
 from rest_framework.parsers import JSONParser, MultiPartParser
 from rest_framework.renderers import JSONRenderer
@@ -38,6 +39,7 @@ from rest_framework.response import Response
 from rest_framework.serializers import Serializer
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_json_api.django_filters import DjangoFilterBackend
+from rest_framework_json_api.parsers import JSONParser as JSONAPIParser
 from rest_framework_json_api.renderers import JSONRenderer as JSONAPIRenderer
 from rest_framework_json_api.views import ReadOnlyModelViewSet
 from rest_framework_xml.renderers import XMLRenderer
@@ -706,8 +708,10 @@ class ECHDocumentView(
     EnforcePaginationMixin,
     DestroyModelMixin,
     ReadOnlyModelViewSet,
+    UpdateModelMixin,
 ):
     renderer_classes = (JSONAPIRenderer,)
+    parser_classes = (JSONAPIParser,)
     allow_external_clients = True
     permission_classes = [IsAllowedClientToken]
     filter_backends = [MultilingualSearchFilter, DjangoFilterBackend]
@@ -719,6 +723,7 @@ class ECHDocumentView(
     def get_serializer_class(self):
         if is_camac_backend():
             return ECH0211CamacDocumentSerializer
+
         return ECH0211AlexandriaDocumentSerializer
 
     @property
@@ -808,6 +813,32 @@ class ECHDocumentView(
     )
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)
+
+    @swagger_auto_schema(
+        tags=["Documents and files for eCH-0211 clients"],
+        manual_parameters=[group_param],
+        operation_summary="Update a document",
+        operation_description=get_operation_description(is_preview=True),
+        responses={
+            status.HTTP_204_NO_CONTENT: openapi.Response("File was updated"),
+            status.HTTP_400_BAD_REQUEST: openapi.Response("Invalid request"),
+            status.HTTP_403_FORBIDDEN: openapi.Response("Permission denied"),
+        },
+        auto_schema=conditional_factory(
+            SwaggerAutoSchema,
+            lambda: (
+                not is_camac_backend()
+                and DocumentAPIFeature.can(DocumentAPIFeature.DOCUMENTS_UPDATE)
+            ),
+        ),
+    )
+    def partial_update(self, request, *args, **kwargs):
+        if is_camac_backend() or not DocumentAPIFeature.can(
+            DocumentAPIFeature.DOCUMENTS_UPDATE
+        ):
+            raise NotFound()
+
+        return super().partial_update(request, *args, **kwargs)
 
     @swagger_auto_schema(
         method="post",

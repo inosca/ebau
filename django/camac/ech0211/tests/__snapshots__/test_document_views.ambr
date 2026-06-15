@@ -189,6 +189,7 @@
     'data': dict({
       'attributes': dict({
         'created-at': '2025-11-22T01:00:00+01:00',
+        'date': '2001-05-22',
         'description': 'Choice impact wide yourself win reflect. Important form result college cold relate. Avoid generation nearly laugh.',
         'mime-type': 'model/mesh',
         'size': 5,
@@ -254,6 +255,7 @@
     'data': dict({
       'attributes': dict({
         'created-at': '2025-11-22T01:00:00+01:00',
+        'date': '2025-11-22T01:00:00+01:00',
         'description': '',
         'mime-type': 'audio/basic',
         'size': 5,
