@@ -112,9 +112,6 @@ module.exports = function (environment) {
           10000, // support
         ],
       },
-      documents: {
-        excludeFromDocuments: [],
-      },
       instanceStates: instanceStatesDemo,
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
@@ -171,90 +168,6 @@ module.exports = function (environment) {
       },
       documents: {
         feedbackSections: [3, 14], // Alle Beteiligten, Rechtsbegehren
-        excludeFromDocuments: [
-          "dokumente-platzhalter",
-          "grundstuecksentwaesserungsplan-dokument-begruendung-v5",
-          "vollmacht-dokument-begruendung-v5",
-          "vorabklaerung-dokument-begruendung-v5",
-          "sicherungsmassnahme-dokument-begruendung-v5",
-          "berechnungen-abstellplaetze-dokument-begruendung-v5",
-          "berechnungen-abstellplaetze-dokument-begruendung-v7",
-          "ausnuetzung-dokument-begruendung-v5",
-          "gruenflaeche-dokument-begruendung-v5",
-          "ueberbauung-dokument-begruendung-v5",
-          "geschossflaechen-dokument-begruendung-v5",
-          "regierungsratsbeschluss-bauinventar-dokument-begruendung-v5",
-          "vertrag-zum-bauinventar-dokument-begruendung-v5",
-          "inanspruchnahme-boden-dokument-begruendung-v5",
-          "anschluss-sammelkanaele-vorfluter-dokument-begruendung-v5",
-          "zustimmung-der-anstoesser-dokument-begruendung-v5",
-          "brandschutzkonzept-dokument-begruendung-v5",
-          "brandschutzplan-dokument-begruendung-v5",
-          "qualitaetssicherungskonzept-dokument-begruendung-v5",
-          "weitere-angaben-regeneration-ews-dokument-begruendung-v5",
-          "formular-andere-thermoaktive-elemente-dokument-begruendung-v5",
-          "sondenmodell-mit-datenblatt-dokument-begruendung-v5",
-          "erdwaermensondendimensionierung-dokument-begruendung-v5",
-          "hydrogeologische-begleitung-dokument-begruendung-v5",
-          "hydrogeo-gutachten-dokument-begruendung-v5",
-          "sicherungsleistung-befreit-dokument-begruendung-v5",
-          "schutzraum-dokument-begruendung-v5",
-          "betriebskonzept-gastgewerbe-dokument-begruendung-v5",
-          "beschrieb-der-lueftung-dokument-begruendung-v5",
-          "grundriss-angabe-bodenflaeche-dokument-begruendung-v5",
-          "plane-gastgewerbebetrieb-dokument-begruendung-v5",
-          "plaene-fumoir-dokument-begruendung-v5",
-          "situationsplan-dokument-begruendung-v5",
-          "grundriss-dokument-begruendung-v5",
-          "schnitt-dokument-begruendung-v5",
-          "kurzbericht-risikoermittlung-dokument-begruendung-v5",
-          "auszug-konsultationsbereichskarte-stoerfallverordnung-kt-bern-begruendung-v5",
-          "entwaesserung-ueber-regenwasserkanal-dokument-begruendung-v5",
-          "entwaesserung-oberflaechengewaesser-dokument-begruendung-v5",
-          "entwaesserung-ueber-mischwasserkanal-dokument-begruendung-v5",
-          "kanalisationskatasterplan-dokument-begruendung-v5",
-          "versickerungsanlagen-dokument-begruendung-v5",
-          "gewaesserschutz-landwirtschaft-dokument-begruendung-v5",
-          "bestaetigung-hydrogeo-begleitung-dokument-begruendung-v5",
-          "schnittplan-gewaesserschutz-dokument-begruendung-v5",
-          "plaene-gewaesserschutz-dokument-begruendung-v5",
-          "baugrunduntersuchung-dokument-begruendung-v5",
-          "gesuch-ausnahmebewilligung-dokument-begruendung-v5",
-          "energiedokumente-dokument-begruendung-v5",
-          "gesuch-erleichterung-waermeschutz-dokument-begruendung-v5",
-          "ausnahmegesuch-energie-dokument-begruendung-v5",
-          "gesuch-zur-ausnahme-dokument-begruendung-v5",
-          "nachweis-anforderungen-dokument-begruendung-v5",
-          "rueckbau-checkliste-selbstdeklaration-dokument-begruendung-v5",
-          "entsorgungskonzept-dokument-begruendung-v5",
-          "bodenschutzkonzept-dokument-begruendung-v5",
-          "meldeblatt-fuer-terrainveraenderungen-dokument-begruendung-v5",
-          "verwertung-von-abgetragenem-boden-dokument-begruendung-v5",
-          "plan-temporaere-definitive-flaeche-dokument-begruendung-v5",
-          "rodungsgesuchsformular-bafu-dokument-begruendung-v5",
-          "uebersichtsplan-dokument-begruendung-v5",
-          "rodungs-und-ersatzaufforstungsplan-dokument-begruendung-v5",
-          "gefahrengutachten-dokument-begruendung-v5",
-          "fassadenplan-reklamestandort-dokument-begruendung-v5",
-          "skizze-der-reklame-mit-farbangaben-dokument-begruendung-v5",
-          "nachweis-raumakustik-dokument-begruendung-v5",
-          "kataster-werkleitungsplaene-dokument-begruendung-v5",
-          "kataster-werkleitungsplaene-meldung-dokument-begruendung",
-          "situationsplan-grabflaeche-strassenterrainflaeche-dokument-begruendung-v5",
-          "heat-generator-minergie-document-begruendung-v3",
-          "heat-generator-geak-document-begruendung-v3",
-          "heat-generator-standard-solution-document-begruendung-v3",
-          "heat-generator-more-renewable-gas-document-begruendung-v3",
-          "situationsplan-hecken-feldgehoelze-baeume-dokument-begruendung-v2",
-          "baumfaellgutachten-dokument-begruendung-v2",
-          "baumfaellbegruendung-dokument-begruendung-v2",
-          "situationsplan-ersatzpflanzung-und-rodung-dokument-begruendung-v2",
-          "entfernen-von-hecken-und-feldgehoelzen-dokument-begruendung-v2",
-          "solaranlagen-tabelle-grundriss-ansichtsplan-dokument-begruendung-v2",
-          "solaranlagen-tabelle-situationsplan-mit-eingezeichneter-solaranlage-dokument-begruendung-v3",
-          "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-begruendung",
-          "situationsplan-mit-rpg2-flaechenangaben-dokument-begruendung-v7",
-        ],
       },
       instanceStates: instanceStatesBe,
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
@@ -316,9 +229,6 @@ module.exports = function (environment) {
           1130, // Bundesstelle
           1131, // Support
         ],
-      },
-      documents: {
-        excludeFromDocuments: [],
       },
       instanceStates: instanceStatesUr,
       defaultInstanceStateCategory: "all",
@@ -475,9 +385,6 @@ module.exports = function (environment) {
           10000, // support
         ],
       },
-      documents: {
-        excludeFromDocuments: [],
-      },
       instanceStates: instanceStatesGr,
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
@@ -539,9 +446,6 @@ module.exports = function (environment) {
           5, // Municipality lead
         ],
       },
-      documents: {
-        excludeFromDocuments: [],
-      },
       instanceStates: instanceStatesSo,
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
@@ -598,9 +502,6 @@ module.exports = function (environment) {
           10000, // support
         ],
       },
-      documents: {
-        excludeFromDocuments: [],
-      },
       instanceStates: instanceStatesAg,
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
@@ -641,9 +542,6 @@ module.exports = function (environment) {
         roles: [
           2, // support
         ],
-      },
-      documents: {
-        excludeFromDocuments: [],
       },
       instanceStates: instanceStatesSg,
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
