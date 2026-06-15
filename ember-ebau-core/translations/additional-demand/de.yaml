@@ -27,8 +27,8 @@ additional-demand:
       needs-interaction: "In Bearbeitung"
       completed: "Abgeschlossen"
       canceled: "Vorzeitig beendet"
+  allow-changes-hint: ""
   formtimeline-link:
     case-timeline-label: "Formularänderungen anzeigen"
     instance-edit-label: "Dossier anpassen"
     instance-edit-info:
-      

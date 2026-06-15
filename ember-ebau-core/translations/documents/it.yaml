@@ -23,6 +23,7 @@ documents:
 
   confidential: (confidenziale)
   additional-demand-changes-not-allowed: "Nel contesto delle richieste di chiarimenti, non sono consentite modifiche ai documenti già presentati."
+  additional-demand-changes-hint-void: "Possono essere contrassegnati come non validi solo i documenti che il Comune non ha ancora elaborato."
   confirm-reduced: "Con la presente confermo di aver caricato i necessari contenuti obbligatori:"
   confirm: "Si prega di caricare {count, plural, =1 {il seguente contenuto obbligatorio} other {i seguenti contenuti # obbligatori}}. Si prega di osservare che l'elenco dei documenti obbligatori indicati non è esaustivo (al riguardo consultare la legge edilizia comunale). Le domande incomplete saranno respinte."
   date: Caricato in data {date} alle {time}

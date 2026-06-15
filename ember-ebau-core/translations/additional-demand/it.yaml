@@ -27,8 +27,8 @@ additional-demand:
       needs-interaction: "In corso"
       completed: "Conclusa"
       canceled: "Terminata prima del tempo"
+  allow-changes-hint: ""
   formtimeline-link:
     case-timeline-label: "Mostra modifiche al formulario"
     instance-edit-label: "Modifica il dossier"
     instance-edit-info:
-

@@ -60,6 +60,12 @@
   <hr />
 {{/if}}
 
+{{#if (and this.voidable this.isAdditionalDemandChanges)}}
+  <div class="uk-alert border-highlight">
+    {{t "documents.additional-demand-changes-hint-void"}}
+  </div>
+{{/if}}
+
 {{#if this.allOtherFields.length}}
   {{#each this.allOtherFields as |field|}}
     <CfField
