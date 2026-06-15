@@ -18,7 +18,8 @@ $enable-form-whitespace-correction: false !default;
 }
 
 @if $enable-form-whitespace-correction {
-  .cf-content form {
+  .cf-content form,
+  .uk-modal-body form {
     @each $heading in (h1, h2, h3, h4, h5, h6) {
       @include form-heading-rules($heading);
     }
