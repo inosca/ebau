@@ -25,7 +25,7 @@
         {{/if}}
       </tr>
     </thead>
-    <tbody>
+    <tbody data-test-applicants-table>
       {{#each this.applicants as |applicant|}}
         <tr>
           <td>
@@ -103,7 +103,11 @@
   {{#if
     (await (can "manage applicants of instance" this.editController.instance))
   }}
-    <form uk-grid class="uk-grid-small" onsubmit={{perform this.add}}>
+    <form
+      uk-grid
+      class="uk-grid-small uk-flex-middle"
+      onsubmit={{perform this.add}}
+    >
       <div class="uk-width-expand">
         <div class="uk-inline uk-width-1-1">
           <PersonalSuggestions
@@ -144,6 +148,54 @@
             </option>
           </select>
         </div>
+        <a
+          title={{t "instances.applicants.role-info.title"}}
+          href=""
+          {{on "click" this.toggleInfoModal}}
+        >
+          <UkIcon @icon="info" class="uk-text-middle uk-text-muted" />
+        </a>
+        <UkModal
+          @visible={{this.showInfoModal}}
+          @onHide={{fn (mut this.showInfoModal) false}}
+          as |Modal|
+        >
+          <Modal.body>
+            <p class="uk-text-large">{{t
+                "instances.applicants.role-info.title"
+              }}</p>
+            <table class="uk-table uk-table-small">
+              <tbody>
+                {{#each this.applicantRoles as |role|}}
+                  {{#if
+                    (maybe-translate
+                      (concat "instances.applicants.role-info." role)
+                    )
+                  }}
+                    <tr>
+                      <td
+                        class="uk-text-bold uk-width-auto uk-text-nowrap uk-padding-remove-left uk-padding-remove-bottom"
+                      >
+                        {{maybe-translate
+                          (concat "instances.applicants.role-info." role)
+                        }}
+                      </td>
+                      <td
+                        class="uk-width-expand uk-padding-remove-left uk-padding-remove-bottom"
+                      >
+                        {{maybe-translate
+                          (concat
+                            "instances.applicants.role-info." role "-text"
+                          )
+                        }}
+                      </td>
+                    </tr>
+                  {{/if}}
+                {{/each}}
+              </tbody>
+            </table>
+          </Modal.body>
+        </UkModal>
       {{/if}}
       <div class="uk-width-auto">
         <UkButton

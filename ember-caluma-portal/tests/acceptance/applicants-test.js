@@ -36,25 +36,25 @@ module("Acceptance | applicants", function (hooks) {
   });
 
   test("can list applicants", async function (assert) {
-    assert.dom("tbody tr").exists({ count: 2 });
+    assert.dom("tbody[data-test-applicants-table] tr").exists({ count: 2 });
   });
 
   test("can add an applicant", async function (assert) {
-    assert.dom("tbody tr").exists({ count: 2 });
+    assert.dom("tbody[data-test-applicants-table] tr").exists({ count: 2 });
 
     await fillIn("input[name=email]", "test@example.com");
     await click("button[type=submit]");
 
-    assert.dom("tbody tr").exists({ count: 3 });
+    assert.dom("tbody[data-test-applicants-table] tr").exists({ count: 3 });
   });
 
   test("can delete an applicant", async function (assert) {
-    assert.dom("tbody tr").exists({ count: 2 });
+    assert.dom("tbody[data-test-applicants-table] tr").exists({ count: 2 });
     assert.dom("tbody tr button").exists({ count: 2 });
 
     await click("tbody tr:first-of-type button");
 
-    assert.dom("tbody tr").exists({ count: 1 });
+    assert.dom("tbody[data-test-applicants-table] tr").exists({ count: 1 });
     assert.dom("tbody tr button").doesNotExist();
   });
 });
