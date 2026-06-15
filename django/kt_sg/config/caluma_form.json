@@ -474,6 +474,42 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "werbeanlagen",
+    "fields": {
+      "created_at": "2026-06-15T08:48:18.778Z",
+      "modified_at": "2026-06-15T08:48:18.778Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Werbeanlagen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "werbeanlagen-tabelle",
+    "fields": {
+      "created_at": "2026-06-15T08:49:14.818Z",
+      "modified_at": "2026-06-15T08:49:14.818Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Werbeanlagen Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "wohnen-berechnung-anzahl-schutzplaetze-tabelle",
     "fields": {
       "created_at": "2026-06-05T09:13:59.758Z",
@@ -3577,7 +3613,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "feuerung-fuer-raumwaerme-formular",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3592,7 +3628,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "gastronomiebetrieb-formular",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3607,6 +3643,21 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "schutzraum-und-ersatzbeitraege-form",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare.werbeanlagen-formular",
+    "fields": {
+      "created_at": "2026-06-15T08:48:57.799Z",
+      "modified_at": "2026-06-15T08:48:57.800Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare",
+      "question": "werbeanlagen-formular",
       "sort": 1
     }
   },
@@ -4073,6 +4124,441 @@
       "form": "waermeerzeugung-tabelle",
       "question": "waermeerzeugung-feuerungstyp",
       "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-ansichtsflaeche",
+    "fields": {
+      "created_at": "2026-06-15T09:21:55.874Z",
+      "modified_at": "2026-06-15T09:21:55.874Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-ansichtsflaeche",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-anzahl",
+    "fields": {
+      "created_at": "2026-06-15T08:58:14.413Z",
+      "modified_at": "2026-06-15T08:58:14.413Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-anzahl",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-art",
+    "fields": {
+      "created_at": "2026-06-15T08:56:36.151Z",
+      "modified_at": "2026-06-15T08:56:36.152Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-art",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-art-andere-beschreibung",
+    "fields": {
+      "created_at": "2026-06-15T08:57:37.867Z",
+      "modified_at": "2026-06-15T08:57:37.867Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-art-andere-beschreibung",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-art-des-gesuches",
+    "fields": {
+      "created_at": "2026-06-15T08:55:39.765Z",
+      "modified_at": "2026-06-15T08:55:39.765Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-art-des-gesuches",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-ausgestaltung-titel",
+    "fields": {
+      "created_at": "2026-06-15T09:15:40.784Z",
+      "modified_at": "2026-06-15T09:15:40.784Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-ausgestaltung-titel",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-befestigung",
+    "fields": {
+      "created_at": "2026-06-15T09:30:38.988Z",
+      "modified_at": "2026-06-15T09:30:38.988Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-befestigung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-befristet-oder-unbefristet",
+    "fields": {
+      "created_at": "2026-06-15T08:52:19.159Z",
+      "modified_at": "2026-06-15T08:52:19.159Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-befristet-oder-unbefristet",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-beleuchtung",
+    "fields": {
+      "created_at": "2026-06-15T09:23:23.357Z",
+      "modified_at": "2026-06-15T09:23:23.357Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-beleuchtung",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-beleuchtungszeitraum",
+    "fields": {
+      "created_at": "2026-06-15T09:26:20.102Z",
+      "modified_at": "2026-06-15T09:26:20.102Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-beleuchtungszeitraum",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-beleuchtung-titel",
+    "fields": {
+      "created_at": "2026-06-15T09:22:48.264Z",
+      "modified_at": "2026-06-15T09:22:48.264Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-beleuchtung-titel",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-beschreibung",
+    "fields": {
+      "created_at": "2026-06-15T09:21:02.028Z",
+      "modified_at": "2026-06-15T09:21:02.028Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-beschreibung",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-dimmbar",
+    "fields": {
+      "created_at": "2026-06-15T09:26:43.611Z",
+      "modified_at": "2026-06-15T09:26:43.611Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-dimmbar",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-dimmbar-von-bis",
+    "fields": {
+      "created_at": "2026-06-15T09:28:05.069Z",
+      "modified_at": "2026-06-15T09:28:05.069Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-dimmbar-von-bis",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-grundfarbe",
+    "fields": {
+      "created_at": "2026-06-15T09:21:28.932Z",
+      "modified_at": "2026-06-15T09:21:28.932Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-grundfarbe",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-hoehe-ueber-boden",
+    "fields": {
+      "created_at": "2026-06-15T09:31:48.517Z",
+      "modified_at": "2026-06-15T09:31:48.517Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-hoehe-ueber-boden",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-lichtdichte",
+    "fields": {
+      "created_at": "2026-06-15T09:25:51.897Z",
+      "modified_at": "2026-06-15T09:25:51.897Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-lichtdichte",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-lichtfarbe",
+    "fields": {
+      "created_at": "2026-06-15T09:24:53.908Z",
+      "modified_at": "2026-06-15T09:24:53.908Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-lichtfarbe",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-lichtintensitaet",
+    "fields": {
+      "created_at": "2026-06-15T09:25:12.907Z",
+      "modified_at": "2026-06-15T09:25:12.907Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-lichtintensitaet",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-logo-signet-foto",
+    "fields": {
+      "created_at": "2026-06-15T09:20:49.167Z",
+      "modified_at": "2026-06-15T09:20:49.167Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-logo-signet-foto",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-masse-format",
+    "fields": {
+      "created_at": "2026-06-15T09:21:15.034Z",
+      "modified_at": "2026-06-15T09:21:15.034Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-masse-format",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-material",
+    "fields": {
+      "created_at": "2026-06-15T09:22:25.273Z",
+      "modified_at": "2026-06-15T09:22:25.273Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-material",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlagen-bemerkungen",
+    "fields": {
+      "created_at": "2026-06-15T09:32:23.954Z",
+      "modified_at": "2026-06-15T09:32:23.954Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlagen-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-schriftfarbe",
+    "fields": {
+      "created_at": "2026-06-15T09:21:43.263Z",
+      "modified_at": "2026-06-15T09:21:43.263Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-schriftfarbe",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-typ-der-beleuchtung",
+    "fields": {
+      "created_at": "2026-06-15T09:23:49.267Z",
+      "modified_at": "2026-06-15T09:23:49.267Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-typ-der-beleuchtung",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-wortlaut",
+    "fields": {
+      "created_at": "2026-06-15T09:16:01.622Z",
+      "modified_at": "2026-06-15T09:16:01.622Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-wortlaut",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-zeitraum",
+    "fields": {
+      "created_at": "2026-06-15T08:54:23.542Z",
+      "modified_at": "2026-06-15T08:54:23.542Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-zeitraum",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen.werbeanlagen",
+    "fields": {
+      "created_at": "2026-06-15T08:49:39.034Z",
+      "modified_at": "2026-06-15T08:49:39.034Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen",
+      "question": "werbeanlagen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen.werbeanlagen-titel",
+    "fields": {
+      "created_at": "2026-06-15T09:16:41.647Z",
+      "modified_at": "2026-06-15T09:16:41.647Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen",
+      "question": "werbeanlagen-titel",
+      "sort": 2
     }
   },
   {
@@ -7072,6 +7558,431 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-art-andere",
+    "fields": {
+      "created_at": "2026-06-15T08:56:35.855Z",
+      "modified_at": "2026-06-15T08:56:35.855Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-art-angebotstafel",
+    "fields": {
+      "created_at": "2026-06-15T08:56:35.884Z",
+      "modified_at": "2026-06-15T08:56:35.884Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angebotstafel\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-art-baustellenwerbung",
+    "fields": {
+      "created_at": "2026-06-15T08:56:35.878Z",
+      "modified_at": "2026-06-15T08:56:35.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baustellenwerbung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-art-des-gesuches-aenderung",
+    "fields": {
+      "created_at": "2026-06-15T08:55:39.535Z",
+      "modified_at": "2026-06-15T08:55:39.535Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Änderung einer bestehenden, bewilligten Werbeanlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-art-des-gesuches-ergaenzung",
+    "fields": {
+      "created_at": "2026-06-15T08:55:39.526Z",
+      "modified_at": "2026-06-15T08:55:39.526Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ergänzung einer bestehenden, bewilligten Werbeanlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-art-des-gesuches-neu",
+    "fields": {
+      "created_at": "2026-06-15T08:55:39.518Z",
+      "modified_at": "2026-06-15T08:55:39.518Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neue Werbeanlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-art-feste-werbeanlage",
+    "fields": {
+      "created_at": "2026-06-15T08:56:35.883Z",
+      "modified_at": "2026-06-15T08:56:35.883Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Feste Werbeanlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-art-plakatwerbung",
+    "fields": {
+      "created_at": "2026-06-15T08:56:35.929Z",
+      "modified_at": "2026-06-15T08:56:35.929Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Plakatwerbung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-befestigung-am-gebaeude",
+    "fields": {
+      "created_at": "2026-06-15T09:30:38.476Z",
+      "modified_at": "2026-06-15T09:30:38.476Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Am Gebäude\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-befestigung-auskragend",
+    "fields": {
+      "created_at": "2026-06-15T09:30:38.480Z",
+      "modified_at": "2026-06-15T09:30:38.480Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Auskragend\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-befestigung-freistehend",
+    "fields": {
+      "created_at": "2026-06-15T09:30:38.478Z",
+      "modified_at": "2026-06-15T09:30:38.478Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Freistehend\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-befristet-oder-unbefristet-befristet",
+    "fields": {
+      "created_at": "2026-06-15T08:52:18.945Z",
+      "modified_at": "2026-06-15T08:52:18.945Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"befristet\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-befristet-oder-unbefristet-unbefristet",
+    "fields": {
+      "created_at": "2026-06-15T08:52:18.947Z",
+      "modified_at": "2026-06-15T08:52:18.947Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"unbefristet\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-beleuchtung-ja",
+    "fields": {
+      "created_at": "2026-06-15T09:23:23.049Z",
+      "modified_at": "2026-06-15T09:23:23.049Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-beleuchtung-nein",
+    "fields": {
+      "created_at": "2026-06-15T09:23:23.061Z",
+      "modified_at": "2026-06-15T09:23:23.061Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-dimmbar-ja",
+    "fields": {
+      "created_at": "2026-06-15T09:26:43.315Z",
+      "modified_at": "2026-06-15T09:26:43.315Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-dimmbar-nein",
+    "fields": {
+      "created_at": "2026-06-15T09:26:43.317Z",
+      "modified_at": "2026-06-15T09:26:43.317Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-logo-signet-foto-ja",
+    "fields": {
+      "created_at": "2026-06-15T09:20:48.862Z",
+      "modified_at": "2026-06-15T09:20:48.862Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-logo-signet-foto-nein",
+    "fields": {
+      "created_at": "2026-06-15T09:20:48.870Z",
+      "modified_at": "2026-06-15T09:20:48.870Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-material-aluminium",
+    "fields": {
+      "created_at": "2026-06-15T09:22:24.910Z",
+      "modified_at": "2026-06-15T09:22:24.910Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aluminium\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-material-holz",
+    "fields": {
+      "created_at": "2026-06-15T09:22:24.959Z",
+      "modified_at": "2026-06-15T09:22:24.959Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Holz\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-material-kunststoff",
+    "fields": {
+      "created_at": "2026-06-15T09:22:24.915Z",
+      "modified_at": "2026-06-15T09:22:24.915Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kunststoff\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-material-metall",
+    "fields": {
+      "created_at": "2026-06-15T09:22:24.909Z",
+      "modified_at": "2026-06-15T09:22:24.909Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Metall\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-typ-der-beleuchtung-angeleuchtet",
+    "fields": {
+      "created_at": "2026-06-15T09:23:48.992Z",
+      "modified_at": "2026-06-15T09:23:48.992Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"angeleuchtet\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werbeanlage-typ-der-beleuchtung-ausgeleuchtet",
+    "fields": {
+      "created_at": "2026-06-15T09:23:48.989Z",
+      "modified_at": "2026-06-15T09:23:48.989Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"ausgeleuchtet\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -14052,6 +14963,993 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "werbeanlage-ansichtsflaeche",
+    "fields": {
+      "created_at": "2026-06-15T09:21:55.743Z",
+      "modified_at": "2026-06-15T09:21:55.743Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ansichtsfläche\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-anzahl",
+    "fields": {
+      "created_at": "2026-06-15T08:58:14.182Z",
+      "modified_at": "2026-06-15T08:58:14.182Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-art",
+    "fields": {
+      "created_at": "2026-06-15T08:56:36.038Z",
+      "modified_at": "2026-06-15T08:56:36.038Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der geplanten Werbeanlage\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-art-andere-beschreibung",
+    "fields": {
+      "created_at": "2026-06-15T08:57:37.775Z",
+      "modified_at": "2026-06-15T08:57:37.775Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere Art der geplanten Werbeanlage\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "\"werbeanlage-art\"|answer != \"werbeanlage-art-andere\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-art-des-gesuches",
+    "fields": {
+      "created_at": "2026-06-15T08:55:39.652Z",
+      "modified_at": "2026-06-15T08:55:45.733Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art des Gesuches\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-ausgestaltung-titel",
+    "fields": {
+      "created_at": "2026-06-15T09:15:40.659Z",
+      "modified_at": "2026-06-15T09:22:53.255Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ausgestaltung Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Ausgestaltung\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-befestigung",
+    "fields": {
+      "created_at": "2026-06-15T09:30:38.730Z",
+      "modified_at": "2026-06-15T09:30:38.730Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Befestigung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-befristet-oder-unbefristet",
+    "fields": {
+      "created_at": "2026-06-15T08:52:19.051Z",
+      "modified_at": "2026-06-15T08:52:19.051Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist die Werbeanlage befristet oder unbefristet?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-beleuchtung",
+    "fields": {
+      "created_at": "2026-06-15T09:23:23.201Z",
+      "modified_at": "2026-06-15T09:23:23.201Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beleuchtung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-beleuchtungszeitraum",
+    "fields": {
+      "created_at": "2026-06-15T09:26:19.976Z",
+      "modified_at": "2026-06-15T09:27:00.024Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beleuchtungszeitraum (von-bis)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"werbeanlage-beleuchtung\"|answer != \"werbeanlage-beleuchtung-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-beleuchtung-titel",
+    "fields": {
+      "created_at": "2026-06-15T09:22:48.133Z",
+      "modified_at": "2026-06-15T09:22:59.433Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beleuchtung Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Beleuchtung\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-beschreibung",
+    "fields": {
+      "created_at": "2026-06-15T09:21:01.903Z",
+      "modified_at": "2026-06-15T09:21:01.903Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-dimmbar",
+    "fields": {
+      "created_at": "2026-06-15T09:26:43.461Z",
+      "modified_at": "2026-06-15T09:27:04.591Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dimmbar\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "\"werbeanlage-beleuchtung\"|answer != \"werbeanlage-beleuchtung-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-dimmbar-von-bis",
+    "fields": {
+      "created_at": "2026-06-15T09:28:04.940Z",
+      "modified_at": "2026-06-15T09:28:04.940Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dimmbar (von-bis)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"werbeanlage-dimmbar\"|answer != \"werbeanlage-dimmbar-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-grundfarbe",
+    "fields": {
+      "created_at": "2026-06-15T09:21:28.810Z",
+      "modified_at": "2026-06-15T09:21:28.810Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundfarbe\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-hoehe-ueber-boden",
+    "fields": {
+      "created_at": "2026-06-15T09:31:48.395Z",
+      "modified_at": "2026-06-15T09:32:07.468Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Höhe über Boden (m)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "\"werbeanlage-befestigung\"|answer != \"werbeanlage-befestigung-auskragend\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-lichtdichte",
+    "fields": {
+      "created_at": "2026-06-15T09:25:51.777Z",
+      "modified_at": "2026-06-15T09:26:56.881Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lichtdichte (cd/m²)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "\"werbeanlage-beleuchtung\"|answer != \"werbeanlage-beleuchtung-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-lichtfarbe",
+    "fields": {
+      "created_at": "2026-06-15T09:24:53.798Z",
+      "modified_at": "2026-06-15T09:26:51.404Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lichtfarbe (kelvin)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "\"werbeanlage-beleuchtung\"|answer != \"werbeanlage-beleuchtung-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-lichtintensitaet",
+    "fields": {
+      "created_at": "2026-06-15T09:25:12.792Z",
+      "modified_at": "2026-06-15T09:26:53.938Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lichtintensität (lumen)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "\"werbeanlage-beleuchtung\"|answer != \"werbeanlage-beleuchtung-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-logo-signet-foto",
+    "fields": {
+      "created_at": "2026-06-15T09:20:49.007Z",
+      "modified_at": "2026-06-15T09:20:49.007Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zeigt die Werbeanlage ein Logo, Signet oder ein Foto?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-masse-format",
+    "fields": {
+      "created_at": "2026-06-15T09:21:14.910Z",
+      "modified_at": "2026-06-15T09:21:14.910Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Masse / Format\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-material",
+    "fields": {
+      "created_at": "2026-06-15T09:22:25.092Z",
+      "modified_at": "2026-06-15T09:22:25.092Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Material\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlagen",
+    "fields": {
+      "created_at": "2026-06-15T08:49:38.851Z",
+      "modified_at": "2026-06-15T09:34:42.567Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werbeanlagen\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "werbeanlage-befristet-oder-unbefristet",
+          "werbeanlage-art-des-gesuches",
+          "werbeanlage-art",
+          "werbeanlage-material",
+          "werbeanlage-typ-der-beleuchtung",
+          "werbeanlage-befestigung"
+        ]
+      },
+      "data_source": null,
+      "row_form": "werbeanlagen-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlagen-bemerkungen",
+    "fields": {
+      "created_at": "2026-06-15T09:32:23.849Z",
+      "modified_at": "2026-06-15T09:32:23.849Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlagen-formular",
+    "fields": {
+      "created_at": "2026-06-15T08:48:57.614Z",
+      "modified_at": "2026-06-15T08:51:09.905Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werbeanlagen\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"vorhaben-werbeanlage\" in \"vorhaben\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "werbeanlagen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlagen-titel",
+    "fields": {
+      "created_at": "2026-06-15T09:16:41.537Z",
+      "modified_at": "2026-06-15T09:16:41.537Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werbeanlagen Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Werbeanlagen\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-schriftfarbe",
+    "fields": {
+      "created_at": "2026-06-15T09:21:43.143Z",
+      "modified_at": "2026-06-15T09:21:43.143Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schriftfarbe\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-typ-der-beleuchtung",
+    "fields": {
+      "created_at": "2026-06-15T09:23:49.128Z",
+      "modified_at": "2026-06-15T09:24:16.124Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Typ der Beleuchtung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "\"werbeanlage-beleuchtung\"|answer != \"werbeanlage-beleuchtung-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-wortlaut",
+    "fields": {
+      "created_at": "2026-06-15T09:16:01.510Z",
+      "modified_at": "2026-06-15T09:16:01.510Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wortlaut\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-zeitraum",
+    "fields": {
+      "created_at": "2026-06-15T08:54:23.456Z",
+      "modified_at": "2026-06-15T08:54:44.450Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zeitraum\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "\"werbeanlage-befristet-oder-unbefristet\"|answer != \"werbeanlage-befristet-oder-unbefristet-befristet\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen",
     "fields": {
       "created_at": "2026-05-20T06:59:09.510Z",
@@ -17273,6 +19171,381 @@
       "question": "wasserkraftanlage-erneruert-oder-veraendert",
       "option": "wasserkraftanlage-erneruert-oder-veraendert-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-art-des-gesuches.werbeanlage-art-des-gesuches-aenderung",
+    "fields": {
+      "created_at": "2026-06-15T08:55:45.745Z",
+      "modified_at": "2026-06-15T08:55:45.745Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-art-des-gesuches",
+      "option": "werbeanlage-art-des-gesuches-aenderung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-art-des-gesuches.werbeanlage-art-des-gesuches-ergaenzung",
+    "fields": {
+      "created_at": "2026-06-15T08:55:45.741Z",
+      "modified_at": "2026-06-15T08:55:45.741Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-art-des-gesuches",
+      "option": "werbeanlage-art-des-gesuches-ergaenzung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-art-des-gesuches.werbeanlage-art-des-gesuches-neu",
+    "fields": {
+      "created_at": "2026-06-15T08:55:45.749Z",
+      "modified_at": "2026-06-15T08:55:45.749Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-art-des-gesuches",
+      "option": "werbeanlage-art-des-gesuches-neu",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-art.werbeanlage-art-andere",
+    "fields": {
+      "created_at": "2026-06-15T08:56:36.044Z",
+      "modified_at": "2026-06-15T08:56:36.044Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-art",
+      "option": "werbeanlage-art-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-art.werbeanlage-art-angebotstafel",
+    "fields": {
+      "created_at": "2026-06-15T08:56:36.048Z",
+      "modified_at": "2026-06-15T08:56:36.048Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-art",
+      "option": "werbeanlage-art-angebotstafel",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-art.werbeanlage-art-baustellenwerbung",
+    "fields": {
+      "created_at": "2026-06-15T08:56:36.054Z",
+      "modified_at": "2026-06-15T08:56:36.054Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-art",
+      "option": "werbeanlage-art-baustellenwerbung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-art.werbeanlage-art-feste-werbeanlage",
+    "fields": {
+      "created_at": "2026-06-15T08:56:36.057Z",
+      "modified_at": "2026-06-15T08:56:36.057Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-art",
+      "option": "werbeanlage-art-feste-werbeanlage",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-art.werbeanlage-art-plakatwerbung",
+    "fields": {
+      "created_at": "2026-06-15T08:56:36.051Z",
+      "modified_at": "2026-06-15T08:56:36.051Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-art",
+      "option": "werbeanlage-art-plakatwerbung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-befestigung.werbeanlage-befestigung-am-gebaeude",
+    "fields": {
+      "created_at": "2026-06-15T09:30:38.757Z",
+      "modified_at": "2026-06-15T09:30:38.757Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-befestigung",
+      "option": "werbeanlage-befestigung-am-gebaeude",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-befestigung.werbeanlage-befestigung-auskragend",
+    "fields": {
+      "created_at": "2026-06-15T09:30:38.746Z",
+      "modified_at": "2026-06-15T09:30:38.746Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-befestigung",
+      "option": "werbeanlage-befestigung-auskragend",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-befestigung.werbeanlage-befestigung-freistehend",
+    "fields": {
+      "created_at": "2026-06-15T09:30:38.766Z",
+      "modified_at": "2026-06-15T09:30:38.766Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-befestigung",
+      "option": "werbeanlage-befestigung-freistehend",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-befristet-oder-unbefristet.werbeanlage-befristet-oder-unbefristet-befristet",
+    "fields": {
+      "created_at": "2026-06-15T08:52:19.059Z",
+      "modified_at": "2026-06-15T08:52:19.059Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-befristet-oder-unbefristet",
+      "option": "werbeanlage-befristet-oder-unbefristet-befristet",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-befristet-oder-unbefristet.werbeanlage-befristet-oder-unbefristet-unbefristet",
+    "fields": {
+      "created_at": "2026-06-15T08:52:19.066Z",
+      "modified_at": "2026-06-15T08:52:19.066Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-befristet-oder-unbefristet",
+      "option": "werbeanlage-befristet-oder-unbefristet-unbefristet",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-beleuchtung.werbeanlage-beleuchtung-ja",
+    "fields": {
+      "created_at": "2026-06-15T09:23:23.221Z",
+      "modified_at": "2026-06-15T09:23:23.221Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-beleuchtung",
+      "option": "werbeanlage-beleuchtung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-beleuchtung.werbeanlage-beleuchtung-nein",
+    "fields": {
+      "created_at": "2026-06-15T09:23:23.214Z",
+      "modified_at": "2026-06-15T09:23:23.214Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-beleuchtung",
+      "option": "werbeanlage-beleuchtung-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-dimmbar.werbeanlage-dimmbar-ja",
+    "fields": {
+      "created_at": "2026-06-15T09:27:04.608Z",
+      "modified_at": "2026-06-15T09:27:04.608Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-dimmbar",
+      "option": "werbeanlage-dimmbar-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-dimmbar.werbeanlage-dimmbar-nein",
+    "fields": {
+      "created_at": "2026-06-15T09:27:04.602Z",
+      "modified_at": "2026-06-15T09:27:04.602Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-dimmbar",
+      "option": "werbeanlage-dimmbar-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-logo-signet-foto.werbeanlage-logo-signet-foto-ja",
+    "fields": {
+      "created_at": "2026-06-15T09:20:49.026Z",
+      "modified_at": "2026-06-15T09:20:49.026Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-logo-signet-foto",
+      "option": "werbeanlage-logo-signet-foto-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-logo-signet-foto.werbeanlage-logo-signet-foto-nein",
+    "fields": {
+      "created_at": "2026-06-15T09:20:49.016Z",
+      "modified_at": "2026-06-15T09:20:49.016Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-logo-signet-foto",
+      "option": "werbeanlage-logo-signet-foto-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-material.werbeanlage-material-aluminium",
+    "fields": {
+      "created_at": "2026-06-15T09:22:25.109Z",
+      "modified_at": "2026-06-15T09:22:25.109Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-material",
+      "option": "werbeanlage-material-aluminium",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-material.werbeanlage-material-holz",
+    "fields": {
+      "created_at": "2026-06-15T09:22:25.100Z",
+      "modified_at": "2026-06-15T09:22:25.100Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-material",
+      "option": "werbeanlage-material-holz",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-material.werbeanlage-material-kunststoff",
+    "fields": {
+      "created_at": "2026-06-15T09:22:25.105Z",
+      "modified_at": "2026-06-15T09:22:25.105Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-material",
+      "option": "werbeanlage-material-kunststoff",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-material.werbeanlage-material-metall",
+    "fields": {
+      "created_at": "2026-06-15T09:22:25.114Z",
+      "modified_at": "2026-06-15T09:22:25.114Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-material",
+      "option": "werbeanlage-material-metall",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-typ-der-beleuchtung.werbeanlage-typ-der-beleuchtung-angeleuchtet",
+    "fields": {
+      "created_at": "2026-06-15T09:24:16.135Z",
+      "modified_at": "2026-06-15T09:24:16.135Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-typ-der-beleuchtung",
+      "option": "werbeanlage-typ-der-beleuchtung-angeleuchtet",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werbeanlage-typ-der-beleuchtung.werbeanlage-typ-der-beleuchtung-ausgeleuchtet",
+    "fields": {
+      "created_at": "2026-06-15T09:24:16.140Z",
+      "modified_at": "2026-06-15T09:24:16.140Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werbeanlage-typ-der-beleuchtung",
+      "option": "werbeanlage-typ-der-beleuchtung-ausgeleuchtet",
+      "sort": 2
     }
   },
   {
