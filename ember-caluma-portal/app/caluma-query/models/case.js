@@ -1,6 +1,8 @@
 import { service } from "@ember/service";
+import { htmlSafe } from "@ember/template";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 import mainConfig from "ember-ebau-core/config/main";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import {
   getAnswer,
   getAnswerDisplayValue,
@@ -35,6 +37,40 @@ export default class CustomCaseModel extends CaseModel {
       getFormTitle(this, this.raw.document, answerSlugs) ||
       this.instance.name ||
       this.raw.document.form.name
+    );
+  }
+
+  /**
+   * The title of the dossier which is displayed in the detail view.
+   *
+   * This consists of the `type` (e.g. "Baugesuch") and a chosen identifier
+   * (either the instance ID or the special ID) in brackets. By default, the ID
+   * is displayed as this is the number that is assigned since the creation of
+   * the instance whilst the special ID is mostly generated on submission.
+   *
+   * If the feature `instanceOverview.useSpecialId` is enabled, it will display
+   * the special ID instead, as soon as one is assigned.
+   *
+   * @type {SafeString}
+   */
+  get title() {
+    const number = hasFeature("instanceOverview.useSpecialId")
+      ? this.specialId
+      : this.instanceId;
+
+    if (!number) {
+      // Return a html-safe string even though it's not really necessary to be
+      // consistent in our output value type
+      return htmlSafe(this.type);
+    }
+
+    // If the special ID is used, no "ID" label is needed
+    const suffix = hasFeature("instanceOverview.useSpecialId")
+      ? number
+      : `${this.intl.t("instances.instance-id")} ${number}`;
+
+    return htmlSafe(
+      `${this.type} <span class="uk-text-light">(${suffix})</span>`,
     );
   }
 
