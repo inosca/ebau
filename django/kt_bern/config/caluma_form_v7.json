@@ -106,6 +106,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "bestaetigung-v7",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.493Z",
+      "modified_at": "2026-06-15T12:31:33.073Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bestätigung\", \"fr\": \"Confirmation\", \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Bestätigung (v7)\", \"fr\": \"Baugesuch > Bestätigung (v7)\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "bestaetigung-v5"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "dokumente-v7",
     "fields": {
       "created_at": "2026-04-27T14:16:29.150Z",
@@ -406,21 +424,21 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v7",
       "question": "bauwerk-v7",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch-generell-v7.bestaetigung-v5",
+    "pk": "baugesuch-generell-v7.bestaetigung-v7",
     "fields": {
-      "created_at": "2026-04-23T09:19:08.148Z",
-      "modified_at": "2026-04-23T09:19:08.148Z",
+      "created_at": "2026-06-15T12:11:27.446Z",
+      "modified_at": "2026-06-15T12:11:27.446Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch-generell-v7",
-      "question": "bestaetigung-v5",
+      "question": "bestaetigung-v7",
       "sort": 2
     }
   },
@@ -436,7 +454,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v7",
       "question": "dokumente-v7",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -451,7 +469,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v7",
       "question": "grundstueck-v7",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -466,7 +484,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v7",
       "question": "nutzung-bauvorhaben-v7",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -481,7 +499,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v7",
       "question": "spezialformulare-v7",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -526,21 +544,21 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v7",
       "question": "bauwerk-v7",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch-mit-uvp-v7.bestaetigung-v5",
+    "pk": "baugesuch-mit-uvp-v7.bestaetigung-v7",
     "fields": {
-      "created_at": "2026-04-23T09:19:38.152Z",
-      "modified_at": "2026-04-23T09:19:38.152Z",
+      "created_at": "2026-06-15T12:10:32.561Z",
+      "modified_at": "2026-06-15T12:10:32.561Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v7",
-      "question": "bestaetigung-v5",
+      "question": "bestaetigung-v7",
       "sort": 2
     }
   },
@@ -556,7 +574,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v7",
       "question": "dokumente-v7",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -571,7 +589,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v7",
       "question": "grundstueck-v7",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -586,7 +604,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v7",
       "question": "nutzung-bauvorhaben-v7",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -601,7 +619,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v7",
       "question": "spezialformulare-v7",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -646,21 +664,21 @@
       "modified_by_group": null,
       "form": "baugesuch-v7",
       "question": "bauwerk-v7",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch-v7.bestaetigung-v5",
+    "pk": "baugesuch-v7.bestaetigung-v7",
     "fields": {
-      "created_at": "2026-04-23T09:18:36.989Z",
-      "modified_at": "2026-04-23T09:18:36.989Z",
+      "created_at": "2026-06-15T12:07:23.774Z",
+      "modified_at": "2026-06-15T12:07:23.774Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch-v7",
-      "question": "bestaetigung-v5",
+      "question": "bestaetigung-v7",
       "sort": 2
     }
   },
@@ -676,7 +694,7 @@
       "modified_by_group": null,
       "form": "baugesuch-v7",
       "question": "dokumente-v7",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -691,7 +709,7 @@
       "modified_by_group": null,
       "form": "baugesuch-v7",
       "question": "grundstueck-v7",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -706,7 +724,7 @@
       "modified_by_group": null,
       "form": "baugesuch-v7",
       "question": "nutzung-bauvorhaben-v7",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -721,7 +739,7 @@
       "modified_by_group": null,
       "form": "baugesuch-v7",
       "question": "spezialformulare-v7",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -842,6 +860,246 @@
       "form": "bauwerk-v7",
       "question": "wohnen-v7",
       "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.anforderungen-eingehalten",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.519Z",
+      "modified_at": "2026-06-15T12:03:37.519Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "anforderungen-eingehalten",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.bauprofile-bleiben-bis-bauentscheid-stehen",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.527Z",
+      "modified_at": "2026-06-15T12:03:37.527Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "bauprofile-bleiben-bis-bauentscheid-stehen",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.bestaetigung-berechtigung-bauherrschaft",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.600Z",
+      "modified_at": "2026-06-15T12:03:37.600Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "bestaetigung-berechtigung-bauherrschaft",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.bestaetigung-erdbebensicherheit-bagatellfall-v5",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.608Z",
+      "modified_at": "2026-06-15T12:03:37.609Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "bestaetigung-erdbebensicherheit-bagatellfall-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.bestaetigung-erdbebensicherheit-neubau-anbau-v5",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.613Z",
+      "modified_at": "2026-06-15T12:03:37.613Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "bestaetigung-erdbebensicherheit-neubau-anbau-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.bestaetigung-erdbebensicherheit-tragwerksplanerin-v5",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.628Z",
+      "modified_at": "2026-06-15T12:03:37.628Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "bestaetigung-erdbebensicherheit-tragwerksplanerin-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.bestaetigung-erdbebensicherheit-umbau-umnutzung-andere-v5",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.621Z",
+      "modified_at": "2026-06-15T12:03:37.621Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "bestaetigung-erdbebensicherheit-umbau-umnutzung-andere-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.bestaetigung-generalvollmacht",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.584Z",
+      "modified_at": "2026-06-15T12:03:37.584Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "bestaetigung-generalvollmacht",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.bestaetigung-gis",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.592Z",
+      "modified_at": "2026-06-15T12:03:37.592Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "bestaetigung-gis",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.bestaetigung-liegenschaftsentwaesserung",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.561Z",
+      "modified_at": "2026-06-15T12:03:37.561Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "bestaetigung-liegenschaftsentwaesserung",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.bestaetigung-mit-unterschrift",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.577Z",
+      "modified_at": "2026-06-15T12:03:37.577Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "bestaetigung-mit-unterschrift",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.bestaetigung-wald",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.532Z",
+      "modified_at": "2026-06-15T12:03:37.532Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "bestaetigung-wald",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.bestaetigung-wald-text",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.540Z",
+      "modified_at": "2026-06-15T12:03:37.540Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "bestaetigung-wald-text",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.einhaltung-asbestvorgaben",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.556Z",
+      "modified_at": "2026-06-15T12:03:37.556Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "einhaltung-asbestvorgaben",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.einhaltung-radonvorgaben",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.548Z",
+      "modified_at": "2026-06-15T12:03:37.548Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "einhaltung-radonvorgaben",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung-v7.keine-tangierung-natur-wild-vogelschutz",
+    "fields": {
+      "created_at": "2026-06-15T12:03:37.569Z",
+      "modified_at": "2026-06-15T12:03:37.569Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bestaetigung-v7",
+      "question": "keine-tangierung-natur-wild-vogelschutz",
+      "sort": 9
     }
   },
   {
@@ -5113,6 +5371,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-v7",
+    "fields": {
+      "created_at": "2026-06-15T12:07:23.652Z",
+      "modified_at": "2026-06-15T12:08:01.101Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestätigung\", \"fr\": \"Confirmation\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "bestaetigung-v7",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
