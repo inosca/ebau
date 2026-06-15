@@ -36,6 +36,9 @@ services:
     ports:
       - "5555:5555"
       - "5678:5678"
+
+    # add init to catch all the zombies
+    init: true
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp
