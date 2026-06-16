@@ -14,7 +14,7 @@ RPG2 = ModuleConfig[RPG2Config](
         ],
     ),
     kt_ag=RPG2Config(
-        enabled=False,  # TODO: Enable
+        enabled=True,
         service_slugs=["afb"],
         allowed_forms=[
             "baugesuch",
