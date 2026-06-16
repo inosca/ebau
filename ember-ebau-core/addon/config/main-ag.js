@@ -166,7 +166,7 @@ export default {
     municipalityServiceGroup: 2, // Gemeinde
   },
   modification: {
-    allowForms: ["baugesuch"],
+    allowForms: ["baugesuch", "baugesuch-v2"],
     disallowStates: ["new"],
   },
   legalSubmission: {
@@ -186,19 +186,19 @@ export default {
       section: "paper-instances",
       forms: [
         {
-          slug: "baugesuch",
+          slug: "baugesuch-v2",
           roles: ["municipality-lead", "municipality-clerk"],
           serviceGroups: ["municipality", "municipality-light"],
           category: "building-permit",
         },
         {
-          slug: "baugesuch-mit-uvp",
+          slug: "baugesuch-mit-uvp-v2",
           roles: ["municipality-lead", "municipality-clerk"],
           serviceGroups: ["municipality", "municipality-light"],
           category: "building-permit",
         },
         {
-          slug: "vorentscheid",
+          slug: "vorentscheid-v2",
           roles: ["municipality-lead", "municipality-clerk"],
           serviceGroups: ["municipality", "municipality-light"],
           category: "building-permit",
@@ -221,7 +221,7 @@ export default {
       section: "internal-dossiers",
       forms: [
         {
-          slug: "anfrage-intern",
+          slug: "anfrage-intern-v2",
           roles: [
             "municipality-lead",
             "municipality-clerk",
@@ -248,12 +248,12 @@ export default {
       section: "special-procedure",
       forms: [
         {
-          slug: "plangenehmigungsverfahren-bund",
+          slug: "plangenehmigungsverfahren-bund-v2",
           roles: ["municipality-lead", "municipality-clerk"],
           serviceGroups: ["authority-pgv"],
         },
         {
-          slug: "plangenehmigungsverfahren-gas",
+          slug: "plangenehmigungsverfahren-gas-v2",
           roles: ["municipality-lead", "municipality-clerk"],
           serviceGroups: ["authority-pgv"],
         },

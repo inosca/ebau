@@ -796,12 +796,17 @@ def test_send_submit_ag(
 
     # not needed in mocked AG submit test
     for question_slug in [
+        "anzahl-gebaeude-greater-6-m-die-abgebrochen-werden",
+        "anzahl-neue-gebaeude-greater-6m",
         "projektkennzeichnung-even",
+        "typ-der-baute",
         "unterschriebene-eingabequittung",
+        "versiegelte-entsiegelte-flaechen",
         "vertretung-juristische-person-gesuchstellerin",
         "vertretung-ort-gesuchstellerin",
         "vertretung-plz-gesuchstellerin",
         "vertretung-strasse-gesuchstellerin",
+        "werden-flaechen-neu-versiegelt-oder-entsiegelt",
         "zustaendige-behoerde",
     ]:
         question = caluma_form_models.Question.objects.filter(

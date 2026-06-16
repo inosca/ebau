@@ -22,7 +22,7 @@ from camac.caluma.extensions.events.construction_monitoring import (
 from camac.caluma.extensions.events.general import get_instance
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import date_to_deadline
-from camac.constants import kt_gr as gr_constants
+from camac.constants import kt_ag as ag_constants, kt_gr as gr_constants
 from camac.core.utils import canton_aware, create_history_entry
 from camac.instance import domain_logic
 from camac.instance.master_data import MasterData
@@ -471,11 +471,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         if authority_service_group == "municipality-light":
             return [*tasks, "distribution", "cantonal-exam"]
-        elif case.document.form_id == "plangenehmigungsverfahren-bund":
+        elif case.document.form_id in ag_constants.PGV_BUND_FORMS:
             return [*tasks, *pgv_tasks]
-        elif case.document.form_id == "plangenehmigungsverfahren-gas":
+        elif case.document.form_id in ag_constants.PGV_GAS_FORMS:
             return [*tasks, *pgv_tasks, "init-additional-demand"]
-        elif case.document.form_id == "anfrage-intern":
+        elif case.document.form_id in ag_constants.ANFRAGE_INTERN_FORMS:
             if authority_service_group == "municipality":
                 return [*tasks, "formal-exam", "cantonal-exam"]
             elif authority_service_group == "service-afb":

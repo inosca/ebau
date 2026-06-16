@@ -660,10 +660,10 @@
       "static_content": "{\"de\": \"x\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
+        "hideLabel": true,
         "widgetOverride": "alexandria-documents-form",
         "alexandria-categories": ["unterlagenergaenzung"],
-        "alexandriaEnableDocumentFilter": true,
-        "hideLabel": true
+        "alexandriaEnableDocumentFilter": true
       },
       "data_source": null,
       "row_form": null,

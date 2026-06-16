@@ -60,6 +60,7 @@ from camac.alert_message import factories as alert_message_factories
 from camac.applicants import factories as applicant_factories
 from camac.billing import factories as billing_factories
 from camac.caluma.utils import CalumaInfo
+from camac.constants import kt_ag as ag_constants
 from camac.communications import factories as communications_factories
 from camac.core import factories as core_factories
 from camac.deadlines import factories as deadlines_factories
@@ -1290,16 +1291,11 @@ def caluma_forms_ag(settings, add_general_questions):
 
     for slug in [
         # Main forms
+        *ag_constants.VERSIONED_MAIN_FORMS,
         "anfrage",
         "anfrage-migration",
-        "anfrage-intern",
-        "baugesuch",
-        "baugesuch-mit-uvp",
-        "plangenehmigungsverfahren-bund",
-        "plangenehmigungsverfahren-gas",
         "reklame",
         "reklame-migration",
-        "vorentscheid",
         "vorentscheid-migration",
         "baugesuch-migration",
         "importiertes-dossier",

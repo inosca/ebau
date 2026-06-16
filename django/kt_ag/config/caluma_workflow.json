@@ -904,7 +904,7 @@
       "is_archived": false,
       "allow_all_forms": false,
       "start_tasks": ["submit"],
-      "allow_forms": ["anfrage-intern"]
+      "allow_forms": ["anfrage-intern", "anfrage-intern-v2"]
     }
   },
   {
@@ -930,15 +930,20 @@
         "baugesuch",
         "baugesuch-migration",
         "baugesuch-mit-uvp",
+        "baugesuch-mit-uvp-v2",
+        "baugesuch-v2",
         "importiertes-dossier",
         "pgv-migration",
         "plangenehmigungsverfahren-bund",
+        "plangenehmigungsverfahren-bund-v2",
         "plangenehmigungsverfahren-gas",
+        "plangenehmigungsverfahren-gas-v2",
         "reklame",
         "reklame-migration",
         "uvp-migration",
         "vorentscheid",
-        "vorentscheid-migration"
+        "vorentscheid-migration",
+        "vorentscheid-v2"
       ]
     }
   },

@@ -615,6 +615,11 @@ module.exports = function (environment) {
             "plangenehmigungsverfahren-gas",
             "vorabklaerung",
             "baugesuch-migration",
+            // v2
+            "baugesuch-v2",
+            "baugesuch-mit-uvp-v2",
+            "vorentscheid-v2",
+            "plangenehmigungsverfahren-gas-v2",
           ],
         },
       ],

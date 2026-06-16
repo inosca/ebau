@@ -212,7 +212,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A01 / Art. 16 Ökologische Massnahmen, Biotope\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -229,7 +229,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A02 / Art. 16a Landw. Wohnbauten, neue freistehende Gebäude\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -246,7 +246,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A03 / Art. 16a Landw. Wohnbauten, An- und Umbauten\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -263,7 +263,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A04 / Art. 16a Aussiedlungen (Kombination mit weiteren Codes)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -280,7 +280,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A05 / Art. 16a Landw. Remisen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -297,7 +297,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A06 / Art. 16a Landw. Tierställe\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -314,7 +314,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A07 / Art. 16a Gemüsebau und produzierender Gartenbau\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -331,7 +331,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A08 / Art. 16a Obstanlagen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -348,7 +348,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A09 / Art. 16a Rebanlagen, Rebhäuschen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -365,7 +365,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A10 / Art. 16a Übrige Spezialkulturen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -382,7 +382,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A11 / Art. 16a Terrainveränderungen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -399,7 +399,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A12 / Art. 16a Landw. Energiegewinnung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -416,7 +416,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A13 / Art. 16a_bis Landw. Pferdehaltung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -433,7 +433,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A14 / Art. 16a Abs. 3 Landw. Bauten in landw. Spezialzonen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -450,7 +450,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A15 / Art. 16a Übrige landw. Bauten\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -467,7 +467,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A16 / Art. 18 Bauten in nichtlandw. Spezialzonen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -484,7 +484,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A17 / Art. 18a Solaranlagen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -501,7 +501,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A18 / Art. 24 Bienenhäuser\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -518,7 +518,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A19 / Art. 24 Deponien\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -535,7 +535,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A20 / Art. 24 Materialabbau\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -552,7 +552,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A21 / Art. 24 Schiessanlagen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -569,7 +569,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A22 / Art. 24 Sendeanlagen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -586,7 +586,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A23 / Art. 24 Siedlungsentwässerung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -603,7 +603,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A24 / Art. 24 Erholungsnutzung / Tourismus\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -620,7 +620,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A25 / Art. 24 Wasserversorgung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -637,7 +637,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A26 / Art. 24 Übrige standortgebundene Bauten\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -654,7 +654,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A27 / Art. 24a Zweckänderung ohne bauliche Massnahmen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -671,7 +671,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A28 / Art. 24b Nichtlandw. Nebenbetrieb\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -688,7 +688,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A29 / Art. 24c Besitzstandsgeschützte Bauten\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -705,7 +705,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A30 / Art. 24c Besitzstandsgeschützte Bauten, Ersatzbau\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -722,7 +722,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A31 / Art. 24d Neurechtliche Wohnbauten\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -739,7 +739,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A32 / Art. 24d Geschützte Bauten\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -756,7 +756,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A33 / Art. 24e Hobbymässige Tierhaltung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -773,7 +773,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A34 / Art. 37a Gewerbliche Bauten\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -790,7 +790,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A35 / Strassen, Wege (Art. 16a und 24)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -807,7 +807,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A36 / Wald, zonenkonforme Bauten und Anlagen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -824,7 +824,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"A37 / Wald, zonenfremde Bauten und Anlagen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -841,7 +841,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B01 / Landw. Bauten\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -858,7 +858,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B02 / Materialabbau/Deponien\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -875,7 +875,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B03 / Öffentliche Bauten\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -892,7 +892,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B04 / Erschliessungen (Parkplätze)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -909,7 +909,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B05 / Erschliessungen (neuer Anschluss an Kantonsstrasse)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -926,7 +926,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B06 / Erschliessungen (Strassen / Wege)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -943,7 +943,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B07 / Leitungen (Kanalisation / Wasserleitungen / Gasleitungen)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -960,7 +960,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B08 / Sendeanlagen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -977,7 +977,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B09 / Weitere Bauten und Anlagen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -994,7 +994,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B10 / Wohnbauten\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1011,7 +1011,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B11 / Klein- und Nebenbauten\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1028,7 +1028,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B12 / Metzgereien\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1045,7 +1045,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B13 / Gewerbe unter Störfallverordnung (z.B. Chemie)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1062,7 +1062,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B14 / Gewerbe-/Industriebauten (div)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1079,7 +1079,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B15 / Restaurant / Hotel\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1096,7 +1096,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B16 / Garagen-/Tankstellen-Gewerbe\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1113,7 +1113,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B17 / Verkaufsgewerbe\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1130,7 +1130,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B18 / Reklamenanlagen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1147,7 +1147,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"B19 / Solaranlage\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1164,7 +1164,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"C01 / EleG Anhörung PGV Transformatorenstation ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1181,7 +1181,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"C02 / EleG Anhörung PGV Transformatorenstation vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1198,7 +1198,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"C03 / EleG Anhörung PGV 16kV-Leitung ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1215,7 +1215,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"C04 / EleG Anhörung PGV 16kV-Leitung vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1232,7 +1232,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"C05 / EleG Anhörung PGV 50/110kV-Leitung ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1249,7 +1249,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"C06 / EleG Anhörung PGV 50/110kV-Leitung vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1266,7 +1266,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"C07 / EleG Anhörung PGV 220/380kV-Leitung ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1283,7 +1283,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"C08 / EleG Anhörung PGV 220/380kV-Leitung vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1300,7 +1300,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"C09 / EleG Anhörung PGV Niederspannung (BLN & LKB) ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1317,7 +1317,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"C10 / EleG Anhörung PGV Niederspannung (BLN & LKB) vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1334,7 +1334,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"C11 / EleG Anhörung PGV weitere Bauten und Anlagen im Energiesektor\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1351,7 +1351,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"D01 / EBG Anhörung PGV Eisenbahnen ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1368,7 +1368,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"D02 / EBG Anhörung PGV Eisenbahnen vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1385,7 +1385,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"E01 / MG Anhörung PGV ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1402,7 +1402,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"E02 / MG Anhörung PGV vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1419,7 +1419,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"F01 / RLG Anhörung PGV > 5bar- Leitung ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1436,7 +1436,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"F02 / RLG Anhörung PGV > 5bar- Leitung vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1453,7 +1453,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"F03 / RLG Anhörung PGV Druckreduzier- und Messstationen (DRS/DRM)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1470,7 +1470,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"F04 / RLG Anhörung PGV weitere Bauten und Anlagen der Gasversorgung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1487,7 +1487,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"G01 / RLG PGV 1- 5bar- Leitung ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-gas\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-gas\"\n&& info.case.root.form != \"plangenehmigungsverfahren-gas-v2\"\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1504,7 +1504,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"G02 / RLG PGV 1- 5bar- Leitung vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-gas\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-gas\"\n&& info.case.root.form != \"plangenehmigungsverfahren-gas-v2\"\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1521,7 +1521,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"G03 / RLG PGV Druckreduzier- und Messstationen (DRS/DRM)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-gas\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-gas\"\n&& info.case.root.form != \"plangenehmigungsverfahren-gas-v2\"\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1538,7 +1538,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"G04 / RLG PGV weitere Bauten und Anlagen der Gasversorgung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-gas\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-gas\"\n&& info.case.root.form != \"plangenehmigungsverfahren-gas-v2\"\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1555,7 +1555,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"H01 / LFG Anhörung PGV ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1572,7 +1572,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"H02 / LFG Anhörung PGV vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1589,7 +1589,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"I01 / NSG Anhörung PGV ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1606,7 +1606,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"I02 / NSG Anhörung PGV vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1623,7 +1623,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"K01 / KEG Anhörung PGV ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1640,7 +1640,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"K02 / KEG Anhörung PGV ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"\n&& !(\"-migration\" in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)\n&& !(\"-migration\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1763,7 +1763,7 @@
       "label": "{\"de\": \"Anlagentyp UVPV\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "!(info.case.root.form == \"baugesuch-mit-uvp\")",
+      "is_hidden": "!(info.case.root.form == \"baugesuch-mit-uvp\" || info.case.root.form == \"baugesuch-mit-uvp-v2\")",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -1799,7 +1799,7 @@
       "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-bund-v2\",\n\t\t\"plangenehmigungsverfahren-gas\",\n\t\t\"plangenehmigungsverfahren-gas-v2\"\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -1835,7 +1835,7 @@
       "label": "{\"de\": \"Fanden im Vorfeld Vorabklärungen statt?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -1866,7 +1866,7 @@
       "label": "{\"de\": \"Frist\", \"fr\": null, \"it\": null}",
       "type": "date",
       "is_required": "false",
-      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-bund-v2\",\n\t\t\"plangenehmigungsverfahren-gas\",\n\t\t\"plangenehmigungsverfahren-gas-v2\"\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -1964,7 +1964,7 @@
       "label": "{\"de\": \"Nachträgliches Baugesuch\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"anfrage\",\n\t\"anfrage-intern\",\n\t\"vorentscheid\"\n]",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\",\n\t\"anfrage\",\n\t\"anfrage-intern\",\n\t\"anfrage-intern-v2\",\n\t\"vorentscheid\",\n\t\"vorentscheid-v2\"\n]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -1995,7 +1995,7 @@
       "label": "{\"de\": \"Triage / Bemerkungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-bund-v2\",\n\t\"plangenehmigungsverfahren-gas\",\n\t\"plangenehmigungsverfahren-gas-v2\"\n]",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -2031,7 +2031,7 @@
       "label": "{\"de\": \"Verfahrensart\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-bund-v2\",\n\t\t\"plangenehmigungsverfahren-gas\",\n\t\t\"plangenehmigungsverfahren-gas-v2\"\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
