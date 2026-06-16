@@ -15,11 +15,8 @@ def _rpg2_work_items(case):
 
 
 @pytest.fixture
-def be_rpg2_services(db, service_factory):
-    return (
-        service_factory(slug="agr-bauen"),
-        service_factory(slug="agr-kantonsplanung"),
-    )
+def be_rpg2_service(db, service_factory):
+    return service_factory(slug="agr-bauen")
 
 
 @pytest.fixture
@@ -77,7 +74,7 @@ def test_is_rpg2_service_addressed(
 def test_created_on_inquiry_send_be(
     db,
     be_rpg2_settings,
-    be_rpg2_services,
+    be_rpg2_service,
     distribution_case_be,
     inquiry_factory_be,
     disable_ech0211_settings,
@@ -86,15 +83,13 @@ def test_created_on_inquiry_send_be(
     be_rpg2_settings.allowed_forms.append(
         get_unversioned_slug(distribution_case_be.document.form_id)
     )
-    agr_bauen, agr_kantonsplanung = be_rpg2_services
-    inquiry_factory_be(to_service=agr_bauen, sent=True)
+    inquiry_factory_be(to_service=be_rpg2_service, sent=True)
     work_items = _rpg2_work_items(case=distribution_case_be)
     assert work_items.count() == 1
     work_item = work_items.get()
     assert work_item.status == WorkItem.STATUS_READY
     assert set(work_item.addressed_groups) == {
-        str(agr_bauen.pk),
-        str(agr_kantonsplanung.pk),
+        str(be_rpg2_service.pk),
     }
     assert work_item.document
     assert work_item.document.form_id == "rpg2"
@@ -124,14 +119,13 @@ def test_not_created_for_drafted_inquiry_be(
     distribution_case_be,
     inquiry_factory_be,
     disable_ech0211_settings,
-    be_rpg2_services,
+    be_rpg2_service,
 ):
     # add the distribution_case's document form slug to the allowed_forms list
     be_rpg2_settings.allowed_forms.append(
         get_unversioned_slug(distribution_case_be.document.form_id)
     )
-    agr_bauen, agr_kantonsplanung = be_rpg2_services
-    inquiry_factory_be(to_service=agr_bauen, sent=False)
+    inquiry_factory_be(to_service=be_rpg2_service, sent=False)
     assert _rpg2_work_items(distribution_case_be).count() == 0
 
 
@@ -141,11 +135,10 @@ def test_not_created_when_disabled_be(
     distribution_case_be,
     inquiry_factory_be,
     disable_ech0211_settings,
-    be_rpg2_services,
+    be_rpg2_service,
 ):
     rpg2_settings.enabled = False
-    agr_bauen, agr_kantonsplanung = be_rpg2_services
-    inquiry_factory_be(to_service=agr_bauen, sent=True)
+    inquiry_factory_be(to_service=be_rpg2_service, sent=True)
     assert _rpg2_work_items(distribution_case_be).count() == 0
 
 
@@ -155,11 +148,10 @@ def test_not_created_when_allowed_forms_unset_be(
     distribution_case_be,
     inquiry_factory_be,
     disable_ech0211_settings,
-    be_rpg2_services,
+    be_rpg2_service,
 ):
     be_rpg2_settings.allowed_forms = []
-    agr_bauen, agr_kantonsplanung = be_rpg2_services
-    inquiry_factory_be(to_service=agr_bauen, sent=True)
+    inquiry_factory_be(to_service=be_rpg2_service, sent=True)
     assert _rpg2_work_items(distribution_case_be).count() == 0
 
 
@@ -170,21 +162,20 @@ def test_not_created_for_disallowed_forms_be(
     caluma_form_factory,
     inquiry_factory_be,
     disable_ech0211_settings,
-    be_rpg2_services,
+    be_rpg2_service,
 ):
-    caluma_form_factory(slug="vorabklaerung-vollstaendig-v6")
+    caluma_form_factory(slug="vorabklaerung-einfach-v5")
     Document.objects.filter(pk=distribution_case_be.document.pk).update(
-        form_id="vorabklaerung-vollstaendig-v6",
+        form_id="vorabklaerung-einfach-v5",
     )
-    agr_bauen, agr_kantonsplanung = be_rpg2_services
-    inquiry_factory_be(to_service=agr_bauen, sent=True)
+    inquiry_factory_be(to_service=be_rpg2_service, sent=True)
     assert _rpg2_work_items(distribution_case_be).count() == 0
 
 
 def test_work_item_creation_idempotent_be(
     db,
     be_rpg2_settings,
-    be_rpg2_services,
+    be_rpg2_service,
     distribution_case_be,
     inquiry_factory_be,
     disable_ech0211_settings,
@@ -193,9 +184,8 @@ def test_work_item_creation_idempotent_be(
     be_rpg2_settings.allowed_forms.append(
         get_unversioned_slug(distribution_case_be.document.form_id)
     )
-    agr_bauen, agr_kantonsplanung = be_rpg2_services
-    inquiry_factory_be(to_service=agr_bauen, sent=True)
-    inquiry_factory_be(to_service=agr_kantonsplanung, sent=True)
+    inquiry_factory_be(to_service=be_rpg2_service, sent=True)
+    inquiry_factory_be(to_service=be_rpg2_service, sent=True)
     work_items = _rpg2_work_items(case=distribution_case_be)
     assert work_items.count() == 1
 
