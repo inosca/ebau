@@ -1596,7 +1596,9 @@ def test_dynamic_task_after_submit_ag(
 def test_resolve_maybe_trigger_billing(
     db,
     ag_instance,
+    ag_distribution_settings,
     service_factory,
+    caluma_case_factory,
     caluma_work_item_factory,
     caluma_answer_factory,
     caluma_admin_user,
@@ -1611,11 +1613,13 @@ def test_resolve_maybe_trigger_billing(
 
     parent_work_item = caluma_work_item_factory(
         case=ag_instance.case,
+        task_id="inquiry",
         addressed_groups=addressed_groups,
+        child_case=caluma_case_factory(),
     )
 
     caluma_answer_factory(
-        document=parent_work_item.document,
+        document=parent_work_item.child_case.document,
         question_id="inquiry-answer-status",
         value=inquiry_answer,
     )
