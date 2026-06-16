@@ -114,6 +114,7 @@ DJANGO_ADMIN = {
             "work_items.WorkItemListFilterPreset",
             "deadlines.DeadlineType",
             "alert_message.AlertMessage",
+            "tags.InstanceMark",
         ],
     },
     "kt_sg": {
