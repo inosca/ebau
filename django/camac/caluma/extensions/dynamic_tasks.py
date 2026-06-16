@@ -365,19 +365,22 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_maybe_trigger_billing(self, case, user, prev_work_item, context):
         """Create "trigger billing" work item after AfB responded (Kt. AG)."""
 
+        # check for afb
         addressed_groups = prev_work_item.addressed_groups
         if str(Service.objects.get(slug="afb").pk) not in addressed_groups:
             return []
 
-        inquiry_answer = (
-            prev_work_item.document.answers.filter(question_id="inquiry-answer-status")
-            .values_list("value", flat=True)
-            .first()
-        )
-
-        if inquiry_answer == "inquiry-answer-status-not-involved":
+        # check if not involved
+        if (
+            prev_work_item.child_case
+            and prev_work_item.child_case.document.answers.filter(
+                question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
+                value=settings.DISTRIBUTION["ANSWERS"]["STATUS"]["NOT_INVOLVED"],
+            ).exists()
+        ):
             return []
 
+        # check if it doesn't already exist
         existing_work_item = case.family.work_items.filter(
             task_id="trigger-billing",
             status=WorkItem.STATUS_READY,
@@ -386,6 +389,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if existing_work_item.exists():
             return []
 
+        # create work item
         created_work_items = create_work_items(
             tasks=[Task.objects.get(pk="trigger-billing")],
             # the "trigger-billing" work item should be created in the main case
