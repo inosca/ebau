@@ -145,7 +145,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 16,
+      "sort": 17,
       "form_group": 1,
       "require_permission": "journal-read"
     }
@@ -161,7 +161,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 15,
+      "sort": 16,
       "form_group": 1,
       "require_permission": "history-read"
     }
@@ -177,7 +177,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 17,
+      "sort": 18,
       "form_group": 1,
       "require_permission": "permissions-read"
     }
@@ -340,6 +340,22 @@
       "sort": 6,
       "form_group": 1,
       "require_permission": "dms-generate-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 18,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/billing.phtml",
+      "class_field": "menu-category-analysis",
+      "hidden": 0,
+      "sort": 15,
+      "form_group": 1,
+      "require_permission": "billing-read"
     }
   },
   {
@@ -509,6 +525,16 @@
       "instance_resource": 17,
       "language": "de",
       "name": "Vorlagen",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 18,
+    "fields": {
+      "instance_resource": 18,
+      "language": "de",
+      "name": "Gebühren",
       "description": null
     }
   },

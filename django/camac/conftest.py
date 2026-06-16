@@ -2566,6 +2566,7 @@ def sg_master_data_case(
 
     form_utils.add_answer(document, "is-paper", "is-paper-no")
     form_utils.add_answer(document, "beschreibung-bauvorhaben", "Neues EFH")
+    form_utils.add_answer(document, "gesamtkosten", 1_234_567)
     form_utils.add_answer(document, "strasse-und-nr", "Lämmlisbrunnenstrasse 54")
     form_utils.add_table_answer(
         document,
@@ -2580,15 +2581,15 @@ def sg_master_data_case(
         ],
     )
     form_utils.add_table_answer(
-        document, "gesuchstellerin", [sg_personal_row_factory()]
+        document, "gesuchstellerin", [sg_personal_row_factory(seed=1)]
     )
     form_utils.add_table_answer(
-        document, "projektverfasserin", [sg_personal_row_factory(True)]
+        document, "projektverfasserin", [sg_personal_row_factory(True, seed=2)]
     )
     form_utils.add_table_answer(
         document,
         "grundeigentuemerin",
-        [sg_personal_row_factory(), sg_personal_row_factory(True)],
+        [sg_personal_row_factory(seed=3), sg_personal_row_factory(True, seed=4)],
     )
 
     # Municipality

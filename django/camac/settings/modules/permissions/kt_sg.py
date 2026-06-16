@@ -38,6 +38,7 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 # 3. Role rules
 # 4. Other
 MODULE_ADDITIONAL_DEMANDS = RequireWorkItem("init-additional-demand")
+MODULE_BILLING = STATES_ALL
 MODULE_COMMUNICATIONS = STATES_ALL
 MODULE_DECISION = (RequireWorkItem("decision") & ROLES_MUNICIPALITY) | RequireWorkItem(
     "decision", "completed"
@@ -121,6 +122,9 @@ SG_PERMISSIONS_SETTINGS = {
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
         ],
         "distribution-service": [
+            ("billing-read", MODULE_BILLING),
+            ("billing-write", MODULE_BILLING),
+            ("billing-charge", MODULE_BILLING),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
             ("decision-read", MODULE_DECISION),
@@ -144,6 +148,9 @@ SG_PERMISSIONS_SETTINGS = {
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
             ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
             ("applicant-confirmation-read", Static()),
+            ("billing-read", MODULE_BILLING),
+            ("billing-write", MODULE_BILLING),
+            ("billing-charge", MODULE_BILLING),
             ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),

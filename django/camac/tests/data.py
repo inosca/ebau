@@ -126,8 +126,54 @@ def ag_personal_row_factory(is_juristic: bool = False) -> dict:
     }
 
 
-def sg_personal_row_factory(is_juristic: bool = False) -> dict:
+def sg_personal_row_factory(
+    is_juristic: bool = False,
+    seed: int | None = None,
+) -> dict[str, str | int]:
+    """Build random data row for SG personal table answers (e.g. applicants).
+
+    The row is populated with faker-generated personal data and can be passed
+    directly to `form_utils.add_table_answer`.
+
+    Args:
+        is_juristic:
+            Whether the row represents a juristic person.
+
+            If `True`, `juristische-person` is set to `juristische-person-ja`
+            and `juristische-person-name` is filled with a company name.
+        seed:
+            Optional seed for the faker instance.
+
+            Faker shares a global random state, so any faker call earlier in a
+            test shifts the values produced here. Pass a seed to pin the
+            generated values independently of preceding faker usage and keep
+            snapshots stable.
+
+    Returns:
+        A mapping of column slugs to values for a single table row.
+
+    Examples:
+        Add a natural applicant to a document:
+            >>> form_utils.add_table_answer(
+            ...     document, "gesuchstellerin", [sg_personal_row_factory()]
+            ... )
+
+        Add a juristic landowner:
+            >>> form_utils.add_table_answer(
+            ...     document,
+            ...     "grundeigentuemerin",
+            ...     [sg_personal_row_factory(is_juristic=True)],
+            ... )
+
+        Produce a deterministic row regardless of preceding faker usage:
+            >>> sg_personal_row_factory(seed=1)["name"]
+            'Smith'
+    """
+
     fake = Faker()
+
+    if seed:
+        fake.seed_instance(seed)
 
     return {
         "name": fake.last_name(),
