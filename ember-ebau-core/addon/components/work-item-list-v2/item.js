@@ -50,7 +50,9 @@ export default class WorkItemListV2Item extends Component {
     }
 
     const now = DateTime.now();
-    const targetDeadline = DateTime.fromISO(this.args.row.targetDeadlineDate);
+    const targetDeadline = DateTime.fromISO(
+      this.args.row.targetDeadlineDate,
+    ).endOf("day");
 
     if (targetDeadline <= now) {
       return "uk-text-danger";
