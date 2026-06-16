@@ -229,15 +229,15 @@ msgstr "BEURTEILUNG"
 
 #: camac/instance/placeholders/fields.py
 msgid "NOTICES"
-msgstr ""
+msgstr "MELDUNGEN"
 
 #: camac/instance/placeholders/fields.py
 msgid "NOTICE_TYPE"
-msgstr ""
+msgstr "ART"
 
 #: camac/instance/placeholders/fields.py
 msgid "CONTENT"
-msgstr ""
+msgstr "INHALT"
 
 #: camac/instance/placeholders/fields.py
 msgid "CIRCULATION_STATUS"

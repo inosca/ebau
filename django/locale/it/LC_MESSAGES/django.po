@@ -1728,22 +1728,6 @@ msgid "TEST_BAT"
 msgstr ""
 
 #: camac/instance/tests/test_placeholders.py
-msgid "TEST_LIST_CATS"
-msgstr ""
-
-#: camac/instance/tests/test_placeholders.py
-msgid "TEST_LIST_BATS"
-msgstr ""
-
-#: camac/instance/tests/test_placeholders.py
-msgid "TEST_CAT_OBJECTS"
-msgstr ""
-
-#: camac/instance/tests/test_placeholders.py
-msgid "TEST_BAT_OBJECTS"
-msgstr ""
-
-#: camac/instance/tests/test_placeholders.py
 msgid "TEST_NEST"
 msgstr ""
 

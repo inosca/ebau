@@ -229,15 +229,15 @@ msgstr "AFFIRMATION"
 
 #: camac/instance/placeholders/fields.py
 msgid "NOTICES"
-msgstr ""
+msgstr "NOTICES"
 
 #: camac/instance/placeholders/fields.py
 msgid "NOTICE_TYPE"
-msgstr ""
+msgstr "TYPE"
 
 #: camac/instance/placeholders/fields.py
 msgid "CONTENT"
-msgstr ""
+msgstr "CONTENU"
 
 #: camac/instance/placeholders/fields.py
 msgid "CIRCULATION_STATUS"
