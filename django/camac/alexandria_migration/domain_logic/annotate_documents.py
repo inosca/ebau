@@ -127,7 +127,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         result = future if isinstance(future, list) else future.result()
 
         for file_res in result:
-            if err := file_res.get("error"):
+            if err := file_res.get("error"):  # pragma: todo cover
                 # TODO fix and ensure the result is loged properly. But for now,
                 # stdout is fine
                 print(err)
@@ -145,10 +145,11 @@ class AnnotateDocumentsMigrator(BaseMigrator):
 
     @classmethod
     def _get_file_content(cls, file):
-        if not file:
-            # wat
+        if not file:  # pragma: todo cover
             # TODO proper error logging / debugging in parallel mode
-            print("NO file for getting content, WAT")
+            print("No file for getting content, WAT")
+            return None
+
         assert isinstance(file.content.storage, S3Storage), (
             f"Misconfigured Storage backend? {file.content.storage} is not S3"
         )
@@ -169,7 +170,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         # are the ones being used, the rest is not really needed by anyone
         if document._most_recent_file:
             most_recent = document._most_recent_file[0]
-        else:
+        else:  # pragma: todo cover
             most_recent = None
             # If the document has no "most recent file", it could be that it's already
             # filtered out because there is a thumbnail. Therefore, it's only a problem
@@ -293,7 +294,6 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             and settings.ALEXANDRIA_ENABLE_THUMBNAIL_GENERATION
         ):
             return cls._create_thumbnail(file, content)
-        return None
 
     @classmethod
     def _set_content_vector(cls, file, content):

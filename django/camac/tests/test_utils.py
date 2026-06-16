@@ -7,7 +7,10 @@ import pyexcel
 import pytest
 from django.db.utils import OperationalError
 from django.urls import reverse
+from pytest_lazy_fixtures import lf
+from sorl.thumbnail import get_thumbnail
 
+from camac.document.tests.data import django_file
 from camac.response import make_xlsx_response
 from camac.settings.ebau_schema import ModuleApplicationConfig
 from camac.settings.utils import is_module_config_enabled
@@ -315,3 +318,39 @@ def test_excel_response(base_table, value, expected_output):
     result_sheet = pyexcel.get_sheet(file_content=content, file_type="xlsx")
 
     assert result_sheet.array == expected_result
+
+
+@pytest.fixture
+def reset_sorl_config():
+    from sorl.thumbnail import default
+
+    def do_reset():
+        # reconfigure the kv store (to reset caches) and storage (so the
+        # new storage is actually used)
+        default.kvstore = default.KVStore()
+        default.storage = default.Storage()
+
+    do_reset()
+    try:
+        yield do_reset
+    finally:
+        do_reset()
+
+
+@pytest.mark.parametrize(
+    "storage, expect_result",
+    [
+        (None, lambda thumb: thumb.storage.file_permissions_mode == 420),
+        (lf("django_s3_mock"), lambda thumb: thumb.storage.url("asdf")),
+    ],
+)
+@pytest.mark.django_db
+def test_sorl_storage_config(settings, reset_sorl_config, storage, expect_result):
+    path = django_file("multiple-pages.pdf")
+
+    thumb = get_thumbnail(path, "x200")
+
+    assert thumb
+
+    # the expect_result callback should run without error
+    assert expect_result(thumb)
