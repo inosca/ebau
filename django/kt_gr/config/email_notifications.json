@@ -980,7 +980,7 @@
       "language": "de",
       "purpose": "Leseberechtigung erteilt",
       "subject": "Leseberechtigung in Dossier (Nr. {{ DOSSIER_NR }}) / autorizzazione alla lettura del dossier (Nr. {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nSie haben die Leseberechtigung auf das Dossier-Nr. {{DOSSIER_NR}} {{FORM_NAME_DE}} erhalten. Das Dossier ist{{READ_PERMISSION_END_DATE}}einsehbar unter folgendem Link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno\r\n\r\nAvete ricevuto l'autorizzazione alla lettura del dossier no. {{DOSSIER_NR}} {{FORM_NAME_DE}}. Il dossier può essere visionato al seguente link: \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n\r\n{{LEITBEHOERDE_NAME_IT}}"
+      "body": "Guten Tag\r\n\r\nSie haben die Leseberechtigung auf das Dossier-Nr. {{DOSSIER_NR}} {{FORM_NAME_DE}} erhalten. Das Dossier ist{{READ_PERMISSION_END_DATE_DE}}einsehbar unter folgendem Link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno\r\n\r\nAvete ricevuto l'autorizzazione alla lettura del dossier no. {{DOSSIER_NR}} {{FORM_NAME_IT}}. Il dossier è visionabile{{READ_PERMISSION_END_DATE_IT}}al seguente link: \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n\r\n{{LEITBEHOERDE_NAME_IT}}"
     }
   }
 ]

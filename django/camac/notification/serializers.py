@@ -263,7 +263,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     schlussabnahme_uhrzeit = serializers.SerializerMethodField()
     schlussabnahme_datum = serializers.SerializerMethodField()
     notes = serializers.SerializerMethodField()
-    read_permission_end_date = serializers.SerializerMethodField()
+    read_permission_end_date_de = serializers.SerializerMethodField()
+    read_permission_end_date_it = serializers.SerializerMethodField()
 
     vorhaben = serializers.SerializerMethodField()
     parzelle = serializers.SerializerMethodField()
@@ -1090,11 +1091,19 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return ""
 
-    def get_read_permission_end_date(self, instance):
+    def get_read_permission_end_date_de(self, instance):
         acl = self.context.get("acl")
 
         if acl and acl.end_time:
             return f" bis am {self.format_date(acl.end_time)} "
+
+        return " "
+
+    def get_read_permission_end_date_it(self, instance):
+        acl = self.context.get("acl")
+
+        if acl and acl.end_time:
+            return f" fino al {self.format_date(acl.end_time)} "
 
         return " "
 
