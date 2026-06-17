@@ -140,7 +140,7 @@
     "pk": "aussenflaechen-angaben-zum-abbruchobjekt",
     "fields": {
       "created_at": "2026-05-06T16:03:11.277Z",
-      "modified_at": "2026-05-18T08:17:34.053Z",
+      "modified_at": "2026-06-03T07:27:32.525Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -4037,7 +4037,22 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "abzubrechende-flaeche-m",
-      "sort": 10
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.abzubrechende-plaetze",
+    "fields": {
+      "created_at": "2026-06-03T07:44:32.806Z",
+      "modified_at": "2026-06-03T07:44:32.806Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "abzubrechende-plaetze",
+      "sort": 11
     }
   },
   {
@@ -4052,7 +4067,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "abzubrechende-stuetzmauer",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -4067,22 +4082,22 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "beschreibung-aussenflaeche",
-      "sort": 11
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.bezeichnungnutzung-abzubrechende-anlage",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.bezeichnung-abzubrechende-anlage",
     "fields": {
-      "created_at": "2026-05-06T16:07:36.114Z",
-      "modified_at": "2026-05-06T16:07:36.114Z",
-      "created_by_user": "admin",
+      "created_at": "2026-06-03T08:18:34.927Z",
+      "modified_at": "2026-06-03T08:18:34.927Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
-      "question": "bezeichnungnutzung-abzubrechende-anlage",
-      "sort": 12
+      "question": "bezeichnung-abzubrechende-anlage",
+      "sort": 13
     }
   },
   {
@@ -4097,22 +4112,22 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "breite-m",
-      "sort": 6
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.davon-wird-rekultiviert-m",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.davon-wird-rekultiviert-umgebung",
     "fields": {
-      "created_at": "2026-05-06T16:08:52.617Z",
-      "modified_at": "2026-05-06T16:08:52.617Z",
-      "created_by_user": "admin",
+      "created_at": "2026-06-03T07:27:09.957Z",
+      "modified_at": "2026-06-03T07:27:09.957Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
-      "question": "davon-wird-rekultiviert-m",
-      "sort": 9
+      "question": "davon-wird-rekultiviert-umgebung",
+      "sort": 8
     }
   },
   {
@@ -4127,7 +4142,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "hoehe-m",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -4142,7 +4157,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "laenge-m",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -4157,7 +4172,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "material-stuetzmauer",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -4187,7 +4202,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "parcel-number",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -4202,7 +4217,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "wie-zugaenglich",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -4217,7 +4232,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "zugehoeriges-gebaeude",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -6907,6 +6922,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.bauten-mit-offertpflicht",
+    "fields": {
+      "created_at": "2026-06-03T11:51:56.258Z",
+      "modified_at": "2026-06-03T11:51:56.258Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "bauten-mit-offertpflicht",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "gebaeude-angaben-zum-abbruchobjekt.bauweise",
     "fields": {
       "created_at": "2026-05-06T15:59:22.893Z",
@@ -6932,7 +6962,7 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "beschreibung-abbruch",
-      "sort": 10
+      "sort": 1
     }
   },
   {
@@ -6977,7 +7007,7 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "egid",
-      "sort": 12
+      "sort": 11
     }
   },
   {
@@ -7067,7 +7097,7 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "parcel-number",
-      "sort": 13
+      "sort": 12
     }
   },
   {
@@ -7082,7 +7112,7 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "typ-der-baute",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -22328,6 +22358,108 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bezeichnung-abzubrechende-anlage-andere",
+    "fields": {
+      "created_at": "2026-06-03T08:20:20.283Z",
+      "modified_at": "2026-06-03T08:20:20.283Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bezeichnung-abzubrechende-anlage-anlage-belag",
+    "fields": {
+      "created_at": "2026-06-03T08:18:34.712Z",
+      "modified_at": "2026-06-03T08:18:34.712Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strassen, Vor- und Lagerplätze - Belag\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bezeichnung-abzubrechende-anlage-anlage-beton",
+    "fields": {
+      "created_at": "2026-06-03T08:18:34.725Z",
+      "modified_at": "2026-06-03T08:18:34.725Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strassen, Vor- und Lagerplätze - Beton\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bezeichnung-abzubrechende-anlage-anlage-verbundsteine",
+    "fields": {
+      "created_at": "2026-06-03T08:20:20.231Z",
+      "modified_at": "2026-06-03T08:20:20.231Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strassen, Vor- und Lagerplätze - Betonverbundsteine\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bezeichnung-abzubrechende-anlage-beton",
+    "fields": {
+      "created_at": "2026-06-03T08:17:31.341Z",
+      "modified_at": "2026-06-03T08:17:31.342Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strassen, Vor- und Lagerplätze - Beton\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bezeichnung-abzubrechende-anlage-stuetzmauern",
+    "fields": {
+      "created_at": "2026-06-03T08:17:31.321Z",
+      "modified_at": "2026-06-03T08:18:34.740Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stützmauern\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bezeichnungnutzung-abzubrechende-anlage-andere",
     "fields": {
       "created_at": "2026-05-06T16:07:35.931Z",
@@ -34452,14 +34584,14 @@
     "pk": "typ-der-baute-betoniert",
     "fields": {
       "created_at": "2026-05-06T15:51:19.205Z",
-      "modified_at": "2026-05-07T13:25:19.231Z",
+      "modified_at": "2026-06-03T11:20:27.400Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Massive (z.B. betonierte) Tiefbauten (z.B. Güllegruben, Löschwasser- und Rückhaltebecken, Swimmingpools, usw.)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -34486,12 +34618,46 @@
     "pk": "typ-der-baute-fabrikhallen",
     "fields": {
       "created_at": "2026-05-06T15:51:19.199Z",
-      "modified_at": "2026-05-07T13:25:19.223Z",
+      "modified_at": "2026-06-03T11:20:27.413Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Gebäude für industrielle, handwerkliche oder landwirtschaftliche Zwecke (z.B. Fabrikhallen, Werkstätten, Viehställe, usw.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-folientunnel",
+    "fields": {
+      "created_at": "2026-06-03T11:20:12.896Z",
+      "modified_at": "2026-06-03T11:20:27.579Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Folientunnel\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-garage-remise",
+    "fields": {
+      "created_at": "2026-06-03T11:20:12.875Z",
+      "modified_at": "2026-06-03T11:20:27.571Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Garage, Remise\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -34503,14 +34669,14 @@
     "pk": "typ-der-baute-gastronomie",
     "fields": {
       "created_at": "2026-05-06T15:51:19.195Z",
-      "modified_at": "2026-05-07T13:25:19.239Z",
+      "modified_at": "2026-06-03T11:20:27.409Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Gebäude für den Aufenthalt oder die Unterbringung von Personen (z. B. Wohnhaus, Beherbergungsbetrieb, Gastronomie, Schule, usw.)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -34534,17 +34700,51 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "typ-der-baute-guellegruben-loeschwasserweiher-swimmingpool",
+    "fields": {
+      "created_at": "2026-06-03T11:20:12.929Z",
+      "modified_at": "2026-06-03T11:20:27.636Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Güllegruben, Löschwasserweiher, Swimmingpool\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-huehnerhalle-schweinestall",
+    "fields": {
+      "created_at": "2026-06-03T11:20:12.740Z",
+      "modified_at": "2026-06-03T11:20:27.562Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hühnerhalle, Schweinestall\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "typ-der-baute-leichtbauten",
     "fields": {
       "created_at": "2026-05-06T15:51:19.200Z",
-      "modified_at": "2026-05-06T15:51:19.200Z",
+      "modified_at": "2026-06-03T11:20:27.378Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Leichtbauten (Lager-/Zwischenlagergebäude, Schuppen, Scheunen, Remisen, Depots, Silos, Treibhäuser, Garagen, usw.)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -34560,6 +34760,159 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Leichtbauten (Lager-/Zwischenlagergebäude, Schuppen, Scheunen, Remisen, Depots, Silos, Treibhäuser, Garagen, usw.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-oekonomiegebaeude-angebaut",
+    "fields": {
+      "created_at": "2026-06-03T11:20:12.821Z",
+      "modified_at": "2026-06-03T11:20:27.533Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ökonomiegebäude angebaut\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-oekonomiegebaeude-freistehend",
+    "fields": {
+      "created_at": "2026-06-03T11:16:56.662Z",
+      "modified_at": "2026-06-03T11:20:27.459Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ökonomiegebäude freistehend\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-oekonomiegebaeude-mit-wohnraeumen",
+    "fields": {
+      "created_at": "2026-06-03T11:16:56.644Z",
+      "modified_at": "2026-06-03T11:20:27.398Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ökonomiegebäude mit Wohnräumen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-schopf-einstellraum",
+    "fields": {
+      "created_at": "2026-06-03T11:20:12.888Z",
+      "modified_at": "2026-06-03T11:20:27.545Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schopf, Einstellraum\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-silobauten-beton",
+    "fields": {
+      "created_at": "2026-06-03T11:20:12.914Z",
+      "modified_at": "2026-06-03T11:20:27.605Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Silobauten Beton\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-silobauten-kunststoff-metall",
+    "fields": {
+      "created_at": "2026-06-03T11:20:12.923Z",
+      "modified_at": "2026-06-03T11:20:27.612Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Silobauten Kunststoff / Metall\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-treibhaus-rundbogenhalle",
+    "fields": {
+      "created_at": "2026-06-03T11:20:12.719Z",
+      "modified_at": "2026-06-03T11:20:27.561Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Treibhaus, Rundbogenhalle\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-wohnhaus-freistehend",
+    "fields": {
+      "created_at": "2026-06-03T11:16:56.669Z",
+      "modified_at": "2026-06-03T11:20:27.408Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohnhaus freistehend\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-wohnhaus-mit-oekonomieteil",
+    "fields": {
+      "created_at": "2026-06-03T11:16:56.655Z",
+      "modified_at": "2026-06-03T11:20:27.455Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohnhaus mit Ökonomieteil\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -37580,12 +37933,12 @@
     "pk": "wie-zugaenglich-fussweg",
     "fields": {
       "created_at": "2026-05-18T08:13:58.142Z",
-      "modified_at": "2026-05-19T05:28:07.753Z",
+      "modified_at": "2026-06-03T06:50:56.289Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Fussweg (Kategorie 1)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Fussweg\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -37597,12 +37950,12 @@
     "pk": "wie-zugaenglich-lastwagenbefahrbar",
     "fields": {
       "created_at": "2026-05-18T08:13:58.136Z",
-      "modified_at": "2026-05-19T05:28:07.741Z",
+      "modified_at": "2026-06-03T06:50:56.141Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Lastwagenbefahrbar (Kategorie 4)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Lastwagenbefahrbar\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -37631,12 +37984,12 @@
     "pk": "wie-zugaenglich-seilbahn",
     "fields": {
       "created_at": "2026-05-18T08:24:57.809Z",
-      "modified_at": "2026-05-19T05:28:08.103Z",
+      "modified_at": "2026-06-03T06:50:56.317Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Personen- und Materialseilbahn (Kategorie 2)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Personen- und Materialseilbahn\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -37648,12 +38001,12 @@
     "pk": "wie-zugaenglich-transporter",
     "fields": {
       "created_at": "2026-05-18T08:13:58.125Z",
-      "modified_at": "2026-05-19T05:28:07.793Z",
+      "modified_at": "2026-06-03T06:50:56.208Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Befahrbar mit Personenwagen und landwirtschaftlichen Transportern (Kategorie 3)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Befahrbar mit Personenwagen oder landwirtschaftlichen Transportern\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -38885,19 +39238,19 @@
     "pk": "abzubrechende-flaeche-m",
     "fields": {
       "created_at": "2026-05-06T16:08:37.144Z",
-      "modified_at": "2026-05-06T16:08:37.144Z",
+      "modified_at": "2026-06-03T08:42:50.696Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Abzubrechende Fläche (m²)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!( [ \"bezeichnung-abzubrechende-anlage-anlage-beton\", \"bezeichnung-abzubrechende-anlage-anlage-belag\", \"bezeichnung-abzubrechende-anlage-anlage-verbundsteine\", \"bezeichnung-abzubrechende-anlage-andere\"] intersects (\"bezeichnung-abzubrechende-anlage\"|answer || []) )",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -38916,18 +39269,49 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "abzubrechende-plaetze",
+    "fields": {
+      "created_at": "2026-06-03T07:44:32.713Z",
+      "modified_at": "2026-06-03T12:33:15.605Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"abzubrechende-plaetze\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!( [ \"bezeichnung-abzubrechende-anlage-anlage-beton\", \"bezeichnung-abzubrechende-anlage-anlage-belag\", \"bezeichnung-abzubrechende-anlage-anlage-verbundsteine\", \"bezeichnung-abzubrechende-anlage-andere\"] intersects (\"bezeichnung-abzubrechende-anlage\"|answer || []) )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"###Abzubrechende Vor- und Lagerplätze\\n*Falls Oberflächenbefestigungen mit unterschiedlichen Materialien zurückgebaut  werden, erfassen Sie diese bitte einzeln.*\\n\\n*Beim Abbruch von  Sonderanlagen wie Mastenkonstruktionen, Kugelfänge von Schiessanlagen, Fussballplätze, Wasserreservoire, Brunnenstuben usw. ist dem Gesuch zwingend  eine Abbruchofferte beilzulegen.*\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "abzubrechende-stuetzmauer",
     "fields": {
       "created_at": "2026-05-06T16:09:10.763Z",
-      "modified_at": "2026-05-06T16:14:33.782Z",
+      "modified_at": "2026-06-03T08:30:04.852Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Abzubrechende Stützmauer\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!( [ \"bezeichnung-abzubrechende-anlage-stuetzmauern\"] intersects (\"bezeichnung-abzubrechende-anlage\"|answer || []) )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -40466,7 +40850,7 @@
     "pk": "angaben-zu-gebaeuden-und-aussenflaechen",
     "fields": {
       "created_at": "2026-05-13T05:26:05.007Z",
-      "modified_at": "2026-05-13T06:16:04.078Z",
+      "modified_at": "2026-06-03T11:50:23.651Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -43024,10 +43408,10 @@
     "pk": "aussenflaechen-und-anlagen",
     "fields": {
       "created_at": "2026-05-06T16:11:42.466Z",
-      "modified_at": "2026-05-06T16:11:42.466Z",
+      "modified_at": "2026-06-03T09:32:19.617Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Aussenflächen und Anlagen\", \"fr\": null, \"it\": null}",
       "type": "table",
@@ -43035,11 +43419,18 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "bezeichnung-abzubrechende-anlage",
+          "davon-wird-rekultiviert-umgebung",
+          "abzubrechende-flaeche-m",
+          "zugehoeriges-gebaeude"
+        ]
+      },
       "data_source": null,
       "row_form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "sub_form": null,
@@ -43711,6 +44102,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bauten-mit-offertpflicht",
+    "fields": {
+      "created_at": "2026-06-03T11:51:56.174Z",
+      "modified_at": "2026-06-17T06:22:10.791Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauten mit Offertpflicht\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Hinweis: Bauten mit Offertenpflicht\\n\\n*Beim Abbruch von Sonderbauten wie Trafostationen, Freizeitbauten, Industrie- und Gewerbebauten, Schulhäuser, Bergrestaurants, Bergbahnstationen, Feuerwehrmagazinen usw. ist dem Gesuch zwingend eine Abbruchofferte beizulegen.*\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bauverwaltung-meldung-bau-beendet-an-geometer",
     "fields": {
       "created_at": "2024-11-20T12:03:19.238Z",
@@ -43782,14 +44204,14 @@
     "pk": "bauweise",
     "fields": {
       "created_at": "2026-05-06T15:59:22.792Z",
-      "modified_at": "2026-05-07T12:49:40.933Z",
+      "modified_at": "2026-06-03T06:47:40.927Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Bauweise\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -45705,19 +46127,19 @@
     "pk": "beschreibung-abbruch",
     "fields": {
       "created_at": "2026-05-06T15:52:56.590Z",
-      "modified_at": "2026-05-06T15:52:56.590Z",
+      "modified_at": "2026-06-03T06:46:09.145Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"typ-der-baute\"|answer == \"typ-der-baute-andere\")",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -45875,15 +46297,15 @@
     "pk": "beschreibung-aussenflaeche",
     "fields": {
       "created_at": "2026-05-06T16:08:04.830Z",
-      "modified_at": "2026-05-06T16:08:25.376Z",
+      "modified_at": "2026-06-03T08:40:15.696Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "false",
-      "is_hidden": "!(\"bezeichnungnutzung-abzubrechende-anlage\"|answer == \"bezeichnungnutzung-abzubrechende-anlage-andere\")",
+      "is_required": "true",
+      "is_hidden": "!( [ \"bezeichnung-abzubrechende-anlage-anlage-beton\", \"bezeichnung-abzubrechende-anlage-anlage-belag\", \"bezeichnung-abzubrechende-anlage-anlage-verbundsteine\", \"bezeichnung-abzubrechende-anlage-andere\"] intersects (\"bezeichnung-abzubrechende-anlage\"|answer || []) )",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -47682,6 +48104,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bezeichnung-abzubrechende-anlage",
+    "fields": {
+      "created_at": "2026-06-03T08:18:34.822Z",
+      "modified_at": "2026-06-03T08:20:20.396Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bezeichnung / Nutzung abzubrechende Anlage\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bezeichnung-dazugehoeriges-gebaeude",
     "fields": {
       "created_at": "2021-11-24T12:34:22.189Z",
@@ -47719,19 +48172,19 @@
     "pk": "bezeichnungnutzung-abzubrechende-anlage",
     "fields": {
       "created_at": "2026-05-06T16:07:36.018Z",
-      "modified_at": "2026-05-06T16:07:36.018Z",
+      "modified_at": "2026-06-03T06:52:33.867Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Bezeichnung/Nutzung abzubrechende Anlage\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -48227,19 +48680,19 @@
     "pk": "breite-m",
     "fields": {
       "created_at": "2026-05-06T16:09:45.652Z",
-      "modified_at": "2026-05-06T16:09:45.652Z",
+      "modified_at": "2026-06-03T08:33:55.818Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Breite (m)\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!( [ \"bezeichnung-abzubrechende-anlage-stuetzmauern\"] intersects (\"bezeichnung-abzubrechende-anlage\"|answer || []) )",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -49517,19 +49970,19 @@
     "pk": "davon-unterirdisch-m",
     "fields": {
       "created_at": "2026-05-06T15:58:29.702Z",
-      "modified_at": "2026-05-06T15:58:29.702Z",
+      "modified_at": "2026-06-03T06:47:17.199Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"davon unterirdisch (m³)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -49551,23 +50004,57 @@
     "pk": "davon-wird-rekultiviert-m",
     "fields": {
       "created_at": "2026-05-06T15:58:07.944Z",
-      "modified_at": "2026-05-06T15:58:07.944Z",
+      "modified_at": "2026-06-03T07:22:40.143Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"davon wird rekultiviert (m²)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
         "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "davon-wird-rekultiviert-umgebung",
+    "fields": {
+      "created_at": "2026-06-03T07:27:09.879Z",
+      "modified_at": "2026-06-03T08:43:01.274Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Davon wird rekultiviert\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!( [ \"bezeichnung-abzubrechende-anlage-anlage-beton\", \"bezeichnung-abzubrechende-anlage-anlage-belag\", \"bezeichnung-abzubrechende-anlage-anlage-verbundsteine\", \"bezeichnung-abzubrechende-anlage-andere\"] intersects (\"bezeichnung-abzubrechende-anlage\"|answer || []) )",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -51755,10 +52242,10 @@
     "pk": "erstellungsjahr",
     "fields": {
       "created_at": "2026-05-13T07:28:16.868Z",
-      "modified_at": "2026-05-13T07:34:49.930Z",
+      "modified_at": "2026-06-17T07:30:27.914Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Erstellungsjahr\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -51768,7 +52255,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Bitte beachten Sie, dass der Anspruch auf eine Abbruchprämie nur für rechtmässig erstellte Bauten und Anlagen geltend gemacht werden kann. Bei Abbruchobjekten die nach 1972 erstellt wurden, sind die damaligen Bewilligungsdokumente bei den Dokumenten hochzuladen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Bitte beachten Sie, dass der Anspruch auf eine Abbruchprämie nur für rechtmässig erstellte Bauten und Anlagen ausserhalb der Bauzone geltend gemacht werden kann. Bei Abbruchobjekten die nach 1972 erstellt wurden, sind die damaligen Bewilligungsdokumente bei den Dokumenten hochzuladen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -51786,7 +52273,7 @@
     "pk": "erstellungsjahr-und-bewilligungsdokumente",
     "fields": {
       "created_at": "2026-05-13T06:57:44.252Z",
-      "modified_at": "2026-05-13T07:08:11.702Z",
+      "modified_at": "2026-06-03T12:36:14.380Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -51799,7 +52286,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"*Bitte laden Sie die  Bewilligungsdokumente hoch*\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"*Bitte laden Sie die damaligen Bewilligungsdokumente hoch*\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -53474,10 +53961,10 @@
     "pk": "gebaeude-angaben-zum-abbruchobjekt",
     "fields": {
       "created_at": "2026-05-06T16:02:24.531Z",
-      "modified_at": "2026-05-06T16:12:41.287Z",
+      "modified_at": "2026-06-03T09:31:24.940Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Gebäude\", \"fr\": null, \"it\": null}",
       "type": "table",
@@ -53489,7 +53976,16 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "gebaeudeflaeche-m",
+          "davon-wird-rekultiviert-m",
+          "gebaeudevolumen-m",
+          "davon-unterirdisch-m",
+          "gebaeude-bezeichnung",
+          "typ-der-baute"
+        ]
+      },
       "data_source": null,
       "row_form": "gebaeude-angaben-zum-abbruchobjekt",
       "sub_form": null,
@@ -53570,19 +54066,19 @@
     "pk": "gebaeude-bezeichnung",
     "fields": {
       "created_at": "2026-05-06T15:41:42.251Z",
-      "modified_at": "2026-05-06T15:41:42.251Z",
+      "modified_at": "2026-06-03T09:10:16.520Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Gebäude / Bezeichnung\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": \"z.B. MFH A\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"z.B. Stall Ried\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -53635,14 +54131,14 @@
     "pk": "gebaeudeflaeche-m",
     "fields": {
       "created_at": "2026-05-06T15:57:52.043Z",
-      "modified_at": "2026-05-07T12:01:37.166Z",
+      "modified_at": "2026-06-03T06:45:46.962Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Gebäudegrundfläche (m²)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -53934,19 +54430,19 @@
     "pk": "gebaeudevolumen-m",
     "fields": {
       "created_at": "2026-05-06T15:58:19.256Z",
-      "modified_at": "2026-05-06T15:58:19.256Z",
+      "modified_at": "2026-06-03T06:46:22.573Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Gebäudevolumen (m³)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -54630,10 +55126,10 @@
     "pk": "gesetzliche-grundlage",
     "fields": {
       "created_at": "2026-05-13T06:14:14.753Z",
-      "modified_at": "2026-05-13T06:24:27.091Z",
+      "modified_at": "2026-06-17T07:29:51.567Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Gesetzliche Grundlage\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -54692,15 +55188,15 @@
     "pk": "gesuch-abbruchpraemie",
     "fields": {
       "created_at": "2026-05-08T06:28:09.073Z",
-      "modified_at": "2026-05-08T06:33:17.821Z",
+      "modified_at": "2026-06-17T07:28:58.744Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Beabsichtigen Sie, für den Abbruch ein Gesuch um Ausrichtung einer Abbruchprämie einzureichen?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\n  \"proposal-abbruch-rueckbau\" in \"proposal\"|answer\n)",
+      "is_hidden": "!([\"Landwirtschaftszone\", \"Wald\",\"Speziallandwirtschaftszone\", \"Rebbauzone\", \"Naturschutzzone lokal\", \"Gewaesserraumzone\", \"Freihaltezone ausserhalb Bauzonen\", \"Gewaesser\",\"Weilerzone\", \"Verkehrsflaeche ausserhalb Bauzonen\", \"Reservezone\", \"Reservezone, unproduktiv\", \"Deponiezone\", \"Abbauzone\", \"Abbau- und Deponiezone\", \"Zone fuer Sport- und Freizeitanlagen Golf\"] intersects \"grundnutzung\"|answer && \"proposal-abbruch-rueckbau\" in \"proposal\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -55630,7 +56126,7 @@
     "pk": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht",
     "fields": {
       "created_at": "2026-05-06T15:33:20.044Z",
-      "modified_at": "2026-05-12T12:44:48.867Z",
+      "modified_at": "2026-06-03T09:07:08.214Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -57497,19 +57993,19 @@
     "pk": "hoehe-m",
     "fields": {
       "created_at": "2026-05-06T16:09:54.532Z",
-      "modified_at": "2026-05-06T16:09:54.532Z",
+      "modified_at": "2026-06-03T08:34:05.411Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Höhe (m)\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!( [ \"bezeichnung-abzubrechende-anlage-stuetzmauern\"] intersects (\"bezeichnung-abzubrechende-anlage\"|answer || []) )",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -59246,19 +59742,19 @@
     "pk": "laenge-m",
     "fields": {
       "created_at": "2026-05-06T16:09:35.314Z",
-      "modified_at": "2026-05-06T16:09:35.314Z",
+      "modified_at": "2026-06-03T08:33:46.987Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Länge (m)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!( [ \"bezeichnung-abzubrechende-anlage-stuetzmauern\"] intersects (\"bezeichnung-abzubrechende-anlage\"|answer || []) )",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -60820,19 +61316,19 @@
     "pk": "material-stuetzmauer",
     "fields": {
       "created_at": "2026-05-06T16:10:35.532Z",
-      "modified_at": "2026-05-06T16:10:35.532Z",
+      "modified_at": "2026-06-03T08:34:12.766Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Material\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "false",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!( [ \"bezeichnung-abzubrechende-anlage-stuetzmauern\"] intersects (\"bezeichnung-abzubrechende-anlage\"|answer || []) )",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -62859,19 +63355,19 @@
     "pk": "parcel-number",
     "fields": {
       "created_at": "2020-09-01T15:00:10.157Z",
-      "modified_at": "2020-09-01T15:00:10.157Z",
+      "modified_at": "2026-06-03T06:52:24.595Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Parzellennummer\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -64138,10 +64634,10 @@
     "pk": "publikation-publikationsende",
     "fields": {
       "created_at": "2026-04-10T09:03:14.220Z",
-      "modified_at": "2026-04-10T09:03:14.220Z",
+      "modified_at": "2026-06-10T09:13:35.821Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Publikationsende\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -64149,8 +64645,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -64495,14 +64991,14 @@
     "pk": "rechtmassig-bestehenden-bauten",
     "fields": {
       "created_at": "2026-05-13T06:55:13.179Z",
-      "modified_at": "2026-05-13T07:30:25.579Z",
+      "modified_at": "2026-06-03T06:43:53.282Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Wurde das Gebäude vor 1972 erstellt?\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -68963,14 +69459,14 @@
     "pk": "typ-der-baute",
     "fields": {
       "created_at": "2026-05-06T15:51:19.259Z",
-      "modified_at": "2026-05-07T13:25:19.369Z",
+      "modified_at": "2026-06-17T05:42:57.075Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Typ der Baute\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -71499,14 +71995,14 @@
     "pk": "wie-zugaenglich",
     "fields": {
       "created_at": "2026-05-18T08:13:58.260Z",
-      "modified_at": "2026-05-19T05:29:44.442Z",
+      "modified_at": "2026-06-03T06:50:56.422Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Wie ist das Gebäude bzw. die abzubrechende Anlage zugänglich?\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -75752,8 +76248,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauweise.bauweise-leicht",
     "fields": {
-      "created_at": "2026-05-07T12:49:40.955Z",
-      "modified_at": "2026-05-07T12:49:40.955Z",
+      "created_at": "2026-06-03T06:47:40.951Z",
+      "modified_at": "2026-06-03T06:47:40.951Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -75767,8 +76263,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauweise.bauweise-leicht-massiv",
     "fields": {
-      "created_at": "2026-05-07T12:49:40.952Z",
-      "modified_at": "2026-05-07T12:49:40.952Z",
+      "created_at": "2026-06-03T06:47:40.948Z",
+      "modified_at": "2026-06-03T06:47:40.948Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -75782,8 +76278,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauweise.bauweise-massiv",
     "fields": {
-      "created_at": "2026-05-07T12:49:40.949Z",
-      "modified_at": "2026-05-07T12:49:40.949Z",
+      "created_at": "2026-06-03T06:47:40.944Z",
+      "modified_at": "2026-06-03T06:47:40.944Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -75797,8 +76293,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauweise.bauweise-massiv-stahlbau",
     "fields": {
-      "created_at": "2026-05-07T12:49:40.945Z",
-      "modified_at": "2026-05-07T12:49:40.945Z",
+      "created_at": "2026-06-03T06:47:40.941Z",
+      "modified_at": "2026-06-03T06:47:40.941Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -75812,8 +76308,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauweise.bauweise-stahlbau",
     "fields": {
-      "created_at": "2026-05-07T12:49:40.940Z",
-      "modified_at": "2026-05-07T12:49:40.940Z",
+      "created_at": "2026-06-03T06:47:40.935Z",
+      "modified_at": "2026-06-03T06:47:40.935Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -76905,13 +77401,88 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "bezeichnung-abzubrechende-anlage.bezeichnung-abzubrechende-anlage-andere",
+    "fields": {
+      "created_at": "2026-06-03T08:20:20.405Z",
+      "modified_at": "2026-06-03T08:20:20.405Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bezeichnung-abzubrechende-anlage",
+      "option": "bezeichnung-abzubrechende-anlage-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bezeichnung-abzubrechende-anlage.bezeichnung-abzubrechende-anlage-anlage-belag",
+    "fields": {
+      "created_at": "2026-06-03T08:20:20.413Z",
+      "modified_at": "2026-06-03T08:20:20.413Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bezeichnung-abzubrechende-anlage",
+      "option": "bezeichnung-abzubrechende-anlage-anlage-belag",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bezeichnung-abzubrechende-anlage.bezeichnung-abzubrechende-anlage-anlage-beton",
+    "fields": {
+      "created_at": "2026-06-03T08:20:20.416Z",
+      "modified_at": "2026-06-03T08:20:20.416Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bezeichnung-abzubrechende-anlage",
+      "option": "bezeichnung-abzubrechende-anlage-anlage-beton",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bezeichnung-abzubrechende-anlage.bezeichnung-abzubrechende-anlage-anlage-verbundsteine",
+    "fields": {
+      "created_at": "2026-06-03T08:20:20.409Z",
+      "modified_at": "2026-06-03T08:20:20.409Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bezeichnung-abzubrechende-anlage",
+      "option": "bezeichnung-abzubrechende-anlage-anlage-verbundsteine",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bezeichnung-abzubrechende-anlage.bezeichnung-abzubrechende-anlage-stuetzmauern",
+    "fields": {
+      "created_at": "2026-06-03T08:20:20.420Z",
+      "modified_at": "2026-06-03T08:20:20.420Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bezeichnung-abzubrechende-anlage",
+      "option": "bezeichnung-abzubrechende-anlage-stuetzmauern",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "bezeichnungnutzung-abzubrechende-anlage.bezeichnungnutzung-abzubrechende-anlage-andere",
     "fields": {
-      "created_at": "2026-05-06T16:07:36.024Z",
-      "modified_at": "2026-05-06T16:07:36.024Z",
-      "created_by_user": "admin",
+      "created_at": "2026-06-03T06:52:33.874Z",
+      "modified_at": "2026-06-03T06:52:33.874Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bezeichnungnutzung-abzubrechende-anlage",
       "option": "bezeichnungnutzung-abzubrechende-anlage-andere",
@@ -76922,11 +77493,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bezeichnungnutzung-abzubrechende-anlage.bezeichnungnutzung-abzubrechende-anlage-belag",
     "fields": {
-      "created_at": "2026-05-06T16:07:36.032Z",
-      "modified_at": "2026-05-06T16:07:36.032Z",
-      "created_by_user": "admin",
+      "created_at": "2026-06-03T06:52:33.883Z",
+      "modified_at": "2026-06-03T06:52:33.883Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bezeichnungnutzung-abzubrechende-anlage",
       "option": "bezeichnungnutzung-abzubrechende-anlage-belag",
@@ -76937,11 +77508,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bezeichnungnutzung-abzubrechende-anlage.bezeichnungnutzung-abzubrechende-anlage-beton",
     "fields": {
-      "created_at": "2026-05-06T16:07:36.036Z",
-      "modified_at": "2026-05-06T16:07:36.036Z",
-      "created_by_user": "admin",
+      "created_at": "2026-06-03T06:52:33.886Z",
+      "modified_at": "2026-06-03T06:52:33.886Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bezeichnungnutzung-abzubrechende-anlage",
       "option": "bezeichnungnutzung-abzubrechende-anlage-beton",
@@ -76952,11 +77523,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bezeichnungnutzung-abzubrechende-anlage.bezeichnungnutzung-abzubrechende-anlage-betonsteine-verbundsteine",
     "fields": {
-      "created_at": "2026-05-06T16:07:36.029Z",
-      "modified_at": "2026-05-06T16:07:36.029Z",
-      "created_by_user": "admin",
+      "created_at": "2026-06-03T06:52:33.879Z",
+      "modified_at": "2026-06-03T06:52:33.879Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bezeichnungnutzung-abzubrechende-anlage",
       "option": "bezeichnungnutzung-abzubrechende-anlage-betonsteine-verbundsteine",
@@ -76967,11 +77538,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bezeichnungnutzung-abzubrechende-anlage.bezeichnungnutzung-abzubrechende-anlage-stuetzmauern",
     "fields": {
-      "created_at": "2026-05-06T16:07:36.039Z",
-      "modified_at": "2026-05-06T16:07:36.039Z",
-      "created_by_user": "admin",
+      "created_at": "2026-06-03T06:52:33.890Z",
+      "modified_at": "2026-06-03T06:52:33.890Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bezeichnungnutzung-abzubrechende-anlage",
       "option": "bezeichnungnutzung-abzubrechende-anlage-stuetzmauern",
@@ -80342,11 +80913,11 @@
     "model": "caluma_form.questionoption",
     "pk": "gesuch-abbruchpraemie.gesuch-abbruchpraemie-ja",
     "fields": {
-      "created_at": "2026-05-08T06:33:17.829Z",
-      "modified_at": "2026-05-08T06:33:17.829Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2026-06-17T07:28:58.756Z",
+      "modified_at": "2026-06-17T07:28:58.756Z",
+      "created_by_user": "stephan.hug@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "question": "gesuch-abbruchpraemie",
       "option": "gesuch-abbruchpraemie-ja",
@@ -80357,11 +80928,11 @@
     "model": "caluma_form.questionoption",
     "pk": "gesuch-abbruchpraemie.gesuch-abbruchpraemie-nein",
     "fields": {
-      "created_at": "2026-05-08T06:33:17.826Z",
-      "modified_at": "2026-05-08T06:33:17.826Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2026-06-17T07:28:58.751Z",
+      "modified_at": "2026-06-17T07:28:58.751Z",
+      "created_by_user": "stephan.hug@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "question": "gesuch-abbruchpraemie",
       "option": "gesuch-abbruchpraemie-nein",
@@ -80702,8 +81273,8 @@
     "model": "caluma_form.questionoption",
     "pk": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht.haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-ja",
     "fields": {
-      "created_at": "2026-05-12T12:44:48.879Z",
-      "modified_at": "2026-05-12T12:44:48.879Z",
+      "created_at": "2026-06-03T09:07:08.225Z",
+      "modified_at": "2026-06-03T09:07:08.225Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -80717,8 +81288,8 @@
     "model": "caluma_form.questionoption",
     "pk": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht.haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-nein",
     "fields": {
-      "created_at": "2026-05-12T12:44:48.873Z",
-      "modified_at": "2026-05-12T12:44:48.873Z",
+      "created_at": "2026-06-03T09:07:08.222Z",
+      "modified_at": "2026-06-03T09:07:08.222Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -84737,8 +85308,8 @@
     "model": "caluma_form.questionoption",
     "pk": "rechtmassig-bestehenden-bauten.rechtmassig-bestehenden-bauten-ja",
     "fields": {
-      "created_at": "2026-05-13T07:30:25.589Z",
-      "modified_at": "2026-05-13T07:30:25.589Z",
+      "created_at": "2026-06-03T06:43:53.361Z",
+      "modified_at": "2026-06-03T06:43:53.361Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -84752,8 +85323,8 @@
     "model": "caluma_form.questionoption",
     "pk": "rechtmassig-bestehenden-bauten.rechtmassig-bestehenden-bauten-nein",
     "fields": {
-      "created_at": "2026-05-13T07:30:25.585Z",
-      "modified_at": "2026-05-13T07:30:25.585Z",
+      "created_at": "2026-06-03T06:43:53.340Z",
+      "modified_at": "2026-06-03T06:43:53.340Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -87287,11 +87858,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-der-baute.typ-der-baute-andere",
     "fields": {
-      "created_at": "2026-05-07T13:25:19.376Z",
-      "modified_at": "2026-05-07T13:25:19.376Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2026-06-17T05:42:57.083Z",
+      "modified_at": "2026-06-17T05:42:57.083Z",
+      "created_by_user": "stephan.hug@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "question": "typ-der-baute",
       "option": "typ-der-baute-andere",
@@ -87302,60 +87873,255 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-der-baute.typ-der-baute-betoniert",
     "fields": {
-      "created_at": "2026-05-07T13:25:19.380Z",
-      "modified_at": "2026-05-07T13:25:19.380Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2026-06-17T05:42:57.139Z",
+      "modified_at": "2026-06-17T05:42:57.139Z",
+      "created_by_user": "stephan.hug@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "question": "typ-der-baute",
       "option": "typ-der-baute-betoniert",
-      "sort": 2
+      "sort": 15
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "typ-der-baute.typ-der-baute-fabrikhallen",
     "fields": {
-      "created_at": "2026-05-07T13:25:19.387Z",
-      "modified_at": "2026-05-07T13:25:19.387Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2026-06-17T05:42:57.145Z",
+      "modified_at": "2026-06-17T05:42:57.145Z",
+      "created_by_user": "stephan.hug@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "question": "typ-der-baute",
       "option": "typ-der-baute-fabrikhallen",
-      "sort": 4
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-folientunnel",
+    "fields": {
+      "created_at": "2026-06-17T05:42:57.103Z",
+      "modified_at": "2026-06-17T05:42:57.103Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-folientunnel",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-garage-remise",
+    "fields": {
+      "created_at": "2026-06-17T05:42:57.100Z",
+      "modified_at": "2026-06-17T05:42:57.100Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-garage-remise",
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "typ-der-baute.typ-der-baute-gastronomie",
     "fields": {
-      "created_at": "2026-05-07T13:25:19.390Z",
-      "modified_at": "2026-05-07T13:25:19.390Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2026-06-17T05:42:57.149Z",
+      "modified_at": "2026-06-17T05:42:57.149Z",
+      "created_by_user": "stephan.hug@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "question": "typ-der-baute",
       "option": "typ-der-baute-gastronomie",
-      "sort": 5
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-guellegruben-loeschwasserweiher-swimmingpool",
+    "fields": {
+      "created_at": "2026-06-17T05:42:57.089Z",
+      "modified_at": "2026-06-17T05:42:57.089Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-guellegruben-loeschwasserweiher-swimmingpool",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-huehnerhalle-schweinestall",
+    "fields": {
+      "created_at": "2026-06-17T05:42:57.110Z",
+      "modified_at": "2026-06-17T05:42:57.110Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-huehnerhalle-schweinestall",
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "typ-der-baute.typ-der-baute-leichtbauten",
     "fields": {
-      "created_at": "2026-05-07T13:25:19.384Z",
-      "modified_at": "2026-05-07T13:25:19.384Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2026-06-17T05:42:57.142Z",
+      "modified_at": "2026-06-17T05:42:57.142Z",
+      "created_by_user": "stephan.hug@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "question": "typ-der-baute",
       "option": "typ-der-baute-leichtbauten",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-oekonomiegebaeude-angebaut",
+    "fields": {
+      "created_at": "2026-06-17T05:42:57.121Z",
+      "modified_at": "2026-06-17T05:42:57.121Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-oekonomiegebaeude-angebaut",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-oekonomiegebaeude-freistehend",
+    "fields": {
+      "created_at": "2026-06-17T05:42:57.123Z",
+      "modified_at": "2026-06-17T05:42:57.123Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-oekonomiegebaeude-freistehend",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-oekonomiegebaeude-mit-wohnraeumen",
+    "fields": {
+      "created_at": "2026-06-17T05:42:57.127Z",
+      "modified_at": "2026-06-17T05:42:57.127Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-oekonomiegebaeude-mit-wohnraeumen",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-schopf-einstellraum",
+    "fields": {
+      "created_at": "2026-06-17T05:42:57.116Z",
+      "modified_at": "2026-06-17T05:42:57.116Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-schopf-einstellraum",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-silobauten-beton",
+    "fields": {
+      "created_at": "2026-06-17T05:42:57.096Z",
+      "modified_at": "2026-06-17T05:42:57.096Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-silobauten-beton",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-silobauten-kunststoff-metall",
+    "fields": {
+      "created_at": "2026-06-17T05:42:57.092Z",
+      "modified_at": "2026-06-17T05:42:57.092Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-silobauten-kunststoff-metall",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-treibhaus-rundbogenhalle",
+    "fields": {
+      "created_at": "2026-06-17T05:42:57.107Z",
+      "modified_at": "2026-06-17T05:42:57.107Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-treibhaus-rundbogenhalle",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-wohnhaus-freistehend",
+    "fields": {
+      "created_at": "2026-06-17T05:42:57.131Z",
+      "modified_at": "2026-06-17T05:42:57.131Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-wohnhaus-freistehend",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-wohnhaus-mit-oekonomieteil",
+    "fields": {
+      "created_at": "2026-06-17T05:42:57.134Z",
+      "modified_at": "2026-06-17T05:42:57.134Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-wohnhaus-mit-oekonomieteil",
+      "sort": 14
     }
   },
   {
@@ -89987,8 +90753,8 @@
     "model": "caluma_form.questionoption",
     "pk": "wie-zugaenglich.wie-zugaenglich-fussweg",
     "fields": {
-      "created_at": "2026-05-19T05:29:44.453Z",
-      "modified_at": "2026-05-19T05:29:44.453Z",
+      "created_at": "2026-06-03T06:50:56.435Z",
+      "modified_at": "2026-06-03T06:50:56.435Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -90002,8 +90768,8 @@
     "model": "caluma_form.questionoption",
     "pk": "wie-zugaenglich.wie-zugaenglich-lastwagenbefahrbar",
     "fields": {
-      "created_at": "2026-05-19T05:29:44.464Z",
-      "modified_at": "2026-05-19T05:29:44.464Z",
+      "created_at": "2026-06-03T06:50:56.446Z",
+      "modified_at": "2026-06-03T06:50:56.446Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -90017,8 +90783,8 @@
     "model": "caluma_form.questionoption",
     "pk": "wie-zugaenglich.wie-zugaenglich-personen-und-materialseilbahn",
     "fields": {
-      "created_at": "2026-05-19T05:29:44.457Z",
-      "modified_at": "2026-05-19T05:29:44.457Z",
+      "created_at": "2026-06-03T06:50:56.439Z",
+      "modified_at": "2026-06-03T06:50:56.439Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -90032,8 +90798,8 @@
     "model": "caluma_form.questionoption",
     "pk": "wie-zugaenglich.wie-zugaenglich-seilbahn",
     "fields": {
-      "created_at": "2026-05-19T05:29:44.449Z",
-      "modified_at": "2026-05-19T05:29:44.449Z",
+      "created_at": "2026-06-03T06:50:56.429Z",
+      "modified_at": "2026-06-03T06:50:56.429Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -90047,8 +90813,8 @@
     "model": "caluma_form.questionoption",
     "pk": "wie-zugaenglich.wie-zugaenglich-transporter",
     "fields": {
-      "created_at": "2026-05-19T05:29:44.461Z",
-      "modified_at": "2026-05-19T05:29:44.461Z",
+      "created_at": "2026-06-03T06:50:56.442Z",
+      "modified_at": "2026-06-03T06:50:56.442Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
