@@ -1434,6 +1434,9 @@ importers:
       leaflet:
         specifier: 1.9.4
         version: 1.9.4
+      leaflet.nontiledlayer:
+        specifier: 1.0.9
+        version: 1.0.9
       luxon:
         specifier: 3.5.0
         version: 3.5.0
@@ -7038,6 +7041,9 @@ packages:
   lcid@3.1.1:
     resolution: {integrity: sha512-M6T051+5QCGLBQb8id3hdvIW8+zeFV2FyBGFS9IEK5H9Wt4MueD4bW1eWikpHgZp+5xR3l5c8pZUkQsIA0BFZg==}
     engines: {node: '>=8'}
+
+  leaflet.nontiledlayer@1.0.9:
+    resolution: {integrity: sha512-w4yeTLNFhTToAmGQ7P9cAiGFVwVLJzuO3A/tFNMWRVYl1BLvrvlqY7hKE33pmmeoQ6m5ZsWd0qbdYq/d+zBuUQ==}
 
   leaflet@1.9.4:
     resolution: {integrity: sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==}
@@ -17191,6 +17197,10 @@ snapshots:
   lcid@3.1.1:
     dependencies:
       invert-kv: 3.0.1
+
+  leaflet.nontiledlayer@1.0.9:
+    dependencies:
+      leaflet: 1.9.4
 
   leaflet@1.9.4: {}
 
