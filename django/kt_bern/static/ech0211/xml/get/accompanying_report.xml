@@ -45,6 +45,7 @@
 					<ns4:mimeType>unknown</ns4:mimeType>
 				</ns4:file>
 			</ns4:files>
+			<ns4:documentKind>Weitere Dokumente</ns4:documentKind>
 		</ns1:document>
 		<ns1:remark>Stellungnahmetext</ns1:remark>
 		<ns1:ancillaryClauses>Nebenbestimmungen Text</ns1:ancillaryClauses>
