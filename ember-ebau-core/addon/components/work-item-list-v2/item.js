@@ -3,6 +3,8 @@ import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { DateTime } from "luxon";
 
+import { getHighlightClasses } from "../work-item-list/item";
+
 export default class WorkItemListV2Item extends Component {
   @service abilities;
   @service intl;
@@ -30,18 +32,7 @@ export default class WorkItemListV2Item extends Component {
   get highlightClasses() {
     if (!this.args.highlight) return "";
 
-    const classes = ["highlight"];
-    const { days: diff } = DateTime.fromISO(this.args.row.deadline)
-      .diffNow("days")
-      .toObject();
-
-    if (diff <= 0) {
-      classes.push("highlight--expired");
-    } else if (diff <= 3 && diff > 0) {
-      classes.push("highlight--expiring");
-    }
-
-    return classes.join(" ");
+    return getHighlightClasses(DateTime.fromISO(this.args.row.deadline));
   }
 
   get targetDeadlineClasses() {
