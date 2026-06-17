@@ -17,6 +17,11 @@ export default class BeDocumentsFormComponent extends Component {
 
   @tracked uploadedAttachmentIds = [];
 
+  // Caluma will not load forms that are empty even if the widget is valid
+  // This means some forms will have a single static placeholder field with an empty value
+  // to load the document upload widget
+  placeholderSlug = "dokumente-platzhalter";
+
   requiredQuestionTypes = ["MultipleChoiceQuestion", "TextareaQuestion"];
 
   get isAdditionalDemandChanges() {
@@ -89,10 +94,8 @@ export default class BeDocumentsFormComponent extends Component {
   get allOtherFields() {
     return this.args.fieldset.fields.filter(
       (field) =>
-        field.questionType !== "MultipleChoiceQuestion" &&
-        !config.APPLICATION.documents.excludeFromDocuments.includes(
-          field.question.slug,
-        ) &&
+        field.question.slug !== this.placeholderSlug &&
+        !this.requiredQuestionTypes.includes(field.questionType) &&
         !this.allHints.includes(field),
     );
   }

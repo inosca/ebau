@@ -77,7 +77,7 @@ export default class InstancesEditController extends Controller {
       ? query(this, "attachment", () => ({
           instance: this.model,
           attachment_sections:
-            config.APPLICATION.documents.feedbackSections.join(","),
+            config.APPLICATION.documents?.feedbackSections.join(","),
           include: "attachment_sections",
         }))
       : query(this, "document", () => ({
@@ -146,7 +146,7 @@ export default class InstancesEditController extends Controller {
 
   get hasFeedbackSection() {
     return Boolean(
-      config.APPLICATION.documents.feedbackSections ||
+      config.APPLICATION.documents?.feedbackSections ||
       mainConfig.alexandria?.feedbackCategories,
     );
   }
