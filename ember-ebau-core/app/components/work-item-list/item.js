@@ -1,1 +1,4 @@
-export { default } from "ember-ebau-core/components/work-item-list/item";
+export {
+  default,
+  getHighlightClasses,
+} from "ember-ebau-core/components/work-item-list/item";

@@ -9,6 +9,14 @@ import workItemListConfig from "ember-ebau-core/config/work-item-list";
 import completeWorkItem from "ember-ebau-core/gql/mutations/complete-work-item.graphql";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
+export function getHighlightClasses(deadline) {
+  deadline = deadline.endOf("day");
+  const diff = deadline.diffNow("days").days;
+  const styling =
+    diff <= 0 ? "highlight--expired" : diff <= 3 ? "highlight--expiring" : null;
+  return `highlight${styling && ` ${styling}`}`;
+}
+
 export default class WorkItemListItemComponent extends Component {
   @queryManager apollo;
 
@@ -104,15 +112,9 @@ export default class WorkItemListItemComponent extends Component {
   get highlightClasses() {
     if (!this.args.highlight) return "";
 
-    const { days: diff } = DateTime.fromJSDate(this.args.workItem.deadline)
-      .diffNow("days")
-      .toObject();
-
-    return [
-      "highlight",
-      ...(diff <= 0 ? ["highlight--expired"] : []),
-      ...(diff <= 3 && diff > 0 ? ["highlight--expiring"] : []),
-    ].join(" ");
+    return getHighlightClasses(
+      DateTime.fromJSDate(this.args.workItem.deadline),
+    );
   }
 
   get highlightClassesNFD() {
