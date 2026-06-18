@@ -6,6 +6,7 @@ export default {
   columns: {
     caluma: {
       default: [
+        "instanceId",
         "dossierNumber",
         "form",
         "address",
@@ -20,6 +21,7 @@ export default {
     caluma: {
       default: [
         "form",
+        "instanceId",
         "dossierNumber",
         "address",
         "parcel",
@@ -34,6 +36,9 @@ export default {
     },
   },
   availableOrderings: {
+    instanceId: {
+      caluma: [{ meta: "camac-instance-id" }],
+    },
     dossierNumber: {
       caluma: [{ meta: `${answerSlugs.specialId}-sort` }],
     },
