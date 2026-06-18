@@ -10,7 +10,10 @@ import { TrackedMap } from "tracked-built-ins";
 import { LV95_CRS } from "ember-ebau-core/config/gis";
 
 const SG_CENTER = new LatLng(47.222, 9.339);
-const CH_BOUNDS = new LatLngBounds([45.818, 5.956], [47.808, 10.492]);
+const CH_BOUNDS = [
+  [45.818, 5.956],
+  [47.808, 10.492],
+];
 
 export default class SgGisMapComponent extends Component {
   @service intl;
@@ -19,9 +22,9 @@ export default class SgGisMapComponent extends Component {
   @tracked searchResult;
   plots = new TrackedMap();
 
-  crs = LV95_CRS;
   center = SG_CENTER;
   maxBounds = CH_BOUNDS;
+  tileSize = 512;
 
   searchResultStyle = () => ({ color: "var(--sg-gis-search-result)" });
   plotStyle = () => ({ color: "var(--sg-gis-plot)" });
@@ -113,7 +116,7 @@ export default class SgGisMapComponent extends Component {
     const bounds = new LatLngBounds([]);
 
     this.plots.values().forEach((plot) => bounds.extend(plot.bounds));
-    this.#map.fitBounds(bounds);
+    this.#fitBounds(bounds);
   }
 
   @action
@@ -138,20 +141,26 @@ export default class SgGisMapComponent extends Component {
   selectSearchResult(value) {
     const { bounds, geoJSON } = this.#projectGeoJSON(wktToGeoJSON(value.geom));
     this.searchResult = { value, geometry: geoJSON };
-    this.#map.fitBounds(bounds);
+    this.#fitBounds(bounds);
+  }
+
+  @action
+  clear() {
+    this.plots.clear();
+    this.searchResult = null;
   }
 
   /**
-   * Project WGS84 lat/lng (Leaflet's native CRS) to LV95 (EPSG:2056)
-   * easting/northing.
+   * Project WGS84 (EPSG:3857) lat/lng (Leaflet's native CRS) to LV95
+   * (EPSG:2056) easting/northing.
    */
-  #toLV95 = (lat, lng) => this.crs.project(new LatLng(lat, lng));
+  #toLV95 = (lat, lng) => LV95_CRS.project(new LatLng(lat, lng));
 
   /**
-   * Unproject LV95 (EPSG:2056) easting/northing back to WGS84 lat/lng for
-   * Leaflet layers.
+   * Unproject LV95 (EPSG:2056) easting/northing back to WGS84 (EPSG:3857)
+   * lat/lng for Leaflet layers.
    */
-  #toWGS84 = (x, y) => this.crs.unproject(new Point(x, y));
+  #toWGS84 = (x, y) => LV95_CRS.unproject(new Point(x, y));
 
   /**
    * Reproject a GeoJSON object whose coordinates are in LV95 into WGS84,
@@ -168,6 +177,25 @@ export default class SgGisMapComponent extends Component {
       geoJSON: projectedLayer.toGeoJSON(),
     };
   };
+
+  /**
+   * Fit the map to a `LatLngBounds`. The bounds are built with the `leaflet`
+   * package imported here (ESM), whereas the map uses the global `window.L`
+   * provided by `ember-leaflet` - two separate Leaflet instances. Passing the
+   * `LatLngBounds` object directly fails the map's `instanceof` check and
+   * throws "Bounds are not valid", so hand it plain coordinates and let the map
+   * wrap them with its own Leaflet.
+   */
+  #fitBounds(bounds) {
+    const sw = bounds.getSouthWest();
+    const ne = bounds.getNorthEast();
+
+    this.#map.invalidateSize();
+    this.#map.fitBounds([
+      [sw.lat, sw.lng],
+      [ne.lat, ne.lng],
+    ]);
+  }
 
   /**
    * Fetch plot data (number, EGRID, identDN, bounds, geometry) from the OEREB
