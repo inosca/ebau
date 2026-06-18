@@ -8149,7 +8149,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Werden Flächen neu versiegelt oder entsiegelt?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bauen ausserhalb Bauzone: Werden Flächen neu versiegelt oder entsiegelt?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "!('vorabklaerung' in form)",
       "is_hidden": "false",
