@@ -1475,23 +1475,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "06a0d647-37d3-7c4c-8000-f5dca7e79a88",
-    "fields": {
-      "created_at": "2026-05-20T07:36:19.489Z",
-      "modified_at": "2026-05-20T07:36:19.489Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "vorhaben",
-      "value": ["vorhaben-nutzungs-zwecksaenderung"],
-      "meta": {},
-      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "06a0d647-a6ae-771f-8000-39ec992c9688",
     "fields": {
       "created_at": "2026-05-20T07:36:26.417Z",
@@ -1657,23 +1640,6 @@
       "value": "zusaetzliche-parkplaetze-oder-mehrverkehr-nein",
       "meta": {},
       "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "06a0d649-58d6-7e8b-8000-c63be76e20e6",
-    "fields": {
-      "created_at": "2026-05-20T07:36:53.552Z",
-      "modified_at": "2026-05-20T07:36:53.552Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "vorhaben",
-      "value": ["vorhaben-nutzungs-zwecksaenderung"],
-      "meta": {},
-      "document": "069958a6-7204-712c-8000-71d5f39de78c",
       "date": null
     }
   },
