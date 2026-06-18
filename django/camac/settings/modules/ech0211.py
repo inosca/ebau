@@ -558,7 +558,7 @@ ECH0211 = {
             "ALEXANDRIA_MARK": "decision",
         },
         "CLOSE_DOSSIER": {
-            "ALLOWED_STATES": ["construction-acceptance"],
+            "ALLOWED_STATES": ["decided", "construction-acceptance"],
             "WORK_ITEM_ACTIONS": [
                 # old module, needed until construction monitoring is rolled out
                 ("complete", "construction-acceptance", None),
