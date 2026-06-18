@@ -33,7 +33,7 @@ services:
 
   db:
     image: postgres:15-bullseye
-    user: ${UID}
+    user: ${CONTAINER_UID}
     environment:
       POSTGRES_USER: camac
       POSTGRES_PASSWORD: camac
@@ -43,7 +43,7 @@ services:
       - pg15data:/var/lib/postgresql/data
 
   django: &django
-    user: ${UID}
+    user: ${CONTAINER_UID}
     depends_on:
       - cache
       - db
@@ -183,12 +183,12 @@ services:
 
   mailpit:
     image: axllent/mailpit
-    user: ${UID}
+    user: ${CONTAINER_UID}
     environment:
       MP_WEBROOT: mailpit
 
   document-merge-service:
-    user: ${UID}
+    user: ${CONTAINER_UID}
     depends_on:
       - cache
       - db
@@ -247,7 +247,7 @@ services:
       - djangotmpmedia:/data/djangotmpmedia
       - garage_data:/data/garage_data
       - garage_meta:/data/garage_meta
-    command: /bin/sh -c "chown ${UID} -R /data;"
+    command: /bin/sh -c "chown ${CONTAINER_UID} -R /data;"
 
   clamav:
     profiles:
@@ -259,7 +259,7 @@ services:
 
   tika:
     image: apache/tika:3.2.3.0-full
-    user: ${UID}
+    user: ${CONTAINER_UID}
 
   redis:
     image: redis:8.4

@@ -173,7 +173,7 @@ services:
       - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
     env_file:
       - ../garage/compose-env/dev-dms.conf
-    user: "${UID:?Set UID env variable to your user id}"
+    user: "${CONTAINER_UID:?Set CONTAINER_UID env variable to your user id}"
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions
       - ../document-merge-service/${APPLICATION}:/tmp/document-merge-service
