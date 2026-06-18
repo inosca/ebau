@@ -618,7 +618,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return []
 
-    # After decision in Kt. SZ
+    # After decision in Kt. SZ and Kt. UR
     @register_dynamic_task("after-make-decision")
     def resolve_after_make_decision(self, case, user, prev_work_item, context):
         if can_perform_construction_monitoring(case.instance):
