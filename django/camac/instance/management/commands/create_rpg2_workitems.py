@@ -17,6 +17,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import Exists, OuterRef, Q
+from django.utils import timezone
 
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.caluma.models import Inquiry
@@ -74,7 +75,7 @@ class Command(BaseCommand):
         if (
             instance.case.status != Case.STATUS_RUNNING
             or instance.case.work_items.filter(
-                task_id__in=skip_trigger_tasks, status=WorkItem.STATUS_COMPLETED
+                task_id__in=skip_trigger_tasks, status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED]
             ).exists()
         ):
             return WorkItem.STATUS_SKIPPED
@@ -195,6 +196,7 @@ class Command(BaseCommand):
                         case=instance.case,
                         status=status,
                         document=Document.objects.create_document_for_task(task, None),
+                        meta={"migrated-at": timezone.now().isoformat()},
                     )
 
                     slug_stats["updated"] += 1
