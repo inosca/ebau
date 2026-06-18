@@ -1,5 +1,6 @@
 corrections:
   document:
+    confirm: "Si prega di notare che la correzione del dossier è prevista solo per modifiche minori (ad esempio: correzione delle informazioni di contatto, chiarimento della descrizione del progetto edilizio). Se necessario, i richiedenti devono essere informati delle modifiche.<br><br>Se sono necessarie modifiche sostanziali, si prega di verificare se sia opportuno un rinvio ai richiedenti.<br><br><strong>Attenzione:</strong> facendo clic su «OK» verrà avviata la correzione, che non potrà più essere annullata. Se necessario, dovrà compilare i campi obbligatori mancanti."
     description: "La funzione «Correggi dossier» consente al Comune di apportare piccole correzioni al modulo di richiesta (ad es. precisazioni della descrizione del progetto). Le modifiche sostanziali devono essere effettuate dai richiedenti nel modulo tramite una richiesta di precisazioni (Consentire modifiche al modulo di richiesta)."
     description-applicant-correction: "Per consentire ai richiedenti di modificare i dati nel formulario della domanda, create una richiesta di precisazioni con l’opzione «Consentire modifiche al modulo di richiesta»."
     link-applicant-correction: "Richiesta di precisazioni"
