@@ -85,8 +85,14 @@ MODULE_FORM = (
     | RequireInstanceState(["correction"])
     | (RequireInstanceState(["new"]) & ROLES_MUNICIPALITY & IsPaper())
 )
-MODULE_AUDIT = (ROLES_MUNICIPALITY & RequireWorkItem("formal-exam")) | (
-    ~ROLES_MUNICIPALITY & RequireWorkItem("formal-exam", "completed")
+MODULE_AUDIT = (
+    (ROLES_MUNICIPALITY & RequireWorkItem("formal-exam"))
+    | (~ROLES_MUNICIPALITY & RequireWorkItem("formal-exam", ["completed"]))
+    | (
+        ~ROLES_MUNICIPALITY
+        & IsServiceGroup([ARE_SERVICE_GROUP])
+        & RequireWorkItem("formal-exam", ["completed", "skipped"])
+    )
 )
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
