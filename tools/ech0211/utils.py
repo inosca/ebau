@@ -121,12 +121,12 @@ def print_response(response: Response):
         # Raise error if response is not OK, except for 4xx errors.
         response.raise_for_status()
 
-    content_type = response.headers["content-type"]
+    content_type = response.headers.get("content-type", "")
     content = response.text
 
     if "json" in content_type:
         content = json.dumps(response.json(), indent=2)
-    elif "xml" in content_type:
+    elif "xml" in content_type and content:
         content = parseString(response.text).toprettyxml(indent="  ")
 
     print_delimiter()

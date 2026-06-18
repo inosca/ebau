@@ -1,18 +1,12 @@
-#!/bin/bash
-source ./config.sh
+#!/usr/bin/env python3
 
-echo "---------------------------"
-echo "eCH0211 - POST task"
-echo "---------------------------"
+from utils import each_client, endpoint, print_response, print_title
 
-ebau_nr="2024-1"
-dossier_id="6"
-service_id="19"
+instance_id = 12
+special_id = "2026-1"
+service_id = 19
 
-for i in "${!ech0211_credentials[@]}"
-do
-xml_payload=$(cat <<EOF
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+xml_payload = f"""<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   <ns2:delivery xmlns:ns2="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0044/4" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0008/3" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns13="http://www.ech.ch/xmlns/eCH-0046/1" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns12="http://www.ech.ch/xmlns/eCH-0044/1" xmlns:ns11="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns10="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns15="http://www.ech.ch/xmlns/eCH-0058/3" xmlns:ns14="http://www.ech.ch/xmlns/eCH-0010/3">
     <ns2:deliveryHeader>
       <ns9:senderId>gemdat://test-123</ns9:senderId>
@@ -33,13 +27,13 @@ xml_payload=$(cat <<EOF
       <ns2:planningPermissionApplicationIdentification>
         <ns2:localID>
           <ns3:IdCategory>eBauNr</ns3:IdCategory>
-          <ns3:Id>${ebau_nr}</ns3:Id>
+          <ns3:Id>{special_id}</ns3:Id>
         </ns2:localID>
         <ns2:otherID>
           <ns3:IdCategory>eBauNr</ns3:IdCategory><!-- wird ignoriert -->
-          <ns3:Id>${ebau_nr}</ns3:Id><!-- wird ignoriert -->
+          <ns3:Id>{special_id}</ns3:Id><!-- wird ignoriert -->
         </ns2:otherID>
-        <ns2:dossierIdentification>${dossier_id}</ns2:dossierIdentification>
+        <ns2:dossierIdentification>{instance_id}</ns2:dossierIdentification>
       </ns2:planningPermissionApplicationIdentification>
       <ns2:directive>
         <uuid>00000000-0000-0000-0000-000000000000</uuid><!-- wird ignoriert -->
@@ -52,20 +46,24 @@ xml_payload=$(cat <<EOF
       </ns2:directive>
       <ns2:extension>
         <!-- ID der eingeladenen Organisation. -->
-        <serviceId>${service_id}</serviceId>
+        <serviceId>{service_id}</serviceId>
       </ns2:extension>
     </ns2:eventRequest>
   </ns2:delivery>
-EOF
-)
-	ech0211_login "$i" "${ech0211_credentials[$i]}"
-	echo " > perform request[task] for client_id: $i"
-	echo -e "\n---------------------------"
-	curl -X POST "${ech0211_endpoint}/ech/v1/send/" \
-  -H "Authorization: Bearer $token" \
-  -H 'accept: application/xml' \
-  -H "x-camac-group: ${camac_group_id}" \
-  -H 'Content-Type: application/xml' \
-  -d "$xml_payload"
-	echo -e "\n---------------------------"
-done
+"""
+
+print_title("eCH0211 - POST task")
+
+for session, client_id in each_client():
+    print(f" > perform request[task] for client_id: {client_id}")
+
+    response = session.post(
+        f"{endpoint}/ech/v1/send/",
+        data=xml_payload.encode("utf-8"),
+        headers={
+            "accept": "application/xml",
+            "content-type": "application/xml",
+        },
+    )
+
+    print_response(response)
