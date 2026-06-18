@@ -72,13 +72,16 @@ class Command(BaseCommand):
 
         This will check the case status and check if any work item should have led to a skipped RPG2 work item.
         """
-        if (
-            instance.case.status != Case.STATUS_RUNNING
-            or instance.case.work_items.filter(
-                task_id__in=skip_trigger_tasks,
-                status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
-            ).exists()
-        ):
+        if instance.case.work_items.filter(
+            task_id__in=skip_trigger_tasks,
+            status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
+        ).exists():
+            return WorkItem.STATUS_SKIPPED
+
+        if instance.case.status == Case.STATUS_SUSPENDED:
+            return WorkItem.STATUS_SUSPENDED
+
+        if instance.case.status != Case.STATUS_RUNNING:
             return WorkItem.STATUS_SKIPPED
 
         return WorkItem.STATUS_READY
