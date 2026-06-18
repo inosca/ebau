@@ -50,37 +50,46 @@
       class="uk-width-1-1 uk-height-large uk-margin"
       as |map|
     >
+      {{! "Bodenbedeckung" layer that is not really visible in the OEREB layer but
+  is better visible in the AV collection }}
+      <map.wms-tile
+        @format="image/png"
+        @version="1.3.0"
+        @layers={{array "LCSF" "Hoheitsgrenzen"}}
+        @tileSize={{this.tileSize}}
+        @maxZoom={{this.wmsLayerMaxZoom}}
+        @url="https://geodienste.ch/db/av_0"
+      />
+      {{! Main background map that is rendered transparent in order to show the
+  "Bodenbedeckung" underneath }}
       <map.wms-tile
         @transparent={{true}}
         @format="image/png"
-        @maxZoom={{this.wmsLayerMaxZoom}}
         @version="1.3.0"
-        @layers="daten"
+        @layers={{array "daten"}}
+        @tileSize={{this.tileSize}}
+        @maxZoom={{this.wmsLayerMaxZoom}}
         @url="https://geodienste.ch/db/av_situationsplan_oereb_0"
       />
+      {{! Extra WMS layer for Gebäudeadressen that is not part of the main background map. }}
       <map.wms-tile
         @transparent={{true}}
         @format="image/png"
-        @maxZoom={{this.wmsLayerMaxZoom}}
-        @version="1.3.0"
-        @layers="LCSF"
-        @url="https://geodienste.ch/db/av_0"
-      />
-      <map.wms-tile
-        @transparent={{true}}
-        @format="image/png"
-        @maxZoom={{this.wmsLayerMaxZoom}}
         @version="1.3.0"
         @layers="AV_GEB"
+        @tileSize={{this.tileSize}}
+        @maxZoom={{this.wmsLayerMaxZoom}}
         @url="https://wms.geo.gr.ch/gebaeudeadressierung_ebbv"
       />
-      <map.wms-tile
+      {{! Non tiled layers for labels that are otherwise cut-off in the background
+  map. This loads one single image in the size of the map widget. }}
+      <map.non-tiled-wms
         @transparent={{true}}
         @format="image/png"
-        @maxZoom={{this.wmsLayerMaxZoom}}
         @version="1.3.0"
-        @layers="Hoheitsgrenzen"
-        @url="https://geodienste.ch/db/av_0"
+        @layers={{array "Liegenschaften"}}
+        @maxZoom={{this.wmsLayerMaxZoom}}
+        @url="https://geodienste.ch/db/av_situationsplan_oereb_0"
       />
 
       {{#each this.markers as |point index|}}
