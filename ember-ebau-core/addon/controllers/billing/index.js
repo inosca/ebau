@@ -89,13 +89,18 @@ export default class BillingIndexController extends Controller {
     }
 
     try {
-      await Promise.all(
-        this.selectedRows.map(async (id) => {
-          return await this.fetch.fetch(
-            `/api/v1/billing-v2-entries/${id}/release-for-clearing`,
-            { method: "PATCH" },
-          );
-        }),
+      await this.fetch.fetch(
+        `/api/v1/billing-v2-entries/release-for-clearing-bulk`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            entry_ids: this.selectedRows.map((id) => parseInt(id)),
+          }),
+          headers: {
+            "content-type": "application/json",
+            accept: "application/json",
+          },
+        },
       );
 
       // manually refresh in order to update the totals as well

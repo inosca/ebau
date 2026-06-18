@@ -313,11 +313,69 @@ def test_billing_entry_visibilities(
         assert instance in view.get_queryset()
 
 
+@pytest.mark.parametrize("role__name", [("Municipality")])
+@pytest.mark.parametrize(
+    ("error_reason", "expected_status"),
+    [
+        ("wrong_payload", status.HTTP_400_BAD_REQUEST),
+        ("nonexistent_entry", status.HTTP_404_NOT_FOUND),
+        ("not_responsible", status.HTTP_403_FORBIDDEN),
+        ("different_instances", status.HTTP_400_BAD_REQUEST),
+    ],
+)
+@pytest.mark.django_db
+def test_billing_entry_release_for_clearing_validation(
+    admin_client,
+    mocker,
+    service_factory,
+    billing_v2_entry_factory,
+    instance_service_factory,
+    instance,
+    service,
+    error_reason,
+    expected_status,
+):
+    billing_v2_entries = billing_v2_entry_factory.create_batch(2, instance=instance)
+    entry_ids = [entry.pk for entry in billing_v2_entries]
+
+    if error_reason == "wrong_payload":
+        entry_ids.append("wrong type of payload")
+
+    elif error_reason == "nonexistent_entry":
+        entry_ids.append(999)
+
+    elif error_reason == "not_responsible":
+        mocker.patch(
+            "camac.instance.models.Instance.responsible_service",
+            return_value=service_factory(),
+        )
+
+    elif error_reason == "different_instances":
+        billing_v2_entries[0].instance = instance_service_factory(
+            service=service
+        ).instance
+        billing_v2_entries[0].save()
+
+    url = reverse("billing-v2-entry-release-for-clearing-bulk")
+    response = admin_client.post(
+        url,
+        data={"entry_ids": entry_ids},
+        headers={"Content-Type": "application/json"},
+    )
+
+    assert response.status_code == expected_status
+    if error_reason == "different_instances":
+        assert (
+            response.json()["errors"][0]["detail"]
+            == "Alle freizugebenden Einträge müssen zum selben Dossier gehören"
+        )
+
+
 # RBAC: Requires specific service group
 @pytest.mark.freeze_time("2023-11-06")
 @pytest.mark.parametrize("role__name", [("Municipality")])
+@pytest.mark.django_db
 def test_billing_entry_release_for_clearing_rbac(
-    db,
     admin_client,
     billing_v2_entry,
     sz_billing_settings,
@@ -330,8 +388,12 @@ def test_billing_entry_release_for_clearing_rbac(
     service_group.slug = sz_billing_settings.cantonal_service_group_slugs[0]
     service_group.save()
 
-    url = reverse("billing-v2-entry-release-for-clearing", args=[billing_v2_entry.pk])
-    response = admin_client.patch(url)
+    url = reverse("billing-v2-entry-release-for-clearing-bulk")
+    response = admin_client.post(
+        url,
+        data={"entry_ids": [billing_v2_entry.pk]},
+        headers={"Content-Type": "application/json"},
+    )
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
 
@@ -349,8 +411,8 @@ def test_billing_entry_release_for_clearing_rbac(
         ("Municipality", True, False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_billing_entry_release_for_clearing_acl(
-    db,
     admin_client,
     billing_v2_entry,
     sz_billing_settings,
@@ -377,8 +439,12 @@ def test_billing_entry_release_for_clearing_acl(
         service_group.slug = sz_billing_settings.cantonal_service_group_slugs[0]
         service_group.save()
 
-    url = reverse("billing-v2-entry-release-for-clearing", args=[billing_v2_entry.pk])
-    response = admin_client.patch(url)
+    url = reverse("billing-v2-entry-release-for-clearing-bulk")
+    response = admin_client.post(
+        url,
+        data={"entry_ids": [billing_v2_entry.pk]},
+        headers={"Content-Type": "application/json"},
+    )
 
     assert response.status_code == expected_status
 

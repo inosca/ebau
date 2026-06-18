@@ -298,6 +298,10 @@ msgstr ""
 msgid "All entries to charge must belong to the same instance"
 msgstr ""
 
+#: camac/billing/views.py
+msgid "All entries to release must belong to the same instance"
+msgstr ""
+
 #: camac/caluma/extensions/data_sources.py
 #: camac/instance/document_merge_service.py camac/notification/serializers.py
 msgid "Authority"
