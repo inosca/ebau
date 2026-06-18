@@ -75,7 +75,8 @@ class Command(BaseCommand):
         if (
             instance.case.status != Case.STATUS_RUNNING
             or instance.case.work_items.filter(
-                task_id__in=skip_trigger_tasks, status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED]
+                task_id__in=skip_trigger_tasks,
+                status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
             ).exists()
         ):
             return WorkItem.STATUS_SKIPPED
@@ -93,9 +94,10 @@ class Command(BaseCommand):
         service_slugs = options["rpg2_services"]
 
         self.stdout.write(
+            f"\n{'=' * 50}\n"
             f"Starting migration of instances with the following parameters:\n"
             f" * form-slugs: {form_slugs}\n"
-            f" * rpg2-services: {service_slugs}"
+            f" * rpg2-services: {service_slugs}\n"
         )
 
         start_time = time.perf_counter()
@@ -121,6 +123,11 @@ class Command(BaseCommand):
             )
         ]
         skip_trigger_tasks = self._get_skip_trigger_tasks()
+        self.stdout.write(
+            f"\nCompiled list of tasks that would put the RPG2-work-item into 'skipped' state:\n"
+            f" * {skip_trigger_tasks}\n"
+            f"{'=' * 50}\n"
+        )
 
         sid = transaction.savepoint()
 
