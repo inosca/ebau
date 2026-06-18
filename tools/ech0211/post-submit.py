@@ -1,18 +1,16 @@
-#!/bin/bash
-source ./config.sh
+#!/usr/bin/env python3
 
-echo "---------------------------"
-echo "eCH0211 - POST submit"
-echo "---------------------------"
+from utils import each_client, endpoint, print_response, print_title
 
-location_town="Chur"
-location_zipcode="7000"
-location_canton="GR"
+instance_id = 12
+special_id = "2026-1"
+document_uuid = "00000000-0000-0000-0000-000000000000"
+organisation_id = 18
+location_town = "Chur"
+location_zipcode = 7000
+location_canton = "GR"
 
-for i in "${!ech0211_credentials[@]}"
-do
-xml_payload=$(cat <<EOF
-<?xml version="1.0"?>
+xml_payload = f"""<?xml version="1.0"?>
 <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4"  xmlns:ns9="http://www.ech.ch/xmlns/eCH-0097/2">
   <ns1:deliveryHeader>
     <ns2:senderId>gemdat://test-123</ns2:senderId>
@@ -34,13 +32,13 @@ xml_payload=$(cat <<EOF
       <ns1:planningPermissionApplicationIdentification><!-- wird ignoriert -->
         <ns1:localID>
           <ns3:IdCategory>Category</ns3:IdCategory>
-          <ns3:Id>2019-1</ns3:Id>
+          <ns3:Id>{special_id}</ns3:Id>
         </ns1:localID>
         <ns1:otherID>
           <ns3:IdCategory>Category</ns3:IdCategory>
-          <ns3:Id>2019-1</ns3:Id>
+          <ns3:Id>{special_id}</ns3:Id>
         </ns1:otherID>
-        <ns1:dossierIdentification>123</ns1:dossierIdentification>
+        <ns1:dossierIdentification>{instance_id}</ns1:dossierIdentification>
       </ns1:planningPermissionApplicationIdentification>
       <ns1:description>Testbeschreibung</ns1:description> <!-- required: Titel Vorhaben-->
       <ns1:applicationType>Baugesuch</ns1:applicationType> <!-- required: Name vom Formular -->
@@ -59,8 +57,8 @@ xml_payload=$(cat <<EOF
       <ns1:locationAddress>
         <ns4:street>Teststrasse</ns4:street>
         <ns4:houseNumber>23</ns4:houseNumber>
-        <ns4:town>${location_town}</ns4:town> <!-- required -->
-        <ns4:swissZipCode>${location_zipcode}</ns4:swissZipCode> <!-- required -->
+        <ns4:town>{location_town}</ns4:town> <!-- required -->
+        <ns4:swissZipCode>{location_zipcode}</ns4:swissZipCode> <!-- required -->
         <ns4:country>
           <ns4:countryNameShort>CH</ns4:countryNameShort>
         </ns4:country>
@@ -81,8 +79,8 @@ xml_payload=$(cat <<EOF
           </ns3:coordinates>
         </ns1:realestate>
         <ns1:municipality>
-          <ns5:municipalityName>${location_town}</ns5:municipalityName>
-          <ns5:cantonAbbreviation>${location_canton}</ns5:cantonAbbreviation>
+          <ns5:municipalityName>{location_town}</ns5:municipalityName>
+          <ns5:cantonAbbreviation>{location_canton}</ns5:cantonAbbreviation>
         </ns1:municipality>
         <ns1:buildingInformation>
           <ns1:building>
@@ -101,8 +99,8 @@ xml_payload=$(cat <<EOF
             <ns4:addressInformation>
               <ns4:street>Teststrasse</ns4:street>
               <ns4:houseNumber>23</ns4:houseNumber>
-              <ns4:town>${location_town}</ns4:town>
-              <ns4:swissZipCode>${location_zipcode}</ns4:swissZipCode>
+              <ns4:town>{location_town}</ns4:town>
+              <ns4:swissZipCode>{location_zipcode}</ns4:swissZipCode>
               <ns4:country>
                 <ns4:countryNameShort>CH</ns4:countryNameShort>
               </ns4:country>
@@ -122,12 +120,12 @@ xml_payload=$(cat <<EOF
           <ns3:durationOfConstructionPhase>23</ns3:durationOfConstructionPhase>
         </ns1:constructionProject>
         <ns1:municipality>
-          <ns5:municipalityName>${location_town}</ns5:municipalityName>
-          <ns5:cantonAbbreviation>${location_canton}</ns5:cantonAbbreviation>
+          <ns5:municipalityName>{location_town}</ns5:municipalityName>
+          <ns5:cantonAbbreviation>{location_canton}</ns5:cantonAbbreviation>
         </ns1:municipality>
       </ns1:constructionProjectInformation>
       <ns1:document>
-        <ns6:uuid>00000000-0000-0000-0000-000000000000</ns6:uuid> <!-- required -->
+        <ns6:uuid>{document_uuid}</ns6:uuid> <!-- required -->
         <ns6:titles>
           <ns7:title>dummy</ns7:title>
         </ns6:titles>
@@ -168,7 +166,7 @@ xml_payload=$(cat <<EOF
             <ns3:organisationIdentification>
               <ns9:localOrganisationId>
                 <ns9:organisationIdCategory>CHE</ns9:organisationIdCategory>
-                <ns9:organisationId>18</ns9:organisationId>
+                <ns9:organisationId>{organisation_id}</ns9:organisationId>
               </ns9:localOrganisationId>
               <ns9:organisationName>BAUAG</ns9:organisationName>
             </ns3:organisationIdentification>
@@ -177,16 +175,19 @@ xml_payload=$(cat <<EOF
     </ns1:relationshipToPerson>
   </ns1:eventSubmitPlanningPermissionApplication>
 </ns1:delivery>
-EOF
-)
-	ech0211_login "$i" "${ech0211_credentials[$i]}"
-	echo " > perform request[submit] for client_id: $i"
-	echo -e "\n---------------------------"
-	curl -X POST "${ech0211_endpoint}/ech/v1/send/" \
-  -H "Authorization: Bearer $token" \
-  -H 'accept: application/xml' \
-  -H "x-camac-group: ${camac_group_id}" \
-  -H 'Content-Type: application/xml' \
-  -d "$xml_payload"
-	echo -e "\n---------------------------"
-done
+"""
+
+print_title("eCH0211 - POST submit")
+for session, client_id in each_client():
+    print(f" > perform request[post submit] for client_id: {client_id}")
+
+    response = session.post(
+        f"{endpoint}/ech/v1/send/",
+        data=xml_payload.encode("utf-8"),
+        headers={
+            "accept": "application/xml",
+            "content-type": "application/xml",
+        },
+    )
+
+    print_response(response)
