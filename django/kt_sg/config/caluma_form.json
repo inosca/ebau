@@ -3673,7 +3673,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "art-des-vorhabens",
-      "sort": 15
+      "sort": 14
     }
   },
   {
@@ -3688,7 +3688,22 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "art-des-vorhabens-abbruch",
-      "sort": 12
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben.art-des-vorhabens-andere-beschreibung",
+    "fields": {
+      "created_at": "2026-05-19T15:03:24.861Z",
+      "modified_at": "2026-05-19T15:03:24.861Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorhaben",
+      "question": "art-des-vorhabens-andere-beschreibung",
+      "sort": 13
     }
   },
   {
@@ -3703,7 +3718,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "art-des-vorhabens-neubau",
-      "sort": 14
+      "sort": 12
     }
   },
   {
@@ -3718,7 +3733,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "art-des-vorhabens-umbau",
-      "sort": 13
+      "sort": 11
     }
   },
   {
@@ -3858,36 +3873,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "vorhaben.vorhaben",
-    "fields": {
-      "created_at": "2026-05-19T15:01:52.549Z",
-      "modified_at": "2026-05-19T15:01:52.549Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "vorhaben",
-      "question": "vorhaben",
-      "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "vorhaben.vorhaben-andere-beschreibung",
-    "fields": {
-      "created_at": "2026-05-19T15:03:24.861Z",
-      "modified_at": "2026-05-19T15:03:24.861Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "vorhaben",
-      "question": "vorhaben-andere-beschreibung",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "vorhaben.vorhaben-titel",
     "fields": {
       "created_at": "2026-03-12T13:25:24.981Z",
@@ -3898,7 +3883,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "vorhaben-titel",
-      "sort": 16
+      "sort": 15
     }
   },
   {
@@ -5254,6 +5239,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "art-des-vorhabens-andere",
+    "fields": {
+      "created_at": "2026-06-18T11:10:45.372Z",
+      "modified_at": "2026-06-18T11:10:45.372Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "art-des-vorhabens-neubau",
     "fields": {
       "created_at": "2026-03-12T12:52:01.841Z",
@@ -5356,6 +5358,57 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "art-des-vorhabens-nutzungs-zwecksaenderung",
+    "fields": {
+      "created_at": "2026-06-18T11:10:45.359Z",
+      "modified_at": "2026-06-18T11:10:45.359Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzungs- / Zwecksänderung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-vorhabens-projektaenderung",
+    "fields": {
+      "created_at": "2026-06-18T11:10:45.146Z",
+      "modified_at": "2026-06-18T11:10:45.146Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektänderung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-vorhabens-terrainveraenderung",
+    "fields": {
+      "created_at": "2026-06-18T11:10:45.364Z",
+      "modified_at": "2026-06-18T11:10:45.365Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Terrainveränderung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "art-des-vorhabens-umbau",
     "fields": {
       "created_at": "2026-03-12T12:52:01.838Z",
@@ -5450,6 +5503,23 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wohnhaus\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-vorhabens-werbeanlage",
+    "fields": {
+      "created_at": "2026-06-18T11:10:45.331Z",
+      "modified_at": "2026-06-18T11:10:45.331Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werbeanlage\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -7413,91 +7483,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "vorhaben-andere",
-    "fields": {
-      "created_at": "2026-05-19T15:01:52.318Z",
-      "modified_at": "2026-05-19T15:01:52.318Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"andere\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "vorhaben-nutzungs-zwecksaenderung",
-    "fields": {
-      "created_at": "2026-05-19T15:01:52.287Z",
-      "modified_at": "2026-05-19T15:01:52.287Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nutzungs- / Zwecksänderung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "vorhaben-projektaenderung",
-    "fields": {
-      "created_at": "2026-05-19T15:01:52.274Z",
-      "modified_at": "2026-05-19T15:01:52.274Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Projektänderung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "vorhaben-terrainveraenderung",
-    "fields": {
-      "created_at": "2026-05-19T15:01:52.320Z",
-      "modified_at": "2026-05-19T15:01:52.320Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Terrainveränderung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "vorhaben-werbeanlage",
-    "fields": {
-      "created_at": "2026-05-19T15:01:52.273Z",
-      "modified_at": "2026-05-19T15:01:52.273Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Werbeanlage\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "waermeerzeugung-feuerungstyp-warmwassererzeugung",
     "fields": {
       "created_at": "2026-06-04T07:29:15.130Z",
@@ -8694,7 +8679,7 @@
     "pk": "art-des-vorhabens",
     "fields": {
       "created_at": "2026-03-12T12:52:01.889Z",
-      "modified_at": "2026-03-12T12:52:12.589Z",
+      "modified_at": "2026-06-18T11:10:45.516Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -8741,6 +8726,42 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-des-vorhabens-andere-beschreibung",
+    "fields": {
+      "created_at": "2026-05-19T15:03:24.767Z",
+      "modified_at": "2026-05-19T15:05:18.948Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorhaben Andere Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"art-des-vorhabens-andere\" in \"art-des-vorhabens\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "hideLabel": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -14663,73 +14684,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "vorhaben",
-    "fields": {
-      "created_at": "2026-05-19T15:01:52.427Z",
-      "modified_at": "2026-05-19T15:01:52.427Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Vorhaben\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "vorhaben-andere-beschreibung",
-    "fields": {
-      "created_at": "2026-05-19T15:03:24.767Z",
-      "modified_at": "2026-05-19T15:05:18.948Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Vorhaben Andere Beschreibung\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "!(\"vorhaben-andere\" in \"vorhaben\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {
-        "hideLabel": true
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "vorhaben-formular",
     "fields": {
       "created_at": "2026-02-10T16:05:49.646Z",
@@ -15766,7 +15720,7 @@
       "label": "{\"de\": \"Werbeanlagen\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\"vorhaben-werbeanlage\" in \"vorhaben\"|answer)",
+      "is_hidden": "!(\"art-des-vorhabens-werbeanlage\" in \"art-des-vorhabens\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -17122,14 +17076,29 @@
     "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens.art-des-vorhabens-abbruch",
     "fields": {
-      "created_at": "2026-03-12T12:52:12.591Z",
-      "modified_at": "2026-03-12T12:52:12.591Z",
+      "created_at": "2026-06-18T11:10:45.549Z",
+      "modified_at": "2026-06-18T11:10:45.549Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens",
       "option": "art-des-vorhabens-abbruch",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-vorhabens.art-des-vorhabens-andere",
+    "fields": {
+      "created_at": "2026-06-18T11:10:45.528Z",
+      "modified_at": "2026-06-18T11:10:45.528Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-vorhabens",
+      "option": "art-des-vorhabens-andere",
       "sort": 1
     }
   },
@@ -17137,30 +17106,90 @@
     "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens.art-des-vorhabens-neubau",
     "fields": {
-      "created_at": "2026-03-12T12:52:12.595Z",
-      "modified_at": "2026-03-12T12:52:12.595Z",
+      "created_at": "2026-06-18T11:10:45.557Z",
+      "modified_at": "2026-06-18T11:10:45.557Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens",
       "option": "art-des-vorhabens-neubau",
-      "sort": 3
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-vorhabens.art-des-vorhabens-nutzungs-zwecksaenderung",
+    "fields": {
+      "created_at": "2026-06-18T11:10:45.543Z",
+      "modified_at": "2026-06-18T11:10:45.543Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-vorhabens",
+      "option": "art-des-vorhabens-nutzungs-zwecksaenderung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-vorhabens.art-des-vorhabens-projektaenderung",
+    "fields": {
+      "created_at": "2026-06-18T11:10:45.533Z",
+      "modified_at": "2026-06-18T11:10:45.533Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-vorhabens",
+      "option": "art-des-vorhabens-projektaenderung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-vorhabens.art-des-vorhabens-terrainveraenderung",
+    "fields": {
+      "created_at": "2026-06-18T11:10:45.540Z",
+      "modified_at": "2026-06-18T11:10:45.540Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-vorhabens",
+      "option": "art-des-vorhabens-terrainveraenderung",
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens.art-des-vorhabens-umbau",
     "fields": {
-      "created_at": "2026-03-12T12:52:12.594Z",
-      "modified_at": "2026-03-12T12:52:12.594Z",
+      "created_at": "2026-06-18T11:10:45.553Z",
+      "modified_at": "2026-06-18T11:10:45.553Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens",
       "option": "art-des-vorhabens-umbau",
-      "sort": 2
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-vorhabens.art-des-vorhabens-werbeanlage",
+    "fields": {
+      "created_at": "2026-06-18T11:10:45.536Z",
+      "modified_at": "2026-06-18T11:10:45.536Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-vorhabens",
+      "option": "art-des-vorhabens-werbeanlage",
+      "sort": 3
     }
   },
   {
@@ -19036,81 +19065,6 @@
       "question": "vorbehandlung-des-kondensat",
       "option": "vorbehandlung-des-kondensat-nein",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "vorhaben.vorhaben-andere",
-    "fields": {
-      "created_at": "2026-05-19T15:01:52.434Z",
-      "modified_at": "2026-05-19T15:01:52.434Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "vorhaben",
-      "option": "vorhaben-andere",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "vorhaben.vorhaben-nutzungs-zwecksaenderung",
-    "fields": {
-      "created_at": "2026-05-19T15:01:52.451Z",
-      "modified_at": "2026-05-19T15:01:52.451Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "vorhaben",
-      "option": "vorhaben-nutzungs-zwecksaenderung",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "vorhaben.vorhaben-projektaenderung",
-    "fields": {
-      "created_at": "2026-05-19T15:01:52.439Z",
-      "modified_at": "2026-05-19T15:01:52.439Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "vorhaben",
-      "option": "vorhaben-projektaenderung",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "vorhaben.vorhaben-terrainveraenderung",
-    "fields": {
-      "created_at": "2026-05-19T15:01:52.446Z",
-      "modified_at": "2026-05-19T15:01:52.446Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "vorhaben",
-      "option": "vorhaben-terrainveraenderung",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "vorhaben.vorhaben-werbeanlage",
-    "fields": {
-      "created_at": "2026-05-19T15:01:52.442Z",
-      "modified_at": "2026-05-19T15:01:52.442Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "vorhaben",
-      "option": "vorhaben-werbeanlage",
-      "sort": 3
     }
   },
   {
