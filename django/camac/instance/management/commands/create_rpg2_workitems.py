@@ -207,21 +207,16 @@ class Command(BaseCommand):
                     )
 
                     slug_stats["updated"] += 1
+                    self.stdout.write(
+                        self.style.NOTICE(
+                            f"  ...created work-item (state: {status}, instance: {instance.pk})"
+                        )
+                    )
+
                 except Exception as e:
                     slug_stats["errors"] += 1
                     self.stdout.write(
                         self.style.ERROR(f"  Error on Instance {instance.pk}: {e}")
-                    )
-
-                # intermediate progress report
-                if slug_stats["processed"] % 250 == 0:
-                    self.stdout.write(
-                        self.style.NOTICE(
-                            f"    Progress: {slug_stats['processed']}/{total} "
-                            f"({slug_stats['updated']} updated, "
-                            f"{slug_stats['skipped']} skipped, "
-                            f"{slug_stats['errors']} errors)"
-                        )
                     )
 
             # per-slug summary
