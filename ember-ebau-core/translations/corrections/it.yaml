@@ -55,12 +55,15 @@ corrections:
     error: "Errore nel tentativo di ritirare il dossier"
 
   change-form:
-    title: ""
-    description: ""
-    not-possible: ""
-    form-label: ""
-    label: ""
-    confirm: ""
-    error: ""
-    success: ""
-    invalid-form-hint: ""
+    title: "Cambio tipo di dossier"
+    description: "Qui è possibile correggere tipi di dossier errati. È possibile selezionare solo i tipi disponibili nel menu a tendina."
+    not-possible: "Il tipo di dossier di questo dossier non può essere modificato."
+    form-label: "Modulo per la modifica del tipo di dossier"
+    label: "Tipo di dossier"
+    confirm: "Vuole davvero modificare il tipo di dossier?"
+    error: "Errore durante la modifica del tipo di dossier"
+    success: "Il tipo di dossier è stato modificato con successo"
+    invalid-form-hint: |-
+      <strong>Attenzione:</strong> Il modulo di questo dossier non è più
+      completamente compilato. È possibile completare i dati mancanti utilizzando la
+      funzione "Correggi dossier".
