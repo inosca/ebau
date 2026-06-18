@@ -185,6 +185,7 @@ DISTRIBUTION = {
         "ENABLED": True,
         "DEFAULT_DEADLINE_LEAD_TIME": 14,
         "INSTANCE_STATE_DISTRIBUTION": "circulation",
+        "RECALCULATE_DEADLINE_BY_SUBMISSION": True,
         "HISTORY": {
             "COMPLETE_DISTRIBUTION": _("Circulation completed"),
             "SKIP_DISTRIBUTION": _("Circulation skipped"),
