@@ -9,6 +9,7 @@ import caseFormTypeQuery from "ember-ebau-core/gql/queries/case-form-type.graphq
 
 export default class InquiryAnswerStatusComponent extends Component {
   @service calumaOptions;
+  @service store;
 
   @queryManager apollo;
 
@@ -114,6 +115,27 @@ export default class InquiryAnswerStatusComponent extends Component {
         ];
 
     return options.filter((option) => selection.includes(option.slug));
+  }
+
+  filterOptionsSG(options) {
+    const isCoordinationInvolved = [
+      ...this.args.context.inquiry.controllingGroups,
+      ...this.args.context.inquiry.addressedGroups,
+    ]
+      .map((id) => this.store.peekRecord("service", id)?.slug)
+      .includes("coordination");
+
+    if (!isCoordinationInvolved) {
+      return options.filter((option) =>
+        [
+          "inquiry-answer-status-positive",
+          "inquiry-answer-status-negative",
+          "inquiry-answer-status-not-involved",
+        ].includes(option.slug),
+      );
+    }
+
+    return options;
   }
 
   get options() {
