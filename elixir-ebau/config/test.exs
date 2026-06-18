@@ -1,8 +1,9 @@
-import Config
-
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
+# We don't run a server during test. If one is required,
+# you can enable the server option below.
+import Config
 config :ebau, Ebau.Mailer, adapter: Swoosh.Adapters.Test
 
 config :ebau, Ebau.Repo,
@@ -11,8 +12,6 @@ config :ebau, Ebau.Repo,
   hostname: System.get_env("DATABASE_HOST", "localhost"),
   database: "ebau_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
-  # We don't run a server during test. If one is required,
-  # you can enable the server option below.
   pool_size: System.schedulers_online() * 2
 
 config :ebau, EbauWeb.Endpoint,
@@ -21,16 +20,16 @@ config :ebau, EbauWeb.Endpoint,
   server: false,
   url: [path: "/"]
 
-config :ebau,
-  legacy_fixture_root: Path.expand("../priv/test_fixtures", __DIR__)
-
-config :ebau, token_signing_secret: "9sflOmq636a7ftJq2gp72FlyeWS4/yIl"
-
 config :ebau, :keycloak,
   url: "http://localhost:1/",
   realm: "test",
   email_claim: "email",
   scopes: "openid"
+
+config :ebau,
+  legacy_fixture_root: Path.expand("../priv/test_fixtures", __DIR__)
+
+config :ebau, token_signing_secret: "9sflOmq636a7ftJq2gp72FlyeWS4/yIl"
 
 # Print only warnings and errors during test
 config :logger, level: :warning
@@ -42,4 +41,3 @@ config :phoenix,
 # Enable helpful, but potentially expensive runtime checks
 config :phoenix_live_view,
   enable_expensive_runtime_checks: true
-

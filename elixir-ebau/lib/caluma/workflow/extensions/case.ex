@@ -166,7 +166,9 @@ defmodule Caluma.Workflow.Extensions.Case.Transformer do
 
         dsl
         |> AnswerTransformer.add_answer_relationship(rel_name, answer.question_id, doc_id_ref)
-        |> AnswerTransformer.add_calc(answer.name, answer.type,
+        |> AnswerTransformer.add_calc(
+          answer.name,
+          answer.type,
           Caluma.Form.Calculations.DocumentAnswer,
           relationship: rel_name
         )
@@ -176,7 +178,9 @@ defmodule Caluma.Workflow.Extensions.Case.Transformer do
 
         dsl
         |> AnswerTransformer.add_answer_relationship(rel_name, mapped.question_id, doc_id_ref)
-        |> AnswerTransformer.add_calc(mapped.name, mapped.type,
+        |> AnswerTransformer.add_calc(
+          mapped.name,
+          mapped.type,
           Caluma.Form.Calculations.MappedDocumentAnswer,
           relationship: rel_name,
           mapping: mapped.mapping

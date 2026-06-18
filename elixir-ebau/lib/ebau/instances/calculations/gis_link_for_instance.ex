@@ -19,7 +19,9 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
   def calculate(records, _opts, context) do
     case Ebau.Instances.get_instance_by_id(
            context.arguments.instance_id,
-           Keyword.put(Ash.Context.to_opts(context), :load, plot_data: [:coord_north, :coord_east])
+           Keyword.put(Ash.Context.to_opts(context), :load,
+             plot_data: [:coord_north, :coord_east]
+           )
          ) do
       {:ok, instance} ->
         coords = first_plot_coords(List.first(instance.plot_data))

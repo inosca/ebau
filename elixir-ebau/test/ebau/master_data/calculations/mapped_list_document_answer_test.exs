@@ -65,7 +65,8 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswerTest do
         slug: "building-permit",
         name: %{"de" => "Building permit"}
       },
-      authorize?: false, actor: nil
+      authorize?: false,
+      actor: nil
     )
 
     Caluma.Form.create_form_tree!(
@@ -78,7 +79,8 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswerTest do
           %{slug: "ist-papier", label: "Ist Papier", type: :multiple_choice}
         ]
       },
-      authorize?: false, actor: nil
+      authorize?: false,
+      actor: nil
     )
 
     %{instance: matching} =
@@ -179,13 +181,21 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswerTest do
 
   defp create_instance_with_answers(answers) do
     case_record =
-      Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}}, authorize?: false, actor: nil)
+      Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}},
+        authorize?: false,
+        actor: nil
+      )
 
-    instance = Ebau.Instances.create_instance!(%{case: %{id: case_record.id}}, authorize?: false, actor: nil)
+    instance =
+      Ebau.Instances.create_instance!(%{case: %{id: case_record.id}},
+        authorize?: false,
+        actor: nil
+      )
 
     document =
       Caluma.Form.create_document!(%{form: %{slug: "baugesuch"}, case: %{id: case_record.id}},
-        authorize?: false, actor: nil
+        authorize?: false,
+        actor: nil
       )
 
     Enum.each(answers, fn {question_id, value} ->
@@ -195,7 +205,8 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswerTest do
           question_id: question_id,
           value: value
         },
-        authorize?: false, actor: nil
+        authorize?: false,
+        actor: nil
       )
     end)
 

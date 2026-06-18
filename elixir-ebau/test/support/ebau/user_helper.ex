@@ -76,7 +76,8 @@ defmodule Ebau.Test.UserHelper do
           surname: "user",
           language: :de
         },
-        authorize?: false, actor: nil
+        authorize?: false,
+        actor: nil
       )
 
     group =
@@ -85,7 +86,9 @@ defmodule Ebau.Test.UserHelper do
           users: [user],
           role: %{slug: get_in(args, [:role, :slug]) || "municipality-admin"}
         },
-        authorize?: false, actor: nil, load: [:role]
+        authorize?: false,
+        actor: nil,
+        load: [:role]
       )
 
     service_group_slug = get_in(args, [:service_group, :slug]) || "municipality"

@@ -16,7 +16,8 @@ defmodule Caluma.Form.Changes.SetRootFamilyTest do
           }
         ]
       },
-      authorize?: false, actor: nil
+      authorize?: false,
+      actor: nil
     )
 
     :ok
@@ -24,21 +25,28 @@ defmodule Caluma.Form.Changes.SetRootFamilyTest do
 
   test "root document family_id points at itself" do
     document =
-      Caluma.Form.create_document!(%{form: %{slug: "set-root-family-form"}}, authorize?: false, actor: nil)
+      Caluma.Form.create_document!(%{form: %{slug: "set-root-family-form"}},
+        authorize?: false,
+        actor: nil
+      )
 
     assert document.family_id == document.id
   end
 
   test "row document inherits family from parent root" do
     root =
-      Caluma.Form.create_document!(%{form: %{slug: "set-root-family-form"}}, authorize?: false, actor: nil)
+      Caluma.Form.create_document!(%{form: %{slug: "set-root-family-form"}},
+        authorize?: false,
+        actor: nil
+      )
 
     row =
       Caluma.Form.create_row_document!(
         root,
         %{slug: "rows"},
         [%{question_id: "field", value: "x"}],
-        authorize?: false, actor: nil
+        authorize?: false,
+        actor: nil
       )
 
     assert row.family_id == root.id

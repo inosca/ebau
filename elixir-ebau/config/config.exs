@@ -60,7 +60,9 @@ config :spark,
 
 if config_env() in [:dev, :test] do
   config :ash, :policies, show_policy_breakdown?: true
+
   config :phoenix, :plug_init_mode, :runtime
+
   config :swoosh, :api_client, false
 end
 
