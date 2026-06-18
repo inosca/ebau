@@ -10,7 +10,6 @@ export default {
     snippets: true,
   },
   instanceOverview: {
-    useSpecialId: true,
     useFormNameAsTabTitle: true,
   },
   communications: {
