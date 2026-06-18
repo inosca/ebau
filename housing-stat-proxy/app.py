@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
-TARGET_URL = os.environ.get("TARGET_URL", "https://www-r.housing-stat.ch").rstrip("/")
+TARGET_URL = os.environ.get("TARGET_URL", "https://www.housing-stat.ch").rstrip("/")
 
 
 @app.route("/housing-stat/<path:path>", methods=["GET", "POST", "PUT", "DELETE"])
