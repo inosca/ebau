@@ -1,6 +1,7 @@
 from collections import OrderedDict
 from decimal import Decimal
 from typing import List, TypedDict, Union
+from unicodedata import normalize
 
 from django.conf import settings
 from django.db.models import Q
@@ -197,7 +198,27 @@ def get_invoice_text_sz(instance: Instance) -> str:
         invoice_text += 2 * newline
         invoice_text += f"{street.value}, {location.value}"
 
-    return invoice_text
+    return sanitize_text_to_wilken_encoding(invoice_text)
+
+
+def sanitize_text_to_wilken_encoding(original_text: str) -> str:
+    replace_character_map: dict[str, str] = (
+        settings.BILLING.wilken.replace_character_map
+    )
+    encoding: str = settings.BILLING.wilken.encoding
+
+    sanitized_text: str = (
+        # Combine Latin character diacritics using the unicode normalizer
+        normalize("NFC", original_text)
+        # Discard all non-encoded characters
+        .encode(encoding, "ignore")
+        .decode(encoding)
+    )
+
+    for original, replace in replace_character_map.items():
+        sanitized_text = sanitized_text.replace(original, replace)
+
+    return sanitized_text
 
 
 def _get_construction_leads_invoice_text_sz(construction_leads) -> str:

@@ -330,3 +330,39 @@ def test_get_invoice_text_overrides_sz(
         "Labor~~~~"
         "Thunstrasse, Bern"
     )
+
+
+def test_get_invoice_text_sanitized_sz(
+    db,
+    sz_billing_settings: BillingConfig,
+    instance_factory,
+    location_factory,
+    form_field_factory,
+) -> None:
+    instance: Instance = instance_factory(location=location_factory(name="Schwyz"))
+
+    lead = {
+        "vorname": "Walter",
+        "name": "Weiss",
+        "strasse": "Negra Arroyo Lane 308",
+        "plz": "1093",
+        "ort": "Albuquerque",
+    }
+
+    name = "Labor;\n🧪"
+
+    form_field_factory(instance=instance, name="bauherrschaft-override", value=[lead])
+    form_field_factory(instance=instance, name="bezeichnung", value=name)
+    form_field_factory(instance=instance, name="standort-ort", value="Bern")
+    form_field_factory(
+        instance=instance, name="ortsbezeichnung-des-vorhabens", value="Thunstrasse"
+    )
+
+    invoice_text: str = get_invoice_text_sz(instance)
+    assert invoice_text == (
+        "Walter Weiss~~"
+        "Negra Arroyo Lane 308~~"
+        "1093 Albuquerque~~~~"
+        "Labor,~~~~~~"
+        "Thunstrasse, Bern"
+    )
