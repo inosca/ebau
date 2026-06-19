@@ -6,9 +6,6 @@ export default {
   allowApplicantManualWorkItem: false,
   documentBackend: "alexandria",
   showIdInInternalArea: false,
-  serviceGroups: {
-    afb: 4,
-  },
   instanceStates: {
     new: 1,
     subm: 120004,
