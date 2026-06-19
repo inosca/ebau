@@ -26,6 +26,9 @@ module.exports = function () {
       "bell",
       "pen",
       "balance-scale",
+      "coins",
+      "hand-holding-dollar",
+      "file-invoice-dollar",
     ],
   };
 };
