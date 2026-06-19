@@ -11,6 +11,7 @@ from alexandria.core import models as alexandria_models
 from caluma.caluma_form.models import Answer, AnswerDocument, Document, Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 from django.db.models import Exists, OuterRef, Q, Sum
 from django.db.models.fields.files import ImageFieldFile
 from django.utils import timezone
@@ -726,7 +727,27 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
 
     @property
     def props(self):
-        return self._props or settings.PLACEHOLDERS["INQUIRY_DEFAULT_PROPS"]
+        props = self._props or settings.PLACEHOLDERS["INQUIRY_DEFAULT_PROPS"]
+
+        # Validate props configuration for two usecases:
+        #  - select multiple: pass a list of tuples ('inquiry-prop', 'CANONICAL_NAME').
+        #    The resulting object's attributes must obey translation,
+        #    aliasing and case casting requirements. To that end these attributes must
+        #    be configured in settings.PLACEHOLDERS['INQUIRY_FIELD_MAPPING'] and mapped
+        #    to a key in the available_nested_aliases.
+        #  - select one: pass a list holding exactly one string.
+        #    The string must be a InquiriesField attribute name. More than 1 string in
+        #    the list will raise a configuration error.
+        if not all([isinstance(prop, tuple) for prop in props]) and len(props) > 1:
+            raise ImproperlyConfigured(
+                (
+                    "InquiriesField props must be either a list of 2-tuples or a list "
+                    "holding a single string. If two or more props are required they "
+                    "must be configured in `available_nested_aliases`. "
+                    "See InquriesField.nested_aliases for details."
+                )
+            )
+        return props
 
     @property
     def nested_aliases(self):

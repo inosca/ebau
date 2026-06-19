@@ -1,3 +1,4 @@
+from contextlib import nullcontext
 from datetime import date, datetime
 from decimal import Decimal
 from unittest.mock import Mock
@@ -17,6 +18,7 @@ from caluma.caluma_form.factories import AnswerFactory, DocumentFactory
 from caluma.caluma_form.models import Option, Question
 from caluma.caluma_workflow.factories import WorkItemFactory
 from caluma.caluma_workflow.models import WorkItem
+from django.core.exceptions import ImproperlyConfigured
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.timezone import make_aware
@@ -1815,40 +1817,58 @@ def test_aliased_placeholder_field(
         }
 
 
+@pytest.mark.parametrize(
+    "props,expected_placeholders,expected_raises",
+    [
+        (
+            [("notices", "MELDUNGEN")],
+            [
+                "CAT_DE",
+                "CAT_DE[]",
+                "CAT_DE[].MELDUNGEN",
+                "CAT_DE[].MELDUNGEN[]",
+                "CAT_DE[].MELDUNGEN[].ART",
+                "CAT_DE[].MELDUNGEN[].INHALT",
+                "CAT_DE[].NOTICES",
+                "CAT_DE[].NOTICES[]",
+                "CAT_DE[].NOTICES[].CONTENU",
+                "CAT_DE[].NOTICES[].TYPE",
+                "CHAT",
+                "CHAT[]",
+                "CHAT[].MELDUNGEN",
+                "CHAT[].MELDUNGEN[]",
+                "CHAT[].MELDUNGEN[].ART",
+                "CHAT[].MELDUNGEN[].INHALT",
+                "CHAT[].NOTICES",
+                "CHAT[].NOTICES[]",
+                "CHAT[].NOTICES[].CONTENU",
+                "CHAT[].NOTICES[].TYPE",
+            ],
+            nullcontext(),
+        ),
+        (["objections", "service"], None, pytest.raises(ImproperlyConfigured)),
+    ],
+)
 def test_inquiries_field_nested_translations(
-    fake_request, service_group, be_instance, application_settings, settings
+    fake_request,
+    service_group,
+    be_instance,
+    application_settings,
+    settings,
+    props,
+    expected_placeholders,
+    expected_raises,
 ):
     available_langs = ["de", "fr"]
     application_settings["AVAILABLE_LANGUAGES"] = available_langs
 
     class DmsTestSerializer(DMSPlaceholdersSerializer):
-        inquiries_field = InquiriesField(
-            aliases=[_("TEST_CAT")],
-            props=[("notices", "MELDUNGEN")],
-        )
+        inquiries_field = InquiriesField(aliases=[_("TEST_CAT")], props=props)
 
     serializer = DmsTestSerializer(be_instance, context={"request": fake_request})
     inquiries = serializer.fields["inquiries_field"]
-    placeholders = inquiries.make_placeholders()
-    assert placeholders == [
-        "CAT_DE",
-        "CAT_DE[]",
-        "CAT_DE[].MELDUNGEN",
-        "CAT_DE[].MELDUNGEN[]",
-        "CAT_DE[].MELDUNGEN[].ART",
-        "CAT_DE[].MELDUNGEN[].INHALT",
-        "CAT_DE[].NOTICES",
-        "CAT_DE[].NOTICES[]",
-        "CAT_DE[].NOTICES[].CONTENU",
-        "CAT_DE[].NOTICES[].TYPE",
-        "CHAT",
-        "CHAT[]",
-        "CHAT[].MELDUNGEN",
-        "CHAT[].MELDUNGEN[]",
-        "CHAT[].MELDUNGEN[].ART",
-        "CHAT[].MELDUNGEN[].INHALT",
-        "CHAT[].NOTICES",
-        "CHAT[].NOTICES[]",
-        "CHAT[].NOTICES[].CONTENU",
-        "CHAT[].NOTICES[].TYPE",
-    ], "Created placeholders do not match expected placeholders"
+    with expected_raises:
+        placeholders = inquiries.make_placeholders()
+        assert placeholders == expected_placeholders, (
+            "Created placeholders do not match expected placeholders"
+        )
