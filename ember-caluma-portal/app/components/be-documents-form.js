@@ -1,4 +1,5 @@
 import { service } from "@ember/service";
+import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask, restartableTask, task } from "ember-concurrency";
@@ -22,7 +23,12 @@ export default class BeDocumentsFormComponent extends Component {
   // to load the document upload widget
   placeholderSlug = "dokumente-platzhalter";
 
-  requiredQuestionTypes = ["MultipleChoiceQuestion", "TextareaQuestion"];
+  get requiredQuestionTypes() {
+    if (macroCondition(getOwnConfig().application === "ur")) {
+      return ["MultipleChoiceQuestion"];
+    }
+    return ["MultipleChoiceQuestion", "TextareaQuestion"];
+  }
 
   get isAdditionalDemandChanges() {
     return (
