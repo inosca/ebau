@@ -97,6 +97,33 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 8,
+    "fields": {
+      "name": "construction-monitoring",
+      "sort": 7,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 9,
+    "fields": {
+      "name": "to-finish",
+      "sort": 8,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 10,
+    "fields": {
+      "name": "finished",
+      "sort": 9,
+      "description": null
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -163,6 +190,36 @@
       "instance_state": 7,
       "language": "de",
       "name": "Entschieden",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 8,
+    "fields": {
+      "instance_state": 8,
+      "language": "de",
+      "name": "Baubegleitung",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 9,
+    "fields": {
+      "instance_state": 9,
+      "language": "de",
+      "name": "Zum Abschluss",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 10,
+    "fields": {
+      "instance_state": 10,
+      "language": "de",
+      "name": "Abgeschlossen",
       "description": null
     }
   }
