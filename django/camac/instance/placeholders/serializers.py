@@ -95,11 +95,15 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         field_aliases = set([to_configured_case(field_name)])
 
         for alias_config in field.aliases:
-            for alias in get_translations_canton_aware(alias_config).values():
+            for alias in get_translations_canton_aware(
+                alias_config, static=field.static_translations
+            ).values():
                 field_aliases.add(to_configured_case(alias))
 
         if field.nested_aliases:
-            nested_aliases = self.get_parsed_aliases(field.nested_aliases)
+            nested_aliases = self.get_parsed_aliases(
+                field.nested_aliases, static_translations=field.static_translations
+            )
             value = (
                 [
                     self.populate_aliases_with_values(item, nested_aliases)
@@ -111,14 +115,16 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
         return [(name, value) for name in field_aliases]
 
-    def get_parsed_aliases(self, aliases):
+    def get_parsed_aliases(self, aliases, static_translations=False):
         return {
             key: list(
                 itertools.chain(
                     *[
                         map(
                             to_configured_case,
-                            get_translations_canton_aware(alias).values(),
+                            get_translations_canton_aware(
+                                alias, static=static_translations
+                            ).values(),
                         )
                         for alias in alias_config
                     ]
@@ -2684,6 +2690,16 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "participants.email": ["EMAIL"],
         },
         is_collection=True,
+    )
+    activations = fields.InquiriesField(
+        aliases=["ACTIVATIONS"],
+        description=_("Activations"),
+        static_translations=True,
+    )
+    my_activations = fields.InquiriesField(
+        only_own=True,
+        aliases=["MY_ACTIVATIONS"],
+        description=_("My activations"),
         static_translations=True,
     )
     field_bauherrschaft = fields.MasterDataPersonObjectField(

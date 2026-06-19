@@ -1762,24 +1762,8 @@ msgid "TEST_BAT"
 msgstr "BAT_DE"
 
 #: camac/instance/tests/test_placeholders.py
-msgid "TEST_LIST_CATS"
-msgstr "KATZENLISTE"
-
-#: camac/instance/tests/test_placeholders.py
-msgid "TEST_LIST_BATS"
-msgstr "BATZENLISTE"
-
-#: camac/instance/tests/test_placeholders.py
-msgid "TEST_CAT_OBJECTS"
-msgstr "KOBJEKTE"
-
-#: camac/instance/tests/test_placeholders.py
-msgid "TEST_BAT_OBJECTS"
-msgstr "BOBJEKTE"
-
-#: camac/instance/tests/test_placeholders.py
 msgid "TEST_NEST"
-msgstr ""
+msgstr "NEST_DE"
 
 #: camac/instance/utils.py camac/user/serializers.py
 #, python-format

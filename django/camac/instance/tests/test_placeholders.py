@@ -1,3 +1,4 @@
+from contextlib import nullcontext
 from datetime import date, datetime
 from decimal import Decimal
 from unittest.mock import Mock
@@ -17,6 +18,7 @@ from caluma.caluma_form.factories import AnswerFactory, DocumentFactory
 from caluma.caluma_form.models import Option, Question
 from caluma.caluma_workflow.factories import WorkItemFactory
 from caluma.caluma_workflow.models import WorkItem
+from django.core.exceptions import ImproperlyConfigured
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.timezone import make_aware
@@ -24,7 +26,7 @@ from django.utils.translation import gettext_lazy as _, override
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from camac.instance.placeholders.fields import AliasedMethodField
+from camac.instance.placeholders.fields import AliasedMethodField, InquiriesField
 from camac.instance.placeholders.serializers import (
     DMSPlaceholdersSerializer,
     SzDMSPlaceholdersSerializer,
@@ -1247,6 +1249,10 @@ def test_dms_placeholders_sz(
     caluma_document_factory,
     form_utils: FormUtils,
     objection_participant_factory,
+    active_inquiry_factory,
+    service_factory,
+    service_group,
+    service,
     faker,
     snapshot,
 ):
@@ -1418,6 +1424,50 @@ def test_dms_placeholders_sz(
         phone=faker.phone_number(),
     )
 
+    # SETUP CIRCULATION
+    # required for placeholders
+    #  - my_activations
+    #  - activations
+    placeholders.extend(["activations", "my_activations"])
+
+    inquiry_service = service_factory(name="Fachstelle")
+
+    application_settings["INTER_SERVICE_GROUP_VISIBILITIES"] = {
+        service_group.pk: [inquiry_service.service_group.pk],
+    }
+
+    inquiry = active_inquiry_factory(
+        addressed_service=inquiry_service,
+        status=WorkItem.STATUS_COMPLETED,
+        created_at=make_aware(datetime(2018, 3, 15)),
+        deadline=make_aware(datetime(2018, 4, 30)),
+        closed_at=make_aware(datetime(2018, 4, 15)),
+    )
+    active_inquiry_factory(addressed_service=service_factory())
+    active_inquiry_factory(addressed_service=service)
+
+    form_utils.add_answer(
+        inquiry.document,
+        "inquiry-remark",
+        "Grund",
+    )
+    form_utils.add_answer(
+        inquiry.child_case.document,
+        "inquiry-answer-status",
+        "inquiry-answer-status-final",
+    )
+    form_utils.add_answer(
+        inquiry.child_case.document,
+        "inquiry-answer-request",
+        "Inhalt Antrag!",
+    )
+    form_utils.add_answer(
+        inquiry.child_case.document,
+        "inquiry-answer-hint",
+        "Inhalt Hinweis!",
+    )
+    ## END CIRCULATION SETUP
+
     response = admin_client.get(
         reverse("instance-dms-placeholders", args=[sz_instance.pk])
     )
@@ -1505,107 +1555,215 @@ def test_get_koordinaten(coord_east, coord_north, expected, mocker):
     )
 
 
+@pytest.mark.parametrize(
+    "field_name,is_collection,is_complex,expected_placeholders",
+    [
+        ("literal_field", False, False, ["BATEAU", "BAT_DE", "CAT_DE", "CHAT"]),
+        (
+            "list_field",
+            True,
+            False,
+            [
+                "BATEAU",
+                "BATEAU[]",
+                "BAT_DE",
+                "BAT_DE[]",
+                "CAT_DE",
+                "CAT_DE[]",
+                "CHAT",
+                "CHAT[]",
+            ],
+        ),
+        (
+            "nested_obj_field",
+            False,
+            True,
+            [
+                "BATEAU",
+                "BATEAU.BATEAU",
+                "BATEAU.BAT_DE",
+                "BATEAU.CAT_DE",
+                "BATEAU.CHAT",
+                "BATEAU.NESTED[]",
+                "BATEAU.NESTED[].BATEAU",
+                "BATEAU.NESTED[].BAT_DE",
+                "BATEAU.NESTED[].CAT_DE",
+                "BATEAU.NESTED[].CHAT",
+                "BATEAU.NEST_DE",
+                "BATEAU.TEST_NID",
+                "BAT_DE",
+                "BAT_DE.BATEAU",
+                "BAT_DE.BAT_DE",
+                "BAT_DE.CAT_DE",
+                "BAT_DE.CHAT",
+                "BAT_DE.NESTED[]",
+                "BAT_DE.NESTED[].BATEAU",
+                "BAT_DE.NESTED[].BAT_DE",
+                "BAT_DE.NESTED[].CAT_DE",
+                "BAT_DE.NESTED[].CHAT",
+                "BAT_DE.NEST_DE",
+                "BAT_DE.TEST_NID",
+                "CAT_DE",
+                "CAT_DE.BATEAU",
+                "CAT_DE.BAT_DE",
+                "CAT_DE.CAT_DE",
+                "CAT_DE.CHAT",
+                "CAT_DE.NESTED[]",
+                "CAT_DE.NESTED[].BATEAU",
+                "CAT_DE.NESTED[].BAT_DE",
+                "CAT_DE.NESTED[].CAT_DE",
+                "CAT_DE.NESTED[].CHAT",
+                "CAT_DE.NEST_DE",
+                "CAT_DE.TEST_NID",
+                "CHAT",
+                "CHAT.BATEAU",
+                "CHAT.BAT_DE",
+                "CHAT.CAT_DE",
+                "CHAT.CHAT",
+                "CHAT.NESTED[]",
+                "CHAT.NESTED[].BATEAU",
+                "CHAT.NESTED[].BAT_DE",
+                "CHAT.NESTED[].CAT_DE",
+                "CHAT.NESTED[].CHAT",
+                "CHAT.NEST_DE",
+                "CHAT.TEST_NID",
+            ],
+        ),
+        (
+            "nested_collection_field",
+            True,
+            True,
+            [
+                "BATEAU",
+                "BATEAU[]",
+                "BATEAU[].BATEAU",
+                "BATEAU[].BAT_DE",
+                "BATEAU[].CAT_DE",
+                "BATEAU[].CHAT",
+                "BATEAU[].NESTED[]",
+                "BATEAU[].NESTED[].BATEAU",
+                "BATEAU[].NESTED[].BAT_DE",
+                "BATEAU[].NESTED[].CAT_DE",
+                "BATEAU[].NESTED[].CHAT",
+                "BATEAU[].NEST_DE",
+                "BATEAU[].TEST_NID",
+                "BAT_DE",
+                "BAT_DE[]",
+                "BAT_DE[].BATEAU",
+                "BAT_DE[].BAT_DE",
+                "BAT_DE[].CAT_DE",
+                "BAT_DE[].CHAT",
+                "BAT_DE[].NESTED[]",
+                "BAT_DE[].NESTED[].BATEAU",
+                "BAT_DE[].NESTED[].BAT_DE",
+                "BAT_DE[].NESTED[].CAT_DE",
+                "BAT_DE[].NESTED[].CHAT",
+                "BAT_DE[].NEST_DE",
+                "BAT_DE[].TEST_NID",
+                "CAT_DE",
+                "CAT_DE[]",
+                "CAT_DE[].BATEAU",
+                "CAT_DE[].BAT_DE",
+                "CAT_DE[].CAT_DE",
+                "CAT_DE[].CHAT",
+                "CAT_DE[].NESTED[]",
+                "CAT_DE[].NESTED[].BATEAU",
+                "CAT_DE[].NESTED[].BAT_DE",
+                "CAT_DE[].NESTED[].CAT_DE",
+                "CAT_DE[].NESTED[].CHAT",
+                "CAT_DE[].NEST_DE",
+                "CAT_DE[].TEST_NID",
+                "CHAT",
+                "CHAT[]",
+                "CHAT[].BATEAU",
+                "CHAT[].BAT_DE",
+                "CHAT[].CAT_DE",
+                "CHAT[].CHAT",
+                "CHAT[].NESTED[]",
+                "CHAT[].NESTED[].BATEAU",
+                "CHAT[].NESTED[].BAT_DE",
+                "CHAT[].NESTED[].CAT_DE",
+                "CHAT[].NESTED[].CHAT",
+                "CHAT[].NEST_DE",
+                "CHAT[].TEST_NID",
+            ],
+        ),
+    ],
+)
 def test_aliased_placeholder_field(
     db,
     fake_request,
     service_group,
     request_mock,
     sz_master_data_case,
-    snapshot,
+    field_name,
+    is_collection,
+    is_complex,
+    expected_placeholders,
+    settings,
+    application_settings,
 ):
-    testfields = [
-        "test_literal_field",
-        "test_list_field",
-        "test_nested_obj_field",
-        "test_nested_collection_field",
-    ]
-    testfields = testfields + [field_name + "_untransl" for field_name in testfields]
-
-    class PlaceholderTestSerializer(DMSPlaceholdersSerializer):
-        test_literal_field = AliasedMethodField(
-            aliases=[_("TEST_CAT"), _("TEST_BAT")], static_translations=False
-        )
-        test_literal_field_untransl = AliasedMethodField(
-            method_name="get_test_literal_field",
-            aliases=["TEST_CAT", "TEST_BAT"],
-            static_translations=True,
-        )
-        test_list_field = AliasedMethodField(
-            aliases=[_("TEST_LIST_CATS"), _("TEST_LIST_BATS")],
-            static_translations=False,
-            is_collection=True,
-        )
-        test_list_field_untransl = AliasedMethodField(
-            method_name="get_test_literal_field",
-            aliases=["TEST_LIST_CATS", "TEST_LIST_BATS"],
-            static_translations=True,
-            is_collection=True,
-        )
-        test_nested_collection_field = AliasedMethodField(
-            aliases=[_("TEST_CAT_OBJECTS"), _("TEST_BAT_OBJECTS")],
-            is_collection=True,
-            static_translations=False,
-            nested_aliases={
-                "NAME": [_("TEST_CAT")],
-                "NESTED": [_("TEST_NEST")],
-                "NESTED.NAME": [_("TEST_BAT")],
-            },
-        )
-        test_nested_collection_field_untransl = AliasedMethodField(
-            method_name="get_test_nested_collection_field",
-            aliases=["TEST_CAT_OBJECTS", "TEST_BAT_OBJECTS"],
-            is_collection=True,
-            static_translations=True,
-            nested_aliases={
-                "NAME": ["TEST_CAT"],
-                "NESTED": ["TEST_NEST"],
-                "NESTED.NAME": ["TEST_BAT"],
-            },
-        )
-        test_nested_obj_field = AliasedMethodField(
-            aliases=[_("TEST_CAT"), _("TEST_BAT")],
-            is_collection=False,
-            static_translations=False,
-            nested_aliases={
-                "NAME": [_("TEST_CAT")],
-                "NESTED": [_("TEST_NEST")],
-                "NESTED.NAME": [_("TEST_BAT")],
-            },
-        )
-        test_nested_obj_field_untransl = AliasedMethodField(
-            method_name="get_test_nested_obj_field",
-            aliases=["TEST_CAT", "TEST_BAT"],
-            is_collection=False,
-            static_translations=True,
-            nested_aliases={
-                "NAME": ["TEST_CAT"],
-                "NESTED": ["TEST_NEST"],
-                "NESTED.NAME": ["TEST_BAT"],
-            },
-        )
-
-        @staticmethod
-        def make_obj():
-            return {
-                "NAME": faker.Faker().name(),
+    available_langs = ["de", "fr"]
+    application_settings["AVAILABLE_LANGUAGES"] = available_langs
+    nested_aliases = (
+        {
+            "nested_aliases": {
+                "NAME": [
+                    {"default": _("TEST_CAT"), "test": _("TEST_BAT")},
+                    _("TEST_CAT"),
+                ],
                 "NESTED": [
-                    {"NAME": faker.Faker().name()},
-                    {"NAME": faker.Faker().name()},
+                    {"default": _("TEST_NEST"), "test": _("TEST_CAT")},
+                    _("TEST_NEST"),
+                ],
+                "NESTED.NAME": [
+                    {"defaut": _("TEST_BAT"), "test": _("TEST_CAT")},
+                    _("TEST_BAT"),
                 ],
             }
+        }
+        if is_complex
+        else {}
+    )
 
-        def get_test_literal_field(self, value):
-            return faker.Faker().word()
+    nested_aliases_untranslated = (
+        {
+            "nested_aliases": {
+                "NAME": [
+                    {"default": _("TEST_CAT"), "test": "UNTRANSLATED_NAME"},
+                    "OTHER_NAME",
+                ],
+                "NESTED": [
+                    {"default": _("TEST_CAT"), "test": "UNTRANSLATED_NESTED"},
+                    "OTHER_NESTED",
+                ],
+                "NESTED.NAME": [
+                    {"defaut": _("TEST_CAT"), "test": "UNTRANSLATED_NESTED_NAME"},
+                    "OTHER_NESTED_NAME",
+                ],
+            }
+        }
+        if is_complex
+        else {}
+    )
 
-        def get_test_list_field(self, value):
-            fake = faker.Faker()
-            return [fake.word(), fake.name(), fake.pyint()]
-
-        def get_test_nested_obj_field(self, value):
-            return self.make_obj()
-
-        def get_test_nested_collection_field(self, value):
-            return [self.make_obj() for _ in range(2)]
+    class PlaceholderTestSerializer(DMSPlaceholdersSerializer):
+        field = AliasedMethodField(
+            method_name=f"get_test_{field_name}",
+            aliases=[{"default": _("TEST_CAT"), "test": _("TEST_BAT")}, _("TEST_CAT")],
+            **nested_aliases,
+            is_collection=is_collection,
+        )
+        untransl_field = AliasedMethodField(
+            method_name=f"get_test_{field_name}",
+            aliases=[
+                {"default": "UNTRANSLATED_DEFAULT", "test": "UNTRANSLATED_TEST"},
+                "UNTRANSLATED",
+            ],
+            **nested_aliases_untranslated,
+            static_translations=True,
+            is_collection=is_collection,
+        )
 
         class Meta:
             # ignore BaseClass' declared fields
@@ -1614,13 +1772,103 @@ def test_aliased_placeholder_field(
     serializer = PlaceholderTestSerializer(
         instance=sz_master_data_case.instance, context={"request": fake_request}
     )
-    docs = {}
-    placeholders = {}
-    for field_name in testfields:
-        field = serializer.fields[field_name]
-        docs[field_name] = field.get_docs()
-        placeholders[field_name] = field.make_placeholders()
-    assert docs == snapshot
-    assert placeholders == snapshot
+    field = serializer.fields["field"]
+    docs = field.get_docs()
+    assert docs["aliases"] == [
+        {"de": "BAT_DE", "fr": "BATEAU"},
+        {"de": "CAT_DE", "fr": "CHAT"},
+    ]
+    if is_complex:
+        assert docs["nested_aliases"] == {
+            "NAME": [{"de": "BAT_DE", "fr": "BATEAU"}, {"de": "CAT_DE", "fr": "CHAT"}],
+            "NESTED": [
+                {"de": "CAT_DE", "fr": "CHAT"},
+                {"de": "NEST_DE", "fr": "TEST_NID"},
+            ],
+            "NESTED.NAME": [
+                {"de": "CAT_DE", "fr": "CHAT"},
+                {"de": "BAT_DE", "fr": "BATEAU"},
+            ],
+        }
 
-    assert serializer.data == snapshot
+    placeholders = field.make_placeholders()
+    assert placeholders == expected_placeholders
+
+    untransl_field = serializer.fields["untransl_field"]
+    untransl_docs = untransl_field.get_docs()
+    assert untransl_docs["aliases"] == [
+        {lang: "UNTRANSLATED" for lang in available_langs},
+        {lang: "UNTRANSLATED_TEST" for lang in available_langs},
+    ]
+    if is_complex:
+        assert untransl_docs["nested_aliases"] == {
+            "NAME": [
+                {lang: "UNTRANSLATED_NAME" for lang in available_langs},
+                {lang: "OTHER_NAME" for lang in available_langs},
+            ],
+            "NESTED": [
+                {lang: "UNTRANSLATED_NESTED" for lang in available_langs},
+                {lang: "OTHER_NESTED" for lang in available_langs},
+            ],
+            "NESTED.NAME": [
+                {lang: "UNTRANSLATED_NESTED_NAME" for lang in available_langs},
+                {lang: "OTHER_NESTED_NAME" for lang in available_langs},
+            ],
+        }
+
+
+@pytest.mark.parametrize(
+    "props,expected_placeholders,expected_raises",
+    [
+        (
+            [("notices", "MELDUNGEN")],
+            [
+                "CAT_DE",
+                "CAT_DE[]",
+                "CAT_DE[].MELDUNGEN",
+                "CAT_DE[].MELDUNGEN[]",
+                "CAT_DE[].MELDUNGEN[].ART",
+                "CAT_DE[].MELDUNGEN[].INHALT",
+                "CAT_DE[].NOTICES",
+                "CAT_DE[].NOTICES[]",
+                "CAT_DE[].NOTICES[].CONTENU",
+                "CAT_DE[].NOTICES[].TYPE",
+                "CHAT",
+                "CHAT[]",
+                "CHAT[].MELDUNGEN",
+                "CHAT[].MELDUNGEN[]",
+                "CHAT[].MELDUNGEN[].ART",
+                "CHAT[].MELDUNGEN[].INHALT",
+                "CHAT[].NOTICES",
+                "CHAT[].NOTICES[]",
+                "CHAT[].NOTICES[].CONTENU",
+                "CHAT[].NOTICES[].TYPE",
+            ],
+            nullcontext(),
+        ),
+        (["objections", "service"], None, pytest.raises(ImproperlyConfigured)),
+    ],
+)
+def test_inquiries_field_nested_translations(
+    fake_request,
+    service_group,
+    be_instance,
+    application_settings,
+    settings,
+    props,
+    expected_placeholders,
+    expected_raises,
+):
+    available_langs = ["de", "fr"]
+    application_settings["AVAILABLE_LANGUAGES"] = available_langs
+
+    class DmsTestSerializer(DMSPlaceholdersSerializer):
+        inquiries_field = InquiriesField(aliases=[_("TEST_CAT")], props=props)
+
+    serializer = DmsTestSerializer(be_instance, context={"request": fake_request})
+    inquiries = serializer.fields["inquiries_field"]
+    with expected_raises:
+        placeholders = inquiries.make_placeholders()
+        assert placeholders == expected_placeholders, (
+            "Created placeholders do not match expected placeholders"
+        )

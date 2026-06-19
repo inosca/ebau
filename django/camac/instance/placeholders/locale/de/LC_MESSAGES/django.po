@@ -228,6 +228,30 @@ msgid "STATEMENT"
 msgstr "BEURTEILUNG"
 
 #: camac/instance/placeholders/fields.py
+msgid "NOTICES"
+msgstr "MELDUNGEN"
+
+#: camac/instance/placeholders/fields.py
+msgid "NOTICE_TYPE"
+msgstr "ART"
+
+#: camac/instance/placeholders/fields.py
+msgid "CONTENT"
+msgstr "INHALT"
+
+#: camac/instance/placeholders/fields.py
+msgid "CIRCULATION_STATUS"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "CIRCULATION_ANSWER"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "REASON"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
 msgid "DATE_POSTMARK"
 msgstr "DATUM_POSTSTEMPEL"
 
@@ -2841,6 +2865,14 @@ msgstr "Bauverwaltung"
 #: camac/instance/placeholders/serializers.py
 msgid "Objections"
 msgstr "Einsprachen"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Activations"
+msgstr "Fachberichte"
+
+#: camac/instance/placeholders/serializers.py
+msgid "My activations"
+msgstr "Fachberichte Fachstelle (Eigener Fachbereich)"
 
 #: camac/instance/placeholders/serializers.py
 msgid "FIELD_BAUHERRSCHAFT"

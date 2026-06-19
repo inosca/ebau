@@ -13,10 +13,14 @@ from camac.utils import clean_join
 
 
 def to_configured_case(placeholder_name):
+    """Cast placeholders to configured case.
+
+    NOTE: handles placeholder_name lazy translation __proxy__ objects
+    """
     options = {"upper": str.upper, "lower": str.lower}
     configured = settings.PLACEHOLDERS["PLACEHOLDER_CASE"]
 
-    return options[configured](placeholder_name)
+    return options[configured](str(placeholder_name))
 
 
 def get_option_label(option: Union[dict, None]) -> Union[str, None]:

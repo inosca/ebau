@@ -25,10 +25,18 @@ def get_translations(s):
     return {lang: get_translation_in(lang, s) for lang, _ in get_available_languages()}
 
 
-def get_translations_canton_aware(config: Union[dict, str]) -> dict:
+def get_translations_canton_aware(config: Union[dict, str], static=False) -> dict:
+    """Make translations for configured locales of the current config.
+
+    :param config: the string or a dict specifying a config specific translation
+    :param static: create translations dict without translating
+    """
     text = config
 
     if isinstance(config, dict):
         text = config.get(settings.APPLICATION["SHORT_NAME"], config.get("default"))
+
+    if static:
+        return {lang: text for lang, _ in get_available_languages()}
 
     return get_translations(text)

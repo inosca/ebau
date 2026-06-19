@@ -1,1138 +1,4 @@
 # serializer version: 1
-# name: test_aliased_placeholder_field
-  dict({
-    'test_list_field': dict({
-      'aliases': list([
-        dict({
-          'de': 'BATZENLISTE',
-          'fr': 'BATEAUX',
-          'it': 'BATZENLISTE',
-        }),
-        dict({
-          'de': 'KATZENLISTE',
-          'fr': 'CHATEAUX',
-          'it': 'KATZENLISTE',
-        }),
-      ]),
-      'description': None,
-      'nested_aliases': dict({
-      }),
-    }),
-    'test_list_field_untransl': dict({
-      'aliases': list([
-        dict({
-          'de': 'TEST_LIST_BATS',
-          'fr': 'TEST_LIST_BATS',
-          'it': 'TEST_LIST_BATS',
-        }),
-        dict({
-          'de': 'TEST_LIST_CATS',
-          'fr': 'TEST_LIST_CATS',
-          'it': 'TEST_LIST_CATS',
-        }),
-      ]),
-      'description': None,
-      'nested_aliases': dict({
-      }),
-    }),
-    'test_literal_field': dict({
-      'aliases': list([
-        dict({
-          'de': 'BAT_DE',
-          'fr': 'BATEAU',
-          'it': 'BAT_DE',
-        }),
-        dict({
-          'de': 'CAT_DE',
-          'fr': 'CHAT',
-          'it': 'CAT_DE',
-        }),
-      ]),
-      'description': None,
-      'nested_aliases': dict({
-      }),
-    }),
-    'test_literal_field_untransl': dict({
-      'aliases': list([
-        dict({
-          'de': 'TEST_BAT',
-          'fr': 'TEST_BAT',
-          'it': 'TEST_BAT',
-        }),
-        dict({
-          'de': 'TEST_CAT',
-          'fr': 'TEST_CAT',
-          'it': 'TEST_CAT',
-        }),
-      ]),
-      'description': None,
-      'nested_aliases': dict({
-      }),
-    }),
-    'test_nested_collection_field': dict({
-      'aliases': list([
-        dict({
-          'de': 'BOBJEKTE',
-          'fr': '🦇',
-          'it': 'BOBJEKTE',
-        }),
-        dict({
-          'de': 'KOBJEKTE',
-          'fr': '🐈',
-          'it': 'KOBJEKTE',
-        }),
-      ]),
-      'description': None,
-      'nested_aliases': dict({
-        'NAME': list([
-          dict({
-            'de': 'CAT_DE',
-            'fr': 'CHAT',
-            'it': 'CAT_DE',
-          }),
-        ]),
-        'NESTED': list([
-          dict({
-            'de': 'TEST_NEST',
-            'fr': 'TEST_NID',
-            'it': 'TEST_NEST',
-          }),
-        ]),
-        'NESTED.NAME': list([
-          dict({
-            'de': 'BAT_DE',
-            'fr': 'BATEAU',
-            'it': 'BAT_DE',
-          }),
-        ]),
-      }),
-    }),
-    'test_nested_collection_field_untransl': dict({
-      'aliases': list([
-        dict({
-          'de': 'TEST_BAT_OBJECTS',
-          'fr': 'TEST_BAT_OBJECTS',
-          'it': 'TEST_BAT_OBJECTS',
-        }),
-        dict({
-          'de': 'TEST_CAT_OBJECTS',
-          'fr': 'TEST_CAT_OBJECTS',
-          'it': 'TEST_CAT_OBJECTS',
-        }),
-      ]),
-      'description': None,
-      'nested_aliases': dict({
-        'NAME': list([
-          dict({
-            'de': 'TEST_CAT',
-            'fr': 'TEST_CAT',
-            'it': 'TEST_CAT',
-          }),
-        ]),
-        'NESTED': list([
-          dict({
-            'de': 'TEST_NEST',
-            'fr': 'TEST_NEST',
-            'it': 'TEST_NEST',
-          }),
-        ]),
-        'NESTED.NAME': list([
-          dict({
-            'de': 'TEST_BAT',
-            'fr': 'TEST_BAT',
-            'it': 'TEST_BAT',
-          }),
-        ]),
-      }),
-    }),
-    'test_nested_obj_field': dict({
-      'aliases': list([
-        dict({
-          'de': 'BAT_DE',
-          'fr': 'BATEAU',
-          'it': 'BAT_DE',
-        }),
-        dict({
-          'de': 'CAT_DE',
-          'fr': 'CHAT',
-          'it': 'CAT_DE',
-        }),
-      ]),
-      'description': None,
-      'nested_aliases': dict({
-        'NAME': list([
-          dict({
-            'de': 'CAT_DE',
-            'fr': 'CHAT',
-            'it': 'CAT_DE',
-          }),
-        ]),
-        'NESTED': list([
-          dict({
-            'de': 'TEST_NEST',
-            'fr': 'TEST_NID',
-            'it': 'TEST_NEST',
-          }),
-        ]),
-        'NESTED.NAME': list([
-          dict({
-            'de': 'BAT_DE',
-            'fr': 'BATEAU',
-            'it': 'BAT_DE',
-          }),
-        ]),
-      }),
-    }),
-    'test_nested_obj_field_untransl': dict({
-      'aliases': list([
-        dict({
-          'de': 'TEST_BAT',
-          'fr': 'TEST_BAT',
-          'it': 'TEST_BAT',
-        }),
-        dict({
-          'de': 'TEST_CAT',
-          'fr': 'TEST_CAT',
-          'it': 'TEST_CAT',
-        }),
-      ]),
-      'description': None,
-      'nested_aliases': dict({
-        'NAME': list([
-          dict({
-            'de': 'TEST_CAT',
-            'fr': 'TEST_CAT',
-            'it': 'TEST_CAT',
-          }),
-        ]),
-        'NESTED': list([
-          dict({
-            'de': 'TEST_NEST',
-            'fr': 'TEST_NEST',
-            'it': 'TEST_NEST',
-          }),
-        ]),
-        'NESTED.NAME': list([
-          dict({
-            'de': 'TEST_BAT',
-            'fr': 'TEST_BAT',
-            'it': 'TEST_BAT',
-          }),
-        ]),
-      }),
-    }),
-  })
-# ---
-# name: test_aliased_placeholder_field.1
-  dict({
-    'test_list_field': list([
-      'BATEAUX',
-      'BATEAUX[]',
-      'BATZENLISTE',
-      'BATZENLISTE[]',
-      'CHATEAUX',
-      'CHATEAUX[]',
-      'KATZENLISTE',
-      'KATZENLISTE[]',
-    ]),
-    'test_list_field_untransl': list([
-      'TEST_LIST_BATS',
-      'TEST_LIST_BATS[]',
-      'TEST_LIST_CATS',
-      'TEST_LIST_CATS[]',
-    ]),
-    'test_literal_field': list([
-      'BATEAU',
-      'BAT_DE',
-      'CAT_DE',
-      'CHAT',
-    ]),
-    'test_literal_field_untransl': list([
-      'TEST_BAT',
-      'TEST_CAT',
-    ]),
-    'test_nested_collection_field': list([
-      'BOBJEKTE',
-      'BOBJEKTE[]',
-      'BOBJEKTE[].CAT_DE',
-      'BOBJEKTE[].CHAT',
-      'BOBJEKTE[].NESTED[]',
-      'BOBJEKTE[].NESTED[].BATEAU',
-      'BOBJEKTE[].NESTED[].BAT_DE',
-      'BOBJEKTE[].TEST_NEST',
-      'BOBJEKTE[].TEST_NID',
-      'KOBJEKTE',
-      'KOBJEKTE[]',
-      'KOBJEKTE[].CAT_DE',
-      'KOBJEKTE[].CHAT',
-      'KOBJEKTE[].NESTED[]',
-      'KOBJEKTE[].NESTED[].BATEAU',
-      'KOBJEKTE[].NESTED[].BAT_DE',
-      'KOBJEKTE[].TEST_NEST',
-      'KOBJEKTE[].TEST_NID',
-      '🐈',
-      '🐈[]',
-      '🐈[].CAT_DE',
-      '🐈[].CHAT',
-      '🐈[].NESTED[]',
-      '🐈[].NESTED[].BATEAU',
-      '🐈[].NESTED[].BAT_DE',
-      '🐈[].TEST_NEST',
-      '🐈[].TEST_NID',
-      '🦇',
-      '🦇[]',
-      '🦇[].CAT_DE',
-      '🦇[].CHAT',
-      '🦇[].NESTED[]',
-      '🦇[].NESTED[].BATEAU',
-      '🦇[].NESTED[].BAT_DE',
-      '🦇[].TEST_NEST',
-      '🦇[].TEST_NID',
-    ]),
-    'test_nested_collection_field_untransl': list([
-      'TEST_BAT_OBJECTS',
-      'TEST_BAT_OBJECTS[]',
-      'TEST_BAT_OBJECTS[].NESTED[]',
-      'TEST_BAT_OBJECTS[].NESTED[].TEST_BAT',
-      'TEST_BAT_OBJECTS[].TEST_CAT',
-      'TEST_BAT_OBJECTS[].TEST_NEST',
-      'TEST_CAT_OBJECTS',
-      'TEST_CAT_OBJECTS[]',
-      'TEST_CAT_OBJECTS[].NESTED[]',
-      'TEST_CAT_OBJECTS[].NESTED[].TEST_BAT',
-      'TEST_CAT_OBJECTS[].TEST_CAT',
-      'TEST_CAT_OBJECTS[].TEST_NEST',
-    ]),
-    'test_nested_obj_field': list([
-      'BATEAU',
-      'BATEAU.CAT_DE',
-      'BATEAU.CHAT',
-      'BATEAU.NESTED[]',
-      'BATEAU.NESTED[].BATEAU',
-      'BATEAU.NESTED[].BAT_DE',
-      'BATEAU.TEST_NEST',
-      'BATEAU.TEST_NID',
-      'BAT_DE',
-      'BAT_DE.CAT_DE',
-      'BAT_DE.CHAT',
-      'BAT_DE.NESTED[]',
-      'BAT_DE.NESTED[].BATEAU',
-      'BAT_DE.NESTED[].BAT_DE',
-      'BAT_DE.TEST_NEST',
-      'BAT_DE.TEST_NID',
-      'CAT_DE',
-      'CAT_DE.CAT_DE',
-      'CAT_DE.CHAT',
-      'CAT_DE.NESTED[]',
-      'CAT_DE.NESTED[].BATEAU',
-      'CAT_DE.NESTED[].BAT_DE',
-      'CAT_DE.TEST_NEST',
-      'CAT_DE.TEST_NID',
-      'CHAT',
-      'CHAT.CAT_DE',
-      'CHAT.CHAT',
-      'CHAT.NESTED[]',
-      'CHAT.NESTED[].BATEAU',
-      'CHAT.NESTED[].BAT_DE',
-      'CHAT.TEST_NEST',
-      'CHAT.TEST_NID',
-    ]),
-    'test_nested_obj_field_untransl': list([
-      'TEST_BAT',
-      'TEST_BAT.NESTED[]',
-      'TEST_BAT.NESTED[].TEST_BAT',
-      'TEST_BAT.TEST_CAT',
-      'TEST_BAT.TEST_NEST',
-      'TEST_CAT',
-      'TEST_CAT.NESTED[]',
-      'TEST_CAT.NESTED[].TEST_BAT',
-      'TEST_CAT.TEST_CAT',
-      'TEST_CAT.TEST_NEST',
-    ]),
-  })
-# ---
-# name: test_aliased_placeholder_field.2
-  ReturnDict({
-    'BATEAU': dict({
-      'CAT_DE': 'William Jones',
-      'CHAT': 'William Jones',
-      'NAME': 'William Jones',
-      'NESTED': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-      'TEST_NEST': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-      'TEST_NID': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-    }),
-    'BATEAUX': list([
-      'successful',
-      'Catherine Ellis',
-      7290,
-    ]),
-    'BATZENLISTE': list([
-      'successful',
-      'Catherine Ellis',
-      7290,
-    ]),
-    'BAT_DE': dict({
-      'CAT_DE': 'William Jones',
-      'CHAT': 'William Jones',
-      'NAME': 'William Jones',
-      'NESTED': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-      'TEST_NEST': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-      'TEST_NID': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-    }),
-    'BOBJEKTE': list([
-      dict({
-        'CAT_DE': 'Anthony Murphy',
-        'CHAT': 'Anthony Murphy',
-        'NAME': 'Anthony Murphy',
-        'NESTED': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-        'TEST_NEST': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-        'TEST_NID': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-      }),
-      dict({
-        'CAT_DE': 'Cathy Hart',
-        'CHAT': 'Cathy Hart',
-        'NAME': 'Cathy Hart',
-        'NESTED': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-        'TEST_NEST': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-        'TEST_NID': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-      }),
-    ]),
-    'CAT_DE': dict({
-      'CAT_DE': 'William Jones',
-      'CHAT': 'William Jones',
-      'NAME': 'William Jones',
-      'NESTED': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-      'TEST_NEST': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-      'TEST_NID': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-    }),
-    'CHAT': dict({
-      'CAT_DE': 'William Jones',
-      'CHAT': 'William Jones',
-      'NAME': 'William Jones',
-      'NESTED': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-      'TEST_NEST': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-      'TEST_NID': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-    }),
-    'CHATEAUX': list([
-      'successful',
-      'Catherine Ellis',
-      7290,
-    ]),
-    'KATZENLISTE': list([
-      'successful',
-      'Catherine Ellis',
-      7290,
-    ]),
-    'KOBJEKTE': list([
-      dict({
-        'CAT_DE': 'Anthony Murphy',
-        'CHAT': 'Anthony Murphy',
-        'NAME': 'Anthony Murphy',
-        'NESTED': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-        'TEST_NEST': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-        'TEST_NID': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-      }),
-      dict({
-        'CAT_DE': 'Cathy Hart',
-        'CHAT': 'Cathy Hart',
-        'NAME': 'Cathy Hart',
-        'NESTED': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-        'TEST_NEST': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-        'TEST_NID': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-      }),
-    ]),
-    'TEST_LIST_FIELD': list([
-      'successful',
-      'Catherine Ellis',
-      7290,
-    ]),
-    'TEST_LIST_FIELD_UNTRANSL': 'beautiful',
-    'TEST_LITERAL_FIELD': 'run',
-    'TEST_LITERAL_FIELD_UNTRANSL': 'too',
-    'TEST_NESTED_COLLECTION_FIELD': list([
-      dict({
-        'CAT_DE': 'Anthony Murphy',
-        'CHAT': 'Anthony Murphy',
-        'NAME': 'Anthony Murphy',
-        'NESTED': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-        'TEST_NEST': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-        'TEST_NID': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-      }),
-      dict({
-        'CAT_DE': 'Cathy Hart',
-        'CHAT': 'Cathy Hart',
-        'NAME': 'Cathy Hart',
-        'NESTED': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-        'TEST_NEST': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-        'TEST_NID': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-      }),
-    ]),
-    'TEST_NESTED_COLLECTION_FIELD_UNTRANSL': list([
-      dict({
-        'CAT_DE': 'Amy Gutierrez',
-        'CHAT': 'Amy Gutierrez',
-        'NAME': 'Amy Gutierrez',
-        'NESTED': list([
-          dict({
-            'BATEAU': 'Jennifer Lee',
-            'BAT_DE': 'Jennifer Lee',
-            'NAME': 'Jennifer Lee',
-          }),
-          dict({
-            'BATEAU': 'Shannon Webster',
-            'BAT_DE': 'Shannon Webster',
-            'NAME': 'Shannon Webster',
-          }),
-        ]),
-        'TEST_NEST': list([
-          dict({
-            'BATEAU': 'Jennifer Lee',
-            'BAT_DE': 'Jennifer Lee',
-            'NAME': 'Jennifer Lee',
-          }),
-          dict({
-            'BATEAU': 'Shannon Webster',
-            'BAT_DE': 'Shannon Webster',
-            'NAME': 'Shannon Webster',
-          }),
-        ]),
-        'TEST_NID': list([
-          dict({
-            'BATEAU': 'Jennifer Lee',
-            'BAT_DE': 'Jennifer Lee',
-            'NAME': 'Jennifer Lee',
-          }),
-          dict({
-            'BATEAU': 'Shannon Webster',
-            'BAT_DE': 'Shannon Webster',
-            'NAME': 'Shannon Webster',
-          }),
-        ]),
-      }),
-      dict({
-        'CAT_DE': 'William Sloan',
-        'CHAT': 'William Sloan',
-        'NAME': 'William Sloan',
-        'NESTED': list([
-          dict({
-            'BATEAU': 'Sabrina Fletcher',
-            'BAT_DE': 'Sabrina Fletcher',
-            'NAME': 'Sabrina Fletcher',
-          }),
-          dict({
-            'BATEAU': 'Bill Lopez',
-            'BAT_DE': 'Bill Lopez',
-            'NAME': 'Bill Lopez',
-          }),
-        ]),
-        'TEST_NEST': list([
-          dict({
-            'BATEAU': 'Sabrina Fletcher',
-            'BAT_DE': 'Sabrina Fletcher',
-            'NAME': 'Sabrina Fletcher',
-          }),
-          dict({
-            'BATEAU': 'Bill Lopez',
-            'BAT_DE': 'Bill Lopez',
-            'NAME': 'Bill Lopez',
-          }),
-        ]),
-        'TEST_NID': list([
-          dict({
-            'BATEAU': 'Sabrina Fletcher',
-            'BAT_DE': 'Sabrina Fletcher',
-            'NAME': 'Sabrina Fletcher',
-          }),
-          dict({
-            'BATEAU': 'Bill Lopez',
-            'BAT_DE': 'Bill Lopez',
-            'NAME': 'Bill Lopez',
-          }),
-        ]),
-      }),
-    ]),
-    'TEST_NESTED_OBJ_FIELD': dict({
-      'CAT_DE': 'William Jones',
-      'CHAT': 'William Jones',
-      'NAME': 'William Jones',
-      'NESTED': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-      'TEST_NEST': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-      'TEST_NID': list([
-        dict({
-          'BATEAU': 'Blake Houston',
-          'BAT_DE': 'Blake Houston',
-          'NAME': 'Blake Houston',
-        }),
-        dict({
-          'BATEAU': 'Andrea Cunningham',
-          'BAT_DE': 'Andrea Cunningham',
-          'NAME': 'Andrea Cunningham',
-        }),
-      ]),
-    }),
-    'TEST_NESTED_OBJ_FIELD_UNTRANSL': dict({
-      'CAT_DE': 'Kaitlin Costa',
-      'CHAT': 'Kaitlin Costa',
-      'NAME': 'Kaitlin Costa',
-      'NESTED': list([
-        dict({
-          'BATEAU': 'Andre Dawson',
-          'BAT_DE': 'Andre Dawson',
-          'NAME': 'Andre Dawson',
-        }),
-        dict({
-          'BATEAU': 'Daniel Maldonado',
-          'BAT_DE': 'Daniel Maldonado',
-          'NAME': 'Daniel Maldonado',
-        }),
-      ]),
-      'TEST_NEST': list([
-        dict({
-          'BATEAU': 'Andre Dawson',
-          'BAT_DE': 'Andre Dawson',
-          'NAME': 'Andre Dawson',
-        }),
-        dict({
-          'BATEAU': 'Daniel Maldonado',
-          'BAT_DE': 'Daniel Maldonado',
-          'NAME': 'Daniel Maldonado',
-        }),
-      ]),
-      'TEST_NID': list([
-        dict({
-          'BATEAU': 'Andre Dawson',
-          'BAT_DE': 'Andre Dawson',
-          'NAME': 'Andre Dawson',
-        }),
-        dict({
-          'BATEAU': 'Daniel Maldonado',
-          'BAT_DE': 'Daniel Maldonado',
-          'NAME': 'Daniel Maldonado',
-        }),
-      ]),
-    }),
-    '🐈': list([
-      dict({
-        'CAT_DE': 'Anthony Murphy',
-        'CHAT': 'Anthony Murphy',
-        'NAME': 'Anthony Murphy',
-        'NESTED': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-        'TEST_NEST': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-        'TEST_NID': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-      }),
-      dict({
-        'CAT_DE': 'Cathy Hart',
-        'CHAT': 'Cathy Hart',
-        'NAME': 'Cathy Hart',
-        'NESTED': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-        'TEST_NEST': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-        'TEST_NID': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-      }),
-    ]),
-    '🦇': list([
-      dict({
-        'CAT_DE': 'Anthony Murphy',
-        'CHAT': 'Anthony Murphy',
-        'NAME': 'Anthony Murphy',
-        'NESTED': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-        'TEST_NEST': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-        'TEST_NID': list([
-          dict({
-            'BATEAU': 'Joyce Oconnor',
-            'BAT_DE': 'Joyce Oconnor',
-            'NAME': 'Joyce Oconnor',
-          }),
-          dict({
-            'BATEAU': 'Mary Collins',
-            'BAT_DE': 'Mary Collins',
-            'NAME': 'Mary Collins',
-          }),
-        ]),
-      }),
-      dict({
-        'CAT_DE': 'Cathy Hart',
-        'CHAT': 'Cathy Hart',
-        'NAME': 'Cathy Hart',
-        'NESTED': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-        'TEST_NEST': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-        'TEST_NID': list([
-          dict({
-            'BATEAU': 'Dawn Salazar',
-            'BAT_DE': 'Dawn Salazar',
-            'NAME': 'Dawn Salazar',
-          }),
-          dict({
-            'BATEAU': 'Jonathon Perry',
-            'BAT_DE': 'Jonathon Perry',
-            'NAME': 'Jonathon Perry',
-          }),
-        ]),
-      }),
-    ]),
-  })
-# ---
 # name: test_dms_placeholders_ag[municipality-lead-municipality]
   dict({
     'ADDRESS': 'Teststrasse 12, 4663 Aarburg',
@@ -4744,6 +3610,11 @@
             'de': 'BEANTWORTET',
           }),
         ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
         'ERSTELLT': list([
           dict({
             'de': 'ERSTELLT',
@@ -5535,6 +4406,11 @@
             'de': 'BEANTWORTET',
           }),
         ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
         'ERSTELLT': list([
           dict({
             'de': 'ERSTELLT',
@@ -5567,6 +4443,11 @@
             'de': 'BEANTWORTET',
           }),
         ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
         'ERSTELLT': list([
           dict({
             'de': 'ERSTELLT',
@@ -5597,6 +4478,11 @@
         'BEANTWORTET': list([
           dict({
             'de': 'BEANTWORTET',
+          }),
+        ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
           }),
         ]),
         'ERSTELLT': list([
@@ -10439,6 +9325,83 @@
 # ---
 # name: test_dms_placeholders_docs[kt_schwyz]
   dict({
+    'activations': dict({
+      'aliases': list([
+        dict({
+          'de': 'activations',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Fachberichte',
+      }),
+      'nested_aliases': dict({
+        'BEANTWORTET': list([
+          dict({
+            'de': 'answered',
+          }),
+        ]),
+        'DATUM_ENDE': list([
+          dict({
+            'de': 'date_end',
+          }),
+        ]),
+        'DATUM_START': list([
+          dict({
+            'de': 'date_start',
+          }),
+        ]),
+        'ERSTELLT': list([
+          dict({
+            'de': 'created',
+          }),
+        ]),
+        'FACHSTELLE': list([
+          dict({
+            'de': 'service',
+          }),
+        ]),
+        'FRIST': list([
+          dict({
+            'de': 'deadline_date',
+          }),
+        ]),
+        'MELDUNGEN': list([
+          dict({
+            'de': 'notices',
+          }),
+        ]),
+        'MELDUNGEN.ART': list([
+          dict({
+            'de': 'notice_type',
+          }),
+        ]),
+        'MELDUNGEN.INHALT': list([
+          dict({
+            'de': 'content',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'name',
+          }),
+        ]),
+        'REASON': list([
+          dict({
+            'de': 'reason',
+          }),
+        ]),
+        'ZIRKULATION_ANTWORT': list([
+          dict({
+            'de': 'circulation_answer',
+          }),
+        ]),
+        'ZIRKULATION_STATUS': list([
+          dict({
+            'de': 'circulation_status',
+          }),
+        ]),
+      }),
+    }),
     'bauverwaltung': dict({
       'aliases': list([
         dict({
@@ -11671,10 +10634,87 @@
       'nested_aliases': dict({
       }),
     }),
+    'my_activations': dict({
+      'aliases': list([
+        dict({
+          'de': 'my_activations',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Fachberichte Fachstelle (Eigener Fachbereich)',
+      }),
+      'nested_aliases': dict({
+        'BEANTWORTET': list([
+          dict({
+            'de': 'answered',
+          }),
+        ]),
+        'DATUM_ENDE': list([
+          dict({
+            'de': 'date_end',
+          }),
+        ]),
+        'DATUM_START': list([
+          dict({
+            'de': 'date_start',
+          }),
+        ]),
+        'ERSTELLT': list([
+          dict({
+            'de': 'created',
+          }),
+        ]),
+        'FACHSTELLE': list([
+          dict({
+            'de': 'service',
+          }),
+        ]),
+        'FRIST': list([
+          dict({
+            'de': 'deadline_date',
+          }),
+        ]),
+        'MELDUNGEN': list([
+          dict({
+            'de': 'notices',
+          }),
+        ]),
+        'MELDUNGEN.ART': list([
+          dict({
+            'de': 'notice_type',
+          }),
+        ]),
+        'MELDUNGEN.INHALT': list([
+          dict({
+            'de': 'content',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'name',
+          }),
+        ]),
+        'REASON': list([
+          dict({
+            'de': 'reason',
+          }),
+        ]),
+        'ZIRKULATION_ANTWORT': list([
+          dict({
+            'de': 'circulation_answer',
+          }),
+        ]),
+        'ZIRKULATION_STATUS': list([
+          dict({
+            'de': 'circulation_status',
+          }),
+        ]),
+      }),
+    }),
     'objections': dict({
       'aliases': list([
         dict({
-          'de': 'objections',
+          'de': 'einsprachen',
         }),
       ]),
       'description': dict({
@@ -11693,7 +10733,7 @@
         ]),
         'participants.address': list([
           dict({
-            'de': 'address',
+            'de': 'adresse',
           }),
         ]),
         'participants.city': list([
@@ -11703,7 +10743,7 @@
         ]),
         'participants.company': list([
           dict({
-            'de': 'company',
+            'de': 'firma',
           }),
         ]),
         'participants.email': list([
@@ -11718,12 +10758,12 @@
         ]),
         'participants.phone': list([
           dict({
-            'de': 'phone',
+            'de': 'telefon',
           }),
         ]),
         'title': list([
           dict({
-            'de': 'title',
+            'de': 'titel',
           }),
         ]),
       }),
@@ -14093,9 +13133,39 @@
         'de': 'In Dossier involvierte Stellen',
       }),
       'nested_aliases': dict({
+        'ABLEHNENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ABLEHNENDE_BEURTEILUNGEN',
+          }),
+        ]),
         'BEANTWORTET': list([
           dict({
             'de': 'BEANTWORTET',
+          }),
+        ]),
+        'BEANTWORTET_TIMESTAMP': list([
+          dict({
+            'de': 'BEANTWORTET_TIMESTAMP',
+          }),
+        ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
+        'DATUM_ENDE': list([
+          dict({
+            'de': 'DATUM_ENDE',
+          }),
+        ]),
+        'DATUM_START': list([
+          dict({
+            'de': 'DATUM_START',
+          }),
+        ]),
+        'EINSPRACHEN': list([
+          dict({
+            'de': 'EINSPRACHEN',
           }),
         ]),
         'ERSTELLT': list([
@@ -14103,14 +13173,54 @@
             'de': 'ERSTELLT',
           }),
         ]),
+        'ERSTELLT_TIMESTAMP': list([
+          dict({
+            'de': 'ERSTELLT_TIMESTAMP',
+          }),
+        ]),
         'FRIST': list([
           dict({
             'de': 'FRIST',
           }),
         ]),
+        'HINWEISE_AN_GESUCHSTELLERIN': list([
+          dict({
+            'de': 'HINWEISE_AN_GESUCHSTELLERIN',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE_ARP': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE_ARP',
+          }),
+        ]),
+        'NACHFORDERUNG': list([
+          dict({
+            'de': 'NACHFORDERUNG',
+          }),
+        ]),
         'NAME': list([
           dict({
             'de': 'NAME',
+          }),
+        ]),
+        'RUECKMELDUNG_FAZIT': list([
+          dict({
+            'de': 'RUECKMELDUNG_FAZIT',
+          }),
+        ]),
+        'VERSAND_ENTSCHEID_WEITERE_STELLEN': list([
+          dict({
+            'de': 'VERSAND_ENTSCHEID_WEITERE_STELLEN',
+          }),
+        ]),
+        'ZUSTIMMENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ZUSTIMMENDE_BEURTEILUNGEN',
           }),
         ]),
       }),
@@ -15379,9 +14489,39 @@
         'de': 'In Dossier involvierte Stellen, welche von dieser Stelle angefragt wurden',
       }),
       'nested_aliases': dict({
+        'ABLEHNENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ABLEHNENDE_BEURTEILUNGEN',
+          }),
+        ]),
         'BEANTWORTET': list([
           dict({
             'de': 'BEANTWORTET',
+          }),
+        ]),
+        'BEANTWORTET_TIMESTAMP': list([
+          dict({
+            'de': 'BEANTWORTET_TIMESTAMP',
+          }),
+        ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
+        'DATUM_ENDE': list([
+          dict({
+            'de': 'DATUM_ENDE',
+          }),
+        ]),
+        'DATUM_START': list([
+          dict({
+            'de': 'DATUM_START',
+          }),
+        ]),
+        'EINSPRACHEN': list([
+          dict({
+            'de': 'EINSPRACHEN',
           }),
         ]),
         'ERSTELLT': list([
@@ -15389,14 +14529,54 @@
             'de': 'ERSTELLT',
           }),
         ]),
+        'ERSTELLT_TIMESTAMP': list([
+          dict({
+            'de': 'ERSTELLT_TIMESTAMP',
+          }),
+        ]),
         'FRIST': list([
           dict({
             'de': 'FRIST',
           }),
         ]),
+        'HINWEISE_AN_GESUCHSTELLERIN': list([
+          dict({
+            'de': 'HINWEISE_AN_GESUCHSTELLERIN',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE_ARP': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE_ARP',
+          }),
+        ]),
+        'NACHFORDERUNG': list([
+          dict({
+            'de': 'NACHFORDERUNG',
+          }),
+        ]),
         'NAME': list([
           dict({
             'de': 'NAME',
+          }),
+        ]),
+        'RUECKMELDUNG_FAZIT': list([
+          dict({
+            'de': 'RUECKMELDUNG_FAZIT',
+          }),
+        ]),
+        'VERSAND_ENTSCHEID_WEITERE_STELLEN': list([
+          dict({
+            'de': 'VERSAND_ENTSCHEID_WEITERE_STELLEN',
+          }),
+        ]),
+        'ZUSTIMMENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ZUSTIMMENDE_BEURTEILUNGEN',
           }),
         ]),
       }),
@@ -15411,9 +14591,39 @@
         'de': 'In Dossier involvierte Fachstellen',
       }),
       'nested_aliases': dict({
+        'ABLEHNENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ABLEHNENDE_BEURTEILUNGEN',
+          }),
+        ]),
         'BEANTWORTET': list([
           dict({
             'de': 'BEANTWORTET',
+          }),
+        ]),
+        'BEANTWORTET_TIMESTAMP': list([
+          dict({
+            'de': 'BEANTWORTET_TIMESTAMP',
+          }),
+        ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
+        'DATUM_ENDE': list([
+          dict({
+            'de': 'DATUM_ENDE',
+          }),
+        ]),
+        'DATUM_START': list([
+          dict({
+            'de': 'DATUM_START',
+          }),
+        ]),
+        'EINSPRACHEN': list([
+          dict({
+            'de': 'EINSPRACHEN',
           }),
         ]),
         'ERSTELLT': list([
@@ -15421,14 +14631,54 @@
             'de': 'ERSTELLT',
           }),
         ]),
+        'ERSTELLT_TIMESTAMP': list([
+          dict({
+            'de': 'ERSTELLT_TIMESTAMP',
+          }),
+        ]),
         'FRIST': list([
           dict({
             'de': 'FRIST',
           }),
         ]),
+        'HINWEISE_AN_GESUCHSTELLERIN': list([
+          dict({
+            'de': 'HINWEISE_AN_GESUCHSTELLERIN',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE_ARP': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE_ARP',
+          }),
+        ]),
+        'NACHFORDERUNG': list([
+          dict({
+            'de': 'NACHFORDERUNG',
+          }),
+        ]),
         'NAME': list([
           dict({
             'de': 'NAME',
+          }),
+        ]),
+        'RUECKMELDUNG_FAZIT': list([
+          dict({
+            'de': 'RUECKMELDUNG_FAZIT',
+          }),
+        ]),
+        'VERSAND_ENTSCHEID_WEITERE_STELLEN': list([
+          dict({
+            'de': 'VERSAND_ENTSCHEID_WEITERE_STELLEN',
+          }),
+        ]),
+        'ZUSTIMMENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ZUSTIMMENDE_BEURTEILUNGEN',
           }),
         ]),
       }),
@@ -15443,9 +14693,39 @@
         'de': 'In Dossier involvierte Gemeinden',
       }),
       'nested_aliases': dict({
+        'ABLEHNENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ABLEHNENDE_BEURTEILUNGEN',
+          }),
+        ]),
         'BEANTWORTET': list([
           dict({
             'de': 'BEANTWORTET',
+          }),
+        ]),
+        'BEANTWORTET_TIMESTAMP': list([
+          dict({
+            'de': 'BEANTWORTET_TIMESTAMP',
+          }),
+        ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
+        'DATUM_ENDE': list([
+          dict({
+            'de': 'DATUM_ENDE',
+          }),
+        ]),
+        'DATUM_START': list([
+          dict({
+            'de': 'DATUM_START',
+          }),
+        ]),
+        'EINSPRACHEN': list([
+          dict({
+            'de': 'EINSPRACHEN',
           }),
         ]),
         'ERSTELLT': list([
@@ -15453,14 +14733,54 @@
             'de': 'ERSTELLT',
           }),
         ]),
+        'ERSTELLT_TIMESTAMP': list([
+          dict({
+            'de': 'ERSTELLT_TIMESTAMP',
+          }),
+        ]),
         'FRIST': list([
           dict({
             'de': 'FRIST',
           }),
         ]),
+        'HINWEISE_AN_GESUCHSTELLERIN': list([
+          dict({
+            'de': 'HINWEISE_AN_GESUCHSTELLERIN',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE',
+          }),
+        ]),
+        'HINWEISE_AN_LEITBEHOERDE_ARP': list([
+          dict({
+            'de': 'HINWEISE_AN_LEITBEHOERDE_ARP',
+          }),
+        ]),
+        'NACHFORDERUNG': list([
+          dict({
+            'de': 'NACHFORDERUNG',
+          }),
+        ]),
         'NAME': list([
           dict({
             'de': 'NAME',
+          }),
+        ]),
+        'RUECKMELDUNG_FAZIT': list([
+          dict({
+            'de': 'RUECKMELDUNG_FAZIT',
+          }),
+        ]),
+        'VERSAND_ENTSCHEID_WEITERE_STELLEN': list([
+          dict({
+            'de': 'VERSAND_ENTSCHEID_WEITERE_STELLEN',
+          }),
+        ]),
+        'ZUSTIMMENDE_BEURTEILUNGEN': list([
+          dict({
+            'de': 'ZUSTIMMENDE_BEURTEILUNGEN',
           }),
         ]),
       }),
@@ -18219,6 +17539,7 @@
     'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
     'FACHSTELLEN_KANTONAL[].BEANTWORTET',
+    'FACHSTELLEN_KANTONAL[].BEMERKUNGEN',
     'FACHSTELLEN_KANTONAL[].ERSTELLT',
     'FACHSTELLEN_KANTONAL[].FRIST',
     'FACHSTELLEN_KANTONAL[].NAME',
@@ -18290,24 +17611,28 @@
     'ZIRKULATION_ALLE',
     'ZIRKULATION_ALLE[]',
     'ZIRKULATION_ALLE[].BEANTWORTET',
+    'ZIRKULATION_ALLE[].BEMERKUNGEN',
     'ZIRKULATION_ALLE[].ERSTELLT',
     'ZIRKULATION_ALLE[].FRIST',
     'ZIRKULATION_ALLE[].NAME',
     'ZIRKULATION_ANGEFORDERT',
     'ZIRKULATION_ANGEFORDERT[]',
     'ZIRKULATION_ANGEFORDERT[].BEANTWORTET',
+    'ZIRKULATION_ANGEFORDERT[].BEMERKUNGEN',
     'ZIRKULATION_ANGEFORDERT[].ERSTELLT',
     'ZIRKULATION_ANGEFORDERT[].FRIST',
     'ZIRKULATION_ANGEFORDERT[].NAME',
     'ZIRKULATION_FACHSTELLEN',
     'ZIRKULATION_FACHSTELLEN[]',
     'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
+    'ZIRKULATION_FACHSTELLEN[].BEMERKUNGEN',
     'ZIRKULATION_FACHSTELLEN[].ERSTELLT',
     'ZIRKULATION_FACHSTELLEN[].FRIST',
     'ZIRKULATION_FACHSTELLEN[].NAME',
     'ZIRKULATION_GEMEINDEN',
     'ZIRKULATION_GEMEINDEN[]',
     'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
+    'ZIRKULATION_GEMEINDEN[].BEMERKUNGEN',
     'ZIRKULATION_GEMEINDEN[].ERSTELLT',
     'ZIRKULATION_GEMEINDEN[].FRIST',
     'ZIRKULATION_GEMEINDEN[].NAME',
@@ -19773,10 +19098,24 @@
     'ENTSCHEIDDOKUMENTE[].STICHWORTE',
     'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
+    'FACHSTELLEN_KANTONAL[].ABLEHNENDE_BEURTEILUNGEN',
     'FACHSTELLEN_KANTONAL[].BEANTWORTET',
+    'FACHSTELLEN_KANTONAL[].BEANTWORTET_TIMESTAMP',
+    'FACHSTELLEN_KANTONAL[].BEMERKUNGEN',
+    'FACHSTELLEN_KANTONAL[].DATUM_ENDE',
+    'FACHSTELLEN_KANTONAL[].DATUM_START',
+    'FACHSTELLEN_KANTONAL[].EINSPRACHEN',
     'FACHSTELLEN_KANTONAL[].ERSTELLT',
+    'FACHSTELLEN_KANTONAL[].ERSTELLT_TIMESTAMP',
     'FACHSTELLEN_KANTONAL[].FRIST',
+    'FACHSTELLEN_KANTONAL[].HINWEISE_AN_GESUCHSTELLERIN',
+    'FACHSTELLEN_KANTONAL[].HINWEISE_AN_LEITBEHOERDE',
+    'FACHSTELLEN_KANTONAL[].HINWEISE_AN_LEITBEHOERDE_ARP',
+    'FACHSTELLEN_KANTONAL[].NACHFORDERUNG',
     'FACHSTELLEN_KANTONAL[].NAME',
+    'FACHSTELLEN_KANTONAL[].RUECKMELDUNG_FAZIT',
+    'FACHSTELLEN_KANTONAL[].VERSAND_ENTSCHEID_WEITERE_STELLEN',
+    'FACHSTELLEN_KANTONAL[].ZUSTIMMENDE_BEURTEILUNGEN',
     'GEBUEHREN',
     'GEBUEHREN[]',
     'GEBUEHREN[].ANTEIL_PROZENT',
@@ -19914,28 +19253,84 @@
     'STATUS',
     'ZIRKULATION_ALLE',
     'ZIRKULATION_ALLE[]',
+    'ZIRKULATION_ALLE[].ABLEHNENDE_BEURTEILUNGEN',
     'ZIRKULATION_ALLE[].BEANTWORTET',
+    'ZIRKULATION_ALLE[].BEANTWORTET_TIMESTAMP',
+    'ZIRKULATION_ALLE[].BEMERKUNGEN',
+    'ZIRKULATION_ALLE[].DATUM_ENDE',
+    'ZIRKULATION_ALLE[].DATUM_START',
+    'ZIRKULATION_ALLE[].EINSPRACHEN',
     'ZIRKULATION_ALLE[].ERSTELLT',
+    'ZIRKULATION_ALLE[].ERSTELLT_TIMESTAMP',
     'ZIRKULATION_ALLE[].FRIST',
+    'ZIRKULATION_ALLE[].HINWEISE_AN_GESUCHSTELLERIN',
+    'ZIRKULATION_ALLE[].HINWEISE_AN_LEITBEHOERDE',
+    'ZIRKULATION_ALLE[].HINWEISE_AN_LEITBEHOERDE_ARP',
+    'ZIRKULATION_ALLE[].NACHFORDERUNG',
     'ZIRKULATION_ALLE[].NAME',
+    'ZIRKULATION_ALLE[].RUECKMELDUNG_FAZIT',
+    'ZIRKULATION_ALLE[].VERSAND_ENTSCHEID_WEITERE_STELLEN',
+    'ZIRKULATION_ALLE[].ZUSTIMMENDE_BEURTEILUNGEN',
     'ZIRKULATION_ANGEFORDERT',
     'ZIRKULATION_ANGEFORDERT[]',
+    'ZIRKULATION_ANGEFORDERT[].ABLEHNENDE_BEURTEILUNGEN',
     'ZIRKULATION_ANGEFORDERT[].BEANTWORTET',
+    'ZIRKULATION_ANGEFORDERT[].BEANTWORTET_TIMESTAMP',
+    'ZIRKULATION_ANGEFORDERT[].BEMERKUNGEN',
+    'ZIRKULATION_ANGEFORDERT[].DATUM_ENDE',
+    'ZIRKULATION_ANGEFORDERT[].DATUM_START',
+    'ZIRKULATION_ANGEFORDERT[].EINSPRACHEN',
     'ZIRKULATION_ANGEFORDERT[].ERSTELLT',
+    'ZIRKULATION_ANGEFORDERT[].ERSTELLT_TIMESTAMP',
     'ZIRKULATION_ANGEFORDERT[].FRIST',
+    'ZIRKULATION_ANGEFORDERT[].HINWEISE_AN_GESUCHSTELLERIN',
+    'ZIRKULATION_ANGEFORDERT[].HINWEISE_AN_LEITBEHOERDE',
+    'ZIRKULATION_ANGEFORDERT[].HINWEISE_AN_LEITBEHOERDE_ARP',
+    'ZIRKULATION_ANGEFORDERT[].NACHFORDERUNG',
     'ZIRKULATION_ANGEFORDERT[].NAME',
+    'ZIRKULATION_ANGEFORDERT[].RUECKMELDUNG_FAZIT',
+    'ZIRKULATION_ANGEFORDERT[].VERSAND_ENTSCHEID_WEITERE_STELLEN',
+    'ZIRKULATION_ANGEFORDERT[].ZUSTIMMENDE_BEURTEILUNGEN',
     'ZIRKULATION_FACHSTELLEN',
     'ZIRKULATION_FACHSTELLEN[]',
+    'ZIRKULATION_FACHSTELLEN[].ABLEHNENDE_BEURTEILUNGEN',
     'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
+    'ZIRKULATION_FACHSTELLEN[].BEANTWORTET_TIMESTAMP',
+    'ZIRKULATION_FACHSTELLEN[].BEMERKUNGEN',
+    'ZIRKULATION_FACHSTELLEN[].DATUM_ENDE',
+    'ZIRKULATION_FACHSTELLEN[].DATUM_START',
+    'ZIRKULATION_FACHSTELLEN[].EINSPRACHEN',
     'ZIRKULATION_FACHSTELLEN[].ERSTELLT',
+    'ZIRKULATION_FACHSTELLEN[].ERSTELLT_TIMESTAMP',
     'ZIRKULATION_FACHSTELLEN[].FRIST',
+    'ZIRKULATION_FACHSTELLEN[].HINWEISE_AN_GESUCHSTELLERIN',
+    'ZIRKULATION_FACHSTELLEN[].HINWEISE_AN_LEITBEHOERDE',
+    'ZIRKULATION_FACHSTELLEN[].HINWEISE_AN_LEITBEHOERDE_ARP',
+    'ZIRKULATION_FACHSTELLEN[].NACHFORDERUNG',
     'ZIRKULATION_FACHSTELLEN[].NAME',
+    'ZIRKULATION_FACHSTELLEN[].RUECKMELDUNG_FAZIT',
+    'ZIRKULATION_FACHSTELLEN[].VERSAND_ENTSCHEID_WEITERE_STELLEN',
+    'ZIRKULATION_FACHSTELLEN[].ZUSTIMMENDE_BEURTEILUNGEN',
     'ZIRKULATION_GEMEINDEN',
     'ZIRKULATION_GEMEINDEN[]',
+    'ZIRKULATION_GEMEINDEN[].ABLEHNENDE_BEURTEILUNGEN',
     'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
+    'ZIRKULATION_GEMEINDEN[].BEANTWORTET_TIMESTAMP',
+    'ZIRKULATION_GEMEINDEN[].BEMERKUNGEN',
+    'ZIRKULATION_GEMEINDEN[].DATUM_ENDE',
+    'ZIRKULATION_GEMEINDEN[].DATUM_START',
+    'ZIRKULATION_GEMEINDEN[].EINSPRACHEN',
     'ZIRKULATION_GEMEINDEN[].ERSTELLT',
+    'ZIRKULATION_GEMEINDEN[].ERSTELLT_TIMESTAMP',
     'ZIRKULATION_GEMEINDEN[].FRIST',
+    'ZIRKULATION_GEMEINDEN[].HINWEISE_AN_GESUCHSTELLERIN',
+    'ZIRKULATION_GEMEINDEN[].HINWEISE_AN_LEITBEHOERDE',
+    'ZIRKULATION_GEMEINDEN[].HINWEISE_AN_LEITBEHOERDE_ARP',
+    'ZIRKULATION_GEMEINDEN[].NACHFORDERUNG',
     'ZIRKULATION_GEMEINDEN[].NAME',
+    'ZIRKULATION_GEMEINDEN[].RUECKMELDUNG_FAZIT',
+    'ZIRKULATION_GEMEINDEN[].VERSAND_ENTSCHEID_WEITERE_STELLEN',
+    'ZIRKULATION_GEMEINDEN[].ZUSTIMMENDE_BEURTEILUNGEN',
     'ZUSTAENDIG_ABTEILUNG',
     'ZUSTAENDIG_EMAIL',
     'ZUSTAENDIG_MOBILE',
@@ -19947,6 +19342,22 @@
 # ---
 # name: test_dms_placeholders_docs_available_placeholders[set_application_sz]
   list([
+    'activations',
+    'activations[]',
+    'activations[].answered',
+    'activations[].circulation_answer',
+    'activations[].circulation_status',
+    'activations[].created',
+    'activations[].date_end',
+    'activations[].date_start',
+    'activations[].deadline_date',
+    'activations[].name',
+    'activations[].notices',
+    'activations[].notices[]',
+    'activations[].notices[].content',
+    'activations[].notices[].notice_type',
+    'activations[].reason',
+    'activations[].service',
     'bauverwaltung',
     'bauverwaltung.baukontrolle_baugespannkontrolle_bemerkungen',
     'bauverwaltung.baukontrolle_baugespannkontrolle_datum',
@@ -20026,6 +19437,18 @@
     'date_dossiereingang',
     'date_dossiervollstandig',
     'date_start_zirkulation',
+    'einsprachen',
+    'einsprachen[]',
+    'einsprachen[].creation_date',
+    'einsprachen[].participants',
+    'einsprachen[].participants[]',
+    'einsprachen[].participants[].adresse',
+    'einsprachen[].participants[].city',
+    'einsprachen[].participants[].email',
+    'einsprachen[].participants[].firma',
+    'einsprachen[].participants[].name',
+    'einsprachen[].participants[].telefon',
+    'einsprachen[].titel',
     'field_bauherrschaft',
     'field_bauherrschaft[]',
     'field_bauherrschaft[].adresse',
@@ -20165,18 +19588,22 @@
     'field_vertreter_mit_vollmacht[].vorname',
     'identifier',
     'location',
-    'objections',
-    'objections[]',
-    'objections[].creation_date',
-    'objections[].participants',
-    'objections[].participants[]',
-    'objections[].participants[].address',
-    'objections[].participants[].city',
-    'objections[].participants[].company',
-    'objections[].participants[].email',
-    'objections[].participants[].name',
-    'objections[].participants[].phone',
-    'objections[].title',
+    'my_activations',
+    'my_activations[]',
+    'my_activations[].answered',
+    'my_activations[].circulation_answer',
+    'my_activations[].circulation_status',
+    'my_activations[].created',
+    'my_activations[].date_end',
+    'my_activations[].date_start',
+    'my_activations[].deadline_date',
+    'my_activations[].name',
+    'my_activations[].notices',
+    'my_activations[].notices[]',
+    'my_activations[].notices[].content',
+    'my_activations[].notices[].notice_type',
+    'my_activations[].reason',
+    'my_activations[].service',
     'publication_date',
     'publications',
     'publications[]',
@@ -22582,6 +22009,110 @@
 # ---
 # name: test_dms_placeholders_sz[Gemeinde]
   dict({
+    'activations': list([
+      dict({
+        'BEANTWORTET': '14.04.2018',
+        'DATUM_ENDE': '',
+        'DATUM_START': '20.12.2020',
+        'ERSTELLT': '14.03.2018',
+        'FACHSTELLE': 'Fachstelle',
+        'FRIST': '29.04.2018',
+        'MELDUNGEN': list([
+          dict({
+            'ART': 'Antrag',
+            'INHALT': 'Inhalt Antrag!',
+            'content': 'Inhalt Antrag!',
+            'notice_type': 'Antrag',
+          }),
+          dict({
+            'ART': 'Hinweis',
+            'INHALT': 'Inhalt Hinweis!',
+            'content': 'Inhalt Hinweis!',
+            'notice_type': 'Hinweis',
+          }),
+        ]),
+        'NAME': 'Fachstelle',
+        'REASON': 'Grund',
+        'ZIRKULATION_ANTWORT': 'Abschliessend beurteilbar',
+        'ZIRKULATION_STATUS': 'OK',
+        'answered': '14.04.2018',
+        'circulation_answer': 'Abschliessend beurteilbar',
+        'circulation_status': 'OK',
+        'created': '14.03.2018',
+        'date_end': '',
+        'date_start': '20.12.2020',
+        'deadline_date': '29.04.2018',
+        'name': 'Fachstelle',
+        'notices': list([
+          dict({
+            'ART': 'Antrag',
+            'INHALT': 'Inhalt Antrag!',
+            'content': 'Inhalt Antrag!',
+            'notice_type': 'Antrag',
+          }),
+          dict({
+            'ART': 'Hinweis',
+            'INHALT': 'Inhalt Hinweis!',
+            'content': 'Inhalt Hinweis!',
+            'notice_type': 'Hinweis',
+          }),
+        ]),
+        'reason': 'Grund',
+        'service': 'Fachstelle',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'DATUM_ENDE': '',
+        'DATUM_START': '20.12.2020',
+        'ERSTELLT': '20.12.2020',
+        'FACHSTELLE': 'Jasmine Phelps',
+        'FRIST': '28.06.2001',
+        'MELDUNGEN': list([
+        ]),
+        'NAME': 'Jasmine Phelps',
+        'REASON': '',
+        'ZIRKULATION_ANTWORT': '',
+        'ZIRKULATION_STATUS': 'RUN',
+        'answered': '',
+        'circulation_answer': '',
+        'circulation_status': 'RUN',
+        'created': '20.12.2020',
+        'date_end': '',
+        'date_start': '20.12.2020',
+        'deadline_date': '28.06.2001',
+        'name': 'Jasmine Phelps',
+        'notices': list([
+        ]),
+        'reason': '',
+        'service': 'Jasmine Phelps',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'DATUM_ENDE': '',
+        'DATUM_START': '20.12.2020',
+        'ERSTELLT': '20.12.2020',
+        'FACHSTELLE': 'Alex Smith',
+        'FRIST': '21.07.2012',
+        'MELDUNGEN': list([
+        ]),
+        'NAME': 'Alex Smith',
+        'REASON': '',
+        'ZIRKULATION_ANTWORT': '',
+        'ZIRKULATION_STATUS': 'RUN',
+        'answered': '',
+        'circulation_answer': '',
+        'circulation_status': 'RUN',
+        'created': '20.12.2020',
+        'date_end': '',
+        'date_start': '20.12.2020',
+        'deadline_date': '21.07.2012',
+        'name': 'Alex Smith',
+        'notices': list([
+        ]),
+        'reason': '',
+        'service': 'Alex Smith',
+      }),
+    ]),
     'bauverwaltung': dict({
       'baukontrolle_realisierung_table': list([
       ]),
@@ -22739,6 +22270,34 @@
     ]),
     'identifier': 'X-12-34-5678',
     'location': 'Schübelbach',
+    'my_activations': list([
+      dict({
+        'BEANTWORTET': '',
+        'DATUM_ENDE': '',
+        'DATUM_START': '20.12.2020',
+        'ERSTELLT': '20.12.2020',
+        'FACHSTELLE': 'Alex Smith',
+        'FRIST': '21.07.2012',
+        'MELDUNGEN': list([
+        ]),
+        'NAME': 'Alex Smith',
+        'REASON': '',
+        'ZIRKULATION_ANTWORT': '',
+        'ZIRKULATION_STATUS': 'RUN',
+        'answered': '',
+        'circulation_answer': '',
+        'circulation_status': 'RUN',
+        'created': '20.12.2020',
+        'date_end': '',
+        'date_start': '20.12.2020',
+        'deadline_date': '21.07.2012',
+        'name': 'Alex Smith',
+        'notices': list([
+        ]),
+        'reason': '',
+        'service': 'Alex Smith',
+      }),
+    ]),
     'objections': list([
       dict({
         'creation_date': '23.12.2020',
@@ -22758,7 +22317,6 @@
         'title': '',
       }),
     ]),
-    'ort': 'Schübelbach',
     'publication_date': '27. Oktober 2011',
     'publications': list([
       dict({
@@ -22774,7 +22332,6 @@
         'journal_number': 43,
       }),
     ]),
-    'publikationsdatum': '27. Oktober 2011',
     'responsible_person': 'Brittany Chapman',
   })
 # ---

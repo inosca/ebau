@@ -15,7 +15,7 @@ PLACEHOLDERS = {
             "ZIP": "plz-gesuchstellerin",
             "TOWN": "ort-gesuchstellerin",
         },
-        "INQUIRY_DEFAULT_FIELDS": [
+        "INQUIRY_DEFAULT_PROPS": [
             ("service", "NAME"),
             ("deadline", "FRIST"),
             ("creation_date", "ERSTELLT"),
@@ -64,7 +64,7 @@ PLACEHOLDERS = {
             "REPRESENTATIVE_TEL": "vertretung-telefon",
             "REPRESENTATIVE_PO_BOX": "vertretung-postfach",
         },
-        "INQUIRY_DEFAULT_FIELDS": [
+        "INQUIRY_DEFAULT_PROPS": [
             ("start_date", "DATUM_START"),
             ("end_date", "DATUM_ENDE"),
             ("feedback", "RUECKMELDUNG_FAZIT"),
@@ -127,7 +127,7 @@ PLACEHOLDERS = {
     },
     "kt_ag": {
         "ENABLED": True,
-        "INQUIRY_DEFAULT_FIELDS": [
+        "INQUIRY_DEFAULT_PROPS": [
             ("remarks", "BEMERKUNGEN"),
         ],
         "INQUIRY_FIELD_MAPPINGS": {
@@ -144,6 +144,30 @@ PLACEHOLDERS = {
     "kt_schwyz": {
         "ENABLED": True,
         "PLACEHOLDER_CASE": "lower",
+        "INQUIRY_DEFAULT_PROPS": [
+            # Selects and maps Inquiry attributes to alias
+            # <Inquiry attr>, <ALIAS>
+            ("deadline", "FRIST"),
+            ("notices", "MELDUNGEN"),
+            ("end_date", "DATUM_ENDE"),
+            ("start_date", "DATUM_START"),
+            ("reason", "REASON"),
+            ("circulation_state", "ZIRKULATION_STATUS"),
+            ("circulation_answer", "ZIRKULATION_ANTWORT"),
+            ("service", "FACHSTELLE"),
+        ],
+        "INQUIRY_FIELD_MAPPINGS": {
+            # "<PROP>": (["inquiry"|"inquiry-answer"], "<distribution question answer slug>")
+            # `slug` is an allcaps key in settings.DISTRIBUTION['QUESTIONS'] associating a question-slug
+            "reason": ("inquiry", "REMARK"),
+            "circulation_answer": ("inquiry-answer", "STATUS"),
+            # `notices`
+            "request": ("inquiry-answer", "REQUEST"),
+            "ancillary_clauses": ("inquiry-answer", "ANCILLARY_CLAUSES"),
+            "answer_reason": ("inquiry-answer", "REASON"),
+            "recommendation": ("inquiry-answer", "RECOMMENDATION"),
+            "hint": ("inquiry-answer", "HINT"),
+        },
         "BILLING_ENTRY_FIELDS": [
             "POSITION",
             "BETRAG",

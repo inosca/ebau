@@ -11,6 +11,7 @@ from alexandria.core import models as alexandria_models
 from caluma.caluma_form.models import Answer, AnswerDocument, Document, Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 from django.db.models import Exists, OuterRef, Q, Sum
 from django.db.models.fields.files import ImageFieldFile
 from django.utils import timezone
@@ -29,7 +30,6 @@ from camac.caluma.utils import (
     work_item_by_addressed_service_condition,
 )
 from camac.core.translations import (
-    get_available_languages,
     get_translations_canton_aware,
 )
 from camac.tags.models import Keyword
@@ -48,6 +48,8 @@ from .utils import (
     row_to_person,
     to_configured_case,
 )
+
+COLLECTION_MARK = "[]"
 
 
 class AliasedMixin:
@@ -106,9 +108,24 @@ class AliasedMixin:
         self.is_collection = is_collection
         self.static_translations = static_translations
 
+    @staticmethod
+    def sort_aliases(aliases):
+        """Return sorted aliases.
+
+        Aliases may be strings or dicts that configure overrides for a config.
+        """
+        return sorted(
+            aliases,
+            key=lambda x: (
+                x.get(settings.APPLICATION["SHORT_NAME"], x["default"])
+                if isinstance(x, dict)
+                else x
+            ),
+        )
+
     @property
     def aliases(self):
-        return sorted(self._aliases)
+        return self.sort_aliases(self._aliases)
 
     @property
     def nested_aliases(self):
@@ -142,24 +159,20 @@ class AliasedMixin:
 
         """
         if flat:
-            if self.static_translations:
-                return set([to_configured_case(alias)])
-
             return set(
                 [
                     to_configured_case(alias_t)
-                    for alias_t in get_translations_canton_aware(alias).values()
+                    for alias_t in get_translations_canton_aware(
+                        alias, static=self.static_translations
+                    ).values()
                 ]
             )
 
-        if self.static_translations:
-            return {
-                lang: to_configured_case(alias) for lang, _ in get_available_languages()
-            }
-
         return {
             lang: to_configured_case(alias_t)
-            for lang, alias_t in get_translations_canton_aware(alias).items()
+            for lang, alias_t in get_translations_canton_aware(
+                alias, static=self.static_translations
+            ).items()
         }
 
     def get_docs(
@@ -182,62 +195,25 @@ class AliasedMixin:
             ),
         }
 
-    def make_placeholders(self):
-        """
-        Create a flat list of every aliased placeholder available.
-
-        Every placeholder is present as the literal name. Additionally
-        for collections of literals or objects the trailing [] is
-        added.
-
-        | type               | description     | example name    |
-        |--------------------|-----------------|-----------------|
-        | Literal (default)  | int, float, str | SOME_NAME       |
-        | Collection         | list, tuple     | SOME_COLL[]     |
-        | Object collection  | list of dicts   | OBJECTS[].ATTR1 |
-
-        The placeholder aliases are translated to every available language.
-
-        Aliasing of nested object attribute names is supported (1 level deep)
-
-        """
-
-        # first make sure all placeholders are present
-        available_placeholders = set(
-            [
-                translated_alias
-                for translated_alias in chain(
-                    *[
-                        self._get_alias_translations(alias, flat=True)
-                        for alias in self.aliases
-                    ]
-                )
-            ]
-        )
-
-        COLLECTION_MARK = "[]"
-
+    def _make_field_placeholders(self, aliases, is_collection=False):
         # Add collections with trailing COLLECTION_MARK. Otherwise consider the value
-        # of a field with nested_aliases as  a regular object, that may hold both
+        # of a field with nested_aliases as a regular object, that may hold both
         # literal values and collections.
-        if self.is_collection or len(self.nested_aliases):
-            as_collection = COLLECTION_MARK if self.is_collection else ""
-            available_placeholders.update(
-                [
-                    f"{translated_alias}{as_collection}"
-                    for translated_alias in chain(
-                        *[
-                            self._get_alias_translations(alias, flat=True)
-                            for alias in self.aliases
-                        ]
-                    )
+        as_collection = COLLECTION_MARK if is_collection else ""
+        return {
+            f"{translated_alias}{as_collection}"
+            for translated_alias in chain(
+                *[
+                    self._get_alias_translations(alias, flat=True)
+                    for alias in self.aliases
                 ]
             )
+        }
 
-        if not self.nested_aliases:
-            return sorted(available_placeholders)
-
+    def _add_nested_placeholders(self, available_placeholders):
+        """Make placeholders for nested objects and updated available in place."""
         names = copy.copy(available_placeholders)
+
         nested_names = set()
         for alias in names:
             # NOTE: Nested aliases like `nested.prefix.alias` are only added
@@ -268,6 +244,41 @@ class AliasedMixin:
                 )
 
                 available_placeholders.update(nested_names)
+
+    def make_placeholders(self):
+        """
+        Create a flat list of every aliased placeholder available.
+
+        Every placeholder is present as the literal name. Additionally
+        for collections of literals or objects the trailing [] is
+        added.
+
+        | type               | description     | example name    |
+        |--------------------|-----------------|-----------------|
+        | Literal (default)  | int, float, str | SOME_NAME       |
+        | Collection         | list, tuple     | SOME_COLL[]     |
+        | Object collection  | list of dicts   | OBJECTS[].ATTR1 |
+
+        The placeholder aliases are translated to every available language.
+
+        Aliasing of nested object attribute names is supported (1 level deep)
+
+        """
+
+        # add all aliases
+        available_placeholders = self._make_field_placeholders(self.aliases)
+
+        # add all aliases again as collection if applicable
+        if self.is_collection:
+            available_placeholders.update(
+                self._make_field_placeholders(self.aliases, is_collection=True)
+            )
+
+        if not self.nested_aliases:
+            return sorted(available_placeholders)
+
+        # this updates available_placeholders in place
+        self._add_nested_placeholders(available_placeholders)
 
         return sorted(available_placeholders)
 
@@ -702,18 +713,62 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
         status=None,
         **kwargs,
     ):
-        if not props:
-            props = settings.PLACEHOLDERS.get("INQUIRY_DEFAULT_FIELDS", [])
+        super().__init__(
+            is_collection=join_by is None,
+            **kwargs,
+        )
 
-        all_nested_aliases = {
+        self.only_own = only_own
+        self._props = props
+        self.join_by = join_by
+        self.service_group = service_group
+        self.only_own_controlling = only_own_controlling
+        self.status = status
+
+    @property
+    def props(self):
+        props = self._props or settings.PLACEHOLDERS["INQUIRY_DEFAULT_PROPS"]
+
+        # Validate props configuration for two usecases:
+        #  - select multiple: pass a list of tuples ('inquiry-prop', 'CANONICAL_NAME').
+        #    The resulting object's attributes must obey translation,
+        #    aliasing and case casting requirements. To that end these attributes must
+        #    be configured in settings.PLACEHOLDERS['INQUIRY_FIELD_MAPPING'] and mapped
+        #    to a key in the available_nested_aliases.
+        #  - select one: pass a list holding exactly one string.
+        #    The string must be a InquiriesField attribute name. More than 1 string in
+        #    the list will raise a configuration error.
+        if not all([isinstance(prop, tuple) for prop in props]) and len(props) > 1:
+            raise ImproperlyConfigured(
+                (
+                    "InquiriesField props must be either a list of 2-tuples or a list "
+                    "holding a single string. If two or more props are required they "
+                    "must be configured in `available_nested_aliases`. "
+                    "See InquriesField.nested_aliases for details."
+                )
+            )
+        return props
+
+    @property
+    def nested_aliases(self):
+        # NOTE: Handling of nested aliases is somewhat surprising since the
+        # properties for value lookup are changed to uppercase strings similar
+        # to the German alias that map to alias translations, and are mapped
+        # to actual inquiry properties in settings.PLACEHOLDERS, effectively
+        # coupling translation and lookup.
+        # DOUBLE NESTED ALIASES: So, should you want to add a double nested
+        # attribute see for reference the `get_notices` method where the nested
+        # attributes are uppercase, too, and need to be, to honor the allcaps
+        # dotpath notation as seen below in the keys of `available_nested_aliases`.
+        available_nested_aliases = {
             "ANTWORT": [_("ANSWER")],
             "SACHBEARBEITUNG_ENTSCHEID": [_("CLERK_DECISION")],
             "BEANTWORTET": [_("ANSWERED")],
             "BEANTWORTET_TIMESTAMP": [_("ANSWERED_TIMESTAMP")],
             "ERSTELLT": [_("CREATED")],
             "ERSTELLT_TIMESTAMP": [_("CREATED_TIMESTAMP")],
-            "FACHSTELLE": [_("SERVICE")],
-            "FRIST": [_("DEADLINE")],
+            "FACHSTELLE": [{"default": _("SERVICE"), "sz": "SERVICE"}],
+            "FRIST": [{"default": _("DEADLINE"), "sz": "DEADLINE_DATE"}],
             "NAME": [_("NAME")],
             "BESCHREIBUNG": [_("DESCRIPTION")],
             "NEBENBESTIMMUNGEN": [_("ANCILLARY_CLAUSES")],
@@ -737,24 +792,83 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
             "SACHVERHALT": [_("SITUATION")],
             "ERWAEGUNGEN": [_("CONSIDERATIONS")],
             "BEURTEILUNG": [_("STATEMENT")],
+            "MELDUNGEN": [{"default": _("NOTICES"), "sz": "NOTICES"}],
+            "MELDUNGEN.ART": [{"default": _("NOTICE_TYPE"), "sz": "NOTICE_TYPE"}],
+            "MELDUNGEN.INHALT": [{"default": _("CONTENT"), "sz": "CONTENT"}],
+            "ZIRKULATION_STATUS": [
+                {"default": _("CIRCULATION_STATUS"), "sz": "CIRCULATION_STATUS"}
+            ],
+            "ZIRKULATION_ANTWORT": [
+                {"default": _("CIRCULATION_ANSWER"), "sz": "CIRCULATION_ANSWER"}
+            ],
+            "REASON": [{"default": _("REASON"), "sz": "REASON"}],
         }
 
-        nested_aliases = (
-            {key: all_nested_aliases[key] for _, key in props}
-            if all([isinstance(prop, tuple) for prop in props])
-            else {}
-        )
+        alias_names = []
 
-        super().__init__(
-            nested_aliases=nested_aliases, is_collection=join_by is None, **kwargs
-        )
+        # Only select a property for nested aliases if all props (from settings or
+        # field callsite likewise) actually map an attribute to a nested alias key
+        # in the available nested aliases dict.
+        # Otherwise the value should be a primitive (i. e. provide `join_by`) or a
+        # list of primitves to avoid undocumented objects in the returned render context.
+        if not all([isinstance(prop_config, tuple) for prop_config in self.props]):
+            return {}
 
-        self.only_own = only_own
-        self.props = props
-        self.join_by = join_by
-        self.service_group = service_group
-        self.only_own_controlling = only_own_controlling
-        self.status = status
+        # Select all properties as nested aliases from available aliased properties
+        # if the name matches the whole key or the first element before a dot. In the
+        # latter case the name is the parent element of a double nested property.
+        alias_names = [prop[1] for prop in self.props]
+        return {
+            attrib: aliases
+            for attrib, aliases in available_nested_aliases.items()
+            if attrib.split(".")[0] in alias_names
+        }
+
+    def _add_nested_placeholders(self, available_placeholders):
+        names = copy.copy(available_placeholders)
+
+        nested_names = set()
+        for alias in names:
+            if self.is_collection and COLLECTION_MARK not in alias:
+                continue
+
+            nested_base = alias
+            nested_names.add(nested_base)
+            for nested_prop, nested_prop_aliases in self.nested_aliases.items():
+                # set base_prefix to top-level alias root
+                base_prefix = nested_base
+
+                # handle single-level nested props
+                if "." not in nested_prop:
+                    for child_alias in nested_prop_aliases:
+                        for lang, child_t in self._get_alias_translations(
+                            child_alias
+                        ).items():
+                            nested_names.add(f"{nested_base}.{child_t}")
+                    continue
+
+                # handle double nested props
+                prefix, nested_name = nested_prop.split(".")
+                for prop_alias in self.nested_aliases[prefix]:
+                    parent_translations = self._get_alias_translations(prop_alias)
+
+                    # handle languages separately to avoid mixed parent child combinations
+                    for lang, prefix_t in parent_translations.items():
+                        base_prefix = f"{nested_base}.{prefix_t}{COLLECTION_MARK}"
+                        nested_names.add(base_prefix)
+
+                        for child_alias in nested_prop_aliases:
+                            child_translations = self._get_alias_translations(
+                                child_alias
+                            )
+
+                            if lang in child_translations:
+                                child_t = child_translations[lang]
+                                nested_names.add(f"{base_prefix}.{child_t}")
+
+            available_placeholders.update(nested_names)
+
+        return sorted(available_placeholders)
 
     def get_service(self, inquiry, type):
         return Service.objects.get(pk=int(getattr(inquiry, type)[0])).get_name()
@@ -764,6 +878,48 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
 
     def get_prop_key(self, prop):
         return prop[1] if isinstance(prop, tuple) else prop
+
+    @staticmethod
+    def get_circulation_state(inquiry):
+        if inquiry.status == WorkItem.STATUS_READY:
+            return (
+                "REVIEW"
+                if inquiry.child_case.work_items.filter(
+                    status=WorkItem.STATUS_READY,
+                    task_id=settings.DISTRIBUTION.get("INQUIRY_ANSWER_CHECK_TASK", ""),
+                ).exists()
+                else "RUN"
+            )
+
+        return (
+            "OK"
+            if inquiry.case.parent_work_item.status == WorkItem.STATUS_READY
+            else "DONE"
+        )
+
+    @staticmethod
+    def get_notices(inquiry):
+        """Get all answers to the inquiry.
+
+        NOTE: the keys ART and INHALT for each notice are rendered in caps and translated
+        to comply with the placeholder's convention to map selected props to uppercase
+        alias names that differ from the attributes they map to.
+        """
+        return (
+            [
+                {
+                    "ART": str(answer.question.label),
+                    "INHALT": answer.value,
+                }
+                for answer in (
+                    inquiry.child_case.document.answers.select_related("question")
+                    .filter(question__type=Question.TYPE_TEXTAREA)
+                    .order_by("-question__formquestion__sort")
+                )
+            ]
+            if inquiry.child_case
+            else None
+        )
 
     def get_prop_value(self, inquiry, prop):
         prop_mapping = {
@@ -797,6 +953,8 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                 if i.case.parent_work_item.status == WorkItem.STATUS_COMPLETED
                 else None
             ),
+            "circulation_state": lambda i: self.get_circulation_state(i),
+            "notices": lambda i: self.get_notices(i),
         }
 
         if isinstance(prop, tuple):
