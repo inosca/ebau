@@ -6936,6 +6936,22 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 594,
+    "fields": {
+      "role": 5,
+      "service": 359,
+      "disabled": 0,
+      "name": "Geometer (Geoinfra)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "geometer@geoinfra.example",
+      "website": null
+    }
+  },
+  {
     "model": "user.grouplocation",
     "pk": 1,
     "fields": {
@@ -39607,6 +39623,32 @@
       "city": null,
       "address": null,
       "email": "email@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 359,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": "Geometer (Geoinfra)",
+      "description": null,
+      "sort": 226,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "geoinfra@example.com",
       "website": null,
       "logo": "",
       "disabled": 0,
