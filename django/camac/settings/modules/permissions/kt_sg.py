@@ -51,6 +51,9 @@ MODULE_FORMAL_EXAM = (
     RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY
 ) | RequireWorkItem("formal-exam", "completed")
 MODULE_HISTORY = STATES_ALL
+MODULE_INFORMATION_OF_NEIGHBORS = RequireWorkItem(
+    "create-information-of-neighbors"
+) | RequireWorkItem("fill-information-of-neighbors")
 MODULE_JOURNAL = STATES_ALL
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_MATERIAL_EXAM = (
@@ -165,6 +168,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("material-exam-read", MODULE_MATERIAL_EXAM),
             ("material-exam-write", MODULE_MATERIAL_EXAM),
             ("history-read", MODULE_HISTORY),
+            ("information-of-neighbors-read", MODULE_INFORMATION_OF_NEIGHBORS),
             ("instance-mark-write", ACTION_INSTANCE_MARK),
             ("journal-read", MODULE_JOURNAL),
             ("journal-write", MODULE_JOURNAL),

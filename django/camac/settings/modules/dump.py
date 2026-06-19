@@ -833,6 +833,9 @@ DUMP = {
                     regex=r"^materielle-pruefung"
                 ),
                 "caluma_decision_form": generate_form_dump_config(regex=r"^entscheid$"),
+                "caluma_construction_notice_form": generate_form_dump_config(
+                    regex=r"^bauanzeige$"
+                ),
                 # Standard modules
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
                 **DISTRIBUTION_DUMP_CONFIG,

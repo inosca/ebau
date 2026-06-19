@@ -627,7 +627,7 @@
     'construction_costs': 1234567,
     'decision_date': datetime.date(2026, 5, 18),
     'dossier_number': '2026-99',
-    'information_of_neighbors_required': False,
+    'information_of_neighbors_required': True,
     'joined_street_and_number': True,
     'landowners': list([
       dict({

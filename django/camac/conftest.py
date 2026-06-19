@@ -1354,6 +1354,7 @@ def caluma_forms_sg(
         "formelle-vorpruefung",
         "materielle-pruefung",
         "publikation",
+        "bauanzeige",
         "entscheid",
     ]:
         caluma_form_factory(slug=slug)
@@ -2601,6 +2602,19 @@ def sg_master_data_case(
     # Decision
     decision = caluma_work_item_factory(task_id="decision", case=sg_instance.case)
     form_utils.add_answer(decision.document, "entscheid-datum", date(2026, 5, 18))
+
+    # Formal exam
+    formal_exam = caluma_work_item_factory(task_id="formal-exam", case=sg_instance.case)
+    form_utils.add_answer(
+        formal_exam.document,
+        "formelle-vorpruefung-publikation-notwendig",
+        "formelle-vorpruefung-publikation-notwendig-nein",
+    )
+    form_utils.add_answer(
+        formal_exam.document,
+        "formelle-vorpruefung-bauanzeigen-notwendig",
+        "formelle-vorpruefung-bauanzeigen-notwendig-ja",
+    )
 
     return sg_instance.case
 

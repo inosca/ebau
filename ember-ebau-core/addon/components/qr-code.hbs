@@ -3,10 +3,10 @@
     <div class="uk-inline">
       <img src={{this.data}} alt={{this.url}} class="uk-box-shadow-medium" />
       {{#if this.preview}}
-        <div class="uk-overlay uk-overlay-default uk-position-center">
-          <p
-            class="uk-text-large uk-text-uppercase uk-text-bolder uk-text-danger"
-          >{{t "publication.qr-code.preview"}}</p>
+        <div
+          class="uk-overlay uk-overlay-default uk-position-center-left uk-position-center-right uk-padding-remove-horizontal uk-text-center uk-text-large uk-text-uppercase uk-text-bolder uk-text-danger"
+        >
+          {{t "publication.qr-code.preview"}}
         </div>
       {{/if}}
     </div>

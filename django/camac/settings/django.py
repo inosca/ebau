@@ -3195,16 +3195,22 @@ APPLICATIONS = {
             },
             "PRE_COMPLETE": {
                 "fill-publication": {"complete": ["publication"]},
+                "fill-information-of-neighbors": {
+                    "complete": ["information-of-neighbors"]
+                },
                 "check-inquiry": {"cancel": ["revise-inquiry"]},
                 "revise-inquiry": {"cancel": ["check-inquiry"]},
                 "decision": {
                     "skip": [
                         "publication",
                         "fill-publication",
+                        "information-of-neighbors",
+                        "fill-information-of-neighbors",
                         "material-exam",
                     ],
                     "cancel": [
                         "create-publication",
+                        "create-information-of-neighbors",
                         "init-additional-demand",
                         "additional-demand",
                         "withdrawal-request",

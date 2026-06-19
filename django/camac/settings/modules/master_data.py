@@ -3596,8 +3596,23 @@ MASTER_DATA = {
                     "default": False,
                 },
             ),
-            # That module will be added later on
-            "information_of_neighbors_required": ("static", False),
+            "information_of_neighbors_required": (
+                "answer",
+                "formelle-vorpruefung-bauanzeigen-notwendig",
+                {
+                    "document_from_work_item": "formal-exam",
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "formelle-vorpruefung-bauanzeigen-notwendig-ja": True,
+                                "formelle-vorpruefung-bauanzeigen-notwendig-nein": False,
+                            }
+                        },
+                    ),
+                    "default": False,
+                },
+            ),
         },
     },
 }

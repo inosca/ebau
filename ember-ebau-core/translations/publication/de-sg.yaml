@@ -1,0 +1,21 @@
+publication:
+  new:
+    neighbors: "Neue Bauanzeige"
+
+  submitConfirm:
+    neighbors: "Wollen Sie die Bauanzeige wirklich freigeben?"
+
+  delete:
+    neighbors: "Bauanzeige löschen"
+
+  cancelConfirm:
+    neighbors: "Wollen Sie die Bauanzeige wirklich abbrechen?"
+
+  empty:
+    neighbors: "Es wurden keine Bauanzeigen durchgeführt."
+
+  info:
+    unpublished:
+      neighbors: "Die Bauanzeige muss freigegeben werden, damit der QR-Code sowie der Direktlink funktioniert und versendet werden kann."
+    canceled:
+      neighbors: "Die Bauanzeige wurde abgebrochen. QR-Code und Direktlink funktionieren nicht mehr."
