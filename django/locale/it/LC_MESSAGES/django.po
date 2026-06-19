@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-21 13:09+0200\n"
+"POT-Creation-Date: 2026-06-16 14:32+0200\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -630,6 +630,14 @@ msgstr "Fonte dossier disponibile"
 #: camac/core/admin/views.py camac/core/models.py
 msgid "Forms"
 msgstr ""
+
+#: camac/core/management/commands/fix_duplicate_identifiers.py
+#, python-format
+msgid ""
+"Reassigned dossier number from %(old_identifier)s to %(new_identifier)s."
+msgstr ""
+"Il numero del dossier è stato riassegnato da %(old_identifier)s a "
+"%(new_identifier)s."
 
 #: camac/core/models.py camac/user/models.py
 msgid "Service"
