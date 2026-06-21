@@ -521,6 +521,7 @@ DMS = {
                     "uvp-migration",
                     *ag_constants.VORENTSCHEID_FORMS,
                     "vorentscheid-migration",
+                    "auszahlung-abbruchpraemie",
                 ],
                 "template": "form",
                 "personalien": "personalien",

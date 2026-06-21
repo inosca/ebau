@@ -927,6 +927,7 @@
       "allow_forms": [
         "anfrage",
         "anfrage-migration",
+        "auszahlung-abbruchpraemie",
         "baugesuch",
         "baugesuch-migration",
         "baugesuch-mit-uvp",
