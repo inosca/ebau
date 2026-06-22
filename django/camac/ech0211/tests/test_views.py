@@ -807,6 +807,7 @@ def test_send_submit_ag(
         "vertretung-plz-gesuchstellerin",
         "vertretung-strasse-gesuchstellerin",
         "werden-flaechen-neu-versiegelt-oder-entsiegelt",
+        "wird-das-bauvorhaben-durch-einen-qs-brandschutz-qsv-begleitet",
         "zustaendige-behoerde",
     ]:
         question = caluma_form_models.Question.objects.filter(
