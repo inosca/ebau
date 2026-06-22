@@ -13041,7 +13041,7 @@
       "description": null,
       "template": "/ember-camac-ng/publication.phtml",
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 9,
       "form_group": 161,
       "require_permission": null
