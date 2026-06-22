@@ -1,8 +1,5 @@
 import { service } from "@ember/service";
-import { getOwnConfig, macroCondition } from "@embroider/macros";
 import { Ability } from "ember-can";
-
-import mainConfig from "ember-ebau-core/config/main";
 
 export default class ConstructionMonitoringAbility extends Ability {
   @service store;
@@ -10,82 +7,59 @@ export default class ConstructionMonitoringAbility extends Ability {
   @service constructionMonitoring;
   @service permissions;
 
-  async canInitialize() {
-    const workItem = this.constructionMonitoring.controls.init;
-    const isReady = workItem?.status === "READY";
-    const isAddressed = workItem?.addressedGroups
-      .map((id) => parseInt(id))
-      .includes(parseInt(this.ebauModules.serviceId));
+  #hasBasePermission(key) {
+    const workItem = this.constructionMonitoring.controls[key];
 
-    if (this.permissions.fullyEnabled) {
-      return (
-        (await this.permissions.hasAll(
-          this.ebauModules.instanceId,
-          "construction-monitoring-write",
-        )) &&
-        isReady &&
-        isAddressed
-      );
-    }
-
-    return !this.ebauModules.isReadOnlyRole && isReady && isAddressed;
+    return (
+      workItem?.status === "READY" &&
+      workItem?.addressedGroups
+        .map((id) => parseInt(id))
+        .includes(parseInt(this.ebauModules.serviceId))
+    );
   }
 
-  async grAllowedToSkip() {
-    const instance = this.store.peekRecord(
-      "instance",
-      this.ebauModules.instanceId,
-    );
-    const instanceState = await instance.instanceState;
-
-    if (
-      [
-        mainConfig.instanceStates.subm,
-        mainConfig.instanceStates["init-distribution"],
-        mainConfig.instanceStates.circulation,
-        mainConfig.instanceStates.decision,
-      ].includes(parseInt(instanceState.id))
-    ) {
+  async canInit() {
+    if (!this.#hasBasePermission("init")) {
       return false;
     }
 
-    return true;
-  }
-
-  async canSkip() {
-    if (macroCondition(getOwnConfig().application === "gr")) {
-      if (!(await this.grAllowedToSkip())) {
-        return false;
-      }
-    }
-
-    return this.canInitialize();
-  }
-
-  async canComplete() {
-    const workItem = this.constructionMonitoring.controls.complete;
-    const isReady = workItem?.status === "READY";
-    const isAddressed = workItem?.addressedGroups
-      .map((id) => parseInt(id))
-      .includes(parseInt(this.ebauModules.serviceId));
-
-    if (macroCondition(getOwnConfig().application === "gr")) {
-      if (!(await this.grAllowedToSkip())) {
-        return false;
-      }
-    }
-
     if (this.permissions.fullyEnabled) {
-      return (
-        (await this.permissions.hasAll(
-          this.ebauModules.instanceId,
-          "construction-monitoring-write",
-        )) &&
-        isReady &&
-        isAddressed
+      return await this.permissions.hasAll(
+        this.ebauModules.instanceId,
+        "construction-monitoring-init",
       );
     }
 
-    return !this.ebauModules.isReadOnlyRole && isReady && isAddressed;
+    return !this.ebauModules.isReadOnlyRole;
+  }
+
+  async canSkip() {
+    if (!this.#hasBasePermission("init")) {
+      return false;
+    }
+
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.ebauModules.instanceId,
+        "construction-monitoring-skip",
+      );
+    }
+
+    return !this.ebauModules.isReadOnlyRole;
+  }
+
+  async canComplete() {
+    if (!this.#hasBasePermission("complete")) {
+      return false;
+    }
+
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.ebauModules.instanceId,
+        "construction-monitoring-complete",
+      );
+    }
+
+    return !this.ebauModules.isReadOnlyRole;
   }
 }
