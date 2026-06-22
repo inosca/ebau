@@ -1302,6 +1302,7 @@ def caluma_forms_ag(settings, add_general_questions):
         "uvp-migration",
         "pgv-migration",
         "internes-dossier",
+        "auszahlung-abbruchpraemie",
         # Task forms
         "entscheid",
         "kantonale-pruefung",

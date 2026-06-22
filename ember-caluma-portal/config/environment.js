@@ -516,6 +516,7 @@ module.exports = function (environment) {
             "plangenehmigungsverfahren-gas",
             "vorabklaerung",
             "baugesuch-migration",
+            "auszahlung-abbruchpraemie",
             // v2
             "baugesuch-v2",
             "baugesuch-mit-uvp-v2",

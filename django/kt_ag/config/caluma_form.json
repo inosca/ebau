@@ -268,6 +268,42 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "auszahlung-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.324Z",
+      "modified_at": "2026-06-22T11:53:13.739Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Auszahlung Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": "",
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "auszahlung-abbruchpraemie-subform",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.320Z",
+      "modified_at": "2026-06-21T21:29:53.320Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Auszahlung Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "baugesuch",
     "fields": {
       "created_at": "2021-02-12T13:03:45.382Z",
@@ -454,6 +490,24 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": \"Documenti\"}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "dokumente-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-06-22T06:14:14.265Z",
+      "modified_at": "2026-06-22T06:14:14.265Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente Abbruchprämie\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -2943,6 +2997,156 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie.auszahlung-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.404Z",
+      "modified_at": "2026-06-21T21:29:53.404Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie",
+      "question": "auszahlung-abbruchpraemie",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie.dokumente-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-06-22T06:17:45.141Z",
+      "modified_at": "2026-06-22T06:17:45.141Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie",
+      "question": "dokumente-abbruchpraemie",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie.einreichen",
+    "fields": {
+      "created_at": "2026-06-21T22:07:28.091Z",
+      "modified_at": "2026-06-21T22:07:28.091Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie.personalien",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.407Z",
+      "modified_at": "2026-06-21T21:29:53.407Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie",
+      "question": "personalien",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung.dossier-number-reference",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.397Z",
+      "modified_at": "2026-06-21T21:29:53.397Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "dossier-number-reference",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung.eigentuemergemeinschaft",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.388Z",
+      "modified_at": "2026-06-21T21:29:53.389Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "eigentuemergemeinschaft",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung.gemeinde",
+    "fields": {
+      "created_at": "2026-06-22T05:54:32.576Z",
+      "modified_at": "2026-06-22T05:54:32.576Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "gemeinde",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung.hinweis-vollmacht-eigentumergemeinschaft",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.382Z",
+      "modified_at": "2026-06-21T21:29:53.382Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "hinweis-vollmacht-eigentumergemeinschaft",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung.is-paper",
+    "fields": {
+      "created_at": "2026-06-21T22:08:42.840Z",
+      "modified_at": "2026-06-21T22:08:42.840Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "is-paper",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung.zahlungsverbindung",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.393Z",
+      "modified_at": "2026-06-21T21:29:53.393Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "zahlungsverbindung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "baugesuch.allgemeine-informationen",
     "fields": {
       "created_at": "2023-04-05T10:17:03.246Z",
@@ -4574,6 +4778,66 @@
       "form": "bestaetigung",
       "question": "elektronische-uebermittlung-disclaimer",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-abbruchpraemie.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2026-06-22T06:14:47.681Z",
+      "modified_at": "2026-06-22T06:14:47.681Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-abbruchpraemie",
+      "question": "dokumente-platzhalter",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-abbruchpraemie.entsorgungsnachweis",
+    "fields": {
+      "created_at": "2026-06-22T06:16:53.300Z",
+      "modified_at": "2026-06-22T06:16:53.300Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-abbruchpraemie",
+      "question": "entsorgungsnachweis",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-abbruchpraemie.hinweistext-dokumente",
+    "fields": {
+      "created_at": "2026-06-22T06:14:27.352Z",
+      "modified_at": "2026-06-22T06:14:27.352Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-abbruchpraemie",
+      "question": "hinweistext-dokumente",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-abbruchpraemie.vollmacht-eigentuemergemeinschaft",
+    "fields": {
+      "created_at": "2026-06-22T06:24:29.058Z",
+      "modified_at": "2026-06-22T06:24:29.058Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-abbruchpraemie",
+      "question": "vollmacht-eigentuemergemeinschaft",
+      "sort": 1
     }
   },
   {
@@ -12700,6 +12964,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "eigentuemergemeinschaft-ja",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.339Z",
+      "modified_at": "2026-06-21T21:29:53.339Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "eigentuemergemeinschaft-nein",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.344Z",
+      "modified_at": "2026-06-21T21:29:53.344Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "eigenverwendung-bestehend",
     "fields": {
       "created_at": "2024-11-20T12:23:54.079Z",
@@ -13100,6 +13398,23 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Entsorgungskonzept\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entsorgungsnachweis-ja",
+    "fields": {
+      "created_at": "2026-06-22T06:16:53.078Z",
+      "modified_at": "2026-06-22T06:16:53.078Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgungsnachweis\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -16874,6 +17189,23 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Visualisierung der Reklamen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vollmacht-eigentuemergemeinschaft-ja",
+    "fields": {
+      "created_at": "2026-06-22T06:24:28.840Z",
+      "modified_at": "2026-06-22T06:24:28.840Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollmacht Eigentümergemeinschaft\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -20679,6 +21011,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "auszahlung-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.372Z",
+      "modified_at": "2026-06-21T21:29:53.372Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Auszahlung Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "auszahlung-abbruchpraemie-subform",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bauanzeige-haustechnische-anlagen-brandschutz",
     "fields": {
       "created_at": "2023-09-06T07:17:38.540Z",
@@ -23359,6 +23722,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dokumente-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-06-22T06:17:45.046Z",
+      "modified_at": "2026-06-22T06:20:11.912Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "alexandria-documents-form"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-abbruchpraemie",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "dokumente-ohne-pflichtdokumente",
     "fields": {
       "created_at": "2023-05-01T09:33:04.773Z",
@@ -23476,6 +23872,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dossier-number-reference",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.327Z",
+      "modified_at": "2026-06-21T21:29:53.327Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dossiernummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "dossiernummer-des-bewilligten-projekts",
     "fields": {
       "created_at": "2023-10-25T16:29:49.395Z",
@@ -23565,6 +23992,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "eigentuemergemeinschaft",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.336Z",
+      "modified_at": "2026-06-22T05:52:31.544Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich bei der Gebäude-/Anlageeigentümer/in um eine Eigentümergemeinschaft?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"z.B. Stockwerkeigentum, Erben- oder Betriebsgemeinschaft usw.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -24113,6 +24571,39 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Mehr Informationen finden Sie [hier](https://www.ag.ch/de/verwaltung/bvu/umwelt-natur-landschaft/umwelt/abfallwirtschaft/bauabfaelle).\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entsorgungsnachweis",
+    "fields": {
+      "created_at": "2026-06-22T06:16:53.197Z",
+      "modified_at": "2026-06-22T06:18:38.594Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgungsnachweis\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -26038,6 +26529,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"[Hinweis zur Störfallvorsorge](https://www.ag.ch/de/themen/gesundheit/lebensmittel-und-umweltsicherheit/chemiesicherheit/stoerfallvorsorge)\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-vollmacht-eigentumergemeinschaft",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.360Z",
+      "modified_at": "2026-06-22T05:51:16.582Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Vollmacht Eigentümergemeinschaft\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!('eigentuemergemeinschaft'|answer == 'eigentuemergemeinschaft-ja')",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Von der Eigentümergemeinschaft muss eine Vollmacht beigelegt werden, die die Abteilung für Baubewilligungen berechtigt, die vollständige Abbruchprämie der oben aufgeführten Person auszuzahlen. Die Aufteilung der Abbruchprämie ist Sache der Eigentümergemeinschaft.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -28129,18 +28651,18 @@
     "pk": "personalien",
     "fields": {
       "created_at": "2022-09-21T12:18:04.569Z",
-      "modified_at": "2024-09-11T14:58:43.777Z",
+      "modified_at": "2026-06-21T21:30:04.462Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Personalien\", \"fr\": null, \"it\": \"Dati personali\"}",
+      "label": "{\"de\": \"Personalien\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -29969,6 +30491,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "vollmacht-eigentuemergemeinschaft",
+    "fields": {
+      "created_at": "2026-06-22T06:24:28.948Z",
+      "modified_at": "2026-06-22T06:24:40.848Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollmacht Eigentümergemeinschaft\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!('eigentuemergemeinschaft'|answer == 'eigentuemergemeinschaft-ja')",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "vollstaendiger-entwaesserungsplan",
     "fields": {
       "created_at": "2024-11-27T14:04:06.684Z",
@@ -31188,6 +31743,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zahlungsverbindung",
+    "fields": {
+      "created_at": "2026-06-21T21:29:53.332Z",
+      "modified_at": "2026-06-22T05:54:00.099Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zahlungsverbindung (IBAN, Bankname, PC-Konto)\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bitte geben Sie die vollständige Bezeichnung des Kontoinhabers / der Kontoinhaberin und die IBAN-Nummer an.\\n\\nBeispiel:\\n```\\nMax und Marianne Muster-Beispiel\\nBeispielstrasse 22\\n5000 Aarau\\nIBAN CH92 0900 0000 3000 0406 7\\nbei der PostFinance AG, Mingerstrasse 20, 3030 Bern\\n```\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -34073,6 +34662,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "eigentuemergemeinschaft.eigentuemergemeinschaft-ja",
+    "fields": {
+      "created_at": "2026-06-22T05:52:31.555Z",
+      "modified_at": "2026-06-22T05:52:31.555Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "eigentuemergemeinschaft",
+      "option": "eigentuemergemeinschaft-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "eigentuemergemeinschaft.eigentuemergemeinschaft-nein",
+    "fields": {
+      "created_at": "2026-06-22T05:52:31.551Z",
+      "modified_at": "2026-06-22T05:52:31.551Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "eigentuemergemeinschaft",
+      "option": "eigentuemergemeinschaft-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "eigenverwendung.eigenverwendung-bestehend",
     "fields": {
       "created_at": "2025-05-14T13:37:38.529Z",
@@ -34428,6 +35047,21 @@
       "modified_by_group": null,
       "question": "entsorgungskonzept-gemaess-bauabfaelle",
       "option": "entsorgungskonzept-gemaess-bauabfaelle-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entsorgungsnachweis.entsorgungsnachweis-ja",
+    "fields": {
+      "created_at": "2026-06-22T06:18:38.601Z",
+      "modified_at": "2026-06-22T06:18:38.601Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entsorgungsnachweis",
+      "option": "entsorgungsnachweis-ja",
       "sort": 1
     }
   },
@@ -37728,6 +38362,21 @@
       "modified_by_group": null,
       "question": "visualisierung-der-reklamen",
       "option": "visualisierung-der-reklamen-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vollmacht-eigentuemergemeinschaft.vollmacht-eigentuemergemeinschaft-ja",
+    "fields": {
+      "created_at": "2026-06-22T06:24:40.856Z",
+      "modified_at": "2026-06-22T06:24:40.856Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vollmacht-eigentuemergemeinschaft",
+      "option": "vollmacht-eigentuemergemeinschaft-ja",
       "sort": 1
     }
   },
