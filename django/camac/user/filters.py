@@ -27,6 +27,8 @@ from camac.filters import (
 from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
 from camac.instance.views import InstanceView
+from camac.permissions import api as permissions_api
+from camac.permissions.switcher import permission_switching_method
 from camac.responsible.models import ResponsibleService
 from camac.utils import get_unversioned_slug
 
@@ -512,7 +514,23 @@ class AccessibleInstanceFilter(NumberFilter):
     in notifications and don't have access with the currently selected group.
     """
 
+    @permission_switching_method
     def filter(self, qs, value):
+        if not value:
+            return qs
+
+        permissions_manager = permissions_api.PermissionManager.from_request(
+            self.parent.request
+        )
+        involved_services = permissions_manager.involved_services(int(value))
+
+        assigned_groups = self.parent.request.user.groups.all()
+        groups_with_access = assigned_groups.filter(service__in=involved_services)
+
+        return groups_with_access
+
+    @filter.register_old
+    def filter_rbac(self, qs, value):
         if not value:
             return qs
 
