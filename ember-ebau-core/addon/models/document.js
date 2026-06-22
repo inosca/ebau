@@ -10,10 +10,19 @@ export default class CustomDocumentModel extends DocumentModel {
   @service notification;
   @service store;
 
-  #voidMark = trackedFunction(this, async () => {
-    const marks = await this.marks;
-    return marks.find((mark) => mark.id === mainConfig.alexandria.marks.void);
+  #marks = trackedFunction(this, async () => {
+    return await this.marks;
   });
+
+  #voidMark = trackedFunction(this, async () => {
+    return (await this.#marks.value).find(
+      (mark) => mark.id === mainConfig.alexandria.marks.void,
+    );
+  });
+
+  get hasMarks() {
+    return Boolean(this.#marks.value?.length);
+  }
 
   #displayName = trackedFunction(this, async () => {
     const voidMark = await this.#voidMark.value;

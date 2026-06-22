@@ -4,7 +4,7 @@ additional-demand:
   request: "Demande"
   request-info: "La demande de complément est directement transmise au requérant. Si un service cantonal lance une demande de complément d'information, la commune en est également informée."
   answer: "Réponse"
-  check:  "Contrôle"
+  check: "Contrôle"
   header-info:
     fill-additional-demand: "Envoyée le {date}"
     check-additional-demand: "Envoyée le {date}"
@@ -13,7 +13,7 @@ additional-demand:
   empty: "Aucune demande de complément disponible."
   empty-create: "Cliquez sur « + » pour lancer une demande de complément d'information."
   no-create: "Dans l'état actuel, aucune demande de complément d'information ne peut être créée."
-  paper:  "Pour les dossiers papier, les demandes de complément doivent être envoyées par courrier postal ou par courriel. Les réponses reçues peuvent être enregistrées dans les menus « Documents » et « Journal »."
+  paper: "Pour les dossiers papier, les demandes de complément doivent être envoyées par courrier postal ou par courriel. Les réponses reçues peuvent être enregistrées dans les menus « Documents » et « Journal »."
   documents: "Documents"
   status:
     internal:
@@ -27,8 +27,8 @@ additional-demand:
       needs-interaction: "En cours de traitement"
       completed: "Terminé"
       canceled: "Clos prématurément"
+  allow-changes-hint: ""
   formtimeline-link:
     case-timeline-label:
     instance-edit-label:
     instance-edit-info:
-    

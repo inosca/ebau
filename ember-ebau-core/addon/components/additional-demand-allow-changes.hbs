@@ -5,4 +5,16 @@
     @context={{@context}}
     @onSave={{@onSave}}
   />
+
+  {{#if
+    (and
+      (maybe-translate "additional-demand.allow-changes-hint")
+      (not @disabled)
+      @field.value
+    )
+  }}
+    <div class="uk-alert border-highlight">
+      {{t "additional-demand.allow-changes-hint" htmlSafe=true}}
+    </div>
+  {{/if}}
 {{/if}}

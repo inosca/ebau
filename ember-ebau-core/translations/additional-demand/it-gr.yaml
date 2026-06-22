@@ -3,7 +3,7 @@ additional-demand:
     <div class="uk-alert">
     <strong>Nota:</strong> La richiesta di precisazioni viene inviata direttamente ai richiedenti. I documenti supplementari devono essere inoltrati all'autorità direttiva (comune o UST-GR) tramite circolazione.
     </div>
+  allow-changes-hint: "<strong>Nota:</strong> con l’autorizzazione alla modifica del modulo di richiesta, i richiedenti possono modificare il modulo eBau e i documenti. I documenti già timbrati non possono essere contrassegnati come non validi. Se necessario, rimuovete prima i timbri dai documenti interessati."
   formtimeline-link:
     instance-edit-info: |
       <strong>Nota:</strong> Con «Modifica il dossier» è possibile modificare il modulo e i documenti trasmessi.
-

@@ -48,7 +48,7 @@
                 {{on "click" (fn @onDelete attachment)}}
               ></button>
             </div>
-          {{else if (and @voidable (not attachment.isVoid))}}
+          {{else if (and @voidable (not attachment.hasMarks))}}
             <div class="uk-flex uk-flex-middle">
               <button
                 type="button"
