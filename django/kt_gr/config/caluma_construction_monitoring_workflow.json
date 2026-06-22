@@ -9,7 +9,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['construction-step-adressvergabe-confirm']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -22,7 +22,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -35,7 +35,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['construction-step-schlussabnahme-gebaeude']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -48,7 +48,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['construction-step-schlussabnahme-projekt']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -61,7 +61,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['construction-step-schlussabnahme-projekt-planen']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -74,7 +74,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['construction-step-einmessung-leitungskataster']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -87,7 +87,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -113,7 +113,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['construction-step-kanalisationsabnahme-kontrollieren']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -126,7 +126,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -139,7 +139,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -152,7 +152,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['construction-step-baufreigabe']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -165,7 +165,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -191,7 +191,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -217,7 +217,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -230,7 +230,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -243,7 +243,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -256,7 +256,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['construction-step-schlussabnahme-projekt-gebaeude-nachtragen']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -269,7 +269,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['construction-step-rohbauabnahme-kontrollieren']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -282,7 +282,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['construction-step-schlussabnahme-gebaude-gebaeude-nachtragen']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -295,7 +295,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -308,7 +308,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['construction-step-schnurgeruestabnahme-kontrollieren']|tasks"
+      "next": "['after-construction-step-item']|tasks"
     }
   },
   {
@@ -663,7 +663,7 @@
           ]
         },
         "construction-step": {
-          "next": [],
+          "next": ["construction-step-einmessung"],
           "index": 1,
           "total": 2,
           "needs-approval": "construction-step-kanalisationsabnahme-is-approved"
