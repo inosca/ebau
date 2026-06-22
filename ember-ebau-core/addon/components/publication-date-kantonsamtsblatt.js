@@ -32,6 +32,6 @@ export default class PublicationDateKantonsamtsblatt extends CfFieldInputDateCom
       .minus({ days: 2 })
       .set({ hour: 12, minute: 0, second: 0, millisecond: 0 });
 
-    return now <= deadline;
+    return luxonDate < now.startOf("day") || now <= deadline;
   };
 }
