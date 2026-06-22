@@ -211,6 +211,30 @@
       {{#if
         (await
           (can
+            "create demolition payment of instance" this.editController.instance
+          )
+        )
+      }}
+        <h3 class="instance-overview__action-title">
+          {{t "instances.demolitionPaymentTitle"}}
+        </h3>
+        {{#unless (has-feature "instanceOverview.hideActionDescription")}}
+          <p>
+            {{t "instances.demolitionPaymentText"}}
+          </p>
+        {{/unless}}
+        <UkButton
+          @onClick={{perform this.createDemolitionPayment}}
+          @disabled={{this.createDemolitionPayment.isRunning}}
+          @loading={{this.createDemolitionPayment.isRunning}}
+        >
+          {{t "instances.demolitionPaymentTitle"}}
+        </UkButton>
+      {{/if}}
+
+      {{#if
+        (await
+          (can
             "write form of instance"
             this.editController.instance
             form=(hash slug="main")

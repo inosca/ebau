@@ -141,6 +141,8 @@ instances:
   respectives de eBau (répondre à une demande de complément et/ou redéposer un
   dossier).'<br'>'<br'>'<strong'>Souhaitez-vous poursuivre la soumission d'une
   modification de projet ?'</strong'>"
+  demolitionPaymentTitle: ""
+  demolitionPaymentText: ""
   rejectionTitle: "Soumettre à nouveau le dossier"
   rejectionTitleSuffix: "(Motifs de rejet)"
   rejectionText: "Vous pouvez traiter et soumettre à nouveau le dossier

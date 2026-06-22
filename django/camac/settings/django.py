@@ -970,26 +970,6 @@ APPLICATIONS = {
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": False,
             "USE_LOCATION": False,
-            "EXTEND_VALIDITY_FORM": "verlaengerung-geltungsdauer",
-            "EXTEND_VALIDITY_COPY_QUESTIONS": [
-                "weitere-personen",
-                "verantwortliche-person-sb-identisch",
-                "strasse-flurname",
-                "nr",
-                "plz-grundstueck-v3",
-                "ort-grundstueck",
-                "gemeinde",
-                "beschreibung-bauvorhaben",
-            ],
-            "EXTEND_VALIDITY_COPY_TABLE_QUESTIONS": [
-                "personalien-gesuchstellerin",
-                "personalien-vertreterin-mit-vollmacht",
-                "personalien-grundeigentumerin",
-                "personalien-gebaudeeigentumerin",
-                "personalien-projektverfasserin",
-                "personalien-sb",
-                "parzelle",
-            ],
             "PUBLIC_STATUS": {
                 "MAP": {
                     be_constants.INSTANCE_STATE_NEW: be_constants.PUBLIC_INSTANCE_STATE_CREATING,
@@ -3090,9 +3070,10 @@ LINKED_INSTANCES = load_module_settings("linked_instances")
 SANCTIONS = load_module_settings("sanctions")
 TIMELINES = load_module_settings("timelines")
 STATISTICS = load_module_settings("statistics")
-SUBMIT = load_module_settings("submit")
 APPLICANTS = load_module_settings("applicants")
 CALUMA_SIMPLE_WORKFLOW = load_module_settings("caluma_simple_workflow")
+INSTANCE_SUBMIT = load_module_settings("instance_submit")
+INSTANCE_COPY = load_module_settings("instance_copy")
 
 # Permissions incl. module specific integrations
 PERMISSIONS = load_module_settings("permissions")

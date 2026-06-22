@@ -109,7 +109,8 @@ class CreateInstanceLogic:
         return year
 
     @staticmethod
-    def _get_name(instance: Instance) -> str:
+    def _get_name_from_camac_form(instance: Instance) -> str:
+        # Camac form is only used in UR and SZ (deprecated)
         name = instance.form.name
         meta = models.FormField.objects.filter(instance=instance, name="meta").first()
         if meta:
@@ -202,7 +203,7 @@ class CreateInstanceLogic:
         if not identifier:
             year = CreateInstanceLogic._get_year(year)
 
-            name = CreateInstanceLogic._get_name(instance)
+            name = CreateInstanceLogic._get_name_from_camac_form(instance)
             identifier_start = CreateInstanceLogic._get_identifier_start(
                 instance, name, prefix
             )
@@ -246,7 +247,7 @@ class CreateInstanceLogic:
         if not identifier:
             year = CreateInstanceLogic._get_year(year)
 
-            name = CreateInstanceLogic._get_name(instance)
+            name = CreateInstanceLogic._get_name_from_camac_form(instance)
             identifier_start = CreateInstanceLogic._get_identifier_start(
                 instance, name, prefix
             )
@@ -316,33 +317,10 @@ class CreateInstanceLogic:
         )
 
     @staticmethod
-    def initialize_caluma(
-        instance,
-        source_instance,
-        case,
-        is_modification,
-        is_appeal,
-        is_rejected_appeal,
-        is_copy,
-        is_paper,
-        group,
-        user,
-        lead,
-    ):
-        if source_instance:
-            old_document = case.document
-            # Only exclude confirmation answers on regular project modifications.
-            # Copies of project modifications should include the confirmation answers
-            # (appeal, rejected appeal and support copy).
-            exclude_confirmation_answers = (
-                is_modification
-                and not is_appeal
-                and not is_rejected_appeal
-                and not is_copy
-            )
-            new_document = caluma_api.copy_document(
+    def full_copy_document(source_instance, exclude_confirmation_answers):
+        if settings.APPLICATION["SHORT_NAME"] == "be":
+            return caluma_api.copy_document(
                 source_instance.case.document.pk,
-                # These form slugs are BE specific
                 exclude_form_slugs=(
                     [
                         "7-bestaetigung",
@@ -355,6 +333,34 @@ class CreateInstanceLogic:
                     else ["8-freigabequittung"]
                 ),
             )
+        return caluma_api.copy_document(source_instance.case.document.pk)
+
+    @staticmethod
+    def copy_caluma_data(
+        instance,
+        source_instance,
+        copy_type,
+        is_modification,
+        user,
+        is_appeal,
+        is_rejected_appeal,
+        is_copy,
+    ):
+        case = instance.case
+        if copy_type == "full":
+            old_document = case.document
+            # Only exclude confirmation answers on regular project modifications.
+            # Copies of project modifications should include the confirmation answers
+            # (appeal, rejected appeal and support copy).
+            exclude_confirmation_answers = (
+                is_modification
+                and not is_appeal
+                and not is_rejected_appeal
+                and not is_copy
+            )
+            new_document = CreateInstanceLogic.full_copy_document(
+                source_instance, exclude_confirmation_answers
+            )
             new_document.form = old_document.form
             new_document.save()
 
@@ -362,8 +368,81 @@ class CreateInstanceLogic:
             case.save()
             old_document.delete()
 
+            # Kt. BE: If a full copy of an extend validity instance is created, copy
+            # the ebau number of the source instance as well.
+            if caluma_api.is_extend_validity(source_instance):
+                CreateInstanceLogic.copy_ebau_number(source_instance, instance)
+
+        elif copy_type in settings.INSTANCE_COPY.special_copy_types():
+            old_document = source_instance.case.document
+            new_document = case.document
+
+            config = getattr(settings.INSTANCE_COPY, copy_type)
+
+            for answer in old_document.answers.filter(
+                question_id__in=config.simple_questions
+            ):
+                form_api.save_answer(
+                    answer.question,
+                    new_document,
+                    user,
+                    answer.value,
+                )
+
+            for slug in config.table_questions:
+                caluma_api.copy_table_answer(slug, slug, old_document, new_document)
+
+            if instance_id_slug := config.instance_id_slug:
+                form_api.save_answer(
+                    form_models.Question.objects.get(pk=instance_id_slug),
+                    new_document,
+                    user,
+                    int(source_instance.pk),
+                )
+            if special_id_slug := config.special_id_slug:
+                dossier_number = caluma_api.get_dossier_number(source_instance)
+                form_api.save_answer(
+                    form_models.Question.objects.get(pk=special_id_slug),
+                    new_document,
+                    user,
+                    dossier_number,
+                )
+
+            # BE-specific: assign same eBau number
+            if copy_type == "extend_validity":
+                CreateInstanceLogic.copy_ebau_number(source_instance, instance)
+        else:  # pragma: no cover
+            raise ValidationError("Invalid copy type")
+
+    @staticmethod
+    def initialize_caluma(
+        instance,
+        source_instance,
+        copy_type,
+        is_modification,
+        is_appeal,
+        is_rejected_appeal,
+        is_copy,
+        is_paper,
+        group,
+        user,
+        lead,
+    ):
+        if source_instance:
+            CreateInstanceLogic.copy_caluma_data(
+                instance,
+                source_instance,
+                copy_type,
+                is_modification,
+                user,
+                is_appeal,
+                is_rejected_appeal,
+                is_copy,
+            )
+
+        document = instance.case.document
         caluma_api.update_or_create_answer(
-            case.document,
+            document,
             "is-paper",
             "is-paper-yes" if is_paper else "is-paper-no",
             user,
@@ -377,7 +456,7 @@ class CreateInstanceLogic:
                 )  # pragma: no cover
 
             caluma_api.update_or_create_answer(
-                case.document,
+                document,
                 "form-type",
                 "form-type-" + form_type,
                 user,
@@ -385,7 +464,7 @@ class CreateInstanceLogic:
 
         if settings.APPLICATION["CALUMA"].get("HAS_PROJECT_CHANGE"):
             caluma_api.update_or_create_answer(
-                case.document,
+                document,
                 "projektaenderung",
                 "projektaenderung-ja" if is_modification else "projektaenderung-nein",
                 user,
@@ -395,7 +474,7 @@ class CreateInstanceLogic:
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION") and instance.location:
             caluma_api.update_or_create_answer(
-                case.document,
+                document,
                 "municipality",
                 instance.location.communal_federal_number,
                 user,
@@ -404,7 +483,7 @@ class CreateInstanceLogic:
             # Synchronize the 'Leitbehörde' for display in the dashboard
             if lead:
                 caluma_api.update_or_create_answer(
-                    case.document,
+                    document,
                     "leitbehoerde",
                     str(lead),
                     user,
@@ -417,28 +496,14 @@ class CreateInstanceLogic:
             municipality_question = MasterData.get_question_slug("municipality_slug")
 
             if source.validate_answer_value(
-                value, case.document, municipality_question, None, None
+                value, document, municipality_question, None, None
             ):
                 caluma_api.update_or_create_answer(
-                    case.document,
+                    document,
                     municipality_question,
                     value,
                     user,
                 )
-
-    @staticmethod
-    def copy_applicants(source, target):
-        for applicant in source.involved_applicants.all():
-            new_applicant = target.involved_applicants.create(
-                invitee=applicant.invitee,
-                created=timezone.now(),
-                user=applicant.user,
-                email=applicant.email,
-                role=applicant.role,
-            )
-            Trigger.applicant_added(
-                request=None, instance=target, applicant=new_applicant
-            )
 
     @classmethod
     @canton_aware
@@ -556,50 +621,64 @@ class CreateInstanceLogic:
             attachment.save()
 
     @staticmethod
-    def copy_ebau_number(source_instance, target_instance, case):
+    def copy_ebau_number(source_instance, target_instance):
         ebau_number = caluma_api.get_ebau_number(source_instance)
-        case.meta["ebau-number"] = ebau_number
-        case.save()
+        target_instance.case.meta["ebau-number"] = ebau_number
+        target_instance.case.save()
 
     @staticmethod
-    def copy_extend_validity_answers(source, target, user):
-        old_document = source.case.document
-        new_document = target.case.document
-
-        for answer in old_document.answers.filter(
-            question_id__in=settings.APPLICATION["CALUMA"].get(
-                "EXTEND_VALIDITY_COPY_QUESTIONS", []
+    def copy_all_applicants(source, target):
+        for applicant in source.involved_applicants.all():
+            new_applicant = target.involved_applicants.create(
+                invitee=applicant.invitee,
+                created=timezone.now(),
+                user=applicant.user,
+                email=applicant.email,
+                role=applicant.role,
             )
-        ):
-            form_api.save_answer(
-                answer.question,
-                new_document,
-                user,
-                answer.value,
+            Trigger.applicant_added(
+                request=None, instance=target, applicant=new_applicant
             )
 
-        for slug in settings.APPLICATION["CALUMA"].get(
-            "EXTEND_VALIDITY_COPY_TABLE_QUESTIONS", []
-        ):
-            caluma_api.copy_table_answer(slug, slug, old_document, new_document)
+    @staticmethod
+    def setup_applicants(
+        instance, source_instance, copy_type, camac_user, is_modification
+    ):
+        # TODO (Kt. BE): appeal, rejection appeal, copies created by support
+        # should have all previous applicants copied instead of adding the currently
+        # logged in user (from a municipality or support) as applicant
+        if source_instance and copy_type == "full" and not is_modification:
+            CreateInstanceLogic.copy_all_applicants(source_instance, instance)
+        else:
+            new_applicant = instance.involved_applicants.create(
+                user=camac_user,
+                invitee=camac_user,
+                created=timezone.now(),
+                email=camac_user.email,
+            )
+            Trigger.applicant_added(
+                request=None, instance=instance, applicant=new_applicant
+            )
 
-        form_api.save_answer(
-            form_models.Question.objects.get(pk="dossiernummer"),
-            new_document,
-            user,
-            int(source.pk),
-        )
+    @staticmethod
+    def handle_archive_forms_ur(data):
+        """Make sure archive dossiers in Kt. UR start in the state 'old'."""
+
+        # UR is still actively using CAMAC forms for business logic (deprecated)
+        form = data.get("form")
+        if form and form.pk in settings.APPLICATION.get("ARCHIVE_FORMS", []):
+            data["instance_state"] = models.InstanceState.objects.get(name="old")
+        return data
 
     @staticmethod
     def initialize_camac(
         instance,
         source_instance,
+        copy_type,
+        camac_user,
         group,
         is_modification,
         is_paper,
-        extend_validity_for,
-        case,
-        user,
         skip_exported_form_attachment,
         copy_attachments_from,
     ):
@@ -610,6 +689,11 @@ class CreateInstanceLogic:
                 service_id=group.service.pk,
                 active=1,
                 activation_date=None,
+            )
+
+        if not is_paper:
+            CreateInstanceLogic.setup_applicants(
+                instance, source_instance, copy_type, camac_user, is_modification
             )
 
         if source_instance:
@@ -624,18 +708,6 @@ class CreateInstanceLogic:
                 copy_attachments_from,
             )
 
-            if not is_modification:
-                CreateInstanceLogic.copy_applicants(source_instance, instance)
-                instance.form = source_instance.form
-                instance.save()
-
-            # If a copy of a extend validity instance is create we want to copy
-            # the ebau number of the source instance too.
-            if source_instance.case.document.form.slug == settings.APPLICATION[
-                "CALUMA"
-            ].get("EXTEND_VALIDITY_FORM"):
-                CreateInstanceLogic.copy_ebau_number(source_instance, instance, case)
-
             if is_module_enabled("TIMELINES"):
                 was_rejected = (
                     is_module_enabled("REJECTION")
@@ -649,16 +721,6 @@ class CreateInstanceLogic:
                     else FormTimeline.Type.SUBMIT_AFTER_REJECTION.value,
                     start_date=timezone.now(),
                 )
-        elif extend_validity_for:
-            extend_validity_instance = models.Instance.objects.get(
-                pk=extend_validity_for
-            )
-            CreateInstanceLogic.copy_ebau_number(
-                extend_validity_instance, instance, case
-            )
-            CreateInstanceLogic.copy_extend_validity_answers(
-                extend_validity_instance, instance, user
-            )
 
     @staticmethod
     def create(
@@ -677,7 +739,6 @@ class CreateInstanceLogic:
         start_caluma=True,
         workflow_slug=None,
         skip_exported_form_attachment=False,
-        skip_applicant_creation=False,
         copy_attachments_from=None,
     ):
         """Create an instance.
@@ -687,12 +748,10 @@ class CreateInstanceLogic:
         are skipped here and performed in the serializer instead.
         """
         copy_attachments_from = copy_attachments_from or []
-        extend_validity_for = data.pop("extend_validity_for", None)
+        copy_type = data.pop("copy_type", None)
         generate_identifier = data.pop("generate_identifier", None)
 
-        form = data.get("form")
-        if form and form.pk in settings.APPLICATION.get("ARCHIVE_FORMS", []):
-            data["instance_state"] = models.InstanceState.objects.get(name="old")
+        data = CreateInstanceLogic.handle_archive_forms_ur(data)
 
         year = data.pop("year", None)
 
@@ -702,21 +761,6 @@ class CreateInstanceLogic:
             data["location"] = source_instance.location
 
         instance = Instance.objects.create(**data)
-
-        if (
-            not is_paper
-            and (not source_instance or is_modification)
-            and not skip_applicant_creation
-        ):
-            new_applicant = instance.involved_applicants.create(
-                user=camac_user,
-                invitee=camac_user,
-                created=timezone.now(),
-                email=camac_user.email,
-            )
-            Trigger.applicant_added(
-                request=None, instance=instance, applicant=new_applicant
-            )
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):  # pragma: no cover
             CreateInstanceLogic.update_instance_location(instance)
@@ -760,7 +804,7 @@ class CreateInstanceLogic:
             CreateInstanceLogic.initialize_caluma(
                 instance,
                 source_instance,
-                case,
+                copy_type,
                 is_modification,
                 is_appeal,
                 is_rejected_appeal,
@@ -774,12 +818,11 @@ class CreateInstanceLogic:
         CreateInstanceLogic.initialize_camac(
             instance,
             source_instance,
+            copy_type,
+            camac_user,
             group,
             is_modification,
             is_paper,
-            extend_validity_for,
-            case,
-            caluma_user,
             skip_exported_form_attachment,
             copy_attachments_from,
         )

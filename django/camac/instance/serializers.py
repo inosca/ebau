@@ -602,7 +602,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     is_paper = serializers.SerializerMethodField()  # "Papierdossier
     is_modification = serializers.SerializerMethodField()  # "Projektänderung"
     copy_source = serializers.CharField(required=False, write_only=True)
-    extend_validity_for = serializers.IntegerField(required=False, write_only=True)
+    copy_type = serializers.CharField(required=False, write_only=True)
     generate_identifier = serializers.BooleanField(required=False, write_only=True)
     year = serializers.IntegerField(required=False, write_only=True)
 
@@ -1142,6 +1142,8 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         visible_instances = super().get_queryset(group)
 
         copy_source = validated_data.pop("copy_source", None)
+        copy_type = validated_data.pop("copy_type", None)
+        caluma_form = self.initial_data.get("caluma_form", None)
         is_modification = self.initial_data.get("is_modification", False)
         is_appeal = self.initial_data.get("is_appeal", False)
         is_rejected_appeal = self.initial_data.get("is_rejected_appeal", False)
@@ -1156,8 +1158,24 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             except models.Instance.DoesNotExist as e:
                 raise exceptions.ValidationError(_("Source instance not found")) from e
             validated_data["copy_source"] = source_instance
+            if copy_type == "full":
+                caluma_form = caluma_api.get_form_slug(source_instance)
 
-            caluma_form = caluma_api.get_form_slug(source_instance)
+            if copy_type in settings.INSTANCE_COPY.special_copy_types():
+                allowed_form_slug = getattr(settings.INSTANCE_COPY, copy_type).form_slug
+                if allowed_form_slug and caluma_form != allowed_form_slug:
+                    raise exceptions.ValidationError(
+                        "'{copy_type}' copy is only allowed for '{allowed_form_slug}' form"
+                    )
+            elif copy_type == "full":
+                pass
+            else:
+                raise exceptions.ValidationError(
+                    "Invalid copy type."
+                )  # pragma: no cover
+
+            validated_data["copy_type"] = copy_type
+
             if (
                 caluma_form in COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE
                 and self.initial_data.get("caluma_form")
@@ -1184,21 +1202,30 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
                 # convertions of preliminary clarifications to building permits.
                 # Those use-cases will have their own permission checks in the
                 # future.
+                permissions = permissions_api.PermissionManager.from_request(
+                    self.context["request"]
+                )
                 if is_modification:
-                    permissions_api.PermissionManager.from_request(
-                        self.context["request"]
-                    ).require_all(source_instance, "instance-create-modification")
+                    permissions.require_all(
+                        source_instance, "instance-create-modification"
+                    )
 
                 elif is_rejection:
-                    permissions_api.PermissionManager.from_request(
-                        self.context["request"]
-                    ).require_all(source_instance, "instance-copy-after-rejection")
+                    permissions.require_all(
+                        source_instance, "instance-copy-after-rejection"
+                    )
 
                 elif is_conversion:
-                    permissions_api.PermissionManager.from_request(
-                        self.context["request"]
-                    ).require_all(
+                    permissions.require_all(
                         source_instance, "instance-convert-to-building-permit"
+                    )
+
+                if copy_type == "extend_validity":
+                    permissions.require_all(source_instance, "instance-extend-validity")
+
+                if copy_type == "demolition_payment":
+                    permissions.require_all(
+                        source_instance, "instance-request-demolition-payment"
                     )
 
             # If the source instance is a project modification, the new
@@ -1207,16 +1234,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
                 source_instance
             )
 
-            # when making copies, the form ID remains the same
+            # when making copies, the CAMAC form ID remains the same (legacy, still used in UR / SZ)
             validated_data["form"] = source_instance.form
         else:
-            if is_permission_module_fully_enabled(group):
-                extend_validity_for = validated_data.get("extend_validity_for", None)
-                if extend_validity_for:
-                    permissions_api.PermissionManager.from_request(
-                        self.context["request"]
-                    ).require_all(extend_validity_for, "instance-extend-validity")
-
             is_modification = False
             caluma_form = self.initial_data.get("caluma_form", None)
             is_paper = (
@@ -1270,7 +1290,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             "is_paper",
             "is_modification",
             "copy_source",
-            "extend_validity_for",
+            "copy_type",
             "year",
             "public_status",
             "responsible_service_users",
@@ -1321,9 +1341,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
     def _send_notification(self, template_slug, recipient_types, instance=None):
         """Send notification email."""
-        send_mail(
+        caluma_user = self.context["request"].caluma_info.context.user
+        send_mail_without_request(
             template_slug,
-            self.context,
+            caluma_user.username,
+            caluma_user.camac_group,
             recipient_types=recipient_types,
             instance={
                 "type": "instances",
@@ -1479,12 +1501,10 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 context={"data_source_context": {"instanceId": instance.pk}},
             )
 
-    def _be_extend_validity_skip_ebau_number(self, case):
-        if case.document.form.slug == settings.APPLICATION["CALUMA"].get(
-            "EXTEND_VALIDITY_FORM"
-        ):
+    def _be_extend_validity_skip_ebau_number(self, instance):
+        if caluma_api.is_extend_validity(instance):
             workflow_api.skip_work_item(
-                work_item=case.work_items.get(task_id="ebau-number"),
+                work_item=instance.case.work_items.get(task_id="ebau-number"),
                 user=self.context["request"].caluma_info.context.user,
             )
 
@@ -1494,10 +1514,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 name="in_progress_internal"
             )
 
-    def _handle_extend_validity_form(self, case, instance):
-        if case.document.form.slug == settings.APPLICATION["CALUMA"].get(
-            "EXTEND_VALIDITY_FORM"
-        ):
+    def _handle_extend_validity_form(self, instance):
+        if caluma_api.is_extend_validity(instance):
             instance.instance_state = models.InstanceState.objects.get(
                 name="circulation_init"
             )
@@ -1587,6 +1605,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 "instance_state": instance.instance_state,
                 "previous_instance_state": instance.previous_instance_state,
                 "user": self.context["request"].user,
+                "copy_type": "full",
             }
 
             koor_afj_instance = domain_logic.CreateInstanceLogic.create(
@@ -1969,7 +1988,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         in order to show the submit subform as completed in the form navigation.
         """
 
-        question_slug = getattr(settings.SUBMIT.button, f"question_{action}", None)
+        question_slug = getattr(
+            settings.INSTANCE_SUBMIT.button, f"question_{action}", None
+        )
 
         if not question_slug:  # pragma: no cover
             return
@@ -2031,7 +2052,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance.instance_state = models.InstanceState.objects.get(name="subm")
 
             self._be_handle_internal_workflow(case, instance)
-            self._handle_extend_validity_form(case, instance)
+            self._handle_extend_validity_form(instance)
             self._ur_internal_submission(instance, group)
             self._ur_prepare_cantonal_instances(instance)
             self._so_submit(instance)
@@ -2051,7 +2072,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             # The pdf has to be created after the submit work-item was completed.
             # Otherwise there will be a draft watermark in the uploaded document in the document module.
             self._generate_and_store_pdf(instance)
-            self._be_extend_validity_skip_ebau_number(case)
+            self._be_extend_validity_skip_ebau_number(instance)
             self._be_copy_responsible_person(instance)
             self._ur_copy_oereb_instance_for_koor_afj(instance)
             self._init_deadline(instance)

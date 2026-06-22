@@ -60,6 +60,30 @@ export default class InstancesEditIndexController extends Controller {
   }
 
   @dropTask
+  *createDemolitionPayment() {
+    const response = yield this.fetch.fetch(`/api/v1/instances`, {
+      method: "POST",
+      body: JSON.stringify({
+        data: {
+          attributes: {
+            "caluma-form": "auszahlung-abbruchpraemie",
+            "copy-source": this.editController.model,
+            "copy-type": "demolition_payment",
+          },
+          type: "instances",
+        },
+      }),
+    });
+    const { data } = yield response.json();
+
+    yield this.router.transitionTo(
+      "instances.edit.form",
+      data.id,
+      "auszahlung-abbruchpraemie",
+    );
+  }
+
+  @dropTask
   *createCopy() {
     yield this.copy.perform();
   }
@@ -71,8 +95,9 @@ export default class InstancesEditIndexController extends Controller {
       body: JSON.stringify({
         data: {
           attributes: {
-            "copy-source": this.editController.model,
             "is-modification": isModification,
+            "copy-source": this.editController.model,
+            "copy-type": "full",
           },
           type: "instances",
         },
@@ -111,7 +136,8 @@ export default class InstancesEditIndexController extends Controller {
         data: {
           attributes: {
             "caluma-form": "verlaengerung-geltungsdauer",
-            "extend-validity-for": this.editController.model,
+            "copy-source": this.editController.model,
+            "copy-type": "extend_validity",
           },
           type: "instances",
         },

@@ -33,7 +33,7 @@ class SubmitConfig(ModuleApplicationConfig):
 # - COPY_RESPONSIBLE_PERSON_ON_SUBMIT
 # - GENERATE_IDENTIFIER
 # - ...
-SUBMIT = ModuleConfig[SubmitConfig](
+INSTANCE_SUBMIT = ModuleConfig[SubmitConfig](
     # This module needs to be enabled for all cantons which is why we explicitly
     # added it for every canton here.
     default=SubmitConfig(),

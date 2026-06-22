@@ -155,6 +155,13 @@ export default class InstanceAbility extends Ability {
     );
   }
 
+  async canCreateDemolitionPayment() {
+    return await this.permissions.hasAll(
+      this.model?.id,
+      "instance-request-demolition-payment",
+    );
+  }
+
   async canCreateCopy() {
     if (this.permissions.fullyEnabled) {
       return await this.permissions.hasAll(

@@ -3,6 +3,7 @@ from django.core.management import call_command
 from django.urls import reverse
 from rest_framework import status
 
+from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Instance, InstanceState
 from camac.permissions.models import AccessLevel, InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
@@ -270,3 +271,37 @@ def test_instance_copy_with_permissions_module_be(
             history.get_trans_attr(name="title", lang="de")
             == "Kopie des Dossiers erstellt"
         )
+
+
+@pytest.mark.django_db
+def test_copy_caluma_data_ag(
+    ag_instance,
+    instance_with_case,
+    instance_factory,
+    ag_instance_copy_settings,
+    caluma_question_factory,
+):
+    target_instance = instance_with_case(instance_factory())
+    question_slug = ag_instance_copy_settings.demolition_payment.special_id_slug
+    caluma_question_factory(
+        slug=question_slug,
+        type="text",
+    )
+    ag_instance.case.meta["dossier-number"] = "2026-123"
+    ag_instance.case.save()
+    CreateInstanceLogic.copy_caluma_data(
+        target_instance,
+        ag_instance,
+        copy_type="demolition_payment",
+        is_modification=False,
+        user=None,
+        is_appeal=False,
+        is_rejected_appeal=False,
+        is_copy=False,
+    )
+    assert (
+        target_instance.case.document.answers.filter(question_id=question_slug)
+        .first()
+        .value
+        == "2026-123"
+    )

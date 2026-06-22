@@ -367,6 +367,7 @@ def test_submit_create_acl_be(
     set_application_be,
     be_instance,
     be_permissions_settings,
+    be_instance_copy_settings,
     instance_state_factory,
     group_factory,
     mocker,

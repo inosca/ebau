@@ -2739,6 +2739,346 @@ def gr_eeba_integration_settings(
 
 
 @pytest.fixture
+def instance_copy_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for instance copy (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        settings_name="INSTANCE_COPY",
+        import_path="camac.settings.modules.instance_copy.INSTANCE_COPY",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_instance_copy_settings(
+    request,
+    settings,
+    instance_copy_settings,
+):
+    """Disable the instance copy module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_copy_settings,
+        settings_name="INSTANCE_COPY",
+        import_path="camac.settings.modules.instance_copy.INSTANCE_COPY",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def be_instance_copy_settings(
+    request,
+    settings,
+    instance_copy_settings,
+):
+    """Module-specific settings for instance copy (canton BE)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_copy_settings,
+        settings_name="INSTANCE_COPY",
+        import_path="camac.settings.modules.instance_copy.INSTANCE_COPY",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def so_instance_copy_settings(
+    request,
+    settings,
+    instance_copy_settings,
+):
+    """Module-specific settings for instance copy (canton SO)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_copy_settings,
+        settings_name="INSTANCE_COPY",
+        import_path="camac.settings.modules.instance_copy.INSTANCE_COPY",
+        canton="kt_so",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ur_instance_copy_settings(
+    request,
+    settings,
+    instance_copy_settings,
+):
+    """Module-specific settings for instance copy (canton UR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_copy_settings,
+        settings_name="INSTANCE_COPY",
+        import_path="camac.settings.modules.instance_copy.INSTANCE_COPY",
+        canton="kt_uri",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def gr_instance_copy_settings(
+    request,
+    settings,
+    instance_copy_settings,
+):
+    """Module-specific settings for instance copy (canton GR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_copy_settings,
+        settings_name="INSTANCE_COPY",
+        import_path="camac.settings.modules.instance_copy.INSTANCE_COPY",
+        canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ag_instance_copy_settings(
+    request,
+    settings,
+    instance_copy_settings,
+):
+    """Module-specific settings for instance copy (canton AG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_copy_settings,
+        settings_name="INSTANCE_COPY",
+        import_path="camac.settings.modules.instance_copy.INSTANCE_COPY",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def sg_instance_copy_settings(
+    request,
+    settings,
+    instance_copy_settings,
+):
+    """Module-specific settings for instance copy (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_copy_settings,
+        settings_name="INSTANCE_COPY",
+        import_path="camac.settings.modules.instance_copy.INSTANCE_COPY",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def instance_submit_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for instance submit (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        settings_name="INSTANCE_SUBMIT",
+        import_path="camac.settings.modules.instance_submit.INSTANCE_SUBMIT",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_instance_submit_settings(
+    request,
+    settings,
+    instance_submit_settings,
+):
+    """Disable the instance submit module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_submit_settings,
+        settings_name="INSTANCE_SUBMIT",
+        import_path="camac.settings.modules.instance_submit.INSTANCE_SUBMIT",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def demo_instance_submit_settings(
+    request,
+    settings,
+    instance_submit_settings,
+):
+    """Module-specific settings for instance submit (canton DEMO)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_submit_settings,
+        settings_name="INSTANCE_SUBMIT",
+        import_path="camac.settings.modules.instance_submit.INSTANCE_SUBMIT",
+        canton="demo",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def test_instance_submit_settings(
+    request,
+    settings,
+    instance_submit_settings,
+):
+    """Module-specific settings for instance submit (canton TEST)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_submit_settings,
+        settings_name="INSTANCE_SUBMIT",
+        import_path="camac.settings.modules.instance_submit.INSTANCE_SUBMIT",
+        canton="test",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def sz_instance_submit_settings(
+    request,
+    settings,
+    instance_submit_settings,
+):
+    """Module-specific settings for instance submit (canton SZ)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_submit_settings,
+        settings_name="INSTANCE_SUBMIT",
+        import_path="camac.settings.modules.instance_submit.INSTANCE_SUBMIT",
+        canton="kt_schwyz",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def be_instance_submit_settings(
+    request,
+    settings,
+    instance_submit_settings,
+):
+    """Module-specific settings for instance submit (canton BE)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_submit_settings,
+        settings_name="INSTANCE_SUBMIT",
+        import_path="camac.settings.modules.instance_submit.INSTANCE_SUBMIT",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def so_instance_submit_settings(
+    request,
+    settings,
+    instance_submit_settings,
+):
+    """Module-specific settings for instance submit (canton SO)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_submit_settings,
+        settings_name="INSTANCE_SUBMIT",
+        import_path="camac.settings.modules.instance_submit.INSTANCE_SUBMIT",
+        canton="kt_so",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ur_instance_submit_settings(
+    request,
+    settings,
+    instance_submit_settings,
+):
+    """Module-specific settings for instance submit (canton UR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_submit_settings,
+        settings_name="INSTANCE_SUBMIT",
+        import_path="camac.settings.modules.instance_submit.INSTANCE_SUBMIT",
+        canton="kt_uri",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def gr_instance_submit_settings(
+    request,
+    settings,
+    instance_submit_settings,
+):
+    """Module-specific settings for instance submit (canton GR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_submit_settings,
+        settings_name="INSTANCE_SUBMIT",
+        import_path="camac.settings.modules.instance_submit.INSTANCE_SUBMIT",
+        canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ag_instance_submit_settings(
+    request,
+    settings,
+    instance_submit_settings,
+):
+    """Module-specific settings for instance submit (canton AG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_submit_settings,
+        settings_name="INSTANCE_SUBMIT",
+        import_path="camac.settings.modules.instance_submit.INSTANCE_SUBMIT",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def sg_instance_submit_settings(
+    request,
+    settings,
+    instance_submit_settings,
+):
+    """Module-specific settings for instance submit (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=instance_submit_settings,
+        settings_name="INSTANCE_SUBMIT",
+        import_path="camac.settings.modules.instance_submit.INSTANCE_SUBMIT",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def linked_instances_settings(
     request,
     settings,
@@ -4340,203 +4680,6 @@ def ag_statistics_settings(
         settings_name="STATISTICS",
         import_path="camac.settings.modules.statistics.STATISTICS",
         canton="kt_ag",
-        disable=False,
-    )
-
-
-@pytest.fixture
-def submit_settings(
-    request,
-    settings,
-):
-    """Module-specific settings for submit (default)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=None,
-        settings_name="SUBMIT",
-        import_path="camac.settings.modules.submit.SUBMIT",
-        canton=None,
-        disable=False,
-    )
-
-
-@pytest.fixture
-def disable_submit_settings(
-    request,
-    settings,
-    submit_settings,
-):
-    """Disable the submit module completely."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=submit_settings,
-        settings_name="SUBMIT",
-        import_path="camac.settings.modules.submit.SUBMIT",
-        canton=None,
-        disable=True,
-    )
-
-
-@pytest.fixture
-def demo_submit_settings(
-    request,
-    settings,
-    submit_settings,
-):
-    """Module-specific settings for submit (canton DEMO)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=submit_settings,
-        settings_name="SUBMIT",
-        import_path="camac.settings.modules.submit.SUBMIT",
-        canton="demo",
-        disable=False,
-    )
-
-
-@pytest.fixture
-def test_submit_settings(
-    request,
-    settings,
-    submit_settings,
-):
-    """Module-specific settings for submit (canton TEST)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=submit_settings,
-        settings_name="SUBMIT",
-        import_path="camac.settings.modules.submit.SUBMIT",
-        canton="test",
-        disable=False,
-    )
-
-
-@pytest.fixture
-def sz_submit_settings(
-    request,
-    settings,
-    submit_settings,
-):
-    """Module-specific settings for submit (canton SZ)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=submit_settings,
-        settings_name="SUBMIT",
-        import_path="camac.settings.modules.submit.SUBMIT",
-        canton="kt_schwyz",
-        disable=False,
-    )
-
-
-@pytest.fixture
-def be_submit_settings(
-    request,
-    settings,
-    submit_settings,
-):
-    """Module-specific settings for submit (canton BE)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=submit_settings,
-        settings_name="SUBMIT",
-        import_path="camac.settings.modules.submit.SUBMIT",
-        canton="kt_bern",
-        disable=False,
-    )
-
-
-@pytest.fixture
-def so_submit_settings(
-    request,
-    settings,
-    submit_settings,
-):
-    """Module-specific settings for submit (canton SO)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=submit_settings,
-        settings_name="SUBMIT",
-        import_path="camac.settings.modules.submit.SUBMIT",
-        canton="kt_so",
-        disable=False,
-    )
-
-
-@pytest.fixture
-def ur_submit_settings(
-    request,
-    settings,
-    submit_settings,
-):
-    """Module-specific settings for submit (canton UR)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=submit_settings,
-        settings_name="SUBMIT",
-        import_path="camac.settings.modules.submit.SUBMIT",
-        canton="kt_uri",
-        disable=False,
-    )
-
-
-@pytest.fixture
-def gr_submit_settings(
-    request,
-    settings,
-    submit_settings,
-):
-    """Module-specific settings for submit (canton GR)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=submit_settings,
-        settings_name="SUBMIT",
-        import_path="camac.settings.modules.submit.SUBMIT",
-        canton="kt_gr",
-        disable=False,
-    )
-
-
-@pytest.fixture
-def ag_submit_settings(
-    request,
-    settings,
-    submit_settings,
-):
-    """Module-specific settings for submit (canton AG)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=submit_settings,
-        settings_name="SUBMIT",
-        import_path="camac.settings.modules.submit.SUBMIT",
-        canton="kt_ag",
-        disable=False,
-    )
-
-
-@pytest.fixture
-def sg_submit_settings(
-    request,
-    settings,
-    submit_settings,
-):
-    """Module-specific settings for submit (canton SG)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=submit_settings,
-        settings_name="SUBMIT",
-        import_path="camac.settings.modules.submit.SUBMIT",
-        canton="kt_sg",
         disable=False,
     )
 

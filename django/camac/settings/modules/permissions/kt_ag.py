@@ -241,6 +241,23 @@ ACTION_INSTANCE_WITHDRAW = RequireInstanceState(
     ]
 ) & HasApplicantRole(["ADMIN"])
 
+
+def demolition_payment_requested(instance):
+    from camac.instance.master_data import MasterData
+
+    return bool(MasterData.from_case_id(instance.case.pk).demolition_payment_requested)
+
+
+ACTION_INSTANCE_REQUEST_DEMOLITION_PAYMENT = (
+    RequireWorkItem("complete-instance")
+    & HasApplicantRole(["ADMIN"])
+    & Callback(
+        demolition_payment_requested,
+        allow_caching=True,
+        name="demolition_payment_requested",
+    )
+)
+
 ACTION_INSTANCE_MARK = IsServiceGroup(["service-afb"])
 
 # Actual config
@@ -271,6 +288,10 @@ AG_PERMISSIONS_SETTINGS = {
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
+            (
+                "instance-request-demolition-payment",
+                ACTION_INSTANCE_REQUEST_DEMOLITION_PAYMENT,
+            ),
         ],
         "distribution-service": [
             ("billing-read", MODULE_BILLING),
