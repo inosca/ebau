@@ -24,7 +24,7 @@ STATES_ALL = RequireInstanceState(
 )
 
 # Role rules
-APPLICANT_ADMIN = HasApplicantRole(["ADMIN", "EDITOR"])
+APPLICANT_ADMIN = HasApplicantRole(["ADMIN"])
 APPLICANT_WRITE = HasApplicantRole(["ADMIN", "EDITOR"])
 ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 
@@ -84,9 +84,9 @@ MODULE_PORTAL_FORM_WRITE = (
     & ~HasApplicantConfirmationRound(["running", "completed"])
 )
 
-ACTION_APPLICANT_CONFIRMATION_ADMIN = RequireWorkItem(
-    "submit", "ready"
-) & HasApplicantRole(["ADMIN"])
+ACTION_APPLICANT_CONFIRMATION_ADMIN = (
+    RequireWorkItem("submit", "ready") & APPLICANT_ADMIN
+)
 ACTION_APPLICANT_CONFIRMATION_CONFIRM = RequireWorkItem("submit", "ready")
 
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & APPLICANT_ADMIN
