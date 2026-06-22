@@ -1,0 +1,51 @@
+id: fix-pytest-transactional-db-fixture-only
+language: python
+message: "Do not use the `transactional_db` fixture in tests"
+note: "Use the `@pytest.mark.django_db(transaction=True)` mark instead"
+rule:
+  pattern: "def $FUNC(transactional_db): $$$BODY"
+constraints:
+  FUNC: {regex: "^test_"}
+fix: |
+  @pytest.mark.django_db(transaction=True)
+  def $FUNC():
+      $$$BODY
+---
+id: fix-pytest-transactional-db-fixture-first
+language: python
+message: "Do not use the `transactional_db` fixture in tests"
+note: "Use the `@pytest.mark.django_db(transaction=True)` mark instead"
+rule:
+  pattern: "def $FUNC(transactional_db, $$$POST): $$$BODY"
+constraints:
+  FUNC: {regex: "^test_"}
+fix: |
+  @pytest.mark.django_db(transaction=True)
+  def $FUNC($$$POST):
+      $$$BODY
+---
+id: fix-pytest-transactional-db-fixture-last
+language: python
+message: "Do not use the `transactional_db` fixture in tests"
+note: "Use the `@pytest.mark.django_db(transaction=True)` mark instead"
+rule:
+  pattern: "def $FUNC($$$PRE, transactional_db): $$$BODY"
+constraints:
+  FUNC: {regex: "^test_"}
+fix: |
+  @pytest.mark.django_db(transaction=True)
+  def $FUNC($$$PRE):
+      $$$BODY
+---
+id: fix-pytest-transactional-db-fixture-middle
+language: python
+message: "Do not use the `transactional_db` fixture in tests"
+note: "Use the `@pytest.mark.django_db(transaction=True)` mark instead"
+rule:
+  pattern: "def $FUNC($$$PRE, transactional_db, $$$POST): $$$BODY"
+constraints:
+  FUNC: {regex: "^test_"}
+fix: |
+  @pytest.mark.django_db(transaction=True)
+  def $FUNC($$$PRE, $$$POST):
+      $$$BODY

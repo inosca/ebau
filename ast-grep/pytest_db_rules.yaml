@@ -1,0 +1,51 @@
+id: fix-pytest-db-fixture-only
+language: python
+message: "Do not use the `db` fixture in tests"
+note: "Use the `@pytest.mark.django_db` mark instead"
+rule:
+  pattern: "def $FUNC(db): $$$BODY"
+constraints:
+  FUNC: {regex: "^test_"}
+fix: |
+  @pytest.mark.django_db
+  def $FUNC():
+      $$$BODY
+---
+id: fix-pytest-db-fixture-first
+language: python
+message: "Do not use the `db` fixture in tests"
+note: "Use the `@pytest.mark.django_db` mark instead"
+rule:
+  pattern: "def $FUNC(db, $$$POST): $$$BODY"
+constraints:
+  FUNC: {regex: "^test_"}
+fix: |
+  @pytest.mark.django_db
+  def $FUNC($$$POST):
+      $$$BODY
+---
+id: fix-pytest-db-fixture-last
+language: python
+message: "Do not use the `db` fixture in tests"
+note: "Use the `@pytest.mark.django_db` mark instead"
+rule:
+  pattern: "def $FUNC($$$PRE, db): $$$BODY"
+constraints:
+  FUNC: {regex: "^test_"}
+fix: |
+  @pytest.mark.django_db
+  def $FUNC($$$PRE):
+      $$$BODY
+---
+id: fix-pytest-db-fixture-middle
+language: python
+message: "Do not use the `db` fixture in tests"
+note: "Use the `@pytest.mark.django_db` mark instead"
+rule:
+  pattern: "def $FUNC($$$PRE, db, $$$POST): $$$BODY"
+constraints:
+  FUNC: {regex: "^test_"}
+fix: |
+  @pytest.mark.django_db
+  def $FUNC($$$PRE, $$$POST):
+      $$$BODY
