@@ -5,12 +5,13 @@ RPG2 = ModuleConfig[RPG2Config](
     default=RPG2Config(),
     kt_bern=RPG2Config(
         enabled=True,
-        service_slugs=["agr-bauen", "agr-kantonsplanung"],
+        service_slugs=["agr-bauen"],
         allowed_forms=[
             "baugesuch",
             "baugesuch-generell",
             "baugesuch-mit-uvp",
             "verlaengerung-geltungsdauer",
+            "vorabklaerung-vollstaendig",
         ],
     ),
     kt_ag=RPG2Config(

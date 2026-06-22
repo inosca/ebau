@@ -326,9 +326,7 @@ MODULE_RPG2_READ = (
 )
 
 MODULE_RPG2_WRITE = (
-    RPG2_CONDITION
-    & IsService(["agr-bauen", "agr-kantonsplanung"])
-    & ROLES_INTERNAL_NO_READONLY
+    RPG2_CONDITION & IsService(["agr-bauen"]) & ROLES_INTERNAL_NO_READONLY
 )
 
 MODULE_SB1_READ = RequireWorkItem("sb1", WORK_ITEM_STATUS_COMPLETED)
