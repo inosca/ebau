@@ -156,8 +156,8 @@ def so_data_sources(
     ids=lambda val: f"scenario_{str(TEST_SCENARIOS.index(val) + 1).zfill(2)}",
 )
 @pytest.mark.vcr()
+@pytest.mark.django_db
 def test_sogis_client(
-    db,
     admin_client,
     gis_snapshot,
     scenario,
@@ -237,8 +237,8 @@ def so_unknown_question_data_source(so_fake_data_source):
     ],
 )
 @pytest.mark.vcr()
+@pytest.mark.django_db
 def test_sogis_client_errors(
-    db,
     admin_client,
     data_source,
     expected_status,

@@ -28,8 +28,8 @@ from camac.user.factories import GroupFactory, UserFactory
         ),
     ],
 )
+@pytest.mark.django_db
 def test_suspensions_reason_formatted(
-    db,
     service,
     instance,
     instance_deadline_factory,
@@ -60,8 +60,8 @@ def test_suspensions_reason_formatted(
         ("none", _("Automatic")),
     ],
 )
+@pytest.mark.django_db
 def test_suspensions_author_formatted(
-    db,
     service,
     instance,
     instance_deadline_factory,
@@ -97,8 +97,8 @@ def test_suspensions_author_formatted(
         ("distribution-service", "service-lead", "service-afb", 0),
     ],
 )
+@pytest.mark.django_db
 def test_suspension_list_default(
-    db,
     admin_client,
     gr_instance,
     instance_deadline_factory,
@@ -171,8 +171,8 @@ def test_suspension_list_default(
         ("distribution-service", "service-lead", "service-afb", 0),
     ],
 )
+@pytest.mark.django_db
 def test_suspension_list_gr(
-    db,
     admin_client,
     gr_instance,
     instance_deadline_factory,
@@ -248,8 +248,8 @@ def test_suspension_list_gr(
         ("distribution-service", "service-lead", "service", "parent", 0),
     ],
 )
+@pytest.mark.django_db
 def test_suspension_list_ag(
-    db,
     admin_client,
     ag_instance,
     instance_deadline_factory,
@@ -353,8 +353,8 @@ def test_suspension_list_ag(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_suspension_creation_gr(
-    db,
     admin_client,
     expected_status,
     gr_instance,
@@ -480,8 +480,8 @@ def test_suspension_creation_gr(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_suspension_deletion_and_update_gr(
-    db,
     admin_client,
     instance_deadline_factory,
     suspension_factory,
@@ -584,8 +584,8 @@ def test_suspension_deletion_and_update_gr(
         ("reason_not_allowed", _("Suspension reason is not valid.")),
     ],
 )
+@pytest.mark.django_db
 def test_suspension_save_validation_gr(
-    db,
     admin_client,
     instance_deadline_factory,
     suspension_factory,
@@ -678,8 +678,8 @@ def test_suspension_save_validation_gr(
         assert response.json()["errors"][0]["detail"] == error
 
 
+@pytest.mark.django_db
 def test_suspension_queryset_status(
-    db,
     service,
     instance_deadline_factory,
     suspension_factory,

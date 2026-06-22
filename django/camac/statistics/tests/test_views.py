@@ -71,9 +71,9 @@ def test_statistics_export_ag(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_statistics_export_empty(
     admin_client,
-    db,
     ag_distribution_settings,
     multilang,
     ag_statistics_settings,
@@ -302,7 +302,8 @@ def test_write_filter_sheet_replaces_existing():
     assert wb["Filter"].cell(row=4, column=1).value == "Param"
 
 
-def test_dossier_annotations_all_columns(db, ag_statistics_settings, snapshot):
+@pytest.mark.django_db
+def test_dossier_annotations_all_columns(ag_statistics_settings, snapshot):
     """Calling _dossier_annotations without requested_columns returns all."""
 
     backend = InstanceFilterBackend()
@@ -313,7 +314,8 @@ def test_dossier_annotations_all_columns(db, ag_statistics_settings, snapshot):
     assert sorted(annotations.keys()) == snapshot
 
 
-def test_work_item_annotations_all_columns(db, ag_statistics_settings, snapshot):
+@pytest.mark.django_db
+def test_work_item_annotations_all_columns(ag_statistics_settings, snapshot):
     """Calling _work_item_annotations without requested_columns returns all."""
     backend = WorkItemFilterBackend()
     annotations = backend._work_item_annotations(requested_columns=None)

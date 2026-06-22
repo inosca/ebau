@@ -8,15 +8,17 @@ from camac.tests.form_utils import FormUtils
 from camac.user.models import ServiceRelation
 
 
-def test_dynamic_group_municipality_be(db, be_instance):
+@pytest.mark.django_db
+def test_dynamic_group_municipality_be(be_instance):
     assert CustomDynamicGroups().resolve("municipality")(
         None, be_instance.case, None, None, None
     ) == [str(be_instance.responsible_service(filter_type="municipality").pk)]
 
 
 @pytest.mark.parametrize("workflow", ["building-permit", "internal-document"])
+@pytest.mark.django_db
 def test_dynamic_group_municipality_sz(
-    db, caluma_workflow_config_sz, instance_with_case, instance, workflow
+    caluma_workflow_config_sz, instance_with_case, instance, workflow
 ):
     instance = instance_with_case(instance=instance, workflow=workflow)
 
@@ -25,15 +27,16 @@ def test_dynamic_group_municipality_sz(
     ) == [str(instance.group.service.pk)]
 
 
-def test_dynamic_group_construction_control(db, be_instance):
+@pytest.mark.django_db
+def test_dynamic_group_construction_control(be_instance):
     assert CustomDynamicGroups().resolve("construction_control")(
         None, be_instance.case, None, None, None
     ) == [str(be_instance.responsible_service(filter_type="construction_control").pk)]
 
 
 @pytest.mark.parametrize("has_context", [True, False])
+@pytest.mark.django_db
 def test_dynamic_group_distribution_create_inquiry(
-    db,
     be_instance,
     caluma_admin_user,
     distribution_settings,
@@ -88,8 +91,8 @@ def test_dynamic_group_distribution_create_inquiry(
 
 
 @pytest.mark.parametrize("allow_subservices", [True, False])
+@pytest.mark.django_db
 def test_dynamic_create_additional_demand(
-    db,
     caluma_work_item_factory,
     service_factory,
     distribution_settings,
@@ -199,8 +202,8 @@ def test_dynamic_create_additional_demand(
     assert (str(target_subservice.pk) in groups_inquiry) == allow_subservices
 
 
+@pytest.mark.django_db
 def test_dynamic_group_geometer_be(
-    db,
     be_instance,
     service_factory,
     instance_service_factory,
@@ -253,8 +256,8 @@ def test_dynamic_group_geometer_be(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_groups_ur(
-    db,
     service_factory,
     caluma_admin_user,
     ur_instance,
@@ -274,8 +277,8 @@ def test_dynamic_groups_ur(
     assert result == [str(expected_group_pk)]
 
 
+@pytest.mark.django_db
 def test_dynamic_group_service_bab(
-    db,
     application_settings,
     instance_service_factory,
     service_factory,
@@ -313,8 +316,8 @@ def test_dynamic_group_service_bab(
         ("ARE BaB Kreis 3", "bab-kreis-3"),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_group_service_bab_ur(
-    db,
     service_factory,
     ur_instance,
     bab_name,
@@ -339,8 +342,8 @@ def test_dynamic_group_service_bab_ur(
     ) == [str(bab_service.pk)]
 
 
+@pytest.mark.django_db
 def test_dynamic_group_abwasser_uri(
-    db,
     service_factory,
     ur_instance,
 ):
@@ -351,8 +354,8 @@ def test_dynamic_group_abwasser_uri(
     ) == [str(uri_constants.ABWASSER_URI_SERVICE_ID)]
 
 
+@pytest.mark.django_db
 def test_dynamic_group_schnurgeruestabnahme_uri(
-    db,
     service_factory,
     ur_instance,
     caluma_answer_factory,
@@ -399,8 +402,9 @@ def test_dynamic_group_schnurgeruestabnahme_uri(
     ) == [str(geometer_service.pk)]
 
 
+@pytest.mark.django_db
 def test_dynamic_group_building_commission(
-    db, ur_instance, service_factory, group_factory, location_factory, mocker
+    ur_instance, service_factory, group_factory, location_factory, mocker
 ):
     municipality_service = service_factory(
         service_group__name="Sekretariate Gemeindebaubehörden"
@@ -432,8 +436,8 @@ def test_dynamic_group_building_commission(
     ) == [str(building_commission.pk)]
 
 
+@pytest.mark.django_db
 def test_dynamic_group_abm_zs_uri(
-    db,
     service_factory,
     ur_instance,
 ):
@@ -444,7 +448,8 @@ def test_dynamic_group_abm_zs_uri(
     ) == [str(uri_constants.ABM_ZS_SERVICE_ID)]
 
 
-def test_dynamic_group_afb_ag(db, service_factory, instance):
+@pytest.mark.django_db
+def test_dynamic_group_afb_ag(service_factory, instance):
     service = service_factory(slug="afb")
 
     assert CustomDynamicGroups().resolve("afb")(
@@ -452,7 +457,8 @@ def test_dynamic_group_afb_ag(db, service_factory, instance):
     ) == [str(service.pk)]
 
 
-def test_dynamic_group_gebaudeversicherung(db, service_factory):
+@pytest.mark.django_db
+def test_dynamic_group_gebaudeversicherung(service_factory):
     service = service_factory(slug="gvg")
 
     assert CustomDynamicGroups().resolve("gebaudeversicherung")(
@@ -460,7 +466,8 @@ def test_dynamic_group_gebaudeversicherung(db, service_factory):
     ) == [str(service.pk)]
 
 
-def test_dynamic_group_koor_np_ur(db, service_factory, instance):
+@pytest.mark.django_db
+def test_dynamic_group_koor_np_ur(service_factory, instance):
     service = service_factory(slug="koor-np")
 
     assert CustomDynamicGroups().resolve("koor-np")(
@@ -485,8 +492,8 @@ def test_dynamic_group_koor_np_ur(db, service_factory, instance):
         ),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_group_geometer_schnurgeruestabnahme_gr(
-    db,
     gr_instance,
     service_factory,
     instance_service_factory,

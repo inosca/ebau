@@ -11,8 +11,8 @@ from camac.rulesets.utils import assign_responsible_user
         ("default", "new_user"),
     ],
 )
+@pytest.mark.django_db
 def test_assign_responsible_user(
-    db,
     ag_instance,
     responsible_service_factory,
     user_factory,

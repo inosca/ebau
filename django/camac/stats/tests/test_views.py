@@ -206,8 +206,8 @@ def test_summary_claims(
         ("Applicant", None, None, 2),
     ],
 )
+@pytest.mark.django_db
 def test_inquiries_summary(
-    db,
     active_inquiry_factory,
     be_distribution_settings,
     be_instance,
@@ -269,8 +269,8 @@ def test_inquiries_summary(
         ("Applicant", False),
     ],
 )
+@pytest.mark.django_db
 def test_instance_cycle_time_view(
-    db,
     group,
     role,
     be_instance,  # creates required objects for workflow_api

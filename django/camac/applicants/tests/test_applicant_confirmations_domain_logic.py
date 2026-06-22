@@ -58,8 +58,8 @@ def form_setup(
         ),
     ],
 )
+@pytest.mark.django_db(transaction=True)
 def test_applicant_confirmation_round_start_for_document(
-    db,
     additional_demand_settings,
     applicant_confirmation_round_factory,
     applicant_factory,
@@ -150,8 +150,8 @@ def test_applicant_confirmation_round_start_for_document(
         ),
     ],
 )
+@pytest.mark.django_db(transaction=True)
 def test_applicant_confirmation_confirm(
-    db,
     admin_user,
     applicant_confirmation_factory,
     applicant_confirmation_round_factory,
@@ -231,8 +231,8 @@ def test_applicant_confirmation_confirm(
         ),
     ],
 )
+@pytest.mark.django_db(transaction=True)
 def test_applicant_confirmation_round_invalidate(
-    db,
     applicant_confirmation_factory,
     applicant_confirmation_round_factory,
     applicants_settings,
@@ -291,8 +291,8 @@ def test_applicant_confirmation_round_invalidate(
         ),
     ],
 )
+@pytest.mark.django_db(transaction=True)
 def test_applicant_confirmation_round_cancel(
-    db,
     applicant_confirmation_factory,
     applicant_confirmation_round_factory,
     caluma_document_factory,
@@ -341,8 +341,9 @@ def test_applicant_confirmation_round_cancel(
         )
 
 
+@pytest.mark.django_db(transaction=True)
 def test_applicant_confirmation_properties(
-    db, applicant_confirmation_factory, caluma_question_factory, user_factory
+    applicant_confirmation_factory, caluma_question_factory, user_factory
 ):
     user = user_factory(name="John", surname="Doe")
 

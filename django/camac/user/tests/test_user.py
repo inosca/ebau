@@ -260,8 +260,9 @@ def test_me_patch(admin_client, admin_user, user_settings, application_settings)
 
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
+@pytest.mark.django_db
 def test_user_admin_for_service_filter(
-    db, user_group_factory, admin_client, service, service_factory, admin_user
+    user_group_factory, admin_client, service, service_factory, admin_user
 ):
     other_service = service_factory()
 

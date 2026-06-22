@@ -24,7 +24,8 @@ class FakeClient(GISBaseClient):
         }
 
 
-def test_process_data_source(db, gis_data_source):
+@pytest.mark.django_db
+def test_process_data_source(gis_data_source):
     gis_client = GISBaseClient(GISDataSource.objects.all())
     fake_data = {}
 
@@ -32,8 +33,8 @@ def test_process_data_source(db, gis_data_source):
         gis_client.process_data_source(gis_data_source, fake_data)
 
 
+@pytest.mark.django_db
 def test_view_structure(
-    db,
     admin_client,
     celery_fake_worker,
     gis_data_source_factory,

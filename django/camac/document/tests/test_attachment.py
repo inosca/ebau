@@ -1324,8 +1324,8 @@ def test_attachment_section_filters(
 
 
 @pytest.mark.freeze_time("2021-03-09")
+@pytest.mark.django_db
 def test_attachment_public_access(
-    db,
     client,
     instance_factory,
     attachment_attachment_section_factory,
@@ -1477,8 +1477,8 @@ def test_attachment_public_access(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_attachment_delete_custom_admin_modes(
-    db,
     acl_mode,
     active_inquiry_factory,
     admin_client,
@@ -1545,8 +1545,8 @@ def test_attachment_delete_custom_admin_modes(
         ("circulation", lf("service"), status.HTTP_200_OK, None, []),
     ],
 )
+@pytest.mark.django_db
 def test_attachment_update_section(
-    db,
     admin_client,
     application_settings,
     mocker,
@@ -1613,8 +1613,8 @@ def test_attachment_update_section(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_attachment_delete_multiple_sections(
-    db,
     admin_client,
     attachment_attachment_section_factory,
     attachment,
@@ -1647,8 +1647,8 @@ def test_attachment_delete_multiple_sections(
         (WorkItem.STATUS_COMPLETED, status.HTTP_400_BAD_REQUEST),
     ],
 )
+@pytest.mark.django_db
 def test_attachment_update_custom_permissions(
-    db,
     active_inquiry_factory,
     admin_client,
     attachment_attachment_section_factory,
@@ -1966,8 +1966,8 @@ def test_accesslevel_based_permission(
         (False, status.HTTP_400_BAD_REQUEST),
     ],
 )
+@pytest.mark.django_db
 def test_validate_instance(
-    db,
     admin_client,
     mocker,
     has_instance_acl,

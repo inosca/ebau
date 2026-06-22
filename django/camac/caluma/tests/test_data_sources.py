@@ -29,7 +29,8 @@ from ..extensions.data_sources import (
 @pytest.mark.parametrize(
     "role,expected_count", [("Portal User", 1), ("Some internal role", 2)]
 )
-def test_locations(db, role, location_factory, expected_count):
+@pytest.mark.django_db
+def test_locations(role, location_factory, expected_count):
     User = namedtuple("OIDCUser", "camac_role")
     user = User(camac_role=role)
 
@@ -44,7 +45,8 @@ def test_locations(db, role, location_factory, expected_count):
     "role,expected_count",
     [("Koordinationsstelle Baugesuche BG", 4), ("Something else", 0)],
 )
-def test_mitberichtsverfahren(db, role, location_factory, expected_count):
+@pytest.mark.django_db
+def test_mitberichtsverfahren(role, location_factory, expected_count):
     User = namedtuple("OIDCUser", "camac_role")
     user = User(camac_role=role)
 
@@ -98,8 +100,8 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
         ),
     ],
 )
+@pytest.mark.django_db
 def test_data_sources(
-    db,
     multilang,
     service_factory,
     service_t_factory,
@@ -172,8 +174,8 @@ def test_data_sources(
     "has_instance,has_attachment_section,expected_count",
     [(False, False, 0), (True, False, 0), (False, True, 0), (True, True, 3)],
 )
+@pytest.mark.django_db
 def test_attachments(
-    db,
     alexandria_category_factory,
     alexandria_document_factory,
     application_settings,
@@ -250,8 +252,8 @@ def test_attachments(
     assert len(data) == expected_count
 
 
+@pytest.mark.django_db
 def test_landowners_be(
-    db,
     caluma_admin_user,
     be_instance,
     form_utils: FormUtils,
@@ -289,8 +291,8 @@ def test_landowners_be(
     assert "Foo Bar" in names
 
 
+@pytest.mark.django_db
 def test_landowners_so(
-    db,
     caluma_admin_user,
     so_instance,
     form_utils: FormUtils,
@@ -322,8 +324,8 @@ def test_landowners_so(
     assert names == snapshot
 
 
+@pytest.mark.django_db
 def test_landowners_dynamic_on_copy(
-    db,
     caluma_document_factory,
     caluma_question_factory,
     caluma_dynamic_option_factory,
@@ -413,7 +415,8 @@ def test_landowners_dynamic_on_copy(
     }
 
 
-def test_municipalities_so(db, service_factory, service_t_factory):
+@pytest.mark.django_db
+def test_municipalities_so(service_factory, service_t_factory):
     service = service_factory(service_group__name="municipality")
     service_t_factory(service=service, name="Gemeinde Solothurn")
 
@@ -440,8 +443,8 @@ def test_municipalities_so(db, service_factory, service_t_factory):
         ("municipality", "baugesuch-v2", ["Full", "Light"]),
     ],
 )
+@pytest.mark.django_db
 def test_municipalities_with_instance_ag(
-    db,
     service_factory,
     service_t_factory,
     set_application_ag,
@@ -467,8 +470,9 @@ def test_municipalities_with_instance_ag(
     assert set([r[1]["de"] for r in data]) == set(expected)
 
 
+@pytest.mark.django_db
 def test_preliminary_clarfication_targets_so(
-    db, caluma_admin_user, service_factory, application_settings
+    caluma_admin_user, service_factory, application_settings
 ):
     application_settings["SHORT_NAME"] = "so"
 
@@ -497,8 +501,9 @@ def test_preliminary_clarfication_targets_so(
     assert data[4][1]["de"] == "Procap"
 
 
+@pytest.mark.django_db
 def test_buildings(
-    db, caluma_admin_user, caluma_question_factory, so_instance, form_utils: FormUtils
+    caluma_admin_user, caluma_question_factory, so_instance, form_utils: FormUtils
 ):
     question = caluma_question_factory(
         slug="gebaeude",
@@ -527,8 +532,8 @@ def test_buildings(
     assert names == {"MFH 1", "MFH 2", "EFH 1"}
 
 
+@pytest.mark.django_db
 def test_buildings_dynamic_on_copy(
-    db,
     caluma_document_factory,
     caluma_question_factory,
     caluma_dynamic_option_factory,
@@ -585,8 +590,8 @@ def test_buildings_dynamic_on_copy(
     assert new_dynamic_option.slug == str(referenced_document.pk)
 
 
+@pytest.mark.django_db
 def test_services_for_final_report(
-    db,
     caluma_admin_user,
     caluma_question_factory,
     form_utils: FormUtils,
@@ -642,8 +647,8 @@ def test_services_for_final_report(
         ([("v", False)], None, 0),
     ],
 )
+@pytest.mark.django_db
 def test_sanctions(
-    db,
     instance_factory,
     caluma_question_factory,
     new_sanction_factory,
@@ -682,7 +687,8 @@ def test_sanctions(
         assert len(data) == expected_count
 
 
-def test_applicants(db, instance_factory, applicant_factory, django_assert_num_queries):
+@pytest.mark.django_db
+def test_applicants(instance_factory, applicant_factory, django_assert_num_queries):
     instance = instance_factory()
     ds = Applicants()
 

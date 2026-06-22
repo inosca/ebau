@@ -6,7 +6,8 @@ from django.utils.translation import gettext as _
 from camac.instance.models import HistoryActionConfig, HistoryEntry
 
 
-def test_event_creation(db, instance):
+@pytest.mark.django_db
+def test_event_creation(instance):
     alexandria_category = CategoryFactory()
 
     document = Document.objects.create(
@@ -21,8 +22,8 @@ def test_event_creation(db, instance):
     assert document.instance_document.instance.pk == instance.pk
 
 
+@pytest.mark.django_db
 def test_event_mark_no_instance_no_history(
-    db,
     mocker,
     settings,
     alexandria_settings,
@@ -43,8 +44,8 @@ def test_event_mark_no_instance_no_history(
 
 
 @pytest.mark.parametrize(("has_file"), [False, True])
+@pytest.mark.django_db
 def test_event_mark_journal_history(
-    db,
     instance,
     mocker,
     settings,

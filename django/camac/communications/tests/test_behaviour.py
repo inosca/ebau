@@ -27,8 +27,9 @@ from camac.permissions.switcher import PERMISSION_MODE
         ("Support", "Support", status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_mark_as_read(
-    db, admin_client, communications_message, be_instance, expected_status
+    admin_client, communications_message, be_instance, expected_status
 ):
     # Before marking as read, the message should be "unread"
     communications_message.topic.involved_entities = [
@@ -92,8 +93,9 @@ def test_mark_as_read(
         ("Support", "Support", status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_mark_as_unread(
-    db, admin_client, communications_message, expected_status, be_instance
+    admin_client, communications_message, expected_status, be_instance
 ):
     communications_message.topic.involved_entities = [
         admin_client.user.get_default_group().service_id,
@@ -162,8 +164,8 @@ def test_mark_as_unread(
     ],
 )
 @pytest.mark.parametrize("role__name", ("Municipality",))
+@pytest.mark.django_db
 def test_validate_entities(
-    db,
     role,
     be_instance,
     admin_client,
@@ -238,8 +240,8 @@ def test_validate_entities(
 @pytest.mark.parametrize(
     "role__name,can_add_applicant", [("Municipality", True), ("Municipality", False)]
 )
+@pytest.mark.django_db
 def test_validate_entities_can_add_applicant(
-    db,
     role,
     can_add_applicant,
     has_involved_service,
@@ -290,7 +292,8 @@ def test_validate_entities_can_add_applicant(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
-def test_set_initial_entity(db, be_instance, admin_client, role):
+@pytest.mark.django_db
+def test_set_initial_entity(be_instance, admin_client, role):
     if role.name == "Applicant":
         expect_entities = ["APPLICANT"]
         be_instance.involved_applicants.create(
@@ -347,8 +350,8 @@ def test_set_initial_entity(db, be_instance, admin_client, role):
     ],
 )
 @pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.django_db
 def test_validate_topic_entities_for_applicant(
-    db,
     be_instance,
     admin_client,
     service_factory,
@@ -408,8 +411,8 @@ def test_validate_topic_entities_for_applicant(
     "role__name, expect_result",
     [("municipality-lead", HTTP_200_OK), ("Applicant", HTTP_403_FORBIDDEN)],
 )
+@pytest.mark.django_db
 def test_convert_attachment_to_document(
-    db,
     be_instance,
     role,
     expect_result,

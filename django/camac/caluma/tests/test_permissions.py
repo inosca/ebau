@@ -222,8 +222,8 @@ def test_save_work_item_permission(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_distribution_permission_for_task(
-    db,
     active_inquiry_factory,
     be_distribution_settings,
     be_instance,
@@ -386,8 +386,8 @@ def test_distribution_permission_for_task(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_distribution_permission_for_answer(
-    db,
     role,
     service,
     _instance,
@@ -509,8 +509,8 @@ def test_distribution_permission_for_answer(
         ("Geometer", WorkItem.STATUS_READY, True, True),
     ],
 )
+@pytest.mark.django_db
 def test_simple_caluma_form_permissions(
-    db,
     caluma_admin_schema_executor,
     caluma_form_question_factory,
     is_addressed,
@@ -559,8 +559,8 @@ def test_simple_caluma_form_permissions(
         (False, {"read"}, False),
     ],
 )
+@pytest.mark.django_db
 def test_specific_form_permissions(
-    db,
     caluma_admin_schema_executor,
     caluma_form_question_factory,
     mocker,
@@ -617,8 +617,8 @@ def test_specific_form_permissions(
 
 
 @pytest.mark.parametrize("instance_state__name,should_be_allowed", [("new", True)])
+@pytest.mark.django_db
 def test_form_permissions_ur(
-    db,
     caluma_admin_schema_executor,
     caluma_form_question_factory,
     mocker,
@@ -760,8 +760,9 @@ def test_has_caluma_form_edit_permission_for_geometer():
         mock_function.assert_called_once()
 
 
+@pytest.mark.django_db
 def test_simpe_form_permission_with_child_case_document(
-    db, caluma_work_item_factory, service, mocker
+    caluma_work_item_factory, service, mocker
 ):
     mocker.patch(
         "camac.caluma.extensions.permissions.get_current_service_id",
@@ -787,8 +788,8 @@ def test_simpe_form_permission_with_child_case_document(
         ("main", ["form-read"], False),
     ],
 )
+@pytest.mark.django_db
 def test_form_permissions_new(
-    db,
     caluma_admin_schema_executor,
     caluma_case_factory,
     caluma_form_question_factory,

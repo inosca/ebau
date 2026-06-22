@@ -61,8 +61,9 @@ def test_calculate_final_rate() -> None:
         (345_678, 1_037),
     ],
 )
+@pytest.mark.django_db
 def test_calculate_final_rate_ag_processing_fee(
-    db, construction_costs, expected_final_rate
+    construction_costs, expected_final_rate
 ):
     assert (
         calculate_final_rate(
@@ -520,8 +521,9 @@ def test_billing_entry_update(
 
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
+@pytest.mark.django_db
 def test_billing_entry_create_with_ag_processing_fee(
-    db, admin_client, ag_instance, master_data_is_visible_mock, form_utils: FormUtils
+    admin_client, ag_instance, master_data_is_visible_mock, form_utils: FormUtils
 ):
     form_utils.add_answer(ag_instance.case.document, "baukosten", 25_000_000)
 
@@ -617,8 +619,8 @@ def test_billing_entry_create_with_ag_processing_fee(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_billing_entry_create_with_product_number(
-    db,
     admin_client,
     sz_instance_with_form,
     sz_billing_settings: BillingConfig,
@@ -653,8 +655,8 @@ def test_billing_entry_create_with_product_number(
     assert response.status_code == response_http_code
 
 
+@pytest.mark.django_db
 def test_product_numbers(
-    db,
     admin_client,
     sz_instance_with_form,
     sz_billing_settings,
@@ -800,8 +802,8 @@ def test_product_numbers(
     ]
 
 
+@pytest.mark.django_db
 def test_product_numbers_empty(
-    db,
     admin_client,
     sz_instance,
     sz_billing_settings,

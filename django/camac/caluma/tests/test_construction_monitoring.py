@@ -21,8 +21,9 @@ from camac.permissions.models import InstanceACL
 from camac.tests.form_utils import FormUtils
 
 
+@pytest.mark.django_db
 def test_construction_monitoring_dynamic_step_items(
-    db, caluma_work_item_factory, caluma_case_factory, caluma_task_factory, mocker
+    caluma_work_item_factory, caluma_case_factory, caluma_task_factory, mocker
 ):
     case = caluma_case_factory()
     tasks = [
@@ -80,8 +81,8 @@ def test_construction_monitoring_dynamic_step_items(
 
 
 @pytest.mark.freeze_time("2023-09-04")
+@pytest.mark.django_db
 def test_construction_monitoring_initial_state(
-    db,
     sz_instance,
     sz_construction_monitoring_settings,
     construction_monitoring_case_sz,
@@ -109,8 +110,8 @@ def test_construction_monitoring_initial_state(
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize("skip", [True, False])
 @pytest.mark.freeze_time("2023-09-04")
+@pytest.mark.django_db
 def test_init_construction_monitoring(
-    db,
     sz_instance,
     sz_construction_monitoring_settings,
     application_settings,
@@ -190,8 +191,8 @@ def test_init_construction_monitoring(
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.django_db
 def test_create_construction_stage(
-    db,
     sz_instance,
     sz_construction_monitoring_settings,
     construction_monitoring_initialized_case_sz,
@@ -257,8 +258,8 @@ def test_create_construction_stage(
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize("cancel", [True, False])
 @pytest.mark.freeze_time("2023-09-04")
+@pytest.mark.django_db
 def test_complete_construction_stage(
-    db,
     sz_instance,
     sz_construction_monitoring_settings,
     notification_template,
@@ -360,8 +361,8 @@ def test_complete_construction_stage(
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.django_db
 def test_complete_construction_monitoring(
-    db,
     sz_instance,
     sz_construction_monitoring_settings,
     construction_monitoring_initialized_case_sz,
@@ -411,8 +412,8 @@ def test_complete_construction_monitoring(
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.django_db
 def test_complete_construction_step_work_item(
-    db,
     sz_instance,
     sz_construction_monitoring_settings,
     construction_monitoring_initialized_case_sz,
@@ -502,8 +503,8 @@ def test_construction_monitoring_work_item_visibility_coordination(mocker):
         [True, "gvg", True, True],
     ],
 )
+@pytest.mark.django_db
 def test_construction_monitoring_work_item_visibility_service_gvg_gr(
-    db,
     role,
     group,
     service,
@@ -592,8 +593,8 @@ def test_construction_monitoring_work_item_visibility_service_gvg_gr(
         (["no-building-permits-allowed-camac"], False),
     ],
 )
+@pytest.mark.django_db
 def test_can_perform_construction_monitoring_allow_forms(
-    db,
     instance,
     construction_monitoring_settings,
     caluma_case_factory,
@@ -626,8 +627,8 @@ def test_can_perform_construction_monitoring_allow_forms(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_can_perform_construction_monitoring_ur(
-    db,
     instance,
     set_application_ur,
     construction_monitoring_settings,
@@ -654,8 +655,8 @@ def test_can_perform_construction_monitoring_ur(
     assert expected_value == can_perform_construction_monitoring(instance)
 
 
+@pytest.mark.django_db
 def test_post_create_construction_control(
-    db,
     instance_factory,
     caluma_case_factory,
     caluma_work_item_factory,
@@ -695,8 +696,8 @@ def test_post_create_construction_control(
     )
 
 
+@pytest.mark.django_db
 def test_post_complete_construction_control(
-    db,
     instance_factory,
     caluma_case_factory,
     caluma_work_item_factory,
@@ -736,8 +737,8 @@ def test_post_complete_construction_control(
     assert instance.instance_state.name == "arch"
 
 
+@pytest.mark.django_db
 def test_post_create_plan_construction_stage_ur(
-    db,
     set_application_ur,
     ur_construction_monitoring_settings,
     ur_instance,
@@ -781,8 +782,8 @@ def test_post_create_plan_construction_stage_ur(
     )
 
 
+@pytest.mark.django_db
 def test_construction_monitoring_task_gvg_gr(
-    db,
     gr_instance,
     construction_monitoring_settings,
     service_factory,
@@ -823,8 +824,8 @@ def test_construction_monitoring_task_gvg_gr(
 
 
 @pytest.mark.freeze_time("2026-01-01")
+@pytest.mark.django_db
 def test_init_construction_monitoring_deadline_gr(
-    db,
     caluma_work_item_factory,
     caluma_case_factory,
     caluma_task_factory,

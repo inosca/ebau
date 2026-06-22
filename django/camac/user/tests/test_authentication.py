@@ -182,8 +182,8 @@ def test_authenticate_ok(rf, admin_user, mocker, settings):
     ],
 )
 @pytest.mark.parametrize("user__username", ["1"])
+@pytest.mark.django_db
 def test_django_admin_oidc_authentication(
-    db,
     user,
     rf,
     authentication_header,
@@ -228,13 +228,15 @@ def test_authenticate_side_effect(rf, mocker, side_effect):
 
 
 @pytest.mark.parametrize("authorization", ["Bearer", "Bearer token token"])
-def test_get_jwt_value_invalid_authorization(db, rf, authorization):
+@pytest.mark.django_db
+def test_get_jwt_value_invalid_authorization(rf, authorization):
     request = rf.request(HTTP_AUTHORIZATION=authorization)
     with pytest.raises(AuthenticationFailed):
         JSONWebTokenKeycloakAuthentication().get_jwt_value(request)
 
 
-def test_authenticate_header(db, rf, settings):
+@pytest.mark.django_db
+def test_authenticate_header(rf, settings):
     request = rf.request()
     header = JSONWebTokenKeycloakAuthentication().authenticate_header(request)
     assert settings.KEYCLOAK_REALM in header
@@ -297,8 +299,9 @@ def test_authenticate_applicants(
 @pytest.mark.parametrize(
     "user__username,expect_invitee", [("test", False), ("egov:123", True)]
 )
+@pytest.mark.django_db
 def test_update_applicants_token_exchange(
-    db, applicant_factory, expect_invitee, settings, user
+    applicant_factory, expect_invitee, settings, user
 ):
     settings.ENABLE_TOKEN_EXCHANGE = True
 
@@ -315,8 +318,9 @@ def test_update_applicants_token_exchange(
 
 
 @pytest.mark.parametrize("is_invited", [False, True])
+@pytest.mark.django_db
 def test_user_group_invitations(
-    db, is_invited, user_factory, user_group_invitation_factory
+    is_invited, user_factory, user_group_invitation_factory
 ):
     user = user_factory()
     user_group_invitation_factory.create_batch(
@@ -361,8 +365,9 @@ def test_authenticate_token_exchange_company_name(rf, mocker, settings):
         (1, True),  # Expires in 1 day
     ],
 )
+@pytest.mark.django_db
 def test_user_group_invitations_expiration(
-    db, user_factory, user_group_invitation_factory, days_offset, should_be_applied
+    user_factory, user_group_invitation_factory, days_offset, should_be_applied
 ):
     """Test that only non-expired invitations are applied during authentication."""
     user = user_factory()
@@ -427,8 +432,8 @@ def test_user_group_invitations_expiration(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_authenticate_only_update_user_if_changed(
-    db,
     user_factory,
     existing_values,
     new_values,
@@ -506,8 +511,8 @@ def test_authenticate_only_update_user_if_changed(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_authenticate_user_email_fallback(
-    db,
     user_factory,
     values,
     use_fallback,

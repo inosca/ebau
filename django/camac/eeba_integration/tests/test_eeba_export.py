@@ -40,8 +40,8 @@ from rest_framework.test import APIClient
         ),
     ],
 )
+@pytest.mark.django_db
 def test_eeba_export(
-    db,
     instance,
     canton_name,
     master_data_case,

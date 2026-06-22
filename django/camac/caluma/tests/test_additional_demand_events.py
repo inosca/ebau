@@ -11,8 +11,8 @@ from camac.caluma.extensions.events import additional_demand
 from camac.tests.form_utils import FormUtils
 
 
+@pytest.mark.django_db
 def test_creating_an_additional_demand_sets_the_correct_instance_state(
-    db,
     caluma_work_item_factory,
     caluma_workflow_factory,
     caluma_admin_user,
@@ -38,8 +38,8 @@ def test_creating_an_additional_demand_sets_the_correct_instance_state(
     )
 
 
+@pytest.mark.django_db
 def test_post_complete_check_additional_demand_ur(
-    db,
     caluma_work_item_factory,
     caluma_workflow_factory,
     caluma_admin_user,
@@ -82,8 +82,8 @@ def test_post_complete_check_additional_demand_ur(
 
 
 @pytest.mark.parametrize("has_pending_additional_demands", [True, False])
+@pytest.mark.django_db
 def test_post_cancel_additional_demand_ur(
-    db,
     ur_instance,
     set_application_ur,
     caluma_admin_user,
@@ -122,8 +122,8 @@ def test_post_cancel_additional_demand_ur(
 
 
 @pytest.mark.parametrize("ech_enabled", [True, False])
+@pytest.mark.django_db
 def test_post_complete_fill_additional_demand_file_subsequently(
-    db,
     set_application_gr,
     caluma_work_item_factory,
     caluma_admin_user,
@@ -157,8 +157,8 @@ def test_post_complete_fill_additional_demand_file_subsequently(
         "ok",
     ],
 )
+@pytest.mark.django_db
 def test_post_create_check_additional_demand(
-    db,
     set_application_gr,
     caluma_work_item_factory,
     caluma_document_factory,
@@ -277,8 +277,8 @@ def test_post_create_check_additional_demand(
         assert work_item_check.status == WorkItem.STATUS_READY
 
 
+@pytest.mark.django_db
 def test_post_cancel_additional_demand_notification(
-    db,
     caluma_work_item_factory,
     notification_template_factory,
     caluma_task_factory,

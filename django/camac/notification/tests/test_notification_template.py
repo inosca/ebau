@@ -247,8 +247,8 @@ def test_notification_template_merge(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_notification_template_sendmail_exception_handling(
-    db,
     admin_client,
     activation_factory,
     mocker,
@@ -345,8 +345,8 @@ def test_notification_template_sendmail_exception_handling(
         ("Coordination", status.HTTP_204_NO_CONTENT),
     ],
 )
+@pytest.mark.django_db
 def test_notification_template_sendmail(
-    db,
     admin_client,
     be_instance,
     responsible_service_factory,
@@ -532,7 +532,8 @@ def test_notification_template_are(
         assert mailoutbox == []
 
 
-def test_recipient_abwasser_uri(db, service_factory):
+@pytest.mark.django_db
+def test_recipient_abwasser_uri(service_factory):
     serializer = serializers.NotificationTemplateSendmailSerializer()
     awu_service = service_factory(slug="awu")
     assert serializer._get_recipients_abwasser_uri(None) == [{"to": awu_service.email}]
@@ -547,8 +548,8 @@ def test_recipient_abwasser_uri(db, service_factory):
         (False, "get_read_permission_end_date_it", " "),
     ],
 )
+@pytest.mark.django_db
 def test_read_permission_end_date_placeholder(
-    db,
     instance_acl_factory,
     instance,
     has_end,
@@ -574,8 +575,8 @@ def test_read_permission_end_date_placeholder(
 
 @pytest.mark.parametrize("check_by_geometer", [True, False])
 @pytest.mark.parametrize("service__email", ["foo@bar.com"])
+@pytest.mark.django_db
 def test_recipient_schnurgeruestabnahme_uri(
-    db,
     settings,
     ur_instance,
     construction_monitoring_settings,
@@ -627,8 +628,8 @@ def test_recipient_schnurgeruestabnahme_uri(
         ]
 
 
+@pytest.mark.django_db
 def test_recipient_fgs_uri(
-    db,
     ur_instance,
     service_factory,
     notification_template,
@@ -652,8 +653,8 @@ def test_recipient_fgs_uri(
     ]
 
 
+@pytest.mark.django_db
 def test_recipient_abm_zs_uri(
-    db,
     ur_instance,
     service_factory,
     notification_template,
@@ -677,8 +678,8 @@ def test_recipient_abm_zs_uri(
     ]
 
 
+@pytest.mark.django_db
 def test_recipient_liegenschaftsschaetzung_uri(
-    db,
     ur_instance,
     service_factory,
     notification_template,
@@ -709,9 +710,8 @@ def test_recipient_liegenschaftsschaetzung_uri(
     ]
 
 
-def test_recipient_geometer_uri(
-    db, ur_instance, service_factory, notification_template
-):
+@pytest.mark.django_db
+def test_recipient_geometer_uri(ur_instance, service_factory, notification_template):
     service_factory(name="AGO (Geometer)", email="geometer@example.com")
 
     serializer = serializers.PermissionlessNotificationTemplateSendmailSerializer(
@@ -731,9 +731,8 @@ def test_recipient_geometer_uri(
     ]
 
 
-def test_recipient_amtsblatt_uri(
-    db, ur_instance, service_factory, notification_template
-):
+@pytest.mark.django_db
+def test_recipient_amtsblatt_uri(ur_instance, service_factory, notification_template):
     serializer = serializers.PermissionlessNotificationTemplateSendmailSerializer(
         data={
             "instance": {"type": "instances", "id": ur_instance.pk},
@@ -1021,7 +1020,6 @@ def test_notification_placeholders(
 @pytest.mark.parametrize("with_inquiry", [True, False])
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_notification_caluma_placeholders(
-    db,
     application_settings,
     settings,
     active_inquiry_factory,
@@ -1178,8 +1176,8 @@ def test_notification_caluma_placeholders(
     "work_item_task",
     [("send-additional-demand"), ("additional-demand"), ("other-task")],
 )
+@pytest.mark.django_db
 def test_notification_caluma_placeholders_additional_demand(
-    db,
     application_settings,
     settings,
     admin_client,
@@ -1261,8 +1259,8 @@ def test_notification_caluma_placeholders_additional_demand(
 
 
 @pytest.mark.parametrize("use_static_user", [True, False])
+@pytest.mark.django_db
 def test_notification_template_merge_without_context(
-    db,
     be_instance,
     notification_template,
     system_operation_user,
@@ -1354,8 +1352,9 @@ def test_notification_validate_slug_create(admin_client, notification_template):
 
 @pytest.mark.parametrize("service__email", [None, "", "foo@example.org"])
 @pytest.mark.parametrize("instance__location", [lf("location")])
+@pytest.mark.django_db
 def test_recipient_type_municipality_users(
-    db, instance, location, location_factory, service, role, mocker, group_location
+    instance, location, location_factory, service, role, mocker, group_location
 ):
     mocker.patch("camac.constants.kt_uri.ROLE_MUNICIPALITY", role.pk)
 
@@ -1369,8 +1368,8 @@ def test_recipient_type_municipality_users(
 
 
 @pytest.mark.parametrize("addressed_service", ["applicant", "municipality", None])
+@pytest.mark.django_db
 def test_recipient_type_work_item_addressed(
-    db,
     be_instance,
     service,
     addressed_service,
@@ -1417,8 +1416,8 @@ def test_recipient_type_work_item_addressed(
         ]
 
 
+@pytest.mark.django_db
 def test_recipient_type_work_item_controlling(
-    db,
     be_instance,
     service,
     caluma_work_item_factory,
@@ -1450,8 +1449,9 @@ def test_recipient_type_work_item_controlling(
 
 
 @pytest.mark.parametrize("service__email", [None, "", "foo@example.org"])
+@pytest.mark.django_db
 def test_recipient_type_unnotified_service_users(
-    db, ur_instance, activation, user_group, mocker, notification_template, service
+    ur_instance, activation, user_group, mocker, notification_template, service
 ):
     mocker.patch(
         "camac.constants.kt_uri.CIRCULATION_STATE_IDLE", activation.circulation_state_id
@@ -1483,8 +1483,9 @@ def test_recipient_type_unnotified_service_users(
         assert res == []
 
 
+@pytest.mark.django_db
 def test_recipient_type_koor_users(
-    db, instance_factory, mocker, user_group, service_factory, form_factory
+    instance_factory, mocker, user_group, service_factory, form_factory
 ):
     koor_bg = service_factory()
     koor_np = service_factory()
@@ -1528,7 +1529,8 @@ def test_recipient_type_koor_users(
 
 
 @pytest.mark.parametrize("group__name", ["Lisag"])
-def test_recipient_type_lisag(db, instance, group):
+@pytest.mark.django_db
+def test_recipient_type_lisag(instance, group):
     serializer = serializers.NotificationTemplateSendmailSerializer()
     res = serializer._get_recipients_lisag(instance)
     assert res == [{"to": group.email}]
@@ -1538,8 +1540,8 @@ def test_recipient_type_lisag(db, instance, group):
     "service_group__name,expected",
     [("district", [{"to": "bauen@example.ch"}]), ("municipality", [])],
 )
+@pytest.mark.django_db
 def test_recipient_inactive_municipality(
-    db,
     be_instance,
     service_group,
     expected,
@@ -1560,8 +1562,8 @@ def test_recipient_inactive_municipality(
     "has_geometer,expected",
     [(True, [{"to": "geometer@example.ch"}]), (False, [])],
 )
+@pytest.mark.django_db
 def test_recipient_geometer_acl_services(
-    db,
     be_instance,
     has_geometer,
     expected,
@@ -1588,8 +1590,8 @@ def test_recipient_geometer_acl_services(
     "has_heat_generator_service,expected",
     [(True, [{"to": "feuerungskontrolle@example.ch"}]), (False, [])],
 )
+@pytest.mark.django_db
 def test_recipient_immissionsschutz(
-    db,
     be_instance,
     has_heat_generator_service,
     expected,
@@ -1622,9 +1624,9 @@ def test_recipient_immissionsschutz(
     "notification_template__body",
     ["parz={{parzelle}}, gs={{GESUCHSTELLER}}, vorhaben={{vorhaben}}"],
 )
+@pytest.mark.django_db
 def test_ur_placeholders(
     admin_client,
-    db,
     ur_instance,
     camac_answer_factory,
     instance_service,
@@ -1691,8 +1693,9 @@ def test_ur_placeholders(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_notification_template_update_purposes(
-    db, admin_client, notification_template_factory, service, service_factory
+    admin_client, notification_template_factory, service, service_factory
 ):
     different_service = service_factory()
     notification_template_factory.create_batch(
@@ -1718,8 +1721,9 @@ def test_notification_template_update_purposes(
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.django_db
 def test_notification_template_update_purposes_applicant(
-    db, admin_client, notification_template_factory, service_factory
+    admin_client, notification_template_factory, service_factory
 ):
     notification_template_factory.create_batch(
         5, purpose="test", type="textcomponent", service=service_factory()
@@ -1734,8 +1738,9 @@ def test_notification_template_update_purposes_applicant(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_notification_template_delete_by_purpose(
-    db, admin_client, notification_template_factory, service, service_factory
+    admin_client, notification_template_factory, service, service_factory
 ):
     notification_template_factory.create_batch(
         5, purpose="my_templates", type="textcomponent", service=service
@@ -1760,8 +1765,9 @@ def test_notification_template_delete_by_purpose(
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.django_db
 def test_notification_template_delete_by_purpose_applicant(
-    db, admin_client, notification_template_factory, service_factory
+    admin_client, notification_template_factory, service_factory
 ):
     notification_template_factory.create_batch(
         5, purpose="test", type="textcomponent", service=service_factory()
@@ -1784,8 +1790,8 @@ def test_notification_template_delete_by_purpose_applicant(
     "service__email,service__notification,role__name",
     [("test@example.com", 0, "support")],
 )
+@pytest.mark.django_db
 def test_notification_template_service_no_notification(
-    db,
     be_instance,
     notification_template,
     settings,
@@ -1811,12 +1817,12 @@ def test_notification_template_service_no_notification(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_unnotified_services(
     activation_factory,
     admin_client,
     be_instance,
     circulation,
-    db,
     mailoutbox,
     notification_template,
     service_factory,
@@ -1951,8 +1957,8 @@ def test_notification_bauverwaltung_placeholders(
     "role__name,notification_template__subject,notification_template__body",
     [("Support", "Subject", "Body")],
 )
+@pytest.mark.django_db
 def test_notification_history_entry(
-    db,
     be_instance,
     application_settings,
     use_multilang,
@@ -1997,7 +2003,8 @@ def test_notification_history_entry(
         assert history_entry.body == "Body"
 
 
-def test_merge_serializer_used_placeholders(db, instance):
+@pytest.mark.django_db
+def test_merge_serializer_used_placeholders(instance):
     serializer = InstanceMergeSerializer(
         instance=instance, used_placeholders=["base_url"]
     )
@@ -2005,8 +2012,8 @@ def test_merge_serializer_used_placeholders(db, instance):
     assert list(serializer.data.keys()) == ["base_url"]
 
 
+@pytest.mark.django_db
 def test_notification_additional_demand(
-    db,
     gr_instance,
     service,
     service_factory,
@@ -2092,8 +2099,8 @@ def test_notification_additional_demand(
         ("other", "other", False, [], [], False),
     ],
 )
+@pytest.mark.django_db
 def test_notification_additional_demand_gr(
-    db,
     gr_instance,
     service_factory,
     caluma_case_factory,
@@ -2196,8 +2203,9 @@ def test_notification_additional_demand_gr(
     )
 
 
+@pytest.mark.django_db
 def test_notifications_without_receivers_sz(
-    db, sz_instance, admin_user, application_settings
+    sz_instance, admin_user, application_settings
 ):
     application_settings["LOG_NOTIFICATIONS_WITH_NO_RECEIVERS"] = False
     serializer = serializers.NotificationTemplateSendmailSerializer()
@@ -2207,8 +2215,8 @@ def test_notifications_without_receivers_sz(
     assert HistoryEntry.objects.all().count() == 0
 
 
+@pytest.mark.django_db
 def test_notifications_without_receivers_ag(
-    db,
     set_application_ag,
     ag_instance,
     admin_user,
@@ -2240,8 +2248,8 @@ def test_notifications_without_receivers_ag(
     )
 
 
+@pytest.mark.django_db
 def test_get_schlussabnahme_uhrzeit(
-    db,
     instance_factory,
     caluma_work_item_factory,
     construction_monitoring_settings,
@@ -2268,8 +2276,8 @@ def test_get_schlussabnahme_uhrzeit(
     assert serializer.get_schlussabnahme_uhrzeit(instance) == "09:00"
 
 
+@pytest.mark.django_db
 def test_get_schlussabnahme_datum(
-    db,
     instance_factory,
     caluma_work_item_factory,
     construction_monitoring_settings,
@@ -2298,8 +2306,8 @@ def test_get_schlussabnahme_datum(
 
 @pytest.mark.parametrize("is_published", [True, False])
 @pytest.mark.parametrize("has_publish_question", [True, False])
+@pytest.mark.django_db
 def test_gr_public_instance_url_placeholder(
-    db,
     caluma_work_item_factory,
     caluma_document_factory,
     caluma_answer_factory,
@@ -2342,8 +2350,8 @@ def test_gr_public_instance_url_placeholder(
     ]
 
 
+@pytest.mark.django_db
 def test_get_recipients_invited_to_schlussabnahme_projekt(
-    db,
     notification_template,
     instance_factory,
     caluma_work_item_factory,

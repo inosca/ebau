@@ -385,8 +385,8 @@ def test_change_geometer_permission(
     assert response.status_code == expected_status
 
 
+@pytest.mark.django_db
 def test_change_geometer_task(
-    db,
     admin_client,
     be_instance,
     mocker,
@@ -472,8 +472,8 @@ def test_change_geometer_task(
         ("multiple_only_involved_municipalities", [False, True]),
     ],
 )
+@pytest.mark.django_db
 def test_instance_selection_for_geometer_change(
-    db,
     admin_client,
     lead_authority_situation,
     geometer_has_changed,
@@ -624,8 +624,8 @@ def test_instance_selection_for_geometer_change(
         ("Geometer", False, "", status.HTTP_400_BAD_REQUEST),
     ],
 )
+@pytest.mark.django_db
 def test_check_change_geometer_status(
-    db,
     admin_client,
     task_exists,
     task_status,

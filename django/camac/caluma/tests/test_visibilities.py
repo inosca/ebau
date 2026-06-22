@@ -25,8 +25,8 @@ from camac.user.models import User
     "role__name,expected_count",
     [("Support", 3), ("Service", 1), ("TrustedService", 3), ("Applicant", 0)],
 )
+@pytest.mark.django_db
 def test_document_visibility(
-    db,
     active_inquiry_factory,
     admin_user,
     caluma_admin_schema_executor,
@@ -83,8 +83,8 @@ def test_document_visibility(
     "is_public_user,expected_count",
     [(True, 1), (False, 0)],
 )
+@pytest.mark.django_db
 def test_public_workflow_visibility(
-    db,
     caluma_admin_schema_executor,
     caluma_admin_public_schema_executor,
     create_caluma_publication,
@@ -133,8 +133,8 @@ def test_public_workflow_visibility(
 
 
 @pytest.mark.parametrize("role__name", ["Support"])
+@pytest.mark.django_db
 def test_document_visibility_filter(
-    db,
     active_inquiry_factory,
     admin_user,
     caluma_admin_user,
@@ -199,8 +199,8 @@ def test_document_visibility_filter(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_work_item_visibility_sz(
-    db,
     admin_user,
     caluma_admin_schema_executor,
     caluma_admin_user,
@@ -308,8 +308,8 @@ def test_work_item_visibility_sz(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_work_item_visibility(
-    db,
     active_inquiry_factory,
     admin_user,
     caluma_admin_schema_executor,
@@ -392,8 +392,8 @@ def test_work_item_visibility(
     "role__name",
     ["Applicant", "Municipality"],
 )
+@pytest.mark.django_db
 def test_work_item_additional_demand_visibility(
-    db,
     additional_demand_settings,
     application_settings,
     admin_user,
@@ -551,8 +551,8 @@ def test_work_item_visibility_for_applicants_sz(
         assert len(visible_workitems) == 2
 
 
+@pytest.mark.django_db
 def test_public_visibility(
-    db,
     rf,
     mocker,
 ):
@@ -626,8 +626,8 @@ def test_public_visibility(
         ("Support", "Service 4", 6, 4),
     ],
 )
+@pytest.mark.django_db
 def test_form_visibility_sz(
-    db,
     rf,
     role,
     service,
@@ -909,8 +909,8 @@ def test_case_keyword_filter_sz(
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize("is_public_user,expected_answers", [(False, 5), (True, 2)])
+@pytest.mark.django_db
 def test_public_document_visibility(
-    db,
     admin_user,
     caluma_answer_factory,
     applicant_factory,
@@ -960,8 +960,8 @@ def test_public_document_visibility(
         assert all(slug in returned_questions for slug in scrubbed_questions)
 
 
+@pytest.mark.django_db
 def test_publication_visibility(
-    db,
     be_instance,
     caluma_admin_public_schema_executor,
     create_caluma_publication,
@@ -986,8 +986,8 @@ def test_publication_visibility(
     assert work_item_ids == []
 
 
+@pytest.mark.django_db
 def test_publication_visibility_form_not_enabled(
-    db,
     be_instance,
     caluma_admin_public_schema_executor,
     create_caluma_publication,  # noqa: F811
@@ -1045,8 +1045,8 @@ def test_publication_visibility_form_not_enabled(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_visibility_performance_heuristic_workitems(
-    db,
     active_inquiry_factory,
     admin_user,
     caluma_admin_schema_executor,
@@ -1133,8 +1133,8 @@ def test_visibility_performance_heuristic_workitems(
         ("{ids: [$case]}", "case", "$case:ID!"),
     ],
 )
+@pytest.mark.django_db
 def test_visibility_performance_heuristic_cases(
-    db,
     active_inquiry_factory,
     admin_user,
     caluma_admin_schema_executor,
@@ -1201,8 +1201,8 @@ def test_visibility_performance_heuristic_cases(
 
 
 @pytest.mark.parametrize("role__name", ["Sekretariat der Gemeindebaubehörde"])
+@pytest.mark.django_db
 def test_single_instance_mode(
-    db,
     application_settings,
     set_application_ur,
     mocker,
@@ -1247,8 +1247,8 @@ def test_single_instance_mode(
         "[]",
     ],
 )
+@pytest.mark.django_db
 def test_work_item_filter_with_tasks(
-    db,
     set_application_ur,
     mocker,
     admin_user,
@@ -1312,8 +1312,8 @@ def test_visible_construction_step_work_items_expression_for_trusted_service():
 
 
 @pytest.mark.parametrize("role__name", ("Geometer",))
+@pytest.mark.django_db
 def test_visible_construction_step_work_items_expression_for_geometer(
-    db,
     caluma_work_item_factory,
     admin_user,
     caluma_admin_schema_executor,

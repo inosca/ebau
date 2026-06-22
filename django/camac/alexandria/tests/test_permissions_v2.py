@@ -96,8 +96,9 @@ def assert_permissions(
 
 
 @pytest.mark.parametrize("in_child_category", [False, True])
+@pytest.mark.django_db
 def test_alexandria_permissions_create_document(
-    db, admin_client, alexandria_data, in_child_category, instance, permission_mock
+    admin_client, alexandria_data, in_child_category, instance, permission_mock
 ):
     category, _ = alexandria_data(in_child_category)
 
@@ -129,8 +130,9 @@ def test_alexandria_permissions_create_document(
 
 
 @pytest.mark.parametrize("in_child_category", [False, True])
+@pytest.mark.django_db
 def test_alexandria_permissions_delete_document(
-    db, admin_client, alexandria_data, in_child_category, instance, permission_mock
+    admin_client, alexandria_data, in_child_category, instance, permission_mock
 ):
     _, document = alexandria_data(in_child_category)
 
@@ -217,8 +219,8 @@ def test_alexandria_permissions_delete_document(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_alexandria_permissions_update_document(
-    db,
     admin_client,
     alexandria_category_factory,
     alexandria_data,
@@ -261,8 +263,9 @@ def test_alexandria_permissions_update_document(
 
 
 @pytest.mark.parametrize("in_child_category", [False, True])
+@pytest.mark.django_db
 def test_alexandria_permissions_replace_document(
-    db, admin_client, alexandria_data, in_child_category, instance, permission_mock
+    admin_client, alexandria_data, in_child_category, instance, permission_mock
 ):
     _, document = alexandria_data(in_child_category)
 
@@ -295,8 +298,8 @@ def test_alexandria_permissions_replace_document(
         ("other-category-child", P.any("other-category:all", "other-category:create")),
     ],
 )
+@pytest.mark.django_db
 def test_alexandria_permissions_copy_document(
-    db,
     admin_client,
     alexandria_category_factory,
     alexandria_data,
@@ -338,8 +341,8 @@ def test_alexandria_permissions_copy_document(
 
 
 @pytest.mark.parametrize("in_child_category", [False, True])
+@pytest.mark.django_db
 def test_alexandria_permissions_convert_document(
-    db,
     admin_client,
     alexandria_data,
     in_child_category,
@@ -367,8 +370,8 @@ def test_alexandria_permissions_convert_document(
 
 
 @pytest.mark.parametrize("in_child_category", [False, True])
+@pytest.mark.django_db
 def test_alexandria_permissions_webdav_document(
-    db,
     admin_client,
     alexandria_data,
     in_child_category,
@@ -402,8 +405,9 @@ def test_alexandria_permissions_webdav_document(
         ("Applicant", {"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_alexandria_permissions_create_tag(
-    db, admin_client, expected_status, headers, permission_mock
+    admin_client, expected_status, headers, permission_mock
 ):
     response = admin_client.post(
         reverse("tag-list"),
@@ -425,8 +429,8 @@ def test_alexandria_permissions_create_tag(
     assert permission_mock.call_count == 0
 
 
+@pytest.mark.django_db
 def test_alexandria_base_permissions(
-    db,
     permission_mock,
     admin_client,
     alexandria_file_factory,
@@ -451,8 +455,9 @@ def test_alexandria_base_permissions(
     assert permission_mock.call_count == 0
 
 
+@pytest.mark.django_db
 def test_alexandria_base_permission(
-    db, admin_client, alexandria_data, instance, permission_mock
+    admin_client, alexandria_data, instance, permission_mock
 ):
     permission_mock.return_value = False
     category, document = alexandria_data()
@@ -508,8 +513,8 @@ def test_alexandria_base_permission(
     assert permission_mock.call_count == 1
 
 
+@pytest.mark.django_db
 def test_alexandria_permissions_rbac(
-    db,
     admin_client,
     alexandria_data,
     caplog,

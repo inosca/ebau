@@ -14,8 +14,8 @@ from camac.tests.form_utils import FormUtils
 from ..master_data import MasterData
 
 
+@pytest.mark.django_db
 def test_master_data_exceptions(
-    db,
     instance,
     instance_with_case,
     master_data_settings,
@@ -59,8 +59,8 @@ def test_master_data_exceptions(
     )
 
 
+@pytest.mark.django_db
 def test_master_data_parsers(
-    db,
     application_settings,
     snapshot,
     form_field_factory,
@@ -168,8 +168,8 @@ def test_master_data_parsers(
     )
 
 
+@pytest.mark.django_db
 def test_master_data_is_form_resolver(
-    db,
     master_data_settings,
     caluma_case_factory,
     caluma_document_factory,
@@ -260,8 +260,8 @@ def test_master_data_is_form_resolver(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_master_data(
-    db,
     snapshot,
     django_assert_num_queries,
     language,
@@ -291,8 +291,8 @@ def test_master_data(
         ({"fields": "not_configured"}, status.HTTP_400_BAD_REQUEST),
     ],
 )
+@pytest.mark.django_db
 def test_master_data_api(
-    db,
     admin_client,
     expected_status,
     ag_instance,
@@ -342,8 +342,9 @@ def test_get_question_slug(master_data_settings, property_name, expected):
 
 @pytest.mark.parametrize("case_id_as_str", [True, False])
 @pytest.mark.parametrize("have_request", [True, False])
+@pytest.mark.django_db
 def test_masterdata_from_request_cache(
-    db, be_instance, mocker, have_request, case_id_as_str
+    be_instance, mocker, have_request, case_id_as_str
 ):
     if have_request:
         # Don't need an actual request for this to work
@@ -374,8 +375,8 @@ def test_masterdata_from_request_cache(
         (False, None),
     ],
 )
+@pytest.mark.django_db
 def test_master_data_municipality_service_content_resolver(
-    db,
     master_data_settings,
     caluma_case_factory,
     caluma_document_factory,
@@ -428,8 +429,8 @@ def test_master_data_municipality_service_content_resolver(
     "versioned",
     [False, True],
 )
+@pytest.mark.django_db
 def test_master_data_table_resolver(
-    db,
     application_settings,
     snapshot,
     caluma_question_factory,

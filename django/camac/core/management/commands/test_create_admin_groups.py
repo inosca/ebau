@@ -33,8 +33,8 @@ from django.core.management import call_command
         ),
     ],
 )
+@pytest.mark.django_db
 def test_create_admin_groups(
-    db,
     service_name,
     service_group_name,
     admin_role_name,

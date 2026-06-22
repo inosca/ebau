@@ -12,8 +12,8 @@ from camac.timelines.utils import is_additional_demand_with_changes
 
 
 @pytest.mark.parametrize("test_case", ["applicant_reply", "cancel_additional_demand"])
+@pytest.mark.django_db
 def test_additional_demand_event_formtimelines(
-    db,
     caluma_work_item_factory,
     caluma_case_factory,
     caluma_document_factory,
@@ -120,8 +120,8 @@ def test_additional_demand_event_formtimelines(
 
 @pytest.mark.parametrize("allow_changes", [True, False])
 @pytest.mark.parametrize("decision_is_positive", [True, False])
+@pytest.mark.django_db
 def test_post_complete_check_additional_demand_with_changes_gr(
-    db,
     caluma_work_item_factory,
     caluma_admin_user,
     gr_additional_demand_settings,

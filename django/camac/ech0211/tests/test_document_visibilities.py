@@ -13,8 +13,8 @@ from camac.permissions.switcher import PERMISSION_MODE
 @pytest.mark.freeze_time("2025-11-22")
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize("instance_state__name", ["subm"])
+@pytest.mark.django_db
 def test_document_visibilities_camac(
-    db,
     set_document_backend,
     attachment_factory,
     be_instance,
@@ -98,8 +98,8 @@ def test_document_visibilities_camac(
 @pytest.mark.freeze_time("2025-11-22")
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize("instance_state__name", ["subm"])
+@pytest.mark.django_db
 def test_document_visibilities_alexandria(
-    db,
     set_document_backend,
     instance_acl_factory,
     be_instance,

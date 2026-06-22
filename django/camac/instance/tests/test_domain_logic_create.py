@@ -32,8 +32,8 @@ from camac.timelines.models import FormTimeline
         ),
     ],
 )
+@pytest.mark.django_db
 def test_copy_attachments_camac_ng(
-    db,
     application_settings,
     args,
     expected_copies,
@@ -127,8 +127,8 @@ def test_copy_attachments_camac_ng(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_copy_attachments_alexandria(
-    db,
     instance_factory,
     application_settings,
     instance_with_case,
@@ -210,8 +210,8 @@ def test_copy_attachments_alexandria(
         assert new_file.id != old_file.id
 
 
+@pytest.mark.django_db
 def test_copy_applicants(
-    db,
     caluma_workflow_config_gr,
     gr_permissions_settings,
     instance_factory,
@@ -267,8 +267,8 @@ def test_copy_applicants(
     ],
 )
 @pytest.mark.freeze_time("2024-4-17")
+@pytest.mark.django_db
 def test_instance_generate_identifier_so(
-    db,
     so_instance,
     caluma_case_factory,
     service,
@@ -287,8 +287,8 @@ def test_instance_generate_identifier_so(
     )
 
 
+@pytest.mark.django_db
 def test_instance_generate_identifier_so_exceptions(
-    db,
     application_settings,
     instance_service_factory,
     service_factory,
@@ -332,8 +332,8 @@ def test_instance_generate_identifier_so_exceptions(
         (True, True, 1, FormTimeline.Type.SUBMIT_AFTER_REJECTION.value),
     ],
 )
+@pytest.mark.django_db
 def test_instance_create_source_timeline(
-    db,
     caluma_case_factory,
     instance_factory,
     instance_state_factory,

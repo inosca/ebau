@@ -163,8 +163,8 @@ def test_permissions_switcher_call_new_variant(
         ("Municipality", ["municipality"], "newvalue"),
     ],
 )
+@pytest.mark.django_db
 def test_permissions_switcher_role_based(
-    db,
     fake_request,
     permissions_settings,
     role,
@@ -202,8 +202,8 @@ def test_permissions_switcher_role_based(
         ("Municipality", PERMISSION_MODE.OFF, ["municipality"], True),
     ],
 )
+@pytest.mark.django_db
 def test_permission_module_fully_enabled(
-    db,
     group,
     permissions_settings,
     mode,

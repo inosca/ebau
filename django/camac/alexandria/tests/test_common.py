@@ -39,8 +39,8 @@ from camac.permissions.switcher import PERMISSION_MODE
         (True, True, "municipality", "subservice", "service"),
     ],
 )
+@pytest.mark.django_db
 def test_get_permission_key(
-    db,
     alexandria_settings,
     append_role,
     application_settings,
@@ -64,8 +64,8 @@ def test_get_permission_key(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_has_alexandria_permission_v1(
-    db,
     alexandria_category_factory,
     alexandria_document_factory,
     alexandria_settings,
@@ -188,8 +188,8 @@ def test_has_alexandria_permission_v1(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_has_alexandria_move_permission_v1(
-    db,
     alexandria_category_factory,
     alexandria_document_factory,
     alexandria_mark_factory,
@@ -235,8 +235,8 @@ def test_has_alexandria_move_permission_v1(
     )
 
 
+@pytest.mark.django_db
 def test_has_alexandria_permission_v2(
-    db,
     access_level_factory,
     alexandria_category_factory,
     alexandria_document_factory,
@@ -330,8 +330,8 @@ def test_has_alexandria_permission_v2(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_has_alexandria_move_permission_v2(
-    db,
     access_level_factory,
     alexandria_category_factory,
     alexandria_document_factory,

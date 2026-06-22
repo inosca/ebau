@@ -31,8 +31,8 @@ def configure_access_levels(permissions_settings, instance, access_level):
 
 
 @pytest.mark.parametrize("has_functional_permission", [True, False])
+@pytest.mark.django_db
 def test_permissions_view(
-    db,
     instance,
     admin_client,
     permissions_settings,
@@ -96,8 +96,8 @@ def test_permissions_view(
 
 
 @pytest.mark.parametrize("do_include", [True, False])
+@pytest.mark.django_db
 def test_no_include_instance(
-    db,
     instance,
     admin_client,
     permissions_settings,
@@ -180,7 +180,8 @@ def test_no_include_instance(
         ),
     ],
 )
-def test_permissions_meta(db, admin_client, mode, expected, permissions_settings):
+@pytest.mark.django_db
+def test_permissions_meta(admin_client, mode, expected, permissions_settings):
     permissions_settings["PERMISSION_MODE"] = mode
     response = admin_client.get(reverse("permissions-meta"))
     assert response.status_code == status.HTTP_200_OK

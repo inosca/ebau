@@ -94,8 +94,9 @@ FORM_CONFIG = {
 }
 
 
+@pytest.mark.django_db
 def test_form_data_validator_validate_deactivation(
-    db, form_field_factory, form_factory, instance, settings
+    form_field_factory, form_factory, instance, settings
 ):
     """Test form data validation for deactivated dependent questions.
 
@@ -442,8 +443,8 @@ DEFAULT_FORM_CONFIG = {
         ),
     ],
 )
+@pytest.mark.django_db
 def test_form_data_validator_validation(
-    db,
     form_field_factory,
     form_factory,
     instance_state_factory,

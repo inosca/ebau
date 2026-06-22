@@ -177,8 +177,8 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
         ),
     ],
 )
+@pytest.mark.django_db
 def test_attachment_section_special_permissions_ur(
-    db,
     mocker,
     role,
     group_factory,
@@ -245,8 +245,9 @@ def test_attachment_section_special_permissions_ur(
         }
     ],
 )
+@pytest.mark.django_db
 def test_rebuild_app_permissions(
-    db, group, instance, data, application_settings, instance_state_factory
+    group, instance, data, application_settings, instance_state_factory
 ):
     application_settings["ATTACHMENT_INTERNAL_STATES"] = ["internal"]
 
@@ -269,8 +270,8 @@ def test_rebuild_app_permissions(
 @pytest.mark.parametrize(
     "is_involved,expected_permission", [(True, "admin"), (False, "read")]
 )
+@pytest.mark.django_db
 def test_attachment_section_permissions_kt_bern(
-    db,
     mocker,
     admin_client,
     instance,
@@ -303,8 +304,8 @@ def test_attachment_section_permissions_kt_bern(
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.django_db
 def test_attachment_section_permissions_with_accesslevel(
-    db,
     mocker,
     admin_client,
     instance,
@@ -386,8 +387,8 @@ def test_attachment_section_permissions_with_accesslevel(
         (False, True, []),
     ],
 )
+@pytest.mark.django_db
 def test_get_accesslevel_permissions(
-    db,
     group,
     instance,
     application_settings,
@@ -424,8 +425,8 @@ def test_get_accesslevel_permissions(
 @pytest.mark.parametrize(
     "single_instance_mode, expected_result", [(True, True), (False, True)]
 )
+@pytest.mark.django_db
 def test_allow_always_callback(
-    db,
     group,
     instance,
     access_level,
@@ -450,8 +451,8 @@ def test_allow_always_callback(
         (False, False, False),
     ],
 )
+@pytest.mark.django_db
 def test_has_documents_write_permission_callback(
-    db,
     group,
     instance,
     access_level,
@@ -475,8 +476,8 @@ def test_has_documents_write_permission_callback(
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.django_db
 def test_attachment_modification_by_activation_involvement(
-    db,
     settings,
     application_settings,
     be_instance,
@@ -593,8 +594,8 @@ _other_service = lfc("service_factory")
         ["evaluated", _admin_service, False, False],
     ],
 )
+@pytest.mark.django_db
 def test_read_during_sb1(
-    db,
     attachment,
     be_instance,
     set_application_be,

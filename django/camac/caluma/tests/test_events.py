@@ -40,8 +40,8 @@ from camac.utils import (
 
 
 @pytest.mark.parametrize("expected_value", ["is-paper-yes", "is-paper-no"])
+@pytest.mark.django_db
 def test_copy_papierdossier(
-    db,
     be_instance,
     instance_service,
     caluma_admin_user,
@@ -83,8 +83,8 @@ def test_copy_papierdossier(
 
 
 @pytest.mark.parametrize("use_fallback", [True, False])
+@pytest.mark.django_db
 def test_copy_sb_personalien(
-    db,
     be_instance,
     instance_service,
     caluma_admin_user,
@@ -155,8 +155,8 @@ def test_copy_sb_personalien(
 
 
 @pytest.mark.freeze_time("2023-01-01")
+@pytest.mark.django_db
 def test_post_complete_sb1(
-    db,
     be_instance,
     decision_factory,
     caluma_admin_user,
@@ -219,8 +219,8 @@ def test_post_complete_sb1(
     assert str(service.pk) in manual_workitem.controlling_groups
 
 
+@pytest.mark.django_db
 def test_copy_municipality_tags_for_sb1(
-    db,
     be_instance,
     caluma_admin_user,
     caluma_workflow_config_be,
@@ -291,8 +291,8 @@ def test_copy_municipality_tags_for_sb1(
     )
 
 
+@pytest.mark.django_db
 def test_copy_responsible_person_lead_authority(
-    db,
     be_instance,
     caluma_admin_user,
     decision_factory,
@@ -353,8 +353,8 @@ def test_copy_responsible_person_lead_authority(
 @pytest.mark.parametrize(
     "bewilligungspflichtig_hidden,expect_copy", [("true", True), ("false", False)]
 )
+@pytest.mark.django_db
 def test_copy_tank_installation(
-    db,
     be_instance,
     caluma_admin_user,
     caluma_workflow_config_be,
@@ -439,8 +439,8 @@ def test_copy_tank_installation(
 
 
 @pytest.mark.parametrize("notify_completed", [True, False])
+@pytest.mark.django_db
 def test_notify_completed_work_item(
-    db,
     caluma_admin_user,
     service_factory,
     user_factory,
@@ -485,8 +485,8 @@ def test_notify_completed_work_item(
         assert len(mailoutbox) == 1
 
 
+@pytest.mark.django_db
 def test_notify_manual_work_item(
-    db,
     caluma_admin_user,
     service_factory,
     instance,
@@ -604,8 +604,8 @@ def test_notify_manual_work_item(
     assert len(mailoutbox) == 1
 
 
+@pytest.mark.django_db
 def test_set_is_published(
-    db,
     settings,
     application_settings,
     caluma_admin_user,
@@ -645,8 +645,8 @@ def test_set_is_published(
     assert work_item.meta["is-published"]
 
 
+@pytest.mark.django_db
 def test_so_set_is_published_creates_history_entry(
-    db,
     settings,
     application_settings,
     set_application_so,
@@ -755,8 +755,8 @@ def test_so_set_is_published_creates_history_entry(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_set_meta_attributes(
-    db,
     caluma_admin_user,
     caluma_task_factory,
     caluma_work_item_factory,
@@ -801,8 +801,8 @@ def user2(user_factory):
         (lf("service"), None, lf("user2"), True, None),
     ],
 )
+@pytest.mark.django_db
 def test_set_assigned_user(
-    db,
     addressed_service,
     assigned_user,
     bypass_responsible_user,
@@ -852,8 +852,8 @@ def test_set_assigned_user(
         ("skip", "Dossierprüfung übersprungen"),
     ],
 )
+@pytest.mark.django_db
 def test_audit_history(
-    db,
     instance,
     caluma_admin_user,
     caluma_work_item_factory,
@@ -898,9 +898,9 @@ def test_audit_history(
     "task,expected_instance_state,expected_history_text",
     [("complete", "finished", "Baugesuchsverfahren abgeschlossen")],
 )
+@pytest.mark.django_db
 def test_complete_simple_workflow(
     application_settings,
-    db,
     be_instance,
     admin_user,
     caluma_admin_user,
@@ -951,8 +951,9 @@ def test_complete_simple_workflow(
     del application_settings["CALUMA"]["SIMPLE_WORKFLOW"][task]["notification"]
 
 
+@pytest.mark.django_db
 def test_reopen_redo_unread(
-    db, caluma_work_item_factory, caluma_case_factory, caluma_admin_user, mocker
+    caluma_work_item_factory, caluma_case_factory, caluma_admin_user, mocker
 ):
     mocker.patch(
         "caluma.caluma_workflow.domain_logic.RedoWorkItemLogic.is_work_item_redoable",
@@ -1152,8 +1153,8 @@ def test_post_create_reject_work_item(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_convert_special_form_to_construction_permit_ur(
-    db,
     caluma_work_item_factory,
     caluma_question_factory,
     caluma_answer_factory,
@@ -1337,8 +1338,8 @@ def test_post_create_review_building_commission(
     assert review_work_item.name.de == desired_work_item_name
 
 
+@pytest.mark.django_db
 def test_post_decision_ur(
-    db,
     caluma_admin_user,
     caluma_case_factory,
     caluma_work_item_factory,
@@ -1375,8 +1376,8 @@ def test_post_decision_ur(
     ), "any open review work items need to be completed."
 
 
+@pytest.mark.django_db
 def test_complete_check_ur(
-    db,
     caluma_work_item_factory,
     caluma_document_factory,
     caluma_answer_factory,
@@ -1409,8 +1410,8 @@ def test_complete_check_ur(
     send_notification_mock.assert_called()
 
 
+@pytest.mark.django_db
 def test_post_create_caluma_workflow_notifications(
-    db,
     application_settings,
     ur_instance,
     caluma_document_factory,
@@ -1448,8 +1449,8 @@ def test_post_create_caluma_workflow_notifications(
     assert send_notification_mock.call_args[0][0]["recipient_types"] == ["applicant"]
 
 
+@pytest.mark.django_db
 def test_post_complete_caluma_workflow_notifications(
-    db,
     application_settings,
     ur_instance,
     caluma_document_factory,
@@ -1487,8 +1488,8 @@ def test_post_complete_caluma_workflow_notifications(
     assert send_notification_mock.call_args[0][0]["recipient_types"] == ["applicant"]
 
 
+@pytest.mark.django_db
 def test_post_complete_caluma_workflow_notifications_for_einfache_anfrage(
-    db,
     application_settings,
     ur_instance,
     caluma_document_factory,
@@ -1537,8 +1538,8 @@ def test_post_complete_caluma_workflow_notifications_for_einfache_anfrage(
     ]
 
 
+@pytest.mark.django_db
 def test_complete_rejection_work_item(
-    db,
     caluma_admin_user,
     set_application_ur,
     mailoutbox,
@@ -1573,8 +1574,8 @@ def test_complete_rejection_work_item(
     assert ur_instance.rejection_feedback == "Test feedback"
 
 
+@pytest.mark.django_db
 def test_suspend_task_for_additional_demand(
-    db,
     set_application_ur,
     ur_instance,
     caluma_admin_user,
@@ -1606,8 +1607,8 @@ def test_suspend_task_for_additional_demand(
     assert check_gwr_relevancy_work_item.status == WorkItem.STATUS_SUSPENDED
 
 
+@pytest.mark.django_db
 def test_create_bab_work_item_ur(
-    db,
     set_application_ur,
     caluma_admin_user,
     ur_distribution_settings,
@@ -1645,8 +1646,8 @@ def test_create_bab_work_item_ur(
     assert bab_work_item.deadline
 
 
+@pytest.mark.django_db
 def test_suspend_rpg_work_item_ur(
-    db,
     set_application_ur,
     caluma_admin_user,
     ur_instance,
@@ -1670,8 +1671,8 @@ def test_suspend_rpg_work_item_ur(
     assert rpg_work_item.status == "suspended"
 
 
+@pytest.mark.django_db
 def test_resume_rpg_work_item_ur(
-    db,
     set_application_ur,
     ur_distribution_settings,
     caluma_admin_user,
@@ -1709,8 +1710,8 @@ def test_resume_rpg_work_item_ur(
     ("ignore_addressed_self", "expected"),
     [(False, 1), (True, 0)],
 )
+@pytest.mark.django_db
 def test_notify_manual_work_item_ignore_addressed_self(
-    db,
     caluma_admin_user,
     service_factory,
     gr_instance,
@@ -1776,8 +1777,8 @@ def test_notify_manual_work_item_ignore_addressed_self(
         assert mailoutbox[0].recipients()[0] == addressed_service.email
 
 
+@pytest.mark.django_db
 def test_post_resume_inquiry_ur(
-    db,
     set_application_ur,
     ur_distribution_settings,
     disable_ech0211_settings,
@@ -1835,8 +1836,8 @@ def test_post_resume_inquiry_ur(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_recalculate_deadline_by_submission(
-    db,
     caluma_admin_user,
     settings,
     ag_instance,
@@ -1897,8 +1898,8 @@ def test_recalculate_deadline_by_submission(
     assert work_item.deadline.date() == expected_deadline_after
 
 
+@pytest.mark.django_db
 def test_history_entry_when_no_recipient_ag(
-    db,
     set_application_ag,
     ag_distribution_settings,
     disable_ech0211_settings,

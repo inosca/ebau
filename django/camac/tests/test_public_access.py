@@ -77,8 +77,8 @@ def public_data(
     create_caluma_publication(be_instance)
 
 
+@pytest.mark.django_db
 def test_public_urls(
-    db,
     public_urls,
     public_data,
     admin_client,

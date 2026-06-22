@@ -15,7 +15,8 @@ from camac.dossier_import.dossier_classes import Dossier
 
 
 @pytest.mark.skip(reason="only runnable with local containers for s3 and redis")
-def test_import_from_s3(db, setup_dossier_import_ag):  # pragma: no cover
+@pytest.mark.django_db
+def test_import_from_s3(setup_dossier_import_ag):  # pragma: no cover
     DevEbauDocumentClient().initialize_infrastructure()
 
     _import_docs("Aarburg", 4271, ["EBPA-1720-6526"])

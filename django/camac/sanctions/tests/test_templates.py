@@ -10,8 +10,8 @@ from rest_framework import status
         (False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_template_creation(
-    db,
     admin_client,
     expected_status,
     group,
@@ -44,7 +44,8 @@ def test_template_creation(
     assert response.status_code == expected_status
 
 
-def test_template_list(db, admin_client, sanction_template_factory, service):
+@pytest.mark.django_db
+def test_template_list(admin_client, sanction_template_factory, service):
     sanction_template_factory()
     visible = sanction_template_factory(created_by_service=service)
 

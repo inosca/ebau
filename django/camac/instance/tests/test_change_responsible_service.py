@@ -18,8 +18,8 @@ from camac.permissions.switcher import PERMISSION_MODE
         ("invalidtype", status.HTTP_400_BAD_REQUEST),
     ],
 )
+@pytest.mark.django_db
 def test_change_responsible_service(
-    db,
     admin_client,
     admin_user,
     be_instance,
@@ -171,8 +171,8 @@ def test_change_responsible_service(
         ("involved-authority", False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_change_responsible_service_with_permission_module(
-    db,
     admin_client,
     be_instance,
     be_permissions_settings,

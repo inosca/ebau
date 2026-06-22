@@ -189,7 +189,8 @@ def instance_for_appeal_so(
     return wrapper
 
 
-def test_instance_appeal_404(db, instance, admin_client):
+@pytest.mark.django_db
+def test_instance_appeal_404(instance, admin_client):
     response = admin_client.post(reverse("instance-appeal", args=[instance.pk]))
 
     assert response.status_code == status.HTTP_404_NOT_FOUND
@@ -248,8 +249,8 @@ def test_instance_appeal_404(db, instance, admin_client):
         ),
     ],
 )
+@pytest.mark.django_db
 def test_instance_appeal(
-    db,
     active_inquiry_factory,
     admin_client,
     be_appeal_settings,
@@ -345,8 +346,8 @@ def test_instance_appeal(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_instance_appeal_so(
-    db,
     active_inquiry_factory,
     admin_client,
     so_appeal_settings,

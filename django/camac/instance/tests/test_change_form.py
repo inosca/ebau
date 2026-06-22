@@ -66,8 +66,8 @@ from camac.permissions import api as permissions_api
         ),
     ],
 )
+@pytest.mark.django_db
 def test_change_form_legacy(
-    db,
     admin_client,
     application_settings,
     caluma_admin_user,
@@ -147,8 +147,8 @@ def test_change_form_legacy(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_change_form(
-    db,
     admin_client,
     be_change_form_settings,
     be_instance,
@@ -191,8 +191,8 @@ def test_change_form(
         ("decision", status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_change_form_permissions(
-    db,
     access_level_factory,
     admin_client,
     ag_instance,
@@ -234,8 +234,9 @@ def test_change_form_permissions(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_changable_forms(
-    db, admin_client, be_instance, caluma_form_factory, change_form_settings, snapshot
+    admin_client, be_instance, caluma_form_factory, change_form_settings, snapshot
 ):
     change_form_settings["INTERCHANGEABLE_FORMS"] = [
         [

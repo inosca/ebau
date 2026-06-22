@@ -76,9 +76,9 @@ def test_instance_mark_link_to_instance(
         (lf("set_application_ag"), "test-service", 0),
     ],
 )
+@pytest.mark.django_db
 def test_instance_marks_visibility(
     app,
-    db,
     instance_mark_factory,
     service,
     expected,

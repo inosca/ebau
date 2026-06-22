@@ -17,8 +17,8 @@ from camac.utils import build_url
 DATA_DIR = Path(settings.ROOT_DIR) / "camac" / "parashift" / "tests" / "data"
 
 
+@pytest.mark.django_db
 def test_import(
-    db,
     parashift_mock,
 ):
     expected = {

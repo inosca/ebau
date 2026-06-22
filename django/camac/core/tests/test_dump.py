@@ -12,8 +12,8 @@ from camac.core.models import Resource
 
 @pytest.mark.order(1)  # Slow tests should run first
 @pytest.mark.parametrize("application", settings.APPLICATIONS.keys())
+@pytest.mark.django_db
 def test_dump_and_load(
-    db,
     application,
     request,
     resource_factory,

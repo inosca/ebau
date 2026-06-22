@@ -170,8 +170,8 @@ def test_message_retrieve(
 
 
 @pytest.mark.parametrize("invalid_last", [False, True])
+@pytest.mark.django_db
 def test_message_retrieve_204(
-    db,
     invalid_last,
     service,
     admin_client,

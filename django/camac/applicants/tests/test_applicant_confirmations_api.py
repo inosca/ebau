@@ -39,8 +39,8 @@ def mock_visibility(mocker, permissions_settings):
 
 
 @pytest.mark.parametrize("batch_size", [2, 5])
+@pytest.mark.django_db
 def test_applicant_confirmation_list(
-    db,
     admin_client,
     applicant_confirmation_factory,
     batch_size,
@@ -66,9 +66,8 @@ def test_applicant_confirmation_list(
     assert confirmation_for_request_mock.call_count == 1
 
 
-def test_applicant_confirmation_detail(
-    db, admin_client, applicant_confirmation_factory
-):
+@pytest.mark.django_db
+def test_applicant_confirmation_detail(admin_client, applicant_confirmation_factory):
     confirmation = applicant_confirmation_factory()
 
     url = reverse("applicant-confirmations-detail", args=[confirmation.pk])
@@ -94,8 +93,8 @@ def test_applicant_confirmation_detail(
 
 
 @pytest.mark.parametrize("batch_size", [2, 5])
+@pytest.mark.django_db
 def test_applicant_confirmation_round_list(
-    db,
     admin_client,
     applicant_confirmation_round_factory,
     batch_size,
@@ -140,8 +139,9 @@ def test_applicant_confirmation_round_list(
     assert len(result_with_included["included"]) == batch_size * confirmations_per_round
 
 
+@pytest.mark.django_db
 def test_applicant_confirmation_round_detail(
-    db, admin_client, applicant_confirmation_round_factory
+    admin_client, applicant_confirmation_round_factory
 ):
     round = applicant_confirmation_round_factory()
 
@@ -165,8 +165,8 @@ def test_applicant_confirmation_round_detail(
     }
 
 
+@pytest.mark.django_db
 def test_applicant_confirmation_round_create(
-    db,
     admin_client,
     applicant_confirmation_round_factory,
     caluma_document_factory,
@@ -205,8 +205,9 @@ def test_applicant_confirmation_round_create(
     assert start_mock.call_args[0][0] == document
 
 
+@pytest.mark.django_db
 def test_applicant_confirmation_confirm(
-    db, admin_client, applicant_confirmation_factory, mocker
+    admin_client, applicant_confirmation_factory, mocker
 ):
     confirmation = applicant_confirmation_factory()
     confirm_mock = mocker.patch(
@@ -223,8 +224,9 @@ def test_applicant_confirmation_confirm(
 
 
 @pytest.mark.parametrize("action", ["invalidate", "cancel"])
+@pytest.mark.django_db
 def test_applicant_confirmation_round_actions(
-    db, action, admin_client, applicant_confirmation_round_factory, mocker
+    action, admin_client, applicant_confirmation_round_factory, mocker
 ):
     round = applicant_confirmation_round_factory()
     action_mock = mocker.patch(

@@ -90,8 +90,8 @@ def so_services(service_factory, service):
         pytest.param("service-bab", [], 14, id="service-bab"),
     ],
 )
+@pytest.mark.django_db
 def test_so_distribution_services(
-    db,
     admin_client,
     conditions,
     expected_count,

@@ -9,8 +9,8 @@ from camac.instance.serializers import (
 @pytest.mark.parametrize(
     "service_group__name,role__name", [("municipality", "municipality-lead")]
 )
+@pytest.mark.django_db
 def test_init_deadline_gr(
-    db,
     admin_user,
     gr_instance,
     gr_deadlines_settings,

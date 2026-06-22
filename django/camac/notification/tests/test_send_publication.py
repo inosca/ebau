@@ -15,8 +15,8 @@ from camac.notification.tasks import (
 @pytest.mark.parametrize("is_published", [False, True])
 @pytest.mark.parametrize("used_workitem_id", [None, "current", "other"])
 @pytest.mark.parametrize("has_publication_start_config", [False, True])
+@pytest.mark.django_db
 def test_notify_publication_start(
-    db,
     caluma_admin_user,
     instance,
     caluma_work_item_factory,
@@ -166,8 +166,8 @@ def test_notify_publication_start(
         [True, True, True, True, True, True, 1],
     ],
 )
+@pytest.mark.django_db
 def test_send_notification_for_publication_end_legal_submissions(
-    db,
     caluma_admin_user,
     instance,
     caluma_case_factory,

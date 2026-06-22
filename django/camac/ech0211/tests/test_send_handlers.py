@@ -745,8 +745,8 @@ def test_close_dossier_send_handler(
         ("same_service", False),
     ],
 )
+@pytest.mark.django_db
 def test_task_send_handler(
-    db,
     admin_user,
     be_distribution_settings,
     caluma_admin_user,
@@ -876,8 +876,8 @@ def test_task_send_handler(
             handler.apply()
 
 
+@pytest.mark.django_db
 def test_task_send_handler_gr_skips_formal_exam(
-    db,
     admin_user,
     caluma_admin_user,
     ech_instance_gr,
@@ -972,9 +972,9 @@ def test_task_send_handler_no_permission(
 @pytest.mark.parametrize(
     "access_level__slug", ["distribution-service", "lead-authority"]
 )
+@pytest.mark.django_db
 def test_task_send_claim_handler(
     rf,
-    db,
     set_application_gr,
     admin_user,
     caluma_admin_user,
@@ -1141,8 +1141,8 @@ def test_task_send_claim_handler(
     "has_permission,document_backend",
     [(True, "alexandria"), (True, "camac-ng"), (False, "camac-ng")],
 )
+@pytest.mark.django_db
 def test_kind_of_proceedings_send_handler(
-    db,
     admin_user,
     attachment_factory,
     attachment_section_factory,
@@ -1259,8 +1259,8 @@ def test_kind_of_proceedings_send_handler(
         (True, True, "alexandria", False),
     ),
 )
+@pytest.mark.django_db
 def test_accompanying_report_send_handler(
-    db,
     active_inquiry_factory,
     admin_user,
     attachment_factory,
@@ -1479,8 +1479,8 @@ def test_get_instance_id_error(admin_user, group, caluma_admin_user):
         ("service-lead", False, False, "submit", False),
     ],
 )
+@pytest.mark.django_db
 def test_submit_send_handler(
-    db,
     role,
     settings,
     gr_ech0211_settings,

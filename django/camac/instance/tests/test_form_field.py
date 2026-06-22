@@ -425,7 +425,8 @@ def test_form_field_side_effect_history_entry(
     "role__name",
     [("Municipality"), ("Service"), ("Applicant"), ("Public")],
 )
-def test_form_field_scrubbing(db, mocker, form_field, group, role, set_application_sz):
+@pytest.mark.django_db
+def test_form_field_scrubbing(mocker, form_field, group, role, set_application_sz):
     is_public = role.name == "Public"
 
     if is_public:

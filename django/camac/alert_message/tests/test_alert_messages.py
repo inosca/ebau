@@ -23,8 +23,8 @@ from rest_framework import status
         ),
     ],
 )
+@pytest.mark.django_db
 def test_alert_messages_show_filter(
-    db,
     admin_client,
     alert_message_factory,
     alert_message_list,
@@ -42,7 +42,8 @@ def test_alert_messages_show_filter(
 
 
 @pytest.mark.freeze_time("2025-05-19T12:00:00Z")
-def test_alert_messages_date_filter(db, admin_client, alert_message_factory, snapshot):
+@pytest.mark.django_db
+def test_alert_messages_date_filter(admin_client, alert_message_factory, snapshot):
     """Test the alert messages filtering by date range."""
     # alert message from the past (should be filtered out)
     alert_message_factory(

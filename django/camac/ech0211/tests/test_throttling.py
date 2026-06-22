@@ -18,8 +18,8 @@ from camac.user.models import Group, UserGroup
         ({"group": 2}, status.HTTP_204_NO_CONTENT, status.HTTP_429_TOO_MANY_REQUESTS),
     ],
 )
+@pytest.mark.django_db
 def test_message_throttling(
-    db,
     service,
     admin_client,
     admin_user,

@@ -4,8 +4,8 @@ from camac.billing.models import BillingV2Entry
 
 
 @pytest.mark.parametrize("canton", ["be", "sz", "so"])
+@pytest.mark.django_db
 def test_billing_entry_manager(
-    db,
     application_settings,
     billing_v2_entry_factory,
     canton,
@@ -51,8 +51,8 @@ def test_billing_entry_manager(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_billing_entry_manager_ag(
-    db,
     application_settings,
     billing_v2_entry_factory,
     expected,

@@ -15,8 +15,8 @@ from rest_framework import status
         (False, False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_sanction_controlling(
-    db,
     action,
     admin_client,
     expected_status,
@@ -64,8 +64,8 @@ def test_sanction_controlling(
         (True, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_controlled_sanction_modification(
-    db,
     admin_client,
     expected_status,
     group,

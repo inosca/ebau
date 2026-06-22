@@ -19,8 +19,8 @@ from camac.tests.form_utils import FormUtils
         ("applicant", "applicant"),
     ],
 )
+@pytest.mark.django_db
 def test_update_deadline_no_access(
-    db,
     service,
     gr_instance,
     gr_permissions_settings,
@@ -55,8 +55,8 @@ def test_update_deadline_no_access(
         ("vorlaeufige-beurteilung-v1", 0),
     ],
 )
+@pytest.mark.django_db
 def test_create_deadline_form_type_gr(
-    db,
     service,
     gr_instance,
     form_slug,
@@ -98,8 +98,8 @@ def test_create_deadline_form_type_gr(
         (ARE_SERVICE_GROUP, "service-lead"),
     ],
 )
+@pytest.mark.django_db
 def test_update_deadline(
-    db,
     service,
     service_group,
     service_factory,
@@ -135,8 +135,8 @@ def test_update_deadline(
 
 @pytest.mark.freeze_time("2025-05-28")
 @pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.django_db
 def test_update_deadline_instance_meta(
-    db,
     gr_instance,
     service,
     service_factory,
@@ -261,8 +261,8 @@ def test_update_deadline_instance_meta(
         ("baugesuch", False, True, None, "2025-05-01", True, True, "2025-05-01"),
     ],
 )
+@pytest.mark.django_db
 def test_update_deadline_startdate_gr(
-    db,
     gr_instance,
     service,
     instance_deadline_factory,
@@ -376,8 +376,8 @@ def test_update_deadline_startdate_gr(
         (False, None, "2025-05-01", "2025-05-01"),
     ],
 )
+@pytest.mark.django_db
 def test_update_deadline_startdate_ag(
-    db,
     ag_instance,
     service,
     instance_deadline_factory,
@@ -548,8 +548,8 @@ def test_update_deadline_startdate_ag(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_update_deadline_progression_responsible_gr(
-    db,
     gr_instance,
     service,
     suspension_factory,
@@ -629,8 +629,8 @@ def test_update_deadline_progression_responsible_gr(
         ("2025-02-14", "2025-02-14", "2025-02-14"),
     ],
 )
+@pytest.mark.django_db
 def test_update_deadline_progression_service_gr(
-    db,
     gr_instance,
     service,
     suspension_factory,
@@ -750,8 +750,8 @@ def test_update_deadline_progression_service_gr(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_update_deadline_progression_days_gr(
-    db,
     gr_instance,
     service,
     instance_deadline_factory,
@@ -806,8 +806,8 @@ def test_update_deadline_progression_days_gr(
         ("service-afb", "service-lead", False, False),
     ],
 )
+@pytest.mark.django_db
 def test_update_deadline_enddate_ag(
-    db,
     ag_instance,
     service,
     instance_deadline_factory,
@@ -916,8 +916,8 @@ def test_update_deadline_enddate_ag(
 @pytest.mark.parametrize(
     "service_group__name,role__name", [("municipality", "municipality-lead")]
 )
+@pytest.mark.django_db
 def test_deadlines_deadline_type_manager(
-    db,
     deadline_type_factory,
     service_factory,
     service_group_factory,

@@ -28,8 +28,8 @@ from camac.instance.utils import (
         ),
     ],
 )
+@pytest.mark.django_db
 def test_set_construction_control(
-    db,
     be_instance,
     caluma_admin_user,
     multilang,
@@ -142,8 +142,8 @@ def test_set_construction_control(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_deactivated_municipality(
-    db,
     be_instance,
     service_factory,
     instance_service_factory,

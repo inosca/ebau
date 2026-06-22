@@ -19,8 +19,8 @@ from django.core.management import call_command
         ("foo@example.com", True, "bar@example.com", 0, "seconduser@example.org"),
     ],
 )
+@pytest.mark.django_db
 def test_user_email_to_service(
-    db,
     user,
     two_users,
     user_factory,

@@ -25,8 +25,8 @@ _other = lf("some_other_user")
         ("Applicant", status.HTTP_201_CREATED),
     ],
 )
+@pytest.mark.django_db
 def test_create_topic(
-    db,
     be_instance,
     admin_client,
     expect_status,
@@ -95,14 +95,16 @@ _attachment = lf("communications_attachment")
         (_attachment, "communications-attachment-detail"),
     ],
 )
-def test_rejected_access(db, be_instance, admin_client, role, obj, url):
+@pytest.mark.django_db
+def test_rejected_access(be_instance, admin_client, role, obj, url):
     url = reverse(url, args=[obj.pk])
     resp = admin_client.get(url)
     assert resp.status_code == status.HTTP_404_NOT_FOUND
 
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant", "Service"])
-def test_rejected_create_topic(db, be_instance, admin_client, role):
+@pytest.mark.django_db
+def test_rejected_create_topic(be_instance, admin_client, role):
     """Test whether we can create a topic where we shouldn't be allowed."""
     url = reverse("communications-topic-list")
     if role.name != "Applicant":
@@ -134,8 +136,8 @@ def test_rejected_create_topic(db, be_instance, admin_client, role):
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize("forge_entity", [False, True])
+@pytest.mark.django_db
 def test_rejected_create_topic_on_unsubmitted_instance(
-    db,
     applicant_factory,
     instance_factory,
     service_factory,
@@ -189,9 +191,8 @@ def test_rejected_create_topic_on_unsubmitted_instance(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
-def test_rejected_create_message(
-    db, be_instance, admin_client, role, communications_topic
-):
+@pytest.mark.django_db
+def test_rejected_create_message(be_instance, admin_client, role, communications_topic):
     """Test whether we can create a message where we shouldn't be allowed."""
     url = reverse("communications-message-list")
     resp = admin_client.post(
@@ -220,7 +221,8 @@ def test_rejected_create_message(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize("method", ["delete", "patch"])
-def test_message_unallowed_methods(db, admin_client, communications_message, method):
+@pytest.mark.django_db
+def test_message_unallowed_methods(admin_client, communications_message, method):
     url = reverse("communications-message-detail", args=[communications_message.pk])
     response = getattr(admin_client, method)(url)
 
@@ -229,8 +231,8 @@ def test_message_unallowed_methods(db, admin_client, communications_message, met
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize("method", ["post", "patch"])
+@pytest.mark.django_db
 def test_attachment_unallowed_methods(
-    db,
     admin_client,
     communications_attachment,
     method,
@@ -273,8 +275,8 @@ def some_other_user(user_factory):
     ],
 )
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
+@pytest.mark.django_db
 def test_adding_message_with_allow_replies(
-    db,
     be_instance,
     admin_client,
     communications_message_factory,
@@ -345,8 +347,8 @@ def test_adding_message_with_allow_replies(
         ("Applicant", True, False, HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_permission_convert_attachment_to_document_acl(
-    db,
     be_instance,
     role,
     admin_client,
@@ -452,8 +454,8 @@ def test_permission_convert_attachment_to_document_acl(
         ("Support", False, HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_permission_convert_attachment_to_document_rbac(
-    db,
     be_instance,
     role,
     admin_client,
@@ -533,8 +535,8 @@ def test_permission_convert_attachment_to_document_rbac(
         ("Applicant", False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_permission_create_topic_acl(
-    db,
     be_instance,
     admin_client,
     expect_status,
@@ -599,8 +601,8 @@ def test_permission_create_topic_acl(
         ("Support", status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_permission_create_topic_rbac(
-    db,
     be_instance,
     admin_client,
     expect_status,
@@ -651,8 +653,8 @@ def test_permission_create_topic_rbac(
         ("Support", True, status.HTTP_200_OK),
     ],
 )
+@pytest.mark.django_db
 def test_permission_mark_as_read_acl(
-    db,
     admin_client,
     role,
     access_level,
@@ -704,8 +706,8 @@ def test_permission_mark_as_read_acl(
         ("Support", status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_permission_mark_as_read_rbac(
-    db,
     admin_client,
     role,
     communications_message,
@@ -741,8 +743,8 @@ def test_permission_mark_as_read_rbac(
         ("Applicant", False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_permission_mark_as_unread_acl(
-    db,
     admin_client,
     role,
     communications_message,
@@ -799,8 +801,8 @@ def test_permission_mark_as_unread_acl(
         ("Applicant", status.HTTP_200_OK),
     ],
 )
+@pytest.mark.django_db
 def test_permission_mark_as_unread_rbac(
-    db,
     admin_client,
     role,
     communications_message,
@@ -843,8 +845,8 @@ def test_permission_mark_as_unread_rbac(
         ("Support", False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_permission_create_message_acl(
-    db,
     be_instance,
     admin_client,
     role,
@@ -913,8 +915,8 @@ def test_permission_create_message_acl(
         ("Support", status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_permission_create_message_rbac(
-    db,
     be_instance,
     admin_client,
     role,
@@ -969,8 +971,8 @@ def test_permission_create_message_rbac(
         ("Applicant", False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_permission_delete_attachment_acl(
-    db,
     admin_user,
     admin_client,
     role,
@@ -1026,8 +1028,8 @@ def test_permission_delete_attachment_acl(
         ("Applicant", status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_permission_delete_attachment_rbac(
-    db,
     admin_user,
     admin_client,
     role,

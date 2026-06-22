@@ -46,9 +46,8 @@ def test_get_lot(rf, has_token, has_lot, expected_value, mocker):
         ("municipality", None, status.HTTP_200_OK),
     ],
 )
-def test_require_lot_permission(
-    db, admin_client, expected_status, lot, mocker, role_name
-):
+@pytest.mark.django_db
+def test_require_lot_permission(admin_client, expected_status, lot, mocker, role_name):
     mocker.patch("camac.token_exchange.permissions.get_lot", return_value=lot)
     mocker.patch(
         "camac.token_exchange.permissions.is_exchanged_token", return_value=True
@@ -74,8 +73,9 @@ def test_require_lot_permission(
         ("municipality", None, False),
     ],
 )
+@pytest.mark.django_db
 def test_require_lot_permission_graphql(
-    db, admin_user, expect_error, group, lot, mocker, rf, role_name, settings
+    admin_user, expect_error, group, lot, mocker, rf, role_name, settings
 ):
     mocker.patch(
         "caluma.caluma_user.views.AuthenticationGraphQLView.get_userinfo",

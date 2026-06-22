@@ -8,8 +8,8 @@ from caluma.caluma_workflow.models import Case, Task, WorkItem
 from camac.instance.models import HistoryActionConfig
 
 
+@pytest.mark.django_db
 def test_additonal_demand(
-    db,
     additional_demand_settings,
     instance,
     caluma_admin_user,
@@ -54,8 +54,8 @@ def test_additonal_demand(
 
 
 @pytest.mark.parametrize("decision", ["REJECTED", "ACCEPTED"])
+@pytest.mark.django_db
 def test_additonal_demand_check_notification(
-    db,
     gr_additional_demand_settings,
     caluma_answer_factory,
     caluma_case_factory,
@@ -127,8 +127,8 @@ def test_additonal_demand_check_notification(
         assert history_entry == "Test rejected"
 
 
+@pytest.mark.django_db
 def test_additional_demand_fill_notification_be(
-    db,
     be_additional_demand_settings,
     application_settings,
     caluma_admin_user,

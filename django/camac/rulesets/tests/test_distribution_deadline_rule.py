@@ -9,8 +9,8 @@ from camac.rulesets.models import DistributionDeadlineRule
 
 
 @pytest.mark.freeze_time("2025-07-20")
+@pytest.mark.django_db
 def test_get_default_deadline_for_inquiry(
-    db,
     ag_rulesets_settings,
     distribution_deadline_rule_factory,
     caluma_work_item_factory,
@@ -57,8 +57,8 @@ def test_get_default_deadline_for_inquiry(
         ("service-afb", 3, date(2025, 7, 30), date(2025, 8, 5)),
     ],
 )
+@pytest.mark.django_db
 def test_get_deadline(
-    db,
     ag_rulesets_settings,
     distribution_deadline_rule_factory,
     expected_deadline,
@@ -84,8 +84,8 @@ def test_get_deadline(
         ("Applicant", 0),
     ],
 )
+@pytest.mark.django_db
 def test_distribution_deadline_rule_list(
-    db,
     admin_client,
     ag_rulesets_settings,
     distribution_deadline_rule_factory,
@@ -133,8 +133,8 @@ def test_distribution_deadline_rule_list(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_distribution_deadline_rule_create(
-    db,
     admin_client,
     ag_distribution_settings,
     ag_rulesets_settings,
@@ -191,8 +191,8 @@ def test_distribution_deadline_rule_create(
         ("municipality-lead", status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_distribution_deadline_rule_update(
-    db,
     admin_client,
     ag_distribution_settings,
     ag_rulesets_settings,
@@ -236,8 +236,8 @@ def test_distribution_deadline_rule_update(
         ("municipality-lead", status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_distribution_deadline_rule_delete(
-    db,
     admin_client,
     ag_distribution_settings,
     ag_rulesets_settings,

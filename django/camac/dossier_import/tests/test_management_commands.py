@@ -16,8 +16,8 @@ from camac.dossier_import.tests.test_dossier_import_case import (
 
 @pytest.mark.parametrize("config", ["kt_schwyz"])
 @pytest.mark.order(1)  # Slow tests should run first
+@pytest.mark.django_db
 def test_import_dossiers_exceptions(
-    db,
     settings,
     config,
     setup_dossier_writer,
@@ -51,8 +51,8 @@ def test_import_dossiers_exceptions(
     ],
 )
 @pytest.mark.order(1)  # Slow tests should run first
+@pytest.mark.django_db
 def test_import_dossiers_manage_command(
-    db,
     settings,
     config,
     setup_dossier_writer,
@@ -94,7 +94,8 @@ def test_import_dossiers_manage_command(
 
 
 @pytest.mark.parametrize("config", ["kt_schwyz"])
-def test_validate_dossiers_manage_command(db, settings, setup_dossier_writer, config):
+@pytest.mark.django_db
+def test_validate_dossiers_manage_command(settings, setup_dossier_writer, config):
     writer = setup_dossier_writer(config)
     out = StringIO()
     call_command(
@@ -108,8 +109,8 @@ def test_validate_dossiers_manage_command(db, settings, setup_dossier_writer, co
     )
 
 
+@pytest.mark.django_db
 def test_mark_work_items_for_imported_dossiers_manage_command(
-    db,
     settings,
     so_instance,
     caluma_work_item_factory,

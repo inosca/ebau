@@ -1,8 +1,10 @@
+import pytest
 from django.urls import reverse
 from rest_framework import status
 
 
-def test_application_type_list(db, admin_client, caluma_form_factory, snapshot):
+@pytest.mark.django_db
+def test_application_type_list(admin_client, caluma_form_factory, snapshot):
     caluma_form_factory(is_published=False, meta={"is-main-form": True})
     caluma_form_factory(is_published=True)
 

@@ -1,10 +1,11 @@
+import pytest
 from django.core.management import call_command
 
 from camac.user.models import Group, Service
 
 
+@pytest.mark.django_db
 def test_migrate_gemeinderat_services(
-    db,
     service_factory,
     service_group_factory,
     group_factory,

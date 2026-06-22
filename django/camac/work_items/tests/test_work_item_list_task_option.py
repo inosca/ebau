@@ -135,8 +135,8 @@ def template_setup(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_get_task_options(
-    db,
     expected,
     group,
     include_count,
@@ -193,8 +193,8 @@ def test_get_task_options(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_get_template_options(
-    db,
     expected,
     group,
     include_count,
@@ -222,8 +222,8 @@ def test_get_template_options(
 @pytest.mark.parametrize(
     "role__name,service_group__name", [("Municipality", "municipality")]
 )
+@pytest.mark.django_db
 def test_work_item_list_task_option_list(
-    db,
     admin_client,
     django_assert_num_queries,
     snapshot,

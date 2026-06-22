@@ -52,8 +52,8 @@ def test_category_permission_view_without_instance(admin_client):
 
 
 @pytest.mark.parametrize("by", ["category", "access_level"])
+@pytest.mark.django_db
 def test_alexandria_permissions_debugger_view(
-    db,
     access_level_factory,
     alexandria_category_factory,
     alexandria_mark_factory,

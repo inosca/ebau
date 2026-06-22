@@ -1,8 +1,10 @@
+import pytest
+
 from camac.notification.utils import send_mail_without_instance
 
 
+@pytest.mark.django_db
 def test_recipient_unanswered_inquiries(
-    db,
     notification_template_factory,
     mailoutbox,
     settings,

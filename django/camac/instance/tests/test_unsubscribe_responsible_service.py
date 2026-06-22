@@ -16,8 +16,8 @@ from camac.permissions.switcher import PERMISSION_MODE
         ("support", 0, status.HTTP_204_NO_CONTENT),
     ],
 )
+@pytest.mark.django_db
 def test_unsubscribe_responsible_service(
-    db,
     application_settings,
     admin_client,
     be_instance,
@@ -88,8 +88,8 @@ def test_unsubscribe_responsible_service(
         ("Support", "construction-control", 2),
     ],
 )
+@pytest.mark.django_db
 def test_unsubscribe_responsible_service_removes_correct_services(
-    db,
     admin_client,
     be_instance,
     application_settings,
@@ -147,8 +147,8 @@ def test_unsubscribe_responsible_service_removes_correct_services(
         ("involved-authority", status.HTTP_204_NO_CONTENT),
     ],
 )
+@pytest.mark.django_db
 def test_unsubscribe_responsible_service_with_permission_module(
-    db,
     admin_client,
     be_instance,
     be_permissions_settings,

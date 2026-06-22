@@ -6,8 +6,8 @@ from camac.timelines.models import FormTimeline
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_form_timelines_list(
-    db,
     admin_client,
     form_timeline_factory,
     instance_factory,
@@ -65,8 +65,8 @@ def test_form_timelines_list(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_form_timelines_list_missing_annotate(
-    db,
     admin_client,
     form_timeline_factory,
     caluma_case_factory,
@@ -98,8 +98,8 @@ def test_form_timelines_list_missing_annotate(
         response = admin_client.get(url)
 
 
+@pytest.mark.django_db
 def test_formtimeline_manager(
-    db,
     caluma_work_item_factory,
     caluma_case_factory,
     caluma_task_factory,

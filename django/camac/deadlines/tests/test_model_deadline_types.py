@@ -16,8 +16,8 @@ from camac.constants.kt_gr import ARE_SERVICE_GROUP
         ("lead-authority", "service-lead", ARE_SERVICE_GROUP, 3),
     ],
 )
+@pytest.mark.django_db
 def test_deadline_types_list_gr(
-    db,
     admin_client,
     service_factory,
     service,
@@ -81,8 +81,8 @@ def test_deadline_types_list_gr(
         (None, 7),
     ],
 )
+@pytest.mark.django_db
 def test_deadline_types_list_instance_gr(
-    db,
     admin_client,
     service_factory,
     service,
@@ -157,8 +157,8 @@ def test_deadline_types_list_instance_gr(
         ("Type C ", 1),
     ],
 )
+@pytest.mark.django_db
 def test_deadline_types_filters(
-    db,
     gr_deadlines_settings,
     admin_client,
     deadline_type_factory,

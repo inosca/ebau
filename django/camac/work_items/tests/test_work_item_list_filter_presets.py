@@ -71,8 +71,8 @@ def test_work_item_filter_preset_list(
         ("Municipality", False, False, {"template-1", "template-2"}),
     ],
 )
+@pytest.mark.django_db
 def test_included_in_preset_filter(
-    db,
     admin_client,
     work_item_template_factory,
     work_item_list_filter_preset_factory,
@@ -100,8 +100,8 @@ def test_included_in_preset_filter(
     assert set([e["attributes"]["name"] for e in data]) == expected_names
 
 
+@pytest.mark.django_db
 def test_preset_tasks(
-    db,
     fake_request,
     work_item_list_filter_preset_factory,
     caluma_task_factory,
@@ -121,8 +121,8 @@ def test_preset_tasks(
     assert list(serializer.get_tasks(preset)) == []
 
 
+@pytest.mark.django_db
 def test_preset_excluded_tasks(
-    db,
     fake_request,
     work_item_list_filter_preset_factory,
     caluma_task_factory,
@@ -143,8 +143,8 @@ def test_preset_excluded_tasks(
     assert list(serializer.get_excluded_tasks(preset)) == []
 
 
+@pytest.mark.django_db
 def test_preset_excluded_work_item_templates(
-    db,
     fake_request,
     work_item_list_filter_preset_factory,
     work_item_template_factory,

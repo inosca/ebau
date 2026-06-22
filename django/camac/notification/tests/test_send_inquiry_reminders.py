@@ -7,8 +7,8 @@ from django.utils import timezone
 
 @pytest.mark.freeze_time("2022-11-30T17:00:00.123456+00:00")
 @pytest.mark.parametrize("instance_state__name", ["circulation"])
+@pytest.mark.django_db
 def test_send_inquiry_reminders(
-    db,
     be_instance,
     active_inquiry_factory,
     notification_template,

@@ -7,7 +7,8 @@ from camac.permissions import api as permissions_api
 
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
-def test_billing_entry_charge(db, admin_client, billing_v2_entry_factory, instance):
+@pytest.mark.django_db
+def test_billing_entry_charge(admin_client, billing_v2_entry_factory, instance):
     billing_v2_entries = billing_v2_entry_factory.create_batch(5, instance=instance)
     entry_ids = [entry.pk for entry in billing_v2_entries]
     url = reverse("billing-v2-entry-charge-bulk")
@@ -34,8 +35,8 @@ def test_billing_entry_charge(db, admin_client, billing_v2_entry_factory, instan
         ("different_instances", status.HTTP_400_BAD_REQUEST),
     ],
 )
+@pytest.mark.django_db
 def test_billing_entry_charge_validation(
-    db,
     admin_client,
     mocker,
     service_factory,
@@ -124,8 +125,8 @@ def test_billing_entry_charge_validation(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_billing_entry_charge_permissions(
-    db,
     access_level_factory,
     admin_client,
     ag_instance,

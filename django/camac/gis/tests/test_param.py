@@ -29,8 +29,9 @@ def param_data_source(gis_data_source_factory, caluma_question_factory):
     )
 
 
+@pytest.mark.django_db
 def test_param_client(
-    db, admin_client, param_data_source, gis_snapshot, celery_fake_worker
+    admin_client, param_data_source, gis_snapshot, celery_fake_worker
 ):
     response = admin_client.get(
         reverse("gis-data"), data={"x": 2607160.642708333, "y": 1228434.884375}
@@ -50,7 +51,8 @@ def test_param_client(
     assert response.json() == gis_snapshot
 
 
-def test_required_params(db, admin_client, gis_data_source_factory):
+@pytest.mark.django_db
+def test_required_params(admin_client, gis_data_source_factory):
     gis_data_source_factory(
         client=GISDataSource.CLIENT_PARAM,
         config=[

@@ -8,7 +8,8 @@ from camac.instance.serializers import (
 from camac.tests.form_utils import FormUtils
 
 
-def test_rejection_feedback(db, instance_factory):
+@pytest.mark.django_db
+def test_rejection_feedback(instance_factory):
     instance = instance_factory(rejection_feedback="Test")
     serializer = CalumaInstanceSerializer()
 
@@ -30,8 +31,8 @@ def test_rejection_feedback(db, instance_factory):
         ("bgbb", str(uri_constants.KOOR_AFG_AUTHORITY_ID)),
     ],
 )
+@pytest.mark.django_db
 def test_get_authority(
-    db,
     ur_instance,
     form_slug,
     caluma_answer_factory,
@@ -72,8 +73,8 @@ def test_get_authority(
         ("einfache-anfrage", "KOOR_NP_SERVICE_ID", None),
     ],
 )
+@pytest.mark.django_db
 def test_ur_get_responsible_service(
-    db,
     ur_instance,
     form_slug,
     service_name,
@@ -146,8 +147,8 @@ def test_ur_get_responsible_service(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_send_notifications_gr(
-    db,
     instance_factory,
     caluma_case_factory,
     form_slug,
@@ -169,8 +170,8 @@ def test_send_notifications_gr(
     ) == set(expected_notifications)
 
 
+@pytest.mark.django_db
 def test_close_form_timelines(
-    db,
     instance_factory,
     caluma_case_factory,
     form_timeline_factory,

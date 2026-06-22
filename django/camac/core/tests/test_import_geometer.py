@@ -7,8 +7,8 @@ from camac.user.models import ServiceRelation
 
 @pytest.mark.parametrize("do_clear_relations", [True, False])
 @pytest.mark.parametrize("do_disable_geometers", [True, False])
+@pytest.mark.django_db
 def test_import_geometer(
-    db,
     service_factory,
     service_group_factory,
     tmpdir,
@@ -19,7 +19,6 @@ def test_import_geometer(
     application_settings,
     multilang,
 ):
-
     # load data including test data
     some_municipality = service_factory(
         trans__name="Leitbehörde Testiswil",

@@ -1,10 +1,13 @@
 import importlib
 
+import pytest
+
 from camac.instance.models import FormField
 
 
+@pytest.mark.django_db
 def test_fix_sz_false_coordinate_values(
-    db, instance_factory, form_field_factory, set_application_sz
+    instance_factory, form_field_factory, set_application_sz
 ):
     field_name = "punkte"
     fix_me = instance_factory()

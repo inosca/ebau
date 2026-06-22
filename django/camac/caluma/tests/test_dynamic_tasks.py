@@ -94,8 +94,8 @@ from camac.tests.form_utils import FormUtils
         ),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_after_decision(
-    db,
     caluma_admin_user,
     decision_factory,
     decision_type,
@@ -193,8 +193,8 @@ def test_dynamic_task_after_decision(
         (True, False, False, []),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_after_decision_with_check_prevent_submit(
-    db,
     mocker,
     application_settings,
     be_instance,
@@ -267,9 +267,9 @@ def test_dynamic_task_after_decision_with_check_prevent_submit(
         (False, False, "vorlaeufige-beurteilung-v3", []),
     ],
 )
+@pytest.mark.django_db
 def test_after_decision_gr(
     mocker,
-    db,
     set_application_gr,
     gr_construction_monitoring_settings,
     gr_instance,
@@ -309,8 +309,8 @@ def test_after_decision_gr(
         (False, False, False, {"complete-instance"}),
     ],
 )
+@pytest.mark.django_db
 def test_after_decision_ag(
-    db,
     active_inquiry_factory,
     afb_answered,
     afb_skipped,
@@ -352,8 +352,8 @@ def test_after_decision_ag(
     "is_lead_authority",
     [False, True],
 )
+@pytest.mark.django_db
 def test_dynamic_task_after_inquiries_completed(
-    db,
     caluma_admin_user,
     distribution_child_case_be,  # noqa: F811
     be_distribution_settings,
@@ -462,8 +462,8 @@ def test_dynamic_task_after_inquiries_completed(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_after_ebau_number(
-    db,
     caluma_admin_user,
     expected_tasks,
     is_appeal,
@@ -532,8 +532,8 @@ def test_dynamic_task_after_ebau_number(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_after_submit(
-    db,
     caluma_admin_user,
     expected_tasks,
     is_appeal,
@@ -573,8 +573,8 @@ def test_dynamic_task_after_submit(
         ("REJECTED", {"fill-additional-demand"}),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_after_check_additional_demand(
-    db,
     additional_demand_settings,
     caluma_answer_factory,
     decision,
@@ -607,8 +607,8 @@ def test_dynamic_task_after_check_additional_demand(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_resume_check_gwr_relevancy_work_item(
-    db,
     additional_demand_settings,
     decision_slug,
     work_item_status,
@@ -650,8 +650,8 @@ def test_dynamic_task_resume_check_gwr_relevancy_work_item(
         (["1", "2"], ["1"], True),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_after_create_inquiry(
-    db,
     additional_demand_settings,
     distribution_settings,
     caluma_work_item_factory,
@@ -706,8 +706,8 @@ def test_dynamic_task_after_create_inquiry(
         ("meldung-pv", "material-exam", False, False, ["distribution"]),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_after_exam(
-    db,
     caluma_answer_factory,
     expected_tasks,
     has_rejection_answer,
@@ -752,8 +752,8 @@ def test_dynamic_task_after_exam(
         (False, []),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_after_check_sb2(
-    db,
     caluma_answer_factory,
     expected_tasks,
     perform_cadastral_survey,
@@ -802,8 +802,8 @@ def test_dynamic_task_after_check_sb2(
         ("entscheid-beurteilung-nicht-bewilligt", "fuer-gwr-relevant-nein", []),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_gwr_relevancy_after_decision_ur(
-    db,
     caluma_work_item_factory,
     caluma_document_factory,
     caluma_question_factory,
@@ -853,8 +853,8 @@ def test_dynamic_task_gwr_relevancy_after_decision_ur(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_geometer_after_decision_ur(
-    db,
     caluma_work_item_factory,
     caluma_document_factory,
     caluma_answer_factory,
@@ -895,8 +895,8 @@ def test_dynamic_task_geometer_after_decision_ur(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_after_complete_construction_monitoring_ur(
-    db,
     caluma_case_factory,
     caluma_work_item_factory,
     caluma_document_factory,
@@ -975,8 +975,8 @@ def test_after_complete_construction_monitoring_ur(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_after_complete_check_ur(
-    db,
     caluma_work_item_factory,
     caluma_document_factory,
     caluma_question_factory,
@@ -1100,8 +1100,8 @@ def test_dynamic_task_after_complete_check_ur(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_after_construction_step(
-    db,
     caluma_admin_user,
     previous_task,
     expected_tasks,
@@ -1154,8 +1154,8 @@ def test_dynamic_task_after_construction_step(
         ("baugesuch", ["distribution", "fill-publication", "publication"]),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_after_formal_exam(
-    db,
     caluma_work_item_factory,
     gr_instance,
     gr_publication_settings,
@@ -1198,8 +1198,8 @@ def test_dynamic_task_after_formal_exam(
         ([], "some-other-answer"),
     ],
 )
+@pytest.mark.django_db
 def test_after_complete_instance(
-    db,
     caluma_admin_user,
     caluma_work_item_factory,
     caluma_document_factory,
@@ -1228,8 +1228,8 @@ def test_after_complete_instance(
         ([], "some-other-answer"),
     ],
 )
+@pytest.mark.django_db
 def test_construction_control(
-    db,
     caluma_admin_user,
     caluma_work_item_factory,
     caluma_document_factory,
@@ -1263,8 +1263,8 @@ def test_construction_control(
         ([], "some-other-answer", "yet-another-one"),
     ],
 )
+@pytest.mark.django_db
 def test_after_schnurgeruestabnahme_kontrollieren_uri(
-    db,
     caluma_admin_user,
     ur_instance,
     notification_template,
@@ -1303,8 +1303,8 @@ def test_after_schnurgeruestabnahme_kontrollieren_uri(
         (False, "not-necessary", ["construction-step-gwr-state-demolition"]),
     ],
 )
+@pytest.mark.django_db
 def test_after_gebaeudeabbruch_melden(
-    db,
     caluma_admin_user,
     work_item_exists,
     gwr_answer,
@@ -1349,8 +1349,8 @@ def test_after_gebaeudeabbruch_melden(
         (False, "not-necessary", ["construction-step-gwr-state-construction-start"]),
     ],
 )
+@pytest.mark.django_db
 def test_after_baubeginn_melden(
-    db,
     caluma_admin_user,
     work_item_exists,
     gwr_answer,
@@ -1391,8 +1391,8 @@ def test_after_baubeginn_melden(
         (False, "not-necessary", ["construction-step-gwr-state-building"]),
     ],
 )
+@pytest.mark.django_db
 def test_after_schlussabnahme_gebaeude(
-    db,
     caluma_admin_user,
     work_item_exists,
     gwr_answer,
@@ -1433,8 +1433,8 @@ def test_after_schlussabnahme_gebaeude(
         (False, "not-necessary", ["open-gwr-construction-project"]),
     ],
 )
+@pytest.mark.django_db
 def test_after_check_gwr_relevancy(
-    db,
     caluma_admin_user,
     work_item_exists,
     gwr_answer,
@@ -1497,8 +1497,8 @@ def test_after_check_gwr_relevancy(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_maybe_publication(
-    db,
     ag_instance,
     ag_master_data_settings,
     caluma_admin_user,
@@ -1589,8 +1589,9 @@ def test_dynamic_task_maybe_publication(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_dynamic_task_after_submit_ag(
-    db, ag_instance, application_settings, caluma_admin_user, expected_tasks, form_slug
+    ag_instance, application_settings, caluma_admin_user, expected_tasks, form_slug
 ):
     application_settings["SHORT_NAME"] = "ag"
 
@@ -1615,8 +1616,8 @@ def test_dynamic_task_after_submit_ag(
         ("inquiry-answer-status-positive", False, False, False),
     ],
 )
+@pytest.mark.django_db
 def test_resolve_maybe_trigger_billing(
-    db,
     ag_instance,
     ag_distribution_settings,
     service_factory,
@@ -1679,8 +1680,8 @@ def test_resolve_maybe_trigger_billing(
 
 
 @pytest.mark.parametrize("can_continue, expected_index", [(True, 2), (False, 0)])
+@pytest.mark.django_db
 def test_resolve_after_construction_step_item(
-    db,
     caluma_task_factory,
     caluma_work_item_factory,
     mocker,

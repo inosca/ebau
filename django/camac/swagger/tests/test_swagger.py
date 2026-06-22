@@ -27,8 +27,8 @@ from camac.conftest import reload_urlconf
         ("kt_bern", lf("ech0211_settings")),
     ],
 )
+@pytest.mark.django_db
 def test_swagger_schema(
-    db,
     user,
     admin_client,
     settings,

@@ -11,7 +11,8 @@ from camac.permissions.utils import IncompatibleCheck, extract_allowed_states
         "Complaining about all the duplicate configs, but this is not an actual problem"
     )
 )
-def test_duplicate_conditionals(db, try_get_fixture, any_application):
+@pytest.mark.django_db
+def test_duplicate_conditionals(try_get_fixture, any_application):
     seen_checks = defaultdict(list)
     seen_perms = defaultdict(list)
 
@@ -61,7 +62,8 @@ def test_duplicate_conditionals(db, try_get_fixture, any_application):
         assert errors == []
 
 
-def test_conditional_types(db, try_get_fixture, any_application):
+@pytest.mark.django_db
+def test_conditional_types(try_get_fixture, any_application):
     """Ensure all permisison conditionals are of the correct type."""
 
     permissions_settings = try_get_fixture(

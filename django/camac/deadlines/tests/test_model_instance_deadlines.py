@@ -22,8 +22,8 @@ from camac.permissions import api as permissions_api
         ("lead-authority", "service-lead", "service-afb", 0),
     ],
 )
+@pytest.mark.django_db
 def test_instance_deadlines_list_gr(
-    db,
     admin_client,
     gr_instance,
     instance_deadline_factory,
@@ -116,8 +116,8 @@ def test_instance_deadlines_list_gr(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_instance_deadlines_creation_gr(
-    db,
     admin_client,
     expected_status,
     gr_instance,
@@ -196,8 +196,8 @@ def test_instance_deadlines_creation_gr(
         ("distribution-service", "service-lead", "service-afb", "patch", False),
     ],
 )
+@pytest.mark.django_db
 def test_instance_deadlines_deletion_and_update_gr(
-    db,
     admin_client,
     instance_deadline_factory,
     service,
@@ -310,8 +310,8 @@ def test_instance_deadlines_deletion_and_update_gr(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_validate_process_deadline_date_ag(
-    db,
     admin_client,
     instance_deadline_factory,
     service,

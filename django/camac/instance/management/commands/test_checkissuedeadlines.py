@@ -7,8 +7,8 @@ from django.core.management import CommandError, call_command
 from camac.instance.models import Issue
 
 
+@pytest.mark.django_db
 def test_checkissuedeadlines(
-    db,
     ur_instance,
     issue_factory,
     service,
@@ -46,7 +46,8 @@ def test_checkissuedeadlines(
     "notification_template__subject,issue__deadline_date",
     [("{{$invalid}}", "2018-01-01")],
 )
-def test_checkissuedeadlines_invalid_template(db, issue, notification_template):
+@pytest.mark.django_db
+def test_checkissuedeadlines_invalid_template(issue, notification_template):
     with pytest.raises(CommandError):
         call_command(
             "checkissuedeadlines",

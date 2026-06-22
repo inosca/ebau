@@ -19,8 +19,9 @@ from camac.user.models import Service
 
 
 @pytest.mark.freeze_time("2022-03-23")
+@pytest.mark.django_db
 def test_distribution_initial_state(
-    db, distribution_child_case_be, be_distribution_settings, service
+    distribution_child_case_be, be_distribution_settings, service
 ):
     create_inquiry = distribution_child_case_be.work_items.get(
         task_id=be_distribution_settings["INQUIRY_CREATE_TASK"]
@@ -43,8 +44,8 @@ def test_distribution_initial_state(
 
 
 @pytest.mark.freeze_time("2022-03-23")
+@pytest.mark.django_db
 def test_create_inquiry(
-    db,
     distribution_child_case_be,
     be_distribution_settings,
     inquiry_factory_be,
@@ -92,8 +93,8 @@ def test_create_inquiry(
         ("0000-01-01", None, True, "2022-05-23", None),
     ],
 )
+@pytest.mark.django_db
 def test_inquiry_default_values(
-    db,
     distribution_child_case_be,
     service_factory,
     caluma_admin_user,
@@ -167,8 +168,8 @@ def test_inquiry_default_values(
 
 @pytest.mark.freeze_time("2022-03-23")
 @pytest.mark.parametrize("user__email", ["applicant@example.com"])
+@pytest.mark.django_db
 def test_send_inquiry(
-    db,
     be_instance,
     distribution_child_case_be,
     be_distribution_settings,
@@ -214,8 +215,8 @@ def test_send_inquiry(
 
 
 @pytest.mark.freeze_time("2022-03-23")
+@pytest.mark.django_db
 def test_send_inquiry_gr(
-    db,
     gr_instance,
     distribution_child_case_gr,
     inquiry_factory_gr,
@@ -246,8 +247,8 @@ def test_send_inquiry_gr(
 
 @pytest.mark.freeze_time("2022-03-23")
 @pytest.mark.parametrize("user__email", ["applicant@example.com"])
+@pytest.mark.django_db
 def test_do_not_send_inquiry_in_correction(
-    db,
     caluma_admin_user,
     be_instance,
     distribution_child_case_be,
@@ -327,8 +328,8 @@ def test_do_not_send_inquiry_in_correction(
     "is_lead_authority",
     [True, False],
 )
+@pytest.mark.django_db
 def test_complete_inquiry(
-    db,
     caluma_admin_user,
     distribution_child_case_be,
     be_distribution_settings,
@@ -465,8 +466,8 @@ def test_complete_inquiry(
             assert addressed_create_work_item.status == WorkItem.STATUS_READY
 
 
+@pytest.mark.django_db
 def test_complete_distribution(
-    db,
     be_instance,
     caluma_admin_user,
     distribution_child_case_be,
@@ -545,8 +546,8 @@ def test_complete_distribution(
     assert mailoutbox[0].to[0] == service.email
 
 
+@pytest.mark.django_db
 def test_send_aborting_distribution_sends_notification(
-    db,
     settings,
     caluma_admin_user,
     distribution_child_case_gr,
@@ -587,8 +588,8 @@ def test_send_aborting_distribution_sends_notification(
 
 
 @pytest.mark.parametrize("has_inquiries", [True, False])
+@pytest.mark.django_db
 def test_distribution_complete_history(
-    db,
     be_instance,
     caluma_admin_user,
     distribution_child_case_be,
@@ -625,8 +626,8 @@ def test_distribution_complete_history(
         assert be_instance.history.last().get_trans_attr("title") == "skip"
 
 
+@pytest.mark.django_db
 def test_reopen_distribution_additional_demand(
-    db,
     gr_instance,
     caluma_admin_user,
     distribution_child_case_gr,
@@ -688,8 +689,8 @@ def test_reopen_distribution_additional_demand(
     ) == sorted([wi.addressed_groups for wi in additional_demand_work_items_before])
 
 
+@pytest.mark.django_db
 def test_reopen_distribution(
-    db,
     be_instance,
     caluma_admin_user,
     distribution_child_case_be,
@@ -810,8 +811,8 @@ def test_reopen_distribution(
     assert be_instance.history.last().get_trans_attr("title") == "reopen"
 
 
+@pytest.mark.django_db
 def test_reopen_inquiry(
-    db,
     caluma_admin_user,
     sz_distribution_settings,
     inquiry_factory_sz,
@@ -883,8 +884,8 @@ def test_reopen_inquiry(
         (False, 1, True),
     ],
 )
+@pytest.mark.django_db
 def test_cancel_inquiry(
-    db,
     caluma_admin_user,
     distribution_child_case_be,
     be_distribution_settings,
@@ -940,8 +941,8 @@ def test_cancel_inquiry(
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize("deadline,success", [("2022-10-24", True), (None, False)])
+@pytest.mark.django_db
 def test_sync_inquiry_deadline(
-    db,
     be_distribution_settings,
     caluma_admin_schema_executor,
     deadline,
@@ -1010,8 +1011,8 @@ def test_sync_inquiry_deadline(
         )
 
 
+@pytest.mark.django_db
 def test_set_deadline_for_check_inquiries_work_item(
-    db,
     caluma_admin_user,
     distribution_child_case_be,
     be_distribution_settings,
@@ -1064,8 +1065,8 @@ def test_set_deadline_for_check_inquiries_work_item(
         (True, False, True),
     ],
 )
+@pytest.mark.django_db
 def test_set_cantonal_exam_deadline(
-    db,
     caluma_admin_user,
     did_update_deadline,
     disable_additional_demand_settings,
@@ -1114,8 +1115,8 @@ def test_set_cantonal_exam_deadline(
         (True, True, WorkItem.STATUS_READY),
     ],
 )
+@pytest.mark.django_db
 def test_set_document_supplement_deadline(
-    db,
     caluma_admin_user,
     disable_additional_demand_settings,
     disable_ech0211_settings,
@@ -1157,8 +1158,8 @@ def test_set_document_supplement_deadline(
         (False, "baugesuch", None),
     ],
 )
+@pytest.mark.django_db
 def test_set_trigger_billing_deadline(
-    db,
     ag_distribution_settings,
     caluma_admin_user,
     disable_additional_demand_settings,

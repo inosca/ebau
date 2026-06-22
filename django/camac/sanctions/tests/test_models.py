@@ -1,7 +1,10 @@
+import pytest
+
 from camac.sanctions.models import Sanction
 
 
-def test_sanction_manager_for_instance_id(db, instance, new_sanction_factory):
+@pytest.mark.django_db
+def test_sanction_manager_for_instance_id(instance, new_sanction_factory):
     new_sanction_factory()
     expected = new_sanction_factory(instance=instance)
 
@@ -11,7 +14,8 @@ def test_sanction_manager_for_instance_id(db, instance, new_sanction_factory):
     assert queryset.first() == expected
 
 
-def test_sanction_manager_assigned_to_service_id(db, service, new_sanction_factory):
+@pytest.mark.django_db
+def test_sanction_manager_assigned_to_service_id(service, new_sanction_factory):
     new_sanction_factory()
     expected = new_sanction_factory(assigned_service=service)
 
@@ -21,7 +25,8 @@ def test_sanction_manager_assigned_to_service_id(db, service, new_sanction_facto
     assert queryset.first() == expected
 
 
-def test_sanction_manager_pending(db, new_sanction_factory):
+@pytest.mark.django_db
+def test_sanction_manager_pending(new_sanction_factory):
     new_sanction_factory(controlled=True)
     expected = new_sanction_factory(controlled=False)
 
@@ -31,7 +36,8 @@ def test_sanction_manager_pending(db, new_sanction_factory):
     assert queryset.first() == expected
 
 
-def test_sanction_manager_for_step(db, new_sanction_factory):
+@pytest.mark.django_db
+def test_sanction_manager_for_step(new_sanction_factory):
     expected_step = Sanction.CONTROL_STEPS[0][0]
     other_step = Sanction.CONTROL_STEPS[1][0]
 

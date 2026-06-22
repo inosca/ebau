@@ -231,8 +231,8 @@ def document_post_data(category_id, instance_id, metainfo={}):
         ),
     ],
 )
+@pytest.mark.django_db
 def test_document_permission(
-    db,
     role,
     applicant_factory,
     admin_client,
@@ -383,8 +383,9 @@ def test_document_permission(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_file_permission(
-    db, role, mocker, admin_client, instance, access, method, status_code
+    role, mocker, admin_client, instance, access, method, status_code
 ):
     alexandria_category = CategoryFactory(metainfo={"access": access})
     doc = DocumentFactory(
@@ -467,8 +468,8 @@ def test_file_permission(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_file_replace_permission(
-    db,
     role,
     mocker,
     admin_client,
@@ -532,8 +533,9 @@ def test_file_replace_permission(
         ("support", "delete", HTTP_204_NO_CONTENT),
     ],
 )
+@pytest.mark.django_db
 def test_tag_permission(
-    db, role, alexandria_settings, caluma_admin_user, admin_client, method, status_code
+    role, alexandria_settings, caluma_admin_user, admin_client, method, status_code
 ):
     url = reverse("tag-list")
 
@@ -568,8 +570,8 @@ def test_tag_permission(
         ("support", "delete", HTTP_405_METHOD_NOT_ALLOWED),
     ],
 )
+@pytest.mark.django_db
 def test_category_permission(
-    db,
     role,
     admin_client,
     method,
@@ -597,7 +599,8 @@ def test_category_permission(
 
 
 @pytest.mark.parametrize("role__name", ["applicant"])
-def test_nested_permission(db, role, applicant_factory, admin_client, instance):
+@pytest.mark.django_db
+def test_nested_permission(role, applicant_factory, admin_client, instance):
     applicant_factory(invitee=admin_client.user, instance=instance)
     parent_category = CategoryFactory(
         metainfo={
@@ -655,8 +658,8 @@ def test_nested_permission(db, role, applicant_factory, admin_client, instance):
 @pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize("expected_status", [HTTP_403_FORBIDDEN, HTTP_200_OK])
 @pytest.mark.parametrize("changes", [["metainfo"], ["tags"], ["files"], ["date"]])
+@pytest.mark.django_db
 def test_patch_fields(
-    db,
     role,
     caluma_admin_user,
     applicant_factory,
@@ -832,8 +835,8 @@ def test_patch_fields(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_marks(
-    db,
     role,
     alexandria_settings,
     set_application_gr,
@@ -917,8 +920,8 @@ def test_marks(
         ("delete", "other_service", HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_scope_service(
-    db,
     admin_client,
     created_by,
     instance,
@@ -994,8 +997,8 @@ def test_scope_service(
         ("delete", "other_service", HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_scope_service_and_subservice(
-    db,
     admin_client,
     created_by,
     instance,
@@ -1096,8 +1099,8 @@ def test_scope_service_and_subservice(
         ("delete", "service", HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_scope_applicant(
-    db,
     admin_client,
     created_by,
     instance,
@@ -1175,8 +1178,8 @@ def test_scope_applicant(
         (None, HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_condition_ready_work_item(
-    db,
     admin_client,
     gr_instance,
     mocker,
@@ -1235,8 +1238,8 @@ def test_condition_ready_work_item(
         ("post", WorkItem.STATUS_COMPLETED, True, HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_condition_ready_work_item_additional_demand(
-    db,
     admin_client,
     gr_instance,
     has_document_id,
@@ -1315,8 +1318,8 @@ def test_condition_ready_work_item_additional_demand(
         ("delete", ["other", "decision"], ["decision"], HTTP_204_NO_CONTENT),
     ],
 )
+@pytest.mark.django_db
 def test_condition_access_has_any_mark(
-    db,
     admin_client,
     gr_instance,
     mocker,
@@ -1368,8 +1371,8 @@ def test_condition_access_has_any_mark(
 
 
 @pytest.mark.parametrize("role__name", ["municipality"])
+@pytest.mark.django_db
 def test_condition_is_external_client(
-    db,
     admin_client,
     admin_user,
     alexandria_category_factory,
@@ -1579,8 +1582,8 @@ def test_condition_is_external_client(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_condition_instance_state(
-    db,
     role,
     applicant_factory,
     admin_client,
@@ -1751,8 +1754,8 @@ def test_condition_instance_state(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_condition_paper_instance(
-    db,
     role,
     applicant_factory,
     admin_client,
@@ -1818,8 +1821,8 @@ def test_condition_paper_instance(
         (False, "target-category-4", "source-category-1", HTTP_200_OK),
     ],
 )
+@pytest.mark.django_db
 def test_move_document(
-    db,
     admin_client,
     service_factory,
     caluma_admin_user,
@@ -2002,8 +2005,8 @@ def test_move_document(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_copy_document(
-    db,
     admin_client,
     service_factory,
     caluma_admin_user,
@@ -2105,8 +2108,8 @@ def test_copy_document(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_document_convert(
-    db,
     role,
     dms_settings,
     applicant_factory,
@@ -2171,8 +2174,8 @@ def test_document_convert(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_document_webdav_url(
-    db,
     role,
     applicant_factory,
     admin_client,
@@ -2211,8 +2214,8 @@ def test_document_webdav_url(
         (False, HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_condition_migrated_instance(
-    db,
     admin_client,
     is_migrated,
     mocker,
@@ -2274,8 +2277,8 @@ def test_condition_migrated_instance(
         (False, HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_condition_bab_instance(
-    db,
     admin_client,
     is_bab,
     mocker,
@@ -2337,8 +2340,8 @@ def test_condition_bab_instance(
         (False, HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_condition_bab_service(
-    db,
     admin_client,
     is_bab_service,
     mocker,
@@ -2401,8 +2404,9 @@ def test_condition_bab_service(
         (["existing", "allowed"], HTTP_200_OK),
     ],
 )
+@pytest.mark.django_db
 def test_specific_mark_permissions(
-    db, admin_client, mocker, so_instance, status_code, marks
+    admin_client, mocker, so_instance, status_code, marks
 ):
     mocker.patch(
         "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
@@ -2464,8 +2468,8 @@ def test_specific_mark_permissions(
         ("municipality-lead", "so", HTTP_200_OK),  # Mode FULL, write permissions
     ],
 )
+@pytest.mark.django_db
 def test_base_permission(
-    db,
     access_level_factory,
     admin_client,
     canton,
@@ -2536,8 +2540,8 @@ def test_base_permission(
         (False, "void", HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_condition_additional_demand_changes(
-    db,
     admin_client,
     gr_instance,
     has_additional_demand,
