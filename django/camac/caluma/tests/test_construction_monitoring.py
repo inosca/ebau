@@ -6,6 +6,7 @@ from caluma.caluma_workflow.api import complete_work_item
 from caluma.caluma_workflow.models import Case, Task, WorkItem
 from django.core import mail
 
+from camac.caluma.extensions.dynamic_tasks import CustomDynamicTasks
 from camac.caluma.extensions.events.construction_monitoring import (
     can_perform_construction_monitoring,
     post_complete_construction_control,
@@ -18,6 +19,64 @@ from camac.caluma.extensions.visibilities import CustomVisibility
 from camac.instance.models import InstanceState
 from camac.permissions.models import InstanceACL
 from camac.tests.form_utils import FormUtils
+
+
+def test_construction_monitoring_dynamic_step_items(
+    db, caluma_work_item_factory, caluma_case_factory, caluma_task_factory, mocker
+):
+    case = caluma_case_factory()
+    tasks = [
+        caluma_task_factory(
+            pk=f"construction-step-{i}",
+            meta={
+                "construction-step": {"next": [], "index": i, "total": 3},
+                "construction-step-id": "construction-step-test",
+            },
+        )
+        for i in range(3)
+    ]
+    dynamic_tasks = CustomDynamicTasks()
+
+    resolve_step = mocker.patch.object(
+        dynamic_tasks, "resolve_after_construction_step", return_value=[]
+    )
+    can_continue = mocker.patch(
+        "camac.caluma.extensions.dynamic_tasks.construction_step_can_continue",
+        return_value=True,
+    )
+
+    def create_task_work_item(task):
+        return caluma_work_item_factory(case=case, task=task, meta=task.meta)
+
+    # resolve step 0, should return step 1
+    step0 = create_task_work_item(tasks[0])
+    assert dynamic_tasks.resolve_after_construction_step_item(
+        case=case, prev_work_item=step0, user=None, context={}
+    ) == [str(tasks[1].pk)]
+
+    # resolve step 1, should return step 2
+    step1 = create_task_work_item(tasks[1])
+    assert dynamic_tasks.resolve_after_construction_step_item(
+        case=case, prev_work_item=step1, user=None, context={}
+    ) == [str(tasks[2].pk)]
+
+    # when step 1 is not approved, should go back to step 0
+    can_continue.return_value = False
+    assert dynamic_tasks.resolve_after_construction_step_item(
+        case=case, prev_work_item=step1, user=None, context={}
+    ) == [str(tasks[0].pk)]
+
+    # no more steps after step 2, should call resolve_after_construction_step
+    assert resolve_step.call_count == 0
+    can_continue.return_value = True
+    step2 = create_task_work_item(tasks[2])
+    assert (
+        dynamic_tasks.resolve_after_construction_step_item(
+            case=case, prev_work_item=step2, user=None, context={}
+        )
+        == []
+    )
+    assert resolve_step.call_count == 1
 
 
 @pytest.mark.freeze_time("2023-09-04")

@@ -641,19 +641,21 @@ class CustomDynamicTasks(BaseDynamicTasks):
         """Resolve the next task within a construction step."""
         step_id = prev_work_item.meta["construction-step-id"]
         current_index = prev_work_item.meta.get("construction-step").get("index")
+        can_continue = construction_step_can_continue(prev_work_item)
 
-        result_index = (
-            current_index + 1
-            if construction_step_can_continue(prev_work_item)
-            else current_index - 1
-        )
-
+        result_index = current_index + 1 if can_continue else 0
         next_task = Task.objects.filter(
             **{
                 "meta__construction-step-id": step_id,
                 "meta__construction-step__index": result_index,
             }
         ).first()
+
+        # complete step if it was the last item of the stage.
+        if can_continue and not next_task:
+            return self.resolve_after_construction_step(
+                case, user, prev_work_item, context
+            )
 
         return [next_task.pk] if next_task else []
 
