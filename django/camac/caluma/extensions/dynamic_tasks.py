@@ -16,8 +16,8 @@ from django.utils.translation import gettext as _
 
 from camac.caluma.extensions.events.construction_monitoring import (
     CONSTRUCTION_STEP_TRANSLATIONS,
+    can_continue_construction_step,
     can_perform_construction_monitoring,
-    construction_step_can_continue,
 )
 from camac.caluma.extensions.events.general import get_instance
 from camac.caluma.models import Inquiry
@@ -656,7 +656,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
         """Resolve the next task within a construction step."""
         step_id = prev_work_item.meta["construction-step-id"]
         current_index = prev_work_item.meta.get("construction-step").get("index")
-        can_continue = construction_step_can_continue(prev_work_item)
+        can_continue = can_continue_construction_step(prev_work_item)
 
         result_index = current_index + 1 if can_continue else 0
         next_task = Task.objects.filter(
@@ -682,7 +682,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         # Return first task of current construction step if the step
         # hasn't been approved
-        if not construction_step_can_continue(prev_work_item):
+        if not can_continue_construction_step(prev_work_item):
             return list(
                 Task.objects.filter(
                     **{
