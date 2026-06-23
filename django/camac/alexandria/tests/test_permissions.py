@@ -2177,6 +2177,7 @@ def test_document_convert(
 @pytest.mark.django_db
 def test_document_webdav_url(
     role,
+    settings,
     applicant_factory,
     admin_client,
     caluma_admin_user,
@@ -2186,6 +2187,7 @@ def test_document_webdav_url(
 ):
     applicant_factory(invitee=admin_client.user, instance=instance)
     alexandria_category = CategoryFactory(metainfo={"access": access})
+    settings.ALEXANDRIA_USE_MANABI = True
 
     doc = DocumentFactory(
         title="Foo",

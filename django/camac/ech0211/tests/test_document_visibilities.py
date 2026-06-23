@@ -95,11 +95,24 @@ def test_document_visibilities_camac(
     assert received_categories == expected_categories
 
 
+@pytest.fixture
+def reload_dgap(settings):
+    orig_permission_classes = settings.GENERIC_PERMISSIONS_PERMISSION_CLASSES
+
+    def reload():
+        apps.get_app_config("generic_permissions").ready()
+
+    yield reload
+    settings.GENERIC_PERMISSIONS_PERMISSION_CLASSES = orig_permission_classes
+    apps.get_app_config("generic_permissions").ready()
+
+
 @pytest.mark.freeze_time("2025-11-22")
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.django_db
 def test_document_visibilities_alexandria(
+    reload_dgap,
     set_document_backend,
     instance_acl_factory,
     be_instance,
@@ -124,7 +137,7 @@ def test_document_visibilities_alexandria(
     settings.GENERIC_PERMISSIONS_PERMISSION_CLASSES = [
         "camac.alexandria.extensions.permissions_v2.AlexandriaPermissions"
     ]
-    apps.get_app_config("generic_permissions").ready()
+    reload_dgap()
 
     # Setup the instance (more-or-less) correctly:
     # - set user's service as responsible service
