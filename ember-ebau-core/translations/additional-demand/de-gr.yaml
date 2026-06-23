@@ -6,4 +6,4 @@ additional-demand:
   allow-changes-hint: "<strong>Hinweis:</strong> Mit der Freigabe der Änderung des Gesuchsformulars können die Gesuchstellenden das eBau-Formular und die Dokumente anpassen. Bereits gestempelte Dokumente können nicht als ungültig markiert werden. Entfernen Sie bei Bedarf zuerst die Stempel der betroffenen Dokumente."
   formtimeline-link:
     instance-edit-info: |
-      <strong>Hinweis:</strong> Über «Dossier anpassen» können Sie das Formular und die eingereichten Dokumente ändern.
+      <strong>Hinweis:</strong> Wählen Sie «Dossier anpassen», um die Nachforderung zu bearbeiten. Damit gelangen Sie zum Gesuchsformular, das Sie korrigieren können. Zudem können Sie neue Dokumente hochladen oder nicht mehr gültige Dokumente als ungültig markieren. Kehren Sie anschliessend zu dieser Seite zurück und reichen Sie die Änderungen bei der zuständigen Behörde ein.
