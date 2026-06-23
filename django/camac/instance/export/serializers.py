@@ -8,6 +8,7 @@ from django.core.cache import cache
 from django.utils.translation import gettext as _
 from rest_framework import serializers
 
+from camac.instance.placeholders.utils import format_gis_center_coordinates
 from camac.utils import clean_join
 
 
@@ -279,4 +280,45 @@ class InstanceExportSerializerAG(CalumaInstanceExportSerializer):
             "inquiry_in_date",
             "inquiry_out_date",
             "decision_date",
+        )
+
+
+class InstanceExportSerializerGR(CalumaInstanceExportSerializer):
+    coordinates = serializers.SerializerMethodField(label=_("Coordinates"))
+    building_cost = serializers.CharField(label=_("Building cost"))
+    building_start_date = serializers.DateField(
+        format=settings.SHORT_DATE_FORMAT,
+        label=_("Building Start Date"),
+    )
+    building_end_date = serializers.DateField(
+        format=settings.SHORT_DATE_FORMAT,
+        label=_("Building End Date"),
+    )
+    keywords = serializers.CharField(source="keyword_names", label=_("Keywords"))
+    decision_choice = serializers.CharField(label=_("Decision Choice"))
+
+    def get_coordinates(self, instance):
+        return format_gis_center_coordinates(instance.coordinates)
+
+    class Meta(InstanceExportSerializer.Meta):
+        # Define order of the fields
+        fields = (
+            "dossier_number",
+            "form_name",
+            "address",
+            "parcels",
+            "coordinates",
+            "building_project",
+            "submit_date",
+            "instance_state_name",
+            "responsible_user",
+            "applicants",
+            "applicants_emails",
+            "municipality",
+            "building_cost",
+            "building_start_date",
+            "building_end_date",
+            "decision_choice",
+            "decision_date",
+            "keywords",
         )

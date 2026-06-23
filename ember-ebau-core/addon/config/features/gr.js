@@ -14,7 +14,7 @@ export default {
   },
   cases: {
     createPaper: true,
-    exportExcel: false,
+    exportExcel: true,
     downloadFormAsPdf: true,
   },
   permissions: {

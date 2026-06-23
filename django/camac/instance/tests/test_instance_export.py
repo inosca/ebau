@@ -711,3 +711,107 @@ def test_bab_statistics_export_visibility(
     assert view.get_queryset().count() == expected_count
     if expected_count:
         assert instance in view.get_queryset()
+
+
+@pytest.mark.parametrize("role__name", [("Municipality")])
+def test_caluma_export_gr(
+    db,
+    admin_client,
+    gr_distribution_settings,
+    gr_master_data_case,
+    keyword_factory,
+    caluma_document_factory,
+    caluma_work_item_factory,
+    django_assert_num_queries,
+    instance_state_t_factory,
+    multilang,
+    responsible_service_factory,
+    service,
+    settings,
+    snapshot,
+    form_utils: FormUtils,
+    active_inquiry_factory,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+
+    # Instance state
+    instance = gr_master_data_case.instance
+    instance.instance_state = instance_state_t_factory(
+        name="In Zirkulation"
+    ).instance_state
+    instance.save()
+
+    # Responsible user
+    responsible_service_factory(
+        responsible_user__name="John",
+        responsible_user__surname="Doe",
+        service=service,
+        instance=instance,
+    )
+
+    # Form answers
+    form_utils.add_answer(
+        gr_master_data_case.document,
+        "voraussichtlicher-baubeginn",
+        datetime.date(2025, 5, day=5),
+    )
+    form_utils.add_answer(
+        gr_master_data_case.document,
+        "voraussichtliche-fertigstellung",
+        datetime.date(2025, 5, day=15),
+    )
+    form_utils.add_answer(
+        gr_master_data_case.document,
+        "gis-map",
+        '{"markers": [{"x": 2569941.12345, "y": 1298923.12345}], "center": {"x": 2609995.12345,"y": 1271340.12345} }',
+    )
+
+    # Keywords
+    kw = keyword_factory(service=service)
+    kw.instances.set([instance])
+    kw.save()
+
+    # Decision date
+    decision_work_item = caluma_work_item_factory(
+        case=instance.case,
+        task_id="decision",
+        status=WorkItem.STATUS_COMPLETED,
+        document=caluma_document_factory(form_id="decision"),
+    )
+    form_utils.add_answer(
+        decision_work_item.document,
+        "decision-date",
+        datetime.date(2025, 5, 8),
+    )
+    form_utils.add_answer(
+        decision_work_item.document,
+        "decision-decision",
+        "decision-decision-approved",
+        options=[("decision-decision-approved", "Bewilligt")],
+    )
+
+    # Inquiry
+    active_inquiry_factory(
+        for_instance=instance,
+        addressed_service=service,
+        status=WorkItem.STATUS_COMPLETED,
+        created_at=make_aware(datetime.datetime(2025, 1, 1)),
+        closed_at=make_aware(datetime.datetime(2025, 1, 30)),
+    )
+
+    with django_assert_num_queries(3):
+        response = admin_client.get(
+            reverse("instance-export"), {"instance_id": instance.pk}
+        )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    book = parse_xlsx_response(response)
+    sheet = book.get_dict()["pyexcel sheet"]
+    row = sheet[1]
+
+    assert len(sheet) == 2  # one instance plus header row
+    assert len(row) == 18  # number of expected columns
+
+    assert gr_master_data_case.meta["dossier-number"] in row
+    assert row == snapshot

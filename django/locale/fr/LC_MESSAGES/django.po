@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-16 14:32+0200\n"
+"POT-Creation-Date: 2026-06-24 13:53+0200\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -264,7 +264,7 @@ msgstr "Adresse"
 msgid "Parcels"
 msgstr "Parcelles"
 
-#: camac/billing/serializers.py
+#: camac/billing/serializers.py camac/instance/export/serializers.py
 msgid "Coordinates"
 msgstr "LCoord"
 
@@ -1348,6 +1348,7 @@ msgid "Project Author"
 msgstr ""
 
 #: camac/instance/document_merge_service.py
+#: camac/instance/export/serializers.py
 msgid "Keywords"
 msgstr "Mots-clés"
 
@@ -1530,6 +1531,22 @@ msgstr ""
 
 #: camac/instance/export/serializers.py
 msgid "Decision Date Cantonal"
+msgstr ""
+
+#: camac/instance/export/serializers.py
+msgid "Building cost"
+msgstr ""
+
+#: camac/instance/export/serializers.py
+msgid "Building Start Date"
+msgstr ""
+
+#: camac/instance/export/serializers.py
+msgid "Building End Date"
+msgstr ""
+
+#: camac/instance/export/serializers.py
+msgid "Decision Choice"
 msgstr ""
 
 #: camac/instance/mixins.py

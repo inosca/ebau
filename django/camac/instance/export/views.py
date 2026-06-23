@@ -368,6 +368,8 @@ class InstanceExportView(InstanceQuerysetMixin, ListAPIView):
             return serializers.InstanceExportSerializerSZ
         elif settings.APPLICATION_NAME == "kt_ag":
             return serializers.InstanceExportSerializerAG
+        elif settings.APPLICATION_NAME == "kt_gr":
+            return serializers.InstanceExportSerializerGR
 
         return serializers.InstanceExportSerializer  # pragma: no cover
 
@@ -379,6 +381,8 @@ class InstanceExportView(InstanceQuerysetMixin, ListAPIView):
             return [filters.InstanceExportFilterBackendSZ]
         elif settings.APPLICATION_NAME == "kt_ag":
             return [filters.InstanceExportFilterBackendAG]
+        elif settings.APPLICATION_NAME == "kt_gr":
+            return [filters.InstanceExportFilterBackendGR]
 
         return [filters.InstanceExportFilterBackend]  # pragma: no cover
 
