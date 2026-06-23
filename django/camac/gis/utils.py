@@ -11,6 +11,23 @@ class MergeStrategy(Enum):
     # to each client (later clients can change output of previous clients)
     OVERRIDE = "override"
 
+    # Like MERGE_FIRST for scalars, but for table questions (list values):
+    # instead of collapsing all new rows into existing row[0], stamp existing
+    # row data onto every new row and replace the list entirely.
+    #
+    # Used when one data source seeds a single row with shared fields (e.g.
+    # coordinates from a point click) and a later source returns N rows that
+    # should each inherit those fields:
+    #
+    #   existing:  [{"lagekoordinaten-ost": 2606070, "lagekoordinaten-nord": 1228290}]
+    #   new:       [{"e-grid": "CH123", "parzellennummer": "42"},
+    #               {"e-grid": "CH456", "parzellennummer": "99"}]
+    #   result:    [{"lagekoordinaten-ost": 2606070, "lagekoordinaten-nord": 1228290, "e-grid": "CH123", ...},
+    #               {"lagekoordinaten-ost": 2606070, "lagekoordinaten-nord": 1228290, "e-grid": "CH456", ...}]
+    #
+    # Safe only when the existing list has exactly one row at merge time.
+    MERGE_FIRST_BUT_APPEND_TABLES = "merge_first_but_append_tables"
+
 
 def get_bbox(x: Union[float, str], y: Union[float, str], buffer: int = 0) -> str:
     delta = 0
@@ -94,10 +111,19 @@ def merge_table(
 def merge_data(data: dict, new_data: dict, merge_strategy: MergeStrategy) -> dict:
     for key, value in new_data.items():
         if key in data:
-            if isinstance(data[key], list):
-                for row in value:
-                    value = merge_table(data[key], row, merge_strategy)
-            elif merge_strategy == MergeStrategy.MERGE_FIRST:
+            if isinstance(data[key], list) and isinstance(value, list):
+                if merge_strategy == MergeStrategy.MERGE_FIRST_BUT_APPEND_TABLES:
+                    existing_row_data = {}
+                    for row in data[key]:
+                        existing_row_data.update(row)
+                    value = [{**existing_row_data, **row} for row in value]
+                else:
+                    for row in value:
+                        value = merge_table(data[key], row, merge_strategy)
+            elif merge_strategy in (
+                MergeStrategy.MERGE_FIRST,
+                MergeStrategy.MERGE_FIRST_BUT_APPEND_TABLES,
+            ):
                 # If a previous data source already returned a value for a
                 # certain question we concat the new and old value
                 value = concat_values(data[key], value)

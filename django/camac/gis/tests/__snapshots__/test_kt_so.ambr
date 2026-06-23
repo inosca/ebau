@@ -15,17 +15,17 @@
     'nutzungsplanung-grundnutzung': dict({
       'hidden': False,
       'label': 'Sinaida Siering-Christoph',
-      'value': '4-geschossige Mischzone, ZR § 6 und 17',
+      'value': 'Kernzone, offene Bauweise, 3-geschossig AZ max. 1.0',
     }),
     'nutzungsplanung-grundnutzung-kanton': dict({
       'hidden': True,
       'label': 'Rainer Ullmann',
-      'value': 'N133_Gewerbezone_mit_Wohnen_Mischzone_4_G_und_groesser',
+      'value': 'N140_Kernzone',
     }),
     'nutzungsplanung-weitere-festlegungen': dict({
       'hidden': False,
       'label': 'Kay-Uwe Wagner',
-      'value': 'Erschliessungsplan (Linie): Baulinie Strasse, Erschliessungsplan (Linie): Strassenbaulinie für 1-geschossige Bauten, Erschliessungsplan (Linie): Gestaltungsbaulinie, Erschliessungsplan (Linie): min. Abstand gem. § 46 kant. Bauverordnung entlang Gemeindestrasse (5.0m), Fläche: Archäologische Fundstellen',
+      'value': None,
     }),
     'ort': dict({
       'hidden': False,
@@ -148,7 +148,7 @@
     'denkmalschutz': dict({
       'hidden': False,
       'label': 'Patrik Müller MBA.',
-      'value': 'Denkmalschutzobjekt: Buristurm, Denkmalschutz Schutzstufe: geschützt',
+      'value': 'Denkmalschutzobjekt: Buristurm, Denkmalschutz Schutzstufe: geschuetzt',
     }),
   })
 # ---

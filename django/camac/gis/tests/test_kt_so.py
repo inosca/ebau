@@ -1,10 +1,13 @@
 import pytest
+import requests
 from caluma.caluma_form.models import Question
 from django.core.management import call_command
+from django.http import QueryDict
 from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
+from camac.gis.clients.sogis import SoGisClient
 from camac.gis.models import GISDataSource
 
 TEST_SCENARIOS = [
@@ -262,3 +265,309 @@ def test_sogis_client_errors(
 
     assert response_1.status_code == expected_status
     assert response_1.json() == gis_snapshot
+
+
+@pytest.mark.django_db
+@pytest.mark.django_db
+def test_sogis_client_string_concat_concatenates_multiple_matching_features(
+    caluma_question_factory, mocker
+):
+    caluma_question_factory(slug="archaeologie", type=Question.TYPE_TEXTAREA)
+
+    client = SoGisClient(QueryDict("x=100&y=200"))
+    response = mocker.Mock()
+    response.raise_for_status.return_value = None
+    response.json.return_value = {
+        "features": [
+            {
+                "properties": {
+                    "thema": "ch.SO.Archaeologie",
+                    "beschreibung": "Fundstelle A",
+                }
+            },
+            {
+                "properties": {
+                    "thema": "ch.SO.Archaeologie",
+                    "beschreibung": "Fundstelle B",
+                }
+            },
+        ]
+    }
+    client.session.get = mocker.Mock(return_value=response)
+
+    data = client.process_data_source(
+        {
+            "layer": "test-layer",
+            "properties": [
+                {
+                    "topic": "ch.SO.Archaeologie",
+                    "question": "archaeologie",
+                    "propertyName": "beschreibung",
+                }
+            ],
+        },
+        None,
+    )
+
+    assert data == {"archaeologie": "Fundstelle A, Fundstelle B"}
+
+
+@pytest.mark.django_db
+def test_sogis_client_process_list_data_source(caluma_question_factory, mocker):
+    client = SoGisClient(QueryDict("x=2607345&y=1228110"))
+    caluma_question_factory(slug="gemeinde", type=Question.TYPE_TEXT)
+    caluma_question_factory(slug="gemeindenummer-bfs", type=Question.TYPE_INTEGER)
+
+    config = {
+        "layer": "ch.so.dsbjd.ebauso_lokalisation_grundstueck.data",
+        "mergeStrategyOverride": "list",
+        "properties": [
+            {"question": "gemeinde", "propertyName": "gemeinde"},
+            {
+                "cast": "integer",
+                "question": "gemeindenummer-bfs",
+                "propertyName": "bfsnr",
+            },
+            {"question": "parzellen.e-grid", "propertyName": "egrid"},
+            {"question": "parzellen.parzellennummer", "propertyName": "nummer"},
+            {"question": "parzellen.grundstueckart", "propertyName": "art"},
+            {"question": "parzellen.flaeche-m", "propertyName": "flaechenmass"},
+            {
+                "question": "parzellen.grundbuchkreis",
+                "propertyName": "grundbuchkreis",
+            },
+            {
+                "question": "parzellen.amtschreiberei",
+                "propertyName": "amtschreiberei",
+            },
+        ],
+    }
+
+    features = [
+        {
+            "properties": {
+                "gemeinde": "Solothurn",
+                "bfsnr": "2601",
+                "egrid": "CH123",
+                "nummer": "1000",
+                "art": "Liegenschaft",
+                "flaechenmass": 500,
+                "grundbuchkreis": "Solothurn",
+                "amtschreiberei": "Region Solothurn",
+            }
+        },
+        {
+            "properties": {
+                "gemeinde": "Solothurn",
+                "bfsnr": "2601",
+                "egrid": "CH456",
+                "nummer": "1001",
+                "art": "SelbstRecht.Baurecht",
+                "flaechenmass": 100,
+                "grundbuchkreis": "Solothurn",
+                "amtschreiberei": "Region Solothurn",
+            }
+        },
+    ]
+
+    response = mocker.Mock()
+    response.raise_for_status.return_value = None
+    response.json.return_value = {"features": features}
+    client.session.get = mocker.Mock(return_value=response)
+
+    assert client.process_data_source(config, None) == {
+        "gemeinde": "Solothurn",
+        "gemeindenummer-bfs": "2601",
+        "parzellen": [
+            {
+                "e-grid": "CH123",
+                "parzellennummer": "1000",
+                "grundstueckart": "Liegenschaft",
+                "flaeche-m": "500",
+                "grundbuchkreis": "Solothurn",
+                "amtschreiberei": "Region Solothurn",
+            },
+            {
+                "e-grid": "CH456",
+                "parzellennummer": "1001",
+                "grundstueckart": "SelbstRecht.Baurecht",
+                "flaeche-m": "100",
+                "grundbuchkreis": "Solothurn",
+                "amtschreiberei": "Region Solothurn",
+            },
+        ],
+    }
+
+
+def test_sogis_client_matches_topic():
+    client = SoGisClient(QueryDict("x=2607345&y=1228110"))
+
+    properties = {
+        "thema": "ch.SO.NutzungsplanungGrundnutzung",
+        "beschreibung": "Wohnzone",
+    }
+
+    assert client.matches_topic(
+        properties,
+        {
+            "topic": "ch.SO.NutzungsplanungGrundnutzung",
+            "propertyName": "beschreibung",
+            "question": "nutzungsplanung-grundnutzung",
+        },
+    )
+
+    assert not client.matches_topic(
+        properties,
+        {
+            "topic": "ch.SO.Denkmalschutz",
+            "propertyName": "beschreibung",
+            "question": "denkmalschutz",
+        },
+    )
+
+    assert client.matches_topic(
+        properties,
+        {
+            "propertyName": "beschreibung",
+            "question": "nutzungsplanung-grundnutzung",
+        },
+    )
+
+
+@pytest.mark.django_db
+def test_sogis_client_process_data_source_filters_by_topic(
+    caluma_question_factory, requests_mock, settings
+):
+    caluma_question_factory(
+        slug="nutzungsplanung-grundnutzung",
+        type=Question.TYPE_TEXTAREA,
+    )
+
+    settings.SO_GIS_BASE_URL = "https://example.com"
+    settings.SO_GIS_VERIFY_SSL = True
+
+    client = SoGisClient(QueryDict("x=2607345&y=1228110"))
+
+    requests_mock.get(
+        "https://example.com/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_flaechen.data/?bbox=2607345.0,1228110.0,2607345.0,1228110.0",
+        json={
+            "features": [
+                {
+                    "properties": {
+                        "thema": "ch.SO.NutzungsplanungGrundnutzung",
+                        "beschreibung": "Wohnzone",
+                    }
+                },
+                {
+                    "properties": {
+                        "thema": "ch.SO.Denkmalschutz",
+                        "beschreibung": "Should be ignored",
+                    }
+                },
+            ]
+        },
+    )
+
+    data = client.process_data_source(
+        {
+            "layer": "ch.so.dsbjd.ebauso_fachthemen_flaechen.data",
+            "properties": [
+                {
+                    "topic": "ch.SO.NutzungsplanungGrundnutzung",
+                    "question": "nutzungsplanung-grundnutzung",
+                    "propertyName": "beschreibung",
+                },
+                {
+                    "topic": "ch.SO.Wasserschutz",
+                    "question": "table.question",
+                    "propertyName": "beschreibung",
+                },
+            ],
+        },
+        None,
+    )
+
+    assert data == {"nutzungsplanung-grundnutzung": "Wohnzone"}
+
+
+def test_sogis_client_process_list_data_source_skips_empty_values(mocker):
+    config = {
+        "properties": [
+            {
+                "propertyName": "empty_value",
+                "question": "table.question1",
+            },
+            {
+                "propertyName": "valid_value",
+                "question": "table.question1",
+            },
+            {
+                "propertyName": "empty_value",
+                "question": "table.question2",
+            },
+            {
+                "propertyName": "valid_value",
+                "question": "table.question3",
+            },
+        ],
+    }
+
+    features = [
+        {
+            "properties": {
+                "empty_value": "",
+                "valid_value": "foo",
+            },
+        },
+        {
+            "properties": {
+                "empty_value": "",
+                "valid_value": "",
+            },
+        },
+    ]
+
+    client = SoGisClient(QueryDict("x=2607345&y=1228110"))
+    response = mocker.Mock()
+    response.raise_for_status.return_value = None
+    response.json.return_value = {"features": features}
+    client.session.get = mocker.Mock(return_value=response)
+
+    assert client.process_data_source(config | {"layer": "test-layer"}, None) == {
+        "table": [
+            {"question1": "foo", "question2": None, "question3": "foo"},
+            {"question1": None, "question2": None, "question3": None},
+        ]
+    }
+
+
+def test_sogis_client_get_data_raises_runtime_error_on_http_error(mocker):
+    client = SoGisClient(QueryDict("x=2607345&y=1228110"))
+
+    response = mocker.Mock()
+    response.status_code = 500
+    response.raise_for_status.side_effect = requests.HTTPError
+
+    client.session.get = mocker.Mock(return_value=response)
+
+    with pytest.raises(RuntimeError) as exc:
+        client.process_data_source(
+            {
+                "layer": "test-layer",
+                "properties": [],
+            },
+            None,
+        )
+
+    assert "500" in str(exc.value)
+
+
+def test_sogis_client_get_hidden_questions():
+    assert SoGisClient.get_hidden_questions(
+        {
+            "properties": [
+                {"question": "visible-question"},
+                {"question": "hidden-question", "hidden": True},
+            ]
+        }
+    ) == ["hidden-question"]

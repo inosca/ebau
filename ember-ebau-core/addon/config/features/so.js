@@ -34,6 +34,7 @@ export default {
     useNumberSeparatorWidgetAsDefault: true,
   },
   gis: {
+    v3: true,
     showChanges: true,
   },
   login: {
