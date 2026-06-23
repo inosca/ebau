@@ -321,7 +321,22 @@
       "modified_by_group": null,
       "form": "are-geschaeft",
       "question": "are-geschaeft-aufgabe-themen",
-      "sort": 15
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-axioma-nr",
+    "fields": {
+      "created_at": "2026-06-23T13:46:05.718Z",
+      "modified_at": "2026-06-23T13:46:05.718Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-axioma-nr",
+      "sort": 13
     }
   },
   {
@@ -366,7 +381,7 @@
       "modified_by_group": null,
       "form": "are-geschaeft",
       "question": "are-geschaeft-geschaeft-verfahren",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -486,7 +501,7 @@
       "modified_by_group": null,
       "form": "are-geschaeft",
       "question": "are-geschaeft-sachgebiet",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -531,7 +546,7 @@
       "modified_by_group": null,
       "form": "are-geschaeft",
       "question": "are-geschaeft-vorhaben",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -3511,6 +3526,40 @@
       "meta": {
         "widgetOverride": "cf-field/input/powerselect"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-axioma-nr",
+    "fields": {
+      "created_at": "2026-06-23T13:46:05.673Z",
+      "modified_at": "2026-06-23T13:46:05.673Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Axioma-Nr.\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
