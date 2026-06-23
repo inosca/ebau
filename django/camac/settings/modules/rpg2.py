@@ -19,11 +19,16 @@ RPG2 = ModuleConfig[RPG2Config](
         service_slugs=["afb"],
         allowed_forms=[
             "baugesuch",
+            "baugesuch-migration",
             "baugesuch-mit-uvp",
+            "uvp-migration",
             "vorentscheid",
+            "vorentscheid-migration",
             "plangenehmigungsverfahren-gas",
             "plangenehmigungsverfahren-bund",
+            "pgv-migration",
             "anfrage-intern",
+            "importiertes-dossier",
         ],
     ),
 )
