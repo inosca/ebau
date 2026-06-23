@@ -41,8 +41,8 @@ def construction_control(instance_service_factory, be_instance, service_factory)
 @pytest.mark.parametrize("construction_monitoring_enabled", [True, False])
 @pytest.mark.parametrize("decision", ["APPROVED", "REJECTED"])
 @pytest.mark.parametrize("has_are_inquiry", [True, False])
+@pytest.mark.django_db
 def test_complete_decision_gr(
-    db,
     gr_instance,
     caluma_admin_user,
     caluma_work_item_factory,
@@ -201,8 +201,8 @@ def test_complete_decision_gr(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_complete_decision_be(
-    db,
     be_instance,
     caluma_admin_user,
     application_settings,
@@ -320,8 +320,8 @@ def test_complete_decision_be(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_complete_decision_for_instance_from_moutier(
-    db,
     caluma_admin_user,
     application_settings,
     instance_factory,
@@ -397,8 +397,8 @@ def test_complete_decision_for_instance_from_moutier(
         ("finished", "finished", "REJECTED", True),
     ],
 )
+@pytest.mark.django_db
 def test_complete_decision_appeal(
-    db,
     admin_user,
     be_appeal_settings,
     be_instance,
@@ -501,8 +501,8 @@ def test_complete_decision_appeal(
         ("reklamegesuch", "decision", "APPROVED", None, False),
     ],
 )
+@pytest.mark.django_db
 def test_should_continue_after_decision_so(
-    db,
     caluma_document_factory,
     caluma_question_factory,
     so_decision_settings,
@@ -557,8 +557,9 @@ def test_should_continue_after_decision_so(
         ("POSITIVE_WITH_RESERVATION", True),
     ],
 )
+@pytest.mark.django_db
 def test_is_positive_decision_gr(
-    db, gr_decision_settings, decision, expected, set_application_gr
+    gr_decision_settings, decision, expected, set_application_gr
 ):
     decision = gr_decision_settings["ANSWERS"]["DECISION"][decision]
 
@@ -566,8 +567,8 @@ def test_is_positive_decision_gr(
 
 
 @pytest.mark.parametrize("instance_state__name", ["withdrawal"])
+@pytest.mark.django_db
 def test_complete_decision_withdrawn(
-    db,
     caluma_admin_user,
     caluma_document_factory,
     instance_state_factory,
@@ -615,8 +616,8 @@ def test_complete_decision_withdrawn(
 
 
 @pytest.mark.parametrize("instance_state__name", ["decision"])
+@pytest.mark.django_db
 def test_complete_decision_withdrawal_light(
-    db,
     caluma_admin_user,
     instance_state_factory,
     ag_decision_settings,
@@ -669,8 +670,8 @@ def test_complete_decision_withdrawal_light(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_complete_decision_ag(
-    db,
     ag_construction_monitoring_settings,
     ag_decision_settings,
     ag_instance,
@@ -758,8 +759,8 @@ def test_complete_decision_ag(
         ("APPROVED", "REJECTED", [], True, "subm"),
     ],
 )
+@pytest.mark.django_db
 def test_complete_decision_appeal_so(
-    db,
     admin_user,
     appeal_decision,
     application_settings,
@@ -849,8 +850,8 @@ def test_complete_decision_appeal_so(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize("form_slug", ["voranfrage", "meldung", "meldung-pv"])
+@pytest.mark.django_db
 def test_complete_decision_simplified_workflow_so(
-    db,
     application_settings,
     caluma_admin_user,
     decision_factory_so,
@@ -968,8 +969,8 @@ def test_decision_work_item_name(
         ("municipality-light", "decision", "REJECTED", "WITH", False),
     ],
 )
+@pytest.mark.django_db
 def test_should_continue_after_decision_ag(
-    db,
     ag_decision_settings,
     ag_instance,
     decision_factory_ag,
@@ -1006,8 +1007,8 @@ def test_should_continue_after_decision_ag(
         (False, True, False, "decision-other"),
     ],
 )
+@pytest.mark.django_db
 def test_get_notification_config_be(
-    db,
     be_instance,
     settings,
     application_settings,
@@ -1082,8 +1083,8 @@ def test_get_notification_config_be(
         (False, "decision"),
     ],
 )
+@pytest.mark.django_db
 def test_get_notification_config_gr(
-    db,
     gr_instance,
     settings,
     application_settings,
@@ -1128,8 +1129,8 @@ def test_get_notification_config_gr(
         (False, False, "decision"),
     ],
 )
+@pytest.mark.django_db
 def test_get_notification_config_so(
-    db,
     so_instance,
     settings,
     application_settings,
@@ -1191,8 +1192,8 @@ def test_get_notification_config_so(
     "is_appeal,expected_notification_slug",
     [(False, "decision"), (True, "decision-appeal")],
 )
+@pytest.mark.django_db
 def test_get_notification_config_ur(
-    db,
     ur_instance,
     is_appeal,
     expected_notification_slug,

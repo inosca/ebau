@@ -21,7 +21,8 @@ from camac.timelines.models import FormTimeline
 
 
 @pytest.mark.parametrize("is_paper", [True, False])
-def test_condition_is_paper(db, is_paper, so_instance, userinfo, form_utils: FormUtils):
+@pytest.mark.django_db
+def test_condition_is_paper(is_paper, so_instance, userinfo, form_utils: FormUtils):
     if is_paper:
         form_utils.set_is_paper(so_instance.case.document, True)
 
@@ -38,8 +39,8 @@ def test_condition_is_paper(db, is_paper, so_instance, userinfo, form_utils: For
         (True, [WorkItem.STATUS_READY, WorkItem.STATUS_COMPLETED], True),
     ],
 )
+@pytest.mark.django_db
 def test_condition_require_work_item(
-    db,
     expected_result,
     has_work_item,
     so_instance,
@@ -60,8 +61,8 @@ def test_condition_require_work_item(
     )
 
 
+@pytest.mark.django_db
 def test_condition_require_work_item_addressed_to_current_service(
-    db,
     so_instance,
     userinfo,
     caluma_work_item_factory,
@@ -118,8 +119,8 @@ def test_condition_require_work_item_addressed_to_current_service(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_has_applicant_role(
-    db,
     applicant_factory,
     applicant_role,
     expected_result,
@@ -147,7 +148,8 @@ def test_has_applicant_role(
         (False, "foo", False),
     ],
 )
-def test_is_service_group(db, expected_result, has_service, userinfo):
+@pytest.mark.django_db
+def test_is_service_group(expected_result, has_service, userinfo):
     if not has_service:
         userinfo.service = None
 
@@ -163,7 +165,8 @@ def test_is_service_group(db, expected_result, has_service, userinfo):
         (False, "foo", False),
     ],
 )
-def test_is_service(db, expected_result, has_service, userinfo):
+@pytest.mark.django_db
+def test_is_service(expected_result, has_service, userinfo):
     if not has_service:
         userinfo.service = None
 
@@ -180,8 +183,8 @@ def test_is_service(db, expected_result, has_service, userinfo):
         (True, FormTimeline.Type.ADDITIONAL_DEMAND, True),
     ],
 )
+@pytest.mark.django_db
 def test_has_additional_demand_with_form_edit(
-    db,
     form_timeline_factory,
     instance_factory,
     instance,
@@ -214,8 +217,8 @@ def test_has_additional_demand_with_form_edit(
     )
 
 
+@pytest.mark.django_db
 def test_has_applicant_confirmation_round(
-    db,
     applicant_confirmation_round_factory,
     caluma_case_factory,
     instance_factory,
@@ -253,8 +256,9 @@ def test_has_applicant_confirmation_round(
 
 
 @pytest.mark.parametrize("is_modification", [True, False])
+@pytest.mark.django_db
 def test_condition_is_modification(
-    db, is_modification, be_instance, userinfo, form_utils: FormUtils
+    is_modification, be_instance, userinfo, form_utils: FormUtils
 ):
     if is_modification:
         form_utils.add_answer(
@@ -276,7 +280,8 @@ def test_condition_is_modification(
         ("migrated", False),
     ],
 )
-def test_condition_is_workflow(db, workflow, expected_result, be_instance, userinfo):
+@pytest.mark.django_db
+def test_condition_is_workflow(workflow, expected_result, be_instance, userinfo):
     be_instance.case.workflow = Workflow.objects.get(pk=workflow)
     be_instance.case.save()
 
@@ -289,8 +294,8 @@ def test_condition_is_workflow(db, workflow, expected_result, be_instance, useri
 
 
 @pytest.mark.parametrize("is_created_by_service", [True, False])
+@pytest.mark.django_db
 def test_condition_is_created_by_service(
-    db,
     is_created_by_service,
     be_instance,
     userinfo,

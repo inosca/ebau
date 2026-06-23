@@ -30,8 +30,8 @@ from camac.tests.form_utils import FormUtils
     "close_action",
     ["complete", "cancel"],
 )
+@pytest.mark.django_db
 def test_events_deadlines_additional_demand_suspensions_gr(
-    db,
     admin_user,
     gr_instance,
     service,
@@ -148,8 +148,8 @@ def test_events_deadlines_additional_demand_suspensions_gr(
         ("municipality", "municipality-lead", "none", None),
     ],
 )
+@pytest.mark.django_db
 def test_events_deadlines_publication_inquiry_gr(
-    db,
     admin_user,
     gr_instance,
     caluma_case_factory,
@@ -284,8 +284,8 @@ def test_events_deadlines_publication_inquiry_gr(
         (None, True, "2025-02-02"),
     ],
 )
+@pytest.mark.django_db
 def test_events_deadlines_decision_gr(
-    db,
     admin_user,
     gr_instance,
     caluma_work_item_factory,
@@ -359,8 +359,8 @@ def test_events_deadlines_decision_gr(
 @pytest.mark.parametrize(
     "service_group__name,role__name", [("municipality", "municipality-lead")]
 )
+@pytest.mark.django_db
 def test_post_create_inquiry_ag_creates_deadline(
-    db,
     admin_user,
     ag_instance,
     caluma_work_item_factory,
@@ -436,8 +436,8 @@ def test_post_create_inquiry_ag_creates_deadline(
 @pytest.mark.parametrize(
     "service_group__name,role__name", [("service-afb", "service-lead")]
 )
+@pytest.mark.django_db
 def test_post_create_or_redo_inquiry_ag_claim_suspensions(
-    db,
     admin_user,
     ag_instance,
     caluma_work_item_factory,
@@ -605,8 +605,8 @@ def test_post_create_or_redo_inquiry_ag_claim_suspensions(
         ("ok", True),
     ],
 )
+@pytest.mark.django_db
 def test_post_complete_inquiry_fill_ag_creates_deadline(
-    db,
     admin_user,
     ag_instance,
     caluma_work_item_factory,
@@ -684,8 +684,8 @@ def test_post_complete_inquiry_fill_ag_creates_deadline(
         ("service-afb", "service-lead"),
     ],
 )
+@pytest.mark.django_db
 def test_post_create_withdrawal_check_closes_suspensions(
-    db,
     admin_user,
     ag_instance,
     caluma_work_item_factory,

@@ -23,10 +23,10 @@ from camac.notification.tasks import send_notification_for_overdue_workitems
         (True, False, True, False, False, True, 1),
     ],
 )
+@pytest.mark.django_db
 def test_send_work_item_reminders(
     settings,
     application_settings,
-    db,
     mailoutbox,
     be_instance,
     caluma_work_item_factory,
@@ -83,8 +83,9 @@ def test_send_work_item_reminders(
 
 
 @pytest.mark.parametrize("user__disabled", [1])
+@pytest.mark.django_db
 def test_dont_send_reminders_caluma(
-    db, user, service, caluma_work_item_factory, mailoutbox
+    user, service, caluma_work_item_factory, mailoutbox
 ):
     service.disabled = 1
     service.save()
@@ -101,8 +102,8 @@ def test_dont_send_reminders_caluma(
 
 
 @pytest.mark.freeze_time("2020-08-10")
+@pytest.mark.django_db
 def test_notify_manual_work_item(
-    db,
     caluma_admin_user,
     service_factory,
     instance,

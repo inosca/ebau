@@ -1,8 +1,9 @@
+import pytest
 from django.core.management import call_command
 
 
+@pytest.mark.django_db
 def test_fix_duplicate_identifiers(
-    db,
     service,
     instance_factory,
     caluma_case_factory,

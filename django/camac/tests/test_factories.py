@@ -10,7 +10,8 @@ import pytest
         ("communications_topic_factory", "involved_entities"),
     ],
 )
-def test_leaky_attributes(db, request, factory_name, attr, distribution_settings):
+@pytest.mark.django_db
+def test_leaky_attributes(request, factory_name, attr, distribution_settings):
     """
     Ensure that dict and list attributes in factories are constructed correctly.
 
@@ -56,7 +57,8 @@ def test_leaky_attributes(db, request, factory_name, attr, distribution_settings
     assert i0_attr is not i1_attr
 
 
-def test_no_bare_mutable_attrs_in_factories(db, request):
+@pytest.mark.django_db
+def test_no_bare_mutable_attrs_in_factories(request):
     """Ensure no factory in Camac-NG has mutable attributes.
 
     Similar to the above test, we go through all (our) model

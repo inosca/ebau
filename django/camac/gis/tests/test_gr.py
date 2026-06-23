@@ -358,8 +358,8 @@ def gr_config(gis_data_source_factory, caluma_question_factory):
     ],
 )
 @pytest.mark.vcr()
+@pytest.mark.django_db
 def test_gr_client(
-    db,
     admin_client,
     gis_snapshot,
     vcr_config,
@@ -369,7 +369,6 @@ def test_gr_client(
     form,
     gr_data_sources,
 ):
-
     response_0 = admin_client.get(
         reverse("gis-data"),
         data={

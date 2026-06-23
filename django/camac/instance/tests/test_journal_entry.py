@@ -10,8 +10,8 @@ from camac.permissions.conditions import Always
 
 @pytest.mark.parametrize("role__name", ["Support"])
 @pytest.mark.parametrize("is_portal", [False, True])
+@pytest.mark.django_db
 def test_journal_entry_visibility(
-    db,
     admin_user,
     is_portal,
     portal_user,

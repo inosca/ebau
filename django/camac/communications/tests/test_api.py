@@ -37,7 +37,8 @@ MS_OFFICE_MIME_TYPES = [
         ("Support", status.HTTP_403_FORBIDDEN),
     ],
 )
-def test_create_topic(db, be_instance, admin_client, expect_status, role):
+@pytest.mark.django_db
+def test_create_topic(be_instance, admin_client, expect_status, role):
     if role.name == "Applicant":
         be_instance.involved_applicants.create(
             invitee=admin_client.user, user=admin_client.user
@@ -98,8 +99,8 @@ def test_create_topic(db, be_instance, admin_client, expect_status, role):
 )
 @pytest.mark.parametrize("with_file_attachments", [True, False])
 @pytest.mark.parametrize("with_doc_attachments", [True, False])
+@pytest.mark.django_db
 def test_create_message(
-    db,
     be_instance,
     admin_user,
     admin_client,
@@ -182,8 +183,8 @@ def test_create_message(
         [True, True, status.HTTP_200_OK],
     ],
 )
+@pytest.mark.django_db
 def test_attachment_download(
-    db,
     be_instance,
     role,
     admin_client,
@@ -240,8 +241,8 @@ def test_attachment_download(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_included_dossier_number(
-    db,
     be_instance,
     admin_client,
     communications_topic,
@@ -267,8 +268,8 @@ def test_included_dossier_number(
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
 @pytest.mark.parametrize("notifications_enabled", [1, 0])
+@pytest.mark.django_db
 def test_notification_email(
-    db,
     admin_client,
     communications_topic,
     be_instance,
@@ -331,8 +332,8 @@ def test_notification_email(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize("error_type", ["extension", "content", "unallowed"])
+@pytest.mark.django_db
 def test_mime_type_validation(
-    db,
     admin_client,
     topic_with_admin_involved,
     tmpdir,
@@ -377,8 +378,8 @@ def test_mime_type_validation(
         ("Applicant", status.HTTP_403_FORBIDDEN, 1),
     ],
 )
+@pytest.mark.django_db
 def test_delete_attachment(
-    db,
     admin_user,
     admin_client,
     communications_message,
@@ -407,8 +408,8 @@ def test_delete_attachment(
     assert len(CommunicationsAttachment.objects.all()) == expected_count
 
 
+@pytest.mark.django_db
 def test_create_message_without_group(
-    db,
     be_instance,
     admin_client,
     topic_with_admin_involved,
@@ -444,7 +445,8 @@ def test_create_message_without_group(
 
 
 @pytest.mark.parametrize("has_group", [True, False])
-def test_entity_for_current_user(db, admin_user, be_instance, has_group, rf):
+@pytest.mark.django_db
+def test_entity_for_current_user(admin_user, be_instance, has_group, rf):
     request = rf.request()
     request.user = admin_user
     if has_group:
@@ -473,8 +475,8 @@ def test_entity_for_current_user(db, admin_user, be_instance, has_group, rf):
         (None, "file.pdf"),
     ],
 )
+@pytest.mark.django_db
 def test_validation_of_display_name_by_message_creation(
-    db,
     be_instance,
     admin_client,
     topic_with_admin_involved,
@@ -558,8 +560,9 @@ def test_validate_mime_type_alternative_mime_for_zip(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_display_of_instance_marks(
-    db, admin_client, instance_mark_factory, topic_with_admin_involved
+    admin_client, instance_mark_factory, topic_with_admin_involved
 ):
     instance_mark = instance_mark_factory()
     topic_with_admin_involved.instance.instance_marks.add(instance_mark)

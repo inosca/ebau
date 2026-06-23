@@ -12,8 +12,8 @@ from camac.permissions.conditions import Always, Never
 from camac.permissions.switcher import PERMISSION_MODE
 
 
+@pytest.mark.django_db
 def test_grant_user_permission(
-    db,
     user,
     service,
     user_factory,
@@ -45,8 +45,8 @@ def test_grant_user_permission(
     assert models.InstanceACL.for_current_user(user=other_user).count() == 0
 
 
+@pytest.mark.django_db
 def test_grant_service_permission(
-    db,
     user,
     service,
     service_factory,
@@ -81,8 +81,8 @@ def test_grant_service_permission(
     assert models.InstanceACL.for_current_user(service=other_service).count() == 0
 
 
+@pytest.mark.django_db
 def test_grant_service_group_permission(
-    db,
     user,
     service,
     service_factory,
@@ -119,8 +119,8 @@ def test_grant_service_group_permission(
     assert models.InstanceACL.for_current_user(service=other_group_service).count() == 0
 
 
+@pytest.mark.django_db
 def test_grant_role_permission(
-    db,
     user,
     service,
     token,
@@ -152,8 +152,8 @@ def test_grant_role_permission(
     assert models.InstanceACL.for_current_user(role=other_role).count() == 0
 
 
+@pytest.mark.django_db
 def test_grant_token_permission(
-    db,
     user,
     service,
     token,
@@ -188,8 +188,9 @@ def _get_instances(user, service, token):
 
 
 @pytest.mark.parametrize("grant_type", ["user", "service", "service_group", "token"])
+@pytest.mark.django_db
 def test_visible_instances(
-    db, grant_type, user, service, service_group, token, instance, access_level
+    grant_type, user, service, service_group, token, instance, access_level
 ):
     """Test whether the "simple" ACL types all work on the "instance" queryset."""
     visible_instances = _get_instances(user, service, token)
@@ -223,8 +224,8 @@ _some_user = lf("user")
         ("AUTHENTICATED_PUBLIC", None, 0),
     ],
 )
+@pytest.mark.django_db
 def test_visible_instances_public_access(
-    db,
     grant_type,
     expect_result,
     request_user,
@@ -261,9 +262,8 @@ def test_visible_instances_public_access(
         (lambda: timezone.now() + timedelta(seconds=10), 1),
     ],
 )
-def test_revoked_acl(
-    db, freezer, user, access_level, instance, end_time, expect_result
-):
+@pytest.mark.django_db
+def test_revoked_acl(freezer, user, access_level, instance, end_time, expect_result):
     """Test whether the ACL's revocation is handled correctly."""
 
     # Note: the `end_time` parameter is a lambda so it runs within the
@@ -305,7 +305,8 @@ def test_revoked_acl(
         (timezone.now() - timedelta(weeks=2), 1),
     ],
 )
-def test_future_acl(db, user, access_level, instance, start_time, expect_result):
+@pytest.mark.django_db
+def test_future_acl(user, access_level, instance, start_time, expect_result):
     """Test whether the ACL's start time is handled correctly."""
     visible_instances = _get_instances(user, None, None)
 
@@ -342,7 +343,8 @@ def test_future_acl(db, user, access_level, instance, start_time, expect_result)
         (timezone.now(), timezone.now() + timedelta(weeks=2), True),
     ],
 )
-def test_extending_acl(db, instance_acl, end_time, expect_error):
+@pytest.mark.django_db
+def test_extending_acl(instance_acl, end_time, expect_error):
     if expect_error:
         with pytest.raises(exceptions.RevocationRejected):
             instance_acl.revoke(end_time)
@@ -374,8 +376,8 @@ def test_extending_acl(db, instance_acl, end_time, expect_error):
         ("has_permission", api.P("other"), True, 0, False),
     ],
 )
+@pytest.mark.django_db
 def test_evaluation_permissions_check_only_required(
-    db,
     user,
     permissions_settings,
     access_level,
@@ -428,9 +430,8 @@ def test_evaluation_permissions_check_only_required(
         (api.P("other") & api.P("some"), True, ["other", "some"]),
     ],
 )
-def test_referenced_permissions(
-    db, user, require_expr, check_only_required, expect_result
-):
+@pytest.mark.django_db
+def test_referenced_permissions(user, require_expr, check_only_required, expect_result):
     manager = api.PermissionManager(api.ACLUserInfo(user=user))
 
     assert (
@@ -440,8 +441,8 @@ def test_referenced_permissions(
 
 
 @pytest.mark.parametrize("has_uncacheable_check", [True, False])
+@pytest.mark.django_db
 def test_longterm_cache_eviction(
-    db,
     user,
     permissions_settings,
     access_level,
@@ -514,8 +515,8 @@ def test_longterm_cache_eviction(
 
 
 @pytest.mark.parametrize("has_uncacheable_check", [True, False])
+@pytest.mark.django_db
 def test_request_caching(
-    db,
     user,
     permissions_settings,
     access_level,
@@ -583,9 +584,8 @@ def test_request_caching(
     assert perm_check_call_counts[""] == 2
 
 
-def test_request_caching_check_only(
-    db, user, permissions_settings, access_level, instance
-):
+@pytest.mark.django_db
+def test_request_caching_check_only(user, permissions_settings, access_level, instance):
     perm_check_call_counts = {"": 0}
     perm_other_check_call_counts = {"": 0}
 
@@ -714,8 +714,8 @@ MSG_GRANTTYPE = "Access level requires grant type USER"
     ],
 )
 @pytest.mark.parametrize("accesslevel_as_pk", [True, False])
+@pytest.mark.django_db
 def test_grant_validations(
-    db,
     user,
     service,
     permissions_settings,
@@ -755,8 +755,8 @@ def test_grant_validations(
 
 @pytest.mark.parametrize("instance_state__name", ["state-foo"])
 @pytest.mark.parametrize("role__name", ["role-bar"])
+@pytest.mark.django_db
 def test_condition_objects(
-    db,
     permissions_settings,
     access_level,
     instance_state,
@@ -823,14 +823,12 @@ def test_condition_objects(
         ("require_all", "foo", None, False),
     ],
 )
-def test_require_functions(
-    # params
+@pytest.mark.django_db
+def test_require_functions(  # params
     method,
     require,
     expect_result,
     expect_error,
-    # fixtures
-    db,
     instance,
     user,
     instance_acl_factory,
@@ -878,13 +876,11 @@ def test_require_functions(
         ("has_permission", api.P("do-ok", "do-bad", op="or"), True),
     ],
 )
-def test_p_expressions(
-    # params
+@pytest.mark.django_db
+def test_p_expressions(  # params
     method,
     require,
     expect_result,
-    # fixtures
-    db,
     instance,
     user,
     instance_acl_factory,

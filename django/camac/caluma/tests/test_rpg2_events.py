@@ -33,8 +33,8 @@ def ag_rpg2_service():
         ([], "baugesuch", False),
     ],
 )
+@pytest.mark.django_db
 def test_is_rpg2_relevant_form(
-    db,
     rpg2_settings,
     caluma_work_item_factory,
     allowed_forms,
@@ -54,8 +54,8 @@ def test_is_rpg2_relevant_form(
         ([], "rpg2-service-slug", False),
     ],
 )
+@pytest.mark.django_db
 def test_is_rpg2_service_addressed(
-    db,
     rpg2_settings,
     service_factory,
     caluma_work_item_factory,
@@ -71,8 +71,8 @@ def test_is_rpg2_service_addressed(
     assert is_rpg2_service_addressed(work_item) == expected
 
 
+@pytest.mark.django_db
 def test_created_on_inquiry_send_be(
-    db,
     be_rpg2_settings,
     be_rpg2_service,
     distribution_case_be,
@@ -95,8 +95,8 @@ def test_created_on_inquiry_send_be(
     assert work_item.document.form_id == "rpg2"
 
 
+@pytest.mark.django_db
 def test_not_created_for_other_services_be(
-    db,
     be_rpg2_settings,
     inquiry_factory_be,
     disable_ech0211_settings,
@@ -113,8 +113,8 @@ def test_not_created_for_other_services_be(
     assert _rpg2_work_items(distribution_case_be).count() == 0
 
 
+@pytest.mark.django_db
 def test_not_created_for_drafted_inquiry_be(
-    db,
     be_rpg2_settings,
     distribution_case_be,
     inquiry_factory_be,
@@ -129,8 +129,8 @@ def test_not_created_for_drafted_inquiry_be(
     assert _rpg2_work_items(distribution_case_be).count() == 0
 
 
+@pytest.mark.django_db
 def test_not_created_when_disabled_be(
-    db,
     rpg2_settings,
     distribution_case_be,
     inquiry_factory_be,
@@ -142,8 +142,8 @@ def test_not_created_when_disabled_be(
     assert _rpg2_work_items(distribution_case_be).count() == 0
 
 
+@pytest.mark.django_db
 def test_not_created_when_allowed_forms_unset_be(
-    db,
     be_rpg2_settings,
     distribution_case_be,
     inquiry_factory_be,
@@ -155,8 +155,8 @@ def test_not_created_when_allowed_forms_unset_be(
     assert _rpg2_work_items(distribution_case_be).count() == 0
 
 
+@pytest.mark.django_db
 def test_not_created_for_disallowed_forms_be(
-    db,
     be_rpg2_settings,
     distribution_case_be,
     caluma_form_factory,
@@ -172,8 +172,8 @@ def test_not_created_for_disallowed_forms_be(
     assert _rpg2_work_items(distribution_case_be).count() == 0
 
 
+@pytest.mark.django_db
 def test_work_item_creation_idempotent_be(
-    db,
     be_rpg2_settings,
     be_rpg2_service,
     distribution_case_be,
@@ -190,8 +190,8 @@ def test_work_item_creation_idempotent_be(
     assert work_items.count() == 1
 
 
+@pytest.mark.django_db
 def test_created_on_inquiry_send_ag(
-    db,
     ag_rpg2_settings,
     distribution_case_ag,
     inquiry_factory_ag,
@@ -213,8 +213,8 @@ def test_created_on_inquiry_send_ag(
     assert work_item.document.form_id == "rpg2"
 
 
+@pytest.mark.django_db
 def test_not_created_for_other_services_ag(
-    db,
     ag_rpg2_settings,
     inquiry_factory_ag,
     disable_ech0211_settings,
@@ -231,8 +231,8 @@ def test_not_created_for_other_services_ag(
     assert _rpg2_work_items(distribution_case_ag).count() == 0
 
 
+@pytest.mark.django_db
 def test_not_created_for_drafted_inquiry_ag(
-    db,
     ag_rpg2_settings,
     distribution_case_ag,
     inquiry_factory_ag,
@@ -247,8 +247,8 @@ def test_not_created_for_drafted_inquiry_ag(
     assert _rpg2_work_items(distribution_case_ag).count() == 0
 
 
+@pytest.mark.django_db
 def test_not_created_when_disabled_ag(
-    db,
     rpg2_settings,
     distribution_case_ag,
     inquiry_factory_ag,
@@ -260,8 +260,8 @@ def test_not_created_when_disabled_ag(
     assert _rpg2_work_items(distribution_case_ag).count() == 0
 
 
+@pytest.mark.django_db
 def test_not_created_when_allowed_forms_unset_ag(
-    db,
     ag_rpg2_settings,
     distribution_case_ag,
     inquiry_factory_ag,
@@ -273,8 +273,8 @@ def test_not_created_when_allowed_forms_unset_ag(
     assert _rpg2_work_items(distribution_case_ag).count() == 0
 
 
+@pytest.mark.django_db
 def test_not_created_for_disallowed_form_ag(
-    db,
     ag_rpg2_settings,
     distribution_case_ag,
     inquiry_factory_ag,
@@ -288,8 +288,8 @@ def test_not_created_for_disallowed_form_ag(
     assert _rpg2_work_items(distribution_case_ag).count() == 0
 
 
+@pytest.mark.django_db
 def test_work_item_creation_idempotent_ag(
-    db,
     ag_rpg2_settings,
     distribution_case_ag,
     inquiry_factory_ag,

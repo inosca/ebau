@@ -27,7 +27,7 @@ def get_test_files():
 @pytest.mark.skip(reason="manual use only")
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
 @pytest.mark.django_db(transaction=True)
-def test_migrate_from_zip(db, setup_dossier_import_ag, snapshot):
+def test_migrate_from_zip(setup_dossier_import_ag, snapshot):
     out = StringIO()
     err = StringIO()
     basepath = f"{TEST_IMPORT_FILE_PATH}/kt_ag_json_zip"
@@ -47,9 +47,7 @@ def test_migrate_from_zip(db, setup_dossier_import_ag, snapshot):
 @pytest.mark.skip(reason="not productive execution that is tested")
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
 @pytest.mark.django_db(transaction=True)
-def test_migrate_json_file_again(
-    db, setup_dossier_import_ag, snapshot
-):  # pragma: no cover
+def test_migrate_json_file_again(setup_dossier_import_ag, snapshot):  # pragma: no cover
     for input_file in get_test_files():
         print("migrating file", input_file)
         _migrate_from_file_and_assert(input_file, snapshot)
@@ -73,9 +71,7 @@ def _migrate_from_file_and_assert(input_file, snapshot):  # pragma: no cover
 @pytest.mark.skip(reason="not productive execution that is tested")
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
 @pytest.mark.django_db(transaction=True)
-def test_migrate_and_update_all(
-    db, setup_dossier_import_ag, snapshot
-):  # pragma: no cover
+def test_migrate_and_update_all(setup_dossier_import_ag, snapshot):  # pragma: no cover
     out = StringIO()
     err = StringIO()
 
@@ -111,7 +107,7 @@ def test_migrate_and_update_all(
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
 @pytest.mark.django_db(transaction=True)
 def test_migrate_from_zip_and_update(
-    db, setup_dossier_import_ag, snapshot
+    setup_dossier_import_ag, snapshot
 ):  # pragma: no cover
     out = StringIO()
     err = StringIO()
@@ -152,9 +148,7 @@ def test_migrate_from_zip_and_update(
 @pytest.mark.skip(reason="not productive execution that is tested")
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
 @pytest.mark.django_db(transaction=True)
-def test_migrate_from_wrong_zip(
-    db, setup_dossier_import_ag, snapshot
-):  # pragma: no cover
+def test_migrate_from_wrong_zip(setup_dossier_import_ag, snapshot):  # pragma: no cover
     out = StringIO()
     err = StringIO()
     basepath = f"{TEST_IMPORT_FILE_PATH}/kt_ag_json_wrongzip"

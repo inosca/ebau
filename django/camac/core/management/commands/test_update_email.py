@@ -11,7 +11,8 @@ from django.core.management import call_command
         ("testuser", "updatedmail@test.ch", "", True),
     ],
 )
-def test_update_email(db, capsys, user, tmp_path, new_mail, new_active_state, disabled):
+@pytest.mark.django_db
+def test_update_email(capsys, user, tmp_path, new_mail, new_active_state, disabled):
     csv_file = tmp_path / "test.csv"
     csv_file.write_text(f",,{user.username},,,{new_mail},{new_active_state}")
 
@@ -28,7 +29,8 @@ def test_update_email(db, capsys, user, tmp_path, new_mail, new_active_state, di
     assert user.username in captured.out
 
 
-def test_update_email_missing_users(db, capsys, user, tmp_path):
+@pytest.mark.django_db
+def test_update_email_missing_users(capsys, user, tmp_path):
     user.username = "existinguser"
     user.save()
 

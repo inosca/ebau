@@ -40,8 +40,8 @@ def appeal_deadline_factory(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_validate_create_inquiry_context(
-    db,
     caluma_work_item_factory,
     service,
     be_instance,
@@ -77,8 +77,8 @@ def test_validate_create_inquiry_context(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_appeal_work_item(
-    db,
     appeal_deadline_factory,
     application_settings,
     be_appeal_settings,
@@ -150,8 +150,8 @@ def test_appeal_work_item(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_appeal_work_item_update(
-    db,
     appeal_deadline_factory,
     application_settings,
     be_appeal_settings,
@@ -199,8 +199,8 @@ def test_appeal_work_item_update(
         ("text", "foo", True, False),
     ],
 )
+@pytest.mark.django_db
 def test_update_or_create_answer(
-    db,
     be_instance,
     caluma_form_question_factory,
     q_type,
@@ -243,8 +243,8 @@ def test_update_or_create_answer(
         ({"camac-dossier-number": "2026-9999"}, {}, True),
     ],
 )
+@pytest.mark.django_db
 def test_case_metainfo_data_loss(
-    db,
     admin_user,
     be_instance,
     meta_before,
@@ -253,7 +253,6 @@ def test_case_metainfo_data_loss(
     caluma_admin_schema_executor,
     mocker,
 ):
-
     # Don't care about visibility & permissions here
     mocker.patch(
         "camac.caluma.extensions.visibilities.CustomVisibility._visible_instances_qs",
@@ -323,8 +322,8 @@ def test_case_metainfo_data_loss(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_workitem_metainfo_data_loss(
-    db,
     request,
     be_instance,
     meta_before,
@@ -385,8 +384,8 @@ def test_workitem_metainfo_data_loss(
         ({"submit-date": "2026-03-09", "paper-submit-date": None}, False),
     ],
 )
+@pytest.mark.django_db
 def test_case_metainfo_paper_submit_date(
-    db,
     admin_user,
     be_instance,
     meta_after,
@@ -394,7 +393,6 @@ def test_case_metainfo_paper_submit_date(
     caluma_admin_schema_executor,
     mocker,
 ):
-
     # Don't care about visibility & permissions here
     mocker.patch(
         "camac.caluma.extensions.visibilities.CustomVisibility._visible_instances_qs",

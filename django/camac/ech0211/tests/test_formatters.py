@@ -76,8 +76,8 @@ def test_office(set_application_be, ech_instance_be, ech_snapshot, multilang):
 
 @pytest.mark.parametrize("amount", [0, 1, 2])
 @pytest.mark.parametrize("with_display_name", [True, False])
+@pytest.mark.django_db
 def test_get_documents(
-    db,
     attachment_factory,
     amount,
     with_display_name,
@@ -121,8 +121,8 @@ def test_get_documents(
             raise
 
 
+@pytest.mark.django_db
 def test_get_alexandria_documents(
-    db,
     ech_snapshot,
     settings,
     application_settings,

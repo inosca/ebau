@@ -27,8 +27,8 @@ from .test_dossier_import_case import TEST_IMPORT_FILE_NAME
         ("kt_schwyz", "test.ebau.ch", "Applicant", 0),
     ],
 )
+@pytest.mark.django_db
 def test_api_get_views(
-    db,
     dossier_import_factory,
     settings,
     admin_client,
@@ -57,8 +57,8 @@ def test_api_get_views(
 
 
 @pytest.mark.parametrize("role__name", ["Support"])
+@pytest.mark.django_db
 def test_imported_instance_be_get_name(
-    db,
     be_instance,
     form_factory,
     caluma_document_factory,
@@ -105,8 +105,8 @@ def test_imported_instance_be_get_name(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_validation_errors(
-    db,
     admin_client,
     group,
     role,
@@ -218,8 +218,8 @@ def test_validation_errors(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_file_validation(
-    db,
     settings,
     mocker,
     admin_client,
@@ -381,8 +381,8 @@ def test_file_validation(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_state_transitions(
-    db,
     admin_client,
     settings,
     archive_file,
@@ -424,8 +424,8 @@ def test_state_transitions(
 
 
 @pytest.mark.parametrize("location_required", [True, False])
+@pytest.mark.django_db
 def test_transmitting_logic(
-    db,
     dossier_import_factory,
     archive_file,
     group,
@@ -477,9 +477,8 @@ def test_transmitting_logic(
     transmit_import(dossier_import)
 
 
-def test_failing_transmission(
-    db, requests_mock, dossier_import, dossier_import_settings
-):
+@pytest.mark.django_db
+def test_failing_transmission(requests_mock, dossier_import, dossier_import_settings):
     PROD_URL = "http://this-could-be-your-production-url.example.com"
     PROD_AUTH_URL = PROD_URL + "/auth/token"
     dossier_import_settings["PROD_URL"] = PROD_URL
@@ -500,8 +499,8 @@ def test_failing_transmission(
         ("django.core.files.storage.FileSystemStorage", FileResponse),
     ],
 )
+@pytest.mark.django_db
 def test_download_import(
-    db,
     admin_client,
     archive_file,
     dossier_import_factory,
@@ -527,7 +526,8 @@ def test_download_import(
 
 
 @pytest.mark.parametrize("role__name", ["Support"])
-def test_clean_import(db, admin_client, archive_file, dossier_import_factory):
+@pytest.mark.django_db
+def test_clean_import(admin_client, archive_file, dossier_import_factory):
     dossier_import = dossier_import_factory(
         source_file=archive_file("import-example.zip"),
         group=admin_client.user.groups.first(),
@@ -543,8 +543,8 @@ def test_clean_import(db, admin_client, archive_file, dossier_import_factory):
     [(False, status.HTTP_204_NO_CONTENT), (True, status.HTTP_400_BAD_REQUEST)],
 )
 @pytest.mark.parametrize("role__name", ["Support"])
+@pytest.mark.django_db
 def test_delete_import(
-    db,
     admin_client,
     archive_file,
     dossier_import,
@@ -622,8 +622,8 @@ def test_delete_import(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_import_status(
-    db,
     admin_client,
     dossier_import,
     import_status_before,
@@ -632,7 +632,6 @@ def test_import_status(
     settings,
     celery_fake_worker,
 ):
-
     dossier_import.status = import_status_before
     dossier_import.save()
 

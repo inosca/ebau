@@ -1,3 +1,4 @@
+import pytest
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.permissions import api as permissions_api
@@ -5,8 +6,8 @@ from camac.permissions.events.core import Trigger
 from camac.tests.form_utils import FormUtils
 
 
+@pytest.mark.django_db
 def test_assign_responsible_user_on_acl_creation(
-    db,
     access_level_factory,
     ag_instance,
     ag_permissions_settings,
@@ -80,8 +81,8 @@ def test_assign_responsible_user_on_acl_creation(
     assert ag_instance.responsible_services.filter(service=read_only).count() == 0
 
 
+@pytest.mark.django_db
 def test_assign_responsible_user_on_acl_creation_for_paper_dossiers(
-    db,
     ag_instance,
     ag_permissions_settings,
     ag_rulesets_settings,

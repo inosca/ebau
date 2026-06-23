@@ -1,9 +1,11 @@
+import pytest
+
 from camac.gis_export.models import AGGISExport
 from camac.gis_export.tasks import export_agis_task
 
 
+@pytest.mark.django_db
 def test_export_agis_task(
-    db,
     ag_instance,
     role,
     service_factory,

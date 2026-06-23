@@ -1,0 +1,30 @@
+id: celery-delay-outside-on-commit
+language: python
+ignores:
+  - "**/test_*.py"
+severity: warning
+message: "Using `.delay()` directly can lead to race conditions (celery starting work before transaction completes)"
+note: |
+  Use `django.db.transaction.on_commit(lambda: task.delay(...))` instead
+  to ensure the task only runs after a successful commit.
+  Hint: You can use `# noqa: transaction` to ignore this rule.
+rule:
+  all:
+    - pattern: "$TASK.delay($$$ARGS)"
+    - not:
+        any:
+          - inside:
+              any:
+                - pattern: "on_commit($$$)"
+                - pattern: "transaction.on_commit($$$)"
+                - pattern: "django.db.transaction.on_commit($$$)"
+                - kind: lambda
+                - precedes:
+                    kind: comment
+                    regex: "noqa: transaction"
+                - follows:
+                    kind: comment
+                    regex: "noqa: transaction"
+          - has:
+              regex: "#.*noqa: transaction"
+

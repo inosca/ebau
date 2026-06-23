@@ -188,8 +188,8 @@ def instance_with_document_for_billing(
         ("Public", "get_queryset_for_public", False, 0),
     ],
 )
+@pytest.mark.django_db
 def test_billing_entry_export_visibilities(
-    db,
     admin_client,
     instance,
     mocker,

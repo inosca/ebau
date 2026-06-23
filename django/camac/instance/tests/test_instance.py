@@ -169,8 +169,8 @@ def test_instance_search(admin_client, instance, form_field, search):
 
 
 @pytest.mark.parametrize("role__name", [("Support")])
+@pytest.mark.django_db
 def test_instance_search_sanctions(
-    db,
     application_settings,
     ur_instance,
     sanction_factory,
@@ -1310,8 +1310,8 @@ def test_instance_create(
         ("Canton"),
     ],
 )
+@pytest.mark.django_db
 def test_instance_create_internal_sz(
-    db,
     role,
     admin_client,
     application_settings,
@@ -1682,8 +1682,8 @@ def test_instance_export_detail(
     ),
 )
 @pytest.mark.parametrize("location__communal_federal_number", ["1311"])
+@pytest.mark.django_db
 def test_instance_generate_identifier(
-    db,
     instance,
     instance_factory,
     caluma_case_factory,
@@ -1762,8 +1762,8 @@ def test_instance_generate_identifier(
     ),
 )
 @pytest.mark.parametrize("location__communal_federal_number", ["1311"])
+@pytest.mark.django_db
 def test_instance_generate_identifier_sz(
-    db,
     instance,
     instance_factory,
     caluma_case_factory,
@@ -1840,8 +1840,8 @@ def test_instance_generate_identifier_sz(
     ],
 )
 @pytest.mark.freeze_time("2023-7-27")
+@pytest.mark.django_db
 def test_instance_generate_identifier_gr(
-    db,
     gr_instance,
     instance,
     caluma_case_factory,
@@ -2140,7 +2140,8 @@ def test_instance_form_field_ordering(
 
 @pytest.mark.parametrize("role__name", ["Commission"])
 @pytest.mark.parametrize("has_assignment", [True, False])
-def test_instance_list_commission(db, admin_client, has_assignment, request, instance):
+@pytest.mark.django_db
+def test_instance_list_commission(admin_client, has_assignment, request, instance):
     """Ensure that a commission only sees dossiers which they were invited on."""
 
     if has_assignment:
@@ -2159,8 +2160,9 @@ def test_instance_list_commission(db, admin_client, has_assignment, request, ins
 
 
 @pytest.mark.parametrize("role__name", ["building_commission"])
+@pytest.mark.django_db
 def test_instance_list_building_commission(
-    db, admin_client, request, ur_instance, caluma_work_item_factory
+    admin_client, request, ur_instance, caluma_work_item_factory
 ):
     caluma_work_item_factory(
         addressed_groups=[str(admin_client.user.groups.first().service.pk)],
@@ -2174,8 +2176,9 @@ def test_instance_list_building_commission(
 
 
 @pytest.mark.parametrize("role__name", ["OrganizationReadonly"])
+@pytest.mark.django_db
 def test_instance_list_organization_readonly(
-    db, admin_client, request, instance_factory, location_factory, form_factory, mocker
+    admin_client, request, instance_factory, location_factory, form_factory, mocker
 ):
     """Ensure that a readonly organization only sees their own dossiers."""
 
@@ -2214,7 +2217,8 @@ def test_instance_list_organization_readonly(
     assert json["data"][0]["id"] == str(instance.pk)
 
 
-def test_linked_instances_ur(db, ur_instance, instance_factory, set_application_ur):
+@pytest.mark.django_db
+def test_linked_instances_ur(ur_instance, instance_factory, set_application_ur):
     instance_group = InstanceGroup.objects.create()
     other_instance = instance_factory(instance_group=instance_group)
 
@@ -2227,8 +2231,8 @@ def test_linked_instances_ur(db, ur_instance, instance_factory, set_application_
     assert list(ur_instance.get_linked_instances()) == [other_instance]
 
 
+@pytest.mark.django_db
 def test_is_active_or_involved_lead_authority(
-    db,
     instance,
     instance_service_factory,
     service_factory,
@@ -2249,8 +2253,8 @@ def test_is_active_or_involved_lead_authority(
     assert not instance.is_active_or_involved_lead_authority(service.pk)
 
 
+@pytest.mark.django_db
 def test_has_inquiry(
-    db,
     gr_instance,
     service_factory,
     caluma_work_item_factory,
@@ -2393,8 +2397,8 @@ def test_responsible_building_commission(
         ("other", "1", 0),
     ],
 )
+@pytest.mark.django_db
 def test_case_suspended_filter_gr(
-    db,
     service_factory,
     group_factory,
     gr_instance,
@@ -2442,8 +2446,8 @@ def test_case_suspended_filter_gr(
         (None, 3),
     ],
 )
+@pytest.mark.django_db
 def test_case_bab_filter(
-    db,
     service_factory,
     group_factory,
     instance_factory,
@@ -2501,8 +2505,8 @@ def test_case_bab_filter(
         (None, "baugesuch-v1", 3),
     ],
 )
+@pytest.mark.django_db
 def test_case_bab_filter_gr(
-    db,
     service_factory,
     group_factory,
     instance_factory,
@@ -2569,8 +2573,8 @@ def test_case_bab_filter_gr(
         ("service", "parent", "1", 1),
     ],
 )
+@pytest.mark.django_db
 def test_case_suspended_filter_ag(
-    db,
     service_factory,
     group_factory,
     ag_instance,
@@ -2635,8 +2639,8 @@ def test_case_suspended_filter_ag(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_application_codes_filter_ag(
-    db,
     admin_client,
     rf,
     group,
@@ -2649,7 +2653,6 @@ def test_application_codes_filter_ag(
     codes,
     expected,
 ):
-
     # create an instance without code answers
     instance_factory()
 
@@ -2696,8 +2699,8 @@ def test_application_codes_filter_ag(
         ("", 1),
     ],
 )
+@pytest.mark.django_db
 def test_retroactive_building_permit_filter_ag(
-    db,
     rf,
     admin_client,
     group,

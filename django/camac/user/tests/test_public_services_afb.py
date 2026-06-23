@@ -61,8 +61,8 @@ def ag_services(service_factory, service):
         ("service-cantonal", "alg-gn"),
     ],
 )
+@pytest.mark.django_db
 def test_ag_distribution_services(
-    db,
     admin_client,
     set_application_ag,
     is_authority,

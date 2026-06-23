@@ -10,8 +10,8 @@ from camac.user.models import Service
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_inquiry_visibility_be(
-    db,
     caluma_admin_schema_executor,
     be_distribution_settings,
     active_inquiry_factory,
@@ -71,8 +71,8 @@ def test_inquiry_visibility_be(
     "role__name,expected_count",
     [("service", 0), ("subservice", 3)],
 )
+@pytest.mark.django_db
 def test_inquiry_visibility_gr(
-    db,
     caluma_admin_schema_executor,
     gr_distribution_settings,
     active_inquiry_factory,
@@ -214,8 +214,8 @@ def so_inquiries(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_inquiry_visibility_so(
-    db,
     caluma_admin_schema_executor_for_group,
     so_distribution_settings,
     gr_instance,
@@ -258,8 +258,8 @@ def test_inquiry_visibility_so(
     assert set(expected_services) == visible_service_names
 
 
+@pytest.mark.django_db
 def test_inquiry_visibility_ag(
-    db,
     ag_distribution_settings,
     caluma_case_factory,
     group,
@@ -344,8 +344,8 @@ def test_inquiry_visibility_ag(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
+@pytest.mark.django_db
 def test_inquiry_visibility_ur(
-    db,
     caluma_admin_schema_executor,
     ur_distribution_settings,
     active_inquiry_factory,

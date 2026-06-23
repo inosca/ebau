@@ -6,8 +6,8 @@ from camac.deadlines.tasks import update_deadlines
 
 
 @pytest.mark.freeze_time("2026-04-24")
+@pytest.mark.django_db
 def test_task_update_deadlines(
-    db,
     instance_deadline_factory,
     deadline_type_factory,
     suspension_factory,

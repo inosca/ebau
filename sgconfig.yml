@@ -1,0 +1,4 @@
+# AST-Grep Rules
+ruleDirs:
+  - ast-grep
+

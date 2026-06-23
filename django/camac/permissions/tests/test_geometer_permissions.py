@@ -27,8 +27,8 @@ be moved to someplace else.
 )
 @pytest.mark.parametrize("grant_type", ["USER", "SERVICE"])
 @pytest.mark.parametrize("access_level__slug", ["geometer"])
+@pytest.mark.django_db
 def test_geometer_instance_access(
-    db,
     admin_client,
     instance,
     expect_results,
@@ -101,8 +101,8 @@ def test_geometer_instance_access(
         assert res_after_acl_data[0]["id"] == str(instance.pk)
 
 
+@pytest.mark.django_db
 def test_construction_monitoring_geometer_work_item_created(
-    db,
     caluma_work_item_factory,
     gr_permissions_settings,
     admin_user,
@@ -123,8 +123,8 @@ def test_construction_monitoring_geometer_work_item_created(
     "geometer_required",
     [True, False],
 )
+@pytest.mark.django_db
 def test_formal_exam_completed_geometer_so(
-    db,
     mocker,
     service_factory,
     caluma_work_item_factory,

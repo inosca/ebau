@@ -5,8 +5,8 @@ from camac.applicants.utils import get_applicants_requiring_confirmation
 from camac.tests.form_utils import FormUtils
 
 
+@pytest.mark.django_db
 def test_get_applicants_requiring_confirmation(
-    db,
     applicant_factory,
     applicants_settings,
     caluma_case_factory,

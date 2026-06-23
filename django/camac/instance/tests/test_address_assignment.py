@@ -1,10 +1,11 @@
+import pytest
 from caluma.caluma_form.models import Question
 
 from camac.instance.domain_logic import AddressAssignmentLogic
 
 
+@pytest.mark.django_db
 def test_address_check_was_positive(
-    db,
     gr_instance,
     caluma_work_item_factory,
     caluma_answer_factory,
@@ -23,8 +24,8 @@ def test_address_check_was_positive(
     assert AddressAssignmentLogic.address_check_was_positive(check_item)
 
 
+@pytest.mark.django_db
 def test_latest_suggest_address_work_item(
-    db,
     gr_instance,
     caluma_work_item_factory,
     caluma_answer_factory,
@@ -44,8 +45,8 @@ def test_latest_suggest_address_work_item(
     )
 
 
+@pytest.mark.django_db
 def test_most_recent_address_suggestions(
-    db,
     gr_instance,
     caluma_work_item_factory,
     caluma_answer_factory,
@@ -67,8 +68,8 @@ def test_most_recent_address_suggestions(
     )
 
 
+@pytest.mark.django_db
 def test_write_new_address_to_main_form(
-    db,
     gr_instance,
     caluma_work_item_factory,
     caluma_answer_factory,
@@ -99,8 +100,8 @@ def test_write_new_address_to_main_form(
     )
 
 
+@pytest.mark.django_db
 def test_create_history_entry_for_address_change(
-    db,
     gr_instance,
     gr_address_assignment_settings,
     caluma_work_item_factory,

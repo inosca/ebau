@@ -7,7 +7,8 @@ from camac.core.models import InstanceLog
 
 
 @pytest.mark.freeze_time("2017-7-27")
-def test_deletelogs(db):
+@pytest.mark.django_db
+def test_deletelogs():
     InstanceLog.objects.create(
         id=1, action="test", user_id=1, modification_date="2017-07-26 13:09:56+00:00"
     )

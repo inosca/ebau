@@ -51,8 +51,8 @@ def invalid_user(user_factory):
         ("form1", None, "user1"),
     ],
 )
+@pytest.mark.django_db
 def test_responsible_user_for_instance(
-    db,
     ag_instance,
     ag_master_data_settings,
     application_type,
@@ -127,8 +127,8 @@ def test_responsible_user_for_instance(
         ("municipality-admin", 3),
     ],
 )
+@pytest.mark.django_db
 def test_responsible_user_rule_list(
-    db,
     admin_client,
     ag_rulesets_settings,
     expected_count,
@@ -211,8 +211,8 @@ def test_responsible_user_rule_list(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_responsible_user_rule_create(
-    db,
     admin_client,
     ag_rulesets_settings,
     application_types,
@@ -275,8 +275,8 @@ def test_responsible_user_rule_create(
         ("municipality-clerk", status.HTTP_404_NOT_FOUND),
     ],
 )
+@pytest.mark.django_db
 def test_responsible_user_rule_update(
-    db,
     admin_client,
     ag_rulesets_settings,
     expected_status,
@@ -332,8 +332,8 @@ def test_responsible_user_rule_update(
         ("municipality-clerk", status.HTTP_404_NOT_FOUND),
     ],
 )
+@pytest.mark.django_db
 def test_responsible_user_rule_destroy(
-    db,
     admin_client,
     ag_rulesets_settings,
     expected_status,
@@ -372,8 +372,8 @@ def test_responsible_user_rule_destroy(
         ("municipality-clerk", [2, 0, 1], status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_responsible_user_rule_reorder(
-    db,
     admin_client,
     ag_rulesets_settings,
     expected_status,

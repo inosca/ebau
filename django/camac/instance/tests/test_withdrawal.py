@@ -44,8 +44,8 @@ def publications(so_instance, so_publication_settings, create_caluma_publication
         ("distribution", True, ["submit", "formal-exam", "material-exam"]),
     ],
 )
+@pytest.mark.django_db
 def test_withdraw_instance(
-    db,
     so_instance,
     admin_client,
     admin_user,
@@ -150,8 +150,8 @@ def test_withdraw_instance(
 
 @pytest.mark.freeze_time("2024-04-15", tick=True)
 @pytest.mark.parametrize("role__name,instance_state__name", [("applicant", "subm")])
+@pytest.mark.django_db
 def test_withdraw_instance_light(
-    db,
     admin_client,
     admin_user,
     applicant_factory,
@@ -221,8 +221,8 @@ def test_withdraw_instance_light(
 
 @pytest.mark.freeze_time("2024-04-15", tick=True)
 @pytest.mark.parametrize("role__name,instance_state__name", [("applicant", "subm")])
+@pytest.mark.django_db
 def test_withdraw_instance_light_completed(
-    db,
     admin_client,
     admin_user,
     applicant_factory,

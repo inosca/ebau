@@ -18,8 +18,9 @@ from camac.captcha.utils import validate_captcha_token
         ("ok", True),
     ],
 )
+@pytest.mark.django_db
 def test_validate_request(
-    db, application_settings, captcha_disabled, action, mocker, expected
+    application_settings, captcha_disabled, action, mocker, expected
 ):
     expected = captcha_disabled or expected
 

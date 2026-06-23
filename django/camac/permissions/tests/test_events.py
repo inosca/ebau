@@ -22,7 +22,8 @@ from camac.user.models import ServiceRelation
 
 
 @pytest.mark.parametrize("instance_state__name", ["submitted"])
-def test_event_handler(db, instance, instance_state, instance_state_factory, rf, user):
+@pytest.mark.django_db
+def test_event_handler(instance, instance_state, instance_state_factory, rf, user):
     class CustomEventHandler(events.core.EmptyEventHandler):
         def __init__(self, *args, **kwargs):
             self.call_count = 0
@@ -83,7 +84,8 @@ class CustomTrigger(events.core.Trigger):
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.parametrize("access_level__slug", ["service"])
-def test_instance_submit(db, instance, access_level, permissions_settings):
+@pytest.mark.django_db
+def test_instance_submit(instance, access_level, permissions_settings):
     permissions_settings["EVENT_HANDLER"] = __name__ + ".SubmitCreatePermissions"
 
     assert InstanceACL.objects.filter(instance=instance).count() == 0
@@ -97,8 +99,8 @@ def test_instance_submit(db, instance, access_level, permissions_settings):
     "involve_feuerungskontrolle,expected_result",
     [(True, set(["read", "lead-authority"])), (False, set(["lead-authority"]))],
 )
+@pytest.mark.django_db
 def test_permission_event_handler_be(
-    db,
     be_instance,
     involve_feuerungskontrolle,
     permissions_settings,
@@ -160,8 +162,8 @@ def test_permission_event_handler_be(
         (True, True, 1, True),
     ],
 )
+@pytest.mark.django_db
 def test_decision_event_handler_be(
-    db,
     be_instance,
     be_permissions_settings,
     decision_factory,
@@ -268,8 +270,8 @@ def test_decision_event_handler_be(
     "checkbox_checked,expected_count",
     [(True, 1), (False, 0)],
 )
+@pytest.mark.django_db
 def test_decision_event_handler_gr(
-    db,
     gr_instance,
     checkbox_checked,
     expected_count,
@@ -349,8 +351,8 @@ def test_decision_event_handler_gr(
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize("is_paper", [False, True])
+@pytest.mark.django_db
 def test_submit_create_acl_be(
-    db,
     set_application_be,
     be_instance,
     be_permissions_settings,
@@ -447,8 +449,8 @@ def test_submit_create_acl_be(
 
 @pytest.mark.parametrize("role__name", ["municipality-lead", "support"])
 @pytest.mark.parametrize("service_type", ["municipality", "construction_control"])
+@pytest.mark.django_db
 def test_change_responsible_service(
-    db,
     be_instance,
     admin_client,
     service_factory,
@@ -569,8 +571,8 @@ def test_change_responsible_service(
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Support"])
 @pytest.mark.parametrize("service_type", ["municipality", "construction_control"])
+@pytest.mark.django_db
 def test_unsubscribe_responsible_service(
-    db,
     be_instance,
     admin_client,
     service,
@@ -701,8 +703,8 @@ def test_create_instance_event_be(
 
 
 @pytest.mark.parametrize("instance_state__name", ["circulation"])
+@pytest.mark.django_db
 def test_send_inquiry(
-    db,
     be_instance,
     active_inquiry_factory,
     notification_template,
@@ -749,8 +751,8 @@ def test_send_inquiry(
     ("role__name"),
     ["municipality", "uso"],
 )
+@pytest.mark.django_db
 def test_inquiry_gr_uso(
-    db,
     gr_instance,
     group_factory,
     role,
@@ -838,8 +840,8 @@ def test_submitted_so(so_access_levels, so_instance, instance_acl_factory):
     assert not the_acl.is_active()
 
 
+@pytest.mark.django_db
 def test_decision_involve_tax_administration_sz(
-    db,
     sz_permissions_settings,
     sz_access_levels,
     sz_instance,
@@ -932,8 +934,8 @@ def test_decision_involve_tax_administration_sz(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_involve_gvg_aib_gr(
-    db,
     service_factory,
     caluma_answer_factory,
     caluma_work_item_factory,
@@ -1001,8 +1003,8 @@ def test_involve_gvg_aib_gr(
 
 
 @pytest.mark.parametrize("have_geometer,expect_acl", [(True, True), (False, False)])
+@pytest.mark.django_db
 def test_decided_involve_geometer_sz(
-    db,
     application_settings,
     caluma_admin_user,
     caluma_work_item_factory,
@@ -1214,8 +1216,8 @@ def test_copy_be(
         ).exists(), f"Missing expected copy of {old_acl}"
 
 
+@pytest.mark.django_db
 def test_geometer_changed_event(
-    db,
     be_instance,
     service_factory,
     instance_acl_factory,
@@ -1248,8 +1250,8 @@ def test_geometer_changed_event(
     )
 
 
+@pytest.mark.django_db
 def test_inquiry_sent_event(
-    db,
     be_instance,
     service,
     be_permissions_settings,

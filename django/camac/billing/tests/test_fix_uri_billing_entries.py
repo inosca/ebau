@@ -1,11 +1,13 @@
+import pytest
 from django.core.management import call_command
 
 from camac.core.factories import BillingEntryFactory
 from camac.core.models import BillingInvoice
 
 
+@pytest.mark.django_db
 def test_billing_fix_uri_billing_entries(
-    db, instance_factory, attachment_factory, caluma_case_factory
+    instance_factory, attachment_factory, caluma_case_factory
 ):
     date_invoice1 = "2025-12-02T12:00:00Z"
     date_invoice2 = "2025-12-10T12:00:00Z"

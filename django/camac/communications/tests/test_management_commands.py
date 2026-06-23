@@ -6,8 +6,8 @@ from camac.document.tests.data import django_file
 
 
 @pytest.mark.parametrize("backend", ["camac-ng", "alexandria"])
+@pytest.mark.django_db
 def test_convert_communication_attachment_links_to_files(
-    db,
     application_settings,
     backend,
     communications_attachment_factory,
@@ -51,8 +51,8 @@ def test_convert_communication_attachment_links_to_files(
     assert attachment2.file_attachment.name.endswith("Doc2.pdf")
 
 
+@pytest.mark.django_db
 def test_convert_communication_attachment_links_to_files_error(
-    db,
     application_settings,
     communications_attachment_factory,
     attachment_factory,

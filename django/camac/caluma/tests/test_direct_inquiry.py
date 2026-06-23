@@ -78,8 +78,8 @@ def inquiry_factory_so(
     return factory
 
 
+@pytest.mark.django_db
 def test_mark_direct_inquiry(
-    db,
     caluma_admin_user,
     inquiry_factory_so,
     so_distribution_settings,
@@ -102,8 +102,8 @@ def test_mark_direct_inquiry(
     assert inquiry.meta["is-direct"] is True
 
 
+@pytest.mark.django_db
 def test_complete_direct_inquiry(
-    db,
     caluma_admin_user,
     inquiry_factory_so,
     service_factory,
@@ -156,8 +156,8 @@ def test_complete_direct_inquiry(
     ).exists()
 
 
+@pytest.mark.django_db
 def test_direct_inquiry_visibility(
-    db,
     caluma_admin_schema_executor,
     gql,
     inquiry_factory_so,

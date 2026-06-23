@@ -7,8 +7,8 @@ from rest_framework import status
     "role__name,expected_count",
     [("Applicant", 0), ("Service", 3)],
 )
+@pytest.mark.django_db
 def test_billing_entry_template_list(
-    db,
     admin_client,
     billing_v2_entry_template_factory,
     expected_count,

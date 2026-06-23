@@ -78,8 +78,8 @@ def test_mark_exclusive_validation(
         (["publication"], ["sensitive"], status.HTTP_400_BAD_REQUEST),
     ],
 )
+@pytest.mark.django_db
 def test_mark_sensitive_validation(
-    db,
     admin_client,
     mocker,
     gr_instance,

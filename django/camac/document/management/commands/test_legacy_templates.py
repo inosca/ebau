@@ -6,7 +6,8 @@ from django.core.management import call_command
 from camac.document.tests.data import django_file
 
 
-def test_template_download(db, template_factory, capsys, snapshot):
+@pytest.mark.django_db
+def test_template_download(template_factory, capsys, snapshot):
     template_factory(path=django_file("template.docx"))
 
     call_command("legacy_templates", "extract_used_placeholders")
@@ -15,7 +16,7 @@ def test_template_download(db, template_factory, capsys, snapshot):
 
 
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
-def test_template_export(db, template_factory, tmp_path, settings, capsys, snapshot):
+def test_template_export(template_factory, tmp_path, settings, capsys, snapshot):
     settings.APPLICATION_DIR = tmp_path
 
     out_file = tmp_path / "legacy_templates" / "test_dms_templates_fixture.json"
@@ -32,7 +33,8 @@ def test_template_export(db, template_factory, tmp_path, settings, capsys, snaps
     assert json.load(out_file.open("r"))[0] == snapshot
 
 
-def test_remove_dangling(db, template_factory, settings):
+@pytest.mark.django_db
+def test_remove_dangling(template_factory, settings):
     tmpl1 = template_factory()
     tmpl2 = template_factory()
     tmpl2.delete()

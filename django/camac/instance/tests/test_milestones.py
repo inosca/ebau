@@ -37,8 +37,8 @@ from camac.tests.form_utils import FormUtils
 @pytest.mark.django_db(
     transaction=True, reset_sequences=True
 )  # always reset instance id
+@pytest.mark.django_db
 def test_milestones_ur(
-    db,
     role,
     admin_client,
     ur_instance,
@@ -250,8 +250,8 @@ def test_milestones_ur(
 
 
 @pytest.mark.freeze_time("2024-08-29")
+@pytest.mark.django_db
 def test_get_date_of_downloaded_decision_document(
-    db,
     attachment_factory,
     attachment_download_history_factory,
     instance_factory,
@@ -263,8 +263,8 @@ def test_get_date_of_downloaded_decision_document(
     assert _get_date_of_downloaded_decision_document(instance) == timezone.now()
 
 
+@pytest.mark.django_db
 def test_check_decision_answer(
-    db,
     caluma_work_item_factory,
     caluma_answer_factory,
     instance_factory,
@@ -289,8 +289,9 @@ def test_check_decision_answer(
 
 
 @pytest.mark.freeze_time("2024-08-29")
+@pytest.mark.django_db
 def test_decision_work_item_closed_at(
-    db, caluma_work_item_factory, caluma_case_factory, instance_factory
+    caluma_work_item_factory, caluma_case_factory, instance_factory
 ):
     instance = instance_factory(case=caluma_case_factory())
     decision_work_item = caluma_work_item_factory(
@@ -304,8 +305,9 @@ def test_decision_work_item_closed_at(
 
 
 @pytest.mark.freeze_time("2024-08-29")
+@pytest.mark.django_db
 def test_get_publication_date(
-    db, set_application_ur, publication_entry_factory, ur_instance
+    set_application_ur, publication_entry_factory, ur_instance
 ):
     publication_entry_factory(
         publication_date=timezone.now(),

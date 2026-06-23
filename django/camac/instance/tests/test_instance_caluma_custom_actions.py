@@ -28,8 +28,8 @@ from camac.timelines.models import FormTimeline
         ("2020-112", None, "Diese eBau-Nummer existiert nicht"),
     ],
 )
+@pytest.mark.django_db
 def test_set_ebau_number(
-    db,
     admin_client,
     caluma_admin_user,
     be_instance,
@@ -169,8 +169,8 @@ def test_set_ebau_number(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_set_ebau_number_workflow(
-    db,
     admin_client,
     admin_user,
     caluma_admin_user,
@@ -231,8 +231,8 @@ def test_set_ebau_number_workflow(
         ("Applicant", status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_archive(
-    db,
     admin_client,
     be_instance,
     role,
@@ -260,8 +260,8 @@ def test_archive(
         ("municipality", status.HTTP_204_NO_CONTENT),
     ],
 )
+@pytest.mark.django_db
 def test_reassign_distribution_and_complete_distribution_workitems(
-    db,
     admin_client,
     be_instance,
     group,
@@ -358,8 +358,8 @@ def test_reassign_distribution_and_complete_distribution_workitems(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_change_responsible_service_audit_validation(
-    db,
     admin_client,
     be_instance,
     instance_service,
@@ -482,8 +482,8 @@ def test_instance_convert_modification(
         ("Municipality", False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_correction(
-    db,
     admin_client,
     be_instance,
     role,
@@ -549,8 +549,8 @@ def test_correction(
         ("Applicant", "subm", status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_grant_municipality_access(
-    db,
     instance,
     admin_client,
     access_level_factory,
@@ -598,8 +598,8 @@ def test_grant_municipality_access(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize("allows_changes", [True, False])
+@pytest.mark.django_db
 def test_additional_demand_changes(
-    db,
     admin_client,
     gr_instance,
     caluma_case_factory,

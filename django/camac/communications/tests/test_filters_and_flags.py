@@ -34,8 +34,9 @@ def some_read_and_some_unread_topics(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Support"])
+@pytest.mark.django_db
 def test_topic_flag_has_unread(
-    db, admin_client, be_instance, some_read_and_some_unread_topics
+    admin_client, be_instance, some_read_and_some_unread_topics
 ):
     topics_with_all_read, topics_with_unread = some_read_and_some_unread_topics
 
@@ -62,8 +63,9 @@ def test_topic_flag_has_unread(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize("filter", [True, False])
+@pytest.mark.django_db
 def test_topic_filter_has_unread(
-    db, be_instance, admin_client, some_read_and_some_unread_topics, filter
+    be_instance, admin_client, some_read_and_some_unread_topics, filter
 ):
     topics_with_all_read, topics_with_unread = some_read_and_some_unread_topics
 
@@ -85,8 +87,9 @@ def test_topic_filter_has_unread(
 @pytest.mark.parametrize(
     "filter, expect_set", [(True, "read"), (False, "unread"), (None, "all")]
 )
+@pytest.mark.django_db
 def test_message_read_flags_and_filter(
-    db, admin_client, communications_message_factory, be_instance, filter, expect_set
+    admin_client, communications_message_factory, be_instance, filter, expect_set
 ):
     my_entity = admin_client.user.groups.first().service_id
     unread_messages = communications_message_factory.create_batch(

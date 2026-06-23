@@ -64,8 +64,8 @@ def mock_public_status(mocker):
 )
 @pytest.mark.parametrize("convert_to_building_permit", [False, True])
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_create_instance_caluma_be(
-    db,
     admin_client,
     instance_state,
     instance_state_factory,
@@ -212,8 +212,8 @@ def test_create_instance_caluma_be(
         ("Applicant", [], status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_extend_validity_permission_acl_be(
-    db,
     admin_client,
     role,
     be_instance,
@@ -260,8 +260,8 @@ def test_extend_validity_permission_acl_be(
         ("Applicant", status.HTTP_201_CREATED),
     ],
 )
+@pytest.mark.django_db
 def test_extend_validity_permission_rbac_be(
-    db,
     admin_client,
     role,
     be_instance,
@@ -306,8 +306,8 @@ def test_extend_validity_permission_rbac_be(
     ],
 )
 @pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
-def test_create_instance_caluma_ur(  # noqa: C901
-    db,
+@pytest.mark.django_db
+def test_create_instance_caluma_ur(
     admin_client,
     instance_state,
     instance_state_factory,
@@ -445,8 +445,8 @@ def test_create_instance_caluma_ur(  # noqa: C901
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_create_instance_caluma_ur_wrong_location(
-    db,
     admin_client,
     instance_state_factory,
     form,
@@ -1338,8 +1338,9 @@ def test_instance_authority_by_submission_for_koor_afg(
 
 
 @pytest.mark.parametrize("service_group__name", ["Sekretariate Gemeindebaubehörden"])
+@pytest.mark.django_db
 def test_set_instance_service_ur_bgbb(
-    db, ur_instance, mocker, set_application_ur, group_factory, form_utils: FormUtils
+    ur_instance, mocker, set_application_ur, group_factory, form_utils: FormUtils
 ):
     # if form is "bgbb" and the form was submitted by the AFG
     # AFG should be the responsible service. Otherwise it is the
@@ -1999,8 +2000,8 @@ def test_instance_finalize(
 @pytest.mark.parametrize("paper", [(True, False)])
 @pytest.mark.parametrize("form_slug", [(None), ("ebau-number")])
 @pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.django_db
 def test_generate_and_store_pdf(
-    db,
     be_instance,
     admin_user,
     service,
@@ -2067,8 +2068,8 @@ def test_generate_and_store_pdf(
     assert attachment_section_default.attachments.count() == 0 if paper else 1
 
 
+@pytest.mark.django_db
 def test_generate_and_store_pdf_in_alexandria(
-    db,
     admin_user,
     application_settings,
     alexandria_settings,
@@ -2352,8 +2353,8 @@ def test_has_pending_sanction_filter(
     ],
 )
 @pytest.mark.parametrize("role__name,instance__user", [("Canton", lf("user"))])
+@pytest.mark.django_db
 def test_generate_pdf_action(
-    db,
     mocker,
     admin_client,
     user,
@@ -2422,8 +2423,8 @@ def test_generate_pdf_action(
         ({"attributes": {"name": "foo"}}, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_instance_update(
-    db,
     admin_client,
     admin_user,
     be_instance,
@@ -2456,8 +2457,8 @@ def test_instance_update(
 @pytest.mark.parametrize(
     "role__name,paper", [("Applicant", False), ("Municipality", True)]
 )
+@pytest.mark.django_db
 def test_instance_delete(
-    db,
     admin_client,
     admin_user,
     group,
@@ -2538,8 +2539,8 @@ def test_instance_delete(
         (True, True),
     ],
 )
+@pytest.mark.django_db
 def test_rejection(
-    db,
     admin_client,
     instance_state_factory,
     form,
@@ -2626,8 +2627,8 @@ def test_rejection(
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.django_db
 def test_be_copy_responsible_user_on_submit(
-    db,
     admin_client,
     instance_state_factory,
     form,
@@ -2823,8 +2824,8 @@ def test_instance_name(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_create_instance_caluma_internal_forms(
-    db,
     admin_client,
     instance_state,
     instance_state_factory,
@@ -2867,8 +2868,8 @@ def test_create_instance_caluma_internal_forms(
         ("baugesuch", status.HTTP_400_BAD_REQUEST),
     ],
 )
+@pytest.mark.django_db
 def test_create_instance_caluma_modification(
-    db,
     admin_client,
     instance_state,
     instance_state_factory,
@@ -2948,8 +2949,8 @@ def test_instance_create_caluma_sz(
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.django_db
 def test_create_instance_from_modification(
-    db,
     admin_client,
     be_instance,
     instance_state_factory,
@@ -2985,8 +2986,8 @@ def test_create_instance_from_modification(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_filter_decision_date(
-    db,
     admin_client,
     decision_factory,
     instance_factory,
@@ -3020,8 +3021,8 @@ def test_filter_decision_date(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_filter_decision(
-    db,
     admin_client,
     decision_factory,
     instance_factory,
@@ -3057,7 +3058,8 @@ def test_filter_decision(
 
 
 @pytest.mark.parametrize("role__name", ["Service"])
-def test_filter_inquiry_dates(db, active_inquiry_factory, admin_client, be_instance):
+@pytest.mark.django_db
+def test_filter_inquiry_dates(active_inquiry_factory, admin_client, be_instance):
     active_inquiry_factory(
         for_instance=be_instance,
         created_at=make_aware(datetime(2022, 9, 1)),
@@ -3086,8 +3088,8 @@ def test_filter_inquiry_dates(db, active_inquiry_factory, admin_client, be_insta
 
 
 @pytest.mark.parametrize("role__name", ["Service"])
+@pytest.mark.django_db
 def test_filter_inquiry_answer(
-    db,
     be_instance,
     admin_client,
     active_inquiry_factory,
@@ -3131,8 +3133,8 @@ def test_filter_inquiry_answer(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_inquiry_and_decision_data(
-    db,
     snapshot,
     active_inquiry_factory,
     admin_client,
@@ -3360,8 +3362,8 @@ def test_instance_submit_so_canton(
         (False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_instance_delete_permissions_module(
-    db,
     access_level_factory,
     admin_client,
     admin_user,
@@ -3393,8 +3395,8 @@ def test_instance_delete_permissions_module(
     [(True, status.HTTP_201_CREATED), (False, status.HTTP_403_FORBIDDEN)],
 )
 @pytest.mark.parametrize("instance_state__name", ["rejected"])
+@pytest.mark.django_db
 def test_copy_rejected_instance(
-    db,
     admin_client,
     admin_user,
     applicant_factory,
@@ -3445,8 +3447,8 @@ def test_copy_rejected_instance(
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize("instance_state__name", ["rejected"])
+@pytest.mark.django_db
 def test_copy_rejected_extend_validity_instance(
-    db,
     admin_client,
     admin_user,
     applicant_factory,
@@ -3503,8 +3505,8 @@ def test_copy_rejected_extend_validity_instance(
     "has_permission,expected_status",
     [(True, status.HTTP_201_CREATED), (False, status.HTTP_403_FORBIDDEN)],
 )
+@pytest.mark.django_db
 def test_copy_instance_modification(
-    db,
     admin_client,
     admin_user,
     applicant_factory,
@@ -3567,8 +3569,8 @@ def test_copy_instance_modification(
         (False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_convert_building_permit(
-    db,
     admin_client,
     admin_user,
     applicant_factory,
@@ -3621,8 +3623,8 @@ def test_convert_building_permit(
 
 
 @pytest.mark.parametrize("allow_notification", [True, False])
+@pytest.mark.django_db
 def test_send_notifications(
-    db,
     application_settings,
     instance,
     caluma_case_factory,
@@ -3727,8 +3729,8 @@ def test_send_notifications(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_instance_submit_ag_internal(
-    db,
     admin_client,
     ag_instance,
     ag_master_data_settings,
@@ -3851,7 +3853,8 @@ def test_instance_submit_ag_pgv(
     assert cantonal_exam.addressed_groups == [str(afb_service.pk)]
 
 
-def test_validate_instance_for_trusted_service(db, instance, mocker):
+@pytest.mark.django_db
+def test_validate_instance_for_trusted_service(instance, mocker):
     mocker.patch(
         "camac.instance.mixins.InstanceEditableMixin._validate_instance_editablity"
     )
@@ -3862,8 +3865,8 @@ def test_validate_instance_for_trusted_service(db, instance, mocker):
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_instance_keywords_visibility_aware(
-    db,
     admin_client,
     admin_user,
     instance,

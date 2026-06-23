@@ -25,8 +25,8 @@ from camac.stats.cycle_time import _compute_total_idle_days, compute_cycle_time
         ),  # first and last overlap 2 encompassing the second additional_demand netting 11
     ],
 )
+@pytest.mark.django_db
 def test_overlapping_additional_demand_durations(
-    db,
     be_instance,
     additional_demand_work_item,
     case_cycle_time,
@@ -96,8 +96,8 @@ def test_compute_total_idle_days(sorted_durations, expected):
         )
     ],
 )
+@pytest.mark.django_db
 def test_total_cycle_time_with_previously_rejected(
-    db,
     be_instance,
     instance_with_case,
     nest_rejected_applications,
@@ -127,8 +127,8 @@ def test_total_cycle_time_with_previously_rejected(
 
 @pytest.mark.parametrize("instance_state__name", ["finished"])
 @pytest.mark.parametrize("case_cycle_time", [5])
+@pytest.mark.django_db
 def test_decision_completion_computes_cycle_time(
-    db,
     be_instance,
     instance_service_factory,
     service_factory,
@@ -185,7 +185,8 @@ def test_decision_completion_computes_cycle_time(
 
 
 @pytest.mark.parametrize("instance_state__name", ["finished"])
-def test_handles_incomplete_case(db, be_instance):
+@pytest.mark.django_db
+def test_handles_incomplete_case(be_instance):
     # e. g. instances without decision
     assert compute_cycle_time(be_instance) == {}
 
@@ -219,8 +220,8 @@ def test_handles_incomplete_case(db, be_instance):
         ),
     ],
 )
+@pytest.mark.django_db
 def test_exclude_nonstandard_cases(
-    db,
     be_instance,
     additional_demand_work_item,
     submit_date,

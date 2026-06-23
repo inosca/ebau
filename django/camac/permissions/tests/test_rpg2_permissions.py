@@ -32,8 +32,8 @@ from camac.permissions.api import PermissionManager
         ("other-slug", "service-lead", True, True, set()),
     ],
 )
+@pytest.mark.django_db
 def test_form_rpg2_permissions_be(
-    db,
     be_instance,
     be_permissions_settings,
     be_access_levels,
@@ -82,8 +82,8 @@ def test_form_rpg2_permissions_be(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_form_rpg2_permissions_state_be(
-    db,
     be_instance,
     be_permissions_settings,
     be_access_levels,
@@ -141,8 +141,8 @@ def test_form_rpg2_permissions_state_be(
         ("other-slug", "trusted-service-lead", True, True, set()),
     ],
 )
+@pytest.mark.django_db
 def test_form_rpg2_permissions_ag(
-    db,
     ag_instance,
     ag_permissions_settings,
     ag_access_levels,

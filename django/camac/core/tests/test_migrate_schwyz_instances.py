@@ -6,8 +6,8 @@ from django.core.management import call_command
 
 
 @pytest.mark.skip
+@pytest.mark.django_db
 def test_migrate_schwyz_instances(
-    db,
     settings,
     issue,
     instance_factory,

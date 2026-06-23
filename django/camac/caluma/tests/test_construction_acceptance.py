@@ -1,10 +1,12 @@
+import pytest
+
 from camac.caluma.extensions.events.simple_workflow import (
     post_complete_construction_acceptance_gr,
 )
 
 
+@pytest.mark.django_db
 def test_construction_acceptance_complete_instance_gr(
-    db,
     gr_instance,
     caluma_work_item_factory,
     set_application_gr,

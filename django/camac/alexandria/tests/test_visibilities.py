@@ -163,8 +163,8 @@ def alexandria_setup(
         ("geometer", ["geometer"]),
     ],
 )
+@pytest.mark.django_db
 def test_document_and_file_visibility(
-    db,
     admin_client,
     alexandria_setup,
     alexandria_settings,
@@ -204,7 +204,8 @@ def test_document_and_file_visibility(
         ("service", ["common", "service"]),
     ],
 )
-def test_category_visibility(db, admin_client, role, expected):
+@pytest.mark.django_db
+def test_category_visibility(admin_client, role, expected):
     CategoryFactory(
         slug="common",
         metainfo={
@@ -264,8 +265,8 @@ def test_category_visibility(db, admin_client, role, expected):
         ),
     ],
 )
+@pytest.mark.django_db
 def test_category_visibility_camac_instance_gr(
-    db,
     admin_client,
     service_factory,
     caluma_document_factory,
@@ -342,8 +343,8 @@ def test_category_visibility_camac_instance_gr(
         ("service", 2),
     ],
 )
+@pytest.mark.django_db
 def test_tag_visibility(
-    db,
     caluma_admin_user,
     application_settings,
     admin_client,
@@ -368,8 +369,8 @@ def test_tag_visibility(
         ("subservice", 2),
     ],
 )
+@pytest.mark.django_db
 def test_tag_visibility_service_subservice(
-    db,
     caluma_admin_user,
     set_application_so,
     so_alexandria_settings,
@@ -405,7 +406,8 @@ def test_tag_visibility_service_subservice(
         ("municipality", {"decision", "publication", "void"}),
     ],
 )
-def test_mark_visibility(db, admin_client, visible_marks):
+@pytest.mark.django_db
+def test_mark_visibility(admin_client, visible_marks):
     MarkFactory(pk="void", metainfo={"sort": 3})
     MarkFactory(pk="decision", metainfo={"sort": 1})
     MarkFactory(pk="publication", metainfo={"sort": 2})
@@ -420,8 +422,8 @@ def test_mark_visibility(db, admin_client, visible_marks):
 
 
 @pytest.mark.parametrize("role__name", ["municipality"])
+@pytest.mark.django_db
 def test_detail_visibility(
-    db,
     instance,
     admin_client,
     mocker,
@@ -464,7 +466,8 @@ def test_detail_visibility(
 
 
 @pytest.mark.parametrize("role__name", ["applicant"])
-def test_file_download(db, alexandria_setup, admin_client, client):
+@pytest.mark.django_db
+def test_file_download(alexandria_setup, admin_client, client):
     response = admin_client.get(reverse("file-list"))
     url = response.json()["data"][0]["attributes"]["download-url"]
 

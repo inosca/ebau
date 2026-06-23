@@ -1,9 +1,11 @@
 import json
 
+import pytest
 from django.core.management import call_command
 
 
-def test_translate(db, tmp_path):
+@pytest.mark.django_db
+def test_translate(tmp_path):
     ORIG_FILE = "camac/core/tests/untranslated_config.json"
 
     work_file = tmp_path / "test_config.json"

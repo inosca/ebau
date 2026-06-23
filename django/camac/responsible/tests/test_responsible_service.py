@@ -157,8 +157,8 @@ def test_responsible_service_update(
 
 
 @pytest.mark.parametrize("has_previous_responsible_user", [True, False])
+@pytest.mark.django_db
 def test_update_work_item_assigned_user_ag(
-    db,
     ag_instance,
     application_settings,
     caluma_work_item_factory,
@@ -247,8 +247,8 @@ def test_update_work_item_assigned_user_ag(
 
 
 @pytest.mark.parametrize("is_self_assignment", [True, False])
+@pytest.mark.django_db
 def test_send_notification(
-    db,
     application_settings,
     mailoutbox,
     notification_template,

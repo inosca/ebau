@@ -89,7 +89,8 @@ def instance_for_copy(
     return wrapper
 
 
-def test_instance_copy_404(db, instance, admin_client):
+@pytest.mark.django_db
+def test_instance_copy_404(instance, admin_client):
     response = admin_client.post(reverse("instance-copy", args=[instance.pk]))
 
     assert response.status_code == status.HTTP_404_NOT_FOUND
@@ -128,8 +129,8 @@ def test_instance_copy_404(db, instance, admin_client):
         ("Support", "support", "ROLE", "finished", status.HTTP_201_CREATED),
     ],
 )
+@pytest.mark.django_db
 def test_instance_copy_with_permissions_module_be(
-    db,
     admin_client,
     access_level,
     grant_type,

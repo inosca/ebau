@@ -62,7 +62,8 @@ def alexandria_attachment(
         (lf("alexandria_attachment"), "mydocument.docx"),
     ],
 )
-def test_attachment_filename(db, model, expected):
+@pytest.mark.django_db
+def test_attachment_filename(model, expected):
     assert model.filename == expected
 
 
@@ -75,7 +76,8 @@ def test_attachment_filename(db, model, expected):
         (lf("alexandria_attachment"), None, "My Document"),
     ],
 )
-def test_attachment_display_name(db, model, has_display_name, expected, attachment):
+@pytest.mark.django_db
+def test_attachment_display_name(model, has_display_name, expected, attachment):
     if has_display_name is False:
         del attachment.context["displayName"]
         attachment.save()
@@ -121,5 +123,6 @@ def test_attachment_is_replaced(
         ),
     ],
 )
-def test_attachment_content_type(db, model, expected):
+@pytest.mark.django_db
+def test_attachment_content_type(model, expected):
     assert model.content_type == expected

@@ -69,7 +69,6 @@ def nebenbestimmungen_question(be_distribution_settings):
     transaction=True, reset_sequences=True
 )  # always reset instance id
 def test_dms_placeholders_gr(
-    db,
     admin_user,
     admin_client,
     application_settings,
@@ -302,7 +301,6 @@ def test_dms_placeholders_gr(
     transaction=True, reset_sequences=True
 )  # always reset instance id
 def test_dms_placeholders_so(
-    db,
     admin_client,
     billing_v2_entry_factory,
     group_factory,
@@ -582,7 +580,6 @@ def test_dms_placeholders_so(
     transaction=True, reset_sequences=True
 )  # always reset instance id
 def test_dms_placeholders_be(
-    db,
     active_inquiry_factory,
     admin_client,
     settings,
@@ -885,7 +882,6 @@ def test_dms_placeholders_be(
     transaction=True, reset_sequences=True
 )  # always reset instance id
 def test_dms_placeholders_empty(
-    db,
     admin_client,
     application_settings,
     settings,
@@ -957,8 +953,8 @@ def test_get_tel_and_email():
 
 @pytest.mark.freeze_time("2024-01-18 13:37", tick=True)
 @pytest.mark.parametrize("role__name", ["Sekretariat der Gemeindebaubehörde"])
+@pytest.mark.django_db
 def test_dms_placeholders_ur(
-    db,
     snapshot,
     set_application_ur,
     ur_placeholders_settings,
@@ -1059,7 +1055,6 @@ def test_dms_placeholders_ur(
     transaction=True, reset_sequences=True
 )  # always reset instance id
 def test_dms_placeholders_ag(
-    db,
     admin_client,
     admin_user,
     set_application_ag,
@@ -1186,8 +1181,8 @@ def test_dms_placeholders_ag(
         (None, 5),
     ],
 )
+@pytest.mark.django_db
 def test_publication_journal_number_override_sz(
-    db,
     publication_entry,
     admin_client,
     sz_instance,
@@ -1201,8 +1196,8 @@ def test_publication_journal_number_override_sz(
 
 
 @pytest.mark.parametrize("has_representative", (True, False))
+@pytest.mark.django_db
 def test_objections_prefer_representative_participants_sz(
-    db,
     sz_instance,
     fake_request,
     objection_participant_factory,
@@ -1228,8 +1223,8 @@ def test_objections_prefer_representative_participants_sz(
 
 @pytest.mark.parametrize("role__name", ["Gemeinde"])
 @pytest.mark.freeze_time("2020-12-20")
+@pytest.mark.django_db
 def test_dms_placeholders_sz(
-    db,
     admin_client,
     group,
     sz_master_data_case,
@@ -1256,7 +1251,6 @@ def test_dms_placeholders_sz(
     faker,
     snapshot,
 ):
-
     # Add required placeholders here for verification they exist
     # in the response
     placeholders = [
@@ -1690,8 +1684,8 @@ def test_get_koordinaten(coord_east, coord_north, expected, mocker):
         ),
     ],
 )
+@pytest.mark.django_db
 def test_aliased_placeholder_field(
-    db,
     fake_request,
     service_group,
     request_mock,

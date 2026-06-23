@@ -36,8 +36,8 @@ class FakeResponse:
         (lf("jwt_token"), False, status.HTTP_200_OK, None),
     ],
 )
+@pytest.mark.django_db
 def test_token_exchange(
-    db,
     caplog,
     error_message,
     expected_status,
@@ -79,7 +79,8 @@ def test_token_exchange(
         assert error_message in caplog.text
 
 
-def test_token_exchange_token_reuse(db, jwt_client, jwt_token, mocker):
+@pytest.mark.django_db
+def test_token_exchange_token_reuse(jwt_client, jwt_token, mocker):
     mocker.patch("camac.token_exchange.keycloak.KeycloakClient.get_token")
     mocker.patch("camac.token_exchange.keycloak.KeycloakClient.update_or_create_user")
     mocker.patch(

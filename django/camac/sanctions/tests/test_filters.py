@@ -4,7 +4,8 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
-def test_service_available_in_sanctions_filter(db, admin_client, service_factory):
+@pytest.mark.django_db
+def test_service_available_in_sanctions_filter(admin_client, service_factory):
     enabled_service = service_factory(disabled=False)
     disabled_service = service_factory(disabled=True)
 
@@ -29,8 +30,8 @@ def test_service_available_in_sanctions_filter(db, admin_client, service_factory
         (False, True),
     ],
 )
+@pytest.mark.django_db
 def test_configured_service_available_in_sanctions_filter(
-    db,
     admin_client,
     application_settings,
     role,
@@ -69,8 +70,8 @@ def test_configured_service_available_in_sanctions_filter(
 @pytest.mark.parametrize(
     "has_pending_sanctions,expected_count", [("1", 6), ("0", 9), ("", 15)]
 )
+@pytest.mark.django_db
 def test_has_pending_sanctions_filter(
-    db,
     admin_client,
     expected_count,
     has_pending_sanctions,
@@ -108,8 +109,8 @@ def test_has_pending_sanctions_filter(
     "matching_service,controlled,expected_count",
     [(False, False, 0), (False, True, 0), (True, False, 1), (True, True, 0)],
 )
+@pytest.mark.django_db
 def test_pending_sanctions_assigned_to_service_filter(
-    db,
     admin_client,
     controlled,
     expected_count,

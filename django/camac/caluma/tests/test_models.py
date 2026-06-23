@@ -5,8 +5,8 @@ from pytest_lazy_fixtures import lf
 from camac.caluma.models import Inquiry, build_array_filter, to_groups
 
 
+@pytest.mark.django_db
 def test_inquiry(
-    db,
     caluma_task_factory,
     caluma_work_item_factory,
     distribution_settings,
@@ -51,7 +51,8 @@ def service_two(service_factory):
         (["1", 2, None, lf("service_one")], ["1", "2", "998"]),
     ],
 )
-def test_to_groups(db, input, output):
+@pytest.mark.django_db
+def test_to_groups(input, output):
     assert to_groups(input) == output
 
 

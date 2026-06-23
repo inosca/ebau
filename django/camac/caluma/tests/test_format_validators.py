@@ -31,8 +31,9 @@ from ..extensions.format_validators import (
         (EvenProjectNumberFormatValidator, "AG-fyr5a, zh-12345", False),
     ],
 )
+@pytest.mark.django_db
 def test_format_validators(
-    db, test_class, user_input, result, caluma_document_factory, caluma_question_factory
+    test_class, user_input, result, caluma_document_factory, caluma_question_factory
 ):
     try:
         test_class.validate(
@@ -45,8 +46,9 @@ def test_format_validators(
         assert not result
 
 
+@pytest.mark.django_db
 def test_date_after_validator(
-    db, caluma_answer_factory, caluma_document_factory, caluma_question_factory
+    caluma_answer_factory, caluma_document_factory, caluma_question_factory
 ):
     document = caluma_document_factory()
     after_question = caluma_question_factory()

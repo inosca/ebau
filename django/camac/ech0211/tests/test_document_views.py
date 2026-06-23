@@ -318,8 +318,8 @@ def test_category_list(
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.parametrize("document_backend", ["camac-ng", "alexandria"])
+@pytest.mark.django_db
 def test_document_create_forbidden(
-    db,
     set_document_backend,
     be_instance,
     set_application_be,
@@ -368,8 +368,8 @@ def test_document_create_forbidden(
 @pytest.mark.parametrize("mark_action", ["add", "remove"])
 @pytest.mark.parametrize("has_feature", [True, False])
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.django_db
 def test_document_mark_has_feature(
-    db,
     settings,
     admin_client,
     mark_name,
@@ -465,8 +465,8 @@ def test_document_mark_has_feature(
 @pytest.mark.parametrize("mark_name", ["void", "decision", "publication", "sensitive"])
 @pytest.mark.parametrize("mark_action", ["add", "remove"])
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.django_db
 def test_document_mark_camac(
-    db,
     settings,
     admin_client,
     mark_name,
@@ -547,8 +547,8 @@ def test_document_mark_camac(
 @pytest.mark.parametrize("has_void_mark", [True, False])
 @pytest.mark.parametrize("has_permission", [True, False])
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.django_db
 def test_document_mark_alexandria(
-    db,
     settings,
     role,
     set_document_backend,
@@ -661,8 +661,8 @@ def test_document_mark_alexandria(
         (True, True, False, status.HTTP_204_NO_CONTENT),
     ],
 )
+@pytest.mark.django_db
 def test_delete(
-    db,
     admin_client,
     category_setup,
     communications_attachment_factory,
@@ -725,8 +725,8 @@ def test_delete(
         (True, True, False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_delete_camac(
-    db,
     admin_client,
     communications_attachment_factory,
     has_other_category,

@@ -30,8 +30,8 @@ def ch_locale():
 
 @pytest.mark.order(1)  # Slow tests should run first
 @pytest.mark.freeze_time("2023-01-06 16:10")
+@pytest.mark.django_db
 def test_document_merge_service_snapshot(
-    db,
     django_assert_num_queries,
     be_dms_settings,
     service,
@@ -122,7 +122,8 @@ def test_document_merge_service_snapshot(
             assert not DMSVisitor(root_document, instance, BaseUser()).is_valid()
 
 
-def test_document_merge_service_client(db, requests_mock):
+@pytest.mark.django_db
+def test_document_merge_service_client(requests_mock):
     template = "some-template"
     expected = b"foo\nNot a pdf"
 
@@ -145,7 +146,6 @@ def test_document_merge_service_client(db, requests_mock):
 @pytest.mark.freeze_time("2022-09-06 13:37")
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_document_merge_service_cover_sheet_with_header_values(
-    db,
     be_dms_settings,
     be_tags_settings,
     service_factory,
@@ -271,7 +271,6 @@ def test_document_merge_service_cover_sheet_with_header_values(
 @pytest.mark.freeze_time("2022-09-06 13:37")
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_document_merge_service_cover_sheet_without_header_values(
-    db,
     be_dms_settings,
     be_instance,
     group,
@@ -309,7 +308,6 @@ def test_document_merge_service_cover_sheet_without_header_values(
 @pytest.mark.freeze_time("2022-09-06 13:37")
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_eingabebestaetigung_gr(
-    db,
     gr_dms_settings,
     settings,
     gr_instance,
@@ -472,7 +470,8 @@ def test_eingabebestaetigung_gr(
     assert files[1][1][0] == "situationsplan"
 
 
-def test_document_merge_service_unauthorized(db, requests_mock):
+@pytest.mark.django_db
+def test_document_merge_service_unauthorized(requests_mock):
     template = "some-template"
 
     requests_mock.register_uri(
@@ -492,8 +491,8 @@ def test_document_merge_service_unauthorized(db, requests_mock):
 
 
 @pytest.mark.parametrize("use_number_separator", [True, False])
+@pytest.mark.django_db
 def test_number_separator(
-    db,
     ch_locale,
     dms_settings,
     caluma_form_question_factory,
@@ -566,8 +565,8 @@ def test_filename(
 
 
 @pytest.mark.parametrize("for_additional_demand", [True, False])
+@pytest.mark.django_db
 def test_documents_for_additional_demand(
-    db,
     application_settings,
     settings,
     so_dms_settings,
@@ -626,8 +625,8 @@ def test_documents_for_additional_demand(
         assert applicant_file.checksum in checksums
 
 
+@pytest.mark.django_db
 def test_print_meta_attributes(
-    db,
     ch_locale,
     dms_settings,
     caluma_form_question_factory,
@@ -684,8 +683,8 @@ def test_print_meta_attributes(
         (True, False, False, "Entwurf"),
     ],
 )
+@pytest.mark.django_db
 def test_is_draft(
-    db,
     dms_settings,
     be_instance,
     group,
@@ -721,7 +720,6 @@ def test_is_draft(
 
 @pytest.mark.django_db
 def test_header_keywords_ag(
-    db,
     ag_dms_settings,
     service_factory,
     ag_instance,
@@ -750,7 +748,6 @@ def test_header_keywords_ag(
 
 @pytest.mark.django_db
 def test_header_tags_be(
-    db,
     be_dms_settings,
     be_tags_settings,
     service_factory,

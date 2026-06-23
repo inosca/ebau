@@ -9,7 +9,8 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 
-def test_generate_and_render(db):
+@pytest.mark.django_db
+def test_generate_and_render():
     client = APIClient()
     url = reverse("captcha-generate")
 
@@ -37,7 +38,8 @@ def test_generate_and_render(db):
         (True, True, status.HTTP_200_OK),
     ],
 )
-def test_validate(db, correct_key, correct_challenge, expected_response):
+@pytest.mark.django_db
+def test_validate(correct_key, correct_challenge, expected_response):
     # generate a new captcha challenge.
     client = APIClient()
     url = reverse("captcha-generate")

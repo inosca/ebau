@@ -255,8 +255,8 @@ def ech0206__config(gis_data_source_factory, caluma_question_factory):
     ],
 )
 @pytest.mark.vcr()
+@pytest.mark.django_db
 def test_ech0206_client(
-    db,
     admin_client,
     gis_snapshot,
     vcr_config,

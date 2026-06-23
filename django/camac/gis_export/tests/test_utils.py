@@ -12,8 +12,8 @@ from ..utils import export_agis
 
 
 @pytest.mark.freeze_time("2025-08-5 11:49:15+02:00")
+@pytest.mark.django_db
 def test_agis_export(
-    db,
     ag_instance,
     instance_with_case,
     role,

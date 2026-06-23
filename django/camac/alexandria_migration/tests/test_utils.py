@@ -8,8 +8,8 @@ from camac.alexandria_migration.utils import (
 )
 
 
+@pytest.mark.django_db
 def test_get_target_category(
-    db,
     alexandria_category_factory,
     alexandria_migration_settings,
     attachment_section_factory,

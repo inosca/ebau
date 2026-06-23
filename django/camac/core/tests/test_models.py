@@ -4,7 +4,8 @@ from django.utils.translation import override
 from camac.core.models import FormGroup, InstanceResource, Resource
 
 
-def test_instance_resource_defaults(db, instance_resource):
+@pytest.mark.django_db
+def test_instance_resource_defaults(instance_resource):
     new_ir = InstanceResource.objects.create(
         resource_id=instance_resource.resource_id,
         available_instance_resource_id=instance_resource.available_instance_resource_id,
@@ -14,7 +15,8 @@ def test_instance_resource_defaults(db, instance_resource):
     assert new_ir.sort == instance_resource.sort + 1
 
 
-def test_resource_defaults(db, resource):
+@pytest.mark.django_db
+def test_resource_defaults(resource):
     new_resource = Resource.objects.create(
         available_resource_id=resource.available_resource_id,
         hidden=0,
@@ -50,8 +52,8 @@ def test_resource_defaults(db, resource):
     ],
 )
 # @pytest.mark.parametrize("model", ["de", "fr"])
+@pytest.mark.django_db
 def test_multilingual_name_translations(
-    db,
     application_settings,
     service,
     service_t_factory,

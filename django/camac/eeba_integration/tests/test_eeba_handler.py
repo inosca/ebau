@@ -12,8 +12,9 @@ from camac.eeba_integration.exceptions import (
 # Tests for create_eeba_integration
 
 
+@pytest.mark.django_db
 def test_create_eeba_integration_success(
-    db, eeba_handler_instance, gr_instance, make_eeba_mock_response, mocker
+    eeba_handler_instance, gr_instance, make_eeba_mock_response, mocker
 ):
     headers = {"Location": "http://example.com/api/integrations/456"}
     dummy_response = make_eeba_mock_response({}, headers=headers)
@@ -32,8 +33,9 @@ def test_create_eeba_integration_success(
     )
 
 
+@pytest.mark.django_db
 def test_create_eeba_integration_failure(
-    db, eeba_handler_instance, gr_instance, make_eeba_mock_response, mocker
+    eeba_handler_instance, gr_instance, make_eeba_mock_response, mocker
 ):
     headers = {"Location": ""}
     dummy_response = make_eeba_mock_response({}, headers=headers)
@@ -46,8 +48,9 @@ def test_create_eeba_integration_failure(
     assert "Failed to create resource" in str(excinfo.value)
 
 
+@pytest.mark.django_db
 def test_create_eeba_integration_value_error(
-    db, eeba_handler_instance, gr_instance, mocker
+    eeba_handler_instance, gr_instance, mocker
 ):
     mocker.patch.object(
         eeba_handler_instance.eeba_client,
@@ -62,8 +65,9 @@ def test_create_eeba_integration_value_error(
 # Tests for _handle_missing_integration
 
 
+@pytest.mark.django_db
 def test_handle_missing_integration_success(
-    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+    clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
 ):
     integration_id = "int-123"
 
@@ -104,8 +108,9 @@ def test_handle_missing_integration_success(
     assert web_url_value == "http://completed.example.com"
 
 
+@pytest.mark.django_db
 def test_handle_missing_integration_failed_response_timeout(
-    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+    clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
 ):
     integration_id = "int-123"
 
@@ -137,8 +142,9 @@ def test_handle_missing_integration_failed_response_timeout(
     assert web_url_value is None
 
 
+@pytest.mark.django_db
 def test_handle_missing_integration_failed_response_server_exception(
-    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+    clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
 ):
     integration_id = "int-123"
 
@@ -182,8 +188,9 @@ def test_handle_missing_integration_failed_response_server_exception(
         "completed",
     ],
 )
+@pytest.mark.django_db
 def test_handle_existing_integration_success(
-    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker, initial_state
+    clean_eeba_answers, eeba_handler_instance, gr_instance, mocker, initial_state
 ):
     document = gr_instance.case.document
     integration_value = "int-789"
@@ -216,8 +223,9 @@ def test_handle_existing_integration_success(
     assert web_url_answer == "http://updated.example.com"
 
 
+@pytest.mark.django_db
 def test_handle_existing_integration_failed_response(
-    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+    clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
 ):
     document = gr_instance.case.document
     integration_value = "int-000"
@@ -255,8 +263,9 @@ def test_handle_existing_integration_failed_response(
 # Tests for check_eeba_needed
 
 
+@pytest.mark.django_db
 def test_check_eeba_needed_missing_integration(
-    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+    clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
 ):
     integration_id = "int-missing"
 
@@ -288,8 +297,9 @@ def test_check_eeba_needed_missing_integration(
     assert result["web_url"] == "http://missing.example.com"
 
 
+@pytest.mark.django_db
 def test_check_eeba_needed_existing_integration(
-    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+    clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
 ):
     document = gr_instance.case.document
     integration_value = "int-existing"
@@ -323,8 +333,9 @@ def test_check_eeba_needed_existing_integration(
 # Tests for get_eeba_needed
 
 
+@pytest.mark.django_db
 def test_get_eeba_needed_completed(
-    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+    clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
 ):
     integration_id = "int-101"
     completed_response = {
@@ -345,8 +356,9 @@ def test_get_eeba_needed_completed(
     assert web_url_answer == "http://completed.com"
 
 
+@pytest.mark.django_db
 def test_get_eeba_needed_failed_answer(
-    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+    clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
 ):
     document = gr_instance.case.document
     integration_id = "int-202"
@@ -377,8 +389,8 @@ def test_get_eeba_needed_failed_answer(
 # Tests for patch_eeba_integration
 
 
+@pytest.mark.django_db
 def test_patch_eeba_integration_success(
-    db,
     clean_eeba_answers,
     eeba_handler_instance,
     gr_instance,
@@ -406,8 +418,9 @@ def test_patch_eeba_integration_success(
     )
 
 
+@pytest.mark.django_db
 def test_patch_eeba_integration_failure(
-    db, clean_eeba_answers, eeba_handler_instance, gr_instance
+    clean_eeba_answers, eeba_handler_instance, gr_instance
 ):
     with pytest.raises(EebaHandlerBadRequestException) as excinfo:
         eeba_handler_instance.patch_eeba_integration(new_instance_id="new-123")

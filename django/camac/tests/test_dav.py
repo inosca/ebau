@@ -76,8 +76,8 @@ def prepare_file():
     "role__name,instance__user", [("Municipality", lf("admin_user"))]
 )
 @pytest.mark.parametrize("threshold_enabled", [True, False])
+@pytest.mark.django_db
 def test_callback(
-    db,
     user_factory,
     attachment,
     attachment_section,
@@ -191,8 +191,8 @@ def test_callback(
     assert not file_path.exists()
 
 
+@pytest.mark.django_db
 def test_mock(
-    db,
     mocker,
     user_factory,
     attachment_factory,

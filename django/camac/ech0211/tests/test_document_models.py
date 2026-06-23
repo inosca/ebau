@@ -33,8 +33,9 @@ def test_ech0211_document_model_basics(attachment_factory, attachment_section_fa
         assert doc.category in [cat0, cat1, cat2]
 
 
+@pytest.mark.django_db
 def test_most_recent_file_prefetched(
-    db, alexandria_file_factory, django_assert_num_queries
+    alexandria_file_factory, django_assert_num_queries
 ):
     original = alexandria_models.File.Variant.ORIGINAL
 
@@ -58,9 +59,8 @@ def test_most_recent_file_prefetched(
             assert doc.most_recent_file in [file0, file1]
 
 
-def test_most_recent_file_uncached(
-    db, alexandria_file_factory, django_assert_num_queries
-):
+@pytest.mark.django_db
+def test_most_recent_file_uncached(alexandria_file_factory, django_assert_num_queries):
     doc = models.ECH0211AlexandriaDocument.objects.create(title="hello")
     file0 = alexandria_file_factory(
         variant=alexandria_models.File.Variant.ORIGINAL,
@@ -71,7 +71,8 @@ def test_most_recent_file_uncached(
         assert file0 == doc.most_recent_file
 
 
-def test_most_recent_file_empty(db, django_assert_num_queries, caplog):
+@pytest.mark.django_db
+def test_most_recent_file_empty(django_assert_num_queries, caplog):
     document = models.ECH0211AlexandriaDocument.objects.create()
     document_via_queryset = models.ECH0211AlexandriaDocument.objects.get(pk=document.pk)
 

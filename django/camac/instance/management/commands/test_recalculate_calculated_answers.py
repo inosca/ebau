@@ -1,12 +1,13 @@
 import os
 
+import pytest
 from caluma.caluma_form.api import save_answer, save_document
 from caluma.caluma_form.models import Question
 from django.core.management import call_command
 
 
+@pytest.mark.django_db
 def test_recalculate_calculated_answers(
-    db,
     caluma_form_factory,
     caluma_form_question_factory,
     caluma_case_factory,

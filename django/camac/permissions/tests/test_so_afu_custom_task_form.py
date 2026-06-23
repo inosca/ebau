@@ -1,11 +1,12 @@
+import pytest
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.permissions import api as permissions_api
 from camac.permissions.models import InstanceACL
 
 
+@pytest.mark.django_db
 def test_create_afu_work_item_so(
-    db,
     set_application_so,
     caluma_admin_user,
     so_instance,

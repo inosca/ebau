@@ -22,8 +22,8 @@ from camac.utils import get_dict_item
         ("Something-else", False),
     ],
 )
+@pytest.mark.django_db
 def test_list_acl_view(
-    db,
     instance,
     admin_client,
     service,
@@ -91,8 +91,8 @@ def test_list_acl_view(
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.django_db
 def test_list_acl_view_for_applicant(
-    db,
     access_level_factory,
     admin_client,
     admin_user,
@@ -126,8 +126,8 @@ def test_list_acl_view_for_applicant(
 
 
 @pytest.mark.parametrize("role__name", ["TrustedService", "Coordination"])
+@pytest.mark.django_db
 def test_list_acl_view_for_ur(
-    db,
     access_level_factory,
     admin_client,
     instance,
@@ -168,8 +168,8 @@ def test_list_acl_view_for_ur(
         ("Municipality", False, "geometer", False),
     ],
 )
+@pytest.mark.django_db
 def test_create_acl(
-    db,
     instance,
     admin_client,
     permissions_settings,
@@ -260,8 +260,8 @@ def test_create_acl(
         ("Coordination", "read"),
     ],
 )
+@pytest.mark.django_db
 def test_create_acl_ur(
-    db,
     instance,
     admin_client,
     permissions_settings,
@@ -324,8 +324,8 @@ def test_create_acl_ur(
         ("Municipality", timezone.now() - timedelta(days=5), True, "geometer", False),
     ],
 )
+@pytest.mark.django_db
 def test_revoke_acl(
-    db,
     instance,
     admin_client,
     permissions_settings,
@@ -395,8 +395,9 @@ def test_revoke_acl(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_deny_modify_acl(
-    db, instance, admin_client, permissions_settings, access_level, service
+    instance, admin_client, permissions_settings, access_level, service
 ):
     # For now, no modification or creation of ACLs via API is allowed, only
     # viewing. The only modification is revoke, which has it's own action
@@ -431,8 +432,9 @@ def test_deny_modify_acl(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_deny_delete_acl(
-    db, instance, admin_client, permissions_settings, access_level, service
+    instance, admin_client, permissions_settings, access_level, service
 ):
     instance.group = admin_client.user.groups.first()
     instance.save()
@@ -461,8 +463,8 @@ def test_deny_delete_acl(
         ("Support", True),
     ],
 )
+@pytest.mark.django_db
 def test_get_access_levels(
-    db,
     instance,
     admin_client,
     permissions_settings,
@@ -531,8 +533,8 @@ def test_get_access_levels(
         ("ur", True, "read", "OFF", "Coordination", 1),
     ],
 )
+@pytest.mark.django_db
 def test_assignable_filter(
-    db,
     be_instance,
     admin_client,
     instance_acl_factory,
@@ -610,8 +612,8 @@ def test_assignable_filter(
         ("status", "expired", ["inact"]),
     ],
 )
+@pytest.mark.django_db
 def test_list_acl_filters(
-    db,
     instance,
     admin_client,
     service,
@@ -702,12 +704,10 @@ def test_list_acl_filters(
         ("permissions-grant-bar", False),
     ],
 )
-def test_create_with_permissions(
-    # params
+@pytest.mark.django_db
+def test_create_with_permissions(  # params
     have_permission,
     expect_success,
-    # fixtures
-    db,
     user,
     user_factory,
     permissions_settings,
@@ -765,12 +765,10 @@ def test_create_with_permissions(
         ("permissions-revoke-bar", False),
     ],
 )
-def test_revoke_with_permissions(
-    # params
+@pytest.mark.django_db
+def test_revoke_with_permissions(  # params
     have_permission,
     expect_success,
-    # fixtures
-    db,
     user,
     user_factory,
     permissions_settings,
@@ -829,13 +827,11 @@ def test_revoke_with_permissions(
         (False, "permissions-read-any", 0),
     ],
 )
-def test_list_with_permissions(
-    # params
+@pytest.mark.django_db
+def test_list_with_permissions(  # params
     query_instance,
     have_permission,
     expected_count,
-    # fixtures
-    db,
     user,
     user_factory,
     access_level_factory,
@@ -877,8 +873,8 @@ def test_list_with_permissions(
 
 
 @pytest.mark.parametrize("role__name,", ["TrustedService", "Coordination"])
+@pytest.mark.django_db
 def test_enforce_change_permission_ur(
-    db,
     settings,
     admin_user,
     application_settings,

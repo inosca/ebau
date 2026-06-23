@@ -8,8 +8,8 @@ from camac.permissions import api as permissions_api
 
 @pytest.mark.parametrize("grant_type", ["USER", "SERVICE"])
 @pytest.mark.parametrize("acl_active", [True, False])
+@pytest.mark.django_db
 def test_notification_of_new_acl(
-    db,
     be_instance,
     system_operation_user,
     notification_template,
@@ -68,8 +68,8 @@ def test_notification_of_new_acl(
 @pytest.mark.parametrize("instance_acl__grant_type", ["SERVICE"])
 @pytest.mark.parametrize("access_level__slug", ["geometer"])
 @pytest.mark.parametrize("notification", [1, 0])
+@pytest.mark.django_db
 def test_get_recipients_acl_by_accesslevel(
-    db,
     access_level,
     instance_acl,
     be_instance,

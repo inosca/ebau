@@ -6,8 +6,8 @@ from django.core.management import call_command
 
 @pytest.mark.parametrize("exec", [True, False])
 @pytest.mark.parametrize("disable", [True, False])
+@pytest.mark.django_db
 def test_migrate_service(
-    db,
     exec,
     disable,
     service_factory,

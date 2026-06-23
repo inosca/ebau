@@ -194,8 +194,8 @@ def data_for_bab_statistics_export(
         ("Public", "get_queryset_for_public", False, 0),
     ],
 )
+@pytest.mark.django_db
 def test_caluma_export_visibilities(
-    db,
     admin_client,
     instance,
     mocker,
@@ -239,8 +239,8 @@ def test_caluma_export_visibilities(
         # TODO: True,
     ],
 )
+@pytest.mark.django_db
 def test_caluma_export_be(
-    db,
     admin_client,
     be_instance,
     instance_service_factory,
@@ -355,8 +355,8 @@ def test_caluma_export_be(
     ],
 )
 @pytest.mark.parametrize("has_overrides", [False, True])
+@pytest.mark.django_db
 def test_caluma_export_sz(
-    db,
     admin_client,
     sz_instance,
     form,
@@ -516,8 +516,8 @@ def test_caluma_export_bad_request(admin_client, query):
 
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
+@pytest.mark.django_db
 def test_caluma_export_ag(
-    db,
     admin_client,
     ag_distribution_settings,
     ag_master_data_case,
@@ -591,8 +591,8 @@ def test_caluma_export_ag(
 
 
 @pytest.mark.parametrize("service__name", ["Altdorf"])
+@pytest.mark.django_db
 def test_bab_statistics_export_file(
-    db,
     admin_client,
     ur_instance,
     data_for_bab_statistics_export,
@@ -658,8 +658,8 @@ def test_bab_statistics_export_file(
     ]
 
 
+@pytest.mark.django_db
 def test_bab_statistics_request(
-    db,
     admin_client,
     data_for_bab_statistics_export,
 ):
@@ -692,8 +692,9 @@ def test_bab_statistics_request(
         ("Public", "get_queryset_for_public", False, 0),
     ],
 )
+@pytest.mark.django_db
 def test_bab_statistics_export_visibility(
-    db, method, has_access, expected_count, mocker, role, group, instance
+    method, has_access, expected_count, mocker, role, group, instance
 ):
     is_public = role.name == "Public"
     mocker.patch(

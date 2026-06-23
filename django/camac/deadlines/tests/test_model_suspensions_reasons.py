@@ -21,8 +21,8 @@ from camac.constants.kt_gr import ARE_SERVICE_GROUP
         ),
     ],
 )
+@pytest.mark.django_db
 def test_suspension_reasons_list(
-    db,
     admin_client,
     access_level,
     role,
@@ -107,8 +107,8 @@ def test_suspension_reasons_list(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_suspension_reasons_list_configuration(
-    db,
     admin_client,
     canton,
     expected,

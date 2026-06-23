@@ -85,8 +85,8 @@ def be_data_sources(
     ],
 )
 @pytest.mark.vcr()
+@pytest.mark.django_db
 def test_be_client(
-    db,
     admin_client,
     gis_snapshot,
     vcr_config,
@@ -138,8 +138,8 @@ def test_be_client(
         (False, status.HTTP_202_ACCEPTED),
     ],
 )
+@pytest.mark.django_db
 def test_be_client_error(
-    db,
     admin_client,
     gis_snapshot,
     vcr_config,

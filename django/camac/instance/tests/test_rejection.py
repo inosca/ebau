@@ -22,8 +22,8 @@ from camac.instance.models import HistoryActionConfig
         ("subm", True, False),  # wrong instance state
     ],
 )
+@pytest.mark.django_db
 def test_has_permission(
-    db,
     be_instance,
     group,
     group_factory,
@@ -52,8 +52,8 @@ def test_has_permission(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_validate(
-    db,
     be_instance,
     active_inquiry_factory,
     caluma_document_factory,
@@ -86,8 +86,8 @@ def test_validate(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize("allow_revert", [True, False])
+@pytest.mark.django_db
 def test_reject_instance(
-    db,
     be_instance,
     be_ech0211_settings,
     admin_client,
@@ -180,8 +180,8 @@ def test_reject_instance(
 @pytest.mark.parametrize(
     "role__name,instance_state__name", [("Municipality", "rejected")]
 )
+@pytest.mark.django_db
 def test_revert_instance_rejection(
-    db,
     be_instance,
     be_ech0211_settings,
     admin_client,
@@ -240,8 +240,8 @@ def test_revert_instance_rejection(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
 def test_save_rejection_feedback(
-    db,
     be_instance,
     admin_client,
     rejection_settings,

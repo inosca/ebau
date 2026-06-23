@@ -1,3 +1,4 @@
+import pytest
 from django.db.models import QuerySet
 
 from camac.applicants.models import ApplicantConfirmation, ApplicantConfirmationRound
@@ -12,7 +13,8 @@ def pk_set(qs_or_list):
     return set(pks)
 
 
-def test_applicant_confirmation_queryset(db, applicant_confirmation_factory):
+@pytest.mark.django_db
+def test_applicant_confirmation_queryset(applicant_confirmation_factory):
     pending = applicant_confirmation_factory(
         status=ApplicantConfirmation.Status.PENDING
     )
@@ -38,8 +40,9 @@ def test_applicant_confirmation_queryset(db, applicant_confirmation_factory):
     assert confirmed.status == ApplicantConfirmation.Status.INVALIDATED
 
 
+@pytest.mark.django_db
 def test_applicant_confirmation_round_queryset(
-    db, applicant_confirmation_round_factory, caluma_document_factory
+    applicant_confirmation_round_factory, caluma_document_factory
 ):
     document = caluma_document_factory()
 

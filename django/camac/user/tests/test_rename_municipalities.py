@@ -1,7 +1,9 @@
+import pytest
 from django.core.management import call_command
 
 
-def test_rename_municipalities(db, group_t_factory, service_t_factory):
+@pytest.mark.django_db
+def test_rename_municipalities(group_t_factory, service_t_factory):
     groupt = group_t_factory(name="Leitung Leitbehörde Solothurn")
     servicet = service_t_factory(name="Leitbehörde Solothurn")
 

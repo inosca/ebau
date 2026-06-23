@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import pytest
 from reversion.models import Version
 
 from camac.core.utils import create_history_entry
@@ -8,8 +9,9 @@ from camac.timelines.management.commands.migrate_form_timelines import (
 )
 
 
+@pytest.mark.django_db
 def test_corrections_history(
-    db, instance_factory, instance_state_factory, user_factory, settings
+    instance_factory, instance_state_factory, user_factory, settings
 ):
     instance = instance_factory()
     offset = datetime.now()

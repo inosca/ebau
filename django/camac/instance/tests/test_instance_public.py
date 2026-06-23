@@ -39,8 +39,8 @@ def test_public_caluma_instance_disabled(settings, admin_client):
         (True, True, status.HTTP_200_OK),
     ],
 )
+@pytest.mark.django_db
 def test_public_caluma_instance_enabled_empty_qs(
-    db,
     client,
     admin_client,
     instance_factory,
@@ -89,8 +89,8 @@ def test_public_caluma_instance_enabled_empty_qs(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_public_caluma_instance_ur(
-    db,
     publication_settings,
     admin_client,
     ur_instance,
@@ -176,8 +176,8 @@ def test_public_caluma_instance_ur(
         (True, "new_portal", 3, False),
     ],
 )
+@pytest.mark.django_db
 def test_public_caluma_instance_oereb_ur(
-    db,
     application_settings,
     admin_client,
     ur_instance,
@@ -281,8 +281,8 @@ def test_public_caluma_instance_oereb_ur(
         ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, False, 1),
     ],
 )
+@pytest.mark.django_db
 def test_public_caluma_documents_ur(
-    db,
     publication_settings,
     admin_client,
     admin_user,
@@ -332,8 +332,8 @@ def test_public_caluma_documents_ur(
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.django_db
 def test_public_caluma_instance_sz(
-    db,
     application_settings,
     publication_settings,
     admin_client,
@@ -400,8 +400,8 @@ def test_public_caluma_instance_sz(
         ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, False, 1),
     ],
 )
+@pytest.mark.django_db
 def test_public_documents_sz(
-    db,
     application_settings,
     publication_settings,
     admin_client,
@@ -460,8 +460,8 @@ def test_public_documents_sz(
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.django_db
 def test_public_caluma_instance_be(
-    db,
     admin_client,
     be_instance,
     be_master_data_case,
@@ -496,8 +496,8 @@ def test_public_caluma_instance_be(
     assert result[0]["attributes"]["municipality"] == "Bern"
 
 
+@pytest.mark.django_db
 def test_public_caluma_instance_municipality_filter(
-    db,
     admin_client,
     instance_factory,
     instance_with_case,
@@ -536,8 +536,8 @@ def test_public_caluma_instance_municipality_filter(
     assert len(response.json()["data"]) == 3
 
 
+@pytest.mark.django_db
 def test_public_caluma_instance_municipality_filter_sz(
-    db,
     admin_client,
     instance_factory,
     location_factory,
@@ -585,8 +585,8 @@ def test_public_caluma_instance_municipality_filter_sz(
     assert datetime.fromisoformat(date).astimezone(time_zone.utc) == publication_date
 
 
+@pytest.mark.django_db
 def test_public_caluma_instance_form_type_filter(
-    db,
     publication_settings,
     admin_client,
     instance_factory,
@@ -635,8 +635,8 @@ def test_public_caluma_instance_form_type_filter(
     assert len(response.json()["data"]) == 3
 
 
+@pytest.mark.django_db
 def test_information_of_neighbors_instance_be(
-    db,
     client,
     be_instance,
     create_caluma_publication,
@@ -743,8 +743,8 @@ def test_information_of_neighbors_instance_be(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_public_caluma_instance_gr(
-    db,
     gr_publication_settings,
     client,
     gr_instance,
@@ -801,8 +801,8 @@ def test_public_caluma_instance_gr(
 
 
 @pytest.mark.freeze_time("2022-04-12")
+@pytest.mark.django_db
 def test_disabled_publication(
-    db,
     admin_client,
     be_instance,
     caluma_workflow_config_be,
@@ -834,8 +834,8 @@ def test_disabled_publication(
 
 
 @pytest.mark.freeze_time("2024-05-13")
+@pytest.mark.django_db
 def test_publication_order_by_dossier_number_sort(
-    db,
     admin_client,
     caluma_workflow_config_so,
     instance_factory,
@@ -868,8 +868,8 @@ def test_publication_order_by_dossier_number_sort(
     assert response.json()["data"][1]["id"] == str(instance1.case.pk)
 
 
+@pytest.mark.django_db
 def test_increment_publication_views(
-    db,
     application_settings,
     publication_settings,
     admin_client,
@@ -919,8 +919,8 @@ def test_increment_publication_views(
         ("caluma", "2024-06-11", "2024-07-18"),
     ],
 )
+@pytest.mark.django_db
 def test_publication_date_range(
-    db,
     admin_client,
     gr_instance,
     publication_entry_factory,

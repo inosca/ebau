@@ -13,7 +13,8 @@ def test_form_data_related_field_valid_pk(admin_user):
     assert user == admin_user
 
 
-def test_form_data_related_field_inexistent_pk(db):
+@pytest.mark.django_db
+def test_form_data_related_field_inexistent_pk():
     field = relations.FormDataResourceRelatedField(
         queryset=get_user_model().objects.all()
     )
@@ -21,7 +22,8 @@ def test_form_data_related_field_inexistent_pk(db):
         field.to_internal_value(10)
 
 
-def test_form_data_related_field_invalid_pk(db):
+@pytest.mark.django_db
+def test_form_data_related_field_invalid_pk():
     field = relations.FormDataResourceRelatedField(
         queryset=get_user_model().objects.none()
     )

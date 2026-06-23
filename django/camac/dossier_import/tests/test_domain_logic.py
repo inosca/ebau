@@ -24,8 +24,8 @@ from camac.settings.modules.master_data import MASTER_DATA
 from camac.tags.models import Keyword
 
 
+@pytest.mark.django_db
 def test_undo_import(
-    db,
     dossier_import,
     caluma_case_factory,
     instance_factory,
@@ -85,8 +85,8 @@ def test_undo_import(
         lf("set_application_so"),
     ],
 )
+@pytest.mark.django_db
 def test_perform_reimport(  # noqa: C901
-    db,
     master_data_is_visible_mock,
     admin_client,
     archive_file,
@@ -319,8 +319,9 @@ def test_perform_reimport(  # noqa: C901
         ),
     ],
 )
+@pytest.mark.django_db
 def test_set_status_callback(
-    db, dossier_import, task_result, did_delete_import, expected_status
+    dossier_import, task_result, did_delete_import, expected_status
 ):
     Task = namedtuple("Task", ["result", "args"])
     task = Task(result=task_result, args=[dossier_import])
@@ -338,8 +339,8 @@ def test_set_status_callback(
             dossier_import.refresh_from_db()
 
 
+@pytest.mark.django_db
 def test_get_or_create_ebau_nr(
-    db,
     caluma_workflow_config_be,
     instance_factory,
     instance_service_factory,

@@ -36,9 +36,8 @@ def document_permissions():
         (True, True, True, False),
     ],
 )
+@pytest.mark.django_db
 def test_set_geometer_flag(
-    # fixtures
-    db,
     be_instance,
     set_application_be,
     attachment_factory,

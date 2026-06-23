@@ -1,5 +1,6 @@
 from unittest.mock import Mock, patch
 
+import pytest
 from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
@@ -9,8 +10,8 @@ from camac.caluma.extensions.events import address_assignment
 from camac.tests.form_utils import FormUtils
 
 
+@pytest.mark.django_db
 def test_prefill_street_answer(
-    db,
     set_application_gr,
     caluma_work_item_factory,
     caluma_admin_user,
@@ -38,8 +39,8 @@ def test_prefill_street_answer(
         assert street_prefilled.value == "Teststreet 420"
 
 
+@pytest.mark.django_db
 def test_address_assignment_write_street_to_main_form(
-    db,
     gr_instance,
     form_utils: FormUtils,
     caluma_work_item_factory,

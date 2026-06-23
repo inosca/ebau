@@ -32,8 +32,8 @@ TEST_IMPORT_FILE_NAME = "import-example.zip"
 
 
 @pytest.mark.parametrize("config", ["kt_schwyz"])
+@pytest.mark.django_db
 def test_bad_file_format_dossier_xlsx(
-    db,
     user,
     settings,
     config,
@@ -73,8 +73,8 @@ def test_bad_file_format_dossier_xlsx(
         ("kt_ag", lf("ag_instance"), None, 0),
     ],
 )
+@pytest.mark.django_db
 def test_create_instance_dossier_import_case(
-    db,
     dossier_import_factory,
     archive_file,
     config,
@@ -225,8 +225,8 @@ def test_create_instance_dossier_import_case(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_set_workflow_state_sz(
-    db,
     sz_instance_with_form,
     setup_dossier_writer,
     dossier,
@@ -289,8 +289,8 @@ def test_set_workflow_state_sz(
         )
     ],
 )
+@pytest.mark.django_db
 def test_set_workflow_state_exceptions(
-    db,
     config,
     setup_dossier_writer,
     camac_instance,
@@ -427,8 +427,8 @@ IMPORT_ROWS_BE = [
 
 
 @pytest.mark.parametrize("is_empty", [True, False])
+@pytest.mark.django_db
 def test_record_loading_be(
-    db,
     setup_dossier_writer,
     instance_factory,
     instance_with_case,
@@ -698,8 +698,8 @@ IMPORT_ROWS_SZ = [
 
 
 @pytest.mark.parametrize("is_empty", [True, False])
+@pytest.mark.django_db
 def test_record_loading_sz(
-    db,
     setup_dossier_writer,
     sz_instance,
     dossier_row_sparse,
@@ -736,8 +736,8 @@ def test_record_loading_sz(
     assert data == snapshot
 
 
+@pytest.mark.django_db
 def test_record_loading_invalid_coordinates(
-    db,
     be_instance,
     dossier_loader,
     dossier_row_sparse,
@@ -779,8 +779,8 @@ def test_record_loading_invalid_coordinates(
         ("kt_bern", lf("be_instance")),
     ],
 )
+@pytest.mark.django_db
 def test_record_loading_all_empty(
-    db,
     setup_dossier_writer,
     camac_instance,
     dossier_row_sparse,
@@ -807,8 +807,8 @@ def test_record_loading_all_empty(
         ("kt_gr", lf("gr_instance"), IMPORT_ROWS_GR),
     ],
 )
+@pytest.mark.django_db
 def test_reimport_delete_values(
-    db,
     setup_dossier_writer,
     caluma_work_item_factory,
     camac_instance,
@@ -857,8 +857,8 @@ def test_reimport_delete_values(
             assert getattr(md, target) in [[], None]
 
 
+@pytest.mark.django_db
 def test_delete_case_meta_field(
-    db,
     be_instance,
     user,
     group,
@@ -894,8 +894,8 @@ def test_delete_case_meta_field(
         ("kt_bern", lf("be_instance")),
     ],
 )
+@pytest.mark.django_db
 def test_reimport_ignores_empty(
-    db,
     setup_dossier_writer,
     caluma_work_item_factory,
     camac_instance,
@@ -964,8 +964,8 @@ def test_reimport_ignores_empty(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_record_loading_exceptions(
-    db,
     setup_dossier_writer,
     dossier_row_sparse,
     config,
@@ -1002,8 +1002,8 @@ def test_record_loading_exceptions(
         ("zip-archive-xlsx", "import-example-validation-errors.zip", None, None),
     ],
 )
+@pytest.mark.django_db
 def test_validation(
-    db,
     dossier_import,
     archive_file,
     loader,
@@ -1155,8 +1155,8 @@ def test_validation(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_set_workflow_state_be(
-    db,
     instance_service_factory,
     setup_dossier_writer,
     be_instance,
@@ -1315,8 +1315,8 @@ def test_set_workflow_state_be(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_set_workflow_state_so(
-    db,
     so_instance,
     setup_dossier_writer,
     dossier,
@@ -1467,8 +1467,8 @@ def test_set_workflow_state_so(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_set_workflow_state_gr(
-    db,
     gr_instance,
     setup_dossier_writer,
     dossier,
@@ -1580,8 +1580,8 @@ def test_set_workflow_state_gr(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_set_workflow_state_ag(
-    db,
     ag_instance,
     setup_dossier_writer,
     dossier,

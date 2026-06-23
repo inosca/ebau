@@ -1,11 +1,12 @@
+import pytest
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.alexandria.permissions import AlexandriaPermissionContext
 from camac.settings.modules.permissions.alexandria.conditions import HasAdditionalDemand
 
 
+@pytest.mark.django_db
 def test_has_additional_demand_condition(
-    db,
     additional_demand_settings,
     alexandria_document_factory,
     be_instance,

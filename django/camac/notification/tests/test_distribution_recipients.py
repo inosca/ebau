@@ -14,8 +14,8 @@ from camac.notification.serializers import (
 
 
 @pytest.mark.parametrize("role__name", ["support"])
+@pytest.mark.django_db
 def test_recipient_unanswered_inquiries(
-    db,
     active_inquiry_factory,
     be_instance,
     notification_template,
@@ -46,8 +46,8 @@ def test_recipient_unanswered_inquiries(
 
 
 @pytest.mark.parametrize("role__name", ["support"])
+@pytest.mark.django_db
 def test_recipient_inquiry(
-    db,
     active_inquiry_factory,
     be_instance,
     notification_template,
@@ -84,8 +84,8 @@ def test_recipient_inquiry(
 
 
 @pytest.mark.parametrize("role__name", ["support"])
+@pytest.mark.django_db
 def test_recipient_involved_in_distribution(
-    db,
     active_inquiry_factory,
     be_instance,
     distribution_settings,
@@ -141,8 +141,8 @@ def test_recipient_involved_in_distribution(
 
 
 @pytest.mark.parametrize("role__name", ["support"])
+@pytest.mark.django_db
 def test_services_with_incomplete_inquiries(
-    db,
     distribution_settings,
     instance_factory,
     service_factory,
@@ -196,8 +196,8 @@ def test_services_with_incomplete_inquiries(
 
 
 @pytest.mark.parametrize("role__name", ["support"])
+@pytest.mark.django_db
 def test_recipient_involved_in_distribution_except_gvg(
-    db,
     active_inquiry_factory,
     be_instance,
     distribution_settings,

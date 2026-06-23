@@ -16,8 +16,8 @@ from camac.notification.serializers import (
         (False, True, []),
     ],
 )
+@pytest.mark.django_db
 def test_recipient_geometer(
-    db,
     sz_instance_with_form,
     notification_template,
     form_field_factory,
@@ -55,8 +55,8 @@ def test_recipient_geometer(
 
 
 @pytest.mark.parametrize("role__name", ["support"])
+@pytest.mark.django_db
 def test_recipient_tax_administration(
-    db,
     sz_instance,
     notification_template,
     service_factory,
@@ -95,8 +95,8 @@ def test_recipient_tax_administration(
         (True, True, True),
     ],
 )
+@pytest.mark.django_db
 def test_recipient_involved_in_construction_step(
-    db,
     sz_instance,
     notification_template,
     sz_construction_monitoring_settings,

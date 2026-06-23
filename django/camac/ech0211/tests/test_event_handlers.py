@@ -126,8 +126,8 @@ def test_event_handlers(
 
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("notices_exists", [True, False])
+@pytest.mark.django_db
 def test_accompanying_report_event_handler(
-    db,
     active_inquiry_factory,
     caluma_answer_factory,
     attachment_factory,
@@ -222,8 +222,8 @@ def test_accompanying_report_event_handler(
 
 
 @pytest.mark.freeze_time("2022-06-03")
+@pytest.mark.django_db
 def test_task_event_handler_stellungnahme(
-    db,
     active_inquiry_factory,
     admin_user,
     attachment_attachment_section_factory,
@@ -338,8 +338,8 @@ def test_skip_events_sz(
 
 
 @pytest.mark.freeze_time("2022-06-03")
+@pytest.mark.django_db
 def test_accompanying_report_event_handler_alexandria(
-    db,
     active_inquiry_factory,
     caluma_answer_factory,
     so_distribution_settings,
@@ -440,8 +440,8 @@ def test_accompanying_report_event_handler_alexandria(
 
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("documents_available", [True, False])
+@pytest.mark.django_db
 def test_accompanying_report_event_handler_extension(
-    db,
     active_inquiry_factory,
     caluma_answer_factory,
     caluma_form_question_factory,
@@ -525,8 +525,8 @@ def test_accompanying_report_event_handler_extension(
 
 
 @pytest.mark.freeze_time("2022-06-03")
+@pytest.mark.django_db
 def test_accompanying_report_event_handler_answer_extension_ag(
-    db,
     set_application_ag,
     ag_ech0211_settings,
     ag_distribution_settings,

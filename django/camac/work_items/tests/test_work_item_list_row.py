@@ -463,8 +463,8 @@ def test_work_item_list_row_list_ordering(
         (True, False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_work_item_list_row_toggle_read(
-    db,
     admin_client,
     expected_status,
     is_addressed,
@@ -506,8 +506,8 @@ def test_work_item_list_row_toggle_read(
         (True, True, False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_work_item_list_row_assign_to_me(
-    db,
     admin_client,
     admin_user,
     expected_status,
@@ -546,8 +546,8 @@ def test_work_item_list_row_assign_to_me(
         (True, True, False, status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.django_db
 def test_work_item_list_row_quick_complete(
-    db,
     admin_client,
     expected_status,
     is_addressed,
@@ -616,8 +616,8 @@ def test_work_item_list_row_quick_complete(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_work_item_list_row_description_coalesce(
-    db,
     admin_client,
     service,
     annotation,
@@ -664,8 +664,9 @@ def test_work_item_list_row_description_coalesce(
     )
 
 
+@pytest.mark.django_db
 def test_work_item_list_row_no_query_explosion(
-    db, admin_client, django_assert_num_queries, service, work_item_list_row_factory
+    admin_client, django_assert_num_queries, service, work_item_list_row_factory
 ):
     args = [
         reverse("work-item-list-row-list"),

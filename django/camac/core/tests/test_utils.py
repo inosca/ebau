@@ -5,7 +5,8 @@ from camac.settings.utils import InvalidFixtureUseError
 
 
 @pytest.mark.freeze_time("2020-10-16")
-def test_max_ebau_nr(db, caluma_case_factory, instance_factory, question, chapter):
+@pytest.mark.django_db
+def test_max_ebau_nr(caluma_case_factory, instance_factory, question, chapter):
     assert utils.generate_ebau_nr(None, 2020) == "2020-1"
 
     caluma_case_factory(meta={"ebau-number": "2020-123"})
@@ -19,8 +20,8 @@ def test_max_ebau_nr(db, caluma_case_factory, instance_factory, question, chapte
 
 
 @pytest.mark.freeze_time("2020-10-16")
+@pytest.mark.django_db
 def test_assign_ebau_nr(
-    db,
     question,
     caluma_case_factory,
     chapter,
@@ -66,13 +67,15 @@ class FakeClass:
         ("gr", "fallback"),
     ],
 )
-def test_canton_aware_decorator(db, role, expected, canton, application_settings):
+@pytest.mark.django_db
+def test_canton_aware_decorator(role, expected, canton, application_settings):
     application_settings["SHORT_NAME"] = canton
     assert FakeClass().foo() == expected
 
 
 @pytest.mark.freeze_time("2020-10-16")
-def test_generate_sort_key(db, caluma_case_factory):
+@pytest.mark.django_db
+def test_generate_sort_key(caluma_case_factory):
     assert utils.generate_sort_key(utils.generate_ebau_nr(None, 2020)) == 2020000001
 
     caluma_case_factory(meta={"ebau-number": "2020-123"})
