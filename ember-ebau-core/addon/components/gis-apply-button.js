@@ -39,15 +39,22 @@ export default class GisApplyButtonComponent extends Component {
       let errors;
       let cache;
 
+      if (!response.ok) {
+        throw new Error(payload.detail ?? response.statusText);
+      }
+
+      const payload = await response.json();
+
       if (hasFeature("gis.v3")) {
-        const { task_id } = await response.json();
+        const { task_id } = payload;
+
         ({
           data,
           cache = null,
           errors = [],
         } = await this.pollData.perform(task_id));
       } else {
-        ({ data, cache, errors = [] } = await response.json());
+        ({ data, cache, errors = [] } = payload);
       }
 
       if (errors.length) {

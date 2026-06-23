@@ -32,44 +32,67 @@
     "model": "gis.gisdatasource",
     "pk": "21af2392-47c2-41c6-b762-ef5eca96ec21",
     "fields": {
-      "description": "Nutzungsplanung, weitere Festlegungen (Erschliessungsplan, Fläche)",
+      "description": "Fachthemen Flächen ohne Buffer",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.arp.nutzungsplanung.erschliessungsplanung_flaeche.data",
+        "layer": "ch.so.dsbjd.ebauso_fachthemen_flaechen.data",
+        "filter": "[[\"thema\",\"=\",\"ch.SO.NutzungsplanungErschliessung\"],\"or\",[\"thema\",\"=\",\"ch.SO.NutzungsplanungGrundnutzung\"],\"or\",[\"thema\",\"=\",\"ch.SO.GefahrengebietSynoptisch\"],\"or\",[\"thema\",\"=\",\"ch.SO.Archaeologie\"],\"or\",[\"thema\",\"=\",\"ch.SO.Fruchtfolgeflaechen\"],\"or\",[\"thema\",\"=\",\"ch.Grundwasserschutzzonen\"],\"or\",[\"thema\",\"=\",\"ch.BelasteteStandorte\"]]",
         "properties": [
           {
+            "topic": "ch.SO.NutzungsplanungErschliessung",
             "question": "nutzungsplanung-weitere-festlegungen",
             "template": "Erschliessungsplan (Fläche): {value}",
-            "propertyName": "typ_bezeichnung"
+            "propertyName": "beschreibung"
+          },
+          {
+            "topic": "ch.SO.NutzungsplanungGrundnutzung",
+            "question": "nutzungsplanung-grundnutzung",
+            "propertyName": "beschreibung"
+          },
+          {
+            "topic": "ch.SO.NutzungsplanungGrundnutzung",
+            "hidden": true,
+            "question": "nutzungsplanung-grundnutzung-kanton",
+            "propertyName": "artcode"
+          },
+          {
+            "topic": "ch.SO.GefahrengebietSynoptisch",
+            "question": "naturgefahren-gis",
+            "template": "Gefahrenstufe: {value}",
+            "propertyName": "artcode"
+          },
+          {
+            "topic": "ch.SO.GefahrengebietSynoptisch",
+            "question": "naturgefahren-gis",
+            "template": "Charakterisierung: {value}",
+            "propertyName": "beschreibung"
+          },
+          {
+            "topic": "ch.SO.Archaeologie",
+            "question": "archaeologie",
+            "propertyName": "beschreibung"
+          },
+          {
+            "topic": "ch.SO.Fruchtfolgeflaechen",
+            "question": "fruchtfolgeflaeche",
+            "template": "Fruchtfolgeflächen-Qualität: {value}",
+            "propertyName": "artcode"
+          },
+          {
+            "topic": "ch.Grundwasserschutzzonen",
+            "question": "gewaesserschutz",
+            "template": "Schutzzone: {value}",
+            "propertyName": "artcode"
+          },
+          {
+            "topic": "ch.BelasteteStandorte",
+            "question": "altlasten-gis",
+            "propertyName": "beschreibung"
           }
         ]
       },
       "disabled": false,
       "sort": 14
-    }
-  },
-  {
-    "model": "gis.gisdatasource",
-    "pk": "2c339bb0-f61f-458f-90c5-e777d1e3e9f7",
-    "fields": {
-      "description": "Nutzungsplanung (Grundnutzung)",
-      "client": "camac.gis.clients.sogis.SoGisClient",
-      "config": {
-        "layer": "ch.so.arp.nutzungsplanung.grundnutzung.data",
-        "properties": [
-          {
-            "question": "nutzungsplanung-grundnutzung",
-            "propertyName": "typ_bezeichnung"
-          },
-          {
-            "hidden": true,
-            "question": "nutzungsplanung-grundnutzung-kanton",
-            "propertyName": "typ_kt"
-          }
-        ]
-      },
-      "disabled": false,
-      "sort": 4
     }
   },
   {
@@ -100,7 +123,8 @@
             "attributeName": "name"
           }
         ],
-        "invalidLayers": ["ch.bafu.bundesinventare-flachmoore_regional"]
+        "invalidLayers": ["ch.bafu.bundesinventare-flachmoore_regional"],
+        "properties": []
       },
       "disabled": false,
       "sort": 20
@@ -110,16 +134,23 @@
     "model": "gis.gisdatasource",
     "pk": "39fe69f2-f0ec-4d4d-8b3c-f956cfcf0ba5",
     "fields": {
-      "description": "Nutzungsplanung, weitere Festlegungen (überlagernd, Punkt)",
+      "description": "Fachthemen Punkte Buffer 50",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.arp.nutzungsplanung.ueberlagernd_punkt.data",
+        "layer": "ch.so.dsbjd.ebauso_fachthemen_punkte.data",
         "buffer": 50,
+        "filter": "[[\"thema\",\"=\",\"ch.SO.NutzungsplanungUeberlagernd\"],\"or\",[\"thema\",\"=\",\"ch.SO.Archaeologie\"]]",
         "properties": [
           {
+            "topic": "ch.SO.NutzungsplanungUeberlagernd",
             "question": "nutzungsplanung-weitere-festlegungen",
             "template": "Punkt: {value}",
-            "propertyName": "typ_bezeichnung"
+            "propertyName": "beschreibung"
+          },
+          {
+            "topic": "ch.SO.Archaeologie",
+            "question": "archaeologie",
+            "propertyName": "beschreibung"
           }
         ]
       },
@@ -155,14 +186,15 @@
       "description": "Weitere GIS-Informationen (Bodenbedeckung, Wald)",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.agi.av.bodenbedeckung.data",
+        "layer": "ch.so.dsbjd.ebauso_fachthemen_flaechen.data",
         "buffer": 50,
-        "filter": "[[\"art_txt\",\"ilike\",\"%Wald%\"]]",
+        "filter": "[[\"artcode\",\"ilike\",\"%Wald%\"],\"and\",[\"thema\",\"=\",\"ch.SO.Bodenbedeckung\"]]",
         "properties": [
           {
+            "topic": "ch.SO.Bodenbedeckung",
             "question": "weitere-gis-informationen",
             "template": "Bodenbedeckung: {value}",
-            "propertyName": "art_txt"
+            "propertyName": "artcode"
           }
         ]
       },
@@ -190,7 +222,8 @@
             "template": "Nr. des {label}: {value}",
             "attributeName": "bln_obj"
           }
-        ]
+        ],
+        "properties": []
       },
       "disabled": false,
       "sort": 21
@@ -200,46 +233,29 @@
     "model": "gis.gisdatasource",
     "pk": "53c330a0-ef63-4da3-94f9-e8a15a57d5c0",
     "fields": {
-      "description": "Nutzungsplanung, weitere Festlegungen (überlagernd, Linie)",
+      "description": "Fachthemen Linien Buffer 50",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.arp.nutzungsplanung.ueberlagernd_linie.data",
+        "layer": "ch.so.dsbjd.ebauso_fachthemen_linien.data",
         "buffer": 50,
+        "filter": "[[\"thema\",\"=\",\"ch.SO.NutzungsplanungUeberlagernd\"],\"or\",[\"thema\",\"=\",\"ch.SO.NutzungsplanungErschliessung\"]]",
         "properties": [
           {
+            "topic": "ch.SO.NutzungsplanungUeberlagernd",
             "question": "nutzungsplanung-weitere-festlegungen",
             "template": "Linie: {value}",
-            "propertyName": "typ_bezeichnung"
+            "propertyName": "beschreibung"
+          },
+          {
+            "topic": "ch.SO.NutzungsplanungErschliessung",
+            "question": "nutzungsplanung-weitere-festlegungen",
+            "template": "Erschliessungsplan (Linie): {value}",
+            "propertyName": "beschreibung"
           }
         ]
       },
       "disabled": false,
       "sort": 16
-    }
-  },
-  {
-    "model": "gis.gisdatasource",
-    "pk": "563996b1-fe28-42cc-ab83-e8997cdd5d7d",
-    "fields": {
-      "description": "Naturgefahren",
-      "client": "camac.gis.clients.sogis.SoGisClient",
-      "config": {
-        "layer": "ch.so.afu.naturgefahren.synoptisches_gefahrengebiet.data",
-        "properties": [
-          {
-            "question": "naturgefahren-gis",
-            "template": "Gefahrenstufe: {value}",
-            "propertyName": "gefahrenstufe_txt"
-          },
-          {
-            "question": "naturgefahren-gis",
-            "template": "Charakterisierung: {value}",
-            "propertyName": "charakterisierung"
-          }
-        ]
-      },
-      "disabled": false,
-      "sort": 6
     }
   },
   {
@@ -265,83 +281,25 @@
   },
   {
     "model": "gis.gisdatasource",
-    "pk": "755e8b4c-5b29-4f68-9415-69cd1ed2eadd",
-    "fields": {
-      "description": "Archäologie (Fläche)",
-      "client": "camac.gis.clients.sogis.SoGisClient",
-      "config": {
-        "layer": "ch.so.ada.archaeologie.flaechenfundstellen.data",
-        "properties": [
-          {
-            "question": "archaeologie",
-            "propertyName": "fundstellen_art"
-          }
-        ]
-      },
-      "disabled": false,
-      "sort": 12
-    }
-  },
-  {
-    "model": "gis.gisdatasource",
     "pk": "7ee5e1d7-37c9-46ca-894e-14cc9cd15ea8",
     "fields": {
       "description": "Weitere GIS-Informationen (Bodenbedeckung, Gewässer)",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.agi.av.bodenbedeckung.data",
+        "layer": "ch.so.dsbjd.ebauso_fachthemen_flaechen.data",
         "buffer": 50,
-        "filter": "[[\"art_txt\",\"ilike\",\"%Gewaesser%\"]]",
+        "filter": "[[\"artcode\",\"ilike\",\"%Gewaesser%\"],\"and\",[\"thema\",\"=\",\"ch.SO.Bodenbedeckung\"]]",
         "properties": [
           {
+            "topic": "ch.SO.Bodenbedeckung",
             "question": "weitere-gis-informationen",
             "template": "Bodenbedeckung: {value}",
-            "propertyName": "art_txt"
+            "propertyName": "artcode"
           }
         ]
       },
       "disabled": false,
       "sort": 19
-    }
-  },
-  {
-    "model": "gis.gisdatasource",
-    "pk": "83f0e0b4-9c44-4b84-81f2-79f5c679f3b4",
-    "fields": {
-      "description": "Fruchtfolgeflächen",
-      "client": "camac.gis.clients.sogis.SoGisClient",
-      "config": {
-        "layer": "ch.so.alw.fruchtfolgeflaechen.data",
-        "properties": [
-          {
-            "question": "fruchtfolgeflaeche",
-            "template": "Fruchtfolgeflächen-Qualität: {value}",
-            "propertyName": "bezeichnung"
-          }
-        ]
-      },
-      "disabled": false,
-      "sort": 5
-    }
-  },
-  {
-    "model": "gis.gisdatasource",
-    "pk": "866c1b30-6dd6-431e-8c44-36c6ae0b71be",
-    "fields": {
-      "description": "Gewässerschutz",
-      "client": "camac.gis.clients.sogis.SoGisClient",
-      "config": {
-        "layer": "ch.so.afu.gewaesserschutz.zonen_areale.data_v2",
-        "properties": [
-          {
-            "question": "gewaesserschutz",
-            "template": "Schutzzone: {value}",
-            "propertyName": "typ"
-          }
-        ]
-      },
-      "disabled": false,
-      "sort": 8
     }
   },
   {
@@ -365,29 +323,9 @@
   },
   {
     "model": "gis.gisdatasource",
-    "pk": "9e367d1b-ac41-40c3-9fdd-41ffce6d8b12",
-    "fields": {
-      "description": "Archäologie (Punkt)",
-      "client": "camac.gis.clients.sogis.SoGisClient",
-      "config": {
-        "layer": "ch.so.ada.archaeologie.punktfundstellen.data",
-        "buffer": 50,
-        "properties": [
-          {
-            "question": "archaeologie",
-            "propertyName": "fundstellen_art"
-          }
-        ]
-      },
-      "disabled": false,
-      "sort": 11
-    }
-  },
-  {
-    "model": "gis.gisdatasource",
     "pk": "a8f19109-e838-45fb-b716-b31016d4b041",
     "fields": {
-      "description": "Richtplan, weiteres (Waldnähe)",
+      "description": "Richtplan, weiteres (Waldnähe) - Disabled legacy yesNo datasource. Before enabling again, restore/check yesNo handling in SoGisClient. See MR !12441.",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
         "layer": "ch.so.arp.richtplan.grundnutzung.data",
@@ -410,17 +348,20 @@
     "model": "gis.gisdatasource",
     "pk": "ae6241e2-3905-4b37-9304-5f90d3d17fe4",
     "fields": {
-      "description": "Nutzungsplanung, weitere Festlegungen (überlagernd, Fläche)",
+      "description": "Fachthemen Flächen Buffer 50",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.arp.nutzungsplanung.ueberlagernd_flaeche.data",
+        "layer": "ch.so.dsbjd.ebauso_fachthemen_flaechen.data",
+        "filter": "[[\"thema\",\"=\",\"ch.SO.NutzungsplanungUeberlagernd\"]]",
         "properties": [
           {
+            "topic": "ch.SO.NutzungsplanungUeberlagernd",
             "question": "nutzungsplanung-weitere-festlegungen",
             "template": "Fläche: {value}",
-            "propertyName": "typ_bezeichnung"
+            "propertyName": "beschreibung"
           }
-        ]
+        ],
+        "buffer": 50
       },
       "disabled": false,
       "sort": 17
@@ -445,27 +386,8 @@
           }
         ]
       },
-      "disabled": false,
+      "disabled": true,
       "sort": 3
-    }
-  },
-  {
-    "model": "gis.gisdatasource",
-    "pk": "bdbb2a02-2cf5-430d-8abd-6d93a6b3f7de",
-    "fields": {
-      "description": "Altlasten",
-      "client": "camac.gis.clients.sogis.SoGisClient",
-      "config": {
-        "layer": "ch.so.afu.altlasten.standorte.ebau.data_v2",
-        "properties": [
-          {
-            "question": "altlasten-gis",
-            "propertyName": "bewertung"
-          }
-        ]
-      },
-      "disabled": false,
-      "sort": 7
     }
   },
   {
@@ -475,7 +397,7 @@
       "description": "Gebäudeadresse",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.agi.av.gebaeudeadressen.gebaeudeeingaenge.data",
+        "layer": "ch.so.dsbjd.ebauso_lokalisation_gebaeudeeingang.data",
         "buffer": 20,
         "properties": [
           {
@@ -528,18 +450,21 @@
       "description": "Denkmalschutz (Punkt)",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.ada.denkmalschutz.punktobjekt.data",
+        "layer": "ch.so.dsbjd.ebauso_fachthemen_punkte.data",
         "buffer": 25,
+        "filter": "[[\"thema\",\"=\",\"ch.SO.Denkmalschutz\"]]",
         "properties": [
           {
+            "topic": "ch.SO.Denkmalschutz",
             "question": "denkmalschutz",
             "template": "Denkmalschutzobjekt: {value}",
-            "propertyName": "objektname"
+            "propertyName": "beschreibung"
           },
           {
+            "topic": "ch.SO.Denkmalschutz",
             "question": "denkmalschutz",
             "template": "Denkmalschutz Schutzstufe: {value}",
-            "propertyName": "schutzstufe_text"
+            "propertyName": "artcode"
           }
         ]
       },
@@ -554,18 +479,21 @@
       "description": "Denkmalschutz (Fläche)",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.ada.denkmalschutz.flaechenobjekt.data",
+        "layer": "ch.so.dsbjd.ebauso_fachthemen_flaechen.data",
         "buffer": 25,
+        "filter": "[[\"thema\",\"=\",\"ch.SO.Denkmalschutz\"]]",
         "properties": [
           {
+            "topic": "ch.SO.Denkmalschutz",
             "question": "denkmalschutz",
             "template": "Denkmalschutzobjekt: {value}",
-            "propertyName": "objektname"
+            "propertyName": "beschreibung"
           },
           {
+            "topic": "ch.SO.Denkmalschutz",
             "question": "denkmalschutz",
             "template": "Denkmalschutz Schutzstufe: {value}",
-            "propertyName": "schutzstufe_text"
+            "propertyName": "artcode"
           }
         ]
       },
@@ -575,33 +503,12 @@
   },
   {
     "model": "gis.gisdatasource",
-    "pk": "ee062d64-5103-4261-ab54-ce6d8cb1fc53",
-    "fields": {
-      "description": "Nutzungsplanung, weitere Festlegungen (Erschliessungsplan, Linie)",
-      "client": "camac.gis.clients.sogis.SoGisClient",
-      "config": {
-        "layer": "ch.so.arp.nutzungsplanung.erschliessungsplanung_linie.data",
-        "buffer": 50,
-        "properties": [
-          {
-            "question": "nutzungsplanung-weitere-festlegungen",
-            "template": "Erschliessungsplan (Linie): {value}",
-            "propertyName": "typ_bezeichnung"
-          }
-        ]
-      },
-      "disabled": false,
-      "sort": 13
-    }
-  },
-  {
-    "model": "gis.gisdatasource",
     "pk": "f2169071-f7bc-4449-8e24-c2743f4b90c7",
     "fields": {
       "description": "Amtliche Vermessung",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.agi.av.grundstuecke.rechtskraeftig.data",
+        "layer": "ch.so.dsbjd.ebauso_lokalisation_grundstueck.data",
         "properties": [
           {
             "question": "gemeinde",
@@ -610,7 +517,7 @@
           {
             "cast": "integer",
             "question": "gemeindenummer-bfs",
-            "propertyName": "bfs_nr"
+            "propertyName": "bfsnr"
           },
           {
             "question": "parzellen.e-grid",
@@ -622,11 +529,19 @@
           },
           {
             "question": "parzellen.grundstueckart",
-            "propertyName": "art_txt"
+            "propertyName": "art"
           },
           {
             "question": "parzellen.flaeche-m",
             "propertyName": "flaechenmass"
+          },
+          {
+            "question": "parzellen.grundbuchkreis",
+            "propertyName": "grundbuchkreis"
+          },
+          {
+            "question": "parzellen.amtschreiberei",
+            "propertyName": "amtschreiberei"
           }
         ]
       },
@@ -654,7 +569,8 @@
             "template": "Nr. des {label}: {value}",
             "attributeName": "ivs_nummer"
           }
-        ]
+        ],
+        "properties": []
       },
       "disabled": false,
       "sort": 22
