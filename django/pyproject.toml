@@ -312,5 +312,7 @@ omit = [
     "camac/dossier_import/config/kt_ag.py",
     # AG Restore groups of users
     "camac/user/management/commands/user_backup.py",
+    # RPG2 work-item creaton for existing instances
+    "camac/instance/management/commands/create_rpg2_workitems.py",
 ]
 show_missing = true
