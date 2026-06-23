@@ -8,18 +8,23 @@ from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from django.utils.translation import gettext as _
 
+from camac.caluma.event_utils import filter_by_task, setting
 from camac.caluma.utils import find_answer
 from camac.core.models import HistoryActionConfig
 from camac.core.utils import create_history_entry
 from camac.notification.tasks import send_notification_for_publication
+from camac.utils import get_dict_item
 
 
 @on(post_complete_work_item, raise_exception=True)
+@filter_by_task(setting("PUBLICATION", "FILL_TASKS.PUBLIC"))
 @filter_events(
-    lambda work_item: (
-        work_item.task.slug == settings.PUBLICATION.get("FILL_TASKS", {}).get("PUBLIC")
-        and settings.APPLICATION.get("NOTIFICATIONS", {}).get("PUBLICATION_START")
-    )  # currently only defined for kt. GR.
+    # Currently only defined for Kt. GR.
+    lambda: bool(
+        get_dict_item(
+            settings.APPLICATION, "NOTIFICATIONS.PUBLICATION_START", default=False
+        )
+    )
 )
 @transaction.atomic
 def post_complete_publication(sender, work_item, user, context=None, **kwargs):

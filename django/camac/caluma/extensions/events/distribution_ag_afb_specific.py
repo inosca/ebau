@@ -4,24 +4,20 @@ from caluma.caluma_core.events import on
 from caluma.caluma_workflow.api import cancel_work_item
 from caluma.caluma_workflow.events import post_create_work_item, post_resume_work_item
 from caluma.caluma_workflow.models import WorkItem
-from django.conf import settings
 from django.db import transaction
 from django.utils.timezone import now
 
+from camac.caluma.event_utils import filter_by_canton, filter_by_task, setting
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import date_to_deadline
 from camac.user.models import Service
 
-from .distribution import filter_by_task
-
 
 @on(post_resume_work_item, raise_exception=True)
-@filter_by_task("INQUIRY_TASK")
+@filter_by_canton("kt_ag")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def set_cantonal_exam_deadline(sender, work_item, user, context=None, **kwargs):
-    if settings.APPLICATION_NAME != "kt_ag":
-        return
-
     addressed_service = Service.objects.get(pk=int(work_item.addressed_groups[0]))
 
     if addressed_service.slug != "afb":
@@ -42,13 +38,12 @@ def set_cantonal_exam_deadline(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_create_work_item, raise_exception=True)
+@filter_by_canton("kt_ag")
+@filter_by_task("cantonal-exam")
 @transaction.atomic
 def set_cantonal_exam_deadline_anfrage_intern(
     sender, work_item, user, context=None, **kwargs
 ):
-    if settings.APPLICATION_NAME != "kt_ag" or work_item.task_id != "cantonal-exam":
-        return
-
     responsible_service = work_item.case.instance.responsible_service()
 
     if responsible_service.slug != "afb":
@@ -59,12 +54,10 @@ def set_cantonal_exam_deadline_anfrage_intern(
 
 
 @on(post_resume_work_item, raise_exception=True)
-@filter_by_task("INQUIRY_TASK")
+@filter_by_canton("kt_ag")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def set_document_supplement_deadline(sender, work_item, user, context=None, **kwargs):
-    if settings.APPLICATION_NAME != "kt_ag":
-        return
-
     check_work_item = WorkItem.objects.filter(
         task_id="check-document-supplement",
         status=WorkItem.STATUS_READY,

@@ -186,7 +186,10 @@ def test_set_ebau_number_workflow(
     expected_instance_state,
     expect_completed_work_item,
     be_ech0211_settings,
+    settings,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
+
     instance_state_factory(name="circulation_init")
 
     instance_with_case(instance, workflow=caluma_workflow)

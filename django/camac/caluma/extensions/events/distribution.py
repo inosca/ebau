@@ -29,13 +29,14 @@ from django.db import transaction
 from django.db.models import Q
 from django.utils.timezone import now
 
-from camac.caluma.models import Inquiry
-from camac.caluma.utils import (
-    date_to_deadline,
-    filter_by_task_base,
-    filter_by_workflow_base,
-    sync_inquiry_deadline,
+from camac.caluma.event_utils import (
+    filter_by_canton,
+    filter_by_task,
+    filter_by_workflow,
+    setting,
 )
+from camac.caluma.models import Inquiry
+from camac.caluma.utils import date_to_deadline, sync_inquiry_deadline
 from camac.constants import kt_bern as bern_constants
 from camac.constants.kt_uri import KOOR_SERVICE_IDS as URI_KOOR_SERVICE_IDS
 from camac.core.utils import create_history_entry
@@ -68,28 +69,6 @@ def send_inquiry_notification(settings_key, inquiry_work_item, user):
             inquiry={"id": inquiry_work_item.pk, "type": "work-items"},
             recipient_types=notification_config["recipient_types"],
         )
-
-
-def get_distribution_settings(settings_keys):
-    return filter(
-        None,
-        [
-            settings.DISTRIBUTION.get(settings_key)
-            for settings_key in (
-                [settings_keys]
-                if not isinstance(settings_keys, list)
-                else settings_keys
-            )
-        ],
-    )
-
-
-def filter_by_workflow(settings_keys):
-    return filter_by_workflow_base(settings_keys, get_distribution_settings)
-
-
-def filter_by_task(settings_keys):
-    return filter_by_task_base(settings_keys, get_distribution_settings)
 
 
 def recalculate_deadline(work_item, context, user, skip_defaults=False):
@@ -139,7 +118,9 @@ def recalculate_deadline(work_item, context, user, skip_defaults=False):
 
 
 @on(post_complete_case, raise_exception=True)
-@filter_by_workflow(["INQUIRY_WORKFLOW", "DISTRIBUTION_WORKFLOW"])
+@filter_by_workflow(
+    setting("DISTRIBUTION", ["INQUIRY_WORKFLOW", "DISTRIBUTION_WORKFLOW"])
+)
 @transaction.atomic
 def post_complete_inquiry_or_distribution_case(
     sender, case, user, context=None, **kwargs
@@ -148,7 +129,7 @@ def post_complete_inquiry_or_distribution_case(
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_by_task("DISTRIBUTION_TASK")
+@filter_by_task(setting("DISTRIBUTION", "DISTRIBUTION_TASK"))
 @transaction.atomic
 def post_create_distribution(sender, work_item, user, context=None, **kwargs):
     # start distribution child case
@@ -163,7 +144,7 @@ def post_create_distribution(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_redo_work_item, raise_exception=True)
-@filter_by_task("DISTRIBUTION_TASK")
+@filter_by_task(setting("DISTRIBUTION", "DISTRIBUTION_TASK"))
 @transaction.atomic
 def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
     check_distribution_work_item = (
@@ -292,7 +273,7 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_redo_work_item, raise_exception=True)
-@filter_by_task("INQUIRY_TASK")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def post_redo_inquiry(sender, work_item, user, context=None, **kwargs):
     # Get the last closed child work item of each task defined in `REDO_INQUIRY`
@@ -354,7 +335,7 @@ def _get_deadline_override(settings, work_item):
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_by_task("INQUIRY_TASK")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
     # suspend work item so it's a draft
@@ -366,7 +347,7 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_resume_work_item, raise_exception=True)
-@filter_by_task("INQUIRY_TASK")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
     # When correcting an instance in Kt. BE, the entire case is suspended and
@@ -475,7 +456,7 @@ def _get_inquiry_sent_notification_key(work_item):
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_task("INQUIRY_TASK")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
     Trigger.inquiry_completed(None, work_item.case.family.instance, work_item)
@@ -558,7 +539,7 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
 
 
 @on(pre_complete_work_item, raise_exception=True)
-@filter_by_task("DISTRIBUTION_COMPLETE_TASK")
+@filter_by_task(setting("DISTRIBUTION", "DISTRIBUTION_COMPLETE_TASK"))
 @transaction.atomic
 def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
     for work_item in Inquiry.objects.for_distribution_case(
@@ -589,7 +570,7 @@ def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_task("DISTRIBUTION_COMPLETE_TASK")
+@filter_by_task(setting("DISTRIBUTION", "DISTRIBUTION_COMPLETE_TASK"))
 @transaction.atomic
 def post_complete_distribution(sender, work_item, user, context=None, **kwargs):
     has_inquiries = (
@@ -613,7 +594,7 @@ def post_complete_distribution(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_cancel_work_item, raise_exception=True)
-@filter_by_task("INQUIRY_TASK")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def post_cancel_inquiry(sender, work_item, user, context=None, **kwargs):
     if (
@@ -654,7 +635,7 @@ def post_cancel_inquiry(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_task("INQUIRY_CHECK_TASK")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_CHECK_TASK"))
 @transaction.atomic
 def post_complete_inquiry_check(
     sender, work_item, user, context=None, **kwargs
@@ -674,23 +655,21 @@ def post_complete_inquiry_check(
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_by_task("DISTRIBUTION_INIT_TASK")
+@filter_by_canton("kt_uri")
+@filter_by_task(setting("DISTRIBUTION", "DISTRIBUTION_INIT_TASK"))
 @transaction.atomic
 def post_create_distribution_init_task(sender, work_item, user, context=None, **kwargs):
-    if settings.APPLICATION_NAME == "kt_uri":
-        # If the complete-check showed that an additional-demand has to be answered before the distribution can start
-        # we need to suspend the distribution
-        complete_check_answer = (
-            work_item.case.family.work_items.get(
-                task_id=settings.APPLICATION["CALUMA"]["COMPLETE_CHECK_TASK"]
-            )
-            .document.answers.get(
-                question_id="complete-check-vollstaendigkeitspruefung"
-            )
-            .value
+    # If the complete-check showed that an additional-demand has to be answered before the distribution can start
+    # we need to suspend the distribution
+    complete_check_answer = (
+        work_item.case.family.work_items.get(
+            task_id=settings.APPLICATION["CALUMA"]["COMPLETE_CHECK_TASK"]
         )
-        if complete_check_answer in [
-            "complete-check-vollstaendigkeitspruefung-incomplete-wait",
-            "complete-check-vollstaendigkeitspruefung-reject",
-        ]:
-            workflow_api.suspend_work_item(work_item=work_item, user=user)
+        .document.answers.get(question_id="complete-check-vollstaendigkeitspruefung")
+        .value
+    )
+    if complete_check_answer in [
+        "complete-check-vollstaendigkeitspruefung-incomplete-wait",
+        "complete-check-vollstaendigkeitspruefung-reject",
+    ]:
+        workflow_api.suspend_work_item(work_item=work_item, user=user)

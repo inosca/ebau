@@ -1,4 +1,4 @@
-from caluma.caluma_core.events import filter_events, on
+from caluma.caluma_core.events import on
 from caluma.caluma_form.models import Document
 from caluma.caluma_workflow.events import (
     post_complete_work_item,
@@ -10,6 +10,13 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext_noop
 
+from camac.caluma.event_utils import (
+    application_setting,
+    filter_by_canton,
+    filter_by_task,
+    if_module_enabled,
+    setting,
+)
 from camac.caluma.utils import is_addressed_to_service_slug
 from camac.core.utils import create_history_entry
 from camac.notification.utils import send_mail_without_request
@@ -34,13 +41,10 @@ def is_rpg2_relevant_form(work_item):
 
 
 @on(post_resume_work_item, raise_exception=True)
-@filter_events(lambda: settings.RPG2.enabled)
-@filter_events(
-    lambda work_item: work_item.task_id == settings.DISTRIBUTION["INQUIRY_TASK"]
-)
+@if_module_enabled("RPG2")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def post_resume_inquiry_for_rpg2(sender, work_item, user, context=None, **kwargs):
-
     if not is_rpg2_service_addressed(work_item):
         return
 
@@ -75,13 +79,8 @@ def post_resume_inquiry_for_rpg2(sender, work_item, user, context=None, **kwargs
 
 
 @on(post_create_work_item, raise_exception=False)
-@filter_events(lambda: settings.APPLICATION_NAME == "kt_schwyz")
-@filter_events(
-    lambda work_item: (
-        work_item.task_id
-        == settings.APPLICATION["RPG2_DEMOLITION_PREMIUM_PAYMENT_TASK"]
-    )
-)
+@filter_by_canton("kt_schwyz")
+@filter_by_task(application_setting("RPG2_DEMOLITION_PREMIUM_PAYMENT_TASK"))
 def post_create_pay_demolition_premium(sender, work_item, user, **kwargs):
     notification_template_slug = settings.APPLICATION[
         "RPG2_DEMOLITION_PREMIUM_PAYMENT_NOTIFICATION_TEMPLATE"
@@ -96,13 +95,8 @@ def post_create_pay_demolition_premium(sender, work_item, user, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_events(lambda: settings.APPLICATION_NAME == "kt_schwyz")
-@filter_events(
-    lambda work_item: (
-        work_item.task_id
-        == settings.APPLICATION["RPG2_DEMOLITION_PREMIUM_PAYMENT_TASK"]
-    )
-)
+@filter_by_canton("kt_schwyz")
+@filter_by_task(application_setting("RPG2_DEMOLITION_PREMIUM_PAYMENT_TASK"))
 def post_complete_pay_demolition_premium(sender, work_item, user, **kwargs):
     create_history_entry(
         get_instance(work_item),

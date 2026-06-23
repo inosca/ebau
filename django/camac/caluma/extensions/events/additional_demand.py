@@ -15,35 +15,18 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext_noop
 
-from camac.caluma.utils import filter_by_task_base, filter_by_workflow_base
+from camac.caluma.event_utils import (
+    filter_by_canton,
+    filter_by_task,
+    filter_by_workflow,
+    setting,
+)
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import file_subsequently
 from camac.notification.utils import send_mail_without_request
 from camac.user.models import User
 
 from .general import get_instance
-
-
-def get_additional_demand_settings(settings_keys):
-    return filter(
-        None,
-        [
-            settings.ADDITIONAL_DEMAND.get(settings_key)
-            for settings_key in (
-                [settings_keys]
-                if not isinstance(settings_keys, list)
-                else settings_keys
-            )
-        ],
-    )
-
-
-def filter_by_workflow(settings_keys):
-    return filter_by_workflow_base(settings_keys, get_additional_demand_settings)
-
-
-def filter_by_task(settings_keys):
-    return filter_by_task_base(settings_keys, get_additional_demand_settings)
 
 
 def _has_pending_work_items(work_item, task_id):
@@ -55,7 +38,7 @@ def _has_pending_work_items(work_item, task_id):
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_by_task("TASK")
+@filter_by_task(setting("ADDITIONAL_DEMAND", "TASK"))
 @transaction.atomic
 def post_create_additional_demand(sender, work_item, user, context=None, **kwargs):
     # start child case
@@ -85,7 +68,7 @@ def post_create_additional_demand(sender, work_item, user, context=None, **kwarg
 
 
 @on(post_complete_case, raise_exception=True)
-@filter_by_workflow("WORKFLOW")
+@filter_by_workflow(setting("ADDITIONAL_DEMAND", "WORKFLOW"))
 @transaction.atomic
 def post_complete_additional_demand_workflow(
     sender, case, user, context=None, **kwargs
@@ -94,7 +77,7 @@ def post_complete_additional_demand_workflow(
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_task("CHECK_TASK")
+@filter_by_task(setting("ADDITIONAL_DEMAND", "CHECK_TASK"))
 @transaction.atomic
 def post_complete_check_additional_demand(
     sender, work_item, user, context=None, **kwargs
@@ -169,12 +152,10 @@ def post_complete_check_additional_demand(
 
 
 @on(post_cancel_work_item, raise_exception=True)
-@filter_by_task("TASK")
+@filter_by_canton("kt_uri")
+@filter_by_task(setting("ADDITIONAL_DEMAND", "TASK"))
 @transaction.atomic
 def post_cancel_additional_demand(sender, work_item, user, context=None, **kwargs):
-    if settings.APPLICATION_NAME != "kt_uri":  # pragma: no cover
-        return
-
     has_pending_additional_demands = _has_pending_work_items(
         work_item, settings.ADDITIONAL_DEMAND["TASK"]
     )
@@ -189,7 +170,7 @@ def post_cancel_additional_demand(sender, work_item, user, context=None, **kwarg
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_task("FILL_TASK")
+@filter_by_task(setting("ADDITIONAL_DEMAND", "FILL_TASK"))
 @transaction.atomic
 def post_complete_fill_additional_demand_file_subsequently(
     sender, work_item, user, context=None, **kwargs
@@ -207,7 +188,7 @@ def post_complete_fill_additional_demand_file_subsequently(
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_by_task("CHECK_TASK")
+@filter_by_task(setting("ADDITIONAL_DEMAND", "CHECK_TASK"))
 @transaction.atomic
 def post_create_check_additional_demand(
     sender, work_item, user, context=None, **kwargs
@@ -267,7 +248,7 @@ def post_create_check_additional_demand(
 
 
 @on(post_cancel_work_item, raise_exception=True)
-@filter_by_task("TASK")
+@filter_by_task(setting("ADDITIONAL_DEMAND", "TASK"))
 @transaction.atomic
 def post_cancel_additional_demand_notification(
     sender, work_item, user, context=None, **kwargs

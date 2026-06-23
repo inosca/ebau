@@ -1,18 +1,15 @@
-from caluma.caluma_core.events import filter_events, on
+from caluma.caluma_core.events import on
 from caluma.caluma_workflow.api import suspend_work_item
 from caluma.caluma_workflow.events import post_create_work_item
-from django.conf import settings
 from django.db import transaction
+
+from camac.caluma.event_utils import filter_by_canton, filter_by_task
 
 
 @on(post_create_work_item, raise_exception=True)
+@filter_by_canton("kt_uri")
+@filter_by_task("check-gwr-relevancy")
 @transaction.atomic
-@filter_events(
-    lambda work_item: (
-        work_item.task.slug == "check-gwr-relevancy"
-        and settings.APPLICATION_NAME == "kt_uri"
-    )
-)
 def suspend_task_for_additional_demand(sender, work_item, user, context=None, **kwargs):
     complete_check_work_item = work_item.case.family.work_items.get(
         task="complete-check"

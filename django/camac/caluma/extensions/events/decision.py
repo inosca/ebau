@@ -1,4 +1,4 @@
-from caluma.caluma_core.events import filter_events, on
+from caluma.caluma_core.events import on
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import skip_work_item
@@ -8,6 +8,7 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext as _, gettext_noop
 
+from camac.caluma.event_utils import filter_by_canton, filter_by_task, setting
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import ruling
 from camac.instance import domain_logic
@@ -45,8 +46,8 @@ def send_notifications(instance, context, user, work_item):
 
 
 @on(post_create_work_item, raise_exception=True)
+@filter_by_task(setting("DECISION", "TASK"))
 @transaction.atomic
-@filter_events(lambda work_item: work_item.task.slug == settings.DECISION.get("TASK"))
 def set_workflow_answer(sender, work_item, user, context, **kwargs):
     decision_workflow_question = Question.objects.filter(pk="decision-workflow")
 
@@ -60,8 +61,8 @@ def set_workflow_answer(sender, work_item, user, context, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
+@filter_by_task(setting("DECISION", "TASK"))
 @transaction.atomic
-@filter_events(lambda work_item: work_item.task.slug == settings.DECISION.get("TASK"))
 def set_cycle_time_post_decision_complete(sender, work_item, user, context, **kwargs):
     if settings.DECISION.get("ENABLE_STATS"):
         instance = get_instance(work_item)
@@ -70,8 +71,8 @@ def set_cycle_time_post_decision_complete(sender, work_item, user, context, **kw
 
 
 @on(post_complete_work_item, raise_exception=True)
+@filter_by_task(setting("DECISION", "TASK"))
 @transaction.atomic
-@filter_events(lambda work_item: work_item.task.slug == settings.DECISION.get("TASK"))
 def post_complete_decision(sender, work_item, user, context, **kwargs):
     instance = get_instance(work_item)
     camac_user = User.objects.get(username=user.username)
@@ -131,13 +132,9 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
 
 
 @on(post_create_work_item, raise_exception=True)
+@filter_by_canton("kt_so")
+@filter_by_task(setting("DECISION", "TASK"))
 @transaction.atomic
-@filter_events(
-    lambda work_item: (
-        work_item.task.slug == settings.DECISION.get("TASK")
-        and settings.APPLICATION_NAME == "kt_so"
-    )
-)
 def rename_decision_work_item(sender, work_item, user, context, **kwargs):
     if work_item.case.meta.get("is-appeal"):
         work_item.name = _("Confirm decision of appeal authority")

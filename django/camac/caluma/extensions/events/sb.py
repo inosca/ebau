@@ -8,21 +8,25 @@ from django.db import transaction
 from django.utils import timezone
 from django.utils.translation import gettext_noop
 
+from camac.caluma.event_utils import (
+    application_setting,
+    filter_by_canton,
+    filter_by_task,
+)
 from camac.core.translations import get_translations
 
 from .general import get_caluma_setting
 
 
 @on(post_complete_work_item, raise_exception=True)
+@filter_by_canton("kt_bern")
+@filter_by_task(application_setting("CALUMA.FINALIZE_TASK"))
 @transaction.atomic
 def custom_sb2_work_item(sender, work_item, user, context, **kwargs):
-    if (
-        work_item.task_id == get_caluma_setting("FINALIZE_TASK")
-        and Answer.objects.filter(
-            question_id="lagerung-von-stoffen-v2",
-            document__case=work_item.case,
-        ).exists()
-    ):
+    if Answer.objects.filter(
+        question_id="lagerung-von-stoffen-v2",
+        document__case=work_item.case,
+    ).exists():
         construction_control = work_item.case.family.instance.responsible_service(
             filter_type="construction_control"
         ).pk
@@ -48,16 +52,15 @@ def custom_sb2_work_item(sender, work_item, user, context, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
+@filter_by_canton("kt_bern")
+@filter_by_task(application_setting("CALUMA.REPORT_TASK"))
 @transaction.atomic
 def custom_sb1_work_item(sender, work_item, user, context, **kwargs):
-    if (
-        work_item.task_id == get_caluma_setting("REPORT_TASK")
-        and Answer.objects.filter(
-            question_id="legal-submission-type",
-            value__contains="legal-submission-type-load-compensation-request",
-            document__family__work_item__case__family=work_item.case.family,
-        ).exists()
-    ):
+    if Answer.objects.filter(
+        question_id="legal-submission-type",
+        value__contains="legal-submission-type-load-compensation-request",
+        document__family__work_item__case__family=work_item.case.family,
+    ).exists():
         construction_control = work_item.case.instance.responsible_service(
             filter_type="construction_control"
         ).pk

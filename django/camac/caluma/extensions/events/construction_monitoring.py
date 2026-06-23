@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 
-from caluma.caluma_core.events import filter_events, on
+from caluma.caluma_core.events import on
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import skip_work_item, start_case
@@ -15,11 +15,13 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext as _
 
-from camac.caluma.utils import (
-    date_to_deadline,
-    filter_by_task_base,
-    filter_by_workflow_base,
+from camac.caluma.event_utils import (
+    filter_by_canton,
+    filter_by_task,
+    filter_by_workflow,
+    setting,
 )
+from camac.caluma.utils import date_to_deadline
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import construction_monitoring_started
 from camac.notification.utils import send_mail_without_request
@@ -28,28 +30,6 @@ from camac.permissions.events.core import Trigger
 from camac.user.models import User
 
 from .general import get_instance
-
-
-def get_construction_monitoring_settings(settings_keys):
-    return filter(
-        None,
-        [
-            settings.CONSTRUCTION_MONITORING.get(settings_key)
-            for settings_key in (
-                [settings_keys]
-                if not isinstance(settings_keys, list)
-                else settings_keys
-            )
-        ],
-    )
-
-
-def filter_by_workflow(settings_keys):
-    return filter_by_workflow_base(settings_keys, get_construction_monitoring_settings)
-
-
-def filter_by_task(settings_keys):
-    return filter_by_task_base(settings_keys, get_construction_monitoring_settings)
 
 
 def construction_step_can_continue(work_item):
@@ -127,7 +107,7 @@ CONSTRUCTION_STEP_TRANSLATIONS = {
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_task(["INIT_CONSTRUCTION_MONITORING_TASK"])
+@filter_by_task(setting("CONSTRUCTION_MONITORING", "INIT_CONSTRUCTION_MONITORING_TASK"))
 @transaction.atomic
 def post_complete_init_construction_monitoring(
     sender, work_item, user, context, **kwargs
@@ -140,7 +120,7 @@ def post_complete_init_construction_monitoring(
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_by_task("CONSTRUCTION_STAGE_TASK")
+@filter_by_task(setting("CONSTRUCTION_MONITORING", "CONSTRUCTION_STAGE_TASK"))
 @transaction.atomic
 def post_create_construction_stage(sender, work_item, user, context=None, **kwargs):
     # Start construction stage child case
@@ -234,7 +214,9 @@ def post_complete_construction_step_work_item(
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_task(["COMPLETE_CONSTRUCTION_MONITORING_TASK"])
+@filter_by_task(
+    setting("CONSTRUCTION_MONITORING", "COMPLETE_CONSTRUCTION_MONITORING_TASK")
+)
 @transaction.atomic
 def post_complete_construction_monitoring(sender, work_item, user, context, **kwargs):
     for work_item in work_item.case.work_items.filter(
@@ -274,14 +256,14 @@ def set_complete_construction_monitoring_deadline(case):
 
 
 @on(post_cancel_case, raise_exception=True)
-@filter_by_workflow(["CONSTRUCTION_STAGE_WORKFLOW"])
+@filter_by_workflow(setting("CONSTRUCTION_MONITORING", "CONSTRUCTION_STAGE_WORKFLOW"))
 @transaction.atomic
 def post_cancel_construction_stage(sender, case, user, context, **kwargs):
     set_complete_construction_monitoring_deadline(case)
 
 
 @on(post_complete_case, raise_exception=True)
-@filter_by_workflow(["CONSTRUCTION_STAGE_WORKFLOW"])
+@filter_by_workflow(setting("CONSTRUCTION_MONITORING", "CONSTRUCTION_STAGE_WORKFLOW"))
 @transaction.atomic
 def post_complete_construction_stage(sender, case, user, context, **kwargs):
     set_complete_construction_monitoring_deadline(case)
@@ -301,7 +283,7 @@ def post_complete_construction_stage(sender, case, user, context, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_task(["COMPLETE_INSTANCE_TASK"])
+@filter_by_task(setting("CONSTRUCTION_MONITORING", "COMPLETE_INSTANCE_TASK"))
 @transaction.atomic
 def post_complete_instance(
     sender, work_item, user, context, **kwargs
@@ -340,7 +322,7 @@ def post_complete_instance(
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_by_task(["CONSTRUCTION_CONTROL_TASK"])
+@filter_by_task(setting("CONSTRUCTION_MONITORING", "CONSTRUCTION_CONTROL_TASK"))
 @transaction.atomic
 def post_create_construction_control(sender, work_item, user, context, **kwargs):
     instance = get_instance(work_item)
@@ -370,7 +352,7 @@ def post_create_construction_control(sender, work_item, user, context, **kwargs)
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_task(["CONSTRUCTION_CONTROL_TASK"])
+@filter_by_task(setting("CONSTRUCTION_MONITORING", "CONSTRUCTION_CONTROL_TASK"))
 @transaction.atomic
 def post_complete_construction_control(sender, work_item, user, context, **kwargs):
     instance = get_instance(work_item)
@@ -389,33 +371,35 @@ def post_complete_construction_control(sender, work_item, user, context, **kwarg
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_by_task(["CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"])
+@filter_by_canton("kt_uri")
+@filter_by_task(
+    setting("CONSTRUCTION_MONITORING", "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK")
+)
 @transaction.atomic
 def post_create_plan_construction_stage_ur(sender, work_item, user, context, **kwargs):
-    if settings.APPLICATION_NAME == "kt_uri":
-        instance = get_instance(work_item)
-        gwr_relevancy_work_item = instance.case.family.work_items.filter(
-            task_id="check-gwr-relevancy", status="completed"
-        ).first()
+    instance = get_instance(work_item)
+    gwr_relevancy_work_item = instance.case.family.work_items.filter(
+        task_id="check-gwr-relevancy", status="completed"
+    ).first()
 
-        if not gwr_relevancy_work_item:  # pragma: no cover
-            return
+    if not gwr_relevancy_work_item:  # pragma: no cover
+        return
 
-        if gwr_relevancy_answer := gwr_relevancy_work_item.document.answers.filter(
-            question_id="fuer-gwr-relevant"
-        ).first():
-            gwr_relevant = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
+    if gwr_relevancy_answer := gwr_relevancy_work_item.document.answers.filter(
+        question_id="fuer-gwr-relevant"
+    ).first():
+        gwr_relevant = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
 
-        if gwr_relevant:
-            save_answer(
-                document=work_item.document,
-                question=Question.objects.filter(pk="construction-steps").first(),
-                user=user,
-                value=[
-                    "construction-step-baubeginn",
-                    "construction-step-schlussabnahme-gebaeude",
-                ],
-            )
+    if gwr_relevant:
+        save_answer(
+            document=work_item.document,
+            question=Question.objects.filter(pk="construction-steps").first(),
+            user=user,
+            value=[
+                "construction-step-baubeginn",
+                "construction-step-schlussabnahme-gebaeude",
+            ],
+        )
 
 
 @on(post_create_work_item, raise_exception=True)
@@ -436,12 +420,8 @@ def post_create_gvg_work_item(sender, work_item, user, context, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_events(
-    lambda work_item: (
-        work_item.task.slug == settings.DECISION.get("TASK")
-        and settings.APPLICATION_NAME == "kt_gr"
-    )
-)
+@filter_by_canton("kt_gr")
+@filter_by_task(setting("DECISION", "TASK"))
 @transaction.atomic
 def post_complete_decision_start_init_monitoring_gr(
     sender, work_item, user, context, **kwargs

@@ -1,9 +1,9 @@
-from caluma.caluma_core.events import filter_events, on
+from caluma.caluma_core.events import on
 from caluma.caluma_workflow.events import post_complete_work_item
-from django.conf import settings
 from django.db import transaction
 from django.utils.module_loading import import_string
 
+from camac.caluma.event_utils import filter_by_canton, filter_by_task
 from camac.core.utils import create_history_entry
 from camac.notification.utils import send_mail_without_request
 from camac.permissions.events import core as permissions_events
@@ -70,12 +70,8 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_events(
-    lambda work_item: (
-        work_item.task.slug == "construction-acceptance"
-        and settings.APPLICATION_NAME == "kt_gr"
-    )
-)
+@filter_by_canton("kt_gr")
+@filter_by_task("construction-acceptance")
 def post_complete_construction_acceptance_gr(
     sender, work_item, user, context, **kwargs
 ):
