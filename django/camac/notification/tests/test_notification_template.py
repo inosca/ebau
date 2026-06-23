@@ -538,16 +538,38 @@ def test_recipient_abwasser_uri(db, service_factory):
     assert serializer._get_recipients_abwasser_uri(None) == [{"to": awu_service.email}]
 
 
+@pytest.mark.parametrize(
+    ("has_end", "method", "prefix"),
+    [
+        (True, "get_read_permission_end_date_de", " bis am "),
+        (False, "get_read_permission_end_date_de", " "),
+        (True, "get_read_permission_end_date_it", " fino al "),
+        (False, "get_read_permission_end_date_it", " "),
+    ],
+)
 def test_read_permission_end_date_placeholder(
-    db, instance_acl_factory, instance, settings
+    db,
+    instance_acl_factory,
+    instance,
+    has_end,
+    method,
+    prefix,
+    settings,
 ):
     now = timezone.now()
-    context = {"acl": instance_acl_factory(instance=instance, end_time=now)}
+    context = {
+        "acl": instance_acl_factory(
+            instance=instance, end_time=now if has_end else None
+        )
+    }
     serializer = serializers.InstanceMergeSerializer(context=context)
-    assert (
-        serializer.get_read_permission_end_date(instance)
-        == f" bis am {now.strftime('%d.%m.%Y')} "
-    )
+    if has_end:
+        assert (
+            getattr(serializer, method)(instance)
+            == f"{prefix}{now.strftime('%d.%m.%Y')} "
+        )
+    else:
+        assert getattr(serializer, method)(instance) == prefix
 
 
 @pytest.mark.parametrize("check_by_geometer", [True, False])
