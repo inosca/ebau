@@ -327,6 +327,12 @@ class Instance(models.Model):
         )
 
     def set_instance_state(self, instance_state_name: str, user: User) -> None:
+        assert isinstance(user, User), (
+            "The user passed to `set_instance_state` has to be a camac user "
+            "from `camac.user.models`. If you have a caluma user, you can query"
+            "the `User` via the username: "
+            "`camac_user = User.objects.get(username=caluma_user.username)`."
+        )
         with reversion.create_revision():
             reversion.set_user(user)
 
