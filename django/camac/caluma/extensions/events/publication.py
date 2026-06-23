@@ -23,7 +23,12 @@ from camac.notification.tasks import send_notification_for_publication
 )
 @transaction.atomic
 def post_complete_publication(sender, work_item, user, context=None, **kwargs):
-    send_notification_for_publication.delay(str(work_item.pk))
+    # must wait for the transaction to complete, otherwise celery will start the task
+    # before the db update is actually complete (meta changes for `is-published`) and
+    # then loses the changes after modifying the meta.
+    transaction.on_commit(
+        lambda: send_notification_for_publication.delay(str(work_item.pk))
+    )
 
 
 def _is_not_so_and_publication(work_item: WorkItem) -> bool:
