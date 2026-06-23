@@ -68,6 +68,11 @@ MODULE_CONSTRUCTION_ACCEPTANCE = RequireWorkItem("construction-acceptance")
 MODULE_CONSTRUCTION_MONITORING = (
     RequireWorkItem("init-construction-monitoring") | ROLES_GEOMETER
 )
+MODULE_CONSTRUCTION_MONITORING_COMPLETE = (
+    MODULE_CONSTRUCTION_MONITORING
+    & RequireInstanceState(["decided", "construction-acceptance"])
+)
+MODULE_CONSTRUCTION_MONITORING_SKIP = MODULE_CONSTRUCTION_MONITORING_COMPLETE
 MODULE_COMMUNICATIONS = STATES_ALL
 MODULE_CORRECTIONS = (
     STATES_ALL | RequireInstanceState(["correction"])
@@ -292,7 +297,13 @@ GR_PERMISSIONS_SETTINGS = {
             ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("construction-acceptance-read", MODULE_CONSTRUCTION_ACCEPTANCE),
             ("construction-acceptance-write", MODULE_CONSTRUCTION_ACCEPTANCE),
+            (
+                "construction-monitoring-complete",
+                MODULE_CONSTRUCTION_MONITORING_COMPLETE,
+            ),
+            ("construction-monitoring-init", MODULE_CONSTRUCTION_MONITORING),
             ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
+            ("construction-monitoring-skip", MODULE_CONSTRUCTION_MONITORING_SKIP),
             ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING),
             ("corrections-read", MODULE_CORRECTIONS),
             ("decision-read", MODULE_DECISION),
