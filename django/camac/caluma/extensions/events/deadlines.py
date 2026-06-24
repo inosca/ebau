@@ -1,4 +1,4 @@
-from caluma.caluma_core.events import filter_events, on
+from caluma.caluma_core.events import on
 from caluma.caluma_workflow.events import (
     post_cancel_work_item,
     post_complete_work_item,
@@ -10,38 +10,16 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.timezone import now
 
+from camac.caluma.event_utils import (
+    filter_by_canton,
+    filter_by_task,
+    if_module_enabled,
+    setting,
+)
 from camac.caluma.extensions.events.general import get_instance
 from camac.caluma.models import Inquiry
 from camac.deadlines import models as deadlines_models
 from camac.user.models import Service
-
-
-def filter_by_tasks(task_ids):
-    """Filter events by a list of task slug constants."""
-    return filter_events(lambda work_item: work_item.task.slug in task_ids)
-
-
-def filter_by_additional_demand_task(settings_key):
-    """Filter events by the additional demand task slug defined in settings."""
-    return filter_events(
-        lambda work_item: (
-            work_item.task.slug == settings.ADDITIONAL_DEMAND.get(settings_key)
-        )
-    )
-
-
-def filter_by_distribution_task(settings_key):
-    """Filter events by the distribution task slug defined in settings."""
-    return filter_events(
-        lambda work_item: work_item.task.slug == settings.DISTRIBUTION.get(settings_key)
-    )
-
-
-def filter_by_decision_task(settings_key):
-    """Filter events by the decision task slug defined in settings."""
-    return filter_events(
-        lambda work_item: work_item.task.slug == settings.DECISION.get(settings_key)
-    )
 
 
 def _get_inquiry_decision_answer(work_item):
@@ -68,8 +46,8 @@ def _get_inquiry_decision_answer(work_item):
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
-@filter_by_tasks(["withdrawal-check"])
+@if_module_enabled("DEADLINES")
+@filter_by_task("withdrawal-check")
 @transaction.atomic
 def post_create_withdrawal_check_closes_suspensions(
     sender, work_item, user, context=None, **kwargs
@@ -84,8 +62,8 @@ def post_create_withdrawal_check_closes_suspensions(
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_by_additional_demand_task("FILL_TASK")
-@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
+@if_module_enabled("DEADLINES")
+@filter_by_task(setting("ADDITIONAL_DEMAND", "FILL_TASK"))
 @transaction.atomic
 def post_create_fill_additional_demand(sender, work_item, user, context=None, **kwargs):
     """Create a deadline suspension when an additional demand is created.
@@ -117,8 +95,8 @@ def post_create_fill_additional_demand(sender, work_item, user, context=None, **
 
 
 @on(post_cancel_work_item, raise_exception=True)
-@filter_by_additional_demand_task("TASK")
-@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
+@if_module_enabled("DEADLINES")
+@filter_by_task(setting("ADDITIONAL_DEMAND", "TASK"))
 @transaction.atomic
 def post_cancel_additional_demand(sender, work_item, user, context=None, **kwargs):
     """Update the deadline when an additional demand is canceled.
@@ -140,8 +118,8 @@ def post_cancel_additional_demand(sender, work_item, user, context=None, **kwarg
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_additional_demand_task("FILL_TASK")
-@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
+@if_module_enabled("DEADLINES")
+@filter_by_task(setting("ADDITIONAL_DEMAND", "FILL_TASK"))
 @transaction.atomic
 def post_complete_fill_additional_demand(
     sender, work_item, user, context=None, **kwargs
@@ -170,14 +148,9 @@ def post_complete_fill_additional_demand(
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_by_tasks(["fill-publication"])
-@filter_events(
-    lambda: (
-        settings.DEADLINES
-        and settings.DEADLINES.enabled
-        and settings.APPLICATION_NAME == "kt_gr"
-    )
-)
+@filter_by_canton("kt_gr")
+@if_module_enabled("DEADLINES")
+@filter_by_task(setting("PUBLICATION", "FILL_TASKS.PUBLIC"))
 @transaction.atomic
 def post_create_publication(sender, work_item, user, context=None, **kwargs):
     """Reset the responsible service start-date when a publication workitem is created."""
@@ -192,14 +165,9 @@ def post_create_publication(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_tasks(["fill-publication", "formal-exam"])
-@filter_events(
-    lambda: (
-        settings.DEADLINES
-        and settings.DEADLINES.enabled
-        and settings.APPLICATION_NAME == "kt_gr"
-    )
-)
+@filter_by_canton("kt_gr")
+@if_module_enabled("DEADLINES")
+@filter_by_task(setting("PUBLICATION", "FILL_TASKS.PUBLIC"), "formal-exam")
 @transaction.atomic
 def post_complete_publication_or_formal_exam(
     sender, work_item, user, context=None, **kwargs
@@ -217,14 +185,9 @@ def post_complete_publication_or_formal_exam(
 
 
 @on(post_redo_work_item, raise_exception=True)
-@filter_by_distribution_task("INQUIRY_TASK")
-@filter_events(
-    lambda: (
-        settings.DEADLINES
-        and settings.DEADLINES.enabled
-        and settings.APPLICATION_NAME == "kt_ag"
-    )
-)
+@filter_by_canton("kt_ag")
+@if_module_enabled("DEADLINES")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def post_redo_inquiry_ag(sender, work_item, user, context=None, **kwargs):
     """Create a suspension for the time between redoing the inquiry in AG."""
@@ -267,8 +230,8 @@ def post_redo_inquiry_ag(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_by_distribution_task("INQUIRY_ANSWER_FILL_TASK")
-@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
+@if_module_enabled("DEADLINES")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_ANSWER_FILL_TASK"))
 @transaction.atomic
 def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
     """Create a deadline when an inquiry is sent.
@@ -329,14 +292,9 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_distribution_task("INQUIRY_ANSWER_FILL_TASK")
-@filter_events(
-    lambda: (
-        settings.DEADLINES
-        and settings.DEADLINES.enabled
-        and settings.APPLICATION_NAME == "kt_ag"
-    )
-)
+@filter_by_canton("kt_ag")
+@if_module_enabled("DEADLINES")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_ANSWER_FILL_TASK"))
 @transaction.atomic
 def post_complete_inquiry_fill_ag(sender, work_item, user, context=None, **kwargs):
     """Create a suspension for inquired service based on the decision."""
@@ -372,8 +330,8 @@ def post_complete_inquiry_fill_ag(sender, work_item, user, context=None, **kwarg
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_distribution_task("INQUIRY_TASK")
-@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
+@if_module_enabled("DEADLINES")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
     """Update the deadline when an inquiry is completed."""
@@ -384,8 +342,8 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_decision_task("TASK")
-@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
+@if_module_enabled("DEADLINES")
+@filter_by_task(setting("DECISION", "TASK"))
 @transaction.atomic
 def post_complete_decision(sender, work_item, user, context=None, **kwargs):
     """Update the process deadline date when a decision is completed."""

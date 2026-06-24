@@ -1,23 +1,20 @@
-from caluma.caluma_core.events import filter_events, on
+from caluma.caluma_core.events import on
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import complete_work_item
 from caluma.caluma_workflow.events import post_complete_work_item, post_create_work_item
-from django.conf import settings
 from django.db import transaction
 
+from camac.caluma.event_utils import filter_by_canton, filter_by_task
 from camac.caluma.extensions.events.simple_workflow import send_notification
 from camac.constants import kt_uri as uri_constants
 from camac.instance.models import InstanceState
 
 
 @on(post_create_work_item, raise_exception=True)
+@filter_by_canton("kt_uri")
+@filter_by_task("reject")
 @transaction.atomic
-@filter_events(
-    lambda work_item: (
-        work_item.task.slug == "reject" and settings.APPLICATION_NAME == "kt_uri"
-    )
-)
 def complete_rejection_work_item(sender, work_item, user, context=None, **kwargs):
     complete_check_work_item = work_item.case.work_items.filter(
         task_id="complete-check"
@@ -46,13 +43,9 @@ def complete_rejection_work_item(sender, work_item, user, context=None, **kwargs
 
 
 @on(post_complete_work_item, raise_exception=True)
+@filter_by_canton("kt_uri")
+@filter_by_task("complete-check")
 @transaction.atomic
-@filter_events(
-    lambda work_item: (
-        work_item.task.slug == "complete-check"
-        and settings.APPLICATION_NAME == "kt_uri"
-    )
-)
 def convert_instance_ur(sender, work_item, user, context=None, **kwargs):
     requires_building_permit = False
 
@@ -88,13 +81,9 @@ def convert_instance_ur(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
+@filter_by_canton("kt_uri")
+@filter_by_task("complete-check")
 @transaction.atomic
-@filter_events(
-    lambda work_item: (
-        work_item.task.slug == "complete-check"
-        and settings.APPLICATION_NAME == "kt_uri"
-    )
-)
 def send_notification_after_complete_check(
     sender, work_item, user, context=None, **kwargs
 ):

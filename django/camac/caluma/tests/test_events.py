@@ -860,7 +860,10 @@ def test_audit_history(
     process_type,
     expected_text,
     application_settings,
+    settings,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
+
     work_item = caluma_work_item_factory()
 
     application_settings["CALUMA"]["AUDIT_TASK"] = work_item.task_id

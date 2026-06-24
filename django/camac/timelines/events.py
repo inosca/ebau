@@ -6,31 +6,15 @@ from caluma.caluma_workflow.events import (
     post_complete_work_item,
     post_create_work_item,
 )
-from django.conf import settings
 from django.db import transaction
 
-from camac.caluma.extensions.events.additional_demand import (
-    get_additional_demand_settings,
-)
-from camac.caluma.utils import filter_events
+from camac.caluma.event_utils import filter_by_task, if_module_enabled, setting
 from camac.timelines.models import FormTimeline
 
 
-def filter_additional_demand_event(settings_keys):
-    """Check for additional demand settings key.
-
-    If the timelines module is not enabled, ignore all these events.
-    """
-    return filter_events(
-        lambda work_item: (
-            settings.TIMELINES.enabled
-            and work_item.task_id in get_additional_demand_settings(settings_keys)
-        )
-    )
-
-
 @on(post_complete_work_item, raise_exception=True)
-@filter_additional_demand_event("FILL_TASK")
+@if_module_enabled("TIMELINES")
+@filter_by_task(setting("ADDITIONAL_DEMAND", "FILL_TASK"))
 @transaction.atomic
 def post_complete_fill_additional_demand_form_timelines(
     sender, work_item, user, context=None, **kwargs
@@ -42,7 +26,8 @@ def post_complete_fill_additional_demand_form_timelines(
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_additional_demand_event(["SEND_TASK", "CHECK_TASK"])
+@if_module_enabled("TIMELINES")
+@filter_by_task(setting("ADDITIONAL_DEMAND", ["SEND_TASK", "CHECK_TASK"]))
 @transaction.atomic
 def post_complete_send_check_additional_demand_allow_changes(
     sender, work_item, user, context=None, **kwargs
@@ -68,7 +53,8 @@ def post_complete_send_check_additional_demand_allow_changes(
 
 
 @on(post_cancel_work_item, raise_exception=True)
-@filter_additional_demand_event("TASK")
+@if_module_enabled("TIMELINES")
+@filter_by_task(setting("ADDITIONAL_DEMAND", "TASK"))
 @transaction.atomic
 def post_cancel_additional_demand_allow_changes(
     sender, work_item, user, context=None, **kwargs
@@ -78,7 +64,8 @@ def post_cancel_additional_demand_allow_changes(
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_additional_demand_event("FILL_TASK")
+@if_module_enabled("TIMELINES")
+@filter_by_task(setting("ADDITIONAL_DEMAND", "FILL_TASK"))
 @transaction.atomic
 def post_create_fill_additional_demand_formtimeline(
     sender, work_item, user, context=None, **kwargs

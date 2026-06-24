@@ -1,6 +1,6 @@
 from logging import getLogger
 
-from caluma.caluma_core.events import filter_events, on
+from caluma.caluma_core.events import on
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.validators import DocumentValidator
 from caluma.caluma_workflow import api as workflow_api
@@ -17,6 +17,7 @@ from django.conf import settings
 from django.db import transaction
 
 from camac.caluma.api import CalumaApi
+from camac.caluma.event_utils import filter_by_canton, filter_by_task, setting
 from camac.instance.models import Instance
 from camac.notification.utils import send_mail_without_request
 from camac.permissions.events import core as permissions_events
@@ -224,13 +225,11 @@ def set_work_items_unread_on_reopen(
 
 
 @on(post_create_work_item, raise_exception=True)
+@filter_by_canton("kt_uri")
+@filter_by_task("review-building-commission")
 @transaction.atomic
-@filter_events(lambda work_item: work_item.task.slug == "review-building-commission")
 def post_create_review_building_commission(sender, work_item, user, context, **kwargs):
     """Set name of the created work item to include the meeting date."""
-    if settings.APPLICATION_NAME != "kt_uri":  # pragma: no cover
-        return
-
     release_document = work_item.case.family.work_items.get(
         task_id="release-for-bk"
     ).document
@@ -247,13 +246,11 @@ def post_create_review_building_commission(sender, work_item, user, context, **k
 
 
 @on(post_complete_work_item, raise_exception=True)
+@filter_by_canton("kt_uri")
+@filter_by_task(setting("DECISION", "TASK"))
 @transaction.atomic
-@filter_events(lambda work_item: work_item.task.slug == "decision")
 def post_decision_ur(sender, work_item, user, context, **kwargs):
     """Skip the building comission work items if they exist."""
-    if settings.APPLICATION_NAME != "kt_uri":  # pragma: no cover
-        return
-
     # If we haven't release this dossier for the BK we don't need this work item anymore
     release_for_bk_work_items = work_item.case.family.work_items.filter(
         task_id="release-for-bk", status=WorkItem.STATUS_READY
@@ -269,9 +266,9 @@ def post_decision_ur(sender, work_item, user, context, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
+@filter_by_canton("kt_schwyz")
+@filter_by_task("make-decision")
 @transaction.atomic
-@filter_events(lambda work_item: work_item.task.slug == "make-decision")
 def post_decision_sz(sender, work_item, user, context, **kwargs):
     """Trigger permission updates after decision has been made."""
-    if settings.APPLICATION_NAME == "kt_schwyz":
-        permissions_events.Trigger.decision_decreed(None, work_item.case.instance)
+    permissions_events.Trigger.decision_decreed(None, work_item.case.instance)

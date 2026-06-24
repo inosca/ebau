@@ -6,13 +6,12 @@ from caluma.caluma_workflow.events import post_complete_work_item, post_resume_w
 from django.conf import settings
 from django.db import transaction
 
+from camac.caluma.event_utils import filter_by_task, setting
 from camac.caluma.models import Inquiry
-
-from .distribution import filter_by_task
 
 
 @on(post_resume_work_item, raise_exception=True)
-@filter_by_task("INQUIRY_TASK")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def send_direct_inquiry(sender, work_item, user, context=None, **kwargs):
     if not (direct_question := settings.DISTRIBUTION["QUESTIONS"].get("DIRECT")):
@@ -27,7 +26,7 @@ def send_direct_inquiry(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_by_task("INQUIRY_TASK")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def complete_direct_inquiry(sender, work_item, user, context=None, **kwargs):
     if not work_item.meta.get("is-direct"):

@@ -1,31 +1,21 @@
-from caluma.caluma_core.events import filter_events, on
+from caluma.caluma_core.events import on
 from caluma.caluma_workflow.events import post_complete_work_item, post_create_work_item
-from django.conf import settings
 from django.db import transaction
 
+from camac.caluma.event_utils import filter_by_task, setting
 from camac.instance import domain_logic
 
 
 @on(post_create_work_item, raise_exception=True)
+@filter_by_task(setting("ADDRESS_ASSIGNMENT", "SUGGESTION_TASK"))
 @transaction.atomic
-@filter_events(
-    lambda work_item: (
-        settings.ADDRESS_ASSIGNMENT.get("ENABLED", False)
-        and work_item.task.slug == settings.ADDRESS_ASSIGNMENT.get("SUGGESTION_TASK")
-    )
-)
 def prefill_street_answer(sender, work_item, user, context=None, **kwargs):
     domain_logic.AddressAssignmentLogic.prefill_street_answer(work_item, user)
 
 
 @on(post_complete_work_item, raise_exception=True)
+@filter_by_task(setting("ADDRESS_ASSIGNMENT", "CONFIRM_TASK"))
 @transaction.atomic
-@filter_events(
-    lambda work_item: (
-        settings.ADDRESS_ASSIGNMENT.get("ENABLED", False)
-        and work_item.task.slug == settings.ADDRESS_ASSIGNMENT.get("CONFIRM_TASK")
-    )
-)
 def address_assignment_write_street_to_main_form(
     sender, work_item, user, context=None, **kwargs
 ):

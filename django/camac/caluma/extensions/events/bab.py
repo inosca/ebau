@@ -1,25 +1,21 @@
 from datetime import timedelta
 
-from caluma.caluma_core.events import filter_events, on
+from caluma.caluma_core.events import on
 from caluma.caluma_workflow.api import resume_work_item, suspend_work_item
 from caluma.caluma_workflow.events import post_create_work_item, post_resume_work_item
 from caluma.caluma_workflow.models import WorkItem
-from django.conf import settings
 from django.db import transaction
 from django.utils.timezone import now
 
+from camac.caluma.event_utils import filter_by_canton, filter_by_task, setting
 from camac.caluma.utils import date_to_deadline
-
-from .distribution import filter_by_task
 
 
 @on(post_resume_work_item, raise_exception=True)
-@filter_by_task("INQUIRY_TASK")
+@filter_by_canton("kt_uri")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def set_bab_deadline(sender, work_item, user, context=None, **kwargs):
-    if settings.APPLICATION_NAME != "kt_uri":  # pragma: no cover
-        return
-
     bab_work_item = WorkItem.objects.filter(
         task_id="bab",
         status=WorkItem.STATUS_READY,
@@ -36,22 +32,16 @@ def set_bab_deadline(sender, work_item, user, context=None, **kwargs):
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_events(
-    lambda work_item: (
-        work_item.task.slug == "rpg" and settings.APPLICATION_NAME == "kt_uri"
-    )
-)
+@filter_by_canton("kt_uri")
+@filter_by_task("rpg")
 @transaction.atomic
 def suspend_rpg_work_item(sender, work_item, user, context=None, **kwargs):
     suspend_work_item(work_item, user)
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_events(
-    lambda work_item: (
-        work_item.task.slug == "inquiry" and settings.APPLICATION_NAME == "kt_uri"
-    )
-)
+@filter_by_canton("kt_uri")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
 @transaction.atomic
 def resume_rpg_work_item(sender, work_item, user, context=None, **kwargs):
     rpg_work_item = WorkItem.objects.filter(
