@@ -27,7 +27,7 @@
     "fields": {
       "name": "{\"de\": \"Abbruchprämie\", \"fr\": \"\", \"it\": \"\"}",
       "icon": "hand-holding-dollar",
-      "background_color": "#FFFF00",
+      "background_color": "#FFD700",
       "text_color": "#000000",
       "sort": 3
     }
