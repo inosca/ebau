@@ -770,6 +770,16 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 80,
+    "fields": {
+      "form_state": 1,
+      "name": "abbruchpraemie",
+      "description": "Abbruchprämie (ausserhalb Bauzone)",
+      "family": 80
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {

@@ -406,5 +406,17 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 55,
+    "fields": {
+      "slug": "pay-demolition-premium",
+      "purpose": "Auszahlung der Abbruchprämie",
+      "subject": "Gesuch {{identifier}}: Auszahlung der Abbruchprämie",
+      "body": "Das Gesuch {{identifier}}, {{field_bezeichnung}} (Abbruchprämie RPG2) wurde genehmigt. Die Auszahlung der Abbruchprämie kann jetzt durchgeführt werden.",
+      "service": null,
+      "type": "email"
+    }
   }
 ]

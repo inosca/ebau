@@ -451,6 +451,10 @@ msgstr "Amtsblatt: %(gazette_date)s."
 msgid "Newspaper: %(newspaper_date)s."
 msgstr "Anzeiger: %(newspaper_date)s."
 
+#: camac/caluma/extensions/events/rpg2.py
+msgid "RPG2 demolition premium paid"
+msgstr "RPG2-Abbruchprämie ausgezahlt"
+
 #: camac/caluma/extensions/events/sb.py
 msgid "Send registration form to AWA"
 msgstr "Meldeformular an AWA weiterleiten"

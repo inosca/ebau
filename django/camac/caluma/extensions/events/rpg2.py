@@ -1,13 +1,22 @@
 from caluma.caluma_core.events import filter_events, on
 from caluma.caluma_form.models import Document
-from caluma.caluma_workflow.events import post_resume_work_item
+from caluma.caluma_workflow.events import (
+    post_complete_work_item,
+    post_create_work_item,
+    post_resume_work_item,
+)
 from caluma.caluma_workflow.models import Task, WorkItem
 from django.conf import settings
 from django.db import transaction
+from django.utils.translation import gettext_noop
 
 from camac.caluma.utils import is_addressed_to_service_slug
-from camac.user.models import Service
+from camac.core.utils import create_history_entry
+from camac.notification.utils import send_mail_without_request
+from camac.user.models import Service, User
 from camac.utils import get_unversioned_slug
+
+from .general import get_instance
 
 
 def is_rpg2_service_addressed(work_item):
@@ -62,4 +71,41 @@ def post_resume_inquiry_for_rpg2(sender, work_item, user, context=None, **kwargs
         case=case,
         status=WorkItem.STATUS_READY,
         document=Document.objects.create_document_for_task(task, None),
+    )
+
+
+@on(post_create_work_item, raise_exception=False)
+@filter_events(lambda: settings.APPLICATION_NAME == "kt_schwyz")
+@filter_events(
+    lambda work_item: (
+        work_item.task_id
+        == settings.APPLICATION["RPG2_DEMOLITION_PREMIUM_PAYMENT_TASK"]
+    )
+)
+def post_create_pay_demolition_premium(sender, work_item, user, **kwargs):
+    notification_template_slug = settings.APPLICATION[
+        "RPG2_DEMOLITION_PREMIUM_PAYMENT_NOTIFICATION_TEMPLATE"
+    ]
+    send_mail_without_request(
+        notification_template_slug,
+        user.username,
+        user.camac_group,
+        instance={"id": get_instance(work_item).pk, "type": "instances"},
+        recipient_types=["rpg2_demolition_premium_payment_service"],
+    )
+
+
+@on(post_complete_work_item, raise_exception=True)
+@filter_events(lambda: settings.APPLICATION_NAME == "kt_schwyz")
+@filter_events(
+    lambda work_item: (
+        work_item.task_id
+        == settings.APPLICATION["RPG2_DEMOLITION_PREMIUM_PAYMENT_TASK"]
+    )
+)
+def post_complete_pay_demolition_premium(sender, work_item, user, **kwargs):
+    create_history_entry(
+        get_instance(work_item),
+        User.objects.get(username=user.username),
+        gettext_noop("RPG2 demolition premium paid"),
     )

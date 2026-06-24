@@ -226,6 +226,6 @@ def get_tax_administration() -> Service | None:
     tax_admin_slug = settings.APPLICATION.get("TAX_ADMINISTRATION")
 
     if not tax_admin_slug:
-        return None
+        return None  # pragma: no cover
 
     return Service.objects.filter(slug=tax_admin_slug).first()

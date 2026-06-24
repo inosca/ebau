@@ -1784,6 +1784,16 @@
       "grundinformationen",
       "grundinformationen.migriertes-dossier",
       "migriertes-dossier"
+    ],
+    "abbruchpraemie": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung-abbruch",
+      "grundinformationen.kategorisierung-abbruch",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.vertreter-mit-vollmacht-v2",
+      "zwischenbericht-abbruchpraemie",
+      "gesuchsunterlagen"
     ]
   },
   "modules": {
@@ -1801,6 +1811,18 @@
         "parzellen",
         "punkte",
         "layer",
+        "dokument-grundstucksangaben"
+      ]
+    },
+    "grundinformationen.lokalisierung-abbruch": {
+      "title": "Lokalisierung",
+      "parent": "grundinformationen",
+      "questions": [
+        "bezeichnung",
+        "parzellen",
+        "punkte",
+        "layer",
+        "gebaeudenummer",
         "dokument-grundstucksangaben"
       ]
     },
@@ -2111,6 +2133,20 @@
         "vorabklaerung-hinweis-4"
       ]
     },
+    "grundinformationen.kategorisierung-abbruch": {
+      "title": "Kategorisierung des Abbruchs",
+      "parent": "grundinformationen",
+      "questions": [
+        "abbruch-innerhalb-oder-ausserhalb-bauzone",
+        "abbruch-in-moorlandschaft",
+        "abbruch-art-gebaeude-anlage",
+        "abbruch-art-gebaeude-anlage-bemerkung",
+        "abbruch-ersatzbau-geplant",
+        "abbruch-ersatzbau-landwirtschaftlich-oder-touristisch",
+        "abbruch-finanzielle-mittel",
+        "abbruch-nach-1-juli-2026"
+      ]
+    },
     "grundinformationen.gwr": {
       "title": "Gebäude- und Wohnungsregister",
       "parent": "grundinformationen",
@@ -2323,6 +2359,20 @@
       "title": "Vertreter/in mit Vollmacht",
       "parent": "personalien",
       "questions": ["vertreter-mit-vollmacht-v2"]
+    },
+    "zwischenbericht-abbruchpraemie": {
+      "title": "Zwischenbericht",
+      "parent": null,
+      "questions": [
+        "zwischenbericht-abbruchpraemie-negativ",
+        "zwischenbericht-abbruchpraemie-negativ-bauzone",
+        "zwischenbericht-abbruchpraemie-negativ-ersatzbau",
+        "zwischenbericht-abbruchpraemie-negativ-abbruchdatum",
+        "zwischenbericht-abbruchpraemie-abklaerungen-noetig",
+        "zwischenbericht-abbruchpraemie-abklaerungen-noetig-schutzinventar",
+        "zwischenbericht-abbruchpraemie-abklaerungen-noetig-moorlandschaft",
+        "zwischenbericht-abbruchpraemie-positiv"
+      ]
     },
     "fachthemen": {
       "title": "Fachthemen",
@@ -2706,7 +2756,8 @@
         "info-kw-1-1-grundwasser",
         "info-kw-1-2-bach-fluss",
         "info-kw-1-3-see",
-        "info-kw-1-4-quelle"
+        "info-kw-1-4-quelle",
+        "info-abbruchpraemie-dokumente"
       ]
     },
     "gesuchsunterlagen-technische-bewilligung": {
@@ -3356,6 +3407,13 @@
           }
         ]
       }
+    },
+    "gebaeudenummer": {
+      "label": "Gebäudenummer",
+      "hint": "",
+      "type": "number",
+      "required": true,
+      "config": {}
     },
     "gwr": {
       "label": "Gebäude- und Wohnungsregister",
@@ -7988,6 +8046,7 @@
       "hint": "Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein. Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\n\nUnter den Begriff *Grundstücksangaben* fallen Gesuchsunterlagen wie z. B. Katasterplan, Grundbuchauszug, Dienstbarkeiten.",
       "type": "document",
       "required": true,
+      "active-expression": "form != 'abbruchpraemie' || 'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
       "config": {}
     },
     "dokument-gutachten-nachweise-begrundungen": {
@@ -7995,6 +8054,7 @@
       "hint": "Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\n\nUnter die Begriffe *Gutachten, Nachweise, Begründungen* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverständnis Nachbarn, Nutzungsberechnungen, energetische Nachweise, Lärmschutznachweise, Brandschutznachweise, Durchflussnachweise.",
       "type": "document",
       "required": false,
+      "active-expression": "form != 'abbruchpraemie' || 'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
       "config": {}
     },
     "dokument-projektplane-projektbeschrieb": {
@@ -8002,6 +8062,7 @@
       "hint": "Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\n\nUnter die Begriffe *Projektpläne und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Situationspläne, Grundrisse, Schnitt- und Fassadenpläne, Kanalisationspläne, Siedlungsentwässerungspläne, Umgebungspläne, Projektbeschrieb, Planverzeichnis.",
       "type": "document",
       "required": true,
+      "active-expression": "form != 'abbruchpraemie' || 'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
       "config": {}
     },
     "dokument-weitere-gesuchsunterlagen": {
@@ -8009,6 +8070,7 @@
       "hint": "Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\n\nUnter den Begriff *Weitere Gesuchsunterlagen* fallen Gesuchsunterlagen wie z. B. Anschlussgesuch Elektrizitätswerk, Anschlussgesuch Gas, Anschlussgesuch Wasser, andere Gesuchsunterlagen.",
       "type": "document",
       "required": false,
+      "active-expression": "form != 'abbruchpraemie' || 'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
       "config": {}
     },
     "dokument-freigegeben": {
@@ -10599,7 +10661,7 @@
       "label": "Ihr Bauvorhaben betrifft einen belasteten Standort. Die zuständige kantonale Fachstelle benötigt für die Beurteilung zusätzliche Unterlagen (Altlastenuntersuchungen, eine baubedingte Gefährdungsabschätzung und/oder ein Aushub- und Entsorgungskonzept nach Art. 16 VVEA). Weitere Informationen zu den benötigten Unterlagen entnehmen Sie dem Ablaufschema &laquo;<a href=\"/assets/documents/20201029_Ablaufschema_Bauen_auf_belasteten_Standorten.pdf\" title=\"Herunterladen\" target=\"_blank\">Bauen auf belasteten Standorten</a>&raquo;.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.a020a.kataster_belasteter_standorte' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.polygon' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.punkt' in 'layer'|value|mapby('name')",
+      "active-expression": "(form != 'abbruchpraemie' || 'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value) && ('ms:ch.sz.a020a.kataster_belasteter_standorte' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.polygon' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.punkt' in 'layer'|value|mapby('name'))",
       "config": {
         "options": ["Vorhanden"]
       }
@@ -11937,6 +11999,162 @@
       "required": false,
       "active-expression": "'fruchtfolgeflache-kompensationsflache'|value == 'Bodenaufwertungsprojekt'",
       "config": {}
+    },
+    "abbruch-innerhalb-oder-ausserhalb-bauzone": {
+      "label": "In welcher Zone (innerhalb/ausserhalb) befindet sich Ihr geplanter Abbruch?",
+      "hint": "Falls sich das abgebrochene Objekt sowohl innerhalb als auch ausserhalb der Bauzonen befindet, wählen Sie bitte «Ausserhalb der Bauzone» an.",
+      "type": "radio",
+      "required": true,
+      "config": {
+        "options": ["Innerhalb der Bauzone", "Ausserhalb der Bauzone"]
+      }
+    },
+    "abbruch-in-moorlandschaft": {
+      "label": "Befindet sich Ihr geplanter Abbruch in einer Moorlandschaft?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "abbruch-art-gebaeude-anlage": {
+      "label": "Welches Gebäude oder welche Anlage wird abgebrochen?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "config": {
+        "options": [
+          "Wohnhaus",
+          "Ökonomiegebäude",
+          "Remise / Garage",
+          "Kleines Nebengebäude",
+          "Infrastruktur- oder Energieanlage",
+          "Bodenversiegelung",
+          "Andere"
+        ]
+      }
+    },
+    "abbruch-art-gebaeude-anlage-bemerkung": {
+      "label": "Beschreibung des abgebrochenen Gebäudes bzw. der abgebrochenen Anlage",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "active-expression": "'abbruch-art-gebaeude-anlage'|value == 'Andere'",
+      "config": {}
+    },
+    "abbruch-ersatzbau-geplant": {
+      "label": "Ist ein Ersatzbau für den Abbruch geplant?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "abbruch-ersatzbau-landwirtschaftlich-oder-touristisch": {
+      "label": "Handelt es sich beim Ersatzbau um ein landwirtschaftliches oder touristisches Vorhaben?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'abbruch-ersatzbau-geplant'|value == 'Ja'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "abbruch-finanzielle-mittel": {
+      "label": "Wurden für den Abbruch bereits finanzielle Mittel beansprucht?",
+      "hint": "Falls ja, sind Unterlagen der bereits bezogenen finanziellen Mittel einzureichen.",
+      "type": "radio",
+      "required": true,
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "abbruch-nach-1-juli-2026": {
+      "label": "Erfolgt der Abbruch nach dem 1. Juli 2026?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "zwischenbericht-abbruchpraemie-negativ": {
+      "label": "",
+      "hint": "",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "!('ms:ch.sz.a133a.kantonales_schutzinventar' in 'layer'|value|mapby('name')) && 'abbruch-in-moorlandschaft'|value == 'Nein' && ('abbruch-innerhalb-oder-ausserhalb-bauzone'|value == 'Innerhalb der Bauzone' || ('abbruch-ersatzbau-geplant'|value == 'Ja' && 'abbruch-ersatzbau-landwirtschaftlich-oder-touristisch'|value == 'Nein') || 'abbruch-nach-1-juli-2026'|value == 'Nein')",
+      "config": {}
+    },
+    "zwischenbericht-abbruchpraemie-negativ-bauzone": {
+      "label": "Ihr geplanter Abbruch befindet sich nicht ausserhalb der Bauzone.",
+      "hint": "",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "!('ms:ch.sz.a133a.kantonales_schutzinventar' in 'layer'|value|mapby('name')) && 'abbruch-in-moorlandschaft'|value == 'Nein' && 'abbruch-innerhalb-oder-ausserhalb-bauzone'|value == 'Innerhalb der Bauzone'",
+      "config": {}
+    },
+    "zwischenbericht-abbruchpraemie-negativ-ersatzbau": {
+      "label": "Beim Ersatzbau für den Abbruch handelt es sich nicht um ein landwirtschaftliches oder touristisches Vorhaben.",
+      "hint": "",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "!('ms:ch.sz.a133a.kantonales_schutzinventar' in 'layer'|value|mapby('name')) && 'abbruch-in-moorlandschaft'|value == 'Nein' && 'abbruch-ersatzbau-geplant'|value == 'Ja' && 'abbruch-ersatzbau-landwirtschaftlich-oder-touristisch'|value == 'Nein'",
+      "config": {}
+    },
+    "zwischenbericht-abbruchpraemie-negativ-abbruchdatum": {
+      "label": "Der Abbruch erfolgte vor dem 1. Juli 2026.",
+      "hint": "",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "!('ms:ch.sz.a133a.kantonales_schutzinventar' in 'layer'|value|mapby('name')) && 'abbruch-in-moorlandschaft'|value == 'Nein' && 'abbruch-nach-1-juli-2026'|value == 'Nein'",
+      "config": {}
+    },
+    "zwischenbericht-abbruchpraemie-abklaerungen-noetig": {
+      "label": "",
+      "hint": "",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a133a.kantonales_schutzinventar' in 'layer'|value|mapby('name') || 'abbruch-in-moorlandschaft'|value == 'Ja'",
+      "config": {}
+    },
+    "zwischenbericht-abbruchpraemie-abklaerungen-noetig-schutzinventar": {
+      "label": "Das Objekt ist im Kantonalen Schutzinventar (KSI) als geschütztes Objekt aufgeführt.",
+      "hint": "",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'ms:ch.sz.a133a.kantonales_schutzinventar' in 'layer'|value|mapby('name')",
+      "config": {}
+    },
+    "zwischenbericht-abbruchpraemie-abklaerungen-noetig-moorlandschaft": {
+      "label": "Das Objekt befindet sich innerhalb einer Moorlandschaft.",
+      "hint": "",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'abbruch-in-moorlandschaft'|value == 'Ja'",
+      "config": {}
+    },
+    "zwischenbericht-abbruchpraemie-positiv": {
+      "label": "Bestätigung",
+      "hint": "",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "!('ms:ch.sz.a133a.kantonales_schutzinventar' in 'layer'|value|mapby('name')) && 'layer'|value && 'abbruch-in-moorlandschaft'|value == 'Nein' && 'abbruch-innerhalb-oder-ausserhalb-bauzone'|value == 'Ausserhalb der Bauzone' && ('abbruch-ersatzbau-geplant'|value == 'Nein' || 'abbruch-ersatzbau-landwirtschaftlich-oder-touristisch'|value == 'Ja') && 'abbruch-nach-1-juli-2026'|value == 'Ja' && 'abbruch-art-gebaeude-anlage'|value && ('abbruch-art-gebaeude-anlage'|value != 'Andere' || 'abbruch-art-gebaeude-anlage-bemerkung'|value)",
+      "config": {
+        "options": ["Zur Kenntnis genommen"]
+      }
+    },
+    "info-abbruchpraemie-dokumente": {
+      "label": "Zum Stellen des Antrags müssen noch zusätzliche Unterlagen eingereicht werden:<ul><li>Situationsplan mit Kennzeichnung des Abbruchobjektes und der beseitigten Objektfläche in m²</li><li>Abbruchvolumen fest (entspricht dem Gebäudevolumen)</li><li>Fotografischer Nachweis des Abbruchs und der Rekultivierung des betroffenen Bodens</li><li>Vollmacht (als Vertreter-/in der Grundeigentümerschaft)</li><li>Zahlungsverbindung</li><li>Schlussrechnung mit den tatsächlichen Abbruchkosten ohne Spezialabfälle (wird auch benötigt, wenn der Abbruch in Eigenregie vorgenommen wurde). Altlasten und Spezialabfälle sind nicht prämienberechtigt, diese sind separat aufzuführen.</li></ul>",
+      "hint": "",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
+      "config": {
+        "options": ["Vorhanden"]
+      }
     }
   }
 }

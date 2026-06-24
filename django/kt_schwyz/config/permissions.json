@@ -8,5 +8,15 @@
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
     }
+  },
+  {
+    "model": "permissions.accesslevel",
+    "pk": "rpg2-demolition-premium-service",
+    "fields": {
+      "name": "{\"de\": \"Auszahlung der Abbruchprämie für RPG2\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
+    }
   }
 ]

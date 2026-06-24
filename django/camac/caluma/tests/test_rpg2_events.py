@@ -1,11 +1,13 @@
 import pytest
 from caluma.caluma_form.models import Document
+from caluma.caluma_workflow.api import complete_work_item
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.extensions.events.rpg2 import (
     is_rpg2_relevant_form,
     is_rpg2_service_addressed,
 )
+from camac.instance.models import HistoryEntry
 from camac.user.models import Service
 from camac.utils import get_unversioned_slug
 
@@ -304,3 +306,56 @@ def test_work_item_creation_idempotent_ag(
     inquiry_factory_ag(to_service=ag_rpg2_service, sent=True)
     work_items = _rpg2_work_items(case=distribution_case_ag)
     assert work_items.count() == 1
+
+
+@pytest.mark.django_db
+def test_pay_demolition_premium_history_sz(
+    application_settings,
+    caluma_admin_user,
+    caluma_work_item_factory,
+    form_factory,
+    instance_state_factory,
+    mocker,
+    set_application_sz,
+    service,
+    sz_instance,
+):
+    done_state = instance_state_factory(name="done")
+
+    form = form_factory(name="abbruchpraemie")
+    form.family = form
+    form.save()
+
+    sz_instance.instance_state = done_state
+    sz_instance.form = form
+    sz_instance.save()
+
+    wi_pay_premium = caluma_work_item_factory(
+        task_id="pay-demolition-premium",
+        case=sz_instance.case,
+        child_case=None,
+        addressed_groups=[service.pk],
+        status=WorkItem.STATUS_READY,
+    )
+
+    assert (
+        HistoryEntry.objects.filter(
+            instance=sz_instance,
+            history_type="status-change",
+            title="RPG2-Abbruchprämie ausgezahlt",
+        ).count()
+        == 0
+    )
+
+    complete_work_item(work_item=wi_pay_premium, user=caluma_admin_user)
+    sz_instance.refresh_from_db()
+
+    assert sz_instance.instance_state == done_state
+    assert (
+        HistoryEntry.objects.filter(
+            instance=sz_instance,
+            history_type="status-change",
+            title="RPG2-Abbruchprämie ausgezahlt",
+        ).count()
+        == 1
+    )

@@ -6952,6 +6952,54 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 608,
+    "fields": {
+      "role": 5,
+      "service": 368,
+      "disabled": 0,
+      "name": "Zentrale Dienste ARE",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 609,
+    "fields": {
+      "role": 7,
+      "service": 368,
+      "disabled": 0,
+      "name": "Zentrale Dienste ARE Sachbearbeiter",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 610,
+    "fields": {
+      "role": 11,
+      "service": 12,
+      "disabled": 0,
+      "name": "Amt für Raumentwicklung (Ortsplanung) als Leitbehörde",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.grouplocation",
     "pk": 1,
     "fields": {
@@ -32568,6 +32616,14 @@
     }
   },
   {
+    "model": "user.grouplocation",
+    "pk": 3371,
+    "fields": {
+      "group": 610,
+      "location": 45
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -39649,6 +39705,32 @@
       "city": null,
       "address": null,
       "email": "geoinfra@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 368,
+    "fields": {
+      "slug": "zentrale-dienste-are",
+      "service_group": 2,
+      "service_parent": null,
+      "name": "Zentrale Dienste ARE",
+      "description": "Zentrale Dienste ARE",
+      "sort": 225,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
       "website": null,
       "logo": "",
       "disabled": 0,

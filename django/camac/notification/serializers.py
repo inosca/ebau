@@ -1976,6 +1976,14 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _get_recipients_amtsblatt_uri(self, instance):
         return [{"to": "amtsblatt@ur.ch"}]
 
+    def _get_recipients_rpg2_demolition_premium_payment_service(self, instance):
+        service = Service.objects.filter(
+            slug=settings.APPLICATION["RPG2_DEMOLITION_PREMIUM_PAYMENT_SERVICE"],
+        ).first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
+
     def _recipient_log(self, recipients):
         return ", ".join(
             [
