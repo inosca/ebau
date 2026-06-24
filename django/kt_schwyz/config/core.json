@@ -2392,7 +2392,7 @@
     "fields": {
       "available_instance_resource": "templatecenter",
       "resource": 28,
-      "name": "Dokumente generieren (legacy)",
+      "name": "Dokumente generieren",
       "description": null,
       "template": null,
       "class_field": null,
@@ -2408,7 +2408,7 @@
     "fields": {
       "available_instance_resource": "templatecenter",
       "resource": 28,
-      "name": "Dokumente generieren (legacy)",
+      "name": "Dokumente generieren",
       "description": null,
       "template": null,
       "class_field": null,
@@ -3000,7 +3000,7 @@
     "fields": {
       "available_instance_resource": "templatecenter",
       "resource": 32,
-      "name": "Dokumente generieren",
+      "name": "Dokumente generieren (neu)",
       "description": null,
       "template": null,
       "class_field": null,
@@ -3224,7 +3224,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 28,
-      "name": "Dokumente generieren",
+      "name": "Dokumente generieren (neu)",
       "description": null,
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": null,
@@ -3240,7 +3240,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 28,
-      "name": "Dokumente generieren",
+      "name": "Dokumente generieren (neu)",
       "description": null,
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": null,
@@ -24289,8 +24289,8 @@
     "pk": 9,
     "fields": {
       "available_resource": "templatemanager",
-      "name": "Vorlagenverwaltung (legacy)",
-      "description": "Das Vorlagenmodul ist veraltet und wird demnächst entfernt.",
+      "name": "Vorlagenverwaltung",
+      "description": null,
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -24510,8 +24510,8 @@
     "pk": 36,
     "fields": {
       "available_resource": "page",
-      "name": "Vorlagenverwaltung",
-      "description": null,
+      "name": "Vorlagenverwaltung (neu)",
+      "description": "Ersetzt demnächst die bestehende Vorlagenverwaltung",
       "template": "/ember-camac-ng/dms-admin.phtml",
       "class_field": null,
       "hidden": 0,
