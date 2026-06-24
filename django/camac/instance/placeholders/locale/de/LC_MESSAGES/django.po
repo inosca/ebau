@@ -240,7 +240,7 @@ msgid "CONTENT"
 msgstr "INHALT"
 
 #: camac/instance/placeholders/fields.py
-msgid "CIRCULATION_STATUS"
+msgid "CIRCULATION_STATE"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py

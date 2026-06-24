@@ -9342,12 +9342,12 @@
         ]),
         'DATUM_ENDE': list([
           dict({
-            'de': 'date_end',
+            'de': 'end_date',
           }),
         ]),
         'DATUM_START': list([
           dict({
-            'de': 'date_start',
+            'de': 'start_date',
           }),
         ]),
         'ERSTELLT': list([
@@ -9397,7 +9397,7 @@
         ]),
         'ZIRKULATION_STATUS': list([
           dict({
-            'de': 'circulation_status',
+            'de': 'circulation_state',
           }),
         ]),
       }),
@@ -10651,12 +10651,12 @@
         ]),
         'DATUM_ENDE': list([
           dict({
-            'de': 'date_end',
+            'de': 'end_date',
           }),
         ]),
         'DATUM_START': list([
           dict({
-            'de': 'date_start',
+            'de': 'start_date',
           }),
         ]),
         'ERSTELLT': list([
@@ -10706,7 +10706,7 @@
         ]),
         'ZIRKULATION_STATUS': list([
           dict({
-            'de': 'circulation_status',
+            'de': 'circulation_state',
           }),
         ]),
       }),
@@ -19346,11 +19346,10 @@
     'activations[]',
     'activations[].answered',
     'activations[].circulation_answer',
-    'activations[].circulation_status',
+    'activations[].circulation_state',
     'activations[].created',
-    'activations[].date_end',
-    'activations[].date_start',
     'activations[].deadline_date',
+    'activations[].end_date',
     'activations[].name',
     'activations[].notices',
     'activations[].notices[]',
@@ -19358,6 +19357,7 @@
     'activations[].notices[].notice_type',
     'activations[].reason',
     'activations[].service',
+    'activations[].start_date',
     'bauverwaltung',
     'bauverwaltung.baukontrolle_baugespannkontrolle_bemerkungen',
     'bauverwaltung.baukontrolle_baugespannkontrolle_datum',
@@ -19592,11 +19592,10 @@
     'my_activations[]',
     'my_activations[].answered',
     'my_activations[].circulation_answer',
-    'my_activations[].circulation_status',
+    'my_activations[].circulation_state',
     'my_activations[].created',
-    'my_activations[].date_end',
-    'my_activations[].date_start',
     'my_activations[].deadline_date',
+    'my_activations[].end_date',
     'my_activations[].name',
     'my_activations[].notices',
     'my_activations[].notices[]',
@@ -19604,6 +19603,7 @@
     'my_activations[].notices[].notice_type',
     'my_activations[].reason',
     'my_activations[].service',
+    'my_activations[].start_date',
     'publication_date',
     'publications',
     'publications[]',
@@ -22037,11 +22037,10 @@
         'ZIRKULATION_STATUS': 'OK',
         'answered': '14.04.2018',
         'circulation_answer': 'Abschliessend beurteilbar',
-        'circulation_status': 'OK',
+        'circulation_state': 'OK',
         'created': '14.03.2018',
-        'date_end': '',
-        'date_start': '20.12.2020',
         'deadline_date': '29.04.2018',
+        'end_date': '',
         'name': 'Fachstelle',
         'notices': list([
           dict({
@@ -22059,6 +22058,7 @@
         ]),
         'reason': 'Grund',
         'service': 'Fachstelle',
+        'start_date': '20.12.2020',
       }),
       dict({
         'BEANTWORTET': '',
@@ -22075,16 +22075,16 @@
         'ZIRKULATION_STATUS': 'RUN',
         'answered': '',
         'circulation_answer': '',
-        'circulation_status': 'RUN',
+        'circulation_state': 'RUN',
         'created': '20.12.2020',
-        'date_end': '',
-        'date_start': '20.12.2020',
         'deadline_date': '28.06.2001',
+        'end_date': '',
         'name': 'Jasmine Phelps',
         'notices': list([
         ]),
         'reason': '',
         'service': 'Jasmine Phelps',
+        'start_date': '20.12.2020',
       }),
       dict({
         'BEANTWORTET': '',
@@ -22101,16 +22101,16 @@
         'ZIRKULATION_STATUS': 'RUN',
         'answered': '',
         'circulation_answer': '',
-        'circulation_status': 'RUN',
+        'circulation_state': 'RUN',
         'created': '20.12.2020',
-        'date_end': '',
-        'date_start': '20.12.2020',
         'deadline_date': '21.07.2012',
+        'end_date': '',
         'name': 'Alex Smith',
         'notices': list([
         ]),
         'reason': '',
         'service': 'Alex Smith',
+        'start_date': '20.12.2020',
       }),
     ]),
     'bauverwaltung': dict({
@@ -22286,16 +22286,16 @@
         'ZIRKULATION_STATUS': 'RUN',
         'answered': '',
         'circulation_answer': '',
-        'circulation_status': 'RUN',
+        'circulation_state': 'RUN',
         'created': '20.12.2020',
-        'date_end': '',
-        'date_start': '20.12.2020',
         'deadline_date': '21.07.2012',
+        'end_date': '',
         'name': 'Alex Smith',
         'notices': list([
         ]),
         'reason': '',
         'service': 'Alex Smith',
+        'start_date': '20.12.2020',
       }),
     ]),
     'objections': list([

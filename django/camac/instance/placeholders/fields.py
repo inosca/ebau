@@ -787,8 +787,8 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                 _("DISPATCH_DECISION_FURTHER_SERVICES")
             ],
             "BEMERKUNGEN": [_("REMARKS")],
-            "DATUM_START": [_("DATE_START")],
-            "DATUM_ENDE": [_("DATE_END")],
+            "DATUM_START": [{"default": _("DATE_START"), "sz": "START_DATE"}],
+            "DATUM_ENDE": [{"default": _("DATE_END"), "sz": "END_DATE"}],
             "SACHVERHALT": [_("SITUATION")],
             "ERWAEGUNGEN": [_("CONSIDERATIONS")],
             "BEURTEILUNG": [_("STATEMENT")],
@@ -796,7 +796,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
             "MELDUNGEN.ART": [{"default": _("NOTICE_TYPE"), "sz": "NOTICE_TYPE"}],
             "MELDUNGEN.INHALT": [{"default": _("CONTENT"), "sz": "CONTENT"}],
             "ZIRKULATION_STATUS": [
-                {"default": _("CIRCULATION_STATUS"), "sz": "CIRCULATION_STATUS"}
+                {"default": _("CIRCULATION_STATE"), "sz": "CIRCULATION_STATE"}
             ],
             "ZIRKULATION_ANTWORT": [
                 {"default": _("CIRCULATION_ANSWER"), "sz": "CIRCULATION_ANSWER"}
