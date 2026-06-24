@@ -2451,6 +2451,7 @@ APPLICATIONS = {
         # If the calculated deadline falls on a weekend or public holiday,
         # it will be postponed to the next working day.
         "DEADLINE_POSTPONE_NEXT_WORKINGDAY": True,
+        "SYSTEM_USER": "service-account-camac-admin",
     },
     "kt_so": {
         "SHORT_NAME": "so",
