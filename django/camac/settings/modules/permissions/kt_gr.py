@@ -90,15 +90,7 @@ MODULE_FORM = (
     | RequireInstanceState(["correction"])
     | (RequireInstanceState(["new"]) & ROLES_MUNICIPALITY & IsPaper())
 )
-MODULE_AUDIT = (
-    (ROLES_MUNICIPALITY & RequireWorkItem("formal-exam"))
-    | (~ROLES_MUNICIPALITY & RequireWorkItem("formal-exam", ["completed"]))
-    | (
-        ~ROLES_MUNICIPALITY
-        & IsServiceGroup([ARE_SERVICE_GROUP])
-        & RequireWorkItem("formal-exam", ["completed", "skipped"])
-    )
-)
+MODULE_AUDIT = RequireWorkItem("formal-exam")
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
 MODULE_LEGAL_SUBMISSIONS = IsForm(BAUGESUCH_FORMS) & (
@@ -366,7 +358,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("applicant-add", Always()),
             ("applicant-read", Always()),
             ("applicant-remove", Always()),
-            ("audit-read", RequireWorkItem("formal-exam")),
+            ("audit-read", MODULE_AUDIT),
             ("communications-read", Always()),
             ("decision-read", RequireWorkItem("decision")),
             ("distribution-read", MODULE_DISTRIBUTION),
@@ -404,7 +396,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "geometer": [
-            ("audit-read", RequireWorkItem("formal-exam")),
+            ("audit-read", MODULE_AUDIT),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
             ("dms-generate-read", MODULE_DMS_GENERATE),
