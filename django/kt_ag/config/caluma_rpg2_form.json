@@ -277,7 +277,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "rpg2-art-versiegelung-entsiegelung-entsiegelt-erschliessung",
+    "pk": "rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-erschliessung",
     "fields": {
       "created_at": "2026-05-19T13:57:53.575Z",
       "modified_at": "2026-05-19T13:57:53.575Z",
@@ -294,7 +294,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "rpg2-art-versiegelung-entsiegelung-entsiegelt-gebaeude",
+    "pk": "rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-gebaeude",
     "fields": {
       "created_at": "2026-05-19T13:57:53.539Z",
       "modified_at": "2026-05-19T13:57:53.539Z",
@@ -311,7 +311,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "rpg2-art-versiegelung-entsiegelung-entsiegelt-umgebung",
+    "pk": "rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-umgebung",
     "fields": {
       "created_at": "2026-05-19T13:57:53.559Z",
       "modified_at": "2026-05-19T13:57:53.559Z",
@@ -2096,7 +2096,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "rpg2-wann-wurde-flaeche-versiegelt-nach-29-sept-2023",
+    "pk": "rpg2-wann-wurde-flaeche-versiegelt-nach-dem-29-sept-2023",
     "fields": {
       "created_at": "2026-05-19T14:10:43.697Z",
       "modified_at": "2026-05-19T14:10:43.697Z",
@@ -2113,7 +2113,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "rpg2-wann-wurde-flaeche-versiegelt-vor-29-sept-2023",
+    "pk": "rpg2-wann-wurde-flaeche-versiegelt-vor-dem-29-sept-2023",
     "fields": {
       "created_at": "2026-05-19T14:10:43.694Z",
       "modified_at": "2026-05-19T14:10:43.694Z",
@@ -2637,7 +2637,7 @@
       "label": "{\"de\": \"Wann wurde die Fläche versiegelt?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\n  'rpg2-art-versiegelung-entsiegelung'|answer in ['rpg2-art-versiegelung-entsiegelung-entsiegelt-gebaeude', 'rpg2-art-versiegelung-entsiegelung-entsiegelt-umgebung', 'rpg2-art-versiegelung-entsiegelung-entsiegelt-erschliessung']\n)",
+      "is_hidden": "!(\n  'rpg2-art-versiegelung-entsiegelung'|answer in ['rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-gebaeude', 'rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-umgebung', 'rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-erschliessung']\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -2657,7 +2657,7 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "rpg2-art-versiegelung-entsiegelung.rpg2-art-versiegelung-entsiegelung-entsiegelt-erschliessung",
+    "pk": "rpg2-art-versiegelung-entsiegelung.rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-erschliessung",
     "fields": {
       "created_at": "2026-05-19T13:57:53.629Z",
       "modified_at": "2026-05-19T13:57:53.629Z",
@@ -2666,13 +2666,13 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "rpg2-art-versiegelung-entsiegelung",
-      "option": "rpg2-art-versiegelung-entsiegelung-entsiegelt-erschliessung",
+      "option": "rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-erschliessung",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "rpg2-art-versiegelung-entsiegelung.rpg2-art-versiegelung-entsiegelung-entsiegelt-gebaeude",
+    "pk": "rpg2-art-versiegelung-entsiegelung.rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-gebaeude",
     "fields": {
       "created_at": "2026-05-19T13:57:53.635Z",
       "modified_at": "2026-05-19T13:57:53.635Z",
@@ -2681,13 +2681,13 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "rpg2-art-versiegelung-entsiegelung",
-      "option": "rpg2-art-versiegelung-entsiegelung-entsiegelt-gebaeude",
+      "option": "rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-gebaeude",
       "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "rpg2-art-versiegelung-entsiegelung.rpg2-art-versiegelung-entsiegelung-entsiegelt-umgebung",
+    "pk": "rpg2-art-versiegelung-entsiegelung.rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-umgebung",
     "fields": {
       "created_at": "2026-05-19T13:57:53.632Z",
       "modified_at": "2026-05-19T13:57:53.632Z",
@@ -2696,7 +2696,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "rpg2-art-versiegelung-entsiegelung",
-      "option": "rpg2-art-versiegelung-entsiegelung-entsiegelt-umgebung",
+      "option": "rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-umgebung",
       "sort": 2
     }
   },
@@ -4262,7 +4262,7 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "rpg2-wann-wurde-flaeche-versiegelt.rpg2-wann-wurde-flaeche-versiegelt-nach-29-sept-2023",
+    "pk": "rpg2-wann-wurde-flaeche-versiegelt.rpg2-wann-wurde-flaeche-versiegelt-nach-dem-29-sept-2023",
     "fields": {
       "created_at": "2026-05-19T14:10:43.756Z",
       "modified_at": "2026-05-19T14:10:43.756Z",
@@ -4271,13 +4271,13 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "rpg2-wann-wurde-flaeche-versiegelt",
-      "option": "rpg2-wann-wurde-flaeche-versiegelt-nach-29-sept-2023",
+      "option": "rpg2-wann-wurde-flaeche-versiegelt-nach-dem-29-sept-2023",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "rpg2-wann-wurde-flaeche-versiegelt.rpg2-wann-wurde-flaeche-versiegelt-vor-29-sept-2023",
+    "pk": "rpg2-wann-wurde-flaeche-versiegelt.rpg2-wann-wurde-flaeche-versiegelt-vor-dem-29-sept-2023",
     "fields": {
       "created_at": "2026-05-19T14:10:43.759Z",
       "modified_at": "2026-05-19T14:10:43.759Z",
@@ -4286,7 +4286,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "rpg2-wann-wurde-flaeche-versiegelt",
-      "option": "rpg2-wann-wurde-flaeche-versiegelt-vor-29-sept-2023",
+      "option": "rpg2-wann-wurde-flaeche-versiegelt-vor-dem-29-sept-2023",
       "sort": 2
     }
   }
