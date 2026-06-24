@@ -10714,7 +10714,7 @@
     'objections': dict({
       'aliases': list([
         dict({
-          'de': 'einsprachen',
+          'de': 'objections',
         }),
       ]),
       'description': dict({
@@ -10733,7 +10733,7 @@
         ]),
         'participants.address': list([
           dict({
-            'de': 'adresse',
+            'de': 'address',
           }),
         ]),
         'participants.city': list([
@@ -10743,7 +10743,7 @@
         ]),
         'participants.company': list([
           dict({
-            'de': 'firma',
+            'de': 'company',
           }),
         ]),
         'participants.email': list([
@@ -10758,12 +10758,12 @@
         ]),
         'participants.phone': list([
           dict({
-            'de': 'telefon',
+            'de': 'phone',
           }),
         ]),
         'title': list([
           dict({
-            'de': 'titel',
+            'de': 'title',
           }),
         ]),
       }),
@@ -19437,18 +19437,6 @@
     'date_dossiereingang',
     'date_dossiervollstandig',
     'date_start_zirkulation',
-    'einsprachen',
-    'einsprachen[]',
-    'einsprachen[].creation_date',
-    'einsprachen[].participants',
-    'einsprachen[].participants[]',
-    'einsprachen[].participants[].adresse',
-    'einsprachen[].participants[].city',
-    'einsprachen[].participants[].email',
-    'einsprachen[].participants[].firma',
-    'einsprachen[].participants[].name',
-    'einsprachen[].participants[].telefon',
-    'einsprachen[].titel',
     'field_bauherrschaft',
     'field_bauherrschaft[]',
     'field_bauherrschaft[].adresse',
@@ -19604,6 +19592,18 @@
     'my_activations[].reason',
     'my_activations[].service',
     'my_activations[].start_date',
+    'objections',
+    'objections[]',
+    'objections[].creation_date',
+    'objections[].participants',
+    'objections[].participants[]',
+    'objections[].participants[].address',
+    'objections[].participants[].city',
+    'objections[].participants[].company',
+    'objections[].participants[].email',
+    'objections[].participants[].name',
+    'objections[].participants[].phone',
+    'objections[].title',
     'publication_date',
     'publications',
     'publications[]',
@@ -22143,25 +22143,6 @@
     'date_dossiereingang': '14.10.2020',
     'date_dossiervollstandig': '25.10.2020',
     'date_start_zirkulation': '05.11.2020',
-    'einsprachen': list([
-      dict({
-        'creation_date': '23.12.2020',
-        'participants': list([
-          dict({
-            'address': 'Malone Corner',
-            'adresse': 'Malone Corner',
-            'city': 'North Brendan',
-            'company': 'James Todd',
-            'firma': 'James Todd',
-            'name': 'Michael Burton',
-            'phone': '671-276-7342x95469',
-            'telefon': '671-276-7342x95469',
-          }),
-        ]),
-        'titel': '',
-        'title': '',
-      }),
-    ]),
     'field_bauherrschaft': list([
       dict({
         'ADDRESS': 'Teststrasse 3, 5678 Musterdorf',
@@ -22304,16 +22285,12 @@
         'participants': list([
           dict({
             'address': 'Malone Corner',
-            'adresse': 'Malone Corner',
             'city': 'North Brendan',
             'company': 'James Todd',
-            'firma': 'James Todd',
             'name': 'Michael Burton',
             'phone': '671-276-7342x95469',
-            'telefon': '671-276-7342x95469',
           }),
         ]),
-        'titel': '',
         'title': '',
       }),
     ]),
