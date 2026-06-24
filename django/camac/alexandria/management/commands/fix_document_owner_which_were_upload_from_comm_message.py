@@ -88,10 +88,7 @@ class Command(BaseCommand):
 
             recipient_service_id = recipient_services[0]
 
-            if (
-                doc.created_by_user == recipient_service_id
-                and doc.created_by_group == recipient_service_id
-            ):
+            if doc.created_by_group == recipient_service_id:
                 skipped_already_correct += 1
                 continue
 
