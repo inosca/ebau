@@ -9789,7 +9789,7 @@
       "hint": "Falls Sie um eine technische Bewilligung ersuchen wollen, die nicht zur Auswahl steht, umschreiben Sie diese bitte in knappen Worten.",
       "type": "textarea",
       "required": true,
-      "active-expression": "'Andere' in 'tb-zweck'|value",
+      "active-expression": "'Andere' in 'tb-zweck'|value || 'Andere' in 'tb-zweck-v2'|value",
       "config": {
         "cols": 20,
         "rows": 5
