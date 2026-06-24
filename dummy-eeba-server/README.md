@@ -14,7 +14,7 @@ This project includes a local dummy service (`/dummy-eeba`) to simulate the thir
     ```
 2. The camac django app will use the dummy service if `EEBA_BASE_URL` points to `http://dummy-eeba:9000/dummy-eeba` so in django `.env` file add `EEBA_BASE_URL`:
    ```
-    UID=1000
+    CONTAINER_UID=1000
     APPLICATION=kt_gr
     COMPOSE_FILE=compose/kt_gr.yml:compose/kt_gr-dev.yml
     ...

@@ -42,8 +42,7 @@ dev_reset()
 	echo "Removed PORTAL_URL and INTERNAL_URL from .env."
 }
 
-# shellcheck disable=SC1091
-APPLICATION=$(export $(grep -Ev '^(UID=|\s*#|\s*$)' .env | xargs) && echo "$APPLICATION")
+APPLICATION=$(. ./.env && echo "$APPLICATION")
 APPLICATION_INI=php/$APPLICATION/configs/application.ini
 PROXY_CONFIG=proxy/$APPLICATION.conf
 readonly APPLICATION APPLICATION_INI PROXY_CONFIG

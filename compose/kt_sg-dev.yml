@@ -28,7 +28,7 @@ services:
 
   db:
     image: postgres:18-trixie
-    user: ${UID}
+    user: ${CONTAINER_UID}
     environment:
       POSTGRES_USER: camac
       POSTGRES_PASSWORD: camac
@@ -38,7 +38,7 @@ services:
       - pg18data:/var/lib/postgresql
 
   django: &django
-    user: ${UID}
+    user: ${CONTAINER_UID}
     depends_on:
       - valkey
       - db
@@ -173,12 +173,12 @@ services:
 
   mailpit:
     image: axllent/mailpit
-    user: ${UID}
+    user: ${CONTAINER_UID}
     environment:
       MP_WEBROOT: mailpit
 
   document-merge-service:
-    user: ${UID}
+    user: ${CONTAINER_UID}
     depends_on:
       - valkey
       - db
@@ -219,11 +219,11 @@ services:
       - djangotmpmedia:/data/djangotmpmedia
       - garage_meta:/data/garage_meta
       - garage_data:/data/garage_data
-    command: /bin/sh -c "chown ${UID} -R /data;"
+    command: /bin/sh -c "chown ${CONTAINER_UID} -R /data;"
 
   tika:
     image: apache/tika:3.2.3.0-full
-    user: ${UID}
+    user: ${CONTAINER_UID}
 
   valkey:
     image: valkey/valkey:9.0

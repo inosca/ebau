@@ -154,7 +154,7 @@ services:
   document-merge-service:
     tty: true
     stdin_open: true
-    user: ${UID}
+    user: ${CONTAINER_UID}
     cap_add:
       - CAP_SYS_ADMIN
     security_opt:
