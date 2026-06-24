@@ -1,6 +1,7 @@
 from django.db.models import F
 
 from camac.settings.ebau_schema import ModuleConfig
+from camac.settings.env import env
 from camac.settings.modules.work_item_list_schema import (
     AnnotationsConfig,
     PersonConfig,
@@ -110,7 +111,11 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
                 "check-inquiries",
                 "decision",
                 "construction-acceptance",
-                "init-construction-monitoring",
+                *(
+                    ["init-construction-monitoring"]
+                    if env.bool("CONSTRUCTION_MONITORING_ENABLED", default=False)
+                    else []
+                ),
             ],
             "service": ["inquiry", "check-inquiries", "check-additional-demand"],
             "subservice": ["inquiry"],
