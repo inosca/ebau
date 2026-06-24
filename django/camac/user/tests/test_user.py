@@ -301,8 +301,8 @@ def test_user_admin_for_service_filter(
     assert set(int(r["id"]) for r in result) == set([a.user.pk for a in admins])
 
 
+@pytest.mark.django_db
 def test_accessible_instance_filter_with_permissions(
-    db,
     admin_client,
     be_instance,
     be_permissions_settings,
