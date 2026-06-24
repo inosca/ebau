@@ -6,4 +6,4 @@ additional-demand:
   allow-changes-hint: "<strong>Nota:</strong> con l’autorizzazione alla modifica del modulo di richiesta, i richiedenti possono modificare il modulo eBau e i documenti. I documenti già timbrati non possono essere contrassegnati come non validi. Se necessario, rimuovete prima i timbri dai documenti interessati."
   formtimeline-link:
     instance-edit-info: |
-      <strong>Nota:</strong> Con «Modifica il dossier» è possibile modificare il modulo e i documenti trasmessi.
+      <strong>Nota:</strong> Selezionare  «Modifica il dossier» per modificare la richiesta di precisazioni. In questo modo si accede al modulo di richiesta, che è possibile correggere. È inoltre possibile caricare nuovi documenti o contrassegnare come non validi quelli che non sono più validi. Successivamente, tornare a questa pagina e inviare le modifiche all’autorità competente.
