@@ -113,27 +113,30 @@ export default class PublicationEditController extends Controller {
         },
       });
 
-      yield this.fetch.fetch(`/api/v1/notification-templates/sendmail`, {
-        method: "POST",
-        headers: {
-          accept: "application/vnd.api+json",
-          "content-type": "application/vnd.api+json",
-        },
-        body: JSON.stringify({
-          data: {
-            type: "notification-template-sendmails",
-            attributes: {
-              "template-slug": "9-1-stopp-publikation-an-amtsblatt",
-              "recipient-types": ["amtsblatt_uri"],
-            },
-            relationships: {
-              instance: {
-                data: { type: "instances", id: this.model.instanceId },
+      const notification = mainConfig.publication.cancelNotification;
+      if (notification) {
+        yield this.fetch.fetch(`/api/v1/notification-templates/sendmail`, {
+          method: "POST",
+          headers: {
+            accept: "application/vnd.api+json",
+            "content-type": "application/vnd.api+json",
+          },
+          body: JSON.stringify({
+            data: {
+              type: "notification-template-sendmails",
+              attributes: {
+                "template-slug": notification.templateSlug,
+                "recipient-types": notification.recipientTypes,
+              },
+              relationships: {
+                instance: {
+                  data: { type: "instances", id: this.model.instanceId },
+                },
               },
             },
-          },
-        }),
-      });
+          }),
+        });
+      }
     } catch {
       this.notification.danger(this.intl.t("publication.cancelError"));
     }
