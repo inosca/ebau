@@ -9,6 +9,8 @@ $custom-muted-color-light: color.adjust(
   $global-muted-background,
   $lightness: -5%
 );
+$nav-badge-color: $global-danger-background !default;
+$portal-nav-badge-color: $badge-background !default;
 
 @import "modules/applicant-confirmations";
 @import "modules/dossier-import";
@@ -103,4 +105,15 @@ tr[role="link"] {
 // order to align with other disabled form elements
 select:disabled {
   opacity: 1;
+}
+
+.main-navigation .uk-badge,
+.nav-sidebar .uk-badge {
+  background-color: $nav-badge-color;
+}
+
+.uk-navbar-nav .uk-badge,
+.uk-tab .uk-badge,
+.instance-overview__title .uk-badge {
+  background-color: $portal-nav-badge-color;
 }
