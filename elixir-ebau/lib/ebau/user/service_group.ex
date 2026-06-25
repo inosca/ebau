@@ -16,7 +16,7 @@ defmodule Ebau.User.ServiceGroup do
 
   policies do
     policy action_type(:read) do
-      authorize_if always()
+      authorize_if accessing_from(Ebau.User.Service, :service_group)
     end
 
     policy action_type([:create, :update, :destroy]) do

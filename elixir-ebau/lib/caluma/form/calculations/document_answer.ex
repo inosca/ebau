@@ -68,6 +68,6 @@ defmodule Caluma.Form.Calculations.DocumentAnswer do
   defp validate_mapping({mod, _}) when is_atom(mod), do: :ok
   defp validate_mapping(_), do: {:error, "mapping must be a map or {module, opts} tuple"}
 
-  def resolve_mapping(mapping, _context) when is_map(mapping), do: mapping
-  def resolve_mapping({mod, opts}, context), do: mod.resolve(opts, context)
+  def resolve_mapping(mapping) when is_map(mapping), do: mapping
+  def resolve_mapping({mod, opts}), do: mod.resolve(opts)
 end

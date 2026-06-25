@@ -17,7 +17,7 @@ defmodule Ebau.User.Role do
 
   policies do
     policy action_type(:read) do
-      authorize_if always()
+      authorize_if accessing_from(Ebau.User.Group, :role)
     end
 
     policy action_type([:create, :update, :destroy]) do

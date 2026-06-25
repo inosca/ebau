@@ -429,3 +429,8 @@ unlink-ember-caluma:
 	@find . -maxdepth 2 -name "node_modules" -exec rm -r {} \+
 	@pnpm i
 
+
+.PHONY: dump-db-schema
+dump-db-schema:
+	@docker compose exec db pg_dump --schema-only --no-owner --no-acl -h 127.0.0.1 -p 5432 -U camac $(APPLICATION)  > elixir-ebau/priv/repo/ebau_schema.sql;
+

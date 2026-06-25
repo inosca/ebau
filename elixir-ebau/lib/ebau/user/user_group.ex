@@ -13,7 +13,7 @@ defmodule Ebau.User.UserGroup do
 
   policies do
     policy action_type(:read) do
-      authorize_if always()
+      authorize_if never()
     end
 
     policy action_type([:create, :update, :destroy]) do

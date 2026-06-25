@@ -10,11 +10,12 @@ defmodule Caluma.Form.AnswerFilters do
   up into two implementations for performance reasons as `question_id ==`
   is more efficient on big data sets than `question_id in`.
   """
-  def answer_filter(parent_doc_id_ref, {_mod, opts}) do
-    # TODO: eval the canton_resolver at run time with context
+  def answer_filter(parent_doc_id_ref, {mod, opts}) do
+    slugs = mod.resolve(opts)
+
     answer_filter(
       parent_doc_id_ref,
-      opts[:default]
+      slugs
     )
   end
 
@@ -34,9 +35,9 @@ defmodule Caluma.Form.AnswerFilters do
   This is split up into two implementations for performance reasons as
   `question_id ==` is more efficient on big data sets than `question_id in`.
   """
-  def table_filter(parent_doc_id_ref, {_mod, opts}) when is_map(opts) do
-    # TODO: eval the canton_resolver at run time with context
-    table_filter(parent_doc_id_ref, opts[:default])
+  def table_filter(parent_doc_id_ref, {mod, opts}) when is_map(opts) do
+    slugs = mod.resolve(opts)
+    table_filter(parent_doc_id_ref, slugs)
   end
 
   def table_filter(parent_doc_id_ref, single_slug) when is_binary(single_slug),

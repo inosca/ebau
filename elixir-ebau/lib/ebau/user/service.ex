@@ -25,7 +25,7 @@ defmodule Ebau.User.Service do
 
   policies do
     policy action_type(:read) do
-      authorize_if actor_present()
+      authorize_if accessing_from(Ebau.User.Group, :service)
     end
 
     policy action_type(:create) do

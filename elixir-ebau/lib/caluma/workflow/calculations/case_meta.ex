@@ -24,8 +24,8 @@ defmodule Caluma.Workflow.Calculations.CaseMeta do
   end
 
   @impl true
-  def expression(opts, context) do
-    key = resolve_key(opts[:key], context)
+  def expression(opts, _context) do
+    key = resolve_key(opts[:key])
     meta_expr(opts[:through], key)
   end
 
@@ -37,6 +37,6 @@ defmodule Caluma.Workflow.Calculations.CaseMeta do
     %Ash.Query.Function.GetPath{arguments: [meta_ref, [key]]}
   end
 
-  defp resolve_key(key, _context) when is_binary(key), do: key
-  defp resolve_key({mod, opts}, context), do: mod.resolve(opts, context)
+  defp resolve_key(key) when is_binary(key), do: key
+  defp resolve_key({mod, opts}), do: mod.resolve(opts)
 end

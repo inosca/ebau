@@ -1,5 +1,12 @@
 import Config
 
+canton =
+  case System.get_env("APPLICATION") do
+    "kt_gr" -> :gr
+    "kt_so" -> :so
+    _ -> :demo
+  end
+
 config :ash_json_api,
   show_public_calculations_when_loaded?: true,
   authorize_update_destroy_with_error?: true
@@ -15,10 +22,10 @@ config :ebau, EbauWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Ebau.PubSub,
-  # LiveView not yet in use — promote to an env var when it is.
   live_view: [signing_salt: "IJufaPql"]
 
 config :ebau,
+  canton: canton,
   ecto_repos: [Ebau.Repo],
   generators: [timestamp_type: :utc_datetime],
   ash_domains: [

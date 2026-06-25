@@ -28,7 +28,7 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswer do
 
   @impl true
   def expression(opts, context) do
-    mapping = DocumentAnswer.resolve_mapping(opts[:mapping], context)
+    mapping = DocumentAnswer.resolve_mapping(opts[:mapping])
     answer_expr = DocumentAnswer.answer_expr(opts[:relationship], :value)
 
     case array_item_type(context.type) do
@@ -40,9 +40,9 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswer do
   end
 
   @impl true
-  def calculate(records, opts, context) do
+  def calculate(records, opts, _context) do
     rel = opts[:relationship]
-    mapping = DocumentAnswer.resolve_mapping(opts[:mapping], context)
+    mapping = DocumentAnswer.resolve_mapping(opts[:mapping])
 
     Enum.map(records, fn record ->
       case Map.get(record, rel) do

@@ -322,6 +322,7 @@ services:
     # have any language server integration in your editor (which is highly recommended).
     volumes:
       - ../elixir-ebau:/app # mounting the source code
+      - ../django/kt_so/config:/app/priv/test_fixtures/kt_so/config # mounting the source code
       - elixir-ebau_build:/app/_build # caching the _build folder to a local volume
       - elixir-ebau_dependencies:/app/deps # caching the dependencies to a local volume
       - elixir-ebau_language-server:/app/.elixir_ls # caching the language server to a local volume

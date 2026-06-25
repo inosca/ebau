@@ -26,15 +26,11 @@ defmodule Ebau.Caluma.CantonResolver do
   @behaviour Caluma.Form.QuestionIdResolver
 
   @impl true
-  def resolve(mapping, context) do
-    canton = get_canton(context)
+  def resolve(mapping) do
+    canton = Application.get_env(:ebau, :canton)
     result = if canton, do: mapping[canton] || mapping[:default], else: mapping[:default]
 
     result ||
       raise "CantonResolver: no mapping for canton #{inspect(canton)} and no :default in #{inspect(Map.keys(mapping))}"
   end
-
-  defp get_canton(%{canton: canton}), do: canton
-  defp get_canton(%{source_context: %{canton: canton}}), do: canton
-  defp get_canton(_context), do: nil
 end

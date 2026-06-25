@@ -20,8 +20,8 @@ defmodule Caluma.Form.Calculations.MappedDocumentAnswer do
   defdelegate init(opts), to: DocumentAnswer, as: :init_with_mapping
 
   @impl true
-  def expression(opts, context) do
-    mapping = DocumentAnswer.resolve_mapping(opts[:mapping], context)
+  def expression(opts, _context) do
+    mapping = DocumentAnswer.resolve_mapping(opts[:mapping])
     # TODO only supports text questions for now
     answer_expr = DocumentAnswer.answer_expr(opts[:relationship], :value_string)
 

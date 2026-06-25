@@ -25,7 +25,7 @@ defmodule Caluma.Form.Form do
     end
 
     policy action_type(:read) do
-      authorize_if always()
+      authorize_if never()
     end
   end
 
@@ -149,7 +149,11 @@ defmodule Caluma.Form.Form do
     end
 
     many_to_many :questions, Caluma.Form.Question do
-      join_relationship :form_questions
+      through Caluma.Form.FormQuestion
+      source_attribute :slug
+      source_attribute_on_join_resource :form_id
+      destination_attribute_on_join_resource :question_id
+      destination_attribute :slug
     end
 
     has_many :form_questions, Caluma.Form.FormQuestion do

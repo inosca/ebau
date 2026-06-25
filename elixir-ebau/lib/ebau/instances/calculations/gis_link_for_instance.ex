@@ -52,7 +52,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
     end
   end
 
-  defp coord_int(_), do: ""
+  defp coord_int(_), do: {:error}
 
   defp set_coordinate_param(url, {:error}), do: url
 

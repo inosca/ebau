@@ -49,7 +49,11 @@ defmodule Ebau.MixProject do
 
   def cli do
     [
-      preferred_envs: [precommit: :test]
+      preferred_envs: [
+        precommit: :test,
+        "test.so": :test,
+        "test.gr": :test
+      ]
     ]
   end
 
@@ -119,11 +123,22 @@ defmodule Ebau.MixProject do
         "run priv/repo/seeds.exs"
       ],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
+      "test.setup": [
+        "ecto.create",
+        "ebau.bootstrap_legacy_schema",
+        "ecto.migrate"
+      ],
+      "test.so": [
+        "test.setup",
+        "test --only  canton:so"
+      ],
+      "test.gr": [
+        "test.setup",
+        "test --only canton:gr"
+      ],
       test: [
-        "ecto.create --quiet",
-        "ebau.ensure_legacy_schema",
-        "ecto.migrate --quiet",
-        "test"
+        "test.setup",
+        "test --exclude canton"
       ],
       "assets.setup": ["esbuild.install --if-missing"],
       "assets.build": ["compile", "esbuild ebau"],

@@ -24,7 +24,7 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswerTest do
           question_id: "category",
           mapping: %{"choice-a" => 10, "choice-b" => 20}
 
-        mapped_list_answer :is_paper?, :boolean,
+        mapped_list_answer :list_question, :boolean,
           question_id: {Ebau.Caluma.CantonResolver, %{default: "is-paper", so: "ist-papier"}},
           mapping:
             {Ebau.Caluma.CantonResolver,
@@ -110,10 +110,10 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswerTest do
     instance = TestDomain.get_instance!(matching.id)
     assert %Ash.NotLoaded{} = instance.case
 
-    loaded = Ash.load!(instance, [:category_code, :is_paper?])
+    loaded = Ash.load!(instance, [:category_code, :list_question])
 
     assert loaded.category_code == 10
-    assert loaded.is_paper? == [true, false]
+    assert loaded.list_question == [true, false]
     assert %Ash.NotLoaded{} = loaded.case
   end
 
@@ -144,7 +144,7 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswerTest do
       TestDomain.read_instances!(
         query:
           TestInstance
-          |> Ash.Query.filter(is_paper? == ^[true, false])
+          |> Ash.Query.filter(list_question == ^[true, false])
       )
       |> Enum.map(& &1.id)
 
@@ -153,26 +153,23 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswerTest do
     refute without_answer.id in matching_ids
   end
 
-  @tag :skip
-  # TODO: requires runtime canton resolver in answer_filter; reverted for now
+  @tag canton: :so
   test "uses canton-specific question_ids and answer mappings in SQL", %{so_matching: so_matching} do
     [loaded] =
       TestDomain.read_instances!(
         query:
           TestInstance
-          |> Ash.Query.set_context(%{canton: :so})
           |> Ash.Query.filter(id == ^so_matching.id)
-          |> Ash.Query.load([:is_paper?])
+          |> Ash.Query.load([:list_question])
       )
 
-    assert loaded.is_paper? == [true, false]
+    assert loaded.list_question == [true, false]
 
     matching_ids =
       TestDomain.read_instances!(
         query:
           TestInstance
-          |> Ash.Query.set_context(%{canton: :so})
-          |> Ash.Query.filter(is_paper? == ^[true, false])
+          |> Ash.Query.filter(list_question == ^[true, false])
       )
       |> Enum.map(& &1.id)
 

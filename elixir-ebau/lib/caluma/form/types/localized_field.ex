@@ -14,6 +14,7 @@ defmodule Caluma.Form.Types.LocalizedField do
   @impl Ash.Type
   def cast_input(nil, _), do: {:ok, nil}
   def cast_input(value, _) when is_map(value), do: {:ok, value}
+  # TODO: only de for now
   def cast_input(value, _) when is_binary(value), do: {:ok, %{"de" => value}}
   def cast_input(_, _), do: :error
 

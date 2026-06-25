@@ -23,7 +23,7 @@ defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
       |> Path.dirname()
       |> Path.join("priv/repo/ebau_schema.sql")
 
-    ensure_case_insensitive_collation!()
+    # ensure_case_insensitive_collation!()
 
     if legacy_schema_present?() do
       Mix.shell().info("Legacy schema already present, reconciling compatibility patches")

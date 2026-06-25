@@ -68,5 +68,5 @@ defmodule Caluma.Form.QuestionIdResolver do
   Called at query time by `Caluma.Form.Calculations.DocumentAnswer`. Must
   return either a single question ID string or a list of question ID strings.
   """
-  @callback resolve(opts :: term(), context :: map()) :: String.t() | [String.t()]
+  @callback resolve(opts :: term()) :: String.t() | [String.t()]
 end

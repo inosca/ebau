@@ -281,18 +281,19 @@ defmodule Caluma.Workflow.Extensions.CaseTest do
       assert MappedListDocumentAnswer.calculate(records, opts, %{}) == [["A"], nil, ["B"]]
     end
 
-    test "uses canton-specific answer mappings from context" do
+    @tag canton: :so
+    test "uses canton-specific answer mappings" do
       {:ok, opts} =
         MappedListDocumentAnswer.init(
           relationship: :_tags_answer,
           mapping:
             {Ebau.Caluma.CantonResolver,
-             %{default: %{"tag-a" => true}, gr: %{"gr-tag-a" => true}}}
+             %{default: %{"tag-a" => true}, so: %{"so-tag-a" => true}}}
         )
 
-      records = [%{_tags_answer: %{value: ["gr-tag-a"]}}]
+      records = [%{_tags_answer: %{value: ["so-tag-a"]}}]
 
-      assert MappedListDocumentAnswer.calculate(records, opts, %{canton: :gr}) == [[true]]
+      assert MappedListDocumentAnswer.calculate(records, opts, %{}) == [[true]]
     end
 
     test "declares the relationship to load" do

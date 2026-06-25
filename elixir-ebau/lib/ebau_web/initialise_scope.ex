@@ -17,17 +17,10 @@ defmodule EbauWeb.InitialiseScope do
     scope = %Ebau.Scope{
       current_user: socket.assigns[:current_user],
       # TODO: add group
-      canton: get_canton_short_name(),
+      canton: Application.get_env(:ebau, :canton),
       locale: nil
     }
 
     {:cont, assign(socket, :scope, scope)}
-  end
-
-  def get_canton_short_name do
-    case System.fetch_env!("APPLICATION") do
-      "kt_gr" -> :gr
-      "kt_so" -> :so
-    end
   end
 end

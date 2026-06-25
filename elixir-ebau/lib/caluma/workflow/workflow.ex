@@ -23,7 +23,7 @@ defmodule Caluma.Workflow.Workflow do
     end
 
     policy action_type(:read) do
-      authorize_if always()
+      authorize_if never()
     end
   end
 

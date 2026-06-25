@@ -7,9 +7,8 @@ defmodule Caluma.Form.Calculations.DocumentAnswerTest do
     @behaviour Caluma.Form.QuestionIdResolver
 
     @impl true
-    def resolve(%{ids: ids}, _context), do: ids
-    def resolve(%{id: id}, _context), do: id
-    def resolve(%{use_context: key}, context), do: context[key]
+    def resolve(%{ids: ids}), do: ids
+    def resolve(%{id: id}), do: id
   end
 
   describe "init/1" do
@@ -71,15 +70,6 @@ defmodule Caluma.Form.Calculations.DocumentAnswerTest do
       opts = [question_id: {TestResolver, %{ids: ["a", "b"]}}]
       context = %{}
 
-      assert DocumentAnswer.expression(opts, context)
-    end
-
-    test "resolver module receives the context map" do
-      opts = [question_id: {TestResolver, %{use_context: :tenant}}]
-      context = %{tenant: "test-tenant"}
-
-      # TestResolver reads context[:tenant] and returns "test-tenant".
-      # expression/2 uses that as a string question_id -- should not raise.
       assert DocumentAnswer.expression(opts, context)
     end
   end
