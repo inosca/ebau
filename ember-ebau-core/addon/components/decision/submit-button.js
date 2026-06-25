@@ -10,18 +10,8 @@ import getCaseMetaQuery from "ember-ebau-core/gql/queries/get-case-meta.graphql"
 import getCopiesQuery from "ember-ebau-core/gql/queries/get-copies.graphql";
 import { removeVersion } from "ember-ebau-core/utils/form-filters";
 
-const PARTIAL_NOTIFICATION_CONFIG = [
-  {
-    "template-slug": "08-entscheid-gesuchsteller",
-    "recipient-types": ["applicant"],
-  },
-  {
-    "template-slug": "08-entscheid-behoerden",
-    "recipient-types": ["leitbehoerde", "involved_in_distribution"],
-  },
-];
-
 export default class DecisionSubmitButtonComponent extends CfFieldInputActionButtonComponent {
+  @service emailNotification;
   @service ebauModules;
   @service fetch;
   @service intl;
@@ -84,30 +74,15 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
 
   async sendNotifications() {
     try {
-      await Promise.all(
-        PARTIAL_NOTIFICATION_CONFIG.map((data) => {
-          return this.fetch.fetch(`/api/v1/notification-templates/sendmail`, {
-            method: "POST",
-            headers: {
-              accept: "application/vnd.api+json",
-              "content-type": "application/vnd.api+json",
-            },
-            body: JSON.stringify({
-              data: {
-                type: "notification-template-sendmails",
-                attributes: data,
-                relationships: {
-                  instance: {
-                    data: {
-                      type: "instances",
-                      id: this.args.context.instanceId,
-                    },
-                  },
-                },
-              },
-            }),
-          });
-        }),
+      await this.emailNotification.send(
+        this.args.context.instanceId,
+        "08-entscheid-gesuchsteller",
+        ["applicant"],
+      );
+      await this.emailNotification.send(
+        this.args.context.instanceId,
+        "08-entscheid-behoerden",
+        ["leitbehoerde", "involved_in_distribution"],
       );
 
       this.notification.success(

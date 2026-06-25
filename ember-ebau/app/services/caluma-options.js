@@ -8,6 +8,7 @@ import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
 import { DateTime } from "luxon";
 import { cached } from "tracked-toolbox";
 export default class CustomCalumaOptionsService extends CalumaOptionsService {
+  @service emailNotification;
   @service ebauModules;
   @service session;
   @service store;
@@ -439,29 +440,14 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       return;
     }
 
-    await this.fetch.fetch(`/api/v1/notification-templates/sendmail`, {
-      method: "POST",
-      headers: {
-        accept: "application/vnd.api+json",
-        "content-type": "application/vnd.api+json",
+    await this.emailNotification.send(
+      this.currentInstanceId,
+      this.distribution.inquiryReminderNotificationTemplateSlug,
+      ["inquiry_addressed"],
+      {
+        inquiry: { data: { type: "work-items", id: inquiryId } },
       },
-      body: JSON.stringify({
-        data: {
-          type: "notification-template-sendmails",
-          attributes: {
-            "template-slug":
-              this.distribution.inquiryReminderNotificationTemplateSlug,
-            "recipient-types": ["inquiry_addressed"],
-          },
-          relationships: {
-            instance: {
-              data: { type: "instances", id: this.currentInstanceId },
-            },
-            inquiry: { data: { type: "work-items", id: inquiryId } },
-          },
-        },
-      }),
-    });
+    );
   }
 
   async calculateDistributionDefaultDeadline(defaultLeadTime, selectedGroups) {
