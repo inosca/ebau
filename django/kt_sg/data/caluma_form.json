@@ -1212,7 +1212,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "versicherungs-nr",
-      "value": 999,
+      "value": "999",
       "meta": {},
       "document": "069b2c11-e19f-7184-8000-9814bb96b302",
       "date": null
@@ -1348,7 +1348,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "versicherungs-nr",
-      "value": 999,
+      "value": "999",
       "meta": {},
       "document": "069b2c0c-4405-7425-8000-520f67e80f9c",
       "date": null
