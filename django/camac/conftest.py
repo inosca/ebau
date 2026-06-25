@@ -3767,3 +3767,46 @@ def parse_xlsx_response(response: FileResponse) -> pyexcel.Book:
         file_content=b"".join(response.streaming_content),
         file_type="xlsx",
     )
+
+
+_ensure_no_user_after_test_test_logger_log = []
+
+
+@pytest.fixture(autouse=True, scope="function")
+def ensure_no_user_after_test_test_logger(request):
+    _ensure_no_user_after_test_test_logger_log.append(request.node.nodeid)
+
+
+@pytest.fixture(autouse=True, scope="module")
+def ensure_no_user_after_test(django_db_setup, django_db_blocker, request):
+    """
+    Ensure that there are no users before and after each test module.
+
+    If there *are* users left over, it means we might get hard-to-debug secondary
+    effects, as there's data left over from a previous, buggy test (that didn't
+    cleanup properly) or from a previous test run (happens if you Ctrl+C in the
+    wrong moment).
+
+    This autouse fixture is scoped to "module" level
+    to ensure it runs *before* all the factories etc, and returns
+    *after* all of the fixtures should have done their cleanup part.
+    """
+
+    with django_db_blocker.unblock():
+        last_test = (
+            _ensure_no_user_after_test_test_logger_log[-1]
+            if _ensure_no_user_after_test_test_logger_log
+            else "(no previous test; maybe last test run aborted? try --create-db)"
+        )
+        assert not User.objects.exists(), (
+            f"Users left over in DB from previous test? Check {last_test} "
+            "or other tests in it's module."
+        )
+
+    yield
+    with django_db_blocker.unblock():
+        assert not User.objects.exists(), (
+            f"Users left over in DB after test? Check {request.node.nodeid}. "
+            "Hint: maybe enable transaction handling via "
+            "@pytest.mark.django_db(transaction=True)"
+        )
