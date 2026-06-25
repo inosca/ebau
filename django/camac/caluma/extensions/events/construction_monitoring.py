@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 from caluma.caluma_core.events import on
 from caluma.caluma_form.api import save_answer
@@ -10,7 +10,7 @@ from caluma.caluma_workflow.events import (
     post_complete_work_item,
     post_create_work_item,
 )
-from caluma.caluma_workflow.models import Workflow, WorkItem
+from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext as _
@@ -24,6 +24,7 @@ from camac.caluma.event_utils import (
 from camac.caluma.utils import date_to_deadline
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import construction_monitoring_started
+from camac.instance.models import Instance
 from camac.notification.utils import send_mail_without_request
 from camac.permissions.events import core as permissions_events
 from camac.permissions.events.core import Trigger
@@ -32,7 +33,21 @@ from camac.user.models import User
 from .general import get_instance
 
 
-def construction_step_can_continue(work_item):
+def start_after_submit() -> bool:
+    """Return `True` if the construction monitoring starts after submit."""
+
+    return settings.CONSTRUCTION_MONITORING.get("START_AFTER_SUBMIT", False)
+
+
+def can_continue_construction_step(work_item: WorkItem) -> bool:
+    """Check whether a construction step work item can continue.
+
+    Some steps need an approval from the municipality, while others don't. If no
+    approval is required, we continue directly. If approval is required, we
+    check whether the approval question (taken from the work item meta) was
+    answered positively.
+    """
+
     if not settings.CONSTRUCTION_MONITORING or not work_item.meta.get(
         "construction-step-id"
     ):
@@ -62,8 +77,26 @@ def construction_step_can_continue(work_item):
     return answer_is_approved in approved_answer_slugs
 
 
-def can_perform_construction_monitoring(instance):
-    if not settings.CONSTRUCTION_MONITORING:  # pragma: no cover  TODO: cover
+def can_perform_construction_monitoring(instance: Instance) -> bool:
+    """Check whether the construction monitoring process should be started.
+
+    The construction monitoring process should not be included for all
+    instances. For instance, a preliminary clarification (Vorabklärung) is an
+    informal inquiry and should never cause a construction monitoring process.
+
+    In Kt. UR, the necessity for a construction monitoring process is decided by
+    answering the question "Baubewilligungspflichtig" with "Ja" in the
+    "complete-check" form.
+
+    In all the other cantons, we check whether the root form is in the
+    construction monitorings `ALLOW_FORMS` config. If there are none configured (which is the default),
+    all instance will get a construction monitoring process.
+
+    WARNING: `ALLOW_FORMS` does not contain Caluma form slugs but CAMAC form
+    names. Kt. SZ is the only canton actually still using those.
+    """
+
+    if not settings.CONSTRUCTION_MONITORING:  # pragma: no cover
         return False
 
     if settings.APPLICATION_NAME == "kt_uri":
@@ -72,11 +105,14 @@ def can_perform_construction_monitoring(instance):
         )
 
         if complete_check_work_item.meta.get("migrated"):  # pragma: no cover
-            # If an instance was migrated we don't know if the construction monitoring is required.
-            # In this case we always start the construction monitoring (which can be skipped if not required)
+            # If an instance was migrated we don't know if the construction
+            # monitoring is required.
+            # In this case we always start the construction monitoring (which
+            # can be skipped if not required)
             return True
 
-        # in Uri we need to check the "complete-check" work item because not all forms always require a construction monitoring process
+        # In Uri we need to check the "complete-check" work item because not all
+        # forms always require a construction monitoring process
         return complete_check_work_item.document.answers.filter(
             question_id="complete-check-baubewilligungspflichtig",
             value="complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
@@ -88,6 +124,54 @@ def can_perform_construction_monitoring(instance):
 
     form_family = instance.form.family
     return form_family and form_family.name in allow_forms
+
+
+def set_complete_construction_monitoring_deadline(case: Case):
+    """Set the deadline of the complete construction monitoring work item.
+
+    This work item is created after the first stage in the construction
+    monitoring process is started (after completion of
+    "init-construction-monitoring"). However, it should only ever have a
+    deadline if there are no more running stages and the dossier is actually
+    decided (only relevant if `START_AFTER_SUBMIT` is enabled).
+
+    For this, we need to trigger a recalculation of the deadline for the
+    following use cases:
+
+    - The "complete-construction-monitoring" work item is created
+    - The instance is decided
+    - A construction stage is created, completed or canceled
+    """
+
+    has_running_construction_stages = case.family.work_items.filter(
+        task_id=settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STAGE_TASK"],
+        child_case__status=Case.STATUS_RUNNING,
+    ).exists()
+    is_decided = (
+        case.family.work_items.filter(
+            task_id=settings.DECISION["TASK"],
+            status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
+        ).exists()
+        if start_after_submit()
+        else True
+    )
+
+    complete_construction_monitoring = case.family.work_items.filter(
+        task_id=settings.CONSTRUCTION_MONITORING[
+            "COMPLETE_CONSTRUCTION_MONITORING_TASK"
+        ],
+        status=WorkItem.STATUS_READY,
+    ).first()
+
+    if not complete_construction_monitoring:
+        return
+
+    deadline = None
+    if not has_running_construction_stages and is_decided:
+        deadline = complete_construction_monitoring.task.calculate_deadline()
+
+    complete_construction_monitoring.deadline = deadline
+    complete_construction_monitoring.save(update_fields=["deadline"])
 
 
 CONSTRUCTION_STEP_TRANSLATIONS = {
@@ -201,7 +285,7 @@ def post_complete_construction_step_work_item(
     notifications = settings.CONSTRUCTION_MONITORING["NOTIFICATIONS"].get(
         work_item.task.pk, []
     )
-    if construction_step_can_continue(work_item):
+    if can_continue_construction_step(work_item):
         for config in notifications:
             send_mail_without_request(
                 config["template_slug"],
@@ -230,29 +314,6 @@ def post_complete_construction_monitoring(sender, work_item, user, context, **kw
     camac_user = User.objects.get(username=user.username)
     history_text = _("Construction monitoring completed")
     create_history_entry(instance, camac_user, history_text)
-
-
-def set_complete_construction_monitoring_deadline(case):
-    if not settings.CONSTRUCTION_MONITORING:
-        return  # pragma: no cover
-
-    main_case_work_items = case.parent_work_item.case.work_items
-    has_running_construction_stages = main_case_work_items.filter(
-        task_id=settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STAGE_TASK"],
-        child_case__status="running",
-    ).exists()
-    complete_construction_monitoring = main_case_work_items.filter(
-        task_id=settings.CONSTRUCTION_MONITORING[
-            "COMPLETE_CONSTRUCTION_MONITORING_TASK"
-        ]
-    ).first()
-
-    deadline = None
-    if not has_running_construction_stages:
-        deadline = date_to_deadline(datetime.now().date() + timedelta(days=10))
-
-    complete_construction_monitoring.deadline = deadline
-    complete_construction_monitoring.save()
 
 
 @on(post_cancel_case, raise_exception=True)
@@ -419,28 +480,67 @@ def post_create_gvg_work_item(sender, work_item, user, context, **kwargs):
         Trigger.gvg_work_item_created(None, work_item)
 
 
-@on(post_complete_work_item, raise_exception=True)
-@filter_by_canton("kt_gr")
-@filter_by_task(setting("DECISION", "TASK"))
+@on(post_create_work_item, raise_exception=True)
+@filter_by_task(
+    setting("CONSTRUCTION_MONITORING", "COMPLETE_CONSTRUCTION_MONITORING_TASK")
+)
 @transaction.atomic
-def post_complete_decision_start_init_monitoring_gr(
+def post_create_complete_construction_monitoring(
     sender, work_item, user, context, **kwargs
 ):
-    """Set the deadline for the init task after completing the decision."""
-    case_family = work_item.case.family
-    init_construction_monitoring = case_family.work_items.filter(
-        task_id="init-construction-monitoring"
+    """Update deadline for complete-construction-monitoring work item after creation.
+
+    If the construction monitoring process already starts after submit, we need
+    to clear out the deadline of the complete work item until the instance is
+    decided.
+    """
+
+    if not start_after_submit():
+        return
+
+    set_complete_construction_monitoring_deadline(work_item.case)
+
+
+@on(post_create_work_item, raise_exception=True)
+@filter_by_task(setting("CONSTRUCTION_MONITORING", "INIT_CONSTRUCTION_MONITORING_TASK"))
+@transaction.atomic
+def clear_init_construction_monitoring_deadline(
+    sender, work_item, user, context, **kwargs
+):
+    """Clear deadline for `init-construction-monitoring` work item.
+
+    If the construction monitoring process is started after submission, the init
+    work item must not have a deadline yet but only after a decision. We clear
+    out the deadline right after creation and only set it in
+    `set_construction_monitoring_deadlines_after_decision` after the decision.
+    """
+
+    if not start_after_submit():
+        return
+
+    work_item.deadline = None
+    work_item.save(update_fields=["deadline"])
+
+
+@on(post_complete_work_item, raise_exception=True)
+@filter_by_task(setting("DECISION", "TASK"))
+@transaction.atomic
+def set_construction_monitoring_deadlines_after_decision(
+    sender, work_item, user, context, **kwargs
+):
+    """Set deadlines for init and complete work item after decision."""
+
+    if not start_after_submit():
+        return
+
+    set_complete_construction_monitoring_deadline(work_item.case)
+
+    init_work_item = work_item.case.family.work_items.filter(
+        task_id=settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"],
+        deadline__isnull=True,
+        status=WorkItem.STATUS_READY,
     ).first()
 
-    if init_construction_monitoring and init_construction_monitoring.task.meta.get(
-        "lead-time-after-decision"
-    ):
-        init_construction_monitoring.deadline = date_to_deadline(
-            datetime.now().date()
-            + timedelta(
-                seconds=init_construction_monitoring.task.meta.get(
-                    "lead-time-after-decision"
-                )
-            )
-        )
-        init_construction_monitoring.save(update_fields=["deadline"])
+    if init_work_item:
+        init_work_item.deadline = init_work_item.task.calculate_deadline()
+        init_work_item.save(update_fields=["deadline"])

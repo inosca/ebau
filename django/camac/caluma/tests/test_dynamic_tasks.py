@@ -1704,7 +1704,7 @@ def test_resolve_after_construction_step_item(
     )
 
     mocker.patch(
-        "camac.caluma.extensions.dynamic_tasks.construction_step_can_continue",
+        "camac.caluma.extensions.dynamic_tasks.can_continue_construction_step",
         return_value=can_continue,
     )
 

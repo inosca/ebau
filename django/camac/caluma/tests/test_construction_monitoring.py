@@ -1,4 +1,5 @@
 import json
+from datetime import date
 
 import pytest
 from caluma.caluma_core.relay import extract_global_id
@@ -9,11 +10,13 @@ from django.core import mail
 from camac.caluma.extensions.dynamic_tasks import CustomDynamicTasks
 from camac.caluma.extensions.events.construction_monitoring import (
     can_perform_construction_monitoring,
+    clear_init_construction_monitoring_deadline,
     post_complete_construction_control,
-    post_complete_decision_start_init_monitoring_gr,
+    post_create_complete_construction_monitoring,
     post_create_construction_control,
     post_create_gvg_work_item,
     post_create_plan_construction_stage_ur,
+    set_construction_monitoring_deadlines_after_decision,
 )
 from camac.caluma.extensions.visibilities import CustomVisibility
 from camac.instance.models import InstanceState
@@ -42,7 +45,7 @@ def test_construction_monitoring_dynamic_step_items(
         dynamic_tasks, "resolve_after_construction_step", return_value=[]
     )
     can_continue = mocker.patch(
-        "camac.caluma.extensions.dynamic_tasks.construction_step_can_continue",
+        "camac.caluma.extensions.dynamic_tasks.can_continue_construction_step",
         return_value=True,
     )
 
@@ -825,34 +828,131 @@ def test_construction_monitoring_task_gvg_gr(
 
 @pytest.mark.freeze_time("2026-01-01")
 @pytest.mark.django_db
-def test_init_construction_monitoring_deadline_gr(
-    caluma_work_item_factory,
+def test_start_after_submit_init_construction_monitoring_deadline(
+    caluma_admin_user,
     caluma_case_factory,
     caluma_task_factory,
+    caluma_work_item_factory,
+    construction_monitoring_settings,
+    decision_settings,
     service,
-    gr_decision_settings,
-    gr_construction_monitoring_settings,
-    set_application_gr,
+    freezer,
 ):
+    """Tests deadlines of init work items when started after submit.
+
+    If the construction monitoring process is already started after the
+    submission of the instance, we need to handle the deadline of the
+    `init-construction-monitoring` work item differently: It should only ever
+    have a deadline if the instance is already decided. On decision, the work
+    item (if still ready) should get a recalculated deadline.
+    """
+
+    construction_monitoring_settings["START_AFTER_SUBMIT"] = True
+
+    init_task = caluma_task_factory(
+        pk=construction_monitoring_settings["INIT_CONSTRUCTION_MONITORING_TASK"],
+        lead_time=30 * 24 * 3600,  # 30d
+    )
+
     case = caluma_case_factory()
     init_work_item = caluma_work_item_factory(
         case=case,
-        task=caluma_task_factory(
-            pk=gr_construction_monitoring_settings["INIT_CONSTRUCTION_MONITORING_TASK"],
-            meta={"lead-time-after-decision": 30 * 24 * 3600},  # 30 days
-        ),
+        task=init_task,
         addressed_groups=[str(service.pk)],
-        deadline=None,  # deadline is not set initially
+        deadline=init_task.calculate_deadline(),
+        status=WorkItem.STATUS_READY,
     )
     decision_work_item = caluma_work_item_factory(
         case=case,
-        task=caluma_task_factory(pk=gr_decision_settings["TASK"]),
+        task__pk=decision_settings["TASK"],
+        status=WorkItem.STATUS_READY,
     )
 
+    # No event fired yet, we should have a normally calculated deadline
+    assert init_work_item.deadline.date() == date(2026, 1, 31)
+
+    # After we call the event that would've been triggered after creation, we
+    # shouldn't have a deadline anymore
+    clear_init_construction_monitoring_deadline(
+        None, work_item=init_work_item, user=None, context={}
+    )
+    init_work_item.refresh_from_db()
     assert init_work_item.deadline is None
 
-    post_complete_decision_start_init_monitoring_gr(
+    # If the decision work item is completed, the deadline will be freshly
+    # calculated depending on the current date (now +30d)
+    freezer.move_to("2026-03-12")
+    set_construction_monitoring_deadlines_after_decision(
         None, work_item=decision_work_item, user=None, context={}
     )
     init_work_item.refresh_from_db()
-    assert init_work_item.deadline.isoformat() == "2026-01-31T00:00:00+00:00"
+    assert init_work_item.deadline.date() == date(2026, 4, 11)
+
+
+@pytest.mark.freeze_time("2026-01-01")
+@pytest.mark.django_db
+def test_start_after_submit_complete_construction_monitoring_deadline(
+    caluma_admin_user,
+    caluma_case_factory,
+    caluma_task_factory,
+    caluma_work_item_factory,
+    construction_monitoring_settings,
+    decision_settings,
+    service,
+    freezer,
+):
+    """Tests deadlines of complete work items when started after submit.
+
+    If the construction monitoring process is already started after the
+    submission of the instance, we need to handle the deadline of the
+    `complete-construction-monitoring` work item differently: It should only
+    ever have a deadline if the instance is already decided. On decision, the
+    work item (if still ready) should get a recalculated deadline. In addition
+    to that, the work item deadline must be recalculated each time a stage is
+    created, completed or canceled (same as when `START_AFTER_SUBMIT` is
+    `False`, which is why we don't test this explicitly here).
+    """
+
+    construction_monitoring_settings["START_AFTER_SUBMIT"] = True
+
+    complete_task = caluma_task_factory(
+        pk=construction_monitoring_settings["COMPLETE_CONSTRUCTION_MONITORING_TASK"],
+        lead_time=10 * 24 * 3600,  # 10d
+    )
+
+    case = caluma_case_factory()
+    complete_work_item = caluma_work_item_factory(
+        case=case,
+        task=complete_task,
+        addressed_groups=[str(service.pk)],
+        deadline=complete_task.calculate_deadline(),
+        status=WorkItem.STATUS_READY,
+    )
+    decision_work_item = caluma_work_item_factory(
+        case=case,
+        task__pk=decision_settings["TASK"],
+        status=WorkItem.STATUS_READY,
+    )
+
+    # No event fired yet, we should have a normally calculated deadline
+    assert complete_work_item.deadline.date() == date(2026, 1, 11)
+
+    # After we call the event that would've been triggered after creation, we
+    # shouldn't have a deadline anymore as the decision work item is not
+    # completed yet
+    post_create_complete_construction_monitoring(
+        None, work_item=complete_work_item, user=None, context={}
+    )
+    complete_work_item.refresh_from_db()
+    assert complete_work_item.deadline is None
+
+    # If the decision work item is completed, the deadline will be freshly
+    # calculated depending on the current date (now +10d)
+    freezer.move_to("2026-03-12")
+    decision_work_item.status = WorkItem.STATUS_COMPLETED
+    decision_work_item.save(update_fields=["status"])
+    set_construction_monitoring_deadlines_after_decision(
+        None, work_item=decision_work_item, user=None, context={}
+    )
+    complete_work_item.refresh_from_db()
+    assert complete_work_item.deadline.date() == date(2026, 3, 22)

@@ -295,7 +295,7 @@
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": null,
-      "lead_time": null,
+      "lead_time": 864000,
       "is_multiple_instance": false,
       "continue_async": false
     }

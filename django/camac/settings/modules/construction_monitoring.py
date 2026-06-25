@@ -12,6 +12,7 @@ CONSTRUCTION_MONITORING = {
         "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK": "construction-step-plan-construction-stage",
         "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_FORM": "construction-step-plan-construction-stage",
         "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK": "construction-step-schlussabnahme-projekt-planen",
+        "START_AFTER_SUBMIT": False,
     },
     "kt_schwyz": {
         "ENABLED": True,
@@ -198,6 +199,7 @@ CONSTRUCTION_MONITORING = {
             ],
         },
         "NOTIFICATION_RECIPIENTS": {},
+        "START_AFTER_SUBMIT": True,
     },
     "kt_so": {
         "ENABLED": True,
