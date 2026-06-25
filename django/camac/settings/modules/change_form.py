@@ -50,6 +50,7 @@ CHANGE_FORM = {
                 "projektanderung-v10",
                 "projektanderung-v11",
                 "projektanderung-v12",
+                "projektanderung-v13",
                 "technische-bewilligung",
                 "technische-bewilligung-v2",
                 "technische-bewilligung-v3",
