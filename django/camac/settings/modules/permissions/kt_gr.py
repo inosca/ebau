@@ -68,8 +68,13 @@ MODULE_CONSTRUCTION_ACCEPTANCE = RequireWorkItem("construction-acceptance")
 MODULE_CONSTRUCTION_MONITORING = (
     RequireWorkItem("init-construction-monitoring") | ROLES_GEOMETER
 )
+# todo: the instance state check should not be needed. Once we fix skipping/completing
+# construction monitoring this check should be removed.
+MODULE_CONSTRUCTION_MONITORING_WRITE = (
+    MODULE_CONSTRUCTION_MONITORING & ~RequireInstanceState(["finished"])
+)
 MODULE_CONSTRUCTION_MONITORING_COMPLETE = (
-    MODULE_CONSTRUCTION_MONITORING
+    MODULE_CONSTRUCTION_MONITORING_WRITE
     & RequireInstanceState(["decided", "construction-acceptance"])
 )
 MODULE_CONSTRUCTION_MONITORING_SKIP = MODULE_CONSTRUCTION_MONITORING_COMPLETE
@@ -250,7 +255,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("construction-acceptance-read", MODULE_CONSTRUCTION_ACCEPTANCE),
             ("construction-acceptance-write", MODULE_CONSTRUCTION_ACCEPTANCE),
             ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
-            ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING),
+            ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING_WRITE),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("dms-generate-read", MODULE_DMS_GENERATE),
@@ -296,7 +301,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("construction-monitoring-init", MODULE_CONSTRUCTION_MONITORING),
             ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
             ("construction-monitoring-skip", MODULE_CONSTRUCTION_MONITORING_SKIP),
-            ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING),
+            ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING_WRITE),
             ("corrections-read", MODULE_CORRECTIONS),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),

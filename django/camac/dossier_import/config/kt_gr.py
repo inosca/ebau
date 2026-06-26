@@ -10,6 +10,9 @@ from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
 from django.utils.translation import gettext as _
 
+from camac.caluma.extensions.events.construction_monitoring import (
+    can_perform_construction_monitoring,
+)
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.core.models import InstanceService
 from camac.core.utils import generate_sort_key
@@ -112,10 +115,7 @@ class KtGraubundenDossierWriter(DossierWriter):
     def create_instance(self, dossier: Dossier) -> Instance:
         # Todo: remove this clause when construction monitoring is on production.
         instance_state_mapping = settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"]
-        if (
-            not settings.CONSTRUCTION_MONITORING
-            or not settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
-        ):  # pragma: no cover
+        if not settings.CONSTRUCTION_MONITORING:  # pragma: no cover
             instance_state_mapping["APPROVED"] = "construction-acceptance"
 
         instance_state = InstanceState.objects.get(
@@ -250,9 +250,8 @@ class KtGraubundenDossierWriter(DossierWriter):
         target_state = dossier._meta.target_state
 
         SUBMITTED = ["submit"] + (
-            ["init-construction-monitoring"]
-            if settings.CONSTRUCTION_MONITORING
-            and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
+            [settings.CONSTRUCTION_MONITORING.get("INIT_CONSTRUCTION_MONITORING_TASK")]
+            if can_perform_construction_monitoring(instance)
             else []
         )
         DECIDED = SUBMITTED + [
@@ -264,12 +263,7 @@ class KtGraubundenDossierWriter(DossierWriter):
         DONE = (
             DECIDED
             + ["create-manual-workitems"]
-            + (
-                []
-                if settings.CONSTRUCTION_MONITORING
-                and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
-                else ["construction-acceptance"]
-            )
+            + ([] if settings.CONSTRUCTION_MONITORING else ["construction-acceptance"])
         )
 
         path_to_state = {

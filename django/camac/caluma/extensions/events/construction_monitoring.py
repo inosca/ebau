@@ -122,8 +122,18 @@ def can_perform_construction_monitoring(instance: Instance) -> bool:
     if not allow_forms:
         return True
 
-    form_family = instance.form.family
-    return form_family and form_family.name in allow_forms
+    # get the form slug based on the form backend configuration.
+    # for camac-ng (e.g. kt_schwyz) we use the form family name if available,
+    # otherwise the form name.
+    # for caluma we rely on the form_id of the case document.
+    if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
+        form_slug = (
+            instance.form.family.name if instance.form.family else instance.form.name
+        )
+    else:
+        form_slug = instance.case.document.form_id
+
+    return form_slug in allow_forms
 
 
 def set_complete_construction_monitoring_deadline(case: Case):

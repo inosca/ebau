@@ -48,6 +48,7 @@ def test_complete_decision_gr(
     caluma_work_item_factory,
     active_inquiry_factory,
     caluma_document_factory,
+    caluma_form_factory,
     instance_state_factory,
     service_factory,
     decision,
@@ -63,6 +64,9 @@ def test_complete_decision_gr(
     mocker,
 ):
     are_service = service_factory(name="are", slug="are")
+    gr_instance.case.document.form = caluma_form_factory(slug="baugesuch")
+    gr_instance.case.document.save()
+
     mocker.patch(
         "camac.instance.models.Instance.responsible_service",
         return_value=service,
@@ -72,7 +76,11 @@ def test_complete_decision_gr(
         construction_monitoring_enabled and has_are_inquiry and decision == "APPROVED"
     )
 
-    gr_construction_monitoring_settings["ENABLED"] = construction_monitoring_enabled
+    if not construction_monitoring_enabled:
+        gr_construction_monitoring_settings.clear()
+    else:
+        gr_construction_monitoring_settings["ENABLED"] = True
+
     instance_state_factory(name="construction-acceptance")
     instance_state_factory(name="decided")
     instance_state_factory(name="finished")

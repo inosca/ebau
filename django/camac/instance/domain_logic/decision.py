@@ -6,6 +6,9 @@ from caluma.caluma_workflow import models as workflow_models
 from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
 from django.conf import settings
 
+from camac.caluma.extensions.events.construction_monitoring import (
+    can_perform_construction_monitoring,
+)
 from camac.constants import kt_gr as gr_constants
 from camac.core.utils import canton_aware, generate_sort_key
 from camac.ech0211.signals import withdrawn
@@ -41,9 +44,9 @@ class DecisionLogic:
                     cls.copy_responsible_person_lead_authority(
                         instance, construction_control
                     )
-            elif settings.APPLICATION_NAME == "kt_gr" and (
-                not settings.CONSTRUCTION_MONITORING
-                or not settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
+            elif (
+                settings.APPLICATION_NAME == "kt_gr"
+                and not settings.CONSTRUCTION_MONITORING
             ):
                 # todo: remove this clause when construction monitoring is on production.
                 instance.set_instance_state("construction-acceptance", camac_user)
@@ -117,16 +120,23 @@ class DecisionLogic:
     def should_continue_after_decision_gr(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
-        # for vorlaeufige-beurteilung, bauanzeige and solaranlage forms
-        # there is no construction monitoring process, so we do not
-        # continue the workflow after decision.
-        forms_no_construction_monitoring = [
-            *gr_constants.BAUANZEIGE_FORMS,
-            *gr_constants.SOLARANLAGE_FORMS,
-            *gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
-        ]
-        if instance.case.document.form_id in forms_no_construction_monitoring:
-            return []
+        # if construction monitoring is enabled but the instance type does not allow
+        # construction monitoring, we do not continue the workflow after the decision.
+        # without construction monitoring, the workflow should not be continued
+        # for certain instance types (bauanzeige, solaranlage, vorlaeufige-beurteilung)
+        if settings.CONSTRUCTION_MONITORING and not can_perform_construction_monitoring(
+            instance
+        ):
+            return False
+        elif not settings.CONSTRUCTION_MONITORING and (
+            instance.case.document.form_id
+            in [
+                *gr_constants.BAUANZEIGE_FORMS,
+                *gr_constants.SOLARANLAGE_FORMS,
+                *gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
+            ]
+        ):
+            return False
 
         decision = cls.get_decision_answer(
             question_id=settings.DECISION["QUESTIONS"]["DECISION"],

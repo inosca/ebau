@@ -285,6 +285,7 @@ def test_decision_event_handler_gr(
     settings,
     application_settings,
     caluma_answer_factory,
+    caluma_form_factory,
     service_factory,
     caluma_admin_user,
     access_level_factory,
@@ -292,6 +293,9 @@ def test_decision_event_handler_gr(
     set_application_gr,
     mocker,
 ):
+    gr_instance.case.document.form = caluma_form_factory(slug="baugesuch")
+    gr_instance.case.document.save()
+
     mocker.patch("camac.notification.utils.send_mail")
     settings.APPLICATION_NAME = "kt_gr"
     gvg_service = service_factory(slug=gr_constants.GVG_SERVICE_SLUG)
@@ -340,14 +344,13 @@ def test_decision_event_handler_gr(
     )
 
     acls = InstanceACL.objects.filter(instance=gr_instance)
-    assert acls.count() == expected_count
+    assert acls.count() == expected_count * 2
 
     gvg_acl = acls.filter(service=gvg_service)
     assert gvg_acl.count() == expected_count
 
-    # aib checkbox should be checked in construction-acceptance, unless solaranlage.
     aib_acl = acls.filter(service=aib_service)
-    assert aib_acl.count() == 0
+    assert aib_acl.count() == expected_count
 
 
 @pytest.mark.freeze_time("2022-06-03")
@@ -912,6 +915,7 @@ def test_decision_acls_sz(
 
 @pytest.mark.parametrize(
     (
+        "has_cm_workitem",
         "is_ech",
         "dossier_type",
         "gvg_answer",
@@ -921,10 +925,22 @@ def test_decision_acls_sz(
     ),
     [
         # No checkboxes checked, no involvement.
-        (False, "baugesuch", False, False, "construction", []),
-        (False, "baugesuch", False, False, "decision", []),
+        (False, False, "baugesuch", False, False, "construction", []),
+        (True, False, "baugesuch", False, False, "construction", []),
+        (False, False, "baugesuch", False, False, "decision", []),
+        (True, False, "baugesuch", False, False, "decision", []),
         # eCH, no checkboxes, always involved.
         (
+            False,
+            True,
+            "baugesuch",
+            False,
+            False,
+            "construction",
+            ["aib", "gvg"],
+        ),
+        (
+            True,
             True,
             "baugesuch",
             False,
@@ -934,6 +950,7 @@ def test_decision_acls_sz(
         ),
         # baugesuch: gvg and aib checked, and involved
         (
+            True,
             False,
             "baugesuch",
             True,
@@ -943,6 +960,7 @@ def test_decision_acls_sz(
         ),
         # baugesuch: gvg and aib checked, but aib in wrong form, so only gvg included
         (
+            True,
             False,
             "baugesuch",
             True,
@@ -955,6 +973,7 @@ def test_decision_acls_sz(
         # - gvg should not be included for solaranlage
         (
             False,
+            False,
             "solaranlage-v6",
             True,
             True,
@@ -965,6 +984,7 @@ def test_decision_acls_sz(
         # - aib checked in decision form, so included
         # - gvg should not be included for solaranlage
         (
+            False,
             False,
             "solaranlage-v6",
             True,
@@ -980,6 +1000,8 @@ def test_involve_gvg_aib_gr(
     caluma_answer_factory,
     caluma_work_item_factory,
     access_level_factory,
+    caluma_form_factory,
+    has_cm_workitem,
     is_ech,
     dossier_type,
     gvg_answer,
@@ -988,6 +1010,7 @@ def test_involve_gvg_aib_gr(
     expected,
     gr_instance,
     gr_decision_settings,
+    gr_construction_monitoring_settings,
     gr_permissions_settings,
     set_application_gr,
 ):
@@ -996,8 +1019,8 @@ def test_involve_gvg_aib_gr(
         gr_instance.case.meta["ech0211-submitted"] = True
         gr_instance.case.save()
 
-    gr_instance.case.document.form.slug = dossier_type
-    gr_instance.case.document.form.save()
+    gr_instance.case.document.form = caluma_form_factory(slug=dossier_type)
+    gr_instance.case.document.save()
 
     gvg_service = service_factory.create(slug=gr_constants.GVG_SERVICE_SLUG)
     aib_service = service_factory.create(slug=gr_constants.AIB_SERVICE_SLUG)
@@ -1007,11 +1030,13 @@ def test_involve_gvg_aib_gr(
         case=gr_instance.case,
         status=WorkItem.STATUS_COMPLETED,
     )
-    work_item_construction = caluma_work_item_factory(
-        task_id="construction-acceptance",
-        case=gr_instance.case,
-        status=WorkItem.STATUS_COMPLETED,
-    )
+    work_item_construction = None
+    if has_cm_workitem:
+        work_item_construction = caluma_work_item_factory(
+            task_id="construction-acceptance",
+            case=gr_instance.case,
+            status=WorkItem.STATUS_COMPLETED,
+        )
 
     if gvg_answer:
         caluma_answer_factory(
@@ -1021,13 +1046,18 @@ def test_involve_gvg_aib_gr(
         )
 
     if aib_answer:
-        caluma_answer_factory(
-            document=work_item_construction.document
-            if aib_workitem == "construction"
-            else work_item_decision.document,
-            question=Question.objects.get(slug="fuer-aib-freigeben"),
-            value=["fuer-aib-freigeben-ja"],
-        )
+        if aib_workitem == "decision":
+            caluma_answer_factory(
+                document=work_item_decision.document,
+                question=Question.objects.get(slug="fuer-aib-freigeben"),
+                value=["fuer-aib-freigeben-ja"],
+            )
+        elif has_cm_workitem:
+            caluma_answer_factory(
+                document=work_item_construction.document,
+                question=Question.objects.get(slug="fuer-aib-freigeben"),
+                value=["fuer-aib-freigeben-ja"],
+            )
 
     events.core.Trigger.decision_decreed(None, gr_instance)
     events.core.Trigger.instance_completed(None, gr_instance)

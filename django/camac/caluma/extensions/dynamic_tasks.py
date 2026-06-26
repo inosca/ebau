@@ -131,10 +131,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
             # construction monitoring is already started on dossier submit in GR,
             # if the module is enabled.
             return (
-                []
-                if settings.CONSTRUCTION_MONITORING
-                and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
-                else ["construction-acceptance"]
+                [] if settings.CONSTRUCTION_MONITORING else ["construction-acceptance"]
             )
 
         return []
@@ -491,21 +488,8 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     def resolve_after_submit_gr(self, case, user, prev_work_item, context):
         tasks = ["create-manual-workitems", "formal-exam", "init-additional-demand"]
-        form_id = case.document.form_id
 
-        # construction monitoring is not enabled on bauanzeige,
-        # vorlaeufige-beurteilung and solaranlage forms in GR.
-        disabled_forms_construction_monitoring = [
-            *gr_constants.BAUANZEIGE_FORMS,
-            *gr_constants.SOLARANLAGE_FORMS,
-            *gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
-        ]
-
-        if (
-            settings.CONSTRUCTION_MONITORING
-            and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
-            and form_id not in disabled_forms_construction_monitoring
-        ):
+        if can_perform_construction_monitoring(case.instance):
             tasks.append("init-construction-monitoring")
 
         return tasks
