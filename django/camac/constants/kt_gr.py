@@ -32,6 +32,7 @@ SOLARANLAGE_FORMS = [
     "solaranlage-v6",
     "solaranlage-andere",
 ]
+MIGRATED_INSTANCE_FORMS = ["migriertes-dossier"]
 
 PUBLIC_INSTANCES_URL_PREFIXES = {
     "de": "/oeffentliche-auflage",

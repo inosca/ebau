@@ -1,5 +1,6 @@
 """WARNING: Any key that is either "TASK or ends with "_TASK" will be picked up by the visibilty filter for work items (see django/camac/extensions/visibilities.py)."""
 
+from camac.constants import kt_gr as gr_constants
 from camac.settings.env import env
 
 CONSTRUCTION_MONITORING = {
@@ -172,6 +173,10 @@ CONSTRUCTION_MONITORING = {
             "QUESTION": "schnurgeruestabnahme-durch",
             "ANSWER": "schnurgeruestabnahme-durch-gemeinde",
         },
+        "ALLOW_FORMS": [
+            *gr_constants.BAUGESUCH_FORMS,
+            *gr_constants.MIGRATED_INSTANCE_FORMS,
+        ],
         "NOTIFICATIONS": {
             "construction-step-baufreigabe": [
                 {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}

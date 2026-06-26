@@ -281,7 +281,10 @@ def test_after_decision_gr(
     application_settings,
 ):
     application_settings["SHORT_NAME"] = "gr"
-    gr_construction_monitoring_settings["ENABLED"] = construction_monitoring_enabled
+    if construction_monitoring_enabled:
+        gr_construction_monitoring_settings["ENABLED"] = True
+    else:
+        gr_construction_monitoring_settings.clear()
 
     mocker.patch.object(
         domain_logic.DecisionLogic,

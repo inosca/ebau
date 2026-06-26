@@ -606,7 +606,10 @@ def test_can_perform_construction_monitoring_allow_forms(
     # parametrize fixtures
     allow_forms_setting,
     should_be_allowed,
+    application_settings,
 ):
+    construction_monitoring_settings["ENABLED"] = True
+    application_settings["FORM_BACKEND"] = "camac-ng"
     instance.form.family = form_factory(name="building-permit-camac")
     instance.form.save()
 
@@ -642,7 +645,11 @@ def test_can_perform_construction_monitoring_ur(
     #
     expected_value,
     decision_answer,
+    application_settings,
 ):
+    construction_monitoring_settings["ENABLED"] = True
+    application_settings["FORM_BACKEND"] = "camac-ng"
+
     instance.case = caluma_case_factory()
     instance.save()
     complete_check_work_item = caluma_work_item_factory(

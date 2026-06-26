@@ -1480,8 +1480,13 @@ def test_set_workflow_state_gr(
     gr_address_assignment_settings,
     construction_monitoring_enabled,
 ):
-    gr_construction_monitoring_settings["ENABLED"] = construction_monitoring_enabled
-    gr_address_assignment_settings["ENABLED"] = construction_monitoring_enabled
+    if not construction_monitoring_enabled:
+        gr_construction_monitoring_settings.clear()
+        gr_address_assignment_settings.clear()
+    else:
+        gr_construction_monitoring_settings["ALLOW_FORMS"].append(
+            gr_instance.case.document.form_id
+        )
 
     writer = setup_dossier_writer("kt_gr")
     dossier._meta.target_state = target_state

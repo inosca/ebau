@@ -32,17 +32,10 @@ def _should_include_special_service(instance, service_name):
     if settings.APPLICATION_NAME != "kt_gr":
         return False
 
-    forms_no_construction_monitoring = [
-        *gr_constants.BAUANZEIGE_FORMS,
-        *gr_constants.SOLARANLAGE_FORMS,
-        *gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
-    ]
-    is_special_form = (
-        instance.case.document.form.slug in forms_no_construction_monitoring
-    )
-
     if service_name == gr_constants.GVG_SERVICE_SLUG:
-        if is_special_form:
+        # only for a baugesuch form, we check for the checkbox answer in the
+        # decision workitem.
+        if instance.case.document.form_id not in gr_constants.BAUGESUCH_FORMS:
             return False
 
         question_id = "fuer-gvg-freigeben"
@@ -50,9 +43,14 @@ def _should_include_special_service(instance, service_name):
 
     elif service_name == gr_constants.AIB_SERVICE_SLUG:
         question_id = "fuer-aib-freigeben"
+        # if a construction-acceptance task workitem exists, we check the
+        # checkbox answer in that workitem, otherwise fallback to the
+        # decision workitem.
         task_id = (
             "construction-acceptance"
-            if not is_special_form
+            if instance.case.work_items.filter(
+                task_id="construction-acceptance"
+            ).exists()
             else settings.DECISION["TASK"]
         )
 
