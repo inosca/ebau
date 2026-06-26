@@ -1,5 +1,7 @@
 from collections import OrderedDict
 from decimal import Decimal
+from difflib import ndiff
+from logging import Logger, getLogger
 from typing import List, TypedDict, Union
 from unicodedata import normalize
 
@@ -11,6 +13,8 @@ from camac.instance.models import Instance
 from camac.settings.modules.billing_schema import ProductNumberConfig
 from camac.user.models import Group, Service
 from camac.utils import get_unversioned_slug
+
+log: Logger = getLogger(__name__)
 
 
 class OrganizationTotals(TypedDict):
@@ -198,7 +202,17 @@ def get_invoice_text_sz(instance: Instance) -> str:
         invoice_text += 2 * newline
         invoice_text += f"{street.value}, {location.value}"
 
-    return sanitize_text_to_wilken_encoding(invoice_text)
+    sanitized_text = sanitize_text_to_wilken_encoding(invoice_text)
+
+    if sanitized_text != invoice_text:
+        log.warning(f"Sanitization in instance: {instance}")
+        # Escape newline to see the diff more easily in logs
+        original_text = invoice_text.replace("\n", "\\n")
+        diffs = ndiff([original_text], [sanitized_text])
+
+        log.warning(f"\ndiff:\n{'\n'.join(diffs)}")
+
+    return sanitized_text
 
 
 def sanitize_text_to_wilken_encoding(original_text: str) -> str:
