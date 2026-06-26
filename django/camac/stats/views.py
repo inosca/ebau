@@ -2,7 +2,6 @@ from datetime import date
 
 from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import WorkItem
-from django.conf import settings
 from django.db.models import (
     Avg,
     Case,
@@ -27,6 +26,7 @@ from rest_framework.response import Response
 from camac.caluma.models import Inquiry
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
+from camac.settings.utils import is_module_enabled
 from camac.stats.cycle_time import aggregate_cycle_times
 from camac.stats.filters import (
     ClaimSummaryFilterSet,
@@ -81,7 +81,7 @@ class InquiriesSummaryView(ListAPIView):
     serializer_class = InquiriesSummarySerializer
 
     def get_base_queryset(self) -> QuerySet:
-        if not settings.DISTRIBUTION:  # pragma: no cover
+        if not is_module_enabled("DISTRIBUTION"):  # pragma: no cover
             return WorkItem.objects.none()
 
         return Inquiry.objects.only_answered()

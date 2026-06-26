@@ -37,6 +37,7 @@ from camac.instance.serializers import (
 )
 from camac.permissions import api as permissions_api
 from camac.permissions.events import core as permissions_events
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
 
 from .constants import ECH0211_NAMESPACES, ECH_JUDGEMENT_DECLINED
@@ -783,7 +784,7 @@ class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
         )
 
         # check extension to allow dossierkorrektur and save as an answer in the form.
-        if settings.TIMELINES.enabled:
+        if is_module_enabled("TIMELINES"):
             elements = (
                 self.data.eventRequest.extension.wildcardElements()
                 if self.data.eventRequest.extension

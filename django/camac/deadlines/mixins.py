@@ -1,8 +1,7 @@
-from django.conf import settings
-
 from camac.caluma.models import Instance
 from camac.constants.kt_gr import ARE_SERVICE_GROUP
 from camac.core.utils import canton_aware
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
 
 
@@ -30,8 +29,7 @@ class DeadlinePermissionMixin:
     def has_deadline_access(self, service: Service) -> bool:
         """Check if the service group is allowed."""
         return (
-            settings.DEADLINES
-            and settings.DEADLINES.enabled
+            is_module_enabled("DEADLINES")
             and service
             and service.service_group
             and service.service_group.name in self.allowed_service_groups()

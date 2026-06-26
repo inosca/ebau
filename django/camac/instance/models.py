@@ -10,6 +10,7 @@ from django.db.models import Q
 from camac.core.models import HistoryActionConfig
 from camac.core.utils import canton_aware
 from camac.instance.master_data import MasterData
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service, User
 from camac.user.permissions import get_role_name
 from camac.utils import build_url
@@ -193,7 +194,7 @@ class Instance(models.Model):
     @canton_aware
     def get_linked_instances(self, queryset=None):
         if (
-            not settings.LINKED_INSTANCES.enabled or not self.instance_group
+            not is_module_enabled("LINKED_INSTANCES") or not self.instance_group
         ):  # pragma: no cover
             return Instance.objects.none()
 
@@ -476,7 +477,7 @@ class Instance(models.Model):
     def update_bab_status(self):
         md = MasterData(self.case)
 
-        if not settings.BAB or not settings.BAB.get("ENABLED"):
+        if not is_module_enabled("BAB"):
             return
 
         if any(getattr(md, prop) for prop in settings.BAB["MASTER_DATA_PROPERTIES"]):

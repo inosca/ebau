@@ -11,6 +11,8 @@ from django.utils.text import smart_split, unescape_string_literal
 from django.utils.translation import get_language, gettext as _
 from django_json_widget.widgets import JSONEditorWidget
 
+from camac.settings.utils import is_module_enabled
+
 
 class DjangoAdminSite(AdminSite):
     site_header = _("eBau")
@@ -22,7 +24,7 @@ class EbauAdminMixin:
     formfield_overrides = {JSONField: {"widget": JSONEditorWidget}}
 
     def has_module_permission(self, request):
-        if not settings.DJANGO_ADMIN:
+        if not is_module_enabled("DJANGO_ADMIN"):
             return False
 
         model_name = f"{self.model._meta.app_label}.{self.model._meta.object_name}"

@@ -55,6 +55,7 @@ from camac.permissions.events.core import Trigger
 from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import permission_switching_method
 from camac.response import make_xlsx_response
+from camac.settings.utils import is_module_enabled
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.models import Service, User
 from camac.user.permissions import (
@@ -509,7 +510,7 @@ class InstanceView(
         return False
 
     def has_object_correction_permission_for_municipality(self, instance):
-        if not settings.CORRECTION:  # pragma: no cover
+        if not is_module_enabled("CORRECTION"):  # pragma: no cover
             return False
 
         if self.request.group.role.name != "municipality-lead":
@@ -1051,7 +1052,7 @@ class InstanceView(
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True)
     def appeal(self, request, pk):
-        if not settings.APPEAL:
+        if not is_module_enabled("APPEAL"):
             raise NotFound()
 
         return self._custom_serializer_action(
@@ -1138,7 +1139,7 @@ class InstanceView(
         renderer_classes=[JSONRenderer],
     )
     def master_data(self, request, pk=None):
-        if not settings.MASTER_DATA:  # pragma: no cover
+        if not is_module_enabled("MASTER_DATA"):  # pragma: no cover
             raise NotFound()
 
         instance = self.get_object()

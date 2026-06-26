@@ -37,6 +37,7 @@ from camac.instance.utils import get_construction_control, get_municipality
 from camac.permissions import models as permission_models
 from camac.permissions.api import PermissionManager
 from camac.permissions.exceptions import RevocationRejected
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
 from camac.user.utils import get_support_role
 
@@ -516,7 +517,7 @@ class Command(BaseCommand):
             type=permission_models.GRANT_CHOICES.SERVICE.value,
         )
 
-        if not settings.DISTRIBUTION:
+        if not is_module_enabled("DISTRIBUTION"):
             log.warning(
                 "Non-Distribution workflows are not supported, "
                 "as they are on the way out (Last canton is UR, and "

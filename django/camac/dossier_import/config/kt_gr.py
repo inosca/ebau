@@ -35,6 +35,7 @@ from camac.dossier_import.writers import (
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.permissions.events import core as permissions_events
+from camac.settings.utils import is_module_enabled
 from camac.tags.models import Keyword
 
 PERSON_VALUE_MAPPING = {
@@ -115,7 +116,7 @@ class KtGraubundenDossierWriter(DossierWriter):
     def create_instance(self, dossier: Dossier) -> Instance:
         # Todo: remove this clause when construction monitoring is on production.
         instance_state_mapping = settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"]
-        if not settings.CONSTRUCTION_MONITORING:  # pragma: no cover
+        if not is_module_enabled("CONSTRUCTION_MONITORING"):  # pragma: no cover
             instance_state_mapping["APPROVED"] = "construction-acceptance"
 
         instance_state = InstanceState.objects.get(
@@ -263,7 +264,11 @@ class KtGraubundenDossierWriter(DossierWriter):
         DONE = (
             DECIDED
             + ["create-manual-workitems"]
-            + ([] if settings.CONSTRUCTION_MONITORING else ["construction-acceptance"])
+            + (
+                []
+                if is_module_enabled("CONSTRUCTION_MONITORING")
+                else ["construction-acceptance"]
+            )
         )
 
         path_to_state = {

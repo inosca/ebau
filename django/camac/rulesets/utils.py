@@ -4,6 +4,7 @@ from camac.instance.models import Instance
 from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
 from camac.rulesets.models import ResponsibleUserRule
 from camac.settings.modules.rulesets_schema import ResponsibleUserRuleConfig
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
 
 
@@ -18,7 +19,7 @@ def assign_responsible_user(instance: Instance, service: Service) -> None:
     module_settings: ResponsibleUserRuleConfig = settings.RULESETS.responsible_user_rule
 
     if (
-        not settings.RULESETS.enabled or not module_settings.automatically_assign
+        not is_module_enabled("RULESETS") or not module_settings.automatically_assign
     ):  # pragma: no cover
         return
 

@@ -12,6 +12,7 @@ from camac.caluma.api import CalumaApi
 from camac.constants import kt_uri as uri_constants
 from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service, ServiceRelation
 
 log = logging.getLogger()
@@ -200,7 +201,7 @@ class CustomDynamicGroups(BaseDynamicGroups):
 
     @register_dynamic_group("service-bab")
     def resolve_service_bab(self, task, case, user, prev_work_item, context, **kwargs):
-        if not settings.BAB:  # pragma: no cover
+        if not is_module_enabled("BAB"):  # pragma: no cover
             return []
 
         # In case they mistakingly configure multiple BaB groups or have multiple BaB sub services

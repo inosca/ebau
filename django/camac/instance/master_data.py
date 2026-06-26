@@ -17,6 +17,7 @@ from django.utils.translation import get_language
 
 from camac import request_cache
 from camac.core.models import MultilingualModel, ServiceContent
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
 from camac.utils import get_dict_item
 
@@ -857,7 +858,7 @@ class MasterData(object):
         prefetch_related = set()
         select_related = set()
 
-        if not settings.MASTER_DATA:
+        if not is_module_enabled("MASTER_DATA"):
             return queryset
 
         config = settings.MASTER_DATA["CONFIG"].values()

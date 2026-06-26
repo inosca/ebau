@@ -46,6 +46,7 @@ from camac.filters import (
 from camac.instance.export.filters import StringAggSubquery
 from camac.instance.master_data import MasterData
 from camac.sanctions.models import Sanction
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
 
 from ..core import models as core_models
@@ -739,7 +740,7 @@ class CaseSuspendedFilter(CharFilter):
 class CaseBabFilter(CharFilter):
     @canton_aware
     def filter(self, queryset, value):
-        if not settings.BAB or value not in ["bib", "bab"]:
+        if not is_module_enabled("BAB") or value not in ["bib", "bab"]:
             return queryset
 
         if value == "bib":
@@ -753,7 +754,7 @@ class CaseBabFilter(CharFilter):
             return queryset.filter(Q(**{"case__meta__is-bab": True}))
 
     def filter_gr(self, queryset, value):
-        if not settings.BAB or value not in ["bib", "bab"]:
+        if not is_module_enabled("BAB") or value not in ["bib", "bab"]:
             return queryset
 
         queryset = queryset.filter(
@@ -935,7 +936,7 @@ class InstanceFilterSet(FilterSet):
         )
 
     def filter_circulation_service(self, queryset, name, value):
-        if settings.DISTRIBUTION:
+        if is_module_enabled("DISTRIBUTION"):
             pks = [str(pk) for pk in value] if isinstance(value, list) else [str(value)]
             return queryset.filter(
                 Exists(

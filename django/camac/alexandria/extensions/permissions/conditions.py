@@ -2,6 +2,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 
 from camac.caluma.api import CalumaApi
+from camac.settings.utils import is_module_enabled
 from camac.timelines.models import FormTimeline
 from camac.user.permissions import is_allowed_client
 
@@ -72,7 +73,7 @@ class PaperInstance(Condition):
 class MigratedInstance(Condition):
     def evaluate(self) -> bool:
         return (
-            settings.DOSSIER_IMPORT
+            is_module_enabled("DOSSIER_IMPORT")
             and self.instance.case.document.form_id
             == settings.DOSSIER_IMPORT["CALUMA_FORM"]
         ) == self.value
@@ -81,14 +82,14 @@ class MigratedInstance(Condition):
 class BaBInstance(Condition):
     def evaluate(self) -> bool:
         return (
-            settings.BAB and self.instance.case.meta.get("is-bab", False)
+            is_module_enabled("BAB") and self.instance.case.meta.get("is-bab", False)
         ) == self.value
 
 
 class BaBService(Condition):
     def evaluate(self) -> bool:
         return (
-            settings.BAB
+            is_module_enabled("BAB")
             and self.request.group.service.service_group.name
             == settings.BAB["SERVICE_GROUP"]
         ) == self.value

@@ -21,6 +21,7 @@ from camac.instance.utils import (
     get_lead_authority,
     set_construction_control,
 )
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Group, Service
 from camac.utils import get_unversioned_slug
 
@@ -44,9 +45,8 @@ class DecisionLogic:
                     cls.copy_responsible_person_lead_authority(
                         instance, construction_control
                     )
-            elif (
-                settings.APPLICATION_NAME == "kt_gr"
-                and not settings.CONSTRUCTION_MONITORING
+            elif settings.APPLICATION_NAME == "kt_gr" and not is_module_enabled(
+                "CONSTRUCTION_MONITORING"
             ):
                 # todo: remove this clause when construction monitoring is on production.
                 instance.set_instance_state("construction-acceptance", camac_user)
@@ -59,7 +59,7 @@ class DecisionLogic:
             return
 
         is_withdrawal_state = bool(
-            settings.WITHDRAWAL
+            is_module_enabled("WITHDRAWAL")
             and instance.instance_state.name == settings.WITHDRAWAL["INSTANCE_STATE"]
         )
         if is_withdrawal_state:
@@ -82,7 +82,7 @@ class DecisionLogic:
             return
 
         is_light_withdrawal = bool(
-            settings.WITHDRAWAL
+            is_module_enabled("WITHDRAWAL")
             and settings.WITHDRAWAL["TYPE"] == "light"
             and cls.get_decision_answer(
                 question_id=settings.DECISION["QUESTIONS"]["DECISION"],
@@ -124,11 +124,11 @@ class DecisionLogic:
         # construction monitoring, we do not continue the workflow after the decision.
         # without construction monitoring, the workflow should not be continued
         # for certain instance types (bauanzeige, solaranlage, vorlaeufige-beurteilung)
-        if settings.CONSTRUCTION_MONITORING and not can_perform_construction_monitoring(
-            instance
-        ):
+        if is_module_enabled(
+            "CONSTRUCTION_MONITORING"
+        ) and not can_perform_construction_monitoring(instance):
             return False
-        elif not settings.CONSTRUCTION_MONITORING and (
+        elif not is_module_enabled("CONSTRUCTION_MONITORING") and (
             instance.case.document.form_id
             in [
                 *gr_constants.BAUANZEIGE_FORMS,
@@ -234,7 +234,7 @@ class DecisionLogic:
             work_item=work_item,
         )
 
-        if settings.APPEAL and work_item.case.meta.get("is-appeal"):
+        if is_module_enabled("APPEAL") and work_item.case.meta.get("is-appeal"):
             previous_instance = work_item.case.document.source.case.instance
             previous_state = previous_instance.previous_instance_state.name
 
@@ -319,7 +319,7 @@ class DecisionLogic:
 
     @classmethod
     def handle_appeal_decision(cls, instance, work_item, user, camac_user):
-        if not settings.APPEAL or not instance.case.meta.get("is-appeal"):
+        if not is_module_enabled("APPEAL") or not instance.case.meta.get("is-appeal"):
             return
 
         decision = cls.get_decision_answer(
@@ -414,13 +414,13 @@ class DecisionLogic:
     @classmethod
     @canton_aware
     def get_notification_config(cls, instance, work_item):
-        if instance.case.meta.get("is-appeal") and settings.APPEAL:
+        if instance.case.meta.get("is-appeal") and is_module_enabled("APPEAL"):
             return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
         return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
 
     @classmethod
     def get_notification_config_be(cls, instance, work_item):
-        if instance.case.meta.get("is-appeal") and settings.APPEAL:
+        if instance.case.meta.get("is-appeal") and is_module_enabled("APPEAL"):
             return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
 
         decision_answer = cls.get_decision_answer(
@@ -451,7 +451,7 @@ class DecisionLogic:
 
     @classmethod
     def get_notification_config_so(cls, instance, work_item):
-        if instance.case.meta.get("is-appeal") and settings.APPEAL:
+        if instance.case.meta.get("is-appeal") and is_module_enabled("APPEAL"):
             return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
         elif (
             get_unversioned_slug(instance.case.document.form_id) != "baugesuch"

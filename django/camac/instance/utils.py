@@ -20,6 +20,7 @@ from camac.caluma.api import CalumaApi
 from camac.constants import kt_bern as bern_constants
 from camac.document.models import Attachment, AttachmentSection
 from camac.instance.models import Instance
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Group, Service, ServiceRelation, User
 
 from . import document_merge_service
@@ -311,7 +312,7 @@ def geometer_cadastral_survey_necessary_answer(instance):
 
 
 def get_changeable_forms(current_form: str) -> Set[str]:
-    if not settings.CHANGE_FORM:  # pragma: no cover
+    if not is_module_enabled("CHANGE_FORM"):  # pragma: no cover
         return set()
 
     return set(

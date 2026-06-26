@@ -9,6 +9,7 @@ from django.utils import timezone
 from django.utils.translation import get_language, gettext as _
 
 from camac.caluma.utils import find_answer
+from camac.settings.utils import is_module_enabled
 from camac.utils import clean_join
 
 
@@ -215,7 +216,7 @@ def datetime_timestamp(value: Union[date, datetime, None]) -> str:
 
 
 def row_to_person(document: Document) -> dict:
-    if not settings.PLACEHOLDERS:  # pragma: no cover
+    if not is_module_enabled("PLACEHOLDERS"):  # pragma: no cover
         return None
 
     mapping = settings.PLACEHOLDERS["PERSON_MAPPING"]

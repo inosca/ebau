@@ -34,6 +34,7 @@ from camac.settings.modules.work_item_list_schema import (
     AnnotationsConfig,
     PersonConfig,
 )
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service, User
 
 
@@ -350,7 +351,7 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
         )
 
     def _annotate_target_deadline_date(self, service_id: int):
-        if not settings.DEADLINES.enabled:
+        if not is_module_enabled("DEADLINES"):
             return Value(None, output_field=DateField())
 
         return (
@@ -360,7 +361,7 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
         )
 
     def _annotate_process_deadline_date(self, service_id: int):
-        if not settings.DEADLINES.enabled:
+        if not is_module_enabled("DEADLINES"):
             return Value(None, output_field=DateField())
 
         return (
@@ -375,7 +376,7 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
         If the deadlines module is disabled, this will always return an empty list.
         """
 
-        if not settings.DEADLINES.enabled:
+        if not is_module_enabled("DEADLINES"):
             return Value([], output_field=ArrayField(base_field=models.CharField()))
 
         return F("case__family__meta__suspended-services")
@@ -453,7 +454,7 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
 
         annotations = {}
 
-        if settings.DISTRIBUTION:
+        if is_module_enabled("DISTRIBUTION"):
             INQUIRY_ANNOTATION = WorkItem.objects.filter(
                 Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
                 & Q(Q(pk=OuterRef("pk")) | Q(pk=OuterRef("case__parent_work_item")))
@@ -480,7 +481,7 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
                 }
             )
 
-        if settings.CONSTRUCTION_MONITORING:
+        if is_module_enabled("CONSTRUCTION_MONITORING"):
             CONSTRUCTION_STEP_ANNOTATION = WorkItem.objects.filter(
                 Q(**{"meta__construction-step-id__isnull": False})
                 & Q(Q(pk=OuterRef("pk")) | Q(pk=OuterRef("case__parent_work_item")))

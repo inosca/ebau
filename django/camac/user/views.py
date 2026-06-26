@@ -31,6 +31,7 @@ from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.permissions import CustomPermission
 from camac.core.utils import canton_aware
 from camac.core.views import MultilangMixin
+from camac.settings.utils import is_module_enabled
 from camac.swagger.utils import get_operation_description, group_param
 from camac.token_exchange.permissions import RequireLoT
 from camac.user.models import GeometerChangeTask
@@ -359,7 +360,7 @@ class MeView(
 
     @classmethod
     def include_in_swagger(cls):
-        return bool(settings.ECH0211)
+        return is_module_enabled("ECH0211")
 
     def get_object(self, *args, **kwargs):
         # Explicitly fetch the user object from the database in order to avoid
@@ -395,7 +396,7 @@ class GroupView(MultilangMixin, ReadOnlyModelViewSet):
 
     @classmethod
     def include_in_swagger(cls):
-        return bool(settings.ECH0211)
+        return is_module_enabled("ECH0211")
 
     @permission_aware
     def get_queryset(self):

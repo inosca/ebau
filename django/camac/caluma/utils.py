@@ -33,6 +33,7 @@ from rest_framework.authentication import get_authorization_header
 
 from camac.caluma.models import Inquiry
 from camac.lookups import Any
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Group, Service, User
 from camac.user.utils import get_group
 
@@ -166,7 +167,7 @@ def sync_inquiry_deadline(
 ) -> WorkItem:
     """Synchronize the inquriy deadline from input or the document."""
 
-    if not settings.DISTRIBUTION:  # pragma: no cover
+    if not is_module_enabled("DISTRIBUTION"):  # pragma: no cover
         return inquiry
 
     assert inquiry.task_id == settings.DISTRIBUTION["INQUIRY_TASK"], (

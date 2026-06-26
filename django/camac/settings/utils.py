@@ -145,12 +145,12 @@ def get_enabled_cantons_for_module(
         canton
         for canton, config in cantons
         if config
-        and (ignore_enabled_value or is_module_enabled(config))
+        and (ignore_enabled_value or is_module_config_enabled(config))
         and canton != "default"
     ]
 
 
-def is_module_enabled(config: dict | ModuleApplicationConfig) -> bool:
+def is_module_config_enabled(config: dict | ModuleApplicationConfig) -> bool:
     """Determine if a module is enabled based on configuration.
 
     It will use the configuration key based on the config type:
@@ -162,3 +162,11 @@ def is_module_enabled(config: dict | ModuleApplicationConfig) -> bool:
         return config.enabled
     else:
         return config.get("ENABLED", False)
+
+
+def is_module_enabled(module_name: str) -> bool:
+    """Check if a settings module is enabled or not.
+
+    Works for pydantic and regular dict configs.
+    """
+    return is_module_config_enabled(getattr(settings, module_name))

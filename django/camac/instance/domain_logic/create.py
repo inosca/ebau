@@ -26,6 +26,7 @@ from camac.core.utils import (
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance, InstanceGroup
 from camac.permissions.events.core import Trigger
+from camac.settings.utils import is_module_enabled
 from camac.timelines.models import FormTimeline
 from camac.user.models import Service
 from camac.user.permissions import permission_aware
@@ -619,9 +620,9 @@ class CreateInstanceLogic:
             ].get("EXTEND_VALIDITY_FORM"):
                 CreateInstanceLogic.copy_ebau_number(source_instance, instance, case)
 
-            if settings.TIMELINES.enabled:
+            if is_module_enabled("TIMELINES"):
                 was_rejected = (
-                    settings.REJECTION
+                    is_module_enabled("REJECTION")
                     and source_instance.instance_state.name
                     == settings.REJECTION["INSTANCE_STATE"]
                 )

@@ -16,13 +16,14 @@ from camac.core.utils import create_history_entry
 from camac.ech0211.signals import rejected, rejection_reverted
 from camac.instance.models import Instance
 from camac.notification.utils import send_mail_without_request
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Group, User
 
 
 class RejectionLogic:
     @classmethod
     def has_permission(cls, instance: Instance, camac_group: Group) -> bool:
-        if not settings.REJECTION:  # pragma: no cover
+        if not is_module_enabled("REJECTION"):  # pragma: no cover
             return False
 
         if (
@@ -47,7 +48,7 @@ class RejectionLogic:
             )
 
         if (
-            settings.ADDITIONAL_DEMAND
+            is_module_enabled("ADDITIONAL_DEMAND")
             and WorkItem.objects.filter(
                 task_id=settings.ADDITIONAL_DEMAND["TASK"],
                 status=WorkItem.STATUS_READY,
@@ -122,7 +123,7 @@ class RejectionLogic:
         # instance in rejected state will set the municipality deadline end date to
         # the rejection date. Because the date is fetched from the history entry, we
         # have to trigger the update after creating the history entry.
-        if settings.DEADLINES:
+        if is_module_enabled("DEADLINES"):
             for deadline in instance.deadlines.all():
                 # close all open suspensions.
                 for suspension in deadline.suspensions.only_open():
@@ -160,7 +161,7 @@ class RejectionLogic:
         # instance no longer in rejected state will set the municipality
         # deadline end date back to decision date or None if the decision
         # date is not yet set.
-        if settings.DEADLINES:
+        if is_module_enabled("DEADLINES"):
             for deadline in instance.deadlines.all():
                 deadline.update_progression()
 

@@ -18,6 +18,7 @@ from camac.mixins import AttributeMixin
 from camac.permissions.api import PermissionManager
 from camac.permissions.switcher import permission_switching_method
 from camac.request import get_request
+from camac.settings.utils import is_module_enabled
 from camac.user.models import User
 from camac.user.permissions import get_group, get_role_name, permission_aware
 
@@ -328,7 +329,7 @@ class InstanceQuerysetMixin(object):
         )
 
     def _instances_with_activation(self, group, extra_filters=None):
-        if settings.DISTRIBUTION:
+        if is_module_enabled("DISTRIBUTION"):
             # WARNING: if this logic changes, `hasInquiry` in
             # php/library/Custom/CalumaDistribution.php needs to be updated as
             # well
@@ -615,7 +616,7 @@ class InstanceEditableMixin(AttributeMixin):
         return self._validate_instance_editablity(instance)
 
     def has_activations(self, instance, service):
-        if settings.DISTRIBUTION:
+        if is_module_enabled("DISTRIBUTION"):
             return (
                 Inquiry.objects.for_instance(instance)
                 .addressed_to(service)

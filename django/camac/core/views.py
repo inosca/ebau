@@ -14,6 +14,7 @@ from camac.caluma.models import Inquiry
 from camac.core.utils import canton_aware
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import FormField, Instance
+from camac.settings.utils import is_module_enabled
 from camac.user.permissions import (
     DefaultPermission,
     PublicationPermission,
@@ -143,7 +144,7 @@ class PublicationEntryView(ModelViewSet):
         )
 
     def get_queryset_for_service(self):
-        if settings.DISTRIBUTION:
+        if is_module_enabled("DISTRIBUTION"):
             return models.PublicationEntry.objects.filter(
                 Exists(
                     Inquiry.objects.for_instance(OuterRef("instance"))
@@ -160,7 +161,7 @@ class PublicationEntryView(ModelViewSet):
         return models.PublicationEntry.objects.none()
 
     def get_queryset_for_reader(self):
-        if settings.DISTRIBUTION:
+        if is_module_enabled("DISTRIBUTION"):
             return models.PublicationEntry.objects.filter(
                 Q(instance__group__service_id=self.request.group.service_id)
                 | Exists(

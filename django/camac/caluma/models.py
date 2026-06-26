@@ -7,6 +7,7 @@ from django.conf import settings
 from django.db.models import Manager, OuterRef, Q, QuerySet
 
 from camac.instance.models import Instance
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
 
 T = TypeVar("T", bound="InquiryQuerySet")
@@ -157,7 +158,7 @@ class InquiryManager(Manager["Inquiry"]):
 
         queryset = super().get_queryset()
 
-        if not settings.DISTRIBUTION:  # pragma: no cover
+        if not is_module_enabled("DISTRIBUTION"):  # pragma: no cover
             return queryset.none()
 
         return queryset.filter(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])

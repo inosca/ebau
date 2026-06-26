@@ -13,6 +13,7 @@ from camac.billing.utils import (
 )
 from camac.instance.master_data import MasterData
 from camac.settings.modules.billing_schema import ProductNumberConfig
+from camac.settings.utils import is_module_enabled
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
     GroupResourceRelatedField,
@@ -64,7 +65,7 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
         ):
             construction_costs = (
                 MasterData(validated_data["instance"].case).construction_costs
-                if settings.MASTER_DATA
+                if is_module_enabled("MASTER_DATA")
                 else None
             )
 
