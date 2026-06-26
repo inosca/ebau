@@ -106,7 +106,6 @@ def test_reject_instance(
         "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
         return_value=False,
     )
-    deadlines_settings.enabled = True
     instance_state_factory(name=rejection_settings["INSTANCE_STATE"])
 
     deadline = instance_deadline_factory(
@@ -197,7 +196,6 @@ def test_revert_instance_rejection(
         "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
         return_value=False,
     )
-    deadlines_settings.enabled = True
     rejection_settings["NOTIFICATIONS"] = {
         "REVERTED": [
             {

@@ -30,7 +30,6 @@ def test_suspension_reasons_list(
     deadlines_settings,
 ):
     """Test the suspension reasons."""
-    deadlines_settings.enabled = True
     if allowed_reasons is not None:
         deadlines_settings.allowed_suspension_reasons = allowed_reasons
 

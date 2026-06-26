@@ -528,7 +528,6 @@ def test_construction_monitoring_work_item_visibility_service_gvg_gr(
     mocker,
 ):
     """Test workitem visibility for kt. GR for construction monitoring."""
-    construction_monitoring_settings["ENABLED"] = True
 
     group = admin_user.groups.first()
     group.service.slug = service_slug
@@ -608,7 +607,6 @@ def test_can_perform_construction_monitoring_allow_forms(
     should_be_allowed,
     application_settings,
 ):
-    construction_monitoring_settings["ENABLED"] = True
     application_settings["FORM_BACKEND"] = "camac-ng"
     instance.form.family = form_factory(name="building-permit-camac")
     instance.form.save()
@@ -647,7 +645,6 @@ def test_can_perform_construction_monitoring_ur(
     decision_answer,
     application_settings,
 ):
-    construction_monitoring_settings["ENABLED"] = True
     application_settings["FORM_BACKEND"] = "camac-ng"
 
     instance.case = caluma_case_factory()
@@ -803,7 +800,6 @@ def test_construction_monitoring_task_gvg_gr(
     set_application_gr,
 ):
     """In kt. GR the gvg should be granted when a workitem is addressed."""
-    construction_monitoring_settings["ENABLED"] = True
     access_level = access_level_factory(pk="distribution-service")
     task = caluma_task_factory(address_groups=["gebaudeversicherung"])
     gvg_service = service_factory(slug="gvg")

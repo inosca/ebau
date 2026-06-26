@@ -498,7 +498,6 @@ def test_correction(
     mocker,
     timelines_settings,
 ):
-    timelines_settings.enabled = True
     correction_settings["REGENERATE_PDF_ON_CORRECTION"] = True
     instance_state_factory(name="correction")
     instance_state = instance_state_factory(name="subm")
@@ -615,7 +614,6 @@ def test_additional_demand_changes(
     mocker,
     timelines_settings,
 ):
-    timelines_settings.enabled = True
     alexandria_mark_factory(pk="void")
     created_document = alexandria_document_factory(
         metainfo={

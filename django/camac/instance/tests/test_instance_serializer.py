@@ -178,7 +178,6 @@ def test_close_form_timelines(
     set_application_gr,
     timelines_settings,
 ):
-    timelines_settings.enabled = True
     case = caluma_case_factory(document__form__slug="baugesuch")
     instance_factory(case=case)
 

@@ -55,13 +55,13 @@ def test_complete_decision_gr(
     has_are_inquiry,
     decision_settings,
     construction_monitoring_enabled,
-    gr_construction_monitoring_settings,
     service,
     application_settings,
     gr_decision_settings,
     gr_ech0211_settings,
     set_application_gr,
     mocker,
+    request,
 ):
     are_service = service_factory(name="are", slug="are")
     gr_instance.case.document.form = caluma_form_factory(slug="baugesuch")
@@ -76,10 +76,10 @@ def test_complete_decision_gr(
         construction_monitoring_enabled and has_are_inquiry and decision == "APPROVED"
     )
 
-    if not construction_monitoring_enabled:
-        gr_construction_monitoring_settings.clear()
+    if construction_monitoring_enabled:
+        module_settings = request.getfixturevalue("gr_construction_monitoring_settings")
     else:
-        gr_construction_monitoring_settings["ENABLED"] = True
+        request.getfixturevalue("disable_construction_monitoring_settings")
 
     instance_state_factory(name="construction-acceptance")
     instance_state_factory(name="decided")
@@ -114,9 +114,7 @@ def test_complete_decision_gr(
     if construction_monitoring_enabled and decision == "APPROVED":
         init_construction_monitoring = caluma_work_item_factory(
             case=gr_instance.case,
-            task_id=gr_construction_monitoring_settings[
-                "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
-            ],
+            task_id=module_settings["CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"],
         )
         send_event(
             post_complete_work_item,

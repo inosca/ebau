@@ -111,7 +111,6 @@ def test_inquiry_default_values(
     to_service = service_factory()
 
     if has_deadline_rule:
-        rulesets_settings.enabled = True
         distribution_deadline_rule_factory(
             source_service=service, target_service=to_service, lead_time=100
         )

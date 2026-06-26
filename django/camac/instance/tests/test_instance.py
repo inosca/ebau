@@ -2457,11 +2457,8 @@ def test_case_bab_filter(
     expected,
     rf,
     mocker,
-    settings,
+    bab_settings,
 ):
-    settings.BAB = {
-        "ENABLED": True,
-    }
     service = service_factory()
     group = group_factory(service=service)
     caluma_form_factory(slug="baugesuch-v1")

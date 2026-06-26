@@ -271,7 +271,6 @@ def test_dynamic_task_after_decision_with_check_prevent_submit(
 def test_after_decision_gr(
     mocker,
     set_application_gr,
-    gr_construction_monitoring_settings,
     gr_instance,
     # parametrize
     construction_monitoring_enabled,
@@ -279,12 +278,14 @@ def test_after_decision_gr(
     form_id,
     expected_tasks,
     application_settings,
+    request,
 ):
     application_settings["SHORT_NAME"] = "gr"
+
     if construction_monitoring_enabled:
-        gr_construction_monitoring_settings["ENABLED"] = True
+        request.getfixturevalue("gr_construction_monitoring_settings")
     else:
-        gr_construction_monitoring_settings.clear()
+        request.getfixturevalue("disable_construction_monitoring_settings")
 
     mocker.patch.object(
         domain_logic.DecisionLogic,
@@ -1163,15 +1164,18 @@ def test_dynamic_task_after_formal_exam(
     gr_instance,
     gr_publication_settings,
     gr_distribution_settings,
-    gr_address_assignment_settings,
-    gr_construction_monitoring_settings,
     construction_monitoring_enabled,
     caluma_admin_user,
     form_slug,
     expected_tasks,
+    request,
 ):
-    gr_construction_monitoring_settings["ENABLED"] = construction_monitoring_enabled
-    gr_address_assignment_settings["ENABLED"] = construction_monitoring_enabled
+    if construction_monitoring_enabled:
+        request.getfixturevalue("gr_construction_monitoring_settings")
+        request.getfixturevalue("gr_address_assignment_settings")
+    else:
+        request.getfixturevalue("disable_construction_monitoring_settings")
+        request.getfixturevalue("disable_address_assignment_settings")
 
     gr_instance.case.document.form.slug = form_slug
     gr_instance.case.document.form.save()

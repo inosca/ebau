@@ -159,7 +159,9 @@ def load_fixtures_gr(
     caluma_dynamic_option_factory,
     service_factory,
     gr_decision_settings,
-    gr_construction_monitoring_settings,
+    # TODO: Uncomment this as soon as the construction monitoring module in GR
+    # is permanently enabled
+    # gr_construction_monitoring_settings,
     gr_permissions_settings,
     gr_distribution_settings,
 ):

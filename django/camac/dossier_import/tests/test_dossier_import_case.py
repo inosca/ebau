@@ -1476,17 +1476,16 @@ def test_set_workflow_state_gr(
     target_state,
     expected_work_items_states,
     expected_case_status,
-    gr_construction_monitoring_settings,
-    gr_address_assignment_settings,
     construction_monitoring_enabled,
+    request,
 ):
-    if not construction_monitoring_enabled:
-        gr_construction_monitoring_settings.clear()
-        gr_address_assignment_settings.clear()
+    if construction_monitoring_enabled:
+        module_settings = request.getfixturevalue("gr_construction_monitoring_settings")
+        request.getfixturevalue("gr_address_assignment_settings")
+        module_settings["ALLOW_FORMS"].append(gr_instance.case.document.form_id)
     else:
-        gr_construction_monitoring_settings["ALLOW_FORMS"].append(
-            gr_instance.case.document.form_id
-        )
+        request.getfixturevalue("disable_construction_monitoring_settings")
+        request.getfixturevalue("disable_address_assignment_settings")
 
     writer = setup_dossier_writer("kt_gr")
     dossier._meta.target_state = target_state
