@@ -1,0 +1,49 @@
+id: use-is-module-enabled-config
+language: python
+severity: error
+message: 'Use `is_module_enabled("MODULE")` instead of reading the module config directly'
+note: |
+  Import it with `from camac.settings.utils import is_module_enabled`.
+  `is_module_enabled` works for both pydantic (`.enabled`) and dict
+  (`["ENABLED"]` or `.get("ENABLED")`) module configs, so prefer it for all
+  module enable checks.
+rule:
+  any:
+    - pattern: settings.$MODULE.enabled
+    - pattern: settings.$MODULE["ENABLED"]
+    - pattern: settings.$MODULE.get("ENABLED")
+    - pattern: settings.$MODULE.get("ENABLED", False)
+constraints:
+  MODULE:
+    # Needs to be kept in sync with `django/camac/settings/django.py`
+    regex: "^(ADDITIONAL_DEMAND|ADDRESS_ASSIGNMENT|ALEXANDRIA|ALEXANDRIA_MIGRATION|APPEAL|APPLICANTS|BAB|BILLING|CHANGE_FORM|COMMUNICATIONS|CONSTRUCTION_MONITORING|CORRECTION|DEADLINES|DECISION|DISTRIBUTION|DJANGO_ADMIN|DMS|DOSSIER_IMPORT|DUMP|ECH0211|EEBA_INTEGRATION|LINKED_INSTANCES|MASTER_DATA|PARASHIFT|PERMISSIONS|PERMISSIONS_ALEXANDRIA|PLACEHOLDERS|PROJECT_MODIFICATION|PUBLICATION|REJECTION|RPG2|RULESETS|SANCTIONS|SERVICE|STATISTICS|SUBMIT|TAGS|TIMELINES|USER|WITHDRAWAL|WORK_ITEM_LIST)$"
+fix: 'is_module_enabled("$MODULE")'
+---
+id: use-is-module-enabled-empty-dict
+language: python
+severity: error
+message: 'Use `is_module_enabled("MODULE")` instead of the bare `settings.MODULE` truthiness check'
+note: |
+  Import it with `from camac.settings.utils import is_module_enabled`. A bare
+  `settings.MODULE` check relies on the config being falsy when disabled, which
+  does not hold for pydantic module configs. Use `is_module_enabled("MODULE")`
+  instead.
+rule:
+  any:
+    - all:
+        - pattern: settings.$MODULE
+        - any:
+            - inside: { kind: if_statement, field: condition }
+            - inside: { kind: elif_clause, field: condition }
+            - inside: { kind: while_statement, field: condition }
+            - inside: { kind: not_operator }
+            # operands of `and` (but not `or`, which is also used for value
+            # fallbacks like `permission_settings or settings.PERMISSIONS`)
+            - inside: { pattern: $L and $R, field: left }
+            - inside: { pattern: $L and $R, field: right }
+    - pattern: bool(settings.$MODULE)
+constraints:
+  MODULE:
+    # Needs to be kept in sync with `django/camac/settings/django.py`
+    regex: "^(ADDITIONAL_DEMAND|ADDRESS_ASSIGNMENT|ALEXANDRIA|ALEXANDRIA_MIGRATION|APPEAL|APPLICANTS|BAB|BILLING|CHANGE_FORM|COMMUNICATIONS|CONSTRUCTION_MONITORING|CORRECTION|DEADLINES|DECISION|DISTRIBUTION|DJANGO_ADMIN|DMS|DOSSIER_IMPORT|DUMP|ECH0211|EEBA_INTEGRATION|LINKED_INSTANCES|MASTER_DATA|PARASHIFT|PERMISSIONS|PERMISSIONS_ALEXANDRIA|PLACEHOLDERS|PROJECT_MODIFICATION|PUBLICATION|REJECTION|RPG2|RULESETS|SANCTIONS|SERVICE|STATISTICS|SUBMIT|TAGS|TIMELINES|USER|WITHDRAWAL|WORK_ITEM_LIST)$"
+fix: 'is_module_enabled("$MODULE")'
