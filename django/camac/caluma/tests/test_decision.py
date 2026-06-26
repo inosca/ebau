@@ -1021,6 +1021,7 @@ def test_get_notification_config_be(
     settings,
     application_settings,
     be_decision_settings,
+    be_appeal_settings,
     is_preliminary_clarification,
     is_other_decision,
     is_appeal,
@@ -1029,7 +1030,7 @@ def test_get_notification_config_be(
     form_utils: FormUtils,
     master_data_settings,
 ):
-    settings.APPLICATION_NAME = "kt_be"
+    settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
     application_settings["NOTIFICATIONS"] = {
         "DECISION": [
@@ -1066,15 +1067,13 @@ def test_get_notification_config_be(
         be_instance.case.save()
 
     elif is_appeal:
-        settings.APPEAL = {
-            "NOTIFICATIONS": {
-                "APPEAL_DECISION": [
-                    {
-                        "template_slug": "decision-appeal",
-                        "recipient_types": ["applicant"],
-                    }
-                ]
-            }
+        be_appeal_settings["NOTIFICATIONS"] = {
+            "APPEAL_DECISION": [
+                {
+                    "template_slug": "decision-appeal",
+                    "recipient_types": ["applicant"],
+                }
+            ]
         }
         be_instance.case.meta["is-appeal"] = True
 
@@ -1143,6 +1142,7 @@ def test_get_notification_config_so(
     settings,
     application_settings,
     so_decision_settings,
+    so_appeal_settings,
     is_appeal,
     non_building_permit_decision,
     expected_notification_slug,
@@ -1178,15 +1178,13 @@ def test_get_notification_config_so(
     decision = caluma_work_item_factory(task_id="decision", case=so_instance.case)
 
     if is_appeal:
-        settings.APPEAL = {
-            "NOTIFICATIONS": {
-                "APPEAL_DECISION": [
-                    {
-                        "template_slug": "decision-appeal",
-                        "recipient_types": ["applicant"],
-                    }
-                ]
-            }
+        so_appeal_settings["NOTIFICATIONS"] = {
+            "APPEAL_DECISION": [
+                {
+                    "template_slug": "decision-appeal",
+                    "recipient_types": ["applicant"],
+                }
+            ]
         }
         so_instance.case.meta["is-appeal"] = True
 
