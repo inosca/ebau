@@ -3322,6 +3322,14 @@ def reload_urlconf(urlconf=None):
 
 
 @pytest.fixture
+def reload_urlconf_after():
+    yield
+    all_url_modules = [mod for mod in sys.modules if mod.endswith("urls")]
+    for mod in all_url_modules:
+        reload_urlconf(mod)
+
+
+@pytest.fixture
 def reload_ech0211_urls():
     reload_urlconf("camac.urls")
     reload_urlconf("camac.ech0211.urls")
