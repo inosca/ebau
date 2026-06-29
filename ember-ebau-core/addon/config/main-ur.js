@@ -99,7 +99,7 @@ export default {
   publication: {
     cancelNotification: {
       templateSlug: "9-1-stopp-publikation-an-amtsblatt",
-      recipientTypes: ["amtsblat_uri"],
+      recipientTypes: ["amtsblatt_uri"],
     },
     public: {
       task: "fill-publication",
