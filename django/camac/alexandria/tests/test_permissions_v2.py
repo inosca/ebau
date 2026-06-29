@@ -200,6 +200,17 @@ def test_alexandria_permissions_delete_document(
         ),
         pytest.param(
             {
+                "relationships": {
+                    "category": {
+                        "data": {"id": "same-parent-category", "type": "categories"}
+                    }
+                },
+            },
+            P("test:all") | P(P("test:create")),
+            id="move_same_parent_category",
+        ),
+        pytest.param(
+            {
                 "attributes": {
                     "title": "Test!",
                 },
@@ -237,6 +248,7 @@ def test_alexandria_permissions_update_document(
     alexandria_tag_factory(pk="aacb9ffe-acb5-4ebc-8262-9beaedad0cb6")
     alexandria_mark_factory(pk="some-mark")
     alexandria_category_factory(pk="other-category")
+    alexandria_category_factory(pk="same-parent-category", parent_id="test")
 
     response = admin_client.patch(
         reverse("document-detail", args=[document.pk]),

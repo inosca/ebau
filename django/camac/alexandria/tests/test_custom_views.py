@@ -5,7 +5,9 @@ from rest_framework import status
 
 from camac.alexandria.extensions.permissions.extension import MODE_CREATE
 from camac.conftest import reload_urlconf
-from camac.permissions.conditions import Always, IsPaper, Never
+from camac.permissions.api import GRANT_CHOICES, grant
+from camac.permissions.conditions import Always, IsPaper, Never, RequireInstanceState
+from camac.permissions.switcher import PERMISSION_MODE
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -30,6 +32,53 @@ def test_category_permission_view(admin_client, instance, has_create_permission)
             }
         }
     )
+
+    response = admin_client.get(
+        reverse("category-permissions", args=[category.pk]),
+        data={"instance": instance.pk},
+        HTTP_ACCEPT="application/json",
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert (MODE_CREATE in response.json()) == has_create_permission
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "instance_state__name,has_create_permission", [("new", True), ("other", False)]
+)
+def test_category_permission_view_v2(
+    admin_client,
+    instance,
+    service,
+    access_level_factory,
+    has_create_permission,
+    alexandria_settings,
+    permissions_alexandria_settings,
+    permissions_settings,
+):
+    alexandria_settings["USE_V2_PERMISSIONS"] = True
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+
+    access_level = access_level_factory()
+    grant(
+        instance,
+        grant_type=GRANT_CHOICES.SERVICE.value,
+        access_level=access_level,
+        service=service,
+    )
+    category = CategoryFactory(
+        metainfo={
+            "access": {
+                "Municipality": {"visibility": "all"},
+            }
+        }
+    )
+    permissions_alexandria_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            (f"{category.pk}:create", RequireInstanceState("new")),
+        ]
+    }
 
     response = admin_client.get(
         reverse("category-permissions", args=[category.pk]),
@@ -94,8 +143,8 @@ def test_alexandria_permissions_debugger_view(
 
 
 @pytest.mark.parametrize("by", ["category", "role"])
+@pytest.mark.django_db
 def test_alexandria_visibilities_debugger_view(
-    db,
     access_level_factory,
     alexandria_category_factory,
     alexandria_mark_factory,

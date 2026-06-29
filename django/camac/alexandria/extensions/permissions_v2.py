@@ -58,6 +58,30 @@ def get_changed_fields(request: Request, document: Document) -> dict[str, tuple]
     return changed_fields
 
 
+def get_category_prefix(obj: str | Document | Category) -> str:
+    """Get category prefix for requested permissions.
+
+    This must always return a category slug. As child categories cannot have
+    their own permissions they need to use the permissions of the parent
+    category.
+    """
+
+    match obj:
+        case str():
+            category = Category.objects.get(pk=obj)
+        case Document():
+            category = obj.category
+        case Category():
+            category = obj
+        case _:  # pragma: no cover
+            raise RuntimeError()
+
+    if category.parent_id is not None:
+        return category.parent_id
+
+    return category.pk
+
+
 class AlexandriaPermissions:
     def scope(self, request: Request, obj: Document | Instance) -> PermissionScope:
         """Get permission scope for the current request and object."""
@@ -72,18 +96,7 @@ class AlexandriaPermissions:
         category.
         """
 
-        match obj:
-            case str():
-                category = Category.objects.get(pk=obj)
-            case Document():
-                category = obj.category
-            case _:  # pragma: no cover
-                raise RuntimeError()
-
-        if category.parent_id is not None:
-            return category.parent_id
-
-        return category.pk
+        return get_category_prefix(obj)
 
     @property
     def base_permission(self) -> P:
@@ -319,13 +332,25 @@ class AlexandriaPermissions:
             action_permissions.append(P(f"{prefix}:tag"))
 
         if "category" in changed_fields:
-            action_permissions.append(P(f"{prefix}:move"))
+            # if we move within the same parent category we don't need move permissions
+            # since permissions are always checked against the parent category.
+            # this allows to move documents within a parent category, but disallow
+            # moving files out of the category.
+            from_category_prefix = prefix
+            to_category_prefix = self.prefix(changed_fields["category"][1])
 
-            # If we move a document to another category we need to check that we
-            # have creation permission in the target category as well as move
-            # permissions in the current category.
-            new_category = self.prefix(changed_fields["category"][1])
-            extra_permission = P.any(f"{new_category}:all", f"{new_category}:create")
+            if from_category_prefix == to_category_prefix:
+                # If we move a document within the same parent category we only need
+                # the create permission in the category.
+                action_permissions.append(P(f"{from_category_prefix}:create"))
+            else:
+                action_permissions.append(P(f"{from_category_prefix}:move"))
+
+                # If we move a document to another category we need to check that we
+                # have creation permission in the target category.
+                extra_permission = P.any(
+                    f"{to_category_prefix}:all", f"{to_category_prefix}:create"
+                )
 
         if "marks" in changed_fields:
             old, new = changed_fields["marks"]
