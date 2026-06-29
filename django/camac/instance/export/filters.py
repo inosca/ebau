@@ -37,20 +37,31 @@ class JsonbText(Func):
     output_field = CharField()
 
 
-def caluma_answer(slug: str, ref: str = "case__document_id") -> QuerySet:
-    """Annotate the answer to a caluma question on a given document as a string.
+def caluma_answer(
+    slug: str,
+    ref: str = "case__document_id",
+    value_field: str = "value",
+) -> QuerySet:
+    """Annotate the answer to a caluma question on a given document.
 
-    This only works for answers to questions of the following types:
+    This only works for values from the following question types:
     - Text
     - Textarea
     - Choice
     - Dynamic choice (depending on what the data source uses as slug)
+    - Date
     """
+
+    value = (
+        NullIf(Trim(JsonbText(F(value_field))), Value(""))
+        if value_field == "value"
+        else F(value_field)
+    )
 
     return (
         Answer.objects.filter(question_id=slug, document_id=OuterRef(ref))
-        .annotate(string_value=NullIf(Trim(JsonbText(F("value"))), Value("")))
-        .values("string_value")[:1]
+        .annotate(answer_value=value)
+        .values("answer_value")[:1]
     )
 
 
@@ -509,6 +520,100 @@ class InstanceExportFilterBackendAG(InstanceExportFilterBackend):
             queryset.annotate(
                 decision_date=decision_date,
                 address=address,
+                parcels=self.annotate_parcels(),
+                building_project=self.annotate_building_project(),
+                applicants=self.annotate_applicants(),
+                applicants_emails=self.annotate_applicants_emails(),
+                municipality=self.annotate_municipality(),
+                instance_state_name=self.annotate_instance_state(),
+            )
+            .select_related("case", "case__document", "case__document__form")
+            .only(
+                "case__family",
+                "case__meta",
+                "case__document__family",
+                "case__document__form",
+                "case__document__form__name",
+                "instance_state",
+            )
+        )
+
+
+class InstanceExportFilterBackendGR(InstanceExportFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        queryset = super().filter_queryset(request, queryset, view)
+
+        coordinates = caluma_answer("gis-map")
+
+        decision_choice = (
+            Answer.objects.filter(
+                question_id="decision-decision",
+                document__work_item__status=WorkItem.STATUS_COMPLETED,
+                document__work_item__case__instance=OuterRef("pk"),
+            )
+            .annotate(
+                label=Option.objects.filter(
+                    pk=Replace(
+                        Cast(OuterRef("value"), output_field=CharField()),
+                        Value('"'),
+                        Value(""),
+                    )
+                ).values(f"label__{get_language()}")[:1],
+            )
+            .values("label")[:1]
+        )
+
+        decision_date = Answer.objects.filter(
+            question_id="decision-date",
+            document__work_item__status=WorkItem.STATUS_COMPLETED,
+            document__work_item__case__instance=OuterRef("pk"),
+        ).values("date")[:1]
+
+        building_start_date = caluma_answer(
+            "voraussichtlicher-baubeginn", value_field="date"
+        )
+
+        building_end_date = caluma_answer(
+            "voraussichtliche-fertigstellung", value_field="date"
+        )
+
+        building_cost = caluma_answer("baukosten")
+
+        # We need to put a `NullIf` function around the street and city in order
+        # to filter them out properly if empty. This is needed because
+        # `CONCAT_WS` always returns a string, even if all concatenated values
+        # are empty.
+        address = ConcatWS(
+            NullIf(
+                caluma_answer("street-and-housenumber"),
+                Value(""),
+            ),
+            NullIf(
+                caluma_answer("ort-grundstueck"),
+                Value(""),
+            ),
+            delimiter=", ",
+        )
+
+        keyword_names = StringAgg(
+            Trim("keywords__name"),
+            filter=Q(keywords__service_id=request.group.service_id),
+            order_by=Trim("keywords__name"),
+            distinct=True,
+            delimiter=", ",
+            default="",
+        )
+
+        return (
+            queryset.annotate(
+                decision_choice=decision_choice,
+                decision_date=decision_date,
+                coordinates=coordinates,
+                building_cost=building_cost,
+                building_start_date=building_start_date,
+                building_end_date=building_end_date,
+                address=address,
+                keyword_names=keyword_names,
                 parcels=self.annotate_parcels(),
                 building_project=self.annotate_building_project(),
                 applicants=self.annotate_applicants(),

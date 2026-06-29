@@ -73,6 +73,28 @@
     '',
   ])
 # ---
+# name: test_caluma_export_gr[Municipality]
+  list([
+    '2023-1',
+    'Baugesuch',
+    'Teststrasse 12, Testhausen',
+    '123465, 789876',
+    "2'609'995 / 1'271'340",
+    'Einfamilienhaus',
+    '31.03.2021',
+    'In Zirkulation',
+    'John Doe',
+    'Test AG',
+    'example@example.com',
+    'Chur',
+    '4000',
+    '05.05.2025',
+    '15.05.2025',
+    'Bewilligt',
+    '08.05.2025',
+    'Jonathon Cain',
+  ])
+# ---
 # name: test_caluma_export_sz[False-Gemeinde Schwyz-Municipality-200-1-3]
   list([
     '123-45-77',
