@@ -1,11 +1,12 @@
 id: fix-pytest-transactional-db-fixture-only
 language: python
+severity: error
 message: "Do not use the `transactional_db` fixture in tests"
 note: "Use the `@pytest.mark.django_db(transaction=True)` mark instead"
 rule:
   pattern: "def $FUNC(transactional_db): $$$BODY"
 constraints:
-  FUNC: {regex: "^test_"}
+  FUNC: { regex: "^test_" }
 fix: |
   @pytest.mark.django_db(transaction=True)
   def $FUNC():
@@ -13,12 +14,13 @@ fix: |
 ---
 id: fix-pytest-transactional-db-fixture-first
 language: python
+severity: error
 message: "Do not use the `transactional_db` fixture in tests"
 note: "Use the `@pytest.mark.django_db(transaction=True)` mark instead"
 rule:
   pattern: "def $FUNC(transactional_db, $$$POST): $$$BODY"
 constraints:
-  FUNC: {regex: "^test_"}
+  FUNC: { regex: "^test_" }
 fix: |
   @pytest.mark.django_db(transaction=True)
   def $FUNC($$$POST):
@@ -26,12 +28,13 @@ fix: |
 ---
 id: fix-pytest-transactional-db-fixture-last
 language: python
+severity: error
 message: "Do not use the `transactional_db` fixture in tests"
 note: "Use the `@pytest.mark.django_db(transaction=True)` mark instead"
 rule:
   pattern: "def $FUNC($$$PRE, transactional_db): $$$BODY"
 constraints:
-  FUNC: {regex: "^test_"}
+  FUNC: { regex: "^test_" }
 fix: |
   @pytest.mark.django_db(transaction=True)
   def $FUNC($$$PRE):
@@ -39,12 +42,13 @@ fix: |
 ---
 id: fix-pytest-transactional-db-fixture-middle
 language: python
+severity: error
 message: "Do not use the `transactional_db` fixture in tests"
 note: "Use the `@pytest.mark.django_db(transaction=True)` mark instead"
 rule:
   pattern: "def $FUNC($$$PRE, transactional_db, $$$POST): $$$BODY"
 constraints:
-  FUNC: {regex: "^test_"}
+  FUNC: { regex: "^test_" }
 fix: |
   @pytest.mark.django_db(transaction=True)
   def $FUNC($$$PRE, $$$POST):

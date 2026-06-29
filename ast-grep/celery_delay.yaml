@@ -1,8 +1,8 @@
 id: celery-delay-outside-on-commit
 language: python
+severity: error
 ignores:
   - "**/test_*.py"
-severity: warning
 message: "Using `.delay()` directly can lead to race conditions (celery starting work before transaction completes)"
 note: |
   Use `django.db.transaction.on_commit(lambda: task.delay(...))` instead
@@ -27,4 +27,3 @@ rule:
                     regex: "noqa: transaction"
           - has:
               regex: "#.*noqa: transaction"
-
