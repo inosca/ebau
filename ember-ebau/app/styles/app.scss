@@ -13,6 +13,7 @@ $master-data-divider-height: 22px;
 $sidebar-width: 240px;
 $sidebar-padding: 48px;
 $main-navigation-background: $global-primary-background !default;
+$nav-badge-color: $global-danger-background !default;
 
 // We need this as stylelint-prettier will format this line as it currently is
 // or raise a lint error and stylelint-scss will raise the error we silenced.
@@ -121,4 +122,9 @@ $master-data-heigth: calc($main-nav-height + $master-data-divider-height + $mast
     border-top: none;
     min-height: 70dvh;
   }
+}
+
+.main-navigation .uk-badge,
+.nav-sidebar .uk-badge {
+  background-color: $nav-badge-color;
 }

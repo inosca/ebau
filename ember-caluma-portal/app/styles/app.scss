@@ -17,6 +17,7 @@ $notification-width: 500px;
 @import "components/so-navbar";
 
 $badge-in-tab-ratio: 0.85;
+$portal-nav-badge-color: $badge-background !default;
 
 .uk-tab > li > a .uk-badge {
   min-width: $badge-size * $badge-in-tab-ratio;
@@ -44,4 +45,10 @@ $badge-in-tab-ratio: 0.85;
 
 .border-bottom-remove {
   border-bottom: none !important;
+}
+
+.uk-navbar-nav .uk-badge,
+.uk-tab .uk-badge,
+.instance-overview__title .uk-badge {
+  background-color: $portal-nav-badge-color;
 }
