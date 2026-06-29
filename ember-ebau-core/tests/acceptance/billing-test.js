@@ -100,7 +100,7 @@ module("Acceptance | billing", function (hooks) {
       releaseForClearing: {
         allowedForServiceGroups: [this.serviceGroup.slug],
         subsequentChargeAllowedForServices: [this.service.slug],
-        form: ["test-form"],
+        forms: ["test-form"],
       },
     });
 
