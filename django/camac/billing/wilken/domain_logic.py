@@ -7,7 +7,7 @@ from logging import Logger, getLogger
 from typing import TYPE_CHECKING
 
 from django.conf import settings
-from django.db.models import Exists, OuterRef, Q
+from django.db.models import Exists, FilteredRelation, OuterRef, Q
 
 from camac.billing.models import BillingV2Entry, Invoice, LineItem
 from camac.billing.utils import (
@@ -23,6 +23,11 @@ from camac.billing.wilken.data import (
     WilkenRow,
 )
 from camac.instance.models import Instance
+from camac.settings.modules.billing import (
+    ALLOWED_FORMS_FOR_PRODUCT_NUMBERS,
+    ALLOWED_VERFAHRENSART_FORMS_FOR_PRODUCT_NUMBERS,
+    ALLOWED_VERFAHRENSART_TYPES_FOR_PRODUCT_NUMBERS,
+)
 
 if TYPE_CHECKING:
     from decimal import Decimal
@@ -57,21 +62,34 @@ def mark_invoices_charged(invoices: list[Invoice]):
 
 
 def generate_models_for_invoice() -> list[Invoice]:
+    form_names = ALLOWED_FORMS_FOR_PRODUCT_NUMBERS
+    verfahrensart_type_names = ALLOWED_VERFAHRENSART_TYPES_FOR_PRODUCT_NUMBERS
+    verfahrensart_form_names = ALLOWED_VERFAHRENSART_FORMS_FOR_PRODUCT_NUMBERS
+
     invoices: list[Invoice] = []
-    instances = Instance.objects.filter(
-        Exists(
-            BillingV2Entry.objects.filter(
-                date_charged__isnull=True,
-                released_for_clearing__isnull=False,
-                product_number__isnull=False,
-                instance=OuterRef("pk"),
+    instances = (
+        Instance.objects.filter(
+            Exists(
+                BillingV2Entry.objects.filter(
+                    date_charged__isnull=True,
+                    released_for_clearing__isnull=False,
+                    product_number__isnull=False,
+                    instance=OuterRef("pk"),
+                )
             )
         )
-    ).filter(
-        Q(form__name__startswith="baugesuch")
-        | Q(form__name__startswith="vorentscheid")
-        | Q(form__name__startswith="technische-bewilligung")
-        | Q(form__name__startswith="projektanderung"),
+        .annotate(
+            fields_verfahrensart=FilteredRelation(
+                "fields", condition=Q(fields__name="verfahrensart")
+            )
+        )
+        .filter(
+            Q(form__family__name__in=form_names)
+            | (
+                Q(form__family__name__in=verfahrensart_form_names)
+                & Q(fields_verfahrensart__value__in=verfahrensart_type_names)
+            )
+        )
     )
 
     for instance in instances:

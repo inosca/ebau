@@ -36,9 +36,12 @@ def test_generate_invoices(
     sz_billing_settings: BillingConfig,
 ) -> None:
     instance: Instance = instance_factory(
-        form=form_factory(name="baugesuch"),
+        form=form_factory(name="baugesuch-reklamegesuch"),
         location=location_factory(name="Schwyz"),
     )
+
+    instance.form.family = instance.form
+    instance.form.save()
 
     billing_entry_1 = billing_v2_entry_factory.create(
         instance=instance,
@@ -109,8 +112,13 @@ def test_generate_models_for_invoice(
     location_factory,
     sz_billing_settings: BillingConfig,
 ) -> None:
-    form_building_permit = form_factory(name="baugesuch")
+    form_building_permit = form_factory(name="baugesuch-reklamegesuch")
+    form_building_permit.family = form_building_permit
+    form_building_permit.save()
+
     form_project_change = form_factory(name="projektanderung")
+    form_project_change.family = form_project_change
+    form_project_change.save()
 
     instance_not_used = instance_factory(
         form=form_building_permit, location=location_factory(name="Schwyz")
@@ -167,7 +175,9 @@ def test_generate_models_for_invoice_raise(
 ) -> None:
     logger = mocker.patch("camac.billing.wilken.domain_logic.log")
     sz_billing_settings.wilken.payment_purpose = "{non_existent_key}"
-    form_building_permit = form_factory(name="baugesuch")
+    form_building_permit = form_factory(name="baugesuch-reklamegesuch")
+    form_building_permit.family = form_building_permit
+    form_building_permit.save()
 
     instance_two_billing_entries = instance_factory(form=form_building_permit)
     billing_v2_entry_factory.create_batch(
@@ -183,6 +193,66 @@ def test_generate_models_for_invoice_raise(
     invoices: list[Invoice] = generate_models_for_invoice()
     assert len(invoices) == 0
     assert logger.exception.call_count == 1
+
+
+@pytest.mark.django_db
+def test_generate_models_for_invoice_verfahrensart(
+    billing_v2_entry_factory,
+    instance_factory,
+    form_factory,
+    form_field_factory,
+    location_factory,
+    sz_billing_settings: BillingConfig,
+) -> None:
+    form_with_verfahrensart = form_factory(name="baumeldung-fur-geringfugiges-vorhaben")
+    form_with_verfahrensart.family = form_with_verfahrensart
+    form_with_verfahrensart.save()
+
+    form_without_verfahrensart = form_factory(name="ohne-verfahrensart")
+    form_without_verfahrensart.family = form_without_verfahrensart
+    form_without_verfahrensart.save()
+
+    instance_two_billing_entries = instance_factory(
+        form=form_with_verfahrensart, location=location_factory(name="Schwyz")
+    )
+
+    form_field_factory(
+        instance=instance_two_billing_entries, name="verfahrensart", value="vereinfacht"
+    )
+
+    instance_two_billing_entries.refresh_from_db()
+
+    billing_v2_entry_factory.create_batch(
+        2,
+        instance=instance_two_billing_entries,
+        released_for_clearing=datetime.now(),
+        product_number=DEFAULT_PRODUCT_NUMBER,
+    )
+    billing_v2_entry_factory.create_batch(
+        1, instance=instance_two_billing_entries, product_number=DEFAULT_PRODUCT_NUMBER
+    )
+
+    instance_no_billing_entries = instance_factory(
+        form=form_without_verfahrensart, location=location_factory(name="Schwyz")
+    )
+
+    form_field_factory(
+        instance=instance_no_billing_entries, name="verfahrensart", value="vereinfacht"
+    )
+
+    instance_no_billing_entries.refresh_from_db()
+
+    billing_v2_entry_factory.create_batch(
+        2,
+        instance=instance_no_billing_entries,
+        released_for_clearing=datetime.now(),
+        product_number=DEFAULT_PRODUCT_NUMBER,
+    )
+
+    invoices: list[Invoice] = generate_models_for_invoice()
+    assert len(invoices) == 1
+
+    assert invoices[0].line_items.count() == 2
 
 
 @pytest.mark.django_db

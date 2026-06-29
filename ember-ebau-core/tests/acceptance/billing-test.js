@@ -137,6 +137,51 @@ module("Acceptance | billing", function (hooks) {
       .hasAnyText();
   });
 
+  test("it can release billing entries for clearing on certain verfarensart forms", async function (assert) {
+    this.features.enable("billing.releaseForClearing");
+    this.features.enable("billing.charge");
+    this.config.set("billing", {
+      releaseForClearing: {
+        allowedForServiceGroups: [this.serviceGroup.slug],
+        subsequentChargeAllowedForServices: [this.service.slug],
+        verfahrensartTypes: ["vereinfacht"],
+        verfahrensartForms: ["test-form"],
+      },
+    });
+
+    this.server.createList("billing-v2-entry", 2, {
+      group: this.group,
+      instance: this.instance,
+    });
+
+    await visit("/billing");
+
+    await click("input[data-test-toggle-all]");
+    await click(
+      "table[data-test-billing-table] tbody tr:nth-of-type(1) input[data-test-toggle]",
+    );
+
+    await click("button[data-test-release-for-clearing-submit]");
+
+    // Confirm dialog
+    await waitFor(".uk-modal.uk-open");
+    await click(".uk-modal-footer .uk-button-primary");
+
+    // eslint-disable-next-line ember/no-settled-after-test-helper
+    await settled();
+
+    assert
+      .dom(
+        "table[data-test-billing-table] tbody tr:nth-of-type(1) td:nth-of-type(8)",
+      )
+      .hasNoText();
+    assert
+      .dom(
+        "table[data-test-billing-table] tbody tr:nth-of-type(2) td:nth-of-type(8)",
+      )
+      .hasAnyText();
+  });
+
   test("it can delete billing entries", async function (assert) {
     this.server.createList("billing-v2-entry", 2, {
       group: this.group,

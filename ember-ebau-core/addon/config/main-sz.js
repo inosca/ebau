@@ -40,6 +40,8 @@ export default {
         "vorentscheid-gemass-ss84-pbg",
         "technische-bewilligung",
       ],
+      verfahrensartTypes: ["ordentlich", "vereinfacht"],
+      verfahrensartForms: ["baumeldung-fur-geringfugiges-vorhaben"],
       allowedForServiceGroups: ["baugesuchszentrale", "fachstellen"],
       subsequentChargeAllowedForServices: [
         "baugesuchszentrale",

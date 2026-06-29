@@ -10,6 +10,10 @@ from django.db.models import Q
 
 from camac.billing.models import BillingV2Entry, Invoice
 from camac.instance.models import Instance
+from camac.settings.modules.billing import (
+    ALLOWED_VERFAHRENSART_FORMS_FOR_PRODUCT_NUMBERS,
+    ALLOWED_VERFAHRENSART_TYPES_FOR_PRODUCT_NUMBERS,
+)
 from camac.settings.modules.billing_schema import ProductNumberConfig
 from camac.user.models import Group, Service
 from camac.utils import get_unversioned_slug
@@ -276,6 +280,7 @@ def validate_product_number_conditions(
     service: Service,
     has_previous_invoice: bool,
     form_slug: str,
+    verfahrensart: str,
 ) -> bool:
     """Validate if the conditions configured for a product number are met."""
     # All config options we need to check for validity with their default values
@@ -288,6 +293,9 @@ def validate_product_number_conditions(
         "only_forms": product_number_config.only_forms,
         "archived": product_number_config.archived,
     }
+
+    verfahrensart_types_config = ALLOWED_VERFAHRENSART_TYPES_FOR_PRODUCT_NUMBERS
+    verfahrensart_forms_config = ALLOWED_VERFAHRENSART_FORMS_FOR_PRODUCT_NUMBERS
 
     def test_condition(key, value):
         match (key, value):
@@ -306,7 +314,10 @@ def validate_product_number_conditions(
                     return True
                 return service.slug not in services
             case ("only_forms", allowed_form_slugs) if allowed_form_slugs:
-                return form_slug in allowed_form_slugs
+                return form_slug in allowed_form_slugs or (
+                    form_slug in verfahrensart_forms_config
+                    and verfahrensart in verfahrensart_types_config
+                )
             case ("archived", cond):
                 return not cond
             # In case any of the properties don't match up with the datatype
@@ -320,7 +331,11 @@ def validate_product_number_conditions(
 def validate_product_number(group: Group, instance: str) -> list[ProductNumberConfig]:
     config: list[ProductNumberConfig] = settings.BILLING.product_numbers
     # Schwyz (old canton) specific in case any of the newer cantons want to use this.
-    form_slug = get_unversioned_slug(Instance.objects.get(pk=instance).form.name)
+    instance_object = Instance.objects.get(pk=instance)
+    form_slug = get_unversioned_slug(instance_object.form.name)
+    verfahrensart = getattr(
+        instance_object.fields.filter(name="verfahrensart").first(), "value", ""
+    )
 
     if not config:
         return []
@@ -331,6 +346,10 @@ def validate_product_number(group: Group, instance: str) -> list[ProductNumberCo
         product_number_config
         for product_number_config in config
         if validate_product_number_conditions(
-            product_number_config, group.service, has_previous_invoice, form_slug
+            product_number_config,
+            group.service,
+            has_previous_invoice,
+            form_slug,
+            verfahrensart,
         )
     ]

@@ -19,6 +19,15 @@ ALLOWED_FORMS_FOR_PRODUCT_NUMBERS = [
     "technische-bewilligung",
 ]
 
+ALLOWED_VERFAHRENSART_TYPES_FOR_PRODUCT_NUMBERS = [
+    "ordentlich",
+    "vereinfacht",
+]
+
+ALLOWED_VERFAHRENSART_FORMS_FOR_PRODUCT_NUMBERS = [
+    "baumeldung-fur-geringfugiges-vorhaben",
+]
+
 BILLING = ModuleConfig[BillingConfig](
     default=BillingConfig(),
     kt_ag=BillingConfig(
