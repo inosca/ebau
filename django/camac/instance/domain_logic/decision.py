@@ -2,8 +2,13 @@ from itertools import chain
 from typing import Optional, Union
 
 from caluma.caluma_form.models import Answer
+from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import models as workflow_models
-from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
+from caluma.caluma_workflow.api import (
+    cancel_work_item,
+    complete_work_item,
+    skip_work_item,
+)
 from django.conf import settings
 
 from camac.caluma.extensions.events.construction_monitoring import (
@@ -103,6 +108,7 @@ class DecisionLogic:
             camac_user,
         )
         cls.handle_appeal_decision(instance, work_item, user, camac_user)
+        cls.maybe_skip_construction_monitoring(instance, user)
 
     @classmethod
     @canton_aware
@@ -461,3 +467,36 @@ class DecisionLogic:
             )
 
         return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
+
+    @classmethod
+    def maybe_skip_construction_monitoring(
+        cls, instance: Instance, user: BaseUser
+    ) -> None:
+        """Skip construction monitoring if necessary.
+
+        This method will only be called after a decision that does not require a
+        construction monitoring process (e.g. negative decision or decision of a
+        preliminary clarification). If the construction monitoring process was
+        already started after the submission (via `START_AFTER_SUBMIT`), we need
+        to skip it entirely. However, the municipality may already have started
+        the process, in which case we won't skip anything.
+        """
+
+        if not settings.CONSTRUCTION_MONITORING.get("START_AFTER_SUBMIT"):
+            return
+
+        init_work_item = instance.case.work_items.filter(
+            task_id=settings.CONSTRUCTION_MONITORING[
+                "INIT_CONSTRUCTION_MONITORING_TASK"
+            ],
+            status=workflow_models.WorkItem.STATUS_READY,
+        ).first()
+
+        if not init_work_item:
+            return
+
+        complete_work_item(
+            work_item=init_work_item,
+            user=user,
+            context={"skip": True},
+        )
