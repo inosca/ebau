@@ -18,6 +18,7 @@ const getAnswerString = (edges, slug) =>
   edges?.find((answer) => answer.node.question.slug === slug)?.node.value;
 
 export default class PublicationEditController extends Controller {
+  @service emailNotification;
   @service notification;
   @service intl;
   @service ebauModules;
@@ -115,27 +116,11 @@ export default class PublicationEditController extends Controller {
 
       const notification = mainConfig.publication.cancelNotification;
       if (notification) {
-        yield this.fetch.fetch(`/api/v1/notification-templates/sendmail`, {
-          method: "POST",
-          headers: {
-            accept: "application/vnd.api+json",
-            "content-type": "application/vnd.api+json",
-          },
-          body: JSON.stringify({
-            data: {
-              type: "notification-template-sendmails",
-              attributes: {
-                "template-slug": notification.templateSlug,
-                "recipient-types": notification.recipientTypes,
-              },
-              relationships: {
-                instance: {
-                  data: { type: "instances", id: this.model.instanceId },
-                },
-              },
-            },
-          }),
-        });
+        yield this.emailNotification.send(
+          this.model.instanceId,
+          notification.templateSlug,
+          notification.recipientTypes,
+        );
       }
     } catch {
       this.notification.danger(this.intl.t("publication.cancelError"));

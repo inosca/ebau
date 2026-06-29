@@ -17,6 +17,7 @@ const DISTRIBUTION_NEW_INQUIRY_GROUP_TYPES_MAPPING = {
 };
 
 export default class CustomCalumaOptionsService extends CalumaOptionsService {
+  @service emailNotification;
   @service shoebox;
   @service store;
   @service fetch;
@@ -48,29 +49,14 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       return;
     }
 
-    await this.fetch.fetch(`/api/v1/notification-templates/sendmail`, {
-      method: "POST",
-      headers: {
-        accept: "application/vnd.api+json",
-        "content-type": "application/vnd.api+json",
+    await this.emailNotification.send(
+      this.currentInstanceId,
+      this.distribution.inquiryReminderNotificationTemplateSlug,
+      ["inquiry_addressed"],
+      {
+        inquiry: { data: { type: "work-items", id: inquiryId } },
       },
-      body: JSON.stringify({
-        data: {
-          type: "notification-template-sendmails",
-          attributes: {
-            "template-slug":
-              this.distribution.inquiryReminderNotificationTemplateSlug,
-            "recipient-types": ["inquiry_addressed"],
-          },
-          relationships: {
-            instance: {
-              data: { type: "instances", id: this.currentInstanceId },
-            },
-            inquiry: { data: { type: "work-items", id: inquiryId } },
-          },
-        },
-      }),
-    });
+    );
   }
 
   async _fetchIfNotCached(
