@@ -56,6 +56,7 @@ ALEXANDRIA = {
             "SERVICE_GROUP_MAPPING": {"authority-bab": "are"},
         },
         "INSTANCE_COPY_CATEGORIES": ["beilagen-zum-gesuch", "nachforderung", "system"],
+        "USE_V2_PERMISSIONS": True,
     },
     "kt_so": {
         "ENABLED": True,

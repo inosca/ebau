@@ -3149,6 +3149,24 @@ def disable_permissions_alexandria_settings(
 
 
 @pytest.fixture
+def gr_permissions_alexandria_settings(
+    request,
+    settings,
+    permissions_alexandria_settings,
+):
+    """Module-specific settings for permissions alexandria (canton GR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=permissions_alexandria_settings,
+        settings_name="PERMISSIONS_ALEXANDRIA",
+        import_path="camac.settings.modules.permissions.alexandria.PERMISSIONS_ALEXANDRIA",
+        canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def be_permissions_alexandria_settings(
     request,
     settings,
