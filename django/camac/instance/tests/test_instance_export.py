@@ -714,8 +714,8 @@ def test_bab_statistics_export_visibility(
 
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
+@pytest.mark.django_db
 def test_caluma_export_gr(
-    db,
     admin_client,
     gr_distribution_settings,
     gr_master_data_case,
