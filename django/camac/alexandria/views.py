@@ -170,25 +170,37 @@ class PatchedCategoryViewSet(views.CategoryViewSet):
         if not instance_id:
             raise ValidationError("'instance' query parameter must be passed")
 
-        cache_key = "-".join(
-            [
-                "permissions",
-                f"category:{pk}",
-                f"instance:{instance_id}",
-                f"user:{request.user.pk}",
-                f"group:{request.group.pk}",
-            ]
-        )
+        # If we are using v1 permissions, we cache the permissions for a category on an instance for 1 hour.
+        # For V2 we don't cache, since we're using the permission module already taking care of cache.
+        if not settings.ALEXANDRIA["USE_V2_PERMISSIONS"]:
+            instance_state_id = Instance.objects.get(pk=instance_id).instance_state_id
 
-        permissions = cache.get_or_set(
-            cache_key,
-            lambda: self._get_permissions_for_category_on_instance(
+            cache_key = "-".join(
+                [
+                    "permissions",
+                    f"category:{pk}",
+                    f"instance:{instance_id}",
+                    f"instance_state:{instance_state_id}",
+                    f"user:{request.user.pk}",
+                    f"group:{request.group.pk}",
+                ]
+            )
+
+            permissions = cache.get_or_set(
+                cache_key,
+                lambda: self._get_permissions_for_category_on_instance(
+                    self.get_object(),
+                    request.query_params.get("instance"),
+                    request,
+                ),
+                3600,
+            )
+        else:
+            permissions = self._get_permissions_for_category_on_instance(
                 self.get_object(),
                 request.query_params.get("instance"),
                 request,
-            ),
-            3600,
-        )
+            )
 
         return Response(permissions, status=status.HTTP_200_OK)
 
