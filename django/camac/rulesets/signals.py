@@ -7,6 +7,7 @@ from django.dispatch import receiver
 from camac.permissions.models import InstanceACL
 from camac.rulesets.utils import assign_responsible_user
 from camac.settings.modules.rulesets_schema import ResponsibleUserRuleConfig
+from camac.settings.utils import is_module_enabled
 
 
 @receiver(post_save, sender=InstanceACL)
@@ -24,7 +25,7 @@ def assign_responsible_user_on_acl_creation(
         # https://docs.djangoproject.com/en/4.2/ref/signals/#post-save
         kwargs.get("raw")
         # Module is disabled
-        or not settings.RULESETS.enabled
+        or not is_module_enabled("RULESETS")
         or not module_settings.automatically_assign
         # Access level is ignored
         or instance.access_level_id in module_settings.ignored_access_levels

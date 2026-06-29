@@ -17,8 +17,6 @@ def test_task_update_deadlines(
     disable_deadline_side_effects,
     set_application_so,
 ):
-    deadlines_settings.enabled = True
-
     """Test deadline progression update through the celery task."""
     service1 = service_factory()
     service2 = service_factory()

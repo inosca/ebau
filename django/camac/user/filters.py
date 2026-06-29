@@ -30,6 +30,7 @@ from camac.instance.views import InstanceView
 from camac.permissions import api as permissions_api
 from camac.permissions.switcher import permission_switching_method
 from camac.responsible.models import ResponsibleService
+from camac.settings.utils import is_module_enabled
 from camac.utils import get_unversioned_slug
 
 from . import models
@@ -235,7 +236,7 @@ class PublicServiceFilterSet(FilterSet):
         )
 
     def _condition_is_bab(self, instance):
-        if not settings.BAB:  # pragma: no cover
+        if not is_module_enabled("BAB"):  # pragma: no cover
             return False
 
         return instance.case.meta.get("is-bab", False)
@@ -244,7 +245,7 @@ class PublicServiceFilterSet(FilterSet):
         return CalumaApi().is_imported(instance)
 
     def _condition_is_appeal(self, instance):
-        if not settings.APPEAL:  # pragma: no cover
+        if not is_module_enabled("APPEAL"):  # pragma: no cover
             return False
 
         return instance.case.meta.get("is-appeal", False)

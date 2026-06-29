@@ -19,6 +19,31 @@ fixtures with the corresponding `@pytest.mark.django_db` decorators.
 Using decorators is preferred over fixtures as function arguments for database
 access in tests.
 
+### Module enabled checks
+
+These rules enforce using `is_module_enabled("MODULE")` for checking whether a
+module is enabled, instead of reaching into the config directly. The helper
+handles both pydantic (`.enabled`) and dict (`["ENABLED"]` or empty dict checks)
+module configs.
+
+- `settings.MODULE.enabled` is replaced by `is_module_enabled("MODULE")`
+- `settings.MODULE["ENABLED"]` is replaced by `is_module_enabled("MODULE")`
+- `settings.MODULE.get("ENABLED")` / `settings.MODULE.get("ENABLED", False)` is
+  replaced by `is_module_enabled("MODULE")`
+- a bare `settings.MODULE` truthiness check (in `if` / `elif` / `while`
+  conditions, `not settings.MODULE`, or `bool(settings.MODULE)`) is replaced by
+  `is_module_enabled("MODULE")`
+
+The autofix does not add the import, you have to add it yourself:
+
+```python
+from camac.settings.utils import is_module_enabled
+```
+
+The bare-truthiness rule only matches the modules registered via
+`load_module_settings(...)` in `camac/settings/django.py`; keep its `MODULE`
+list in sync when adding a module.
+
 ## Running the fixes
 
 If CI reports violations of these rules, you can automatically apply the

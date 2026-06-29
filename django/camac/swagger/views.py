@@ -6,6 +6,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from tabulate import tabulate
 
+from camac.settings.utils import is_module_enabled
 from camac.user.permissions import ViewPermissions
 
 
@@ -32,7 +33,7 @@ def get_swagger_description():
     ) as myfile:
         desc = myfile.read()
 
-    if settings.ECH0211:
+    if is_module_enabled("ECH0211"):
         api_level = settings.ECH0211.get("API_LEVEL")
 
         get_table_data = settings.ECH0211["DOCS"]["GET_TABLE_DATA_BASIC"]

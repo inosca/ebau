@@ -65,6 +65,7 @@ from camac.ech0211.utils import clean_text_for_xml
 from camac.filters import MultilingualSearchFilter
 from camac.instance.models import Instance
 from camac.settings.modules.ech0211 import DocumentAPIFeature
+from camac.settings.utils import is_module_enabled
 from camac.swagger.utils import (
     get_operation_description,
     group_param,
@@ -203,7 +204,7 @@ class MessageView(ECHGeofenceMixin, RetrieveModelMixin, GenericViewSet):
 
     @classmethod
     def include_in_swagger(cls):
-        return bool(settings.ECH0211)
+        return is_module_enabled("ECH0211")
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -255,7 +256,7 @@ class ApplicationView(
 
     @classmethod
     def include_in_swagger(cls):
-        return bool(settings.ECH0211)
+        return is_module_enabled("ECH0211")
 
     @swagger_auto_schema(
         tags=["eCH-0211"],
@@ -306,7 +307,7 @@ class ApplicationsView(
 
     @classmethod
     def include_in_swagger(cls):
-        return bool(settings.ECH0211)
+        return is_module_enabled("ECH0211")
 
     def get_queryset(self, group=None):
         if getattr(self, "swagger_fake_view", False):  # pragma: no cover

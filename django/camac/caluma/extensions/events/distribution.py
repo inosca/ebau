@@ -48,6 +48,7 @@ from camac.ech0211.signals import (
 from camac.notification.utils import send_mail_without_request
 from camac.permissions.events.core import Trigger
 from camac.rulesets.models import DistributionDeadlineRule
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service, User
 from camac.utils import delay_next_workingday
 
@@ -307,7 +308,7 @@ def post_redo_inquiry(sender, work_item, user, context=None, **kwargs):
 def _get_default_deadline(settings, work_item):
     deadline = None
 
-    if settings.RULESETS.enabled:
+    if is_module_enabled("RULESETS"):
         deadline = DistributionDeadlineRule.objects.get_default_deadline_for_inquiry(
             work_item
         )
@@ -367,7 +368,7 @@ def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
         and work_item.case.family.instance.instance_state.pk
         == bern_constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS
     ) or (
-        settings.CORRECTION
+        is_module_enabled("CORRECTION")
         and work_item.case.family.instance.instance_state.name
         == settings.CORRECTION["INSTANCE_STATE"]
     ):
@@ -640,7 +641,7 @@ def post_cancel_inquiry(sender, work_item, user, context=None, **kwargs):
 def post_complete_inquiry_check(
     sender, work_item, user, context=None, **kwargs
 ):  # pragma: no cover
-    if settings.ADDITIONAL_DEMAND:
+    if is_module_enabled("ADDITIONAL_DEMAND"):
         if not work_item.previous_work_item:
             return
         init_additional_demand = work_item.case.work_items.filter(

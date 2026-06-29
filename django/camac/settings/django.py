@@ -4047,6 +4047,9 @@ def load_module_settings(module_name, application_name=APPLICATION_NAME):
         )
 
 
+# NOTE: When adding or removing a module below, keep the `MODULE` regex in
+# `ast-grep/module_enabled_check.yaml` in sync so its enable-check linting stays
+# accurate.
 BILLING = load_module_settings("billing")
 APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
@@ -4092,6 +4095,10 @@ PERMISSIONS_ALEXANDRIA = load_module_settings("permissions.alexandria")
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")
 ALEXANDRIA_MIGRATION = load_module_settings("alexandria_migration")
+# NOTE: When adding or removing a module above, keep the `MODULE` regex in
+# `ast-grep/module_enabled_check.yaml` in sync so its enable-check linting stays
+# accurate.
+
 ALEXANDRIA_GET_USER_AND_GROUP_FUNCTION = (
     "camac.alexandria.extensions.common.get_user_and_group"
 )

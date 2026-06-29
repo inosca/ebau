@@ -26,6 +26,7 @@ from camac.constants.kt_bern import (
     ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
 )
 from camac.document.models import Attachment
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service, User
 
 from .formatters import (
@@ -217,8 +218,7 @@ class StatusNotificationEventHandler(BaseEventHandler):
         # created with ARE as receiver, if ARE is inquired.
         if (
             settings.APPLICATION_NAME == "kt_gr"
-            and settings.CONSTRUCTION_MONITORING
-            and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
+            and is_module_enabled("CONSTRUCTION_MONITORING")
             and message_type == ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG
         ):
             service_are = Service.objects.get(slug="are")
@@ -405,7 +405,7 @@ def if_ech_enabled(api_level="basic"):
         def wrapper(*args, **kwargs):
             instance = kwargs.get("instance")
             if (
-                settings.ECH0211
+                is_module_enabled("ECH0211")
                 and (api_level != "full" or settings.ECH0211.get("API_LEVEL") == "full")
                 and instance.case.workflow_id not in settings.ECH_EXCLUDED_WORKFLOWS
                 and instance.case.document.form_id not in settings.ECH_EXCLUDED_FORMS

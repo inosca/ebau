@@ -346,7 +346,6 @@ def test_instance_create_source_timeline(
     rejection_settings,
     set_application_gr,
 ):
-    timelines_settings.enabled = True
     assert FormTimeline.objects.count() == 0
     source_instance = (
         instance_factory(case=caluma_case_factory()) if has_source else None

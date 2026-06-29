@@ -43,6 +43,7 @@ from camac.instance.serializers import (
 )
 from camac.permissions.api import PermissionManager
 from camac.permissions.switcher import is_permission_module_fully_enabled
+from camac.settings.utils import is_module_enabled
 from camac.user.permissions import permission_aware
 
 log = getLogger()
@@ -98,7 +99,7 @@ def distribution_permission_for(
 
             # Include distribution permissions, short-circuit if
             # wrapped permission method isn't fulfilled
-            if settings.DISTRIBUTION and wrapped_has_permission:
+            if is_module_enabled("DISTRIBUTION") and wrapped_has_permission:
                 configured_mutation_name = configured_mutation.__name__
 
                 if configured_resolve_fn:
@@ -209,7 +210,7 @@ class CustomPermission(BasePermission):
             return True
 
         if (
-            settings.CONSTRUCTION_MONITORING
+            is_module_enabled("CONSTRUCTION_MONITORING")
             and case.workflow_id
             == settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STAGE_WORKFLOW"]
         ):
@@ -306,7 +307,7 @@ class CustomPermission(BasePermission):
             "meta": is_addressed or is_controller,
         }
 
-        if settings.CONSTRUCTION_MONITORING:
+        if is_module_enabled("CONSTRUCTION_MONITORING"):
             permissions_for_key["name"] = (
                 is_addressed
                 and work_item.task_id
@@ -565,7 +566,7 @@ class CustomPermission(BasePermission):
         work_item = self._get_work_item(document)
 
         if (
-            settings.DISTRIBUTION
+            is_module_enabled("DISTRIBUTION")
             and document.form_id == settings.DISTRIBUTION["INQUIRY_FORM"]
         ):
             return is_controlled_by_service(

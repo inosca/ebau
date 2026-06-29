@@ -5,6 +5,7 @@ from django.urls import re_path
 
 from camac.alexandria.views import AlexandriaPermissionsDebuggerView
 from camac.caluma.views import CamacAuthenticatedGraphQLView
+from camac.settings.utils import is_module_enabled
 from camac.swagger.views import get_swagger_view
 
 from .utils import healthz, readiness
@@ -70,7 +71,7 @@ urlpatterns = [
     re_path(r"^readiness/", readiness, name="readiness"),
 ]
 
-if settings.ECH0211:  # pragma: no cover
+if is_module_enabled("ECH0211"):  # pragma: no cover
     urlpatterns += [re_path(r"^ech/v1/", include("camac.ech0211.urls"))]
 
 if settings.ENABLE_SILK:  # pragma: no cover

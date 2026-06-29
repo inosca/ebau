@@ -55,6 +55,7 @@ from camac.instance.utils import (
 from camac.instance.validators import transform_coordinates
 from camac.lookups import Any
 from camac.permissions.models import InstanceACL
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Group, Location, Service, User
 from camac.user.utils import get_tax_administration, unpack_service_emails
 from camac.utils import (
@@ -511,7 +512,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return self._get_distribution_status(instance, "it")
 
     def _get_distribution_status(self, instance, language):
-        if not settings.DISTRIBUTION or not self.inquiry:
+        if not is_module_enabled("DISTRIBUTION") or not self.inquiry:
             return ""
 
         all_inquiries = (
@@ -548,7 +549,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return self._get_inquiry_answer("fr")
 
     def _get_inquiry_answer(self, language):
-        if not self.inquiry or not settings.DISTRIBUTION:
+        if not self.inquiry or not is_module_enabled("DISTRIBUTION"):
             return ""
 
         return find_answer(
@@ -558,7 +559,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         )
 
     def get_inquiry_remark(self, instance):
-        if not self.inquiry or not settings.DISTRIBUTION:
+        if not self.inquiry or not is_module_enabled("DISTRIBUTION"):
             return ""
 
         return find_answer(
@@ -701,7 +702,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_date_start_zirkulation(
         self, instance
     ):  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
-        if not settings.DISTRIBUTION:
+        if not is_module_enabled("DISTRIBUTION"):
             return "---"
 
         distribution_closed_at = (
@@ -791,7 +792,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         )
 
     def _get_inquiries(self, instance):
-        if not settings.DISTRIBUTION:
+        if not is_module_enabled("DISTRIBUTION"):
             return caluma_workflow_models.WorkItem.objects.none()
 
         service_subquery = Service.objects.filter(
@@ -1022,7 +1023,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return self._get_decision(instance, "it")
 
     def _get_decision(self, instance, language):
-        if not settings.DECISION:  # pragma: no cover
+        if not is_module_enabled("DECISION"):  # pragma: no cover
             return ""
 
         decision = instance.case.work_items.filter(
@@ -1046,7 +1047,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         if (
             not self.work_item
             or not self.work_item.case
-            or not settings.CONSTRUCTION_MONITORING
+            or not is_module_enabled("CONSTRUCTION_MONITORING")
         ):
             return None
 
@@ -1065,7 +1066,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         if (
             not self.work_item
             or not self.work_item.case
-            or not settings.CONSTRUCTION_MONITORING
+            or not is_module_enabled("CONSTRUCTION_MONITORING")
         ):
             return None
 
@@ -1506,7 +1507,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
 
     def _get_recipients_involved_in_distribution(self, instance):
-        if not settings.DISTRIBUTION:  # pragma: no cover
+        if not is_module_enabled("DISTRIBUTION"):  # pragma: no cover
             return []
 
         inquiries = Inquiry.objects.for_instance(instance).only_active()
@@ -1545,7 +1546,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         ]
 
     def _get_recipients_unanswered_inquiries(self, instance):
-        if not settings.DISTRIBUTION:  # pragma: no cover
+        if not is_module_enabled("DISTRIBUTION"):  # pragma: no cover
             return []
 
         addressed_groups = (
@@ -1564,7 +1565,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
 
     def _get_recipients_services_with_incomplete_inquiries(self, instance):
-        if not settings.DISTRIBUTION:  # pragma: no cover
+        if not is_module_enabled("DISTRIBUTION"):  # pragma: no cover
             return []
 
         inquiries = Inquiry.objects.for_instance(instance).only_skipped()
@@ -1583,7 +1584,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _get_recipients_inquiry_addressed(self, instance):
         inquiry = self.validated_data.get("inquiry")
 
-        if not settings.DISTRIBUTION or not inquiry:  # pragma: no cover
+        if not is_module_enabled("DISTRIBUTION") or not inquiry:  # pragma: no cover
             return []
 
         return self._get_responsible(
@@ -1612,7 +1613,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _get_recipients_inquiry_controlling(self, instance):
         inquiry = self.validated_data.get("inquiry")
 
-        if not settings.DISTRIBUTION or not inquiry:  # pragma: no cover
+        if not is_module_enabled("DISTRIBUTION") or not inquiry:  # pragma: no cover
             return []
 
         return self._get_responsible(
@@ -1674,7 +1675,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return flatten(data)
 
     def _get_recipients_additional_demand_inviter(self, instance):
-        if not settings.ADDITIONAL_DEMAND:  # pragma: no cover
+        if not is_module_enabled("ADDITIONAL_DEMAND"):  # pragma: no cover
             return []
 
         current_group = self.validated_data.get(
@@ -1824,7 +1825,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _get_recipients_involved_in_construction_step(self, instance):
         work_item = self.validated_data.get("work_item")
         case = self.validated_data.get("case")
-        if not settings.CONSTRUCTION_MONITORING or (
+        if not is_module_enabled("CONSTRUCTION_MONITORING") or (
             not work_item and not case
         ):  # pragma: no cover
             return []
@@ -1853,7 +1854,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _get_recipients_invited_to_schlussabnahme_projekt(self, instance):
         work_item = self.validated_data.get("work_item")
         case = work_item.case
-        if not settings.CONSTRUCTION_MONITORING or (
+        if not is_module_enabled("CONSTRUCTION_MONITORING") or (
             not work_item and not case
         ):  # pragma: no cover
             return []

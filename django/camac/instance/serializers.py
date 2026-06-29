@@ -70,7 +70,7 @@ from camac.permissions.switcher import (
 )
 from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
 from camac.responsible.models import ResponsibleService
-from camac.settings.modules.deadlines_schema import DeadlinesConfig
+from camac.settings.utils import is_module_enabled
 from camac.tags.models import InstanceMark, Keyword, StaticKeyword
 from camac.timelines.models import FormTimeline
 from camac.user.models import Group, Location, Service
@@ -224,7 +224,7 @@ class InstanceSerializer(
         return "support"
 
     def get_linked_instances(self, obj):
-        if not settings.LINKED_INSTANCES.enabled:  # pragma: no cover
+        if not is_module_enabled("LINKED_INSTANCES"):  # pragma: no cover
             return models.Instance.objects.none()
 
         queryset = self.context["view"].get_queryset()
@@ -634,7 +634,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     def get_additional_demand_changes(self, instance):
         return (
             instance.case.meta.get("additional-demand-changes", False)
-            if settings.TIMELINES.enabled
+            if is_module_enabled("TIMELINES")
             else False
         )
 
@@ -651,7 +651,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return instance.case.meta.get("ebau-number")
 
     def get_decision(self, instance):
-        if not settings.DECISION:  # pragma: no cover
+        if not is_module_enabled("DECISION"):  # pragma: no cover
             return None
 
         answer = (
@@ -674,7 +674,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return str(answer.selected_options[0].label)
 
     def get_decision_date(self, instance):
-        if not settings.DECISION:  # pragma: no cover
+        if not is_module_enabled("DECISION"):  # pragma: no cover
             return None
 
         return (
@@ -695,7 +695,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     def get_involved_at(self, instance):
         service_id = self.context["request"].group.service_id
 
-        if not settings.DISTRIBUTION or not service_id:
+        if not is_module_enabled("DISTRIBUTION") or not service_id:
             return None
 
         return (
@@ -1169,7 +1169,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
                 # "copy after rejection" means copying an instance that is not a modification
                 # and the source instance is actually rejected.
                 is_rejection = (
-                    settings.REJECTION
+                    is_module_enabled("REJECTION")
                     and source_instance.instance_state.name
                     == settings.REJECTION["INSTANCE_STATE"]
                 )
@@ -1351,8 +1351,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
     def _init_deadline(self, instance):
-        deadlines_settings: DeadlinesConfig | None = settings.DEADLINES
-        if not deadlines_settings or not deadlines_settings.enabled:  # pragma: no cover
+        if not is_module_enabled("DEADLINES"):  # pragma: no cover
             return
 
         deadlines_models.InstanceDeadline.objects.create_deadline(
@@ -1364,7 +1363,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         This happens for a submit after rejection or a project modification.
         """
-        if settings.TIMELINES.enabled:
+        if is_module_enabled("TIMELINES"):
             FormTimeline.objects.close_open_timelines(instance=instance)
 
     def _regenerate_and_store_pdf(self, instance):
@@ -1401,7 +1400,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         source_instance = source_case.instance if source_case else None
 
         if (
-            settings.REJECTION
+            is_module_enabled("REJECTION")
             and source_instance
             and source_instance.instance_state.name
             == settings.REJECTION["INSTANCE_STATE"]
@@ -3124,7 +3123,7 @@ class CalumaInstanceCorrectionSerializer(CalumaInstanceSubmitSerializer):
                 settings.CORRECTION["INSTANCE_STATE"], camac_user
             )
 
-            if settings.TIMELINES.enabled:
+            if is_module_enabled("TIMELINES"):
                 FormTimeline.objects.add_instance_timeline(
                     instance=instance,
                     timeline_type=FormTimeline.Type.CORRECTION,
@@ -3140,7 +3139,7 @@ class CalumaInstanceCorrectionSerializer(CalumaInstanceSubmitSerializer):
                 instance.previous_instance_state.name, camac_user
             )
 
-            if settings.TIMELINES.enabled:
+            if is_module_enabled("TIMELINES"):
                 FormTimeline.objects.close_open_timelines(
                     instance=instance, timeline_type=FormTimeline.Type.CORRECTION
                 )
@@ -3171,8 +3170,8 @@ class CalumaInstanceAdditionalDemandChangesSubmitSerializer(
 ):
     def validate(self, data):
         if (
-            not settings.TIMELINES.enabled
-            or not settings.ADDITIONAL_DEMAND
+            not is_module_enabled("TIMELINES")
+            or not is_module_enabled("ADDITIONAL_DEMAND")
             or not len(self.instance.case.meta.get("additional-demand-changes", []))
         ):
             raise exceptions.ValidationError(

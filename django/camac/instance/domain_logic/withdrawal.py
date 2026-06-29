@@ -15,11 +15,12 @@ from camac.core.utils import create_history_entry
 from camac.ech0211.signals import withdrawn
 from camac.instance.models import Instance
 from camac.notification.utils import send_mail_without_request
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Group, User
 
 
 def get_active_and_future_publications(instance: Instance) -> QuerySet[WorkItem]:
-    if not settings.PUBLICATION:  # pragma: no cover
+    if not is_module_enabled("PUBLICATION"):  # pragma: no cover
         return WorkItem.objects.none()
 
     work_items = WorkItem.objects.filter(

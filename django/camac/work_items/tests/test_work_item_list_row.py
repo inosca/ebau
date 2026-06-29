@@ -15,6 +15,7 @@ from camac.gis.utils import to_query
 from camac.settings.modules.work_item_list_schema import (
     WorkItemListConfig,
 )
+from camac.settings.utils import is_module_enabled
 from camac.tests.form_utils import FormUtils
 
 fake = Faker()
@@ -248,7 +249,7 @@ def setup_work_item_list(
             deadline="2025-01-06",
         )
 
-        if settings.DEADLINES.enabled:
+        if is_module_enabled("DEADLINES"):
             instance_deadline_factory(
                 instance=master_data_case.family.instance,
                 start_date="2025-01-02",

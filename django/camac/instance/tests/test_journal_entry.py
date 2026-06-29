@@ -173,7 +173,6 @@ def test_journal_entry_update(
 ):
     journal_entry.user = admin_client.user
     journal_entry.save()
-    permissions_settings["ENABLED"] = True
     permissions_settings["PERMISSION_MODE"] = "FULL"
 
     permissions = [("journal-read", Always())]
@@ -261,7 +260,6 @@ def test_journal_entry_create(
 ):
     url = reverse("journal-entry-list")
 
-    permissions_settings["ENABLED"] = True
     permissions_settings["PERMISSION_MODE"] = "FULL"
     permissions_settings["ACCESS_LEVELS"] = {
         access_level.pk: [("journal-write", Always())]

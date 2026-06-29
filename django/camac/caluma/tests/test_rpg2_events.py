@@ -133,13 +133,12 @@ def test_not_created_for_drafted_inquiry_be(
 
 @pytest.mark.django_db
 def test_not_created_when_disabled_be(
-    rpg2_settings,
+    disable_rpg2_settings,
     distribution_case_be,
     inquiry_factory_be,
     disable_ech0211_settings,
     be_rpg2_service,
 ):
-    rpg2_settings.enabled = False
     inquiry_factory_be(to_service=be_rpg2_service, sent=True)
     assert _rpg2_work_items(distribution_case_be).count() == 0
 
@@ -251,13 +250,12 @@ def test_not_created_for_drafted_inquiry_ag(
 
 @pytest.mark.django_db
 def test_not_created_when_disabled_ag(
-    rpg2_settings,
+    disable_rpg2_settings,
     distribution_case_ag,
     inquiry_factory_ag,
     disable_ech0211_settings,
     ag_rpg2_service,
 ):
-    rpg2_settings.enabled = False
     inquiry_factory_ag(to_service=ag_rpg2_service, sent=True)
     assert _rpg2_work_items(distribution_case_ag).count() == 0
 

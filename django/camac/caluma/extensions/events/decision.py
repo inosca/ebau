@@ -15,6 +15,7 @@ from camac.instance import domain_logic
 from camac.notification.utils import send_mail_without_request
 from camac.permissions.config.kt_gr import should_include_gvg as gr_should_include_gvg
 from camac.permissions.events import core as permissions_events
+from camac.settings.utils import is_module_enabled
 from camac.stats.cycle_time import compute_cycle_time
 from camac.user.models import User
 from camac.utils import get_unversioned_slug
@@ -114,7 +115,7 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
 
     history_text = gettext_noop("Evaluation completed")
     if (
-        settings.WITHDRAWAL
+        is_module_enabled("WITHDRAWAL")
         and instance.instance_state.name
         == settings.WITHDRAWAL["INSTANCE_STATE_CONFIRMED"]
     ):

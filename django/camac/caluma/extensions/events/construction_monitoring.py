@@ -28,6 +28,7 @@ from camac.instance.models import Instance
 from camac.notification.utils import send_mail_without_request
 from camac.permissions.events import core as permissions_events
 from camac.permissions.events.core import Trigger
+from camac.settings.utils import is_module_enabled
 from camac.user.models import User
 
 from .general import get_instance
@@ -48,7 +49,7 @@ def can_continue_construction_step(work_item: WorkItem) -> bool:
     answered positively.
     """
 
-    if not settings.CONSTRUCTION_MONITORING or not work_item.meta.get(
+    if not is_module_enabled("CONSTRUCTION_MONITORING") or not work_item.meta.get(
         "construction-step-id"
     ):
         return True  # pragma: no cover
@@ -96,7 +97,7 @@ def can_perform_construction_monitoring(instance: Instance) -> bool:
     names. Kt. SZ is the only canton actually still using those.
     """
 
-    if not settings.CONSTRUCTION_MONITORING:  # pragma: no cover
+    if not is_module_enabled("CONSTRUCTION_MONITORING"):  # pragma: no cover
         return False
 
     if settings.APPLICATION_NAME == "kt_uri":
@@ -235,7 +236,7 @@ def post_create_construction_stage(sender, work_item, user, context=None, **kwar
 def post_create_construction_step_work_item(sender, work_item, user, context, **kwargs):
     """Set needed meta attributes on the newly created work item."""
 
-    if not settings.CONSTRUCTION_MONITORING or not work_item.task.meta.get(
+    if not is_module_enabled("CONSTRUCTION_MONITORING") or not work_item.task.meta.get(
         "construction-step-id"
     ):
         return
@@ -260,7 +261,7 @@ def post_complete_construction_step_work_item(
 ):
     """Set needed meta attributes on the newly created work item."""
 
-    if not settings.CONSTRUCTION_MONITORING or not work_item.task.meta.get(
+    if not is_module_enabled("CONSTRUCTION_MONITORING") or not work_item.task.meta.get(
         "construction-step-id"
     ):
         return

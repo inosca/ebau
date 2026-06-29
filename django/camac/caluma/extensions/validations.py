@@ -29,6 +29,7 @@ from camac.caluma.utils import (
     sync_inquiry_deadline,
 )
 from camac.core.translations import get_translations
+from camac.settings.utils import is_module_enabled
 
 if typing.TYPE_CHECKING:  # pragma: no cover
     from django.db.model import Model
@@ -83,7 +84,7 @@ class CustomValidation(BaseValidation):
         work_item = WorkItem.objects.get(pk=data["id"])
 
         if (
-            settings.DISTRIBUTION
+            is_module_enabled("DISTRIBUTION")
             and work_item.task_id == settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]
         ):
             service_id = str(info.context.user.group)
@@ -101,7 +102,7 @@ class CustomValidation(BaseValidation):
     @validation_for(SaveDocumentDateAnswer)
     def validate_date_answer(self, mutation, data, info):
         if (
-            settings.DISTRIBUTION
+            is_module_enabled("DISTRIBUTION")
             and data["question"].slug == settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
         ):
             if not data["date"]:
@@ -112,7 +113,7 @@ class CustomValidation(BaseValidation):
             return data
 
         if (
-            settings.APPEAL
+            is_module_enabled("APPEAL")
             and data["question"].slug == settings.APPEAL["QUESTIONS"]["DATE"]
         ):
             # Update potentially existing work items linked to this answer
@@ -157,7 +158,7 @@ class CustomValidation(BaseValidation):
         """
 
         if (
-            settings.APPEAL
+            is_module_enabled("APPEAL")
             and data["question"].slug == settings.APPEAL["QUESTIONS"]["TABLE"]
         ):
             case = data["document"].work_item.case.family

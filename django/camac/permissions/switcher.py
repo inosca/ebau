@@ -19,6 +19,8 @@ from logging import getLogger
 from django.conf import settings
 from django.db.models import QuerySet
 
+from camac.settings.utils import is_module_enabled
+
 log = getLogger(__name__)
 
 
@@ -85,7 +87,7 @@ def get_permission_mode():
     except Exception:  # pragma: no cover
         pass
 
-    if not settings.PERMISSIONS:  # pragma: no cover
+    if not is_module_enabled("PERMISSIONS"):  # pragma: no cover
         # Cantons that don't have the permissions module activated at all won't
         # even have the setting
         return PERMISSION_MODE.OFF
@@ -126,7 +128,7 @@ def is_permission_module_fully_enabled(group):
     module should apply.
     """
 
-    if not settings.PERMISSIONS:
+    if not is_module_enabled("PERMISSIONS"):
         return False
 
     # Check whether permissions module is fully enabled

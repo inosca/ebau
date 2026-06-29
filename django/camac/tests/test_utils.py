@@ -10,7 +10,7 @@ from django.urls import reverse
 
 from camac.response import make_xlsx_response
 from camac.settings.ebau_schema import ModuleApplicationConfig
-from camac.settings.utils import is_module_enabled
+from camac.settings.utils import is_module_config_enabled
 
 from .. import utils
 
@@ -189,17 +189,17 @@ def test_retry_utility(fail_forever, expectation):
         assert utils.retry(do_the_thing) == 5
 
 
-def test_is_module_enabled():
-    assert not is_module_enabled({})
+def test_is_module_config_enabled():
+    assert not is_module_config_enabled({})
 
-    assert not is_module_enabled({"ENABLED": None})
-    assert not is_module_enabled({"ENABLED": False})
-    assert is_module_enabled({"ENABLED": True})
+    assert not is_module_config_enabled({"ENABLED": None})
+    assert not is_module_config_enabled({"ENABLED": False})
+    assert is_module_config_enabled({"ENABLED": True})
 
     conf_enabled: ModuleApplicationConfig = ModuleApplicationConfig(enabled=True)
     conf_not_enabled: ModuleApplicationConfig = ModuleApplicationConfig()
-    assert is_module_enabled(conf_enabled)
-    assert not is_module_enabled(conf_not_enabled)
+    assert is_module_config_enabled(conf_enabled)
+    assert not is_module_config_enabled(conf_not_enabled)
 
 
 @pytest.mark.django_db

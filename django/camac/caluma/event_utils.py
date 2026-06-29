@@ -219,4 +219,4 @@ def if_module_enabled(module_name: str) -> Callable:
         ... def handle(sender, work_item, user, context=None, **kwargs):
         ...     ...
     """
-    return filter_events(lambda: is_module_enabled(getattr(settings, module_name)))
+    return filter_events(lambda: is_module_enabled(module_name))

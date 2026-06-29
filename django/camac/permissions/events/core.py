@@ -11,6 +11,7 @@ from django.utils.module_loading import import_string
 
 from camac.instance.models import Instance
 from camac.notification import utils as notification_utils
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Group, Service
 
 from ..api import PermissionManager
@@ -269,7 +270,7 @@ def acl_created(sender, instance, created, **kwargs):
     del instance  # just to avoid confusion
 
     if (
-        not settings.PERMISSIONS
+        not is_module_enabled("PERMISSIONS")
         or acl.created_by_event not in settings.PERMISSIONS["EVENTS_WITH_NOTIFICATION"]
     ):
         # useful for setting up test acls

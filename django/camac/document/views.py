@@ -31,6 +31,7 @@ from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
 from camac.permissions.api import PermissionManager
+from camac.settings.utils import is_module_enabled
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.permissions import (
     DefaultPermission,
@@ -205,7 +206,7 @@ class AttachmentView(
     def include_in_swagger(cls):
         return (
             # This endpoint is used by UR for the öreb dossiers
-            bool(settings.ECH0211) or settings.APPLICATION_NAME == "kt_uri"
+            is_module_enabled("ECH0211") or settings.APPLICATION_NAME == "kt_uri"
         ) and settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
 
     def has_object_destroy_permission(self, attachment):
@@ -389,7 +390,7 @@ class AttachmentDownloadView(
     def include_in_swagger(cls):
         return (
             # This endpoint is used by UR for the öreb dossiers
-            (bool(settings.ECH0211) or settings.APPLICATION_NAME == "kt_uri")
+            (is_module_enabled("ECH0211") or settings.APPLICATION_NAME == "kt_uri")
             and settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
         )
 

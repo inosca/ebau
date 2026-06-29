@@ -22,6 +22,12 @@ def generate_module_settings(
     `[canton_shortname]_distribution_settings`.
     """
 
+    def _enable(module_settings: ModuleApplicationConfig | dict):
+        if isinstance(module_settings, ModuleApplicationConfig):
+            module_settings.enabled = True
+        else:
+            module_settings["ENABLED"] = True
+
     module_name = settings_name.lower()
     # Implementation details: Tests can request `module_settings` and
     # `canton_module_settings`     at the same time. Those two settings must not
@@ -94,15 +100,14 @@ def generate_module_settings(
 
         # when creating a canton fixture, it is assumed to be enabled, even
         # when the original setting is only enabled by an env flag.
-        if isinstance(canton_settings, ModuleApplicationConfig):
-            canton_settings.enabled = True
-        else:
-            canton_settings["ENABLED"] = True
+        _enable(canton_settings)
 
         yield canton_settings
 
     elif disable:
-        base_fixture.clear()
+        if isinstance(base_fixture, dict):
+            base_fixture.clear()
+
         yield base_fixture
 
     else:
@@ -112,6 +117,10 @@ def generate_module_settings(
             if isinstance(original_settings, dict)
             else original_settings.default.model_copy(deep=True)
         )
+
+        # When using the default settings, we need to make sure they pass the
+        # `is_module_enabled` check
+        _enable(default_settings)
 
         # base settings are responsible for cleanup, so we do the whole set,
         # yield, reset sequence here. Relying on the settings fixture may not be
@@ -145,12 +154,12 @@ def get_enabled_cantons_for_module(
         canton
         for canton, config in cantons
         if config
-        and (ignore_enabled_value or is_module_enabled(config))
+        and (ignore_enabled_value or is_module_config_enabled(config))
         and canton != "default"
     ]
 
 
-def is_module_enabled(config: dict | ModuleApplicationConfig) -> bool:
+def is_module_config_enabled(config: dict | ModuleApplicationConfig) -> bool:
     """Determine if a module is enabled based on configuration.
 
     It will use the configuration key based on the config type:
@@ -162,3 +171,11 @@ def is_module_enabled(config: dict | ModuleApplicationConfig) -> bool:
         return config.enabled
     else:
         return config.get("ENABLED", False)
+
+
+def is_module_enabled(module_name: str) -> bool:
+    """Check if a settings module is enabled or not.
+
+    Works for pydantic and regular dict configs.
+    """
+    return is_module_config_enabled(getattr(settings, module_name))

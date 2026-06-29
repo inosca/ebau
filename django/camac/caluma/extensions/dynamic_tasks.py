@@ -31,6 +31,7 @@ from camac.instance.utils import (
     geometer_cadastral_survey_is_necessary,
     geometer_cadastral_survey_necessary_answer,
 )
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service, User
 from camac.utils import get_unversioned_slug
 
@@ -131,7 +132,9 @@ class CustomDynamicTasks(BaseDynamicTasks):
             # construction monitoring is already started on dossier submit in GR,
             # if the module is enabled.
             return (
-                [] if settings.CONSTRUCTION_MONITORING else ["construction-acceptance"]
+                []
+                if is_module_enabled("CONSTRUCTION_MONITORING")
+                else ["construction-acceptance"]
             )
 
         return []
@@ -542,7 +545,9 @@ class CustomDynamicTasks(BaseDynamicTasks):
         # avoid duplicates, the dynamic group of the "init-additional-demand"
         # task makes sure to not filter out services that already have such a
         # work item
-        if settings.ADDITIONAL_DEMAND and set(context["addressed_groups"]) - set(
+        if is_module_enabled("ADDITIONAL_DEMAND") and set(
+            context["addressed_groups"]
+        ) - set(
             chain(
                 *case.work_items.filter(
                     addressed_groups__overlap=context["addressed_groups"],

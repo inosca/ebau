@@ -515,7 +515,6 @@ def test_dynamic_group_geometer_schnurgeruestabnahme_gr(
     }
 
     # construction monitoring config for testing geometer.
-    construction_monitoring_settings["ENABLED"] = True
     construction_monitoring_settings["GEOMETER_MUNICIPALITY"] = {
         "QUESTION": "choose-geometer",
         "ANSWER": "gemeinde",

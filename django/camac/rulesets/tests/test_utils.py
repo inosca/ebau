@@ -23,7 +23,6 @@ def test_assign_responsible_user(
     caluma_work_item_factory,
     rulesets_settings,
 ):
-    rulesets_settings.enabled = True
     existing_user = user_factory(username="existing_user")
     new_user = user_factory(username="new_user")
     assigned_users = []

@@ -28,6 +28,7 @@ from camac.instance.placeholders.utils import (
     format_gis_center_coordinates,
     get_person_name,
 )
+from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
 from camac.utils import build_url, clean_join, get_dict_item
 
@@ -64,7 +65,7 @@ def get_form_type_config(form_slug):
 
 
 def get_tag_header(instance, current_service):
-    if settings.TAGS and settings.TAGS.use_legacy_tags:
+    if is_module_enabled("TAGS") and settings.TAGS.use_legacy_tags:
         tags = instance.tags.filter(service=current_service)
     else:
         tags = instance.keywords.filter(service=current_service)

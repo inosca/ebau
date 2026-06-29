@@ -55,13 +55,13 @@ def test_complete_decision_gr(
     has_are_inquiry,
     decision_settings,
     construction_monitoring_enabled,
-    gr_construction_monitoring_settings,
     service,
     application_settings,
     gr_decision_settings,
     gr_ech0211_settings,
     set_application_gr,
     mocker,
+    request,
 ):
     are_service = service_factory(name="are", slug="are")
     gr_instance.case.document.form = caluma_form_factory(slug="baugesuch")
@@ -76,10 +76,10 @@ def test_complete_decision_gr(
         construction_monitoring_enabled and has_are_inquiry and decision == "APPROVED"
     )
 
-    if not construction_monitoring_enabled:
-        gr_construction_monitoring_settings.clear()
+    if construction_monitoring_enabled:
+        module_settings = request.getfixturevalue("gr_construction_monitoring_settings")
     else:
-        gr_construction_monitoring_settings["ENABLED"] = True
+        request.getfixturevalue("disable_construction_monitoring_settings")
 
     instance_state_factory(name="construction-acceptance")
     instance_state_factory(name="decided")
@@ -114,9 +114,7 @@ def test_complete_decision_gr(
     if construction_monitoring_enabled and decision == "APPROVED":
         init_construction_monitoring = caluma_work_item_factory(
             case=gr_instance.case,
-            task_id=gr_construction_monitoring_settings[
-                "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
-            ],
+            task_id=module_settings["CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"],
         )
         send_event(
             post_complete_work_item,
@@ -1021,6 +1019,7 @@ def test_get_notification_config_be(
     settings,
     application_settings,
     be_decision_settings,
+    be_appeal_settings,
     is_preliminary_clarification,
     is_other_decision,
     is_appeal,
@@ -1029,7 +1028,7 @@ def test_get_notification_config_be(
     form_utils: FormUtils,
     master_data_settings,
 ):
-    settings.APPLICATION_NAME = "kt_be"
+    settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
     application_settings["NOTIFICATIONS"] = {
         "DECISION": [
@@ -1066,15 +1065,13 @@ def test_get_notification_config_be(
         be_instance.case.save()
 
     elif is_appeal:
-        settings.APPEAL = {
-            "NOTIFICATIONS": {
-                "APPEAL_DECISION": [
-                    {
-                        "template_slug": "decision-appeal",
-                        "recipient_types": ["applicant"],
-                    }
-                ]
-            }
+        be_appeal_settings["NOTIFICATIONS"] = {
+            "APPEAL_DECISION": [
+                {
+                    "template_slug": "decision-appeal",
+                    "recipient_types": ["applicant"],
+                }
+            ]
         }
         be_instance.case.meta["is-appeal"] = True
 
@@ -1143,6 +1140,7 @@ def test_get_notification_config_so(
     settings,
     application_settings,
     so_decision_settings,
+    so_appeal_settings,
     is_appeal,
     non_building_permit_decision,
     expected_notification_slug,
@@ -1178,15 +1176,13 @@ def test_get_notification_config_so(
     decision = caluma_work_item_factory(task_id="decision", case=so_instance.case)
 
     if is_appeal:
-        settings.APPEAL = {
-            "NOTIFICATIONS": {
-                "APPEAL_DECISION": [
-                    {
-                        "template_slug": "decision-appeal",
-                        "recipient_types": ["applicant"],
-                    }
-                ]
-            }
+        so_appeal_settings["NOTIFICATIONS"] = {
+            "APPEAL_DECISION": [
+                {
+                    "template_slug": "decision-appeal",
+                    "recipient_types": ["applicant"],
+                }
+            ]
         }
         so_instance.case.meta["is-appeal"] = True
 

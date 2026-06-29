@@ -30,7 +30,6 @@ def test_additional_demand_event_formtimelines(
     timelines_settings,
     mocker,
 ):
-    timelines_settings.enabled = True
     # mock the follow up signal file_subsequently for this test,
     # as this instance does not have all required answers to produce a valid xml
     mocker.patch("camac.ech0211.signals.file_subsequently.send")
