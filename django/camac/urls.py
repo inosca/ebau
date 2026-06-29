@@ -3,7 +3,10 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.urls import re_path
 
-from camac.alexandria.views import AlexandriaPermissionsDebuggerView
+from camac.alexandria.views import (
+    AlexandriaPermissionsDebuggerView,
+    AlexandriaVisibilitiesDebuggerView,
+)
 from camac.caluma.views import CamacAuthenticatedGraphQLView
 from camac.settings.utils import is_module_enabled
 from camac.swagger.views import get_swagger_view
@@ -88,5 +91,12 @@ if settings.DEBUG:
             r"^django/alexandria-permissions-debugger",
             AlexandriaPermissionsDebuggerView.as_view(),
             name="alexandria-permissions-debugger",
+        ),
+    )
+    urlpatterns.append(
+        re_path(
+            r"^django/alexandria-visibilities-debugger",
+            AlexandriaVisibilitiesDebuggerView.as_view(),
+            name="alexandria-visibilities-debugger",
         ),
     )

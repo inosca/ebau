@@ -39,18 +39,27 @@
       <thead>
         <tr>
           <th class="pico-background-sand-500" colspan="2">
-            <a href="{% url 'alexandria-permissions-debugger' %}{% querystring by=switch_to %}">Switch view</a>
+            <a
+              href="{% url 'alexandria-permissions-debugger' %}{% querystring by=switch_to %}"
+              >Switch view</a
+            >
           </th>
           {% for action in actions %}
-            <th class="pico-background-sand-500">{{ action }}</th>
+          <th class="pico-background-sand-500">{{ action }}</th>
           {% endfor %}
         </tr>
       </thead>
       <tbody>
         {% for parent in data %}
           <tr>
-            <td class="pico-background-sand-50" colspan="{{ actions|length|add:2 }}">
-              <a href="#{{ parent.slug }}" id="{{ parent.slug }}"><strong>{{ parent.name }}</strong></a>
+            <td
+              class="pico-background-sand-50"
+              colspan="{{ actions|length|add:2 }}"
+            >
+              <a href="#{{ parent.slug }}" id="{{ parent.slug }}">
+                <strong>{{ parent.name }}</strong>
+                <small>({{ parent.slug }})</small>
+              </a>
             </td>
           </tr>
           {% for child in parent.children %}
@@ -58,7 +67,8 @@
               <td></td>
               {% for k, v in child.items %}
                 {% if k == "name" %}
-                  <td>{{ v }}</td>
+                  <td>{{ v }}<br /><small>({{ child.slug }}) </small></td>
+                {% elif k == "slug" %}
                 {% else %}
                   <td class="pico-background-{{ v.color }}">{{ v.text }}</td>
                 {% endif %}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"
+    />
+    <style>
+      :root {
+        --pico-font-size: 14px;
+      }
+
+      table {
+        margin: 0;
+      }
+
+      thead {
+        position: sticky;
+        top: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration-color: inherit;
+        scroll-margin-top: 45px;
+      }
+    </style>
+    <title>Alexandria Visibilities</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th class="pico-background-sand-500" colspan="2">
+            <a
+              href="{% url 'alexandria-visibilities-debugger' %}{% querystring by=switch_to %}"
+              >Switch view</a
+            >
+          </th>
+          <th class="pico-background-sand-500">visibility</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for parent in data %}
+          <tr>
+            <td class="pico-background-sand-50" colspan="3">
+              <a href="#{{ parent.slug }}" id="{{ parent.slug }}">
+                <strong>{{ parent.name }}</strong>
+                {% if parent.slug and parent.slug != parent.name %}
+                  <small>({{ parent.slug }})</small>
+                {% endif %}
+              </a>
+            </td>
+          </tr>
+          {% for child in parent.children %}
+            <tr>
+              <td style="width: 1rem"></td>
+              {% for k, v in child.items %} {% if k == "name" %}
+                  <td style="width: 200px">
+                    {{ v }} {% if child.slug and child.slug != v %}<small>({{ child.slug }}) </small>{% endif %}
+                  </td>
+                {% elif k == "slug" %} {% else %}
+                  <td class="pico-background-{{ v.color }}">{{ v.text }}</td>
+                {% endif %}
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
