@@ -2,7 +2,7 @@ Babel==2.17.0
 backoff==2.2.1
 boto3==1.40.26
 caluma==12.4.1
-caluma-alexandria==8.8.1
+caluma-alexandria==8.9.1
 celery==5.5.3
 codetiming==1.4.0
 cryptography==44.0.2
@@ -52,7 +52,7 @@ pyexcel-webio==0.1.4
 pyexcel-xlsx==0.6.1
 PyJWT==2.10.1
 pymemcache==4.0.0
-pypdf==6.0.0
+pypdf==6.14.0
 pyproj==3.7.2
 python-dateutil==2.9.0.post0
 python-docx==1.2.0

@@ -4139,6 +4139,7 @@ ALEXANDRIA_ENABLE_PDF_CONVERSION = True
 ALEXANDRIA_ENABLE_CONTENT_SEARCH = env.bool(
     "ALEXANDRIA_ENABLE_CONTENT_SEARCH", default=True
 )
+ALEXNADRIA_MIN_PDF_VERSION = env.float("ALEXANDRIA_MIN_PDF_VERSION", default=None)
 ALEXANDRIA_DMS_URL = env.str(
     "ALEXANDRIA_DMS_URL",
     default="http://document-merge-service:8000/document-merge-service/api/v1",
