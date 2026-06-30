@@ -12194,8 +12194,8 @@
       }
     },
     "info-abbruchpraemie-dokumente": {
-      "label": "Zum Stellen des Antrags müssen noch zusätzliche Unterlagen eingereicht werden:<ul><li>Situationsplan mit Kennzeichnung des Abbruchobjektes und der beseitigten Objektfläche in m²</li><li>Abbruchvolumen fest (entspricht dem Gebäudevolumen)</li><li>Fotografischer Nachweis des Abbruchs und der Rekultivierung des betroffenen Bodens</li><li>Vollmacht (als Vertreter-/in der Grundeigentümerschaft)</li><li>Zahlungsverbindung</li><li>Schlussrechnung mit den tatsächlichen Abbruchkosten ohne Spezialabfälle (wird auch benötigt, wenn der Abbruch in Eigenregie vorgenommen wurde). Altlasten und Spezialabfälle sind nicht prämienberechtigt, diese sind separat aufzuführen.</li></ul>",
-      "hint": "",
+      "label": "Zum Stellen des Antrags müssen noch zusätzliche Unterlagen eingereicht werden:<br />- Situationsplan mit Kennzeichnung des Abbruchobjektes und der beseitigten Objektfläche in m²<br />- Abbruchvolumen fest (entspricht dem Gebäudevolumen)<br />- Fotografischer Nachweis des Abbruchs und der Rekultivierung des betroffenen Bodens<br />- Vollmacht (als Vertreter-/in der Grundeigentümerschaft)<br />- Zahlungsverbindung<br />- Schlussrechnung mit den tatsächlichen Abbruchkosten ohne Spezialabfälle (wird auch benötigt, wenn der Abbruch in Eigenregie vorgenommen wurde).",
+      "hint": "Altlasten und Spezialabfälle sind nicht prämienberechtigt, diese sind separat aufzuführen.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
