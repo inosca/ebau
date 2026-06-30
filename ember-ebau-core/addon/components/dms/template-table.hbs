@@ -1,18 +1,19 @@
-<div
-  class="uk-flex uk-flex-between uk-flex-middle uk-margin-bottom"
-  ...attributes
->
-  <h2 class="uk-margin-remove">{{t (concat "dms.title." @type)}}</h2>
-  {{#if (can "edit dms-template" type=@type)}}
-    <LinkTo
-      @route={{module-route "dms-admin" "new"}}
-      @query={{hash type=@type}}
-      class="uk-button uk-button-primary"
-    >
-      {{t (concat "dms.new." @type)}}
-    </LinkTo>
-  {{/if}}
-</div>
+<h2 class="uk-flex uk-flex-between uk-flex-middle">
+  <div>
+    {{t (concat "dms.title." @type)}}
+  </div>
+  <div>
+    {{#if (can "edit dms-template" type=@type)}}
+      <LinkTo
+        @route={{module-route "dms-admin" "new"}}
+        @query={{hash type=@type}}
+        class="uk-button uk-button-primary"
+      >
+        {{t (concat "dms.new." @type)}}
+      </LinkTo>
+    {{/if}}
+  </div>
+</h2>
 
 {{yield to="before"}}
 

@@ -27,7 +27,7 @@ module("Integration | Component | snippets-table/category", function (hooks) {
 />`,
     );
 
-    assert.dom("table[data-test-snippets-table] tbody tr").exists({ count: 3 });
+    assert.dom("table[data-test-snippets-table] tbody tr").exists({ count: 2 });
   });
 
   test("it can collapse and expand", async function (assert) {

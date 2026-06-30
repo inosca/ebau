@@ -1,4 +1,4 @@
-<h2 class="uk-margin-remove-top uk-flex uk-flex-middle">
+<h2 class="uk-flex uk-flex-middle">
   {{#if this.isEditing}}
     <Input
       @type="text"
@@ -109,7 +109,9 @@
           </td>
         </tr>
       {{/each}}
-      {{#if @editable}}
+    </tbody>
+    {{#if @editable}}
+      <tfoot>
         <tr>
           <td colspan="3" class="uk-text-center">
             <LinkTo
@@ -122,7 +124,7 @@
             </LinkTo>
           </td>
         </tr>
-      {{/if}}
-    </tbody>
+      </tfoot>
+    {{/if}}
   </table>
 {{/if}}

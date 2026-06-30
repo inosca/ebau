@@ -20,10 +20,10 @@ module("Acceptance | snippets-admin", function (hooks) {
 
     assert
       .dom('table[data-test-snippets-table="A category"] tbody tr')
-      .exists({ count: 4 });
+      .exists({ count: 3 });
     assert
       .dom('table[data-test-snippets-table="B category"] tbody tr')
-      .exists({ count: 6 });
+      .exists({ count: 5 });
   });
 
   test("search snippets", async function (assert) {
@@ -54,7 +54,7 @@ module("Acceptance | snippets-admin", function (hooks) {
 
     assert
       .dom('table[data-test-snippets-table="Test"] tbody tr')
-      .exists({ count: 2 });
+      .exists({ count: 1 });
 
     await click("[data-test-add-snippet]");
 
@@ -69,7 +69,7 @@ module("Acceptance | snippets-admin", function (hooks) {
     assert.strictEqual(currentURL(), "/snippets-admin");
     assert
       .dom('table[data-test-snippets-table="Test"] tbody tr')
-      .exists({ count: 3 });
+      .exists({ count: 2 });
   });
 
   test("edit snippet", async function (assert) {
@@ -109,7 +109,7 @@ module("Acceptance | snippets-admin", function (hooks) {
 
     assert
       .dom('table[data-test-snippets-table="A category"] tbody tr')
-      .exists({ count: 3 });
+      .exists({ count: 2 });
 
     await click(`[data-test-delete-snippet="${snippet.id}"]`);
     await waitFor(".uk-modal.uk-open");
@@ -117,7 +117,7 @@ module("Acceptance | snippets-admin", function (hooks) {
 
     assert
       .dom('table[data-test-snippets-table="A category"] tbody tr')
-      .exists({ count: 2 });
+      .exists({ count: 1 });
   });
 
   test("create new category", async function (assert) {
@@ -138,7 +138,7 @@ module("Acceptance | snippets-admin", function (hooks) {
     assert.dom('table[data-test-snippets-table="My new category"]').exists();
     assert
       .dom('table[data-test-snippets-table="My new category"] tbody tr')
-      .exists({ count: 2 });
+      .exists({ count: 1 });
   });
 
   test("edit category", async function (assert) {

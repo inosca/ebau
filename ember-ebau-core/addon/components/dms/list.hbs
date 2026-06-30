@@ -13,11 +13,7 @@
   {{/if}}
 
   {{#if (can "view dms-template" type="shared")}}
-    <Dms::TemplateTable
-      @templates={{this.sharedTemplates}}
-      @type="shared"
-      class="uk-margin-large-top"
-    >
+    <Dms::TemplateTable @templates={{this.sharedTemplates}} @type="shared">
       <:before>
         <p>
           {{t
@@ -36,15 +32,10 @@
     <Dms::TemplateTable
       @templates={{this.inheritedTemplates}}
       @type="inherited"
-      class="uk-margin-large-top"
     />
   {{/if}}
 
   {{#if (can "view dms-template" type="system")}}
-    <Dms::TemplateTable
-      @templates={{this.systemTemplates}}
-      @type="system"
-      class={{if (can "view dms-template" type="own") "uk-margin-large-top"}}
-    />
+    <Dms::TemplateTable @templates={{this.systemTemplates}} @type="system" />
   {{/if}}
 {{/if}}
