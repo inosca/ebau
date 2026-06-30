@@ -58,7 +58,8 @@ export default class GrGisComponent extends Component {
   lng = 9.600122;
   minZoom = 8;
   maxZoom = 20;
-  wmsLayerMaxZoom = 25;
+  wmsLayerMaxZoom = 20;
+  tileSize = 512;
   searchUrl =
     "/maps/search?limit=100&partitionlimit=5&interface=desktop&lang=de&query=";
 
