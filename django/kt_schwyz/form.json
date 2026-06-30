@@ -1811,6 +1811,7 @@
       "personalien",
       "personalien.grundeigentumerschaft-v2",
       "personalien.vertreter-mit-vollmacht-v2",
+      "personalien.bankverbindung-abbruchpraemie",
       "zwischenbericht-abbruchpraemie",
       "gesuchsunterlagen"
     ]
@@ -2379,6 +2380,15 @@
       "parent": "personalien",
       "questions": ["vertreter-mit-vollmacht-v2"]
     },
+    "personalien.bankverbindung-abbruchpraemie": {
+      "title": "Bankverbindung",
+      "parent": "personalien",
+      "questions": [
+        "bankverbindung-abbruchpraemie-iban",
+        "bankverbindung-abbruchpraemie-name-der-bank",
+        "bankverbindung-abbruchpraemie-ort-der-bank"
+      ]
+    },
     "zwischenbericht-abbruchpraemie": {
       "title": "Zwischenbericht",
       "parent": null,
@@ -2781,7 +2791,8 @@
         "info-kw-1-2-bach-fluss",
         "info-kw-1-3-see",
         "info-kw-1-4-quelle",
-        "info-abbruchpraemie-dokumente"
+        "info-abbruchpraemie-dokumente",
+        "info-abbruchpraemie-plausibilitaetspruefung"
       ]
     },
     "gesuchsunterlagen-technische-bewilligung": {
@@ -12126,6 +12137,27 @@
         "options": ["Ja", "Nein"]
       }
     },
+    "bankverbindung-abbruchpraemie-iban": {
+      "label": "IBAN-Nr.",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "config": {}
+    },
+    "bankverbindung-abbruchpraemie-name-der-bank": {
+      "label": "Name der Bank",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "config": {}
+    },
+    "bankverbindung-abbruchpraemie-ort-der-bank": {
+      "label": "Ort der Bank",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "config": {}
+    },
     "zwischenbericht-abbruchpraemie-negativ": {
       "label": "",
       "hint": "",
@@ -12193,13 +12225,23 @@
       }
     },
     "info-abbruchpraemie-dokumente": {
-      "label": "Zum Stellen des Antrags müssen noch zusätzliche Unterlagen eingereicht werden:<ul><li>Situationsplan mit Kennzeichnung des Abbruchobjektes und der beseitigten Objektfläche in m²</li><li>Abbruchvolumen fest (entspricht dem Gebäudevolumen)</li><li>Fotografischer Nachweis des Abbruchs und der Rekultivierung des betroffenen Bodens</li><li>Vollmacht (als Vertreter-/in der Grundeigentümerschaft)</li><li>Zahlungsverbindung</li><li>Schlussrechnung mit den tatsächlichen Abbruchkosten ohne Spezialabfälle (wird auch benötigt, wenn der Abbruch in Eigenregie vorgenommen wurde). Altlasten und Spezialabfälle sind nicht prämienberechtigt, diese sind separat aufzuführen.</li></ul>",
-      "hint": "",
+      "label": "Zum Stellen des Antrags müssen noch zusätzliche Unterlagen eingereicht werden:<br />- Situationsplan mit Kennzeichnung des Abbruchobjektes und der beseitigten Objektfläche in m²<br />- Abbruchvolumen fest (entspricht dem Gebäudevolumen)<br />- Fotografischer Nachweis des Abbruchs und der Rekultivierung des betroffenen Bodens<br />- Vollmacht (als Vertreter-/in der Grundeigentümerschaft)<br />- Schlussrechnung mit den tatsächlichen Abbruchkosten ohne Spezialabfälle (wird auch benötigt, wenn der Abbruch in Eigenregie vorgenommen wurde).",
+      "hint": "Altlasten und Spezialabfälle sind nicht prämienberechtigt, diese sind separat aufzuführen.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
       "config": {
         "options": ["Vorhanden"]
+      }
+    },
+    "info-abbruchpraemie-plausibilitaetspruefung": {
+      "label": "Bei der Plausibilitätsprüfung der Schlussrechnung halten wir uns an die Richtwerte in der Schätzungsanleitung des Steueramts. Diese ist auf unserer Homepage veröffentlicht:<br /><a href=\"https://www.sz.ch/public/upload/assets/82950/Anhang_Schaetzungsanleitung_Tabellen_Wertbasis_2023.pdf?fp=2\">Anhang Schätzungsanleitung Tabellen Wertbasis 2023</a>",
+      "hint": "",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
+      "config": {
+        "options": ["Zur Kenntnis genommen"]
       }
     }
   }
