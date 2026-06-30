@@ -1811,8 +1811,8 @@
       "personalien",
       "personalien.grundeigentumerschaft-v2",
       "personalien.vertreter-mit-vollmacht-v2",
-      "personalien.bankverbindung-abbruchpraemie",
       "zwischenbericht-abbruchpraemie",
+      "bankverbindung-abbruchpraemie",
       "gesuchsunterlagen"
     ]
   },
@@ -2380,9 +2380,9 @@
       "parent": "personalien",
       "questions": ["vertreter-mit-vollmacht-v2"]
     },
-    "personalien.bankverbindung-abbruchpraemie": {
+    "bankverbindung-abbruchpraemie": {
       "title": "Bankverbindung",
-      "parent": "personalien",
+      "parent": null,
       "questions": [
         "bankverbindung-abbruchpraemie-iban",
         "bankverbindung-abbruchpraemie-name-der-bank",
@@ -12142,6 +12142,7 @@
       "hint": "",
       "type": "text",
       "required": true,
+      "active-expression": "'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
       "config": {}
     },
     "bankverbindung-abbruchpraemie-name-der-bank": {
@@ -12149,6 +12150,7 @@
       "hint": "",
       "type": "text",
       "required": true,
+      "active-expression": "'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
       "config": {}
     },
     "bankverbindung-abbruchpraemie-ort-der-bank": {
@@ -12156,6 +12158,7 @@
       "hint": "",
       "type": "text",
       "required": true,
+      "active-expression": "'Zur Kenntnis genommen' in 'zwischenbericht-abbruchpraemie-positiv'|value",
       "config": {}
     },
     "zwischenbericht-abbruchpraemie-negativ": {
