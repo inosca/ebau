@@ -362,6 +362,15 @@ instances:
     role: "Rolle"
     role-project-owner-info: "Die Rolle Bauherrschaft wird nach dem Einreichen den erfassten Gesuchsteller/innen sowie deren Vertretungen vergeben. Diese Rolle wird nur vom System vergeben und kann nicht manuell erfasst werden."
 
+    role-info:
+      title: "Berechtigungen Gesuchstellende"
+      admin: "Administrator/in"
+      editor: "Mitarbeiter/in"
+      read-only: "Einsichtsberechtigt"
+      admin-text: "Kann das Dossier bearbeiten, einreichen, löschen, kopieren (z.B. Projektänderung, Neueinreichung nach Rückweisung, etc.) und Berechtigungen verwalten."
+      editor-text: "Kann das Dossier bearbeiten, jedoch nicht einreichen, löschen, kopieren oder Berechtigungen verwalten."
+      read-only-text: "Kann das Dossier nur ansehen, jedoch nichts bearbeiten."
+
 claims:
   deadline: "Fällig"
   answered: "Beantwortet am"

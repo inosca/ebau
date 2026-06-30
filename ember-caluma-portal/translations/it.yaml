@@ -298,6 +298,15 @@ instances:
     role: "Ruolo"
     role-project-owner-info: "Il ruolo di committente viene assegnato ai richiedenti registrati e ai loro rappresentanti dopo l'invio della domanda. Questo ruolo viene assegnato esclusivamente dal sistema e non può essere inserito manualmente."
 
+    role-info:
+      title: "Autorizzazioni dei richiedenti"
+      admin: "Amministratrice/tore"
+      editor: "Collaboratrice/tore"
+      read-only: "Persona autorizzata a prendere visione"
+      admin-text: "Può modificare, inviare, eliminare e copiare il dossier (ad es. nuova modifica del progetto, nuovo inoltro del dossier, ecc.) e gestire le autorizzazioni."
+      editor-text: "Può modificare il dossier, ma non può inviarlo, cancellarlo, copiarlo né gestire le autorizzazioni."
+      read-only-text: "Posso solo visualizzare il dossier, ma non posso modificare nulla."
+
 claims:
   deadline: "Scadenza"
   answered: "Risposta in data"

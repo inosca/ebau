@@ -374,6 +374,15 @@ Veuillez ouvrir le formulaire en cliquant sur « Soumettre à nouveau le dossier
     role: "Rôle"
     role-project-owner-info: "Le rôle de maître d'ouvrage est attribué aux demandeurs enregistrés ainsi qu'à leurs représentants après le dépôt de la demande. Ce rôle est uniquement attribué par le système et ne peut pas être saisi manuellement."
 
+    role-info:
+      title: ""
+      admin: ""
+      editor: ""
+      read-only: ""
+      admin-text: ""
+      editor-text: ""
+      read-only-text: ""
+
 
 claims:
   deadline: "Dû"

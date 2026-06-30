@@ -18,6 +18,9 @@ export default class InstancesEditApplicantsController extends Controller {
 
   @tracked email = "";
   @tracked role = "ADMIN";
+  @tracked showInfoModal = false;
+
+  applicantRoles = ["admin", "editor", "read-only"];
 
   municipalityPermissions = query(this, "instance-acl", () => ({
     access_level: "municipality-before-submission",
@@ -52,6 +55,13 @@ export default class InstancesEditApplicantsController extends Controller {
 
   get usedEmails() {
     return this.applicants?.map((applicant) => applicant.email);
+  }
+
+  @action
+  toggleInfoModal(event) {
+    event.preventDefault();
+
+    this.showInfoModal = !this.showInfoModal;
   }
 
   @action
