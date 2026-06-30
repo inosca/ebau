@@ -1143,6 +1143,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
         copy_source = validated_data.pop("copy_source", None)
         is_modification = self.initial_data.get("is_modification", False)
+        is_appeal = self.initial_data.get("is_appeal", False)
+        is_rejected_appeal = self.initial_data.get("is_rejected_appeal", False)
+        is_copy = self.initial_data.get("is_copy", False)
         copy_attachments_from = self.initial_data.get("copy_attachments_from", [])
         is_conversion = False
 
@@ -1252,6 +1255,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             group=group,
             lead=self.initial_data.get("lead", None),
             is_modification=is_modification,
+            is_appeal=is_appeal,
+            is_rejected_appeal=is_rejected_appeal,
+            is_copy=is_copy,
             is_paper=is_paper,
             caluma_form=caluma_form,
             source_instance=source_instance,

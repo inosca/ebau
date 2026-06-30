@@ -36,6 +36,7 @@ from camac.instance.serializers import (
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
 )
+from camac.instance.utils import copy_instance
 from camac.permissions import api as permissions_api
 from camac.permissions.conditions import (
     HasApplicantRole,
@@ -3443,6 +3444,84 @@ def test_copy_rejected_instance(
     if response.status_code == status.HTTP_201_CREATED:
         new_instance = Instance.objects.get(pk=response.json()["data"]["id"])
         assert new_instance.copy_source == so_instance
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "old_meta,new_meta,expect_confirmation_copied",
+    [
+        ({"has-appeal": True}, {"is-appeal": True}, True),
+        ({}, {"is-copy": True}, True),
+        ({}, {"is-rejected-appeal": True}, True),
+    ],
+)
+@pytest.mark.django_db
+def test_copy_confirmation_answers(
+    admin_user,
+    caluma_admin_user,
+    admin_client,
+    be_instance,
+    be_access_levels,
+    caluma_workflow_config_be,
+    set_application_be,
+    service,
+    form_utils: FormUtils,
+    old_meta,
+    new_meta,
+    expect_confirmation_copied,
+    instance_state_factory,
+    caluma_answer_factory,
+    caluma_question_factory,
+    caluma_form_question_factory,
+    instance_acl_factory,
+):
+    form = caluma_form_models.Form.objects.create(slug="7-bestaetigung")
+
+    question = caluma_question_factory(slug="anforderungen-eingehalten")
+    caluma_form_question_factory(question=question, form=form)
+
+    instance_acl_factory(
+        grant_type="SERVICE",
+        instance=be_instance,
+        service=service,
+        access_level_id="lead-authority",
+    )
+
+    form_utils.add_answer(
+        be_instance.case.document, "projektaenderung", "projektaenderung-ja"
+    )
+
+    be_instance.case.document.save()
+
+    instance_state_factory(name="new")
+    instance_state_factory(name="subm")
+    instance_state_factory(name="circulation_init")
+
+    form_utils.add_answer(
+        be_instance.case.document,
+        "anforderungen-eingehalten",
+        "anforderungen-eingehalten-ja",
+    )
+    new_instance = copy_instance(
+        instance=be_instance,
+        group=admin_user.groups.first(),
+        user=admin_user,
+        caluma_user=caluma_admin_user,
+        new_meta=new_meta,
+        old_meta=old_meta,
+    )
+
+    new_instance.refresh_from_db()
+
+    for key, value in new_meta.items():
+        assert new_instance.case.meta.get(key) == value
+
+    assert (
+        new_instance.case.document.answers.filter(
+            question_id="anforderungen-eingehalten"
+        ).exists()
+        == expect_confirmation_copied
+    )
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
