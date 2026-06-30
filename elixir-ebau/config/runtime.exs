@@ -22,8 +22,9 @@ end
 
 Nvir.dotenv!(["../.env", ".env", ".env.#{config_env()}"])
 
-# We don't build scss in test
-if config_env() in [:dev, :prod] do
+# We only build scss in dev; production ships the precompiled release without a
+# LiveView frontend, so it neither needs dart_sass nor APPLICATION at runtime.
+if config_env() == :dev do
   # We dynamically need to build different cantonal scss files here
   config :dart_sass,
     version: "1.77.8",
@@ -42,7 +43,7 @@ if config_env() != :test do
     password: System.get_env("DATABASE_PASSWORD", "camac"),
     hostname: System.get_env("DATABASE_HOST", "localhost"),
     port: String.to_integer(System.get_env("DATABASE_PORT", "5432")),
-    database: System.get_env("DATABASE_NAME", System.fetch_env!("APPLICATION")),
+    database: System.get_env("DATABASE_NAME") || Application.get_env(:ebau, :canton_string),
     ssl: System.get_env("DATABASE_ENABLE_SSL") == "true",
     pool_size: String.to_integer(System.get_env("POOL_SIZE", "10")),
     pool_count: String.to_integer(System.get_env("POOL_COUNT", "1"))

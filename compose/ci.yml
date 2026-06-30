@@ -196,6 +196,17 @@ services:
       cache_from:
         - acr.run/camac-ng/camac-ng/housing-stat-proxy:master
 
+  elixir:
+    image: acr.run/camac-ng/camac-ng/elixir-ebau:${CI_COMMIT_REF_SLUG:-master}
+    build:
+      context: ../elixir-ebau
+      target: final
+      cache_from:
+        - acr.run/camac-ng/camac-ng/elixir-ebau:master
+      args:
+        APPLICATION: ${APPLICATION}
+        EBAU_VERSION: ${EBAU_VERSION:-0.0.0-master}
+
 volumes:
   pg15data:
   djangomedia:

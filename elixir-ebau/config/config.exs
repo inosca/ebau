@@ -1,7 +1,9 @@
 import Config
 
+canton_string = System.get_env("APPLICATION", "demo")
+
 canton =
-  case System.get_env("APPLICATION") do
+  case canton_string do
     "kt_gr" -> :gr
     "kt_so" -> :so
     _ -> :demo
@@ -26,6 +28,7 @@ config :ebau, EbauWeb.Endpoint,
 
 config :ebau,
   canton: canton,
+  canton_string: canton_string,
   ecto_repos: [Ebau.Repo],
   generators: [timestamp_type: :utc_datetime],
   ash_domains: [

@@ -128,6 +128,16 @@ services:
       cache_from:
         - acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-master}
 
+  elixir:
+    build:
+      context: ../elixir-ebau
+      target: final
+      args:
+        APPLICATION: ${APPLICATION}
+        EBAU_VERSION: ${EBAU_VERSION:-0.0.0-master}
+      cache_from:
+        - acr.run/camac-ng/camac-ng/elixir-ebau:master
+
 volumes:
   pg15data:
   redis_data:

@@ -46,7 +46,7 @@ defmodule Mix.Tasks.Ebau.EnsureLegacySchema do
 
       Import or reconcile the legacy schema first:
 
-          mix ebau.bootstrap_legacy_schema
+          make setup-test
 
       Then rerun:
 
