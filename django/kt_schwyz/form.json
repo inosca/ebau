@@ -1811,6 +1811,7 @@
       "personalien",
       "personalien.grundeigentumerschaft-v2",
       "personalien.vertreter-mit-vollmacht-v2",
+      "personalien.bankverbindung-abbruchpraemie",
       "zwischenbericht-abbruchpraemie",
       "gesuchsunterlagen"
     ]
@@ -2378,6 +2379,15 @@
       "title": "Vertreter/in mit Vollmacht",
       "parent": "personalien",
       "questions": ["vertreter-mit-vollmacht-v2"]
+    },
+    "personalien.bankverbindung-abbruchpraemie": {
+      "title": "Bankverbindung",
+      "parent": "personalien",
+      "questions": [
+        "bankverbindung-abbruchpraemie-iban",
+        "bankverbindung-abbruchpraemie-name-der-bank",
+        "bankverbindung-abbruchpraemie-ort-der-bank"
+      ]
     },
     "zwischenbericht-abbruchpraemie": {
       "title": "Zwischenbericht",
@@ -12127,6 +12137,27 @@
         "options": ["Ja", "Nein"]
       }
     },
+    "bankverbindung-abbruchpraemie-iban": {
+      "label": "IBAN-Nr.",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "config": {}
+    },
+    "bankverbindung-abbruchpraemie-name-der-bank": {
+      "label": "Name der Bank",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "config": {}
+    },
+    "bankverbindung-abbruchpraemie-ort-der-bank": {
+      "label": "Ort der Bank",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "config": {}
+    },
     "zwischenbericht-abbruchpraemie-negativ": {
       "label": "",
       "hint": "",
@@ -12194,7 +12225,7 @@
       }
     },
     "info-abbruchpraemie-dokumente": {
-      "label": "Zum Stellen des Antrags müssen noch zusätzliche Unterlagen eingereicht werden:<br />- Situationsplan mit Kennzeichnung des Abbruchobjektes und der beseitigten Objektfläche in m²<br />- Abbruchvolumen fest (entspricht dem Gebäudevolumen)<br />- Fotografischer Nachweis des Abbruchs und der Rekultivierung des betroffenen Bodens<br />- Vollmacht (als Vertreter-/in der Grundeigentümerschaft)<br />- Zahlungsverbindung<br />- Schlussrechnung mit den tatsächlichen Abbruchkosten ohne Spezialabfälle (wird auch benötigt, wenn der Abbruch in Eigenregie vorgenommen wurde).",
+      "label": "Zum Stellen des Antrags müssen noch zusätzliche Unterlagen eingereicht werden:<br />- Situationsplan mit Kennzeichnung des Abbruchobjektes und der beseitigten Objektfläche in m²<br />- Abbruchvolumen fest (entspricht dem Gebäudevolumen)<br />- Fotografischer Nachweis des Abbruchs und der Rekultivierung des betroffenen Bodens<br />- Vollmacht (als Vertreter-/in der Grundeigentümerschaft)<br />- Schlussrechnung mit den tatsächlichen Abbruchkosten ohne Spezialabfälle (wird auch benötigt, wenn der Abbruch in Eigenregie vorgenommen wurde).",
       "hint": "Altlasten und Spezialabfälle sind nicht prämienberechtigt, diese sind separat aufzuführen.",
       "type": "checkbox",
       "required": true,
