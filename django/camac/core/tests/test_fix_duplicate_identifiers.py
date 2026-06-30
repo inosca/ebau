@@ -81,3 +81,50 @@ def test_fix_duplicate_identifiers(
     assert cases[2].instance.keywords.filter(name="2024-1").exists()
     assert not cases[3].instance.keywords.filter(name="2025-1").exists()
     assert cases[4].instance.keywords.filter(name="2025-1").exists()
+
+
+@pytest.mark.django_db
+def test_fix_duplicate_identifiers_select(
+    service,
+    instance_factory,
+    caluma_case_factory,
+    mocker,
+):
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service", return_value=service
+    )
+    case1 = caluma_case_factory(
+        meta={"submit-date": "2019-03-28T09:40:00.000Z", "dossier-number": "2024-1"},
+    )
+    case2 = caluma_case_factory(
+        meta={"submit-date": "2019-03-28T09:41:00.000Z", "dossier-number": "2024-1"},
+    )
+    case3 = caluma_case_factory(
+        meta={"submit-date": "2019-03-28T09:42:00.000Z", "dossier-number": "2025-1"},
+    )
+    case4 = caluma_case_factory(
+        meta={"submit-date": "2019-03-28T09:43:00.000Z", "dossier-number": "2025-1"},
+    )
+
+    cases = [case1, case2, case3, case4]
+    for case in cases:
+        instance = instance_factory()
+        instance.case = case
+        instance.save()
+
+    select_list = [case2.instance.pk, case3.instance.pk]
+
+    call_command(
+        "fix_duplicate_identifiers",
+        f"--select={','.join([str(pk) for pk in select_list])}",
+    )
+
+    for case in cases:
+        case.refresh_from_db()
+
+    # check changed dossier numbers, picked by manual select,
+    # new number should preserve original dossier year prefix.
+    assert cases[0].meta["dossier-number"] == "2024-1"
+    assert cases[1].meta["dossier-number"] == "2024-2"
+    assert cases[2].meta["dossier-number"] == "2025-2"
+    assert cases[3].meta["dossier-number"] == "2025-1"
