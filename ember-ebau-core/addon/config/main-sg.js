@@ -14,6 +14,9 @@ const config = {
     distribution: 5,
     decision: 6,
     decided: 7,
+    "construction-monitoring": 8,
+    "to-finish": 9,
+    finished: 10,
   },
   gwr: {
     cantonAbbreviation: "SG",

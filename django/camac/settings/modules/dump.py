@@ -840,6 +840,7 @@ DUMP = {
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
                 **DISTRIBUTION_DUMP_CONFIG,
                 **PUBLICATION_DUMP_CONFIG,
+                **CONSTRUCTION_MONITORING_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",

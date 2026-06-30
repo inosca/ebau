@@ -17,7 +17,7 @@ mutation CreateFlowAfterSubmit {
     input: {
       workflow: "building-permit"
       tasks: ["submit"]
-      next: "['formal-exam', 'init-additional-demand', 'create-manual-workitems', 'withdrawal-request']|tasks"
+      next: "['formal-exam', 'init-additional-demand', 'create-manual-workitems', 'withdrawal-request', 'init-construction-monitoring']|tasks"
     }
   ) {
     clientMutationId

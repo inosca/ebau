@@ -1,0 +1,612 @@
+mutation InitConstructionMonitoringTask {
+  saveSimpleTask(
+    input: {
+      slug: "init-construction-monitoring"
+      name: "Baubegleitung starten"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring\", \"models\": [\"INSTANCE_ID\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStageTask {
+  saveSimpleTask(
+    input: {
+      slug: "construction-stage"
+      name: "Bauetappe"
+      addressGroups: "['municipality']|groups"
+      isMultipleInstance: true
+      continueAsync: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CompleteConstructionMonitoringTask {
+  saveSimpleTask(
+    input: {
+      slug: "complete-construction-monitoring"
+      name: "Baubegleitung abschliessen"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring\", \"models\": [\"INSTANCE_ID\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CompleteInstanceTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "complete-instance"
+      name: "Verfahren abschliessen"
+      form: "complete-instance"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.task-form\", \"models\": [\"INSTANCE_ID\", \"TASK_SLUG\"]}, \"redirectToWorkItemsAfterCompletion\": true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepPlanConstructionStageTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-plan-construction-stage"
+      name: "Baubegleitung planen"
+      form: "construction-step-plan-construction-stage"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [\"construction-step-baufreigabe\"], \"index\": 0, \"total\": 1}, \"construction-step-id\": \"construction-step-plan-construction-stage\"}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepBaufreigabeBeantragenTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-baufreigabe-beantragen"
+      name: "Baufreigabe beantragen"
+      form: "construction-step-baufreigabe-beantragen"
+      addressGroups: "['municipality', 'applicant']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [\"construction-step-baubeginn\"], \"index\": 0, \"total\": 2}, \"construction-step-id\": \"construction-step-baufreigabe\", \"is-actionable-for-control\": false}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepBaufreigabeTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-baufreigabe"
+      name: "Baufreigabe entscheiden"
+      form: "construction-step-baufreigabe"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [\"construction-step-baubeginn\"], \"index\": 1, \"total\": 2, \"needs-approval\": \"construction-step-baufreigabe-is-approved\"}, \"construction-step-id\": \"construction-step-baufreigabe\"}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepBaubeginnMeldenTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-baubeginn-melden"
+      name: "Baubeginn melden"
+      form: "construction-step-baubeginn-melden"
+      addressGroups: "['municipality', 'applicant']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [\"construction-step-kanalisationsabnahme\", \"construction-step-schnurgeruestabnahme\"], \"index\": 0, \"total\": 1}, \"construction-step-id\": \"construction-step-baubeginn\", \"is-actionable-for-control\": false}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepKanalisationsabnahmeMeldenTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-kanalisationsabnahme-melden"
+      name: "Meldung \"Bereit zur Kanalisationsabnahme\""
+      form: "construction-step-kanalisationsabnahme-melden"
+      addressGroups: "['municipality', 'applicant']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [], \"index\": 0, \"total\": 2}, \"construction-step-id\": \"construction-step-kanalisationsabnahme\", \"is-actionable-for-control\": false}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepKanalisationKontrollierenTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-kanalisation-kontrollieren"
+      name: "Kanalisation kontrollieren"
+      form: "construction-step-kanalisation-kontrollieren"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [], \"index\": 1, \"total\": 2, \"needs-approval\": \"construction-step-kanalisationsabnahme-is-approved\"}, \"construction-step-id\": \"construction-step-kanalisationsabnahme\"}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchnurgeruestabnahmeMeldenTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-schnurgeruestabnahme-melden"
+      name: "Meldung \"Bereit zur Schnurgerüstabnahme\""
+      form: "construction-step-schnurgeruestabnahme-melden"
+      addressGroups: "['municipality', 'applicant']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [\"construction-step-rohbauabnahme\"], \"index\": 0, \"total\": 3}, \"construction-step-id\": \"construction-step-schnurgeruestabnahme\", \"is-actionable-for-control\": false}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchnurgeruestabnahmePlanenTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-schnurgeruestabnahme-planen"
+      name: "Schnurgerüstabnahme planen"
+      form: "construction-step-schnurgeruestabnahme-planen"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [\"construction-step-rohbauabnahme\"], \"index\": 1, \"total\": 3}, \"construction-step-id\": \"construction-step-schnurgeruestabnahme\"}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchnurgeruestKontrollierenTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-schnurgeruest-kontrollieren"
+      name: "Schnurgerüst kontrollieren"
+      form: "construction-step-schnurgeruest-kontrollieren"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [\"construction-step-rohbauabnahme\"], \"index\": 2, \"total\": 3, \"needs-approval\": \"construction-step-schnurgeruestabnahme-is-approved\"}, \"construction-step-id\": \"construction-step-schnurgeruestabnahme\"}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepRohbauabnahmeMeldenTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-rohbauabnahme-melden"
+      name: "Meldung \"Bereit zur Rohbauabnahme\""
+      form: "construction-step-rohbauabnahme-melden"
+      addressGroups: "['municipality', 'applicant']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [\"construction-step-zwischenkontrolle\"], \"index\": 0, \"total\": 2}, \"construction-step-id\": \"construction-step-rohbauabnahme\", \"is-actionable-for-control\": false}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepRohbauKontrollierenTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-rohbau-kontrollieren"
+      name: "Rohbau kontrollieren"
+      form: "construction-step-rohbau-kontrollieren"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [\"construction-step-zwischenkontrolle\"], \"index\": 1, \"total\": 2, \"needs-approval\": \"construction-step-rohbauabnahme-is-approved\"}, \"construction-step-id\": \"construction-step-rohbauabnahme\"}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepZwischenkontrolleMeldenTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-zwischenkontrolle-melden"
+      name: "Meldung \"Bereit zur Zwischenkontrolle\""
+      form: "construction-step-zwischenkontrolle-melden"
+      addressGroups: "['municipality', 'applicant']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [\"construction-step-schlussabnahme-gebaeude\"], \"index\": 0, \"total\": 2}, \"construction-step-id\": \"construction-step-zwischenkontrolle\", \"is-actionable-for-control\": false}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepZwischenkontrolleTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-zwischenkontrolle"
+      name: "Zwischenkontrolle"
+      form: "construction-step-zwischenkontrolle"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [\"construction-step-schlussabnahme-gebaeude\"], \"index\": 1, \"total\": 2, \"needs-approval\": \"construction-step-zwischenkontrolle-is-approved\"}, \"construction-step-id\": \"construction-step-zwischenkontrolle\"}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchlussabnahmeGebaeudeMeldenTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-schlussabnahme-gebaeude-melden"
+      name: "Meldung \"Bereit zur Schlussabnahme Gebäude\" (Bezugsbewilligung)"
+      form: "construction-step-schlussabnahme-gebaeude-melden"
+      addressGroups: "['municipality', 'applicant']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [\"construction-step-schlussabnahme-projekt\"], \"index\": 0, \"total\": 2}, \"construction-step-id\": \"construction-step-schlussabnahme-gebaeude\", \"is-actionable-for-control\": false}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchlussabnahmeGebaeudeTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-schlussabnahme-gebaeude"
+      name: "Schlussabnahme Gebäude (Bezugsbewilligung)"
+      form: "construction-step-schlussabnahme-gebaeude"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [\"construction-step-schlussabnahme-projekt\"], \"index\": 1, \"total\": 2, \"needs-approval\": \"construction-step-schlussabnahme-gebaeude-is-approved\"}, \"construction-step-id\": \"construction-step-schlussabnahme-gebaeude\"}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchlussabnahmeProjektMeldenTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-schlussabnahme-projekt-melden"
+      name: "Meldung \"Bereit zur Schlussabnahme Teil-/Gesamtprojekt\""
+      form: "construction-step-schlussabnahme-projekt-melden"
+      addressGroups: "['municipality', 'applicant']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [], \"index\": 0, \"total\": 3}, \"construction-step-id\": \"construction-step-schlussabnahme-projekt\", \"is-actionable-for-control\": false}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchlussabnahmeProjektPlanenTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-schlussabnahme-projekt-planen"
+      name: "Schlussabnahme Teil-/Gesamtprojekt planen"
+      form: "construction-step-schlussabnahme-projekt-planen"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [], \"index\": 1, \"total\": 3}, \"construction-step-id\": \"construction-step-schlussabnahme-projekt\"}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchlussabnahmeProjektTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "construction-step-schlussabnahme-projekt"
+      name: "Schlussabnahme Teil-/Gesamtprojekt"
+      form: "construction-step-schlussabnahme-projekt"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\": {\"route\": \"cases.detail.construction-monitoring.construction-stage.construction-step\", \"models\": [\"INSTANCE_ID\", \"CONSTRUCTION_STAGE_UUID\", \"CONSTRUCTION_STEP_ID\"]}, \"construction-step\": {\"next\": [], \"index\": 2, \"total\": 3, \"needs-approval\": \"construction-step-schlussabnahme-projekt-is-approved\"}, \"construction-step-id\": \"construction-step-schlussabnahme-projekt\"}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStageWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "construction-stage"
+      name: "Bauetappe"
+      startTasks: ["construction-step-plan-construction-stage"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InitConstructionMonitoringFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["init-construction-monitoring"]
+      next: "['after-init-construction-monitoring']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CompleteConstructionMonitoringFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["complete-construction-monitoring"]
+      next: "['complete-instance']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CompleteInstanceFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["complete-instance"]
+      next: "[\"archive-instance\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepPlanConstructionStageFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-plan-construction-stage"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepBaufreigabeFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-baufreigabe"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepBaufreigabeBeantragenFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-baufreigabe-beantragen"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepBaubeginnMeldenFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-baubeginn-melden"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepKanalisationsabnahmeMeldenFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-kanalisationsabnahme-melden"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepKanalisationKontrollierenFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-kanalisation-kontrollieren"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchnurgeruestabnahmeMeldenFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-schnurgeruestabnahme-melden"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchnurgeruestabnahmePlanenFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-schnurgeruestabnahme-planen"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchnurgeruestKontrollierenFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-schnurgeruest-kontrollieren"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepRohbauabnahmeMeldenFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-rohbauabnahme-melden"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepRohbauKontrollierenFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-rohbau-kontrollieren"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepZwischenkontrolleMeldenFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-zwischenkontrolle-melden"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepZwischenkontrolleFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-zwischenkontrolle"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchlussabnahmeGebaeudeMeldenFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-schlussabnahme-gebaeude-melden"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchlussabnahmeGebaeudeFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-schlussabnahme-gebaeude"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchlussabnahmeProjektMeldenFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-schlussabnahme-projekt-melden"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchlussabnahmeProjektPlanenFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-schlussabnahme-projekt-planen"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ConstructionStepSchlussabnahmeProjektFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "construction-stage"
+      tasks: ["construction-step-schlussabnahme-projekt"]
+      next: "['after-construction-step-item']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}

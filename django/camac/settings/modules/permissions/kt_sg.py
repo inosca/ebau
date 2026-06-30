@@ -20,6 +20,9 @@ STATES_ALL = RequireInstanceState(
         "distribution",
         "decision",
         "decided",
+        "construction-monitoring",
+        "to-finish",
+        "finished",
     ]
 )
 
@@ -40,6 +43,13 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 MODULE_ADDITIONAL_DEMANDS = RequireWorkItem("init-additional-demand")
 MODULE_BILLING = STATES_ALL
 MODULE_COMMUNICATIONS = STATES_ALL
+MODULE_COMPLETE_INSTANCE = RequireWorkItem("complete-instance", "ready")
+MODULE_CONSTRUCTION_MONITORING = RequireWorkItem("init-construction-monitoring")
+MODULE_CONSTRUCTION_MONITORING_COMPLETE = (
+    MODULE_CONSTRUCTION_MONITORING
+    & RequireInstanceState(["decided", "construction-monitoring"])
+)
+MODULE_CONSTRUCTION_MONITORING_SKIP = MODULE_CONSTRUCTION_MONITORING_COMPLETE
 MODULE_DECISION = (RequireWorkItem("decision") & ROLES_MUNICIPALITY) | RequireWorkItem(
     "decision", "completed"
 )
@@ -74,6 +84,10 @@ MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
 MODULE_PORTAL_APPLICANTS = APPLICANT_ADMIN
 MODULE_PORTAL_COMMUNICATIONS_READ = ~RequireInstanceState(["new"])
 MODULE_PORTAL_COMMUNICATIONS_WRITE = MODULE_PORTAL_COMMUNICATIONS_READ & APPLICANT_WRITE
+MODULE_PORTAL_CONSTRUCTION_MONITORING_READ = RequireWorkItem("construction-stage")
+MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE = (
+    MODULE_PORTAL_CONSTRUCTION_MONITORING_READ & APPLICANT_WRITE
+)
 MODULE_PORTAL_DOCUMENTS_WRITE = (
     RequireWorkItem("submit", "ready") & APPLICANT_WRITE
 ) | MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE
@@ -117,6 +131,14 @@ SG_PERMISSIONS_SETTINGS = {
             ("applicant-remove", MODULE_PORTAL_APPLICANTS),
             ("communications-read", MODULE_PORTAL_COMMUNICATIONS_READ),
             ("communications-write", MODULE_PORTAL_COMMUNICATIONS_WRITE),
+            (
+                "construction-monitoring-read",
+                MODULE_PORTAL_CONSTRUCTION_MONITORING_READ,
+            ),
+            (
+                "construction-monitoring-write",
+                MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE,
+            ),
             ("documents-write", MODULE_PORTAL_DOCUMENTS_WRITE),
             ("form-read", MODULE_PORTAL_FORM_READ),
             ("form-write", MODULE_PORTAL_FORM_WRITE),
@@ -157,6 +179,15 @@ SG_PERMISSIONS_SETTINGS = {
             ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
+            ("complete-instance-read", MODULE_COMPLETE_INSTANCE),
+            (
+                "construction-monitoring-complete",
+                MODULE_CONSTRUCTION_MONITORING_COMPLETE,
+            ),
+            ("construction-monitoring-init", MODULE_CONSTRUCTION_MONITORING),
+            ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
+            ("construction-monitoring-skip", MODULE_CONSTRUCTION_MONITORING_SKIP),
+            ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("dms-generate-read", MODULE_DMS_GENERATE),

@@ -959,3 +959,67 @@ def test_start_after_submit_complete_construction_monitoring_deadline(
     )
     complete_work_item.refresh_from_db()
     assert complete_work_item.deadline.date() == date(2026, 3, 22)
+
+
+@pytest.mark.parametrize(
+    ("should_continue_after_decision", "current_status", "expected_status"),
+    [
+        (True, WorkItem.STATUS_READY, WorkItem.STATUS_READY),
+        (True, WorkItem.STATUS_COMPLETED, WorkItem.STATUS_COMPLETED),
+        (False, WorkItem.STATUS_READY, WorkItem.STATUS_COMPLETED),
+        (False, WorkItem.STATUS_COMPLETED, WorkItem.STATUS_COMPLETED),
+    ],
+)
+@pytest.mark.django_db
+def test_skip_construction_monitoring_after_decision(
+    caluma_admin_user,
+    caluma_work_item_factory,
+    construction_monitoring_settings,
+    current_status,
+    decision_settings,
+    disable_ech0211_settings,  # Don't fire eCH-0211 events
+    expected_status,
+    mocker,
+    sg_instance,
+    should_continue_after_decision,
+):
+    """Tests that construction monitoring is skipped on a final decision.
+
+    When construction monitoring is started after submit, the
+    `init-construction-monitoring` work item is created before the decision is
+    made. If the decision does not continue the case (e.g. a negative decision),
+    the construction monitoring is obsolete and its still ready init work item
+    should be completed on decision. If the case does continue, the init work
+    item must stay ready.
+
+    If the init work item is already completed (the municipality has already
+    started the monitoring process), it is left untouched regardless of the
+    decision.
+    """
+
+    construction_monitoring_settings["START_AFTER_SUBMIT"] = True
+
+    mocker.patch("camac.instance.models.Instance.set_instance_state")
+    mocker.patch(
+        "camac.instance.domain_logic.decision.DecisionLogic.should_continue_after_decision",
+        return_value=should_continue_after_decision,
+    )
+
+    init_work_item = caluma_work_item_factory(
+        case=sg_instance.case,
+        task__pk=construction_monitoring_settings["INIT_CONSTRUCTION_MONITORING_TASK"],
+        status=current_status,
+        child_case=None,
+    )
+    decision_work_item = caluma_work_item_factory(
+        case=sg_instance.case,
+        task_id=decision_settings["TASK"],
+        status=WorkItem.STATUS_READY,
+        child_case=None,
+    )
+
+    complete_work_item(decision_work_item, caluma_admin_user)
+
+    init_work_item.refresh_from_db()
+
+    assert init_work_item.status == expected_status

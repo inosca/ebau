@@ -145,7 +145,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 18,
+      "sort": 20,
       "form_group": 1,
       "require_permission": "journal-read"
     }
@@ -161,7 +161,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 17,
+      "sort": 19,
       "form_group": 1,
       "require_permission": "history-read"
     }
@@ -177,7 +177,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 19,
+      "sort": 21,
       "form_group": 1,
       "require_permission": "permissions-read"
     }
@@ -225,7 +225,7 @@
       "template": "/ember-camac-ng/rejection.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 16,
+      "sort": 18,
       "form_group": 1,
       "require_permission": "rejection-read"
     }
@@ -273,7 +273,7 @@
       "template": "/ember-camac-ng/additional-demand.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 14,
+      "sort": 16,
       "form_group": 1,
       "require_permission": "additional-demands-read"
     }
@@ -353,7 +353,7 @@
       "template": "/ember-camac-ng/billing.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 15,
+      "sort": 17,
       "form_group": 1,
       "require_permission": "billing-read"
     }
@@ -372,6 +372,38 @@
       "sort": 11,
       "form_group": 1,
       "require_permission": "information-of-neighbors-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 20,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/construction-monitoring.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 14,
+      "form_group": 1,
+      "require_permission": "construction-monitoring-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 21,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 2,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 15,
+      "form_group": 1,
+      "require_permission": "complete-instance-read"
     }
   },
   {
@@ -565,6 +597,26 @@
     }
   },
   {
+    "model": "core.instanceresourcet",
+    "pk": 20,
+    "fields": {
+      "instance_resource": 20,
+      "language": "de",
+      "name": "Baubegleitung",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 21,
+    "fields": {
+      "instance_resource": 21,
+      "language": "de",
+      "name": "Verfahren abschliessen",
+      "description": null
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 1,
     "fields": {
@@ -583,6 +635,13 @@
     "pk": 16,
     "fields": {
       "task": "decision"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 21,
+    "fields": {
+      "task": "complete-instance"
     }
   },
   {

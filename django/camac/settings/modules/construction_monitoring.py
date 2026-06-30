@@ -248,6 +248,14 @@ CONSTRUCTION_MONITORING = {
         "NOTIFICATIONS": {},
         "NOTIFICATION_RECIPIENTS": {},
     },
+    "kt_sg": {
+        "ENABLED": True,
+        "PREVIOUS_INSTANCE_STATE": "decided",
+        "CONSTRUCTION_MONITORING_INSTANCE_STATE": "construction-monitoring",
+        "NOTIFICATIONS": {},
+        "NOTIFICATION_RECIPIENTS": {},
+        "START_AFTER_SUBMIT": True,
+    },
     "demo": {
         "ENABLED": True,
     },

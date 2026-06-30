@@ -1148,6 +1148,24 @@ def ag_construction_monitoring_settings(
 
 
 @pytest.fixture
+def sg_construction_monitoring_settings(
+    request,
+    settings,
+    construction_monitoring_settings,
+):
+    """Module-specific settings for construction monitoring (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=construction_monitoring_settings,
+        settings_name="CONSTRUCTION_MONITORING",
+        import_path="camac.settings.modules.construction_monitoring.CONSTRUCTION_MONITORING",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def demo_construction_monitoring_settings(
     request,
     settings,

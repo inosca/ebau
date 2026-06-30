@@ -89,6 +89,9 @@ module.exports = function (environment) {
     distribution: 5,
     decision: 6,
     decided: 7,
+    "construction-monitoring": 8,
+    "to-finish": 9,
+    finished: 10,
   };
   const appConfig = {
     demo: {
@@ -540,8 +543,12 @@ module.exports = function (environment) {
           instanceStatesSg.distribution,
           instanceStatesSg.decision,
         ],
-        decided: [instanceStatesSg.decided],
-        done: [instanceStatesSg.rejected],
+        decided: [
+          instanceStatesSg.decided,
+          instanceStatesSg["construction-monitoring"],
+          instanceStatesSg["to-finish"],
+        ],
+        done: [instanceStatesSg.rejected, instanceStatesSg.finished],
       },
       completePreliminaryClarificationSlugs: [],
       selectableGroups: {

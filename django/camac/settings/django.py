@@ -3201,6 +3201,13 @@ APPLICATIONS = {
                 "complete-distribution": {
                     "next_instance_state": "decision",
                 },
+                "complete-construction-monitoring": {
+                    "next_instance_state": "to-finish",
+                },
+                "complete-instance": {
+                    "next_instance_state": "finished",
+                    "history_text": _("Procedure completed"),
+                },
             },
             "PRE_COMPLETE": {
                 "fill-publication": {"complete": ["publication"]},
@@ -3226,6 +3233,7 @@ APPLICATIONS = {
                         "withdrawal-check",
                     ],
                 },
+                "complete-instance": {"cancel": ["create-manual-workitems"]},
             },
             "PUBLIC_STATUS": {
                 "USE_SLUGS": True,
@@ -3233,6 +3241,13 @@ APPLICATIONS = {
                     "new": "creation",
                     "subm": "inProcedure",
                     "rejected": "rejected",
+                    "init-distribution": "inProcedure",
+                    "distribution": "inProcedure",
+                    "decision": "inProcedure",
+                    "decided": "decided",
+                    "construction-monitoring": "constructionMonitoring",
+                    "to-finish": "decided",
+                    "finished": "done",
                 },
                 "DEFAULT": "inProcedure",
             },
