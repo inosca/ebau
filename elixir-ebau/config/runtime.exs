@@ -36,27 +36,38 @@ if config_env() in [:dev, :prod] do
     ]
 end
 
-config :ebau, Ebau.Repo,
-  username: System.get_env("DATABASE_USER", "camac"),
-  password: System.get_env("DATABASE_PASSWORD", "camac"),
-  hostname: System.get_env("DATABASE_HOST", "localhost"),
-  database: System.get_env("DATABASE_NAME", System.fetch_env!("APPLICATION")),
-  stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+if config_env() != :test do
+  config :ebau, Ebau.Repo,
+    username: System.get_env("DATABASE_USER", "camac"),
+    password: System.get_env("DATABASE_PASSWORD", "camac"),
+    hostname: System.get_env("DATABASE_HOST", "localhost"),
+    port: String.to_integer(System.get_env("DATABASE_PORT", "5432")),
+    database: System.get_env("DATABASE_NAME", System.fetch_env!("APPLICATION")),
+    ssl: System.get_env("DATABASE_ENABLE_SSL") == "true",
+    pool_size: String.to_integer(System.get_env("POOL_SIZE", "10")),
+    pool_count: String.to_integer(System.get_env("POOL_COUNT", "1"))
 
-config :ebau, EbauWeb.Endpoint,
-  http: [port: String.to_integer(System.get_env("PORT", "4000"))],
-  url: [path: System.get_env("URL_PREFIX", "/")]
+  config :ebau, EbauWeb.Endpoint,
+    http: [port: String.to_integer(System.get_env("PORT", "4000"))],
+    url: [path: System.get_env("URL_PREFIX", "/")]
+end
+
+if config_env() != :test do
+  config :ebau, :keycloak,
+    url: System.get_env("KEYCLOAK_URL", "http://ebau-keycloak.localhost/auth/"),
+    realm: System.get_env("KEYCLOAK_REALM", "ebau"),
+    client_id: System.get_env("KEYCLOAK_CLIENT", "camac"),
+    scopes: System.get_env("KEYCLOAK_SCOPES", "openid email"),
+    email_claim: System.get_env("DJANGO_OIDC_EMAIL_CLAIM", "email")
+end
+
+if config_env() == :dev do
+  config :ebau, Ebau.Repo,
+    stacktrace: true,
+    show_sensitive_data_on_connection_error: true
+end
 
 if config_env() == :prod do
-  database_url =
-    System.get_env("DATABASE_URL") ||
-      raise """
-      environment variable DATABASE_URL is missing.
-      For example: ecto://USER:PASS@HOST/DATABASE
-      """
-
   maybe_ipv6 = if System.get_env("ECTO_IPV6") in ~w(true 1), do: [:inet6], else: []
 
   # The secret key base is used to sign/encrypt cookies and other secrets.
@@ -71,15 +82,11 @@ if config_env() == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
-  host = System.get_env("PHX_HOST") || "example.com"
+  host =
+    System.get_env("BASE_URL") ||
+      raise("environment variable BASE_URL is missing.")
 
-  config :ebau, Ebau.Repo,
-    # ssl: true,
-    url: database_url,
-    pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-    # For machines with several cores, consider starting multiple pools of `pool_size`
-    # pool_count: 4,
-    socket_options: maybe_ipv6
+  config :ebau, Ebau.Repo, socket_options: maybe_ipv6
 
   config :ebau, EbauWeb.Endpoint,
     url: [host: host, port: 443, scheme: "https"],
@@ -92,60 +99,23 @@ if config_env() == :prod do
     ],
     secret_key_base: secret_key_base
 
+  # Production mailer: the default Swoosh.Adapters.Local (set in config.exs) silently
+  # discards all emails. Configure a real adapter here, for example:
+  #
+  #   config :ebau, Ebau.Mailer,
+  #     adapter: Swoosh.Adapters.Mailgun,
+  #     api_key: System.fetch_env!("MAILGUN_API_KEY"),
+  #     domain: System.fetch_env!("MAILGUN_DOMAIN")
+  #
+  # See https://hexdocs.pm/swoosh for available adapters (Req HTTP client is available).
+
   config :ebau, :dns_cluster_query, System.get_env("DNS_CLUSTER_QUERY")
 
   config :ebau,
     token_signing_secret:
       System.get_env("TOKEN_SIGNING_SECRET") ||
-        raise("Missing environment variable `TOKEN_SIGNING_SECRET`!")
-
-  # ## SSL Support
-  #
-  # To get SSL working, you will need to add the `https` key
-  # to your endpoint configuration:
-  #
-  #     config :ebau, EbauWeb.Endpoint,
-  #       https: [
-  #         ...,
-  #         port: 443,
-  #         cipher_suite: :strong,
-  #         keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
-  #         certfile: System.get_env("SOME_APP_SSL_CERT_PATH")
-  #       ]
-  #
-  # The `cipher_suite` is set to `:strong` to support only the
-  # latest and more secure SSL ciphers. This means old browsers
-  # and clients may not be supported. You can set it to
-  # `:compatible` for wider support.
-  #
-  # `:keyfile` and `:certfile` expect an absolute path to the key
-  # and cert in disk or a relative path inside priv, for example
-  # "priv/ssl/server.key". For all supported SSL configuration
-  # options, see https://hexdocs.pm/plug/Plug.SSL.html#configure/1
-  #
-  # We also recommend setting `force_ssl` in your config/prod.exs,
-  # ensuring no data is ever sent via http, always redirecting to https:
-  #
-  #     config :ebau, EbauWeb.Endpoint,
-  #       force_ssl: [hsts: true]
-  #
-  # Check `Plug.SSL` for all available options in `force_ssl`.
-
-  # ## Configuring the mailer
-  #
-  # In production you need to configure the mailer to use a different adapter.
-  # Here is an example configuration for Mailgun:
-  #
-  #     config :ebau, Ebau.Mailer,
-  #       adapter: Swoosh.Adapters.Mailgun,
-  #       api_key: System.get_env("MAILGUN_API_KEY"),
-  #       domain: System.get_env("MAILGUN_DOMAIN")
-  #
-  # Most non-SMTP adapters require an API client. Swoosh supports Req, Hackney,
-  # and Finch out-of-the-box. This configuration is typically done at
-  # compile-time in your config/prod.exs:
-  #
-  #     config :swoosh, :api_client, Swoosh.ApiClient.Req
-  #
-  # See https://hexdocs.pm/swoosh/Swoosh.html#module-installation for details.
+        raise("""
+        Missing environment variable `TOKEN_SIGNING_SECRET`!
+        You can generate one by calling: mix phx.gen.secret
+        """)
 end

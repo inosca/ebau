@@ -45,6 +45,15 @@ service-permissions:
   invitation-renew-success: "L'invitation a été renouvelée avec succès."
   invitation-renew-error: "L'invitation n'a pas pu être renouvelée."
 
+  gis-link: ""
+  gis-link-name: ""
+  gis-link-placeholder: ""
+
+  gis-links: ""
+  gis-links-save-success: ""
+  gis-links-save-error: ""
+  gis-links-delete-confirm: ""
+
   sub-services: "Unité d'un service spécialisé"
   sub-services-add: "Ajouter une unité d'un service spécialisé"
   sub-services-add-warning: ""

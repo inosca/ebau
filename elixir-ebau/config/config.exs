@@ -1,19 +1,16 @@
-# This file is responsible for configuring your application
-# and its dependencies with the aid of the Config module.
-#
-# This configuration file is loaded before any dependency and
-# is restricted to this project.
-
-# General application configuration
 import Config
 
-# Configure the mailer
-#
-# By default it uses the "Local" adapter which stores the emails
-# locally. You can see the emails in your browser, at "/dev/mailbox".
-#
-# For production it's recommended to configure a different adapter
-# at the `config/runtime.exs`.
+canton =
+  case System.get_env("APPLICATION") do
+    "kt_gr" -> :gr
+    "kt_so" -> :so
+    _ -> :demo
+  end
+
+config :ash_json_api,
+  show_public_calculations_when_loaded?: true,
+  authorize_update_destroy_with_error?: true
+
 config :ebau, Ebau.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure the endpoint
@@ -28,9 +25,17 @@ config :ebau, EbauWeb.Endpoint,
   live_view: [signing_salt: "IJufaPql"]
 
 config :ebau,
+  canton: canton,
   ecto_repos: [Ebau.Repo],
   generators: [timestamp_type: :utc_datetime],
-  ash_domains: [Ebau.User]
+  ash_domains: [
+    Ebau.Permissions,
+    Caluma.Workflow,
+    Caluma.Form,
+    Ebau.Instances,
+    Ebau.MasterData,
+    Ebau.User
+  ]
 
 # Configure esbuild (the version is required)
 config :esbuild,
@@ -47,7 +52,25 @@ config :logger, :default_formatter,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Use Jason for JSON parsing in Phoenix
-config :phoenix, :json_library, Jason
+config :mime,
+  extensions: %{"json" => "application/vnd.api+json"},
+  types: %{"application/vnd.api+json" => ["json"]}
+
+# Use Elixir's built-in JSON module in Phoenix
+config :phoenix, :json_library, JSON
+
+config :spark,
+  formatter: [
+    "Ash.Resource": [section_order: [:json_api]],
+    "Ash.Domain": [section_order: [:json_api]]
+  ]
+
+if config_env() in [:dev, :test] do
+  config :ash, :policies, show_policy_breakdown?: true
+
+  config :phoenix, :plug_init_mode, :runtime
+
+  config :swoosh, :api_client, false
+end
 
 import_config "#{config_env()}.exs"

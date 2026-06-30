@@ -1,0 +1,96 @@
+<form class="uk-form-stacked" {{on "submit" (perform this.save)}}>
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="name">
+      {{t "service-permissions.gis-link-name"}}
+      <span class="mandatory-asterisk">*</span>
+    </label>
+    <div class="uk-form-controls">
+      <Input
+        id="name"
+        class="uk-input"
+        required
+        @type="text"
+        @value={{this.gisLinkName}}
+      />
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="placeholder">
+      {{t "service-permissions.gis-link-placeholder"}}
+      <span class="mandatory-asterisk">*</span>
+    </label>
+    <div class="uk-form-controls">
+      <Input
+        id="placeholder"
+        class="uk-input"
+        required
+        @type="text"
+        @value={{this.gisLinkPlaceholder}}
+      />
+    </div>
+  </div>
+  <div class="uk-margin">
+    <UkButton
+      @type="submit"
+      @color="primary"
+      @label={{t "global.save"}}
+      @loading={{this.save.isRunning}}
+    />
+  </div>
+</form>
+<div class="uk-grid-small uk-margin-large-top" uk-grid>
+  <div class="uk-width-expand">
+    <div class="uk-search uk-search-default uk-width-1-1">
+      <span uk-search-icon></span>
+      <input
+        class="uk-search-input"
+        type="search"
+        placeholder={{t "global.search"}}
+        aria-label={{t "global.search"}}
+        value={{this.search}}
+        {{on "input" (perform this.updateSearch)}}
+      />
+    </div>
+  </div>
+</div>
+<table class="uk-table uk-table-striped uk-table-middle">
+  <thead>
+    <tr>
+      <th>{{t "service-permissions.gis-link-name"}}</th>
+      <th>{{t "service-permissions.gis-link-placeholder"}}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.gisLinks.records as |row|}}
+      <tr>
+        <td>{{row.name}}</td>
+        <td class="uk-text-truncate">{{row.placeholder}}</td>
+        <td class="uk-text-right">
+          <button
+            type="button"
+            class="uk-button uk-button-link"
+            {{on "click" (perform this.delete row)}}
+          >
+            <UkIcon @icon="trash" />
+          </button>
+        </td>
+      </tr>
+    {{else}}
+      <tr>
+        <td colspan="3" class="uk-text-center uk-text-italic">
+          {{t "global.empty"}}
+        </td>
+      </tr>
+    {{/each}}
+    {{#if this.gisLinks.isLoading}}
+      <tr>
+        <td colspan="3" class="uk-text-center">
+          <UkSpinner @ratio="0.7" />
+        </td>
+      </tr>
+    {{else if this.gisLinks.hasMore}}
+      <tr {{in-viewport onEnter=this.updatePage}}></tr>
+    {{/if}}
+  </tbody>
+</table>

@@ -13,8 +13,7 @@ defmodule Ebau.Application do
       {DNSCluster, query: Application.get_env(:ebau, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Ebau.PubSub},
       {AshAuthentication.Supervisor, otp_app: :ebau},
-      # Start a worker by calling: Ebau.Worker.start_link(arg)
-      # {Ebau.Worker, arg},
+      EbauWeb.TokenCache,
       # Start to serve requests, typically the last entry
       EbauWeb.Endpoint
     ]

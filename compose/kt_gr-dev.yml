@@ -218,7 +218,6 @@ services:
     # you don't have formatting (run `mix format` in the container for that) and you don't
     # have any language server integration in your editor (which is highly recommended).
     volumes:
-      - ../elixir-ebau/entrypoint.sh:/entrypoint.sh
       - ../elixir-ebau:/app # mounting the source code
       - elixir-ebau_build:/app/_build # caching the _build folder to a local volume
       - elixir-ebau_dependencies:/app/deps # caching the dependencies to a local volume
@@ -231,6 +230,11 @@ services:
       - DATABASE_USER=camac
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_HOST=db
+      - KEYCLOAK_URL=http://ebau-keycloak.localhost/auth/
+      - KEYCLOAK_REALM=ebau
+      - KEYCLOAK_CLIENT=camac
+      - KEYCLOAK_SCOPES=openid email
+      - DJANGO_OIDC_EMAIL_CLAIM=email
       - URL_PREFIX=/elixir
 
 volumes:

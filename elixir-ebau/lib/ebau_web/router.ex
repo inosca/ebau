@@ -15,7 +15,17 @@ defmodule EbauWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
-    plug :load_from_bearer
+    plug EbauWeb.Plugs.KeycloakBearerAuth
+  end
+
+  scope "/api/v2" do
+    pipe_through [:api]
+
+    forward "/swaggerui", OpenApiSpex.Plug.SwaggerUI,
+      path: "/api/v2/open_api",
+      default_model_expand_depth: 4
+
+    forward "/", EbauWeb.AshJsonApiRouter
   end
 
   scope "/", EbauWeb do
@@ -27,7 +37,6 @@ defmodule EbauWeb.Router do
         EbauWeb.InitialiseLocale,
         {EbauWeb.LiveUserAuth, :live_user_required}
       ] do
-      live "/test", LiveTest
     end
 
     auth_routes AuthController, Ebau.User.User, path: "/auth"

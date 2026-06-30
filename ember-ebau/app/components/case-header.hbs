@@ -113,12 +113,35 @@
     </div>
     <div>
       <div class="uk-text-bold">{{t "cases.tableHeaders.parcel"}}</div>
-      {{or @case.plots "-"}}
       {{#if @case.coordinatesLink}}(<a
           href={{@case.coordinatesLink}}
           target="_blank"
           rel="noopener noreferrer"
         >{{format-coordinate @case.centerCoordinate}}</a>){{/if}}
+
+      {{#if (and @case.plots this.gisLinksForInstance.records)}}
+        <a href="#">{{or @case.plots "-"}}</a>
+        <div
+          uk-dropdown
+          pos="bottom-right"
+          mode="hover"
+          class="uk-padding-small"
+        >
+          <ul class="uk-list">
+            {{#each this.gisLinksForInstance.records as |gisLink|}}
+              <li>
+                <a
+                  href={{gisLink.gisLinkForInstance}}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >{{gisLink.gis_link_for_instance}}{{gisLink.name}}</a>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      {{else}}
+        {{or @case.plots "-"}}
+      {{/if}}
     </div>
     {{#if this.extended}}
       <div>

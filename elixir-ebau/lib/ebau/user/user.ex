@@ -1,9 +1,18 @@
 defmodule Ebau.User.User do
-  @moduledoc false
+  @moduledoc """
+  A CAMAC user from the legacy `USER` table.
+
+  Authenticates via OIDC (Keycloak) using `AshAuthentication`. Users
+  are not created through the Elixir app; they are managed by
+  Keycloak and synced into the `USER` table by Django.
+
+  Users belong to groups via `Ebau.User.UserGroup`. The authenticated
+  user becomes `actor.user` in the `Ebau.Actor` struct.
+  """
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.User,
-    authorizers: [Ash.Policy.Authorizer],
+    authorizers: Ash.Policy.Authorizer,
     extensions: [AshAuthentication],
     data_layer: AshPostgres.DataLayer
 
@@ -18,12 +27,18 @@ defmodule Ebau.User.User do
 
     strategies do
       oidc :ebau do
-        client_id System.get_env("KEYCLOAK_CLIENT", "camac")
-        base_url System.get_env("KEYCLOAK_URL", "http://ebau-keycloak.localhost/auth/realms/ebau")
-        redirect_uri "#{System.get_env("HOSTNAME", "http://ebau.localhost")}/elixir/auth/"
+        client_id Ebau.Secrets
+        base_url Ebau.Secrets
+        authorization_params Ebau.Secrets
+        redirect_uri Ebau.Secrets
         registration_enabled? false
-        # client_secret "not_needed"
       end
+    end
+  end
+
+  relationships do
+    many_to_many :groups, Ebau.User.Group do
+      through Ebau.User.UserGroup
     end
   end
 
@@ -34,7 +49,7 @@ defmodule Ebau.User.User do
   end
 
   actions do
-    defaults [:read]
+    defaults [:read, create: :*]
 
     read :get_by_subject do
       description "Get a user by the subject claim in a JWT"
@@ -47,8 +62,7 @@ defmodule Ebau.User.User do
       argument :user_info, :map, allow_nil?: false
       argument :oauth_tokens, :map, allow_nil?: false
       prepare AshAuthentication.Strategy.OAuth2.SignInPreparation
-
-      filter expr(email == get_path(^arg(:user_info), [:email]))
+      prepare Ebau.User.Preparations.SignInFilter
     end
   end
 
@@ -56,24 +70,46 @@ defmodule Ebau.User.User do
     bypass AshAuthentication.Checks.AshAuthenticationInteraction do
       authorize_if always()
     end
+
+    policy action_type([:create, :update, :destroy]) do
+      # We don't allow creating users. This is only for testing at the moment
+      forbid_if always()
+    end
   end
 
   attributes do
-    attribute :id, :integer,
-      primary_key?: true,
-      allow_nil?: false,
-      sortable?: true,
-      public?: true,
-      source: :USER_ID
+    integer_primary_key :id do
+      source :USER_ID
+    end
 
     attribute :username, :string,
       public?: true,
       allow_nil?: false,
+      constraints: [max_length: 250],
       source: :USERNAME
 
-    attribute :email, :string, source: :EMAIL
-    attribute :name, :string, public?: true, source: :NAME
-    attribute :surname, :string, public?: true, source: :SURNAME
-    attribute :language, :string, public?: true, source: :LANGUAGE, allow_nil?: false
+    attribute :email, :string, constraints: [max_length: 100], source: :EMAIL
+
+    attribute :name, :string,
+      public?: true,
+      allow_nil?: false,
+      constraints: [max_length: 100],
+      source: :NAME
+
+    attribute :surname, :string,
+      public?: true,
+      allow_nil?: false,
+      constraints: [max_length: 100],
+      source: :SURNAME
+
+    attribute :language, :string,
+      public?: true,
+      allow_nil?: false,
+      constraints: [max_length: 2],
+      source: :LANGUAGE
+  end
+
+  identities do
+    identity :unique_email, [:email]
   end
 end
