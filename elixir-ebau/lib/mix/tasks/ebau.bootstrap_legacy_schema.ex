@@ -147,7 +147,10 @@ defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
   defp maybe_arg(flag, value), do: [flag, to_string(value)]
 
   defp tail_output(output, line_count \\ 80) do
-    case output |> String.trim() |> String.split("\n", trim: true) do
+    output
+    |> String.trim()
+    |> String.split("\n", trim: true)
+    |> case do
       [] ->
         "psql did not produce any output"
 

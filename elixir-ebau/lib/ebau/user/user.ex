@@ -32,6 +32,8 @@ defmodule Ebau.User.User do
         authorization_params Ebau.Secrets
         redirect_uri Ebau.Secrets
         registration_enabled? false
+        trust_email_verified? true
+        identity_resource Ebau.User.UserIdentity
       end
     end
   end

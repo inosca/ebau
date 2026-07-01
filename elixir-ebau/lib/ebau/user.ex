@@ -42,5 +42,7 @@ defmodule Ebau.User do
     resource Ebau.User.ServiceGroup do
       define :get_service_group_by_slug, action: :read, get_by: [:slug]
     end
+
+    resource Ebau.User.UserIdentity
   end
 end
