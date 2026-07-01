@@ -2373,21 +2373,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "lage-des-vorhabens.baugrubenumschliessung-fundation-bohrungen",
-    "fields": {
-      "created_at": "2026-05-01T08:14:11.280Z",
-      "modified_at": "2026-05-01T08:14:11.280Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "lage-des-vorhabens",
-      "question": "baugrubenumschliessung-fundation-bohrungen",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "lage-des-vorhabens.gebaeude",
     "fields": {
       "created_at": "2026-04-17T11:53:51.111Z",
@@ -3673,7 +3658,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "art-des-vorhabens",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -3688,7 +3673,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "art-des-vorhabens-abbruch",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -3703,7 +3688,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "art-des-vorhabens-andere-beschreibung",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -3718,7 +3703,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "art-des-vorhabens-neubau",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -3733,7 +3718,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "art-des-vorhabens-umbau",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -3753,6 +3738,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "vorhaben.baugrubenumschliessung-fundation-bohrungen",
+    "fields": {
+      "created_at": "2026-07-01T07:25:41.441Z",
+      "modified_at": "2026-07-01T07:25:41.441Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorhaben",
+      "question": "baugrubenumschliessung-fundation-bohrungen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "vorhaben.bauvisiere",
     "fields": {
       "created_at": "2026-03-12T12:54:58.314Z",
@@ -3763,7 +3763,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "bauvisiere",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -3778,7 +3778,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "bauvisiere-datum",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3793,7 +3793,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "beschreibung-bauvorhaben",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -3823,7 +3823,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "gebaeudekosten",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -3838,7 +3838,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "gesamtkosten",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -3853,7 +3853,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "kurzbeschreibung",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -3883,7 +3883,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "vorhaben-titel",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -8972,19 +8972,19 @@
     "pk": "baugrubenumschliessung-fundation-bohrungen",
     "fields": {
       "created_at": "2026-05-01T08:14:11.178Z",
-      "modified_at": "2026-05-01T08:14:11.178Z",
+      "modified_at": "2026-07-01T07:26:20.606Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Baugrubenumschliessung, Fundation, Bohrungen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Baugrubenumschliessung, Fundation, Bohrungen (auch Erdsondenbohrungen)\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -17346,8 +17346,8 @@
     "model": "caluma_form.questionoption",
     "pk": "baugrubenumschliessung-fundation-bohrungen.baugrubenumschliessung-fundation-bohrungen-ja",
     "fields": {
-      "created_at": "2026-05-01T08:14:11.193Z",
-      "modified_at": "2026-05-01T08:14:11.193Z",
+      "created_at": "2026-07-01T07:26:20.624Z",
+      "modified_at": "2026-07-01T07:26:20.624Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -17361,8 +17361,8 @@
     "model": "caluma_form.questionoption",
     "pk": "baugrubenumschliessung-fundation-bohrungen.baugrubenumschliessung-fundation-bohrungen-nein",
     "fields": {
-      "created_at": "2026-05-01T08:14:11.188Z",
-      "modified_at": "2026-05-01T08:14:11.188Z",
+      "created_at": "2026-07-01T07:26:20.618Z",
+      "modified_at": "2026-07-01T07:26:20.618Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
