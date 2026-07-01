@@ -22,11 +22,6 @@ instances:
 
     modal-title: "Nota"
 
-documents:
-  tags:
-    brandschutzdokumente: "Documenti antincendio – Ulteriori piani e documenti rilevanti unicamente per la protezione antincendio vanno archiviati nell'area documenti di protezione antincendio (polizia del fuoco)». Evitate di caricare piani doppiamente!"
-    weitere-unterlagen: "Documentazione generale"
-
 support:
   technical: |-
     In caso di problemi tecnici con eBau contattare il <b>supporto
