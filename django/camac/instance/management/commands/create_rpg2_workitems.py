@@ -118,13 +118,23 @@ class Command(BaseCommand):
         # Prepare task & groups for assigning the rpg2 work-item.
         # Assume task exists (created per canton) when module is enabled.
         task = Task.objects.get(pk=settings.RPG2.task)
+
         # The rpg2 work_item is addressed to all cantonal services configured.
-        group_pks = [
-            str(pk)
-            for pk in Service.objects.filter(slug__in=service_slugs).values_list(
-                "pk", flat=True
+        services = Service.objects.filter(slug__in=service_slugs)
+        service_pks = [str(pk) for pk in services.values_list("pk", flat=True)]
+
+        if not service_pks:
+            self.stdout.write(
+                self.style.ERROR(
+                    "No services found for configured rpg 2 service slugs.\n"
+                    "Please check the slugs of the relevant service(s).\n"
+                    "EXITING!"
+                )
             )
-        ]
+            return
+
+        self.stdout.write(f"Found rpg2 service(s): {[str(s) for s in services]}\n")
+
         skip_trigger_tasks = self._get_skip_trigger_tasks()
         self.stdout.write(
             f"\nCompiled list of tasks that would put the RPG2-work-item into 'skipped' state:\n"
@@ -156,7 +166,7 @@ class Command(BaseCommand):
                 Q(case__document__form__slug__in=versioned_forms)
                 & Exists(
                     Inquiry.objects.for_instance(OuterRef("pk"))
-                    .addressed_to(group_pks)
+                    .addressed_to(service_pks)
                     .only_active()
                 )
             )
@@ -202,7 +212,7 @@ class Command(BaseCommand):
                     WorkItem.objects.create(
                         task=task,
                         name=task.name,
-                        addressed_groups=group_pks,
+                        addressed_groups=service_pks,
                         case=instance.case,
                         status=status,
                         document=Document.objects.create_document_for_task(task, None),
