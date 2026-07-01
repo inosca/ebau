@@ -51,6 +51,7 @@ class ProductNumberConfig(EBauConfig):
 class WilkenConfig(EBauConfig):
     encoding: str = Field(description="How should the exported files be encoded.")
     newline_character: str
+    replace_character_map: dict[str, str]
     clerk: str = Field(
         description="Wilken user name which should be used for the billing."
     )

@@ -21,9 +21,9 @@ from camac.settings.modules.billing_schema import BillingConfig
 DEFAULT_PRODUCT_NUMBER: int = 200000
 
 
+@pytest.mark.django_db
 @pytest.mark.freeze_time("2023-05-22")
 def test_generate_invoices(
-    db,
     billing_v2_entry_factory,
     instance_factory,
     location_factory,
@@ -89,16 +89,17 @@ def test_generate_invoices(
     assert billing_entry_3.date_charged is None
 
 
+@pytest.mark.django_db
 def test_generate_invoices_empty(
-    db, instance_factory, sz_billing_settings: BillingConfig
+    instance_factory, sz_billing_settings: BillingConfig
 ) -> None:
     instance_factory.create_batch(3)
     result = generate_invoices()
     assert result is None
 
 
+@pytest.mark.django_db
 def test_generate_models_for_invoice(
-    db,
     billing_v2_entry_factory,
     instance_factory,
     form_factory,
@@ -153,8 +154,8 @@ def test_generate_models_for_invoice(
     assert invoices[1].line_items.count() == 4
 
 
+@pytest.mark.django_db
 def test_generate_models_for_invoice_raise(
-    db,
     billing_v2_entry_factory,
     instance_factory,
     form_factory,
@@ -181,9 +182,10 @@ def test_generate_models_for_invoice_raise(
     assert logger.exception.call_count == 1
 
 
+@pytest.mark.django_db
 @pytest.mark.freeze_time("2023-05-22")
 def test_generate_wilken_files(
-    db, invoice_factory, line_item_factory, sz_billing_settings: BillingConfig, snapshot
+    invoice_factory, line_item_factory, sz_billing_settings: BillingConfig, snapshot
 ) -> None:
     invoice1: Invoice = invoice_factory(
         customer_number="12345",
@@ -222,9 +224,10 @@ def test_generate_wilken_files(
     snapshot.assert_match(file.getvalue().decode(sz_billing_settings.wilken.encoding))
 
 
+@pytest.mark.django_db
 @pytest.mark.freeze_time("2023-05-22")
 def test_generate_wilken_files_and_archive(
-    db, invoice_factory, instance_factory, sz_billing_settings: BillingConfig, snapshot
+    invoice_factory, instance_factory, sz_billing_settings: BillingConfig, snapshot
 ) -> None:
     sz_billing_settings.wilken.invoice_file_name = "invoice_{datetime}_{identifier}.csv"
     instance: Instance = instance_factory()
@@ -248,8 +251,8 @@ def test_generate_wilken_files_and_archive(
         assert info_list[2].filename == "invoice_20230522000000_3.csv"
 
 
+@pytest.mark.django_db
 def test_get_invoice_text_sz(
-    db,
     sz_billing_settings: BillingConfig,
     instance_factory,
     location_factory,
@@ -298,8 +301,8 @@ def test_get_invoice_text_sz(
     )
 
 
+@pytest.mark.django_db
 def test_get_invoice_text_overrides_sz(
-    db,
     sz_billing_settings: BillingConfig,
     instance_factory,
     location_factory,
@@ -328,5 +331,41 @@ def test_get_invoice_text_overrides_sz(
         "Negra Arroyo Lane 308~~"
         "1093 Albuquerque~~~~"
         "Labor~~~~"
+        "Thunstrasse, Bern"
+    )
+
+
+@pytest.mark.django_db
+def test_get_invoice_text_sanitized_sz(
+    sz_billing_settings: BillingConfig,
+    instance_factory,
+    location_factory,
+    form_field_factory,
+) -> None:
+    instance: Instance = instance_factory(location=location_factory(name="Schwyz"))
+
+    lead = {
+        "vorname": "Walter",
+        "name": "Weiss",
+        "strasse": "Negra Arroyo Lane 308",
+        "plz": "1093",
+        "ort": "Albuquerque",
+    }
+
+    name = "Labor;\n🧪"
+
+    form_field_factory(instance=instance, name="bauherrschaft-override", value=[lead])
+    form_field_factory(instance=instance, name="bezeichnung", value=name)
+    form_field_factory(instance=instance, name="standort-ort", value="Bern")
+    form_field_factory(
+        instance=instance, name="ortsbezeichnung-des-vorhabens", value="Thunstrasse"
+    )
+
+    invoice_text: str = get_invoice_text_sz(instance)
+    assert invoice_text == (
+        "Walter Weiss~~"
+        "Negra Arroyo Lane 308~~"
+        "1093 Albuquerque~~~~"
+        "Labor,~~~~~~"
         "Thunstrasse, Bern"
     )

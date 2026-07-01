@@ -82,6 +82,7 @@ BILLING = ModuleConfig[BillingConfig](
         wilken=WilkenConfig(
             encoding="windows-1252",
             newline_character="~~",
+            replace_character_map={";": ",", "\n": "~~"},
             clerk=env.str("WILKEN_CLERK", default="ZDARE"),
             user_id=env.str("WILKEN_USER_ID", default="ZDARE"),
             invoice_file_name="Rechnung_Ebau_{datetime}_{identifier}.csv",
