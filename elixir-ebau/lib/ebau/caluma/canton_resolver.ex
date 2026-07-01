@@ -1,12 +1,19 @@
 defmodule Ebau.Caluma.CantonResolver do
+  # `question_id` resolvers are invoked inside a compile-time Spark transformer
+  # (`Caluma.Form.Extensions.Document.AnswerTransformer`), which bakes the
+  # resolved slug into the resource's relationship filter. The canton must
+  # therefore be a compile-time value: read it with `compile_env` (not
+  # `get_env`) so a build-vs-runtime canton mismatch is caught at boot instead
+  # of silently querying with the wrong slug.
   @canton Application.compile_env(:ebau, :canton)
 
   @moduledoc """
-  Resolves question IDs (and answer mappings) based on the current canton.
+  Resolves question IDs (and answer mappings) based on the canton this build
+  was compiled for.
 
-  Looks up `mapping[canton]` from the Ash context, falling back to
-  `mapping[:default]`. The canton is read from `context.canton` or
-  `context.source_context.canton`.
+  Looks up `mapping[canton]`, falling back to `mapping[:default]`. The canton
+  is fixed at compile time (see the `@canton` module attribute), so a
+  given build only ever resolves for a single canton.
 
   ## Usage
 
@@ -25,7 +32,7 @@ defmodule Ebau.Caluma.CantonResolver do
       end
   """
 
-  @behaviour Caluma.Form.QuestionIdResolver
+  @behaviour Caluma.Form.Resolver
 
   @impl true
   def resolve(mapping) do

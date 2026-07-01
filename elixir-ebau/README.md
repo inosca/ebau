@@ -1,5 +1,7 @@
 # Ebau
 
+[Code Documentation](https://camac-ng.pages.adfinis.com/camac-ng/elixir-ebau/readme.html)
+
 ## Developing
 
 There are two ways to work on the elixir application:
@@ -120,11 +122,8 @@ small SO subset required by the current Elixir test suite.
 This avoids making CI depend on a full `../django` checkout just to run Elixir
 tests without pulling a large fixture dump into this app.
 
-Refresh vendored fixtures with:
-
-```bash
-mix ebau.vendor_test_fixtures
-```
+Refresh vendored fixtures by copying the required files from a `../django`
+checkout into `priv/test_fixtures/`.
 
 ### Explicit loading in tests
 

@@ -56,7 +56,8 @@ defmodule Caluma.Form.Extensions.Document do
   ## The `question_id` option
 
   The `question_id` option on each answer controls how the Caluma question
-  slug is determined at query time. It accepts three forms:
+  slug is determined when the resource is compiled (the resulting filter is
+  baked into a `has_one` relationship). It accepts three forms:
 
   ### Plain string
 
@@ -74,17 +75,23 @@ defmodule Caluma.Form.Extensions.Document do
 
   ### Resolver tuple `{module, opts}`
 
-  For dynamic resolution at query time. The module must implement
-  `Caluma.Form.QuestionIdResolver`. At query time, `module.resolve(opts, context)`
-  is called where `context` is the Ash calculation context (containing the
-  actor, tenant, and any custom context set via `Ash.Context`).
+  For slugs that aren't known statically (different cantons use
+  different Caluma question slugs). The module must
+  implement `Caluma.Form.Resolver`. Resolution happens **at compile
+  time**: the `AnswerTransformer` calls `module.resolve(opts)` while the
+  resource is compiled and bakes the returned slug(s) into the relationship
+  filter (no query context is available).
+
+  Because the slug is frozen into the compiled resource, any config the
+  resolver reads (e.g. the canton) must be a compile-time value (see
+  `Ebau.Caluma.CantonResolver`), which reads it via `Application.compile_env/2`.
 
   The resolver must return either a single string or a list of strings.
 
       answer :name, :string,
-        question_id: {MyApp.TenantResolver, %{default: "nachname", tenant_a: "full-name"}}
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "nachname", gr: "familienname"}}
 
-  See `Caluma.Form.QuestionIdResolver` for how to implement a resolver.
+  See `Caluma.Form.Resolver` and `Ebau.Caluma.CantonResolver` for how to implement a resolver.
 
   ## The `mapping` option
 
@@ -133,7 +140,7 @@ defmodule Caluma.Form.Extensions.Document do
   # -- Shared schema types --
 
   @question_id_type {:or, [:string, {:list, :string}, :mod_arg]}
-  @question_id_doc "A question ID string, a list of question ID strings, or a {resolver_module, opts} tuple. See `Caluma.Form.QuestionIdResolver`."
+  @question_id_doc "A question ID string, a list of question ID strings, or a {resolver_module, opts} tuple. See `Caluma.Form.Resolver`."
 
   @mapping_type {:or,
                  [

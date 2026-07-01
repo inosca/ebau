@@ -7,7 +7,7 @@ defmodule Ebau.MasterData.PlotDataRow do
   `parzellen` table question.
 
   The coordinates are used by `Ebau.Instances.Calculations.GisLinkForInstance`
-  to substitute `{x}` and `{y}` placeholders in GIS link templates.
+  to overwrite the coordinates query parameter in GIS link URLs.
   """
 
   use Ash.Resource,

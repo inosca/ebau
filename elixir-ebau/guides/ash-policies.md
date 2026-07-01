@@ -14,7 +14,7 @@ All authorized actions receive an `actor:` option. In eBau, the actor is an
   user: %Ebau.User.User{},
   group: %Ebau.User.Group{},
   service: %Ebau.User.Service{},
-  role: String.t() # example: "municipality-admin"
+  role: %Ebau.User.Role{} # a struct with a .slug, ex: "municipality-admin"
 }
 ```
 

@@ -23,7 +23,7 @@ defmodule Ebau.Actor do
 
   ```elixir
   Ebau.Instances.create_gis_link!(
-    %{name: "GIS", placeholder: "https://example.com?x={x}&y={y}"},
+    %{name: "GIS", placeholder: "https://example.com/map"},
     actor: actor
   )
   ```

@@ -3,7 +3,7 @@ defmodule Caluma.Workflow.Calculations.CaseMeta do
   Calculation that reads a value from a Caluma case's meta JSON field.
 
   The `key` option accepts a plain string or a `{module, opts}` resolver
-  tuple (see `Caluma.Form.QuestionIdResolver`).
+  tuple (see `Caluma.Form.Resolver`).
 
   The `through` option controls the path to meta:
   - `nil` — `meta[key]` (resource IS the case)

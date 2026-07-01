@@ -5,7 +5,7 @@ defmodule EbauWeb.InitialiseScope do
 
   The "scope" is a struct (a map with predefined keys) that holds information such as:
   - current_user (the user who is doing something)
-  - current_tenant (the canton the applicatioon is running in, ex: :gr)
+  - canton (the canton the application is running in, ex: :gr)
   - locale (the current locale that the user is using)
 
   The scope is then subsequently passed around through the entire application.

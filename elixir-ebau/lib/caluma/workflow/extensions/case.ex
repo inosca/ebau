@@ -50,7 +50,7 @@ defmodule Caluma.Workflow.Extensions.Case do
 
   These accept the same forms as `Caluma.Form.Extensions.Document` — a
   plain string, a list of strings, or a `{resolver_module, opts}` tuple.
-  See `Caluma.Form.QuestionIdResolver`.
+  See `Caluma.Form.Resolver`.
 
   ## The `mapping` option
 
@@ -78,8 +78,7 @@ defmodule Caluma.Workflow.Extensions.Case do
       key: [
         type: {:or, [:string, :mod_arg]},
         required: true,
-        doc:
-          "A meta key string or a {resolver_module, opts} tuple. See `Caluma.Form.QuestionIdResolver`."
+        doc: "A meta key string or a {resolver_module, opts} tuple. See `Caluma.Form.Resolver`."
       ]
     ],
     args: [:name, :type]
