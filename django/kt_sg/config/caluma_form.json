@@ -553,7 +553,7 @@
       "modified_by_group": null,
       "form": "abgasanlage-tabelle",
       "question": "durchmesser",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -583,7 +583,7 @@
       "modified_by_group": null,
       "form": "abgasanlage-tabelle",
       "question": "fabrikat-typ",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -613,7 +613,7 @@
       "modified_by_group": null,
       "form": "abgasanlage-tabelle",
       "question": "klassifizierung",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -643,7 +643,7 @@
       "modified_by_group": null,
       "form": "abgasanlage-tabelle",
       "question": "konformitaetserklaerung",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -658,7 +658,7 @@
       "modified_by_group": null,
       "form": "abgasanlage-tabelle",
       "question": "laenge-anlage",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -673,7 +673,7 @@
       "modified_by_group": null,
       "form": "abgasanlage-tabelle",
       "question": "material",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -703,7 +703,7 @@
       "modified_by_group": null,
       "form": "abgasanlage-tabelle",
       "question": "querschnitt",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -718,7 +718,7 @@
       "modified_by_group": null,
       "form": "abgasanlage-tabelle",
       "question": "stand",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -733,7 +733,7 @@
       "modified_by_group": null,
       "form": "abgasanlage-tabelle",
       "question": "standorttyp",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -748,6 +748,21 @@
       "modified_by_group": null,
       "form": "abgasanlage-tabelle",
       "question": "ummantelung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abgasanlage-tabelle.ummantelung-schacht-vkf-nr",
+    "fields": {
+      "created_at": "2026-07-01T08:08:18.465Z",
+      "modified_at": "2026-07-01T08:08:18.465Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abgasanlage-tabelle",
+      "question": "ummantelung-schacht-vkf-nr",
       "sort": 7
     }
   },
@@ -763,7 +778,7 @@
       "modified_by_group": null,
       "form": "abgasanlage-tabelle",
       "question": "vkf-nr",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -793,7 +808,7 @@
       "modified_by_group": null,
       "form": "abgasanlage-tabelle",
       "question": "wandstaerke",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -14556,6 +14571,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ummantelung-schacht-vkf-nr",
+    "fields": {
+      "created_at": "2026-07-01T08:08:18.367Z",
+      "modified_at": "2026-07-01T08:08:40.555Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schacht VKF-Nr.\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "\"stand\"|answer == \"stand-neu\"",
+      "is_hidden": "!(\"ummantelung-schacht-vkf-nr\" in \"ummantelung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
