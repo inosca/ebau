@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+echo "==> Clean in case canton was changed..."
+mix clean
+
 echo "==> Fetching dependencies..."
 mix deps.get
 
