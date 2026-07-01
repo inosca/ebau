@@ -45,6 +45,9 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
     end
   end
 
+  defp coord_int(value) when is_integer(value), do: {:ok, Integer.to_string(value)}
+  defp coord_int(value) when is_float(value), do: {:ok, Float.to_string(trunc(value))}
+
   defp coord_int(value) when is_binary(value) do
     case Float.parse(value) do
       {float, _rest} -> {:ok, Integer.to_string(trunc(float))}
