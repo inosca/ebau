@@ -360,5 +360,25 @@
       "name": "Deciso",
       "description": null
     }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120056,
+    "fields": {
+      "instance_state": 120008,
+      "language": "it",
+      "name": "In correzione",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120057,
+    "fields": {
+      "instance_state": 120007,
+      "language": "it",
+      "name": "Decisione in sospeso",
+      "description": null
+    }
   }
 ]
