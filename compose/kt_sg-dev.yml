@@ -95,6 +95,7 @@ services:
       FORMAT_VALIDATOR_CLASSES: camac.caluma.extensions.format_validators.DateAfterValidator
       # Alexandria
       TIKA_SERVER_ENDPOINT: "http://tika:9998"
+      ALEXANDRIA_MIN_PDF_VERSION: 1.6
       # celery
       CELERY_RDB_HOST: 0.0.0.0. # to be able to telnet from outside the container
       PYTHONUNBUFFERED: 1
