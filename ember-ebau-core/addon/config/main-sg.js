@@ -74,6 +74,10 @@ const config = {
       dateRanges: [["bauanzeige-start", "bauanzeige-ende"]],
     },
   },
+  dossierImport: {
+    municipalityAdminRole: 4, // Administration Gemeinde
+    municipalityServiceGroup: 1, // Gemeinde
+  },
 };
 
 config.submittedStates = Object.entries(config.instanceStates)

@@ -11,15 +11,38 @@
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2026-02-05T14:26:20.693Z",
-      "metainfo": {},
+      "last_login": "2026-07-09T11:00:10.285Z",
       "address": null,
       "city": null,
       "zip": null,
       "title": null,
       "position": null,
       "mobile": null,
-      "division": null
+      "division": null,
+      "metainfo": {}
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 2,
+    "fields": {
+      "username": "service-account-camac-admin",
+      "password": null,
+      "name": "service-account-camac-admin",
+      "surname": "service-account-camac-admin",
+      "email": "service-account-camac-admin@placeholder.org",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null,
+      "metainfo": {}
     }
   },
   {

@@ -24,7 +24,7 @@ from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ImproperlyConfigured, ObjectDoesNotExist
 from django.core.files import File
 from django.db import transaction
 from django.utils import timezone
@@ -488,6 +488,14 @@ class CalumaTableAnswerWriter(FieldWriter):
     their values may be remapped via `self.value_mapping`.
     """
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        if not self.column_mapping:  # pragma: no cover
+            raise ImproperlyConfigured(
+                "`CalumaTableAnswerWriter` requires a `column_mapping` argument."
+            )
+
     def write(self, instance: Instance, values: list[PlotData] | list[Person]):
         """Write the given list items as rows of the target table question."""
         if not values:
@@ -531,11 +539,15 @@ class CalumaTableAnswerWriter(FieldWriter):
             if value is None:
                 continue
             try:
-                slug = (
-                    self.column_mapping[field_name]
-                    if self.column_mapping
-                    else field_name
-                )
+                if field_name not in self.column_mapping:
+                    # If the dataclass (e.g. `Person`) has a field that is not
+                    # included in the column mapping, we skip it silently. This
+                    # may happen for the property `street_and_number` (and
+                    # vice-versa `street` and `number`) which is currently only
+                    # used in Kt. SG
+                    continue
+
+                slug = self.column_mapping[field_name]
                 question = self.get_question(slug)
 
                 if question.type in [Question.TYPE_TEXT, Question.TYPE_TEXTAREA]:

@@ -625,9 +625,13 @@
         'zip': '8993',
       }),
     ]),
+    'application_type': 'Baugesuch',
+    'completion_date': None,
     'construction_costs': 1234567,
+    'construction_start_date': None,
     'decision_date': datetime.date(2026, 5, 18),
     'dossier_number': '2026-99',
+    'final_approval_date': None,
     'information_of_neighbors_required': True,
     'joined_street_and_number': True,
     'landowners': list([
@@ -670,6 +674,7 @@
         'plot_number': 'C3111',
       }),
     ]),
+    'profile_approval_date': None,
     'project_authors': list([
       dict({
         'country': 'Schweiz',
@@ -687,6 +692,7 @@
       }),
     ]),
     'proposal': 'Neues EFH',
+    'publication_date': None,
     'publication_required': False,
     'street': 'Lämmlisbrunnenstrasse 54',
     'submit_date': datetime.datetime(2026, 3, 19, 17, 32, 18, tzinfo=tzutc()),

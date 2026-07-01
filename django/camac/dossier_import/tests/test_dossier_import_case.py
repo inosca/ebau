@@ -715,6 +715,70 @@ def test_record_loading_sz(
     assert data == snapshot
 
 
+IMPORT_ROWS_SG = [
+    (
+        {
+            "COORDINATE-E": 2710662.123,
+            "COORDINATE-N": 1225997.123,
+            "PARCEL": "1",
+            "EGRID": "CH123456789123",
+        },
+        "plot_data",
+    ),
+    ({"TYPE": "baubewilligung"}, "application_type"),
+] + COMMON_IMPORT_ROWS
+
+
+@pytest.mark.parametrize("is_empty", [True, False])
+@pytest.mark.django_db
+def test_record_loading_sg(
+    caluma_work_item_factory,
+    dossier,
+    setup_dossier_writer,
+    master_data_is_visible_mock,
+    dossier_row_sparse,
+    dossier_loader,
+    mocker,
+    instance_service_factory,
+    sg_instance,
+    is_empty,
+    snapshot,
+    settings,
+):
+    writer = setup_dossier_writer("kt_sg")
+
+    sg_instance.case.document.form_id = settings.DOSSIER_IMPORT["CALUMA_FORM"]
+    sg_instance.case.document.save()
+
+    # Setup needed work items
+    caluma_work_item_factory(
+        task_id="decision",
+        case=sg_instance.case,
+        document__form_id="entscheid",
+    )
+
+    # Test overwriting values
+    if not is_empty:
+        writer.write_fields(sg_instance, dossier)
+        mocker.patch.object(writer, "find_existing_instance", sg_instance)
+        instance_service_factory(instance=sg_instance, service=writer._group.service)
+
+    data = OrderedDict()
+    for dossier_row_patch, expected_target in IMPORT_ROWS_SG:
+        dossier = dossier_loader._load_dossier(dossier_row_sparse | dossier_row_patch)
+        writer.write_fields(sg_instance, dossier)
+        md = MasterData(sg_instance.case)
+        data[expected_target] = getattr(md, expected_target)
+
+    assert data == snapshot(
+        exclude=paths(
+            "applicants.0.row_id",
+            "project_authors.0.row_id",
+            "landowners.0.row_id",
+        )
+    )
+
+
 @pytest.mark.django_db
 def test_record_loading_invalid_coordinates(
     be_instance,
@@ -1580,6 +1644,108 @@ def test_set_workflow_state_ag(
         assert ag_instance.case.status == expected_case_status, (
             f"Expected case status {expected_case_status} but got {ag_instance.case.status}. Current work items: {current_workitems}"
         )
+
+
+@pytest.mark.parametrize(
+    ("target_state", "expected_work_items_states", "expected_case_status"),
+    [
+        (
+            "SUBMITTED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "ready"),
+                ("init-additional-demand", "ready"),
+                ("init-construction-monitoring", "ready"),
+            ],
+            "running",
+        ),
+        (
+            "APPROVED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "skipped"),
+                ("material-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("init-construction-monitoring", "ready"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+            ],
+            "running",
+        ),
+        (
+            "DONE",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "canceled"),
+                ("formal-exam", "skipped"),
+                ("material-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+                ("init-construction-monitoring", "skipped"),
+                ("complete-instance", "skipped"),
+            ],
+            "completed",
+        ),
+        (
+            "REJECTED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "canceled"),
+                ("formal-exam", "skipped"),
+                ("material-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+                ("init-construction-monitoring", "skipped"),
+                ("complete-instance", "skipped"),
+            ],
+            "completed",
+        ),
+        (
+            "WRITTEN OFF",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "canceled"),
+                ("formal-exam", "skipped"),
+                ("material-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+                ("init-construction-monitoring", "skipped"),
+                ("complete-instance", "skipped"),
+            ],
+            "completed",
+        ),
+    ],
+)
+@pytest.mark.django_db
+def test_set_workflow_state_sg(
+    sg_instance,
+    setup_dossier_writer,
+    dossier,
+    target_state,
+    instance_service_factory,
+    expected_work_items_states,
+    expected_case_status,
+):
+    writer = setup_dossier_writer("kt_sg")
+    instance_service_factory(instance=sg_instance, service=writer._group.service)
+    dossier._meta.target_state = target_state
+    writer.set_workflow_state(sg_instance, dossier)
+
+    for task_id, expected_status in expected_work_items_states:
+        work_item = sg_instance.case.work_items.filter(task_id=task_id).first()
+        assert work_item is not None, (
+            f"Work item {task_id} does not exist for target state {target_state}"
+        )
+        assert work_item.status == expected_status, (
+            f"Expected status {expected_status} for work item {task_id} but got {work_item.status}"
+        )
+
+    assert sg_instance.case.status == expected_case_status
 
 
 @pytest.mark.parametrize(

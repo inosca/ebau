@@ -2611,6 +2611,7 @@ APPLICATIONS = {
             },
         },
         "DOCUMENT_BACKEND": "alexandria",
+        "SYSTEM_USER": "service-account-camac-admin",
     },
 }
 

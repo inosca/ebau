@@ -46,7 +46,9 @@ services:
       - mailpit
       - garage
       - tika
+    image: acr.run/camac-ng/camac-ng/django:master
     build:
+      context: ../django
       args:
         REQUIREMENTS: requirements-dev.txt
     ports:
@@ -107,15 +109,6 @@ services:
 
   celery:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
-    build:
-      context: ../django
-      cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
-      args:
-        REQUIREMENTS: requirements-dev.txt
-    environment:
-      <<: *django_env
     ports:
       - "6899:6899" # celery rdb
       - "5679:5679" # debugpy (default queue)

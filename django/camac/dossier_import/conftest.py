@@ -219,6 +219,21 @@ def load_fixtures_be(
 
 
 @pytest.fixture
+def load_fixtures_sg(
+    service_factory,
+    sg_construction_monitoring_settings,
+    sg_decision_settings,
+):
+    service = service_factory(service_group__name="municipality")
+
+    return service, [
+        "kt_sg/config/caluma_form_common.json",
+        "kt_sg/config/caluma_dossier_import_form.json",
+        "kt_sg/config/caluma_decision_form.json",
+    ]
+
+
+@pytest.fixture
 def setup_dossier_writer(
     alexandria_category_factory,
     attachment_section,
