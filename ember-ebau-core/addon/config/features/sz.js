@@ -15,14 +15,10 @@ export default {
     createPaper: false,
     exportExcel: true,
   },
-  journal: {
-    snippets: true,
-  },
   constructionMonitoring: true,
   communications: {
     enabled: true,
     hideInstanceId: true,
-    snippets: true,
   },
   changeGeometer: {
     enabled: false,
@@ -33,5 +29,9 @@ export default {
   noInstanceService: true,
   instanceOverview: {
     useFormNameAsTabTitle: true,
+  },
+  snippets: {
+    journal: true,
+    communications: true,
   },
 };

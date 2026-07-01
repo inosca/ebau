@@ -41,7 +41,7 @@ export default function makeServer(config) {
           return new Response(204);
         },
       );
-      this.get(
+      this.patch(
         "notification-templates/update_purposes",
         function ({ notificationTemplates }, { queryParams }) {
           notificationTemplates
@@ -51,6 +51,15 @@ export default function makeServer(config) {
           return new Response(204);
         },
       );
+      this.post("notification-templates", function (schema) {
+        // this mocks setting the service in the backend
+        const attrs = this.normalizedRequestAttrs();
+        const activeService = schema.services.first();
+        if (activeService) {
+          attrs.serviceId = activeService.id;
+        }
+        return schema.notificationTemplates.create(attrs);
+      });
 
       this.resource("billing-v2-entries");
       this.resource("billing-v2-entry-templates", { only: ["index"] });

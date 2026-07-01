@@ -32,8 +32,9 @@ export default class SnippetsForm extends Component {
 
     try {
       if (this.model.value.isNew) {
+        const serviceSlugPrefix = this.ebauModules.serviceId || "system";
         this.model.value.slug = slugify(
-          `${this.ebauModules.serviceId}-${this.model.value.purpose}-${this.model.value.subject}`,
+          `${serviceSlugPrefix}-${this.model.value.purpose}-${this.model.value.subject}`,
           {
             strict: true,
             lower: true,

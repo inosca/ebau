@@ -7,10 +7,13 @@ snippets:
   new: Neuen Textbaustein erstellen
   snippets: Textbausteine
   text: Text
-  title: Titel
   copy: Textbaustein in die Zwischenablage kopieren
   empty: Keine Textbausteinkategorien vorhanden
   empty-search: Keine Textbausteine vorhanden
+  title:
+    new: Titel
+    own: Eigene Textbausteine
+    system: Systemtextbausteine
 
   confirm:
     delete: Wollen Sie den Textbaustein <span class="uk-text-bold">"{name}"</span> wirklich löschen?

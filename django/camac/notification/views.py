@@ -44,6 +44,11 @@ class NotificationTemplateView(ModelViewSet):
     def get_queryset_for_legal_authority(self):
         return self.get_queryset_for_canton()
 
+    def get_queryset_for_support(self):
+        return models.NotificationTemplate.objects.filter(
+            type="textcomponent", service=None
+        )
+
     @permission_aware
     def has_create_permission(self):
         return False
@@ -61,6 +66,9 @@ class NotificationTemplateView(ModelViewSet):
         return True
 
     def has_create_permission_for_legal_authority(self):
+        return True
+
+    def has_create_permission_for_support(self):
         return True
 
     @permission_aware
@@ -85,6 +93,9 @@ class NotificationTemplateView(ModelViewSet):
     def has_object_update_permission_for_legal_authority(self, obj):
         return self.has_object_update_permission_for_canton(obj)
 
+    def has_object_update_permission_for_support(self, obj):
+        return obj.service is None and obj.type == "textcomponent"
+
     @permission_aware
     def has_object_destroy_permission(self, obj):  # pragma: no cover
         # see comment has_object_update_permission
@@ -104,6 +115,9 @@ class NotificationTemplateView(ModelViewSet):
 
     def has_object_destroy_permission_for_legal_authority(self, obj):
         return self.has_object_update_permission_for_canton(obj)
+
+    def has_object_destroy_permission_for_support(self, obj):
+        return self.has_object_update_permission_for_support(obj)
 
     @action(
         detail=True,
@@ -152,8 +166,11 @@ class NotificationTemplateView(ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
+        # only allow renaming of own text snippets
+        # global snippets can be viewed by everyone, but can only be renamed by support
+        service = request.group.service
         self.get_queryset().filter(
-            purpose=current_purpose, type="textcomponent"
+            purpose=current_purpose, type="textcomponent", service=service
         ).update(purpose=new_purpose)
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
@@ -173,6 +190,11 @@ class NotificationTemplateView(ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        self.get_queryset().filter(purpose=purpose, type="textcomponent").delete()
+        # only allow deletion of own text snippets
+        # global snippets can be viewed by everyone, but can only be deleted by support
+        service = request.group.service
+        self.get_queryset().filter(
+            purpose=purpose, type="textcomponent", service=service
+        ).delete()
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)

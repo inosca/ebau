@@ -15,39 +15,50 @@
       class="uk-padding-small uk-height-max-large uk-width-medium"
       uk-overflow-auto
     >
-      {{#if this.snippets.isRunning}}
+      {{#if this.snippets.isLoading}}
         <UkSpinner class="uk-animation-fade" />
       {{else}}
-        <ul uk-accordion="multiple: true" class="uk-margin-remove">
-          {{#each-in this.snippets.value as |category snippets|}}
-            <li>
-              <a
-                class="uk-accordion-title uk-text-default"
-                href="#"
-              >{{category}}</a>
-              <div class="uk-accordion-content">
-                <ul class="uk-list uk-list-disc">
-                  {{#each snippets as |snippet|}}
-                    <li>
-                      <a
-                        class="uk-link-text"
-                        href=""
-                        {{on
-                          "click"
-                          (fn (perform this.applySnippet) snippet.id)
-                        }}
-                      >
-                        {{snippet.subject}}
-                      </a>
-                    </li>
-                  {{/each}}
-                </ul>
-              </div>
-            </li>
-          {{else}}
-            <li>{{t "global.empty"}}</li>
-          {{/each-in}}
-        </ul>
+        {{#each-in this.snippets.value as |groupName categories|}}
+          {{#if (has-feature "snippets.allowGlobalSnippets")}}
+            <h5 class="uk-margin-small-bottom uk-text-uppercase uk-text-muted">
+              {{t (concat "snippets.title." groupName)}}
+            </h5>
+          {{/if}}
+          <ul
+            uk-accordion="multiple: true"
+            class="uk-margin-remove-top uk-margin-bottom"
+          >
+            {{#each-in categories as |category snippets|}}
+              <li>
+                <a class="uk-accordion-title uk-text-default" href="#">
+                  {{category}}
+                </a>
+                <div class="uk-accordion-content">
+                  <ul class="uk-list uk-list-disc">
+                    {{#each snippets as |snippet|}}
+                      <li>
+                        <a
+                          class="uk-link-text"
+                          href=""
+                          {{on
+                            "click"
+                            (fn (perform this.applySnippet) snippet.id)
+                          }}
+                        >
+                          {{snippet.subject}}
+                        </a>
+                      </li>
+                    {{/each}}
+                  </ul>
+                </div>
+              </li>
+            {{else}}
+              <li class="uk-text-small uk-text-muted">
+                {{t "global.empty"}}
+              </li>
+            {{/each-in}}
+          </ul>
+        {{/each-in}}
       {{/if}}
     </div>
   {{/unless}}

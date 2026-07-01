@@ -7,24 +7,20 @@ export default {
     displayService: true,
     applyConstructionCosts: true,
     remark: true,
-    snippets: true,
   },
   communications: {
     enabled: true,
-    snippets: true,
     creationActivatedForEchApiUsers: false,
   },
   deadlines: {
     enabled: true,
     useEndDate: false,
     manualSuspensionReason: false,
-    snippets: true,
   },
   permissions: {
     applicantRoles: true,
   },
   rejection: {
-    snippets: true,
     revert: true,
   },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
@@ -62,7 +58,6 @@ export default {
   workItems: {
     cancel: true,
     v2: true,
-    snippets: true,
   },
   withdrawal: {
     light: true,
@@ -80,11 +75,16 @@ export default {
   support: true,
   staticFaq: true,
   instanceSupport: true,
-  journal: {
-    snippets: true,
-  },
   instanceMarks: true,
   instanceOverview: {
     useFormNameAsTabTitle: true,
+  },
+  snippets: {
+    journal: true,
+    workItems: true,
+    rejection: true,
+    billing: true,
+    communications: true,
+    deadlines: true,
   },
 };

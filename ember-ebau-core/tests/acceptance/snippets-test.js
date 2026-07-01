@@ -7,10 +7,18 @@ import { setupApplicationTest } from "dummy/tests/helpers";
 module("Acceptance | snippets", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
+  hooks.beforeEach(async function () {
+    this.user = this.server.create("public-user");
+    this.service = this.server.create("service");
+    const ebauModules = this.owner.lookup("service:ebau-modules");
+    ebauModules.serviceId = this.service.id;
+  });
 
   test("list snippets", async function (assert) {
     this.server.createList("notification-template", 3, {
       purpose: "A category",
+      type: "textcomponent",
+      service: this.service,
     });
 
     await visit("/snippets");
@@ -22,7 +30,10 @@ module("Acceptance | snippets", function (hooks) {
   });
 
   test("search snippets", async function (assert) {
-    this.server.createList("notification-template", 2);
+    this.server.createList("notification-template", 2, {
+      type: "textcomponent",
+      service: this.service,
+    });
 
     await visit("/snippets");
     await fillIn("[data-test-search]", "Test");
@@ -31,13 +42,13 @@ module("Acceptance | snippets", function (hooks) {
 
     const requests = this.server.pretender.handledRequests;
 
-    assert.strictEqual(requests.length, 2);
+    assert.strictEqual(requests.length, 3);
     assert.strictEqual(
       requests[0].url,
       "/api/v1/notification-templates?search=&type=textcomponent",
     );
     assert.strictEqual(
-      requests[1].url,
+      requests[2].url,
       "/api/v1/notification-templates?search=Test&type=textcomponent",
     );
   });

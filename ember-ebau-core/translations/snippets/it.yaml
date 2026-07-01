@@ -1,0 +1,33 @@
+snippets:
+  category: ""
+  delete-category: ""
+  edit: ""
+  edit-category: ""
+  new-category: ""
+  new: ""
+  snippets: ""
+  text: ""
+  copy: ""
+  empty: ""
+  empty-search: ""
+  title:
+    new: ""
+    own: ""
+    system: ""
+
+  confirm:
+    delete: ""
+    delete-category: ""
+
+  success:
+    copy: ""
+    delete: ""
+    delete-category: ""
+    save: ""
+    save-category: ""
+
+  error:
+    delete: ""
+    delete-category: ""
+    save: ""
+    save-category: ""

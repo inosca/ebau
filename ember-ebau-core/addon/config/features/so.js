@@ -18,7 +18,6 @@ export default {
     costCenter: true,
   },
   rejection: {
-    snippets: false,
     revert: false,
   },
   cases: {
@@ -85,5 +84,8 @@ export default {
   deadlines: {
     enabled: false,
     useEndDate: true,
+  },
+  snippets: {
+    rejection: true,
   },
 };

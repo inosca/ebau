@@ -1,4 +1,4 @@
-<h2 class="uk-flex uk-flex-middle">
+<h3 class="uk-flex uk-flex-middle">
   {{#if this.isEditing}}
     <Input
       @type="text"
@@ -35,7 +35,7 @@
       {{this.name}}
       <UkIcon @icon={{if this.isExpanded "chevron-down" "chevron-right"}} />
     </a>
-    {{#if @editable}}
+    {{#if (and @editable (can "edit category of snippet" snippets=@snippets))}}
       <UkButton
         @color="link"
         @title={{t "snippets.delete-category"}}
@@ -56,7 +56,7 @@
       </UkButton>
     {{/if}}
   {{/if}}
-</h2>
+</h3>
 
 {{#if this.isExpanded}}
   <table
@@ -65,7 +65,7 @@
   >
     <thead>
       <tr>
-        <th>{{t "snippets.title"}}</th>
+        <th>{{t "snippets.title.new"}}</th>
         <th>{{t "snippets.text"}}</th>
         <th></th>
       </tr>
@@ -78,7 +78,7 @@
             {{snippet.body}}
           </td>
           <td class="uk-text-right">
-            {{#if @editable}}
+            {{#if (and @editable (can "edit snippet" snippet))}}
               <UkButton
                 @color="link"
                 @title={{t "global.delete"}}
@@ -110,7 +110,7 @@
         </tr>
       {{/each}}
     </tbody>
-    {{#if @editable}}
+    {{#if (and @editable (can "add snippet" type=@type))}}
       <tfoot>
         <tr>
           <td colspan="3" class="uk-text-center">
