@@ -22,11 +22,6 @@ instances:
 
     modal-title: "Hinweis"
 
-documents:
-  tags:
-    brandschutzdokumente: 'Brandschutzdokumente — Zusätzlich nur für den Brandschutz relevante Planunterlagen und Dokumente sind im Bereich "Brandschutzdokumente (Feuerpolizei)" abzulegen. Vermeiden Sie den Upload von doppelten Planunterlagen!'
-    weitere-unterlagen: "Allgemeine Unterlagen"
-
 support:
   professional: |
     Bei spezifischen Fragen zum Verfahren oder zum Formular kontaktieren Sie bitte

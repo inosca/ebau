@@ -43,37 +43,6 @@ documents:
   voidError: "Une erreur s'est produite lors de la mise hors service du document"
   void: "Document marquer comme invalide"
 
-  tags:
-    beilagen-vorabklaerung: "Annexes à la demande préalable"
-    allgemeine-informationen: "Informations générales"
-    bauwerk-allgemein: "Ouvrage - Généralités"
-    informationen-ueber-grundstueck: "Informations sur l'immeuble"
-    zustimmungen: "Consentements"
-    bauwerk-brandschutz: "Ouvrage - Protection contre l'incendie"
-    spezialformulare-waermepumpen: "Formulaires spéciaux - Pompes à chaleur"
-    spezialformulare-zivilschutz: "Formulaires spéciaux - Protection civile"
-    spezialformulare-gastgewerbe: "Formulaires spéciaux - Hôtellerie et restauration"
-    plaene: "Plans"
-    spezialformulare-biologische-sicherheit: "Formulaires spéciaux - Sécurité biologique"
-    spezialformulare-stoerfallvorsorge: "Formulaires spéciaux - Prévention des accidents majeurs"
-    spezialformulare-konsultationsbereiche: "Formulaires spéciaux - Projet de construction dans des périmètres de consultation"
-    bauwerk-gewaesserschutz: "Ouvrage - Protection des eaux"
-    bauwerk-energie: "Ouvrage - Energie"
-    spezialformulare-immissionsschutz: "Formulaires spéciaux - Protection contre les immissions"
-    spezialformulare-entsorgung-bodenschutz: "Formulaires spéciaux - Gestion des déchets, valorisation et protection du sol"
-    spezialformulare-wald: "Formulaires spéciaux forêt (à soumettre en quatre exemplaires papier)"
-    spezialformulare-naturgefahren: "Formulaires spéciaux - Dangers naturels"
-    spezialformulare-allgemeine-angaben-zum-betrieb: "Formulaires spéciaux - Indications générales sur l'installation"
-    spezialformulare-rpg2: "Formulaires spéciaux - RPG 2"
-    baugesuch-mit-uvp: "Demande de permis de construire avec EIE"
-    spezialformulare-reklame: "Formulaires spéciaux - Réclame"
-    bauen-ausserhalb-bauzone: "Construction hors de la zone à bâtir"
-    selbstdeklaration-2: "Déclaration spontanée 2"
-    nachweise: "Justificatif"
-    weitere-unterlagen: "Autres documents"
-    solareignung-dachflaechen: "Analyse du potentiel d’énergie solaire d’après le calculateur solaire"
-
-
 dms:
   downloadError: "Un problème est survenu lors de l'exportation. Veuillez réessayer."
 
