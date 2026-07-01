@@ -215,6 +215,43 @@ def test_created_on_inquiry_send_ag(
 
 
 @pytest.mark.django_db
+def test_created_on_cantonal_exam_complete_for_anfrage_intern_ag(
+    ag_rpg2_settings,
+    caluma_admin_user,
+    disable_ech0211_settings,
+    distribution_case_ag,
+    ag_rpg2_service,
+    form_utils,
+):
+    distribution_case_ag.document.form_id = "anfrage-intern"
+    distribution_case_ag.document.save(update_fields=["form"])
+    cantonal_exam = distribution_case_ag.work_items.get(task_id="cantonal-exam")
+    form_utils.add_answer(
+        cantonal_exam.document,
+        "kantonale-pruefung-gesuchscodes",
+        ["kantonale-pruefung-gesuchscodes-a01"],
+    )
+    form_utils.add_answer(
+        cantonal_exam.document,
+        "kantonale-pruefung-nachtraegliches-baugesuch",
+        "kantonale-pruefung-nachtraegliches-baugesuch-ja",
+    )
+
+    complete_work_item(
+        work_item=cantonal_exam,
+        user=caluma_admin_user,
+    )
+
+    work_items = _rpg2_work_items(case=distribution_case_ag)
+    assert work_items.count() == 1
+    work_item = work_items.get()
+    assert work_item.status == WorkItem.STATUS_READY
+    assert work_item.addressed_groups == [str(ag_rpg2_service.pk)]
+    assert work_item.document
+    assert work_item.document.form_id == "rpg2"
+
+
+@pytest.mark.django_db
 def test_not_created_for_other_services_ag(
     ag_rpg2_settings,
     inquiry_factory_ag,

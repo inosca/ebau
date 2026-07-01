@@ -113,12 +113,13 @@ def test_form_rpg2_permissions_state_be(
 
 
 @pytest.mark.parametrize(
-    "service__slug,role__name,has_acl,has_work_item,expected_result",
+    "service__slug,role__name,access_level,has_acl,has_work_item,expected_result",
     [
         # ROLES_NO_READONLY: read & write
         (
             "afb",
             "trusted-service-lead",
+            "distribution-service",
             True,
             True,
             {"form-rpg2-read", "form-rpg2-write"},
@@ -126,19 +127,52 @@ def test_form_rpg2_permissions_state_be(
         (
             "afb",
             "trusted-service-clerk",
+            "distribution-service",
             True,
             True,
             {"form-rpg2-read", "form-rpg2-write"},
         ),
         # Readonly role: read
-        ("afb", "trusted-service-read", True, True, {"form-rpg2-read"}),
+        (
+            "afb",
+            "trusted-service-read",
+            "distribution-service",
+            True,
+            True,
+            {"form-rpg2-read"},
+        ),
+        # Lead authority
+        (
+            "afb",
+            "trusted-service-lead",
+            "lead-authority",
+            True,
+            True,
+            {"form-rpg2-read", "form-rpg2-write"},
+        ),
+        (
+            "afb",
+            "trusted-service-read",
+            "lead-authority",
+            True,
+            True,
+            {"form-rpg2-read"},
+        ),
         # No ACL: inquiry not sent
-        ("afb", "trusted-service-lead", False, True, set()),
+        ("afb", "trusted-service-lead", "distribution-service", False, True, set()),
         # No work item
-        ("afb", "trusted-service-lead", True, False, set()),
+        ("afb", "trusted-service-lead", "distribution-service", True, False, set()),
         # Wrong service
-        (None, "trusted-service-lead", True, True, set()),
-        ("other-slug", "trusted-service-lead", True, True, set()),
+        (None, "trusted-service-lead", "distribution-service", True, True, set()),
+        (
+            "other-slug",
+            "trusted-service-lead",
+            "distribution-service",
+            True,
+            True,
+            set(),
+        ),
+        ("other-slug", "trusted-service-lead", "lead-authority", True, True, set()),
     ],
 )
 @pytest.mark.django_db
@@ -147,6 +181,7 @@ def test_form_rpg2_permissions_ag(
     ag_permissions_settings,
     ag_access_levels,
     userinfo,
+    access_level,
     has_acl,
     has_work_item,
     expected_result,
@@ -157,7 +192,7 @@ def test_form_rpg2_permissions_ag(
         manager.grant(
             ag_instance,
             grant_type="SERVICE",
-            access_level="distribution-service",
+            access_level=access_level,
             service=userinfo.service,
             event_name="inquiry-sent",
         )
