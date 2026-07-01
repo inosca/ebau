@@ -677,8 +677,8 @@ class InstanceView(
         instance = self.get_object()
 
         response = HttpResponse()
-        filename = "{0}.{1}".format(instance.form.description, to_type)
-        response["Content-Disposition"] = 'attachment; filename="{0}"'.format(filename)
+        filename = f"{instance.form.description}.{to_type}"
+        response["Content-Disposition"] = f'attachment; filename="{filename}"'
         response["Content-Type"] = mimetypes.guess_type(filename)[0]
 
         buf = self.get_export_detail_data(instance, to_type)
@@ -726,9 +726,7 @@ class InstanceView(
                 workflow_date=camac_now,
             )
 
-        filename = "{0}_{1:%d.%m.%Y}.pdf".format(
-            instance.form.description, timezone.now()
-        )
+        filename = f"{instance.form.description}_{timezone.now():%d.%m.%Y}.pdf"
         file = File(self.get_export_detail_data(instance, "pdf"))
 
         attachment = Attachment(

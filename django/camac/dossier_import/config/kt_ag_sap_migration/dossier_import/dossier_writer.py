@@ -228,16 +228,14 @@ def _lookup_service_by_bfs(bfs_number):
     try:
         return Service.objects.get(external_identifier=bfs_number)
     except Exception:
-        raise ValueError(
-            "Could not find municipality with BFS number '%s'" % bfs_number
-        )
+        raise ValueError(f"Could not find municipality with BFS number '{bfs_number}'")
 
 
 def _lookup_service_by_id(id):
     try:
         return Service.objects.get(service_id=id)
     except Exception:  # pragma: no cover
-        raise ValueError("Could not find municipality with id '%s'" % id)
+        raise ValueError(f"Could not find municipality with id '{id}'")
 
 
 def lookup_municipality_id_by_bfs_number(bfs_number: str) -> str:

@@ -98,11 +98,11 @@ class MultilingualAdminMixin:
         # Apply keyword searches.
         def construct_search(field_name):
             if field_name.startswith("^"):
-                return "%s__istartswith" % field_name.removeprefix("^"), None
+                return f"{field_name.removeprefix('^')}__istartswith", None
             elif field_name.startswith("="):
-                return "%s__iexact" % field_name.removeprefix("="), None
+                return f"{field_name.removeprefix('=')}__iexact", None
             elif field_name.startswith("@"):
-                return "%s__search" % field_name.removeprefix("@"), None
+                return f"{field_name.removeprefix('@')}__search", None
             # Use field_name if it includes a lookup.
             opts = queryset.model._meta
             lookup_fields = field_name.split(LOOKUP_SEP)
@@ -134,7 +134,7 @@ class MultilingualAdminMixin:
                         # Update opts to follow the relation.
                         opts = field.path_infos[-1].to_opts
             # Otherwise, use the field with icontains.
-            return "%s__icontains" % field_name, None
+            return f"{field_name}__icontains", None
 
         may_have_duplicates = False
         search_fields = self.get_search_fields(request)

@@ -141,7 +141,7 @@ class ViewPermissions(permissions.BasePermission):
     def has_permission(self, request, view):
         action = _get_view_action(view)
         if action:
-            method = "has_{action}_permission".format(action=action)
+            method = f"has_{action}_permission"
             if hasattr(view, method):
                 return getattr(view, method)()
 
@@ -150,7 +150,7 @@ class ViewPermissions(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         action = _get_view_action(view)
         if action:
-            method = "has_object_{action}_permission".format(action=action)
+            method = f"has_object_{action}_permission"
             if hasattr(view, method):
                 return getattr(view, method)(obj)
 

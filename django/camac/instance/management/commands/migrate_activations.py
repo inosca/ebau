@@ -112,7 +112,7 @@ class Command(BaseCommand):
             service=activation.service_parent, instance=current_instance
         ).latest("circulation_id")
         if activation.circulation != current_circulation:
-            self.stdout.write("Old activation %s, skip!" % activation.activation_id)
+            self.stdout.write(f"Old activation {activation.activation_id}, skip!")
             return
 
         if activation.service_parent != parent:
@@ -233,15 +233,14 @@ class Command(BaseCommand):
             service.save()
             self.stdout.write(
                 self.style.SUCCESS(
-                    "Sucessfully moved '%s' from '%s' to '%s'"
-                    % (service, old_parent, parent)
+                    f"Sucessfully moved '{service}' from '{old_parent}' to '{parent}'"
                 )
             )
 
         activations = Activation.objects.filter(
             service=service, circulation_state__in=self._active_circulation_states
         )
-        self.stdout.write("Found %s activations for '%s'" % (len(activations), service))
+        self.stdout.write(f"Found {len(activations)} activations for '{service}'")
 
         for activation in activations:
             self._update_activation(activation, parent)

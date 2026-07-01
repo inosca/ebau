@@ -30,7 +30,7 @@ def test_form_data_validator_validate_question_type(validator, question, value):
     question_def = validator.forms_def["questions"][question]
     validate_method = getattr(
         validator,
-        "_validate_question_{0}".format(inflection.underscore(question_def["type"])),
+        f"_validate_question_{inflection.underscore(question_def['type'])}",
     )
 
     with pytest.raises(exceptions.ValidationError):

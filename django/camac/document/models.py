@@ -18,7 +18,7 @@ from . import permissions
 
 
 def attachment_path_directory_path(attachment, filename):
-    return "attachments/files/{0}/{1}".format(attachment.instance.pk, filename)
+    return f"attachments/files/{attachment.instance.pk}/{filename}"
 
 
 def version_path_directory_path(attachment_or_version, filename):
@@ -27,7 +27,7 @@ def version_path_directory_path(attachment_or_version, filename):
     elif isinstance(attachment_or_version, AttachmentVersion):
         instance_id = attachment_or_version.attachment.instance_id
 
-    return "attachment-versions/files/{0}/{1}".format(instance_id, filename)
+    return f"attachment-versions/files/{instance_id}/{filename}"
 
 
 @reversion.register()

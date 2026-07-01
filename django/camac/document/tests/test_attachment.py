@@ -579,9 +579,7 @@ def test_attachment_create(
         # download uploaded attachment
         response = admin_client.get(attributes["path"])
         assert response.status_code == status.HTTP_200_OK
-        assert response["Content-Disposition"] == (
-            'inline; filename="{0}"'.format(filename)
-        )
+        assert response["Content-Disposition"] == f'inline; filename="{filename}"'
         assert response["Content-Type"].startswith(mime_type)
 
         path.seek(0)

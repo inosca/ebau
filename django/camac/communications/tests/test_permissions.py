@@ -255,14 +255,12 @@ def some_other_user(user_factory):
 
 
 @pytest.mark.parametrize(
-    ",".join(
-        [
-            "communications_topic__initiated_by",
-            "communications_topic__allow_replies",
-            "has_other_messages",
-            "expect_status",
-        ]
-    ),
+    [
+        "communications_topic__initiated_by",
+        "communications_topic__allow_replies",
+        "has_other_messages",
+        "expect_status",
+    ],
     [
         (_other, True, False, status.HTTP_201_CREATED),
         (_other, True, True, status.HTTP_201_CREATED),

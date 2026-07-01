@@ -59,7 +59,7 @@ class ComplexSubmitMappings:
         CalumaApi().update_or_create_answer(
             document,
             "street-and-housenumber",
-            " ".join([street, number]),
+            f"{street} {number}",
             user,
         )
 

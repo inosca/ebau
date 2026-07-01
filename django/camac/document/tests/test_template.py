@@ -260,7 +260,7 @@ def test_template_merge(
             except AssertionError:  # pragma: no cover
                 with open("/tmp/camacng_template_result.docx", "wb") as output:
                     output.write(response.content)
-                print("Template output changed. Check file at %s" % output.name)
+                print(f"Template output changed. Check file at {output.name}")
                 raise
 
 

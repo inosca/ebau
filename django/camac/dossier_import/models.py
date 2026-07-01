@@ -12,7 +12,7 @@ from camac.dossier_import.messages import default_messages_object
 
 
 def source_file_directory_path(dossier_import, filename):
-    return "dossier_imports/files/{0}/{1}".format(str(dossier_import.id), filename)
+    return f"dossier_imports/files/{dossier_import.id!s}/{filename}"
 
 
 class DossierImport(models.Model):
