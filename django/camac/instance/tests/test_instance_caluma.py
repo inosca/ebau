@@ -2821,7 +2821,7 @@ def test_instance_name(
         (
             "Applicant",
             status.HTTP_400_BAD_REQUEST,
-            "The form 'main-form' can only be used by an internal role",
+            "Das Formular 'main-form' kann nur von internen Rollen genutzt werden",
         ),
     ],
 )

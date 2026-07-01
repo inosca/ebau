@@ -1120,8 +1120,8 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
                 raise exceptions.ValidationError(
                     _(
                         "There is no camac form mapped on the caluma form '%(caluma_form)s'!"
-                        % {"caluma_form": request.data["caluma_form"]}
                     )
+                    % {"caluma_form": request.data["caluma_form"]}
                 )
 
         return domain_logic.CreateInstanceLogic.validate(
@@ -1231,10 +1231,8 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             and not is_paper
         ):
             raise exceptions.ValidationError(
-                _(
-                    "The form '%(form)s' can only be used by an internal role"
-                    % {"form": caluma_form}
-                )
+                _("The form '%(form)s' can only be used by an internal role")
+                % {"form": caluma_form}
             )
 
         if (
@@ -2341,8 +2339,8 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
             raise exceptions.ValidationError(
                 _(
                     "%(value)s is not a valid service type - valid types are: %(expected)s"
-                    % {"value": value, "expected": ", ".join(expected)}
                 )
+                % {"value": value, "expected": ", ".join(expected)}
             )
 
         return value
@@ -2423,10 +2421,8 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
             instance.responsible_service(filter_type=filter_type) != to_service
         ):  # pragma: no cover
             raise exceptions.ValidationError(
-                _(
-                    "Responsible service did not change for instance %(instance_id)s"
-                    % instance.pk
-                )
+                _("Responsible service did not change for instance %(instance_id)s")
+                % {"instance_id": instance.pk}
             )
 
         # Side effects

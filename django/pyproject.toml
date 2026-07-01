@@ -38,7 +38,7 @@ lint.ignore = [
 line-length = 88
 
 
-lint.select = ["C9", "D", "E", "F", "W", "I"]
+lint.select = ["C9", "D", "E", "F", "W", "I", "INT"]
 
 [tool.ruff.lint.mccabe]
 max-complexity = 11

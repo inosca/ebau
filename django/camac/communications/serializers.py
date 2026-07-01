@@ -69,11 +69,11 @@ def validate_mime_type(file):
         raise ValidationError(
             gettext(
                 "Content-Type %(content_type)s does not match file extension %(extension)s."
-                % {
-                    "content_type": content_type_header,
-                    "extension": extension_type,
-                }
             )
+            % {
+                "content_type": content_type_header,
+                "extension": extension_type,
+            }
         )
 
     file.seek(0)
@@ -481,10 +481,8 @@ class MessageSerializer(serializers.ModelSerializer):
 
         if content_type_header not in settings.COMMUNICATIONS["ALLOWED_MIME_TYPES"]:
             raise ValidationError(
-                gettext(
-                    "File type %(mime_type)s is not allowed."
-                    % {"mime_type": content_type_header}
-                )
+                gettext("File type %(mime_type)s is not allowed.")
+                % {"mime_type": content_type_header}
             )
 
     def validate_attachments(self, value):
