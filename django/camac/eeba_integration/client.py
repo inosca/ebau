@@ -42,7 +42,7 @@ class EebaClient:
         }
 
         self.endpoints = {
-            "create_resource": {"method": "POST", "path": "/integrations/"},
+            "create_resource": {"method": "POST", "path": "/integrations"},
             "update_resource": {"method": "PATCH", "path": "/integrations/{uuid}"},
             "get_resource": {"method": "GET", "path": "/integrations/{uuid}"},
             "rerun": {"method": "POST", "path": "/integrations/{uuid}/rerun"},
