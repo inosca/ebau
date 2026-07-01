@@ -6,7 +6,7 @@ from datetime import datetime
 from typing import Any, Callable, List, Mapping, Optional, Set, Tuple
 
 from caluma.caluma_form.api import save_answer
-from caluma.caluma_form.models import Form as CalumaForm, Question
+from caluma.caluma_form.models import Question
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
@@ -17,8 +17,6 @@ from django.utils.translation import gettext as _
 
 from camac.caluma.extensions.data_sources import Municipalities
 from camac.caluma.extensions.events.general import get_caluma_setting
-from camac.core.models import InstanceService
-from camac.core.utils import generate_sort_key
 from camac.dossier_import.dossier_classes import Dossier, PlotData
 from camac.dossier_import.messages import (
     Message,
@@ -36,8 +34,7 @@ from camac.dossier_import.writers import (
     FieldWriter,
     ResponsibleUserWriter,
 )
-from camac.instance.domain_logic import CreateInstanceLogic
-from camac.instance.models import Form, Instance, InstanceState, JournalEntry
+from camac.instance.models import Instance, JournalEntry
 from camac.permissions.events import core as permissions_events
 from camac.tags.models import Keyword
 from camac.user.models import Service
@@ -411,59 +408,12 @@ class KtAargauDossierWriter(DossierWriter):
 
     responsible = ResponsibleUserWriter(target="responsible")
 
-    def create_instance(self, dossier: Dossier) -> Instance:
-        instance_state = InstanceState.objects.get(
-            name=settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"].get(
-                dossier._meta.target_state
-            )
-        )
-
-        creation_data = dict(
-            instance_state=instance_state,
-            previous_instance_state=instance_state,
-            user=self._user,
-            group=self._group,
-            form=Form.objects.get(pk=settings.DOSSIER_IMPORT["FORM_ID"]),
-        )
-
-        instance = CreateInstanceLogic.create(
-            creation_data,
-            caluma_user=self._caluma_user,
-            camac_user=self._user,
-            group=self._group,
-            caluma_form=CalumaForm.objects.get(
-                pk=settings.DOSSIER_IMPORT["CALUMA_FORM"]
-            ),
-            start_caluma=True,
-        )
-
-        InstanceService.objects.create(
-            instance=instance,
-            service_id=self._group.service_id,
-            active=1,
-            activation_date=None,
-        )
-
-        dossier_number = CreateInstanceLogic.generate_identifier(
-            instance, dossier.submit_date.year
-        )
-
-        instance.case.meta.update(
-            {
-                "dossier-number": dossier_number,
-                "dossier-number-sort": generate_sort_key(dossier_number),
-            }
-        )
-        instance.case.save()
-        permissions_events.Trigger.instance_submitted(None, instance)
-        return instance
-
     def find_existing_instance(self, dossier, user):
         # 1. directly check for dossier.id in the keywords (formerly migrated or imported dossier with that communal id)
-        k = Keyword.objects.filter(name=dossier.id, service=self._group.service).first()
+        k = super().find_existing_instance(dossier, user)
 
         if k:
-            return k.instances.first()
+            return k
 
         if dossier.cantonal_id:
             # 2. consider cantonal_id from earlier SAP migration if it starts with "BVUAFB"
@@ -495,25 +445,6 @@ class KtAargauDossierWriter(DossierWriter):
                 )
 
         return None
-
-    def link_instance_and_dossier(self, instance, dossier, user):
-        keyword = Keyword.objects.filter(
-            name=dossier.id, service=self._group.service
-        ).first()
-
-        if keyword:  # pragma: no cover
-            # This only happens after an import was undone
-            keyword.instances.add(instance)
-        else:
-            instance.keywords.create(name=dossier.id, service=self._group.service)
-
-    def _post_create_instance(self, instance: Instance, dossier: Dossier):
-        save_answer(
-            document=instance.case.document,
-            question=Question.objects.get(slug="gemeinde"),
-            value=str(self._group.service_id),
-            user=self._caluma_user,
-        )
 
     def _post_write_fields(self, instance, dossier):
         self._write_triage_fields(instance)

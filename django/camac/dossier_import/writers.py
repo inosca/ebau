@@ -12,7 +12,13 @@ from typing import Any, Callable, List, Mapping, Optional, Set, Tuple
 import magic
 from alexandria.core.tasks import make_checksum
 from caluma.caluma_form import api as form_api
-from caluma.caluma_form.models import Answer, AnswerDocument, Document, Question
+from caluma.caluma_form.models import (
+    Answer,
+    AnswerDocument,
+    Document,
+    Form as CalumaForm,
+    Question,
+)
 from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
@@ -24,7 +30,8 @@ from future.moves import itertools
 from graphql import GraphQLError
 from rest_framework.exceptions import ValidationError
 
-from camac.core.models import WorkflowEntry
+from camac.core.models import InstanceService, WorkflowEntry
+from camac.core.utils import generate_sort_key
 from camac.dossier_import.domain_logic import get_or_create_ebau_nr
 from camac.dossier_import.dossier_classes import CalumaPlotData, Dossier
 from camac.dossier_import.loaders import safe_join
@@ -39,8 +46,10 @@ from camac.dossier_import.messages import (
     Severity,
     get_message_max_level,
 )
-from camac.instance.domain_logic import SUBMIT_DATE_FORMAT
-from camac.instance.models import Instance
+from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
+from camac.instance.models import Form, Instance, InstanceState
+from camac.permissions.events import core as permissions_events
+from camac.tags.models import Keyword
 from camac.user.models import Group, User
 
 log = logging.getLogger("dossier_import")
@@ -765,9 +774,66 @@ class DossierWriter:
         )
         self._caluma_user.camac_group = self._group.pk
 
+    def get_instance_state(self, dossier: Dossier) -> InstanceState:
+        """Get the instance state for a dossier."""
+
+        return InstanceState.objects.get(
+            name=settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"].get(
+                dossier._meta.target_state
+            )
+        )
+
     def create_instance(self, dossier: Dossier) -> Instance:
         """Create the instance."""
-        raise DossierWriter.ConfigurationError  # pragma: no cover
+
+        instance_state = self.get_instance_state(dossier)
+
+        creation_data = dict(
+            instance_state=instance_state,
+            previous_instance_state=instance_state,
+            user=self._user,
+            group=self._group,
+            form=Form.objects.get(pk=settings.DOSSIER_IMPORT["FORM_ID"]),
+        )
+
+        instance = CreateInstanceLogic.create(
+            creation_data,
+            caluma_user=self._caluma_user,
+            camac_user=self._user,
+            group=self._group,
+            caluma_form=CalumaForm.objects.get(
+                pk=settings.DOSSIER_IMPORT["CALUMA_FORM"]
+            ),
+            start_caluma=True,
+        )
+
+        InstanceService.objects.create(
+            instance=instance,
+            service_id=self._group.service_id,
+            active=1,
+            activation_date=None,
+        )
+
+        dossier_number = CreateInstanceLogic.generate_identifier(
+            instance, dossier.submit_date.year
+        )
+
+        instance.case.meta.update(
+            {
+                "dossier-number": dossier_number,
+                "dossier-number-sort": generate_sort_key(dossier_number),
+            }
+        )
+        instance.case.save()
+        permissions_events.Trigger.instance_submitted(None, instance)
+        form_api.save_answer(
+            document=instance.case.document,
+            question=Question.objects.get(slug="gemeinde"),
+            value=str(self._group.service_id),
+            user=self._caluma_user,
+        )
+
+        return instance
 
     def write_fields(self, instance: Instance, dossier: Dossier):
         for field in fields(dossier):
@@ -903,8 +969,18 @@ class DossierWriter:
         return dossier_summary
 
     def get_existing_dossier_ids(self, dossier_ids: List[str]) -> List[str]:
-        """Return all dossier IDs that already exist."""
-        raise DossierWriter.ConfigurationError  # pragma: no cover
+        """Return all dossier IDs that already exist.
+
+        Looks for existing keyword records for all the dossier IDs passed in the
+        XLSX file.
+        """
+        return list(
+            Keyword.objects.filter(
+                name__in=dossier_ids,
+                service=self._group.service,
+                instances__isnull=False,
+            ).values_list("name", flat=True)
+        )
 
     def get_existing_and_new_dossier_ids(
         self, dossier_and_cantonal_ids: List[Tuple[str, str]]
@@ -924,13 +1000,14 @@ class DossierWriter:
     ) -> Optional[Instance]:
         """Return the instance identified linked by the dossier.
 
-        Different configs use different methods to identify instances. This
-        is just an abstraction that is needed for retrieving instances
-        when reimporting dossiers.
-        :param dossier:
-        :param user:
+        Looks for a keyword record with the dossier's ID as name and returns the
+        instance of that keyword if found.
         """
-        raise DossierWriter.ConfigurationError  # pragma: no cover
+        keyword = Keyword.objects.filter(
+            name=dossier.id, service=self._group.service
+        ).first()
+
+        return keyword.instances.first() if keyword else None
 
     def link_instance_and_dossier(
         self, instance: Instance, dossier: Dossier, user: BaseUser
@@ -942,7 +1019,15 @@ class DossierWriter:
         :param dossier:
         :param user:
         """
-        raise DossierWriter.ConfigurationError  # pragma: no cover
+        keyword = Keyword.objects.filter(
+            name=dossier.id, service=self._group.service
+        ).first()
+
+        if keyword:  # pragma: no cover
+            # This only happens after an import was undone
+            keyword.instances.add(instance)
+        else:
+            instance.keywords.create(name=dossier.id, service=self._group.service)
 
     def _set_workflow_state(
         self, instance: Instance, dossier: Dossier
