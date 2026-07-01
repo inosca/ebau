@@ -327,5 +327,6 @@ omit = [
     "camac/user/management/commands/user_backup.py",
     # RPG2 work-item creaton for existing instances
     "camac/instance/management/commands/create_rpg2_workitems.py",
+    "camac/instance/management/commands/verify_rpg2_workitems.py",
 ]
 show_missing = true
