@@ -8839,7 +8839,7 @@
     "pk": "ausgeloester-mehrverkehr-lkw",
     "fields": {
       "created_at": "2026-05-20T07:27:12.936Z",
-      "modified_at": "2026-05-20T07:31:08.906Z",
+      "modified_at": "2026-07-01T07:29:32.959Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -8857,7 +8857,9 @@
         "max_value": null,
         "min_value": 0
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -8873,7 +8875,7 @@
     "pk": "ausgeloester-mehrverkehr-pkw",
     "fields": {
       "created_at": "2026-05-20T07:26:52.307Z",
-      "modified_at": "2026-05-20T07:31:05.175Z",
+      "modified_at": "2026-07-01T07:29:29.076Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -8891,7 +8893,9 @@
         "max_value": null,
         "min_value": 0
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -10661,7 +10665,7 @@
     "pk": "gebaeudekosten",
     "fields": {
       "created_at": "2026-03-12T12:54:05.731Z",
-      "modified_at": "2026-03-12T12:57:47.904Z",
+      "modified_at": "2026-07-01T07:29:00.144Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -10680,7 +10684,9 @@
         "max_value": null,
         "min_value": 0.0
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -10763,7 +10769,7 @@
     "pk": "gesamtkosten",
     "fields": {
       "created_at": "2026-03-12T12:54:29.940Z",
-      "modified_at": "2026-03-12T12:58:01.458Z",
+      "modified_at": "2026-07-01T07:28:55.492Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -10782,7 +10788,9 @@
         "max_value": null,
         "min_value": 0.0
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -12317,7 +12325,7 @@
     "pk": "parkplatz-anzahl-bestehend",
     "fields": {
       "created_at": "2026-05-20T07:23:22.036Z",
-      "modified_at": "2026-05-20T07:24:20.649Z",
+      "modified_at": "2026-07-01T07:29:49.820Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -12335,7 +12343,9 @@
         "max_value": null,
         "min_value": 0
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -12351,7 +12361,7 @@
     "pk": "parkplatz-anzahl-neu",
     "fields": {
       "created_at": "2026-05-20T07:23:02.407Z",
-      "modified_at": "2026-05-20T07:24:16.885Z",
+      "modified_at": "2026-07-01T07:29:45.880Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -12369,7 +12379,9 @@
         "max_value": null,
         "min_value": 0
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -12385,7 +12397,7 @@
     "pk": "parkplatz-anzahl-total",
     "fields": {
       "created_at": "2026-05-20T07:24:10.212Z",
-      "modified_at": "2026-05-20T07:24:24.432Z",
+      "modified_at": "2026-07-01T07:29:54.052Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -12400,7 +12412,9 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -13771,7 +13785,7 @@
     "pk": "spital-pflegeheim-anzahl-patientenbetten",
     "fields": {
       "created_at": "2026-06-05T09:30:46.543Z",
-      "modified_at": "2026-06-15T13:43:27.759Z",
+      "modified_at": "2026-07-01T07:30:18.936Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -13789,7 +13803,9 @@
         "max_value": null,
         "min_value": 0
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -13805,7 +13821,7 @@
     "pk": "spital-pflegeheim-anzahl-schutzplaetze",
     "fields": {
       "created_at": "2026-06-05T09:31:44.920Z",
-      "modified_at": "2026-06-05T10:08:38.596Z",
+      "modified_at": "2026-07-01T07:30:22.059Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -13820,7 +13836,9 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -16003,7 +16021,7 @@
     "pk": "wohnen-anzahl-schutzplaetze",
     "fields": {
       "created_at": "2026-06-05T09:24:04.043Z",
-      "modified_at": "2026-06-05T09:26:03.255Z",
+      "modified_at": "2026-07-01T07:31:14.846Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -16018,7 +16036,9 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -16132,7 +16152,7 @@
     "pk": "wohnen-total-zimmer",
     "fields": {
       "created_at": "2026-06-05T09:21:42.162Z",
-      "modified_at": "2026-06-05T11:04:17.779Z",
+      "modified_at": "2026-07-01T07:31:11.560Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -16147,7 +16167,9 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
