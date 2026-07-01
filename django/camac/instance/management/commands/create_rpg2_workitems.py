@@ -22,6 +22,7 @@ from django.utils import timezone
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.caluma.models import Inquiry
 from camac.instance.models import Instance
+from camac.permissions.models import InstanceACL
 from camac.user.models import Service
 
 
@@ -48,6 +49,16 @@ class Command(BaseCommand):
         # optional argument
         parser.add_argument(
             "--commit", dest="commit", action="store_true", default=False
+        )
+        parser.add_argument(
+            "--include-all-accessible-cases",
+            dest="include_all_accessible_cases",
+            action="store_true",
+            default=False,
+            help=(
+                "Also include cases where the RPG2 service has access via an ACL "
+                "or is the authority of the instance."
+            ),
         )
 
     def _get_skip_trigger_tasks(self) -> [str]:
@@ -86,6 +97,31 @@ class Command(BaseCommand):
 
         return WorkItem.STATUS_READY
 
+    def _get_access_filter(
+        self,
+        service_pks: [str],
+        service_ids: [int],
+        include_all_accessible_cases: bool,
+    ):
+        access_filter = Exists(
+            Inquiry.objects.for_instance(OuterRef("pk"))
+            .addressed_to(service_pks)
+            .only_active()
+        )
+
+        if include_all_accessible_cases:
+            access_filter = (
+                access_filter
+                | Exists(
+                    InstanceACL.currently_active().filter(
+                        instance=OuterRef("pk"), service_id__in=service_ids
+                    )
+                )
+                | Q(group__service_id__in=service_ids)
+            )
+
+        return access_filter
+
     @transaction.atomic
     def handle(self, *args, **options):
         if not options["commit"]:
@@ -95,12 +131,14 @@ class Command(BaseCommand):
 
         form_slugs = options["forms"]
         service_slugs = options["rpg2_services"]
+        include_all_accessible_cases = options["include_all_accessible_cases"]
 
         self.stdout.write(
             f"\n{'=' * 50}\n"
             f"Starting migration of instances with the following parameters:\n"
             f" * form-slugs: {form_slugs}\n"
             f" * rpg2-services: {service_slugs}\n"
+            f" * include all accessible cases: {include_all_accessible_cases}\n"
         )
 
         start_time = time.perf_counter()
@@ -121,7 +159,8 @@ class Command(BaseCommand):
 
         # The rpg2 work_item is addressed to all cantonal services configured.
         services = Service.objects.filter(slug__in=service_slugs)
-        service_pks = [str(pk) for pk in services.values_list("pk", flat=True)]
+        service_ids = list(services.values_list("pk", flat=True))
+        service_pks = [str(pk) for pk in service_ids]
 
         if not service_pks:
             self.stdout.write(
@@ -164,10 +203,10 @@ class Command(BaseCommand):
             query_start_time = time.perf_counter()
             instances = Instance.objects.filter(
                 Q(case__document__form__slug__in=versioned_forms)
-                & Exists(
-                    Inquiry.objects.for_instance(OuterRef("pk"))
-                    .addressed_to(service_pks)
-                    .only_active()
+                & self._get_access_filter(
+                    service_pks,
+                    service_ids,
+                    include_all_accessible_cases,
                 )
             )
 
