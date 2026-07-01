@@ -104,3 +104,16 @@ tr[role="link"] {
 select:disabled {
   opacity: 1;
 }
+
+// Font family reset for buttons (only needed when headings use a different
+// font, which is currently only the case for Kt. SG)
+@if $global-font-family != $base-heading-font-family {
+  h1 .uk-button,
+  h2 .uk-button,
+  h3 .uk-button,
+  h4 .uk-button,
+  h5 .uk-button,
+  h6 .uk-button {
+    font-family: $global-font-family;
+  }
+}
