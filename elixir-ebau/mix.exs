@@ -33,7 +33,8 @@ defmodule Ebau.MixProject do
           Web: [~r/EbauWeb\..*/]
         ]
       ],
-      usage_rules: usage_rules()
+      usage_rules: usage_rules(),
+      hex: [cooldown: "7d"]
     ]
   end
 
