@@ -68,7 +68,7 @@ def test_post_request(eeba_client, mock_eeba_session, make_eeba_mock_response):
         "timeout": 60,
         "relation": {"type": ".eBau", "eBauId": 123},
     }
-    expected_url = "http://example.com/integrations/"
+    expected_url = "http://example.com/integrations"
     expected_headers = eeba_client.default_headers.copy()
     location_header = (
         "http://eba-example.com/integrations/35374476-0694-42ed-84d4-8da544d0a60e"
