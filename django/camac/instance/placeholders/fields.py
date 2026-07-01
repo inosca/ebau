@@ -918,7 +918,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                 )
             ]
             if inquiry.child_case
-            else None
+            else []
         )
 
     def get_prop_value(self, inquiry, prop):
