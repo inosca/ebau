@@ -8,6 +8,7 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext as _, gettext_noop
 
+from camac.agsmartservice import api as ag_smartservice
 from camac.caluma.event_utils import filter_by_canton, filter_by_task, setting
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import ruling
@@ -81,11 +82,18 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
 
     will_continue_after_decision = False
     if workflow == "building-permit":
+        should_continue = domain_logic.DecisionLogic.should_continue_after_decision(
+            instance, work_item
+        )
         will_continue_after_decision = (
             domain_logic.DecisionLogic.post_complete_decision_building_permit(
                 instance, work_item, user, camac_user
             )
         )
+        if should_continue:
+            ag_smartservice.start_construction_monitoring(instance)
+        else:
+            ag_smartservice.complete(instance)
 
     elif workflow == "preliminary-clarification":
         instance.set_instance_state("evaluated", camac_user)

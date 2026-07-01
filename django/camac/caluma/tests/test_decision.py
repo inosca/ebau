@@ -775,6 +775,7 @@ def test_complete_decision_withdrawal_light(
         "expected_status",
         "expected_work_items",
         "complete_afterwards",
+        "expected_smartservice_call",
     ),
     [
         (
@@ -782,12 +783,14 @@ def test_complete_decision_withdrawal_light(
             "decided",
             {"init-construction-monitoring"},
             ["init-construction-monitoring", "complete-instance"],
+            "start_construction_monitoring",
         ),
         (
             "municipality-light",
             "to-finish",
             {"complete-instance"},
             ["complete-instance"],
+            "complete",
         ),
     ],
 )
@@ -802,6 +805,7 @@ def test_complete_decision_ag(
     disable_ech0211_settings,
     expected_status,
     expected_work_items,
+    expected_smartservice_call,
     instance_state_factory,
     mocker,
     service,
@@ -818,6 +822,10 @@ def test_complete_decision_ag(
     mocker.patch(
         "camac.instance.models.Instance.responsible_service", return_value=service
     )
+    smartservice_start = mocker.patch(
+        "camac.agsmartservice.api.start_construction_monitoring"
+    )
+    smartservice_complete = mocker.patch("camac.agsmartservice.api.complete")
 
     # In order to not test the whole workflow, we cancel the submit work item
     # and create a decision work item for the test.
@@ -843,6 +851,12 @@ def test_complete_decision_ag(
         )
         == expected_work_items
     )
+    if expected_smartservice_call == "start_construction_monitoring":
+        smartservice_start.assert_called_once_with(ag_instance)
+        smartservice_complete.assert_not_called()
+    else:
+        smartservice_start.assert_not_called()
+        smartservice_complete.assert_called_once_with(ag_instance)
 
     for task_id in complete_afterwards:
         complete_work_item(

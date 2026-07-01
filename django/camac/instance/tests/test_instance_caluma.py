@@ -4093,6 +4093,40 @@ def test_instance_submit_ag_internal(
 
 
 @pytest.mark.parametrize(
+    ("instance_state__name", "instance__user"),
+    [("new", lf("admin_user"))],
+)
+@pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.django_db
+def test_instance_submit_ag_calls_smartservice_submit(
+    admin_client,
+    ag_instance,
+    disable_ech0211_settings,
+    form_utils: FormUtils,
+    instance_service_factory,
+    instance_state_factory,
+    mock_generate_and_store_pdf,
+    mocker,
+    service,
+    set_application_ag,
+):
+    instance_state_factory(name="subm")
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
+    )
+    smartservice_submit = mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._ag_smartservice_submit"
+    )
+    instance_service_factory(instance=ag_instance, service=service)
+    form_utils.add_municipality(ag_instance.case.document, "gemeinde", service)
+
+    response = admin_client.post(reverse("instance-submit", args=[ag_instance.pk]))
+
+    assert response.status_code == status.HTTP_200_OK
+    smartservice_submit.assert_called_once_with(ag_instance)
+
+
+@pytest.mark.parametrize(
     "pgv_slug",
     ag_constants.PGV_BUND_FORMS,
 )

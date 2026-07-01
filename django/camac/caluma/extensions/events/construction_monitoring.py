@@ -15,6 +15,7 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext_noop
 
+from camac.agsmartservice import api as ag_smartservice
 from camac.caluma.event_utils import (
     filter_by_canton,
     filter_by_task,
@@ -176,6 +177,7 @@ def post_complete_init_construction_monitoring(
         camac_user = User.objects.get(username=user.username)
         history_text = gettext_noop("Construction monitoring skipped")
         create_history_entry(instance, camac_user, history_text)
+        ag_smartservice.complete(instance)
 
 
 @on(post_create_work_item, raise_exception=True)
@@ -294,6 +296,7 @@ def post_complete_construction_monitoring(sender, work_item, user, context, **kw
     camac_user = User.objects.get(username=user.username)
     history_text = gettext_noop("Construction monitoring completed")
     create_history_entry(instance, camac_user, history_text)
+    ag_smartservice.complete(instance)
 
 
 @on(post_cancel_case, raise_exception=True)

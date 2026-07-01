@@ -118,6 +118,7 @@ INSTALLED_APPS = [
     "camac.permissions.apps.PermissionsConfig",
     "camac.gis.apps.GisConfig",
     "camac.billing.apps.BillingConfig",
+    "camac.agsmartservice.apps.AGSmartServiceConfig",
     "camac.eeba_integration.apps.EebaIntegrationConfig",
     "camac.alert_message.apps.AlertMessageConfig",
     "sorl.thumbnail",
@@ -3398,6 +3399,7 @@ def load_module_settings(module_name, application_name=APPLICATION_NAME):
 # from the `module-settings-name` util rule in
 # `ast-grep/utils/module_settings.yaml`, which is what makes its enable checks
 # get linted.
+AGSMARTSERVICE = load_module_settings("agsmartservice")
 BILLING = load_module_settings("billing")
 GIS_EXPORT = load_module_settings("gis_export")
 APPEAL = load_module_settings("appeal")
