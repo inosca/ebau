@@ -199,13 +199,13 @@
     "pk": "flaechenbilanz-v7",
     "fields": {
       "created_at": "2026-06-03T12:47:20.407Z",
-      "modified_at": "2026-06-03T12:48:28.918Z",
+      "modified_at": "2026-06-26T11:49:07.447Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "name": "{\"de\": \"RPG2\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"RPG2 (v7)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Stabilisierungsziele\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Stabilisierungsziele (v7)\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -373,7 +373,7 @@
       "modified_by_group": null,
       "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
       "question": "abbruchanlagen-abzubrechende-flaeche-rekultiviert-v7",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -388,7 +388,7 @@
       "modified_by_group": null,
       "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
       "question": "abbruchanlagen-abzubrechende-flaeche-v7",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -438,6 +438,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7.abbruchanlagen-abzubrechende-stuetzmauer-parzellennummer-v7",
+    "fields": {
+      "created_at": "2026-07-01T09:57:30.545Z",
+      "modified_at": "2026-07-01T09:57:30.545Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
+      "question": "abbruchanlagen-abzubrechende-stuetzmauer-parzellennummer-v7",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7.abbruchanlagen-abzubrechende-stuetzmauer-v7",
     "fields": {
       "created_at": "2026-06-11T14:49:04.704Z",
@@ -448,7 +463,7 @@
       "modified_by_group": null,
       "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
       "question": "abbruchanlagen-abzubrechende-stuetzmauer-v7",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -463,7 +478,7 @@
       "modified_by_group": null,
       "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
       "question": "abbruchanlagen-gebaeude-v7",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -478,7 +493,7 @@
       "modified_by_group": null,
       "form": "abbruchobjekt-angaben-aussenflaechen-anlagen-v7",
       "question": "abbruchanlagen-parzellennummer-v7",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -3753,6 +3768,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "flaechenbilanz-v7.flaechenbilanz-normtext-rpg2-v7",
+    "fields": {
+      "created_at": "2026-06-26T13:10:23.959Z",
+      "modified_at": "2026-06-26T13:10:23.959Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "flaechenbilanz-v7",
+      "question": "flaechenbilanz-normtext-rpg2-v7",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "flaechenbilanz-v7.versiegelte-entsiegelte-flaechen-v7",
     "fields": {
       "created_at": "2026-06-03T13:01:13.963Z",
@@ -5643,12 +5673,12 @@
     "pk": "art-versiegelung-entsiegelung-v7-entsiegelte-flaechen",
     "fields": {
       "created_at": "2026-06-03T13:09:33.755Z",
-      "modified_at": "2026-06-03T13:09:33.755Z",
+      "modified_at": "2026-06-26T11:50:11.297Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Entsiegelte / renaturierte Flächen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Entsiegelte Flächen\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -6068,7 +6098,7 @@
     "pk": "abbruchanlagen-abzubrechende-flaeche-rekultiviert-v7",
     "fields": {
       "created_at": "2026-06-11T13:20:20.941Z",
-      "modified_at": "2026-06-11T13:20:20.941Z",
+      "modified_at": "2026-06-11T13:25:20.019Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -6235,13 +6265,47 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "abbruchanlagen-abzubrechende-stuetzmauer-v7",
+    "pk": "abbruchanlagen-abzubrechende-stuetzmauer-parzellennummer-v7",
     "fields": {
-      "created_at": "2026-06-11T14:49:04.669Z",
-      "modified_at": "2026-06-11T14:49:04.669Z",
+      "created_at": "2026-07-01T09:57:30.501Z",
+      "modified_at": "2026-07-01T09:57:30.501Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parzellennummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchanlagen-abzubrechende-stuetzmauer-v7",
+    "fields": {
+      "created_at": "2026-06-11T14:49:04.669Z",
+      "modified_at": "2026-06-26T12:25:30.537Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Abzubrechende Stützmauer\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -6251,7 +6315,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"### Abzubrechende Stützmauer\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"<br>\\n<h4 class=\\\"uk-margin-remove\\\">Abzubrechende Stützmauer</h4>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -6269,12 +6333,12 @@
     "pk": "abbruchanlagen-gebaeude-v7",
     "fields": {
       "created_at": "2026-06-11T13:17:47.096Z",
-      "modified_at": "2026-06-11T13:17:47.096Z",
+      "modified_at": "2026-06-26T11:56:42.538Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Zugehöriges Gebäude\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bezeichnung der Anlage\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "true",
       "is_hidden": "false",
@@ -6572,14 +6636,14 @@
     "pk": "abbruchgebaeude-gebaeudeflaeche-rekultiviert-v7",
     "fields": {
       "created_at": "2026-06-11T12:48:59.586Z",
-      "modified_at": "2026-06-11T12:48:59.586Z",
+      "modified_at": "2026-06-26T11:53:06.333Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"davon wird rekultiviert (m²)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -6606,14 +6670,14 @@
     "pk": "abbruchgebaeude-gebaeudeflaeche-v7",
     "fields": {
       "created_at": "2026-06-11T12:47:26.619Z",
-      "modified_at": "2026-06-11T13:12:40.862Z",
+      "modified_at": "2026-06-26T11:52:58.279Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gebäudefläche (m²)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "null != 'abbruchgebaeude-gebaeudeflaeche-rekultiviert-v7'|answer",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -6640,14 +6704,14 @@
     "pk": "abbruchgebaeude-gebaeudevolumen-unterirdisch-v7",
     "fields": {
       "created_at": "2026-06-11T12:50:01.373Z",
-      "modified_at": "2026-06-11T12:50:01.373Z",
+      "modified_at": "2026-06-26T11:53:17.501Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"davon unterirdisch (m³)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -6674,14 +6738,14 @@
     "pk": "abbruchgebaeude-gebaeudevolumen-v7",
     "fields": {
       "created_at": "2026-06-11T12:49:30.369Z",
-      "modified_at": "2026-06-11T13:03:37.206Z",
+      "modified_at": "2026-06-26T11:53:11.270Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gebäudevolumen (m³)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "null != 'abbruchgebaeude-gebaeudevolumen-unterirdisch-v7'|answer",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -6708,14 +6772,14 @@
     "pk": "abbruchgebaeude-parzellennummer-v7",
     "fields": {
       "created_at": "2026-06-11T12:46:08.799Z",
-      "modified_at": "2026-06-11T12:46:08.799Z",
+      "modified_at": "2026-06-26T11:53:26.612Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Parzellennummer\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -6819,12 +6883,12 @@
     "pk": "abbruchpraemie-beantragt-v7",
     "fields": {
       "created_at": "2026-06-11T07:52:29.190Z",
-      "modified_at": "2026-06-18T07:21:37.885Z",
+      "modified_at": "2026-06-26T11:47:18.552Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauen ausserhalb Bauzone: Wird eine Abbruchprämie beantragt?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bauen ausserhalb Bauzone (Abbruchprämie): Wird eine Abbruchprämie beantragt?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "!('vorabklaerung' in form)",
       "is_hidden": "false",
@@ -7441,15 +7505,46 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "flaechenbilanz-normtext-rpg2-v7",
+    "fields": {
+      "created_at": "2026-06-26T13:10:23.917Z",
+      "modified_at": "2026-07-01T09:47:49.876Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Normtext von Artikel 2 der EV RPG2\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\">\\n  <p class=\\\"uk-margin-xsmall\\\"><strong>Art. 2</strong>&emsp;<em class=\\\"uk-text-emphasis\\\"> Baugesuche ausserhalb Bauzonen </em></p>\\n\\n  <p class=\\\"uk-margin-xsmall\\\"><sup>1</sup> Für die Beurteilung der Erreichung der Stabilisierungsziele nach Artikel 1 Absatz 2 Buchstabe b<sup>ter</sup> und b<sup>quater</sup> RPG ist im Baugesuch für Bauvorhaben ausserhalb Bauzonen im Situationsplan die Grundfläche in Zahlen anzugeben für</p>\\n\\n  <p class=\\\"uk-margin-xsmall\\\"><em class=\\\"uk-text-emphasis\\\">a</em>&emsp;neue und zu beseitigende Gebäude nach Artikel 25a Absatz 1 RPV,</p>\\n\\n  <p class=\\\"uk-margin-xsmall\\\"><em class=\\\"uk-text-emphasis\\\">b</em>&emsp;neue und zu beseitigende Bodenversiegelungen nach Artikel 25a Absatz 2 und 3 RPV.</p>\\n</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "flaechenbilanz-v7",
     "fields": {
       "created_at": "2026-06-03T12:54:07.488Z",
-      "modified_at": "2026-06-03T12:54:07.488Z",
+      "modified_at": "2026-06-26T11:48:29.579Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"RPG2\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Stabilisierungsziele\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "!('versiegelt-oder-entsiegelt-v7-ja' == 'versiegelt-oder-entsiegelt-v7'|answer)",
@@ -8012,12 +8107,12 @@
     "pk": "situationsplan-mit-rpg2-flaechenangaben-dokument-v7",
     "fields": {
       "created_at": "2026-06-03T13:45:52.626Z",
-      "modified_at": "2026-06-03T13:46:33.827Z",
+      "modified_at": "2026-06-26T12:09:08.357Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Situationsplan mit RPG2 Flächenangaben\", \"fr\": \"Situationsplan mit RPG2 Flächenangaben\", \"it\": null}",
+      "label": "{\"de\": \"Situationsplan mit Flächenangaben zu Stabilisierungszielen (Art. 2 EV RPG2)\", \"fr\": \"Situationsplan mit RPG2 Flächenangaben\", \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "!('versiegelt-oder-entsiegelt-v7-ja' == 'versiegelt-oder-entsiegelt-v7'|answer)",
@@ -8144,12 +8239,12 @@
     "pk": "versiegelt-oder-entsiegelt-v7",
     "fields": {
       "created_at": "2026-06-03T12:10:33.412Z",
-      "modified_at": "2026-06-16T10:04:14.554Z",
+      "modified_at": "2026-06-26T11:47:02.240Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauen ausserhalb Bauzone: Werden Flächen neu versiegelt oder entsiegelt?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bauen ausserhalb Bauzone (Stabilisierungsziele): Werden Flächen neu versiegelt oder entsiegelt?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "!('vorabklaerung' in form)",
       "is_hidden": "false",
