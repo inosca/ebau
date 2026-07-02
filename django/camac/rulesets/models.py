@@ -1,4 +1,5 @@
 from datetime import date, timedelta
+from typing import TYPE_CHECKING
 
 from caluma.caluma_form.models import Form
 from caluma.caluma_workflow.models import WorkItem
@@ -10,9 +11,11 @@ from django.db.models import Q
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.rulesets.holidays import AargauAdministrationHolidays
-from camac.settings.modules.rulesets_schema import DistributionDeadlineRuleConfig
 from camac.user.models import Service, User
 from camac.utils import is_weekend_day
+
+if TYPE_CHECKING:
+    from camac.settings.modules.rulesets_schema import DistributionDeadlineRuleConfig
 
 
 class ResponsibleUserRuleQuerySet(models.QuerySet):

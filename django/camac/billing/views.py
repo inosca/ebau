@@ -1,4 +1,5 @@
 from logging import Logger, getLogger
+from typing import TYPE_CHECKING
 
 from django.conf import settings
 from django.db import transaction
@@ -31,12 +32,14 @@ from camac.permissions.switcher import (
     is_permission_module_fully_enabled,
     permission_switching_method,
 )
-from camac.user.models import Group
 from camac.user.permissions import (
     IsAllowedClientToken,
     IsWilkenClientToken,
     permission_aware,
 )
+
+if TYPE_CHECKING:
+    from camac.user.models import Group
 
 
 class BillingV2EntryTemplateViewset(ReadOnlyModelViewSet):

@@ -1,10 +1,10 @@
 import csv
 from codecs import StreamWriter, getwriter
 from datetime import date, datetime
-from decimal import Decimal
 from io import BytesIO
 from itertools import count
 from logging import Logger, getLogger
+from typing import TYPE_CHECKING
 
 from django.conf import settings
 from django.db.models import Exists, OuterRef, Q
@@ -23,7 +23,11 @@ from camac.billing.wilken.data import (
     WilkenRow,
 )
 from camac.instance.models import Instance
-from camac.settings.modules.billing_schema import WilkenConfig
+
+if TYPE_CHECKING:
+    from decimal import Decimal
+
+    from camac.settings.modules.billing_schema import WilkenConfig
 
 log: Logger = getLogger(__name__)
 

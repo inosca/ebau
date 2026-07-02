@@ -1,4 +1,4 @@
-from typing import Type
+from typing import TYPE_CHECKING, Type
 
 from django.conf import settings
 from django.db.models.signals import post_save
@@ -6,8 +6,10 @@ from django.dispatch import receiver
 
 from camac.permissions.models import InstanceACL
 from camac.rulesets.utils import assign_responsible_user
-from camac.settings.modules.rulesets_schema import ResponsibleUserRuleConfig
 from camac.settings.utils import is_module_enabled
+
+if TYPE_CHECKING:
+    from camac.settings.modules.rulesets_schema import ResponsibleUserRuleConfig
 
 
 @receiver(post_save, sender=InstanceACL)

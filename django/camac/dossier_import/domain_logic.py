@@ -5,7 +5,7 @@ import time
 import traceback
 from dataclasses import asdict
 from logging import getLogger
-from typing import Callable
+from typing import TYPE_CHECKING, Callable
 
 import requests
 from alexandria.core.models import Document
@@ -22,7 +22,6 @@ from camac.core.utils import generate_ebau_nr
 from camac.dossier_import.dossier_classes import (
     Dossier,
 )
-from camac.dossier_import.loaders import DossierLoader
 from camac.dossier_import.messages import (
     DOSSIER_IMPORT_STATUS_ERROR,
     DossierSummary,
@@ -36,6 +35,9 @@ from camac.instance.models import Instance
 from camac.tags.models import Keyword
 from camac.user.models import User
 from camac.utils import build_url
+
+if TYPE_CHECKING:
+    from camac.dossier_import.loaders import DossierLoader
 
 log = getLogger(__name__)
 

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from datetime import date
-from typing import TypedDict
+from typing import TYPE_CHECKING, TypedDict
 
 from caluma.caluma_form.factories import (
     AnswerDocumentFactory,
@@ -13,7 +13,8 @@ from caluma.caluma_form.factories import (
 )
 from caluma.caluma_form.models import Answer, Document, FormQuestion, Option, Question
 
-from camac.user.models import Service
+if TYPE_CHECKING:
+    from camac.user.models import Service
 
 
 class FormUtils:

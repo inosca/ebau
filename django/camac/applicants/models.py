@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Document, Question
@@ -10,13 +10,16 @@ from django.core.exceptions import ImproperlyConfigured
 from django.db import models, transaction
 from django.utils.timezone import now
 from rest_framework.exceptions import PermissionDenied, ValidationError
-from rest_framework.request import Request
 from uuid_extensions import uuid7
 
 from camac.applicants.utils import get_applicants_requiring_confirmation
-from camac.instance.models import Instance
 from camac.permissions.api import PermissionManager
-from camac.user.models import User
+
+if TYPE_CHECKING:
+    from rest_framework.request import Request
+
+    from camac.instance.models import Instance
+    from camac.user.models import User
 
 
 class ApplicantManager(models.Manager):

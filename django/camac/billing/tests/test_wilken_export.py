@@ -1,6 +1,7 @@
 import zipfile
 from datetime import date, datetime
 from io import BytesIO
+from typing import TYPE_CHECKING
 
 import pytest
 from rest_framework import status
@@ -15,8 +16,10 @@ from camac.billing.wilken.domain_logic import (
     generate_models_for_invoice,
     generate_wilken_files,
 )
-from camac.instance.models import Instance
 from camac.settings.modules.billing_schema import BillingConfig
+
+if TYPE_CHECKING:
+    from camac.instance.models import Instance
 
 DEFAULT_PRODUCT_NUMBER: int = 200000
 

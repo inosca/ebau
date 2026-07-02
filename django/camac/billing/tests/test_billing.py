@@ -1,6 +1,6 @@
 from collections import OrderedDict
 from decimal import Decimal
-from typing import Any, cast
+from typing import Any
 
 import pytest
 from django.urls import reverse
@@ -78,13 +78,10 @@ def test_add_taxes_to_final_rate() -> None:
     final_rate = Decimal(100)
     tax_rate = Decimal(7.7)
 
-    exclusive = cast(
-        Decimal,
-        add_taxes_to_final_rate(
-            final_rate=final_rate,
-            tax_mode=BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
-            tax_rate=tax_rate,
-        ),
+    exclusive = add_taxes_to_final_rate(
+        final_rate=final_rate,
+        tax_mode=BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
+        tax_rate=tax_rate,
     )
     inclusive = add_taxes_to_final_rate(
         final_rate=final_rate,

@@ -1,3 +1,5 @@
+from typing import TYPE_CHECKING
+
 from caluma.caluma_form.models import Form
 from django.conf import settings
 from django.db import transaction
@@ -18,11 +20,13 @@ from camac.rulesets.serializers import (
     ResponsibleUserRuleReorderSerializer,
     ResponsibleUserRuleSerializer,
 )
-from camac.settings.modules.rulesets_schema import (
-    DistributionDeadlineRuleConfig,
-    ResponsibleUserRuleConfig,
-)
 from camac.user.permissions import permission_aware
+
+if TYPE_CHECKING:
+    from camac.settings.modules.rulesets_schema import (
+        DistributionDeadlineRuleConfig,
+        ResponsibleUserRuleConfig,
+    )
 
 
 class ApplicationTypeViewSet(ReadOnlyModelViewSet):

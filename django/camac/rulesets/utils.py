@@ -1,11 +1,15 @@
+from typing import TYPE_CHECKING
+
 from django.conf import settings
 
 from camac.instance.models import Instance
 from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
 from camac.rulesets.models import ResponsibleUserRule
-from camac.settings.modules.rulesets_schema import ResponsibleUserRuleConfig
 from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
+
+if TYPE_CHECKING:
+    from camac.settings.modules.rulesets_schema import ResponsibleUserRuleConfig
 
 
 def assign_responsible_user(instance: Instance, service: Service) -> None:
