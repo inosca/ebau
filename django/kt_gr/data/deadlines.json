@@ -5,6 +5,7 @@
     "fields": {
       "form_types": [],
       "name": "{\"de\": \"Standard\", \"fr\": \"\", \"it\": \"\"}",
+      "procedure_type": null,
       "lead_time": 30,
       "created_at": "2026-02-26T14:47:14.249Z",
       "is_default": true,

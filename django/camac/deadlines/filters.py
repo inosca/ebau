@@ -1,3 +1,4 @@
+from django.conf import settings
 from django_filters.rest_framework import FilterSet
 
 from camac.deadlines import models
@@ -19,7 +20,11 @@ class DeadlineTypeFilterSet(FilterSet):
 
         instance = Instance.objects.filter(pk=value).first()
 
-        return queryset.for_instance(instance) if instance else queryset.none()
+        qs = queryset.for_instance(instance) if instance else queryset.none()
+        if settings.DEADLINES.procedure_type.enabled:
+            qs = qs.for_procedure_type(instance, allow_empty=True)
+
+        return qs
 
 
 class SuspensionFilterSet(FilterSet):

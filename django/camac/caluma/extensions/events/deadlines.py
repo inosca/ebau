@@ -156,12 +156,35 @@ def post_create_publication(sender, work_item, user, context=None, **kwargs):
     """Reset the responsible service start-date when a publication workitem is created."""
 
     instance = get_instance(work_item)
-    for deadline in deadlines_models.InstanceDeadline.objects.for_instance(instance):
-        if deadline.service == instance.responsible_service():
+    for instance_deadline in deadlines_models.InstanceDeadline.objects.for_instance(
+        instance
+    ):
+        if instance_deadline.service == instance.responsible_service():
             # Recalculate with a new start date
-            deadline.start_date = None
-            deadline.save(update_fields=["start_date"])
-        deadline.recalculate_progression()
+            instance_deadline.start_date = None
+            instance_deadline.save(update_fields=["start_date"])
+        instance_deadline.recalculate_progression()
+
+
+@on(post_complete_work_item, raise_exception=True)
+@if_module_enabled("DEADLINES")
+@filter_by_task("formal-exam")
+@transaction.atomic
+def post_complete_formal_exam_procedure_type(
+    sender, work_item, user, context=None, **kwargs
+):
+    """Update the deadlines when a publication or formal exam is completed."""
+
+    if not settings.DEADLINES.procedure_type.enabled:  # pragma: no cover
+        return
+
+    instance = get_instance(work_item)
+
+    for instance_deadline in deadlines_models.InstanceDeadline.objects.for_instance(
+        instance
+    ):
+        if settings.DEADLINES.procedure_type.enabled:
+            instance_deadline.set_default_deadline_type()
 
 
 @on(post_complete_work_item, raise_exception=True)
@@ -176,12 +199,14 @@ def post_complete_publication_or_formal_exam(
 
     instance = get_instance(work_item)
 
-    for deadline in deadlines_models.InstanceDeadline.objects.for_instance(instance):
-        if deadline.service == instance.responsible_service():
+    for instance_deadline in deadlines_models.InstanceDeadline.objects.for_instance(
+        instance
+    ):
+        if instance_deadline.service == instance.responsible_service():
             # Recalculate with a new start date
-            deadline.start_date = None
-            deadline.save(update_fields=["start_date"])
-        deadline.recalculate_progression()
+            instance_deadline.start_date = None
+            instance_deadline.save(update_fields=["start_date"])
+        instance_deadline.recalculate_progression()
 
 
 @on(post_redo_work_item, raise_exception=True)
@@ -337,8 +362,10 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
     """Update the deadline when an inquiry is completed."""
 
     instance = get_instance(work_item)
-    for deadline in deadlines_models.InstanceDeadline.objects.for_instance(instance):
-        deadline.recalculate_progression()
+    for instance_deadline in deadlines_models.InstanceDeadline.objects.for_instance(
+        instance
+    ):
+        instance_deadline.recalculate_progression()
 
 
 @on(post_complete_work_item, raise_exception=True)
@@ -349,5 +376,7 @@ def post_complete_decision(sender, work_item, user, context=None, **kwargs):
     """Update the process deadline date when a decision is completed."""
 
     instance = get_instance(work_item)
-    for deadline in deadlines_models.InstanceDeadline.objects.for_instance(instance):
-        deadline.recalculate_progression()
+    for instance_deadline in deadlines_models.InstanceDeadline.objects.for_instance(
+        instance
+    ):
+        instance_deadline.recalculate_progression()

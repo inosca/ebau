@@ -54,6 +54,34 @@ class DeadlineTypeQuerySet(DeadlinePermissionMixin, models.QuerySet["DeadlineTyp
             | Q(form_types__contains=[str(instance.case.family.document.form.pk)])
         )
 
+    def for_procedure_type(
+        self: TDeadlineType, instance: Instance, allow_empty: bool
+    ) -> TDeadlineType:
+        procedure_type = DeadlineType.ProcedureTypeChoices.PROCEDURE_TYPE_REGULAR.value
+
+        if formal_exam := instance.case.family.work_items.filter(
+            task_id=settings.DEADLINES.procedure_type.task_id,
+            status=WorkItem.STATUS_COMPLETED,
+        ).first():
+            answer = formal_exam.document.answers.filter(
+                question_id=settings.DEADLINES.procedure_type.question_id
+            ).first()
+
+            if answer and answer.value:
+                procedure_type = (
+                    DeadlineType.ProcedureTypeChoices.PROCEDURE_TYPE_SIMPLIFIED.value
+                    if settings.DEADLINES.procedure_type.value == answer.value
+                    else DeadlineType.ProcedureTypeChoices.PROCEDURE_TYPE_REGULAR.value
+                )
+
+        return (
+            self.filter(
+                Q(procedure_type__isnull=True) | Q(procedure_type=procedure_type)
+            )
+            if allow_empty
+            else self.filter(procedure_type=procedure_type)
+        )
+
     def get_default(
         self: TDeadlineType, service: Service, instance: Instance
     ) -> Optional["DeadlineType"]:
@@ -67,8 +95,21 @@ class DeadlineTypeQuerySet(DeadlinePermissionMixin, models.QuerySet["DeadlineTyp
             .for_instance(instance)
             .order_by("lead_time")
         )
+
+        if settings.DEADLINES.procedure_type.enabled:
+            # first find a default with exact procedure type match.
+            new_base_query = base_query.for_procedure_type(instance, allow_empty=False)
+            if procedure_type_default := new_base_query.filter(is_default=True).first():
+                return procedure_type_default
+
+            # fallback to a default deadline type with matching procedure type, or no
+            # procedure type set.
+            base_query = base_query.for_procedure_type(instance, allow_empty=True)
+
+        # first try to get the first default deadline type.
         first_default = base_query.filter(is_default=True).first()
 
+        # fallback to a non-default, but matching deadline type if no default is set.
         return first_default if first_default else base_query.first()
 
 
@@ -159,6 +200,16 @@ class InstanceDeadlinesQuerySet(
 
 
 class DeadlineType(models.Model):
+    class ProcedureTypeChoices(models.TextChoices):
+        PROCEDURE_TYPE_SIMPLIFIED = (
+            "simplified",
+            _("Simplified procedure"),
+        )
+        PROCEDURE_TYPE_REGULAR = (
+            "regular",
+            _("Regular procedure"),
+        )
+
     id = models.UUIDField(
         primary_key=True, default=uuid_extensions.uuid7, editable=False
     )
@@ -194,6 +245,13 @@ class DeadlineType(models.Model):
         default=False,
         verbose_name=_("Exclude public holidays"),
         help_text=_("If enabled, public holidays are not counted towards deadlines."),
+    )
+    procedure_type = models.CharField(
+        max_length=20,
+        verbose_name=_("Procedure type"),
+        choices=ProcedureTypeChoices.choices,
+        blank=True,
+        null=True,
     )
 
     objects: DeadlineTypeQuerySet = DeadlineTypeQuerySet.as_manager()
@@ -442,6 +500,12 @@ class InstanceDeadline(models.Model):
     def trigger_side_effect(self) -> None:
         """Recalculate the deadline progression on side effects."""
         return self.recalculate_progression()
+
+    def set_default_deadline_type(self) -> None:
+        self.deadline_type = DeadlineType.objects.get_default(
+            service=self.service, instance=self.instance
+        )
+        self.save(update_fields=["deadline_type"])
 
     def recalculate_progression(self) -> None:
         """Recalculate the deadline progression.

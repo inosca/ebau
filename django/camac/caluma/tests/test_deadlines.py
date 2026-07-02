@@ -268,6 +268,86 @@ def test_events_deadlines_publication_inquiry_gr(
         assert str(deadline.start_date) == expected_date
 
 
+@pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.parametrize("test_case", ["simplified", "regular"])
+@pytest.mark.django_db
+def test_events_deadlines_formal_exam_procedure_type_update_type_gr(
+    admin_user,
+    gr_instance,
+    instance_deadline_factory,
+    deadline_type_factory,
+    caluma_work_item_factory,
+    test_case,
+    gr_distribution_settings,
+    gr_deadlines_settings,
+    set_application_gr,
+    mocker,
+    form_utils: FormUtils,
+):
+    """Test deadline type override after formal exam based on procedure type."""
+    group = admin_user.groups.first()
+    service = group.service
+
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service", return_value=service
+    )
+    mocker.patch(
+        "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
+        return_value=False,
+    )
+
+    normal_type = deadline_type_factory(
+        name="normal",
+        is_default=False,
+        lead_time=10,
+        procedure_type=None,
+    )
+    default_type_simplified = deadline_type_factory(
+        name="simplified",
+        is_default=True,
+        procedure_type=deadlines_models.DeadlineType.ProcedureTypeChoices.PROCEDURE_TYPE_SIMPLIFIED.value,
+        lead_time=30,
+    )
+    default_type_regular = deadline_type_factory(
+        name="regular",
+        is_default=True,
+        procedure_type=deadlines_models.DeadlineType.ProcedureTypeChoices.PROCEDURE_TYPE_REGULAR.value,
+        lead_time=30,
+    )
+    deadline = instance_deadline_factory(
+        instance=gr_instance,
+        service=service,
+        deadline_type=normal_type,
+    )
+    assert deadline.deadline_type == normal_type
+
+    workitem_formal_exam = caluma_work_item_factory(
+        case=gr_instance.case,
+        task=Task.objects.get(slug="formal-exam"),
+        created_by_group=str(service.pk),
+        status=WorkItem.STATUS_COMPLETED,
+    )
+    form_utils.add_answer(
+        workitem_formal_exam.document,
+        "verfahrensart",
+        "verfahrensart-ordentliches-baubewilligungsverfahren"
+        if test_case != "simplified"
+        else "verfahrensart-vereinfachtes-baubewilligungsverfahren",
+    )
+
+    deadlines.post_complete_formal_exam_procedure_type(
+        sender=None,
+        work_item=workitem_formal_exam,
+        user=None,
+        context=None,
+    )
+    deadline.refresh_from_db()
+    if test_case == "simplified":
+        assert deadline.deadline_type == default_type_simplified
+    else:
+        assert deadline.deadline_type == default_type_regular
+
+
 @pytest.mark.parametrize(
     "service_group__name,role__name", [("municipality", "municipality-lead")]
 )

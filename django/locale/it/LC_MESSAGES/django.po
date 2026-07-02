@@ -668,6 +668,14 @@ msgid "All forms"
 msgstr "Tutti i moduli"
 
 #: camac/deadlines/models.py
+msgid "Simplified procedure"
+msgstr "Procedura semplificata per il rilascio della licenza edilizia"
+
+#: camac/deadlines/models.py
+msgid "Regular procedure"
+msgstr "Procedura ordinaria per il rilascio della licenza edilizia"
+
+#: camac/deadlines/models.py
 msgid ""
 "List of form IDs this deadline type applies to. If empty, applies to all "
 "forms."
@@ -702,6 +710,10 @@ msgid "If enabled, public holidays are not counted towards deadlines."
 msgstr ""
 "Se l'opzione è attivata, i giorni festivi non vengono conteggiati per le "
 "scadenze."
+
+#: camac/deadlines/models.py
+msgid "Procedure type"
+msgstr "Tipo di procedura"
 
 #: camac/deadlines/models.py
 msgid "Deadline type"

@@ -657,6 +657,14 @@ msgid "All forms"
 msgstr ""
 
 #: camac/deadlines/models.py
+msgid "Simplified procedure"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Regular procedure"
+msgstr ""
+
+#: camac/deadlines/models.py
 msgid ""
 "List of form IDs this deadline type applies to. If empty, applies to all "
 "forms."
@@ -684,6 +692,10 @@ msgstr ""
 
 #: camac/deadlines/models.py
 msgid "If enabled, public holidays are not counted towards deadlines."
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Procedure type"
 msgstr ""
 
 #: camac/deadlines/models.py
