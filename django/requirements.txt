@@ -1,10 +1,8 @@
 Babel==2.17.0
-backoff==2.2.1
 boto3==1.40.26
 caluma==12.4.1
 caluma-alexandria==8.9.1
 celery==5.5.3
-codetiming==1.4.0
 cryptography==44.0.2
 dataclasses-json==0.6.7
 deepmerge==2.0
@@ -34,10 +32,8 @@ drf-extra-fields==3.7.0
 drf-yasg==1.21.15
 ebau-gwr==0.8.3
 gunicorn==23.0.0
-hdbcli==2.25.31
 holidays==0.80
 Jinja2==3.1.6
-jsonpath-ng==1.7.0
 jsonschema==4.26.0
 jwcrypto==1.5.6
 lxml==6.0.1
@@ -56,7 +52,6 @@ pypdf==6.14.0
 pyproj==3.7.2
 python-dateutil==2.9.0.post0
 python-docx==1.2.0
-python-dotenv==1.1.1
 python-keycloak==5.8.1
 PyXB-X==1.2.6.3
 qrcode==8.2
