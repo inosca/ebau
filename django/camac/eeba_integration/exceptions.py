@@ -44,17 +44,17 @@ def handle_eeba_client_exceptions(function):
         except ValueError as e:
             logger.exception(("Bad request error in %s: %s"), operation_name, e)
             raise EebaHandlerBadRequestException(
-                ("Bad request in %s: %s") % (operation_name, e)
+                f"Bad request in {operation_name}: {e}"
             ) from e
         except (requests.exceptions.RequestException, TimeoutError) as e:
             save_eeba_error_to_form(kwargs)
             raise EebaHandlerServerException(
-                ("Server error in %s: %s") % (operation_name, e)
+                f"Server error in {operation_name}: {e}"
             ) from e
         except Exception as e:  # pragma: no cover
             logger.exception(("Unexpected error in %s: %s"), operation_name, e)
             raise EebaHandlerServerException(
-                ("An unexpected error occurred in %s.") % operation_name
+                f"An unexpected error occurred in {operation_name}."
             ) from e
 
     return wrapper

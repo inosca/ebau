@@ -80,7 +80,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         token_hash = hashlib.sha1(force_bytes(jwt_value)).hexdigest()
 
         return cache.get_or_set(
-            "authentication.userinfo.%s" % token_hash,
+            f"authentication.userinfo.{token_hash}",
             lambda: self._verify_token(jwt_value, accept_language_header),
             timeout=settings.OIDC_BEARER_TOKEN_REVALIDATION_TIME,
         )
@@ -285,7 +285,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             Trigger.applicant_added(None, applicant.instance, applicant)
 
     def authenticate_header(self, request):
-        return 'JWT realm="{0}"'.format(settings.KEYCLOAK_REALM)
+        return f'JWT realm="{settings.KEYCLOAK_REALM}"'
 
 
 class DjangoAdminOIDCAuthenticationBackend(

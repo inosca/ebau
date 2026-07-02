@@ -187,7 +187,7 @@ class BillingEntryMergeSerializer(serializers.Serializer):
 
     def get_account(self, billing_entry):
         billing_account = billing_entry.billing_account
-        return "{0} / {1}".format(billing_account.department, billing_account.name)
+        return f"{billing_account.department} / {billing_account.name}"
 
     def get_account_number(self, billing_entry):
         return billing_entry.billing_account.account_number
@@ -1255,7 +1255,7 @@ class NotificationTemplateMergeSerializer(
 
         data["subject"] = self._merge(subject, placeholder_data)
         data["body"] = self._merge(body, placeholder_data)
-        data["pk"] = "{0}-{1}".format(notification_template.slug, instance.pk)
+        data["pk"] = f"{notification_template.slug}-{instance.pk}"
 
         return data
 
@@ -2024,7 +2024,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         connection = get_connection()
 
         for recipient_type in sorted(validated_data["recipient_types"]):
-            recipients = getattr(self, "_get_recipients_%s" % recipient_type)(instance)
+            recipients = getattr(self, f"_get_recipients_{recipient_type}")(instance)
 
             if (
                 settings.APPLICATION_NAME == "kt_gr" and len(recipients) == 0
@@ -2124,9 +2124,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             ):
                 return
 
-            title = "Notifikation gesendet an {0} ({1})".format(
-                receiver_emails, subject
-            )
+            title = f"Notifikation gesendet an {receiver_emails} ({subject})"
 
             if settings.APPLICATION.get("IS_MULTILINGUAL", False):
                 if receiver_emails:

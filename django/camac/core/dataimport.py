@@ -39,7 +39,7 @@ class ImportCommand(BaseCommand):
         duplicates = [name for (name, count) in counter.most_common() if count > 1]
 
         if len(duplicates):
-            print("Found {0} duplicates, aborting.".format(len(duplicates)))
+            print(f"Found {len(duplicates)} duplicates, aborting.")
             print(duplicates)
             sys.exit(1)
 
@@ -91,14 +91,14 @@ class ImportCommand(BaseCommand):
             obj = model()
 
         if self.skip_update and pk:
-            print("skip ({0}) {1}".format(model_name, name))
+            print(f"skip ({model_name}) {name}")
             self.skipped[model_name].append(name)
         else:
             if pk:
-                print("~ ({0}) {1}".format(model_name, name))
+                print(f"~ ({model_name}) {name}")
                 self.updated[model_name].append(name)
             else:
-                print("+ ({0}) {1}".format(model_name, name))
+                print(f"+ ({model_name}) {name}")
                 self.created[model_name].append(name)
 
             update_model(obj, row, model_name, defaults)
@@ -145,5 +145,5 @@ def update_model(obj, row, model_name, defaults):
 
 def get_name(prefix, name):
     if prefix:
-        return "{0} {1}".format(prefix, name)
+        return f"{prefix} {name}"
     return name

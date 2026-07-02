@@ -608,8 +608,8 @@ class TemplateView(ModelViewSet):
         to_type = self.request.query_params.get("type", "docx")
 
         response = HttpResponse()
-        filename = "{0}_{1}.{2}".format(instance.identifier, template.name, to_type)
-        response["Content-Disposition"] = 'attachment; filename="{0}"'.format(filename)
+        filename = f"{instance.identifier}_{template.name}.{to_type}"
+        response["Content-Disposition"] = f'attachment; filename="{filename}"'
         response["Content-Type"] = mimetypes.guess_type(filename)[0]
 
         serializer = self.get_serializer(instance=instance, escape=True)

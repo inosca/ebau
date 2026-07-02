@@ -25,7 +25,7 @@ def test_template_export(template_factory, tmp_path, settings, capsys, snapshot)
     template_factory(path=django_file("template.docx"))
 
     call_command(
-        "legacy_templates", "export_templates", "--out_file=%s" % out_file.as_posix()
+        "legacy_templates", "export_templates", f"--out_file={out_file.as_posix()}"
     )
 
     assert capsys.readouterr().err == ""

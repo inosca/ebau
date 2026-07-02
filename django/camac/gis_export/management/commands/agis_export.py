@@ -23,7 +23,7 @@ class Command(BaseCommand):
         start = time.time()
         export_agis()
         end = time.time()
-        log.info("Execution time: %.2f seconds" % (end - start))
+        log.info(f"Execution time: {end - start:.2f} seconds")
 
         if do_commit:
             log.info("Committing changes to DB")

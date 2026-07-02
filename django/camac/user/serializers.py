@@ -34,7 +34,7 @@ class CurrentGroupDefault(object):
         )
 
     def __repr__(self):
-        return "%s()" % self.__class__.__name__
+        return f"{self.__class__.__name__}()"
 
 
 class CurrentServiceDefault(object):
@@ -52,7 +52,7 @@ class CurrentServiceDefault(object):
         )
 
     def __repr__(self):
-        return "%s()" % self.__class__.__name__
+        return f"{self.__class__.__name__}()"
 
 
 class UserSerializer(serializers.ModelSerializer):

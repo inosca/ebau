@@ -55,7 +55,7 @@ class Command(ImportCommand):
                 for role in sg["groups"]:
                     self.create_or_update_group(
                         row,
-                        "{0} {1}".format(role[0], sg["name"]),
+                        f"{role[0]} {sg['name']}",
                         defaults={
                             "role": Role.objects.get(pk=role[1]),
                             "service": service,

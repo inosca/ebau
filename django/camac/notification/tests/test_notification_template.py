@@ -238,9 +238,7 @@ def test_notification_template_merge(
     if status_code == status.HTTP_200_OK:
         json = response.json()
         assert json["data"]["attributes"]["subject"] == sz_instance.identifier
-        assert json["data"]["id"] == "{0}-{1}".format(
-            notification_template.slug, sz_instance.pk
-        )
+        assert json["data"]["id"] == f"{notification_template.slug}-{sz_instance.pk}"
         assert json["data"]["type"] == "notification-template-merges"
 
         snapshot.assert_match(json["data"]["attributes"]["body"])

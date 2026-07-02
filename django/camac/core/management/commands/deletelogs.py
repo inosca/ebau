@@ -32,7 +32,7 @@ class Command(BaseCommand):
         days = options["days"]
         clean_till = timezone.now() - timedelta(days=days)
         for model_name in log_models:
-            self.stdout.write("Clean logs table {0}".format(model_name))
+            self.stdout.write(f"Clean logs table {model_name}")
             (app_label, model_name) = model_name.split(".")
             model = apps.get_model(app_label=app_label, model_name=model_name)
 

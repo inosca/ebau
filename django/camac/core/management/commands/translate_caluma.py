@@ -70,7 +70,7 @@ class Command(BaseCommand):
         for form_model, key in properties:
             counter = 0
             form_models = (
-                item for item in data if item["model"] == "form.{0}".format(form_model)
+                item for item in data if item["model"] == f"form.{form_model}"
             )
             for model_entry in form_models:
                 try:

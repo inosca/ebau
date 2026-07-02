@@ -48,7 +48,7 @@ def import_text():
                         data["questions"][slug]["hint"] = hint
                         changed = True
                 except KeyError as e:
-                    print("Question {0} does not exist, skipping it.".format(e))
+                    print(f"Question {e} does not exist, skipping it.")
 
         if changed:
             with open(PATH, "w") as f:
@@ -67,11 +67,7 @@ def _write_recursive_columns(writer, slug, column_path, questions):
                 [slug, new_column_path, question["label"], question["hint"]]
             )
         except KeyError as e:
-            print(
-                "Question {0} does not have a {1}, skipping it.".format(
-                    question["name"], e
-                )
-            )
+            print(f"Question {question['name']} does not have a {e}, skipping it.")
 
         if "columns" in question["config"]:
             _write_recursive_columns(
@@ -91,7 +87,7 @@ def export_form():
         try:
             writer.writerow([slug, "", question["label"], question["hint"]])
         except KeyError as e:
-            print("Question {0} does not have a {1}, skipping it.".format(slug, e))
+            print(f"Question {slug} does not have a {e}, skipping it.")
 
         if "columns" in question["config"]:
             _write_recursive_columns(writer, slug, "", question["config"]["columns"])

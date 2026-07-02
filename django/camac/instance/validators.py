@@ -151,7 +151,7 @@ class FormDataValidator(object):
             for row_object in row:
                 for column in columns:
                     self._validate_question(
-                        "{0}/{1}".format(question, column["name"]),
+                        f"{question}/{column['name']}",
                         column,
                         row_object.get(column["name"]),
                         module,
@@ -208,9 +208,7 @@ class FormDataValidator(object):
 
         validate_method = getattr(
             self,
-            "_validate_question_{0}".format(
-                inflection.underscore(question_def["type"])
-            ),
+            f"_validate_question_{inflection.underscore(question_def['type'])}",
         )
         validate_method(question, question_def, value, module)
 

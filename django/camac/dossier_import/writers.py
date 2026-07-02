@@ -1203,7 +1203,7 @@ class DossierWriter:
 
             filename = re.sub(
                 # ensure that dossier.id is only removed at the beginning of a path
-                r"^{dossier_id}/".format(dossier_id=dossier.id),
+                rf"^{dossier.id}/",
                 "",
                 document.name.encode("utf-8", errors="ignore").decode(
                     "utf-8", errors="ignore"

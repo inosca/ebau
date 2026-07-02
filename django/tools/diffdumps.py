@@ -224,7 +224,7 @@ class Diffy:
                 ("d", "Drop both", lambda: None),
             )
 
-        print("########## %s" % message, file=self.stderr)
+        print(f"########## {message}", file=self.stderr)
         self._show_conflict(conflict, self.stderr)
 
         model, pk = self._key_from_conflict(conflict)
@@ -246,9 +246,9 @@ class Diffy:
 
         def _show_val(loc, lname, key):
             if key in loc:
-                self._print_e("  Value in %s: %s\n" % (lname, json.dumps(loc[key])))
+                self._print_e(f"  Value in {lname}: {json.dumps(loc[key])}\n")
             else:
-                self._print_e("  Missing in %s\n" % ".".join(lname))
+                self._print_e(f"  Missing in {'.'.join(lname)}\n")
 
         keys_a = cad["fields"].keys()
         keys_b = cbd["fields"].keys()
@@ -261,7 +261,7 @@ class Diffy:
         res = {}
 
         for key in all_keys:
-            self._print_e("Merging in key '%s'\n" % key)
+            self._print_e(f"Merging in key '{key}'\n")
 
             if dict_a.get(key, Diffy._NE()) == dict_b.get(key, Diffy._NE()):
                 self._print_e(
@@ -284,7 +284,7 @@ class Diffy:
 
             self._interact("What to do?", options)
 
-            self._print_e("OK, current state: %s\n" % json.dumps(res, indent=2))
+            self._print_e(f"OK, current state: {json.dumps(res, indent=2)}\n")
 
         return {"model": cad["model"], "pk": cad["pk"], "fields": res}
 
@@ -310,13 +310,13 @@ class Diffy:
 
         model, pk = self._key_from_conflict(conflict)
 
-        print("########## Conflict (%s)" % message, file=output)
+        print(f"########## Conflict ({message})", file=output)
         print("{", file=output)
-        print('   "model": "%s",' % model, file=output)
-        print('   "pk": %s,' % str(pk), file=output)
+        print(f'   "model": "{model}",', file=output)
+        print(f'   "pk": {pk!s},', file=output)
 
         for k in sorted(conflict.keys()):
-            print("    # %s" % k, file=output)
+            print(f"    # {k}", file=output)
             dump = json.dumps(conflict.get(k)["fields"], indent=2)
             print("    %s" % dump.replace("\n", "\n    "), file=output)
 
@@ -329,10 +329,8 @@ class Diffy:
 
     def _interact(self, text, choices):
         while True:
-            option_texts = [
-                "[%s] %s" % (key, option) for key, option, action in choices
-            ]
-            self.stderr.write("%s %s " % (text, ", ".join(option_texts)))
+            option_texts = [f"[{key}] {option}" for key, option, action in choices]
+            self.stderr.write(f"{text} {', '.join(option_texts)} ")
             self.stderr.flush()
 
             inp = self.stdin.readline().strip().lower()
@@ -419,7 +417,7 @@ if __name__ == "__main__":
                 "config",
                 "--local",
                 "mergetool.jsondiff.cmd",
-                "python3 %s $BASE $LOCAL $REMOTE -i -o $MERGED" % sys.argv[0],
+                f"python3 {sys.argv[0]} $BASE $LOCAL $REMOTE -i -o $MERGED",
             ]
         )
         subprocess.run(
