@@ -1,4 +1,6 @@
 defmodule Ebau.Caluma.CantonResolver do
+  @canton Application.compile_env(:ebau, :canton)
+
   @moduledoc """
   Resolves question IDs (and answer mappings) based on the current canton.
 
@@ -27,7 +29,7 @@ defmodule Ebau.Caluma.CantonResolver do
 
   @impl true
   def resolve(mapping) do
-    canton = Application.get_env(:ebau, :canton)
+    canton = @canton
     result = if canton, do: mapping[canton] || mapping[:default], else: mapping[:default]
 
     result ||

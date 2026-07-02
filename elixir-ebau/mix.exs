@@ -4,7 +4,7 @@ defmodule Ebau.MixProject do
   def project do
     [
       app: :ebau,
-      version: "0.1.0",
+      version: System.get_env("EBAU_VERSION", "0.0.0-master"),
       elixir: "~> 1.19",
       elixirc_paths: elixirc_paths(Mix.env()),
       consolidate_protocols: Mix.env() != :test,
@@ -52,6 +52,8 @@ defmodule Ebau.MixProject do
     [
       preferred_envs: [
         precommit: :test,
+        test: :test,
+        "test.setup": :test,
         "test.so": :test,
         "test.gr": :test
       ]
@@ -126,7 +128,7 @@ defmodule Ebau.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       "test.setup": [
         "ecto.create",
-        "ebau.bootstrap_legacy_schema",
+        "ebau.ensure_legacy_schema",
         "ecto.migrate"
       ],
       "test.so": [

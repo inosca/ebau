@@ -211,8 +211,7 @@ services:
   elixir:
     build:
       context: ../elixir-ebau
-      args:
-        APPLICATION: ${APPLICATION}
+      target: dev
     # We cache _build, deps and language server folders to prevent having to recompile
     # the entire project everytime. However, if you use the container to develop
     # you don't have formatting (run `mix format` in the container for that) and you don't

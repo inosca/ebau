@@ -1,4 +1,5 @@
 defmodule EbauWeb.InitialiseScope do
+  @canton Application.compile_env(:ebau, :canton)
   @moduledoc """
   Initialises the scope of the application.
 
@@ -17,7 +18,7 @@ defmodule EbauWeb.InitialiseScope do
     scope = %Ebau.Scope{
       current_user: socket.assigns[:current_user],
       # TODO: add group
-      canton: Application.get_env(:ebau, :canton),
+      canton: @canton,
       locale: nil
     }
 
