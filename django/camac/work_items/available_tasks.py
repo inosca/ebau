@@ -38,6 +38,10 @@ def get_task_options(
     """
 
     role = get_role_name(group)
+
+    if not group.service:
+        return []
+
     service_group = group.service.service_group.name
 
     task_slugs = [

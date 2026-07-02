@@ -159,6 +159,28 @@ def test_get_task_options(
     assert {(i["id"], i["count"]) for i in result} == expected
 
 
+@pytest.mark.parametrize("role__name", [("Support")])
+@pytest.mark.django_db
+def test_get_task_options_no_service(
+    group,
+    task_setup,
+    work_item_list_filter_preset,
+    work_item_list_settings: WorkItemListConfig,
+):
+    """If the current group has no service, no task options should be available."""
+    group.service = None
+    group.save()
+
+    assert (
+        get_task_options(
+            group,
+            WorkItem.objects.all(),
+            work_item_list_filter_preset,
+        )
+        == []
+    )
+
+
 @pytest.mark.parametrize(
     "include_templates,include_count,with_preset,expected",
     [
