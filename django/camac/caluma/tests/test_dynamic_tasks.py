@@ -255,35 +255,60 @@ def test_dynamic_task_after_decision_with_check_prevent_submit(
 
 
 @pytest.mark.parametrize(
-    "construction_monitoring_enabled,positive_decision,form_id,expected_tasks",
+    "cm_enabled,cm_created,cm_started,positive_decision,form_id,expected_tasks",
     [
-        (True, True, "baugesuch-v3", []),
-        (True, True, "vorlaeufige-beurteilung-v3", []),
-        (True, False, "baugesuch-v3", []),
-        (True, False, "vorlaeufige-beurteilung-v3", []),
-        (False, True, "baugesuch-v3", ["construction-acceptance"]),
-        (False, True, "vorlaeufige-beurteilung-v3", []),
-        (False, False, "baugesuch-v3", []),
-        (False, False, "vorlaeufige-beurteilung-v3", []),
+        # CONSTRUCTION-MONITORING:
+        # create init after positive decision, it was not created before
+        (True, False, False, True, "baugesuch-v3", ["init-construction-monitoring"]),
+        # continue after positive decision, init was already created
+        # and(or) started before
+        (True, True, False, True, "baugesuch-v3", []),
+        (True, True, True, True, "baugesuch-v3", []),
+        # create complete-instance, no construction monitoring in bauanzeige
+        (True, True, False, True, "bauanzeige-v3", ["complete-instance"]),
+        # create complete-instance after negative decision and construction
+        # monitoring not yet started.
+        (True, True, False, False, "baugesuch-v3", ["complete-instance"]),
+        # don't create complete-instance after negative decision if construction
+        # monitoring was started before.
+        (True, True, True, False, "baugesuch-v3", []),
+        # CONSTRUCTION-ACCEPTANCE:
+        # create construction-acceptance after positive decision on baugesuch
+        (False, False, False, True, "baugesuch-v3", ["construction-acceptance"]),
+        # create complete-instance after negative decision on baugesuch
+        (False, False, False, False, "baugesuch-v3", ["complete-instance"]),
+        # create complete-instance after any decision on other forms
+        (False, False, False, True, "bauanzeige-v3", ["complete-instance"]),
+        (False, False, False, False, "bauanzeige-v3", ["complete-instance"]),
     ],
 )
 @pytest.mark.django_db
 def test_after_decision_gr(
     mocker,
     set_application_gr,
+    caluma_work_item_factory,
     gr_instance,
     # parametrize
-    construction_monitoring_enabled,
+    cm_enabled,
+    cm_created,
+    cm_started,
     positive_decision,
     form_id,
     expected_tasks,
     application_settings,
     request,
 ):
-    application_settings["SHORT_NAME"] = "gr"
+    if cm_enabled:
+        cm_settings = request.getfixturevalue("gr_construction_monitoring_settings")
 
-    if construction_monitoring_enabled:
-        request.getfixturevalue("gr_construction_monitoring_settings")
+        if cm_created or cm_started:
+            caluma_work_item_factory(
+                task_id=cm_settings["INIT_CONSTRUCTION_MONITORING_TASK"],
+                case=gr_instance.case,
+                status=WorkItem.STATUS_COMPLETED
+                if cm_started
+                else WorkItem.STATUS_READY,
+            )
     else:
         request.getfixturevalue("disable_construction_monitoring_settings")
 

@@ -116,6 +116,7 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
                     if env.bool("CONSTRUCTION_MONITORING_ENABLED", default=False)
                     else []
                 ),
+                "complete-instance",
             ],
             "service": ["inquiry", "check-inquiries", "check-additional-demand"],
             "subservice": ["inquiry"],

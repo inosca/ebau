@@ -112,6 +112,7 @@ DECISION = {
         # instead.
         # See django/camac/instance/domain_logic/decision.py::post_complete_decision_building_permit
         "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "decided",
+        "INSTANCE_STATE_AFTER_NEGATIVE_DECISION": "decided",
     },
     "kt_ag": {
         "ENABLED": True,

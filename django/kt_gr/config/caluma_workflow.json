@@ -66,6 +66,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "6a3498c2-b86c-4216-84bb-0622909fbb62",
+    "fields": {
+      "created_at": "2023-05-30T11:52:53.425Z",
+      "modified_at": "2023-05-30T11:52:53.425Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['complete-instance']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "7d0498c2-b86c-4216-84bb-0622909fbb62",
     "fields": {
       "created_at": "2023-05-30T11:52:53.425Z",
@@ -467,6 +480,22 @@
       "task": "decision",
       "flow": "7d0498c2-b86c-4216-84bb-0622909fbb62",
       "redoable": "'distribution'|task"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "fd4a657c-c8a7-40c1-898e-628352827ab6",
+    "fields": {
+      "created_at": "2020-11-23T14:33:20.023Z",
+      "modified_at": "2020-11-23T14:33:20.023Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "construction-acceptance",
+      "flow": "6a3498c2-b86c-4216-84bb-0622909fbb62",
+      "redoable": null
     }
   },
   {
