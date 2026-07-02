@@ -6,6 +6,7 @@ from caluma.caluma_workflow.api import (
     complete_work_item,
 )
 from caluma.caluma_workflow.models import WorkItem
+from django.core.exceptions import ImproperlyConfigured
 
 from camac.caluma.extensions.events import additional_demand
 from camac.tests.form_utils import FormUtils
@@ -223,7 +224,7 @@ def test_post_create_check_additional_demand(
 
     # check exception raised for decision_unknown_not_set
     if test_case == "decision_unknown_not_set":
-        with pytest.raises(Exception):
+        with pytest.raises(ImproperlyConfigured):
             additional_demand.post_create_check_additional_demand(
                 sender=None, work_item=work_item_check, user=caluma_admin_user
             )

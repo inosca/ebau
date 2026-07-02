@@ -1153,8 +1153,8 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         if copy_source:
             try:
                 source_instance = visible_instances.get(pk=copy_source)
-            except models.Instance.DoesNotExist:
-                raise exceptions.ValidationError(_("Source instance not found"))
+            except models.Instance.DoesNotExist as e:
+                raise exceptions.ValidationError(_("Source instance not found")) from e
             validated_data["copy_source"] = source_instance
 
             caluma_form = caluma_api.get_form_slug(source_instance)
@@ -2350,8 +2350,8 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
             CalumaApi().validate_existing_audit_documents(
                 self.instance.pk, self.context["request"].caluma_info.context.user
             )
-        except CustomValidationError:
-            raise exceptions.ValidationError(_("Invalid audit"))
+        except CustomValidationError as e:
+            raise exceptions.ValidationError(_("Invalid audit")) from e
 
         return super().validate(data)
 
@@ -2626,11 +2626,11 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         if question_type == "date":
             try:
                 parse(validated_data["value"])
-            except ParserError:
+            except ParserError as e:
                 raise exceptions.ValidationError(
                     _("%(given_time)s is not a valid date time")
                     % {"given_time": validated_data["value"]}
-                )
+                ) from e
 
         for history_field in settings.APPLICATION.get("FORM_FIELD_HISTORY_ENTRY", []):
             if not validated_data["name"] == history_field["name"]:  # pragma: no cover

@@ -69,7 +69,8 @@ class Command(BaseCommand):
         index_row = [str(val).strip() for val in index_row]  # just to be sure
 
         row_dicts = [
-            dict(zip(index_row, [str(val).strip() for val in row])) for row in data_rows
+            dict(zip(index_row, [str(val).strip() for val in row], strict=False))
+            for row in data_rows
         ]
 
         # The table is fully redundant, so each geometer may be

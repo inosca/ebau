@@ -117,7 +117,7 @@ class Command(BaseCommand):
 
         content = django_file("multiple-pages.pdf")
 
-        for i in tqdm(range(options["count"])):
+        for _ in tqdm(range(options["count"])):
             content.seek(0)
 
             inst = self._instance()

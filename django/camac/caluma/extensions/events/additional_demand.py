@@ -12,6 +12,7 @@ from caluma.caluma_workflow.events import (
 )
 from caluma.caluma_workflow.models import Workflow, WorkItem
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 from django.db import transaction
 from django.utils.translation import gettext_noop
 
@@ -209,7 +210,7 @@ def post_create_check_additional_demand(
         "UNKNOWN", None
     )
     if not decision_unknown:
-        raise Exception(
+        raise ImproperlyConfigured(
             "The decision `UNKNOWN` value is not set in the settings. "
             "Please check the settings for ADDITIONAL_DEMAND."
         )

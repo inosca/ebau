@@ -28,16 +28,16 @@ class Command(OriginalCommand):
                     # This is an app.Model specifier.
                     try:
                         model = apps.get_model(label)
-                    except LookupError:
-                        raise CommandError(f"Unknown model: {label}")
+                    except LookupError as e:
+                        raise CommandError(f"Unknown model: {label}") from e
                     selected_models.add(model)
                 else:
                     # This is just an app - no model qualifier.
                     app_label = label
                     try:
                         app = apps.get_app_config(app_label)
-                    except LookupError:
-                        raise CommandError(f"Unknown app: {app_label}")
+                    except LookupError as e:
+                        raise CommandError(f"Unknown app: {app_label}") from e
                     selected_models.update(app.get_models())
         for model in selected_models:
             if is_registered(model):

@@ -518,7 +518,9 @@ class CustomDynamicTasks(BaseDynamicTasks):
             elif authority_service_group == "service-afb":
                 return [*tasks, "distribution", "cantonal-exam"]
             else:  # pragma: no cover
-                raise ("Did not find valid responsible service for 'Anfrage intern'")
+                raise RuntimeError(
+                    "Did not find valid responsible service for 'Anfrage intern'"
+                )
 
         return [*tasks, "formal-exam", "init-additional-demand"]
 

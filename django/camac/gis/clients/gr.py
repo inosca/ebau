@@ -73,10 +73,10 @@ class GrGisClient(GISBaseClient):
 
         try:
             response.raise_for_status()
-        except requests.HTTPError:  # pragma: no cover
+        except requests.HTTPError as e:  # pragma: no cover
             raise RuntimeError(
                 f"Error {response.status_code} while fetching data from the API"
-            )
+            ) from e
 
         result = {}
         for layer in config:

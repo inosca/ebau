@@ -172,7 +172,7 @@ class FormUtils:
             if not isinstance(value, list):
                 value = [value]
 
-            for val, lab in zip(value, label):
+            for val, lab in zip(value, label, strict=False):
                 if not isinstance(lab, dict):
                     lab = {"de": lab, "fr": lab}
 

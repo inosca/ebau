@@ -69,7 +69,8 @@ class ImportCommand(BaseCommand):
     def create_or_update_service(self, row, prefix, defaults):
         return self.create_or_update_model(row, Service, ServiceT, prefix, defaults)
 
-    def create_or_update_model(self, row, model, model_t, prefix="", defaults={}):
+    def create_or_update_model(self, row, model, model_t, prefix="", defaults=None):
+        defaults = defaults or {}
         name = get_name(prefix, row.get("Name [DE]")).strip()
         model_name = model.__name__
 

@@ -38,7 +38,20 @@ lint.ignore = [
 line-length = 88
 
 
-lint.select = ["C9", "D", "E", "F", "W", "I", "INT", "FLY", "TC", "PIE", "PGH"]
+lint.select = [
+    "C9",  # https://docs.astral.sh/ruff/rules/#mccabe-c90
+    "D",   # https://docs.astral.sh/ruff/rules/#pydocstyle-d
+    "E",   # https://docs.astral.sh/ruff/rules/#error-e
+    "F",   # https://docs.astral.sh/ruff/rules/#pyflakes-f
+    "W",   # https://docs.astral.sh/ruff/rules/#warning-w
+    "I",   # https://docs.astral.sh/ruff/rules/#isort-i
+    "INT", # https://docs.astral.sh/ruff/rules/#flake8-gettext-int
+    "FLY", # https://docs.astral.sh/ruff/rules/#flynt-fly
+    "TC",  # https://docs.astral.sh/ruff/rules/#flake8-type-checking-tc
+    "PIE", # https://docs.astral.sh/ruff/rules/#flake8-pie-pie
+    "PGH", # https://docs.astral.sh/ruff/rules/#pygrep-hooks-pgh
+    "B",   # https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
+]
 
 # codes owned by other tools (ast-grep) that appear in `# noqa` comments and
 # should not be flagged by ruff as invalid directives

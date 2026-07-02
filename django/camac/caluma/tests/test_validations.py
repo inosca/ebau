@@ -123,7 +123,7 @@ def test_appeal_work_item(
 
     assert not result.errors
 
-    for deadline, row_id in zip(dates, rows):
+    for deadline, row_id in zip(dates, rows, strict=False):
         created = work_item.case.work_items.filter(
             task_id=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
             deadline__date=deadline,

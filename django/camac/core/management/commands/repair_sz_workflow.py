@@ -178,14 +178,17 @@ class Command(BaseCommand):
         self,
         case,
         task_slug,
-        meta={},
+        meta=None,
         child_case=None,
-        context={},
+        context=None,
         deadline=None,
         instance=None,
         applicant=False,
-        additional_filters={},
+        additional_filters=None,
     ):
+        additional_filters = additional_filters or {}
+        context = context or {}
+        meta = meta or {}
         task = Task.objects.get(pk=task_slug)
         anonymous_user = AnonymousUser()
 

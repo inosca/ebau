@@ -177,7 +177,7 @@ class Command(BaseCommand):
 
     def _config_has_errors(self):
         errors = 0
-        for internal, level_slug in settings.PERMISSIONS.get("MIGRATION", {}).items():
+        for _, level_slug in settings.PERMISSIONS.get("MIGRATION", {}).items():
             level_configured = level_slug in settings.PERMISSIONS["ACCESS_LEVELS"]
             level_in_db = permission_models.AccessLevel.objects.filter(
                 pk=level_slug
@@ -366,8 +366,9 @@ class Command(BaseCommand):
                 )
 
     def _build_permissions_from_instance_service(
-        self, level_active, level_inactive, is_filter, annotations={}
+        self, level_active, level_inactive, is_filter, annotations=None
     ):
+        annotations = annotations or {}
         make_lead_acl = partial(
             ACL,
             access_level=level_active,

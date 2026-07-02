@@ -143,11 +143,7 @@ class WorkItemListRowViewset(EnforcePaginationMixin, ReadOnlyModelViewSet):
         usernames = chain(*[[obj.assigned_user, obj.closed_by_user] for obj in page])
         users = User.objects.filter(username__in=usernames)
 
-        setattr(
-            self,
-            "_prefetched_users",
-            {user.username: user for user in users},
-        )
+        self._prefetched_users = {user.username: user for user in users}
 
     def _prefetch_related_services(self, page: list["WorkItemListRow"]):
         """Prefetch services for a page of work item list rows.
@@ -159,11 +155,7 @@ class WorkItemListRowViewset(EnforcePaginationMixin, ReadOnlyModelViewSet):
         service_ids = [obj.addressed_service for obj in page]
         services = Service.objects.filter(pk__in=service_ids).prefetch_related("trans")
 
-        setattr(
-            self,
-            "_prefetched_services",
-            {service.pk: service for service in services},
-        )
+        self._prefetched_services = {service.pk: service for service in services}
 
     def has_base_permission(self, obj):
         return obj.addressed_service == self.request.group.service_id and obj.is_ready

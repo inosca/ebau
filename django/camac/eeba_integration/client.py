@@ -22,9 +22,14 @@ class EebaClient:
     def __init__(
         self,
         auth_header,
-        shared_secret=settings.EEBA_INTEGRATION.get("EEBA_SHARED_SECRET"),
-        base_url=settings.EEBA_INTEGRATION.get("EEBA_BASE_URL"),
+        shared_secret=None,
+        base_url=None,
     ):
+        shared_secret = shared_secret or settings.EEBA_INTEGRATION.get(
+            "EEBA_SHARED_SECRET"
+        )
+        base_url = base_url or settings.EEBA_INTEGRATION.get("EEBA_BASE_URL")
+
         self.base_url = base_url
         self.session = requests.Session()
 
@@ -85,8 +90,8 @@ class EebaClient:
 
         try:
             response = method_handlers[method]()
-        except KeyError:
-            raise ValueError(_("Unsupported HTTP method: %s") % method)
+        except KeyError as e:
+            raise ValueError(_("Unsupported HTTP method: %s") % method) from e
 
         response.raise_for_status()
         return response
@@ -170,14 +175,14 @@ class EebaHandler:
         ):
             return self._process_failed_response(action="rerun")
 
-    def check_eeba_needed(
-        self, timeout=settings.EEBA_INTEGRATION.get("EEBA_TIMEOUT_SECONDS")
-    ) -> dict:
+    def check_eeba_needed(self, timeout=None) -> dict:
         """
         Check and handle the state of the eEBA integration.
 
         Return a dictionary with the latest integration_id, state, required, and web_url values.
         """
+        timeout = timeout or settings.EEBA_INTEGRATION.get("EEBA_TIMEOUT_SECONDS")
+
         integration_id = self.state_manager.get_integration_id()
 
         if not integration_id:

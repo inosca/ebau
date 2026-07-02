@@ -46,10 +46,10 @@ def get_value(value, question, value_mapping):
         # special mapping
         try:
             return value_mapping[question.pk][value]
-        except KeyError:
+        except KeyError as e:
             raise Exception(
                 f"Question '{question.pk}' does not have a value mapping for value '{value}'"
-            )
+            ) from e
     elif value in ["JAA", "NEI", "EING", "MANG", "MABE"]:
         # static options
         suffix = {
@@ -63,10 +63,10 @@ def get_value(value, question, value_mapping):
 
         try:
             return question.options.get(pk=option).pk
-        except Option.DoesNotExist:
+        except Option.DoesNotExist as e:
             raise Exception(
                 f"Question '{question.pk}' does not have an option '{option}'"
-            )
+            ) from e
     elif question.type == Question.TYPE_INTEGER:
         return int(value)
     elif question.type == Question.TYPE_FLOAT:

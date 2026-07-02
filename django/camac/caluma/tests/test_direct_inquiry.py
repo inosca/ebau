@@ -57,9 +57,8 @@ def inquiry_factory_so(
     service,
     so_distribution_settings,
 ):
-    def factory(
-        to_service=service_factory(), from_service=service, sent=False, direct=False
-    ):
+    def factory(to_service=None, from_service=service, sent=False, direct=False):
+        to_service = to_service or service_factory()
         inquiry = make_inquiry(
             to_service=to_service,
             from_service=from_service,

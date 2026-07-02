@@ -449,8 +449,9 @@ class CreateInstanceLogic:
         target,
         skip_exported_form_attachment=False,
         is_modification=False,
-        copy_attachments_from=[],
+        copy_attachments_from=None,
     ):
+        copy_attachments_from = copy_attachments_from or []
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
             CreateInstanceLogic.copy_alexandria_attachments(
                 source,
@@ -515,8 +516,9 @@ class CreateInstanceLogic:
         source,
         target,
         skip_exported_form_attachment=False,
-        copy_attachments_from=[],
+        copy_attachments_from=None,
     ):
+        copy_attachments_from = copy_attachments_from or []
         attachments = source.attachments.all()
 
         # UR only: when we copy dossiers from php, we only want to
@@ -677,7 +679,7 @@ class CreateInstanceLogic:
         workflow_slug=None,
         skip_exported_form_attachment=False,
         skip_applicant_creation=False,
-        copy_attachments_from=[],
+        copy_attachments_from=None,
     ):
         """Create an instance.
 
@@ -685,6 +687,7 @@ class CreateInstanceLogic:
         (e.g. if user is allowed to create a copy of the given source instance)
         are skipped here and performed in the serializer instead.
         """
+        copy_attachments_from = copy_attachments_from or []
         extend_validity_for = data.pop("extend_validity_for", None)
         generate_identifier = data.pop("generate_identifier", None)
 

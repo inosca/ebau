@@ -304,11 +304,12 @@ class DeprecatedField(AliasedMixin, serializers.ReadOnlyField):
 class ServiceField(ABC, AliasedMixin, serializers.ReadOnlyField):
     def __init__(
         self,
-        source_args=[],
+        source_args=None,
         remove_name_prefix=False,
         add_municipality_prefix=False,
         **kwargs,
     ):
+        source_args = source_args or []
         super().__init__(**kwargs)
 
         self.source_args = source_args
@@ -683,7 +684,8 @@ class MasterDataField(AliasedMixin, serializers.ReadOnlyField):
 
 
 class JointField(AliasedMixin, serializers.ReadOnlyField):
-    def __init__(self, fields=[], separator=" ", **kwargs):
+    def __init__(self, fields=None, separator=" ", **kwargs):
+        fields = fields or []
         super().__init__(**kwargs)
 
         self.fields = fields
@@ -841,7 +843,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                 # handle single-level nested props
                 if "." not in nested_prop:
                     for child_alias in nested_prop_aliases:
-                        for lang, child_t in self._get_alias_translations(
+                        for _, child_t in self._get_alias_translations(
                             child_alias
                         ).items():
                             nested_names.add(f"{nested_base}.{child_t}")
@@ -1233,9 +1235,10 @@ class MasterDataPersonField(MasterDataField):
         self,
         only_first=False,
         use_representative=False,
-        fields=["juristic_name", "name"],
+        fields=None,
         **kwargs,
     ):
+        fields = fields or ["juristic_name", "name"]
         super().__init__(**kwargs)
 
         self.only_first = only_first

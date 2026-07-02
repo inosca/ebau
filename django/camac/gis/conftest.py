@@ -4,7 +4,8 @@ from syrupy.filters import props
 
 @pytest.fixture
 def mock_municipalities(mocker):
-    def mock(names=[]):
+    def mock(names=None):
+        names = names or []
         mocker.patch(
             "camac.caluma.extensions.data_sources.Municipalities.get_data",
             return_value=[[i + 1, {"de": name}] for i, name in enumerate(names)],

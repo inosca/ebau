@@ -389,7 +389,7 @@ class CalumaAnswerWriter(FieldWriter):
         except ObjectDoesNotExist as e:  # pragma: no cover
             raise RuntimeError(
                 f"Failed to write {value} to field {self.target} on {instance} because of : {e}"
-            )
+            ) from e
 
 
 class BuildingAuthorityRowWriter(CalumaAnswerWriter):
@@ -494,10 +494,10 @@ class CalumaListAnswerWriter(FieldWriter):
             return
         try:
             table_question = Question.objects.get(slug=self.target)
-        except (ObjectDoesNotExist, IntegrityError):  # pragma: no cover
+        except (ObjectDoesNotExist, IntegrityError) as e:  # pragma: no cover
             raise RuntimeError(
                 f"Failed to create table question {self.target} on {instance}"
-            )
+            ) from e
 
         row_documents = []
         for obj in values:
@@ -571,10 +571,10 @@ class CalumaListAnswerWriter(FieldWriter):
                         )
                         continue
 
-            except (ObjectDoesNotExist, IntegrityError):  # pragma: no cover
+            except (ObjectDoesNotExist, IntegrityError) as e:  # pragma: no cover
                 raise RuntimeError(
                     f"Failed to create row_document for table answer {self.target} on {instance}: field: {field_name}, value: {value}"
-                )
+                ) from e
         form_api.save_answer(
             document=instance.case.document,
             question=table_question,
@@ -723,10 +723,11 @@ class CalumaCombinedStreetAndNumberWriter(CalumaAnswerWriter):
 
     def __init__(
         self,
-        fields: list[str] = [],
+        fields: list[str] = None,
         *args,
         **kwargs,
     ):
+        fields = fields or []
         self.fields = fields
         super().__init__(*args, **kwargs)
 
@@ -1071,11 +1072,11 @@ class DossierWriter:
         }
         try:
             impl = document_backends[settings.APPLICATION["DOCUMENT_BACKEND"]]
-        except KeyError:  # pragma: no cover
+        except KeyError as e:  # pragma: no cover
             raise DossierWriter.ConfigurationError(
                 "Set DOCUMENT_BACKEND APPLICATION setting to a valid document "
                 f"backend: {list(document_backends)}"
-            )
+            ) from e
         return impl(content, filename, mime_type, instance)
 
     def _handle_alexandria_document(

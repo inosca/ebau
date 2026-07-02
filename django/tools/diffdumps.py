@@ -270,15 +270,19 @@ class Diffy:
                 )
 
                 options = (
-                    ("a", "Accept", lambda: res.update({key: dict_b[key]})),
+                    ("a", "Accept", lambda key=key: res.update({key: dict_b[key]})),
                     ("s", "Skip", lambda: True),
                 )
             else:
                 _show_val(dict_a, cas, key)
                 _show_val(dict_b, cbs, key)
                 options = (
-                    ("f", "Take first", lambda: res.update({key: dict_a[key]})),
-                    ("s", "Take second", lambda: res.update({key: dict_b[key]})),
+                    ("f", "Take first", lambda key=key: res.update({key: dict_a[key]})),
+                    (
+                        "s",
+                        "Take second",
+                        lambda key=key: res.update({key: dict_b[key]}),
+                    ),
                     ("i", "Ignore (skip)", lambda: True),
                 )
 

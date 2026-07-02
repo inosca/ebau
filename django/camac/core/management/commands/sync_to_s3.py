@@ -1,7 +1,7 @@
 import re
 import sqlite3
 import subprocess
-from functools import lru_cache
+from functools import cached_property
 from pathlib import Path
 from tempfile import NamedTemporaryFile, TemporaryDirectory
 
@@ -263,8 +263,7 @@ class Command(BaseCommand):
             required=False,
         )
 
-    @property
-    @lru_cache
+    @cached_property
     def s3(self) -> S3CMD:
         """Return the S3 cmd client object."""
         return S3CMD()

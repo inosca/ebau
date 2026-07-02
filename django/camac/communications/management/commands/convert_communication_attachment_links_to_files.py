@@ -30,15 +30,15 @@ class Command(BaseCommand):
         ):
             try:
                 if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
-                    file_obj = getattr(attachment, "document_attachment")
+                    file_obj = attachment.document_attachment
                     orig_name = file_obj.name
                     display_name = file_obj.context.get("displayName") or orig_name
-                    file_data = getattr(file_obj, "path")
+                    file_data = file_obj.path
                 else:
-                    file_obj = getattr(attachment, "alexandria_file")
+                    file_obj = attachment.alexandria_file
                     orig_name = file_obj.name
                     display_name = file_obj.document.title or orig_name
-                    file_data = getattr(file_obj, "content")
+                    file_data = file_obj.content
                 _, ext = os.path.splitext(orig_name)
                 if not display_name.endswith(ext):
                     new_name = f"{display_name}{ext}"

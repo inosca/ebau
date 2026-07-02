@@ -349,13 +349,13 @@ class DMSHandler:
 
             try:
                 document = Document.objects.select_related("form").get(**_filter)
-            except (Document.DoesNotExist, Document.MultipleObjectsReturned):
+            except (Document.DoesNotExist, Document.MultipleObjectsReturned) as e:
                 raise exceptions.ValidationError(
                     _(
                         "None or multiple caluma Documents found for instance: %(instance)s"
                     )
                     % {"instance": instance_id}
-                )
+                ) from e
 
         return (instance, document)
 
@@ -488,7 +488,9 @@ class DMSClient:
 
         return response.content
 
-    def merge(self, data, template, files=[], convert="pdf", add_headers={}):
+    def merge(self, data, template, files=None, convert="pdf", add_headers=None):
+        add_headers = add_headers or {}
+        files = files or []
         headers = {"authorization": self.auth_token, **add_headers}
         url = build_url(self.url, f"/template/{template}/merge", trailing=True)
 

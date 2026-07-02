@@ -159,7 +159,8 @@ class Command(BaseCommand):
 
             self.stdout.write(f"{out} added workitems: {added}")
 
-    def create_work_items_from_tasks(self, case, task_slugs, context={}):
+    def create_work_items_from_tasks(self, case, task_slugs, context=None):
+        context = context or {}
         if not task_slugs:
             return
 

@@ -23,11 +23,11 @@ class ECHXMLParser(XMLParser):
         try:
             return CreateFromDocument(stream.read())
         except PyXBException as exc:
-            raise ParseError(f"eCH: XML parse error - {exc.details()}")
+            raise ParseError(f"eCH: XML parse error - {exc.details()}") from exc
         except xml.sax.SAXParseException as exc:
-            raise ParseError(f"eCH: invalid XML - {str(exc)}")
+            raise ParseError(f"eCH: invalid XML - {str(exc)}") from exc
         except DefusedXmlException as exc:
-            raise ParseError(f"eCH: malicious XML - {str(exc)}")
+            raise ParseError(f"eCH: malicious XML - {str(exc)}") from exc
 
 
 class ComplexSubmitMappings:

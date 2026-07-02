@@ -420,7 +420,7 @@ def test_master_data_municipality_service_content_resolver(
     service_content.save()
 
     master_data = MasterData(case)
-    master_data_value = getattr(master_data, "municipality_service_content")
+    master_data_value = master_data.municipality_service_content
 
     assert master_data_value == expected
 
@@ -515,7 +515,7 @@ def test_master_data_table_resolver(
         )
 
     master_data = MasterData(case)
-    data = getattr(master_data, "table_example")
+    data = master_data.table_example
 
     if versioned:
         assert data == [

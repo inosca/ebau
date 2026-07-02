@@ -74,7 +74,7 @@ class BeGisClient(GISBaseClient):
             logger.error(f"Polygon({egrid}): {e}")
             raise RuntimeError(
                 f"Error {e.response.status_code} while fetching polygon data from the API"
-            )
+            ) from e
         except (
             requests.exceptions.Timeout,
             requests.exceptions.ConnectionError,
@@ -82,12 +82,12 @@ class BeGisClient(GISBaseClient):
             logger.error(f"Polygon({egrid}): {e}")
             raise RuntimeError(
                 "Connection error while fetching polygon data from the API"
-            )
+            ) from e
 
         try:
             root = self.get_root(response)
-        except etree.XMLSyntaxError:  # pragma: no cover
-            raise ValueError("Can't parse document")
+        except etree.XMLSyntaxError as e:  # pragma: no cover
+            raise ValueError("Can't parse document") from e
 
         try:
             polygon = root.find(".//gml:Polygon", root.nsmap)
@@ -218,8 +218,8 @@ class BeGisClient(GISBaseClient):
     def get_xml_data(self, response):
         try:
             et = self.get_root(response)
-        except etree.XMLSyntaxError:  # pragma: no cover
-            raise ValueError("Can't parse document")
+        except etree.XMLSyntaxError as e:  # pragma: no cover
+            raise ValueError("Can't parse document") from e
         xml_data = et.findall("./gml:featureMember/", et.nsmap)
         return xml_data, et
 

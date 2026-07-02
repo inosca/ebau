@@ -51,10 +51,10 @@ class TokenExchangeView(APIView):
             except JSONDecodeError:  # pragma: no cover
                 message = e.response.text
             logger.exception(message)
-            raise exceptions.AuthenticationFailed("Token could not be exchanged")
+            raise exceptions.AuthenticationFailed("Token could not be exchanged") from e
         except JWException as e:
             logger.exception(e)
-            raise exceptions.AuthenticationFailed("Invalid token")
+            raise exceptions.AuthenticationFailed("Invalid token") from e
 
         return response.Response(
             token,

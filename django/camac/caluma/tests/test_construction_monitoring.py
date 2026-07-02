@@ -187,10 +187,11 @@ def test_init_construction_monitoring(
             assert not work_item
 
     if not skip:
-        construction_stage.child_case.status == Case.STATUS_RUNNING
-        construction_stage.child_case.workflow == sz_construction_monitoring_settings[
-            "CONSTRUCTION_STAGE_WORKFLOW"
-        ]
+        assert construction_stage.child_case.status == Case.STATUS_RUNNING
+        assert (
+            construction_stage.child_case.workflow_id
+            == sz_construction_monitoring_settings["CONSTRUCTION_STAGE_WORKFLOW"]
+        )
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])

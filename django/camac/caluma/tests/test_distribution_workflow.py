@@ -473,15 +473,16 @@ def test_complete_distribution(
     be_distribution_settings,
     inquiry_factory_be,
     mailoutbox,
+    service,
     service_factory,
     caluma_work_item_factory,
     be_ech0211_settings,
 ):
-    service = service_factory()
+    to_service = service_factory()
 
     draft_inquiry = inquiry_factory_be()  # draft - will be canceled
     sent_inquiry = inquiry_factory_be(
-        to_service=service, sent=True
+        to_service=to_service, sent=True
     )  # sent - will be skipped
 
     check_distribution = caluma_work_item_factory(
@@ -542,7 +543,7 @@ def test_complete_distribution(
     assert be_instance.instance_state.name == "coordination"
 
     assert len(mailoutbox) == 1
-    assert mailoutbox[0].to[0] == service.email
+    assert mailoutbox[0].to[0] == to_service.email
 
 
 @pytest.mark.django_db

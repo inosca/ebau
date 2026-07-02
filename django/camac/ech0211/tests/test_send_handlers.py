@@ -864,10 +864,14 @@ def test_task_send_handler(
             assert inquiry.deadline.isoformat() == "2020-03-24T00:00:00+00:00"
         else:
             assert inquiry.deadline.isoformat() == "2020-03-15T00:00:00+00:00"
-
-        inquiry.document.answers.filter(
-            question_id=be_distribution_settings["QUESTIONS"]["REMARK"]
-        ).values == "Anforderung einer Stellungnahme"
+            assert (
+                inquiry.document.answers.filter(
+                    question_id=be_distribution_settings["QUESTIONS"]["REMARK"]
+                )
+                .first()
+                .value
+                == "Anforderung einer Stellungnahme"
+            )
 
         assert len(mailoutbox) == 1
         assert service.email in mailoutbox[0].to

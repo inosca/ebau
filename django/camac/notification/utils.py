@@ -82,8 +82,9 @@ def send_mail(
 def send_mail_without_instance(
     notification_template_slug: str,
     recipients: list[str],
-    additional_placeholders: dict = {},
+    additional_placeholders: dict = None,
 ):
+    additional_placeholders = additional_placeholders or {}
     notification_template = NotificationTemplate.objects.get(
         slug=notification_template_slug
     )

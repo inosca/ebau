@@ -28,7 +28,7 @@ class Command(BaseCommand):
             data = IssueMergeSerializer(issue).data
             return value_template.render(data)
         except jinja2.TemplateError as e:
-            raise CommandError(str(e))
+            raise CommandError(str(e)) from e
 
     def handle(self, *args, **options):
         issues = Issue.objects.filter(

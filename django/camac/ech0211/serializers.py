@@ -146,7 +146,7 @@ class ECHCamacFileSerializer(Serializer):
             ):
                 # This is actually a permission issues, so
                 # we should raise 403 not 400
-                raise PermissionDenied()
+                raise PermissionDenied() from exc
 
         return self_valid and att_valid
 

@@ -237,7 +237,7 @@ class BillingV2EntryExportSerializer(BillingV2EntrySerializer):
         else:
             all_x = [val.strip() for val in model.coordinate_X.split(",")]
             all_y = [val.strip() for val in model.coordinate_Y.split(",")]
-            coordinates = zip(all_x, all_y)
+            coordinates = zip(all_x, all_y, strict=False)
             coordinates_str = ", ".join([f"{x}/{y}" for x, y in coordinates])
             return coordinates_str
 

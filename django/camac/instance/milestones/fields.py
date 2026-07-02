@@ -12,7 +12,7 @@ class WorkItemsField(serializers.ReadOnlyField):
         self,
         slug="",
         label="",
-        task=[],
+        task=None,
         field="created_at",
         status=None,
         include_child_cases=True,
@@ -21,6 +21,7 @@ class WorkItemsField(serializers.ReadOnlyField):
         limit=None,
         **kwargs,
     ):
+        task = task or []
         super().__init__(**kwargs)
 
         self.slug = slug
@@ -101,7 +102,8 @@ class AnswerField(serializers.ReadOnlyField):
 
 
 class MilestonesField(serializers.ReadOnlyField):
-    def __init__(self, sections=[], **kwargs):
+    def __init__(self, sections=None, **kwargs):
+        sections = sections or []
         super().__init__(**kwargs)
 
         self.sections = sections
@@ -132,7 +134,8 @@ class MilestonesField(serializers.ReadOnlyField):
 
 
 class MilestoneSectionField(serializers.ReadOnlyField):
-    def __init__(self, slug="", label="", fields=[], **kwargs):
+    def __init__(self, slug="", label="", fields=None, **kwargs):
+        fields = fields or []
         super().__init__(**kwargs)
 
         self.slug = slug

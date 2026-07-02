@@ -1393,7 +1393,8 @@ def portal_user(portal_group, user_factory, user_group_factory):
 
 @pytest.fixture
 def instance_with_case(db, caluma_admin_user):
-    def wrapper(instance, workflow="building-permit", form="main-form", context={}):
+    def wrapper(instance, workflow="building-permit", form="main-form", context=None):
+        context = context or {}
         instance.case = workflow_api.start_case(
             workflow=caluma_workflow_models.Workflow.objects.get(pk=workflow),
             form=caluma_form_models.Form.objects.get(pk=form),
@@ -2858,9 +2859,11 @@ def decision_factory(
         instance=be_instance,
         decision="decision-decision-assessment-accepted",
         decision_type="decision-approval-type-building-permit",
-        decision_date=date.today(),
+        decision_date=None,
         decision_geometer="decision-geometer-no",
     ):
+        decision_date = decision_date or date.today()
+
         work_item = instance.case.work_items.filter(task_id="decision").first()
 
         if not work_item:
@@ -2907,8 +2910,9 @@ def decision_factory_so(so_instance, so_decision_settings, settings):
         construction_tee=so_decision_settings["ANSWERS"]["BAUABSCHLAG"][
             "OHNE_WIEDERHERSTELLUNG"
         ],
-        decision_date=date.today(),
+        decision_date=None,
     ):
+        decision_date = decision_date or date.today()
         work_item = instance.case.work_items.get(task_id=so_decision_settings["TASK"])
 
         work_item.document.answers.create(
@@ -2942,9 +2946,10 @@ def decision_factory_ag(
     def factory(
         instance=ag_instance,
         decision=ag_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
-        decision_date=date.today(),
+        decision_date=None,
         demolition=None,
     ):
+        decision_date = decision_date or date.today()
         work_item = instance.case.work_items.filter(
             task_id=ag_decision_settings["TASK"]
         ).first()
@@ -3506,13 +3511,15 @@ def create_caluma_publication(
 ):
     def wrapper(
         instance,
-        start=now() - timedelta(days=1),
-        end=now() + timedelta(days=12),
+        start=None,
+        end=None,
         published=True,
         publication_type="PUBLIC",
         module_settings=None,
         **kwargs,
     ):
+        start = start or now() - timedelta(days=1)
+        end = end or now() + timedelta(days=12)
         if module_settings is None:
             module_settings = request.getfixturevalue("be_publication_settings")
 

@@ -304,10 +304,10 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                 # Validate if the display name is a valid filename
                 try:
                     utils.validate_file_name(context["displayName"])
-                except SuspiciousFileOperation:
+                except SuspiciousFileOperation as e:
                     raise exceptions.ValidationError(
                         _("The entered name is not a valid file name")
-                    )
+                    ) from e
 
             allowed_decision_mime_types = settings.APPLICATION.get(
                 "DECISION_DOCUMENT_MIMETYPES"

@@ -543,14 +543,12 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
 @filter_by_task(setting("DISTRIBUTION", "DISTRIBUTION_COMPLETE_TASK"))
 @transaction.atomic
 def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
-    for work_item in Inquiry.objects.for_distribution_case(
-        work_item.case
-    ).only_pending():
+    for inquiry in Inquiry.objects.for_distribution_case(work_item.case).only_pending():
         # unanswered inquiries must be skipped
-        skip_work_item(work_item=work_item, user=user, context=context)
+        skip_work_item(work_item=inquiry, user=user, context=context)
 
         if settings.DISTRIBUTION.get("NOTIFY_ON_CANCELLATION"):
-            send_inquiry_notification("CANCELED_DISTRIBUTION", work_item, user)
+            send_inquiry_notification("CANCELED_DISTRIBUTION", inquiry, user)
 
     check_distribution_work_item = work_item.case.work_items.filter(
         task_id=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"],
@@ -563,11 +561,11 @@ def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
             work_item=check_distribution_work_item, user=user, context=context
         )
 
-    for work_item in work_item.case.work_items.filter(
+    for ready_work_item in work_item.case.work_items.filter(
         status__in=[WorkItem.STATUS_READY, WorkItem.STATUS_SUSPENDED]
     ):
         # everything else canceled
-        cancel_work_item(work_item=work_item, user=user, context=context)
+        cancel_work_item(work_item=ready_work_item, user=user, context=context)
 
 
 @on(post_complete_work_item, raise_exception=True)
@@ -620,7 +618,7 @@ def post_cancel_inquiry(sender, work_item, user, context=None, **kwargs):
             # This is expected for subservices which must not have a create
             # inquiry work item
             pass
-        except WorkItem.MultipleObjectsReturned:
+        except WorkItem.MultipleObjectsReturned as e:
             # If this happens, there must be some kind of issue in the workflow
             # since no service should ever have multiple ready create inquiry
             # work items
@@ -632,7 +630,7 @@ def post_cancel_inquiry(sender, work_item, user, context=None, **kwargs):
                     f'"{settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]}" work '
                     f"items on instance {work_item.case.family.instance.pk}"
                 )
-            )
+            ) from e
 
 
 @on(post_complete_work_item, raise_exception=True)

@@ -537,10 +537,10 @@ class PermissionManager:
         """
         try:
             return self.permission_settings["ACCESS_LEVELS"][access_level_slug]
-        except KeyError:  # pragma: no cover
+        except KeyError as e:  # pragma: no cover
             raise ImproperlyConfigured(
                 f"Permissions config is missing an entry for access level {access_level_slug}"
-            )
+            ) from e
 
     def grant(
         self,

@@ -42,7 +42,7 @@ def test_duplicate_conditionals(try_get_fixture, any_application):
             continue
 
         perms = seen_perms[key]
-        perms_and_checks = zip(perms, checks)
+        perms_and_checks = zip(perms, checks, strict=False)
 
         # Ok, we have multiple checks. Verify if they are actually the
         # same or just equal
@@ -77,7 +77,7 @@ def test_conditional_types(try_get_fixture, any_application):
 
     access_levels = permissions_settings.get("ACCESS_LEVELS", {})
 
-    for access_level, permissions_settings in access_levels.items():
+    for _, permissions_settings in access_levels.items():
         for perm, check in permissions_settings:
             assert isinstance(check, Check), (
                 f"{perm} conditional {check} must be Check instance. "

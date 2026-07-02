@@ -70,14 +70,14 @@ def get_group(request) -> Optional[Group]:
 
 
 def is_portal_client(request):
-    if not getattr(request, "auth"):  # pragma: no cover
+    if not request.auth:  # pragma: no cover
         return False
 
     return request.auth.get("azp") == settings.KEYCLOAK_PORTAL_CLIENT
 
 
 def is_eeba_token_exchange_client(request):
-    if not getattr(request, "auth"):  # pragma: no cover
+    if not request.auth:  # pragma: no cover
         return False
 
     return request.auth.get("azp") == settings.EEBA_INTEGRATION.get(

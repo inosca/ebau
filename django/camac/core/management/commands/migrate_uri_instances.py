@@ -141,12 +141,14 @@ class Command(BaseCommand):
         instance,
         case,
         task_slug,
-        meta={},
+        meta=None,
         child_case=None,
-        context={},
+        context=None,
         applicant=False,
         status=WorkItem.STATUS_READY,
     ):
+        context = context or {}
+        meta = meta or {}
         task = next(task for task in ALL_TASKS if task.slug == task_slug)
 
         if case.work_items.filter(task=task).exists():

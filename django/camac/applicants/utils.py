@@ -32,8 +32,8 @@ def get_applicants_requiring_confirmation(
     for answer in answers:
         try:
             applicant = Applicant.objects.get(pk=int(answer.value))
-        except Applicant.DoesNotExist:
-            raise ValidationError(f"No applicant with ID {answer.value} found.")
+        except Applicant.DoesNotExist as e:
+            raise ValidationError(f"No applicant with ID {answer.value} found.") from e
 
         if applicant not in applicants:
             applicants[applicant] = []

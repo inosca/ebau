@@ -902,8 +902,8 @@ class InstanceView(
             instance_to_link = self.get_queryset().get(
                 pk=request.data["data"]["attributes"]["link-to"]
             )
-        except models.Instance.DoesNotExist:  # pragma: no cover
-            raise ValidationError("Instance to link to not found")
+        except models.Instance.DoesNotExist as e:  # pragma: no cover
+            raise ValidationError("Instance to link to not found") from e
 
         link_instances(instance, instance_to_link)
 

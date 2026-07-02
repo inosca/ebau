@@ -10,8 +10,8 @@ from jwcrypto.jwt import JWT
 def extract_headers(raw_token: str) -> dict:
     try:
         return json_decode(base64url_decode(raw_token.split(".")[0]))
-    except (IndexError, ValueError, JSONDecodeError):  # pragma: no cover
-        raise JWException("Could not parse headers")
+    except (IndexError, ValueError, JSONDecodeError) as e:  # pragma: no cover
+        raise JWException("Could not parse headers") from e
 
 
 def verify_jwe_headers(headers: dict) -> None:
