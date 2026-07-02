@@ -30,8 +30,8 @@ defmodule Ebau.MasterData do
 
   ## How it works
 
-  The `Ebau.MasterData.Extensions.MasterData` Spark DSL extension is applied to
-  `Instance`. It reads `master_data do ... end` declarations and generates
+  The `Caluma.Workflow.Extensions.Case` Spark DSL extension is applied to
+  `Instance`. It reads `caluma_case do ... end` declarations and generates
   relationships (for table questions) and calculations (for scalar answers)
   at compile time.
 

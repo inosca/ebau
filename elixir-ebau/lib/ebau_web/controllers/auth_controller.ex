@@ -49,7 +49,7 @@ defmodule EbauWeb.AuthController do
   end
 
   def sign_out(conn, _params) do
-    # currently hard coded to meetings because we don't have a root route yet
+    # redirect to the return_to path stored in the session
     return_to = get_session(conn, :return_to)
 
     conn

@@ -7,7 +7,7 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswer do
   `has_one` relationship to `Caluma.Form.Answer` (one per declared answer).
 
   The `mapping` option accepts either a flat `%{string => value}` map or
-  a `{resolver_module, opts}` tuple (see `Caluma.Form.QuestionIdResolver`).
+  a `{resolver_module, opts}` tuple (see `Caluma.Form.Resolver`).
 
   Falls back to `calculate/3` when evaluating already-loaded records in memory.
   """

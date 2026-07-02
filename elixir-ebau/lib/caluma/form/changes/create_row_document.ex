@@ -3,7 +3,8 @@ defmodule Caluma.Form.Changes.CreateRowDocument do
   Ash change that wires up a new row document for a table question.
 
   Sets the form from the question's `row_form_id`, links the document to the
-  parent answer via `AnswerDocument`, and computes the next sort order.
+  parent answer via `AnswerDocument`, and inserts it at sort position 0
+  (shifting existing rows up).
   """
 
   use Ash.Resource.Change
