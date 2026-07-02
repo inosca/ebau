@@ -3676,9 +3676,6 @@ class RSearchFilter(MultilingualModel, models.Model):
         null=True,
     )
     field_name = models.CharField(db_column="FIELD_NAME", max_length=50)
-    class_field = models.CharField(
-        db_column="CLASS", max_length=200, blank=True, null=True
-    )  # Field renamed because it was a Python reserved word.
     label = models.CharField(db_column="LABEL", max_length=1000, blank=True, null=True)
     query = models.CharField(db_column="QUERY", max_length=4000)
     wildcard = models.PositiveSmallIntegerField(db_column="WILDCARD")

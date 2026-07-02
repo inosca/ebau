@@ -253,14 +253,12 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     objections = (
         serializers.SerializerMethodField()
     )  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
-    bauverwaltung = serializers.SerializerMethodField()
     responsible_person = (
         serializers.SerializerMethodField()
     )  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
     bauverwaltung = (
         serializers.SerializerMethodField()
     )  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
-    responsible_person = serializers.SerializerMethodField()
     schlussabnahme_uhrzeit = serializers.SerializerMethodField()
     schlussabnahme_datum = serializers.SerializerMethodField()
     notes = serializers.SerializerMethodField()
