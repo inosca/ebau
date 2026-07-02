@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import re
-import typing
 from datetime import timedelta
+from typing import TYPE_CHECKING, Type
 
 from caluma.caluma_core.events import send_event
 from caluma.caluma_core.validations import BaseValidation, validation_for
@@ -31,10 +31,10 @@ from camac.caluma.utils import (
 from camac.core.translations import get_translations
 from camac.settings.utils import is_module_enabled
 
-if typing.TYPE_CHECKING:  # pragma: no cover
+if TYPE_CHECKING:
     from django.db.model import Model
 
-RESETTABLE_META_VALUES: dict[typing.Type[Model], list[str]] = {
+RESETTABLE_META_VALUES: dict[Type[Model], list[str]] = {
     Case: [
         # Users can reset paper-submit-date in dossier header
         "paper-submit-date",

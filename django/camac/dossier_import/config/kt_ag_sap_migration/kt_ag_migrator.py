@@ -2,16 +2,13 @@ import os
 import shutil
 import zipfile
 from logging import INFO, WARNING, getLogger
-from typing import Callable, List, Optional
+from typing import TYPE_CHECKING, Callable, List, Optional
 
 from alexandria.core.models import Category
 from codetiming import Timer
 from django.conf import settings
 from django.db import close_old_connections, connection, transaction
 
-from camac.dossier_import.config.kt_ag_sap_migration.dossier_import.dossier_classes import (
-    KtAargauDossier,
-)
 from camac.dossier_import.config.kt_ag_sap_migration.dossier_import.dossier_import_report_writer import (
     DossierImportReportWriter,
 )
@@ -29,6 +26,11 @@ from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import DossierSummary
 from camac.dossier_import.models import DossierImport
 from camac.user.models import Group, User, UserGroup
+
+if TYPE_CHECKING:
+    from camac.dossier_import.config.kt_ag_sap_migration.dossier_import.dossier_classes import (
+        KtAargauDossier,
+    )
 
 IMPORT_SETTINGS = settings.DOSSIER_IMPORT
 SAP_SETTINGS = IMPORT_SETTINGS["SAP_ACCESS"]

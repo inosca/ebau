@@ -1,4 +1,5 @@
 import json
+from typing import TYPE_CHECKING
 
 from caluma.caluma_form.models import Answer, AnswerDocument, DynamicOption, Option
 from caluma.caluma_workflow.models import WorkItem
@@ -24,9 +25,11 @@ from camac.instance.export.filters import StringAggSubquery, caluma_answer
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.response import make_xlsx_response
-from camac.settings.modules.work_item_list_schema import (
-    AnnotationsConfig,
-)
+
+if TYPE_CHECKING:
+    from camac.settings.modules.work_item_list_schema import (
+        AnnotationsConfig,
+    )
 
 
 def value_or_dash(x):

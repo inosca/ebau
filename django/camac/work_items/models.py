@@ -1,5 +1,5 @@
 from functools import partial
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import uuid_extensions
 from caluma.caluma_form.models import Answer, AnswerDocument, DynamicOption
@@ -30,12 +30,14 @@ from camac.instance.export.filters import (
     camac_ng_answer,
 )
 from camac.models import dynamic_default_value
-from camac.settings.modules.work_item_list_schema import (
-    AnnotationsConfig,
-    PersonConfig,
-)
 from camac.settings.utils import is_module_enabled
 from camac.user.models import Service, User
+
+if TYPE_CHECKING:
+    from camac.settings.modules.work_item_list_schema import (
+        AnnotationsConfig,
+        PersonConfig,
+    )
 
 
 @dynamic_default_value(0)

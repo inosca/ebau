@@ -1,5 +1,6 @@
 from dataclasses import asdict
 from datetime import datetime
+from typing import TYPE_CHECKING
 
 import pytest
 from django.utils.timezone import make_aware
@@ -8,8 +9,10 @@ from camac.dossier_import.config.kt_ag_sap_migration.dossier_import.dossier_load
     KtAargauDossierLoader,
     datetime_from_long_number,
 )
-from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.tests.test_utils import to_sorted_json
+
+if TYPE_CHECKING:
+    from camac.dossier_import.dossier_classes import Dossier
 
 
 @pytest.mark.skip(reason="manual use only")

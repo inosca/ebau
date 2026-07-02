@@ -38,7 +38,7 @@ lint.ignore = [
 line-length = 88
 
 
-lint.select = ["C9", "D", "E", "F", "W", "I", "INT", "FLY"]
+lint.select = ["C9", "D", "E", "F", "W", "I", "INT", "FLY", "TC"]
 
 [tool.ruff.lint.mccabe]
 max-complexity = 11
@@ -113,6 +113,7 @@ exclude_lines = [
     "def __str__",
     "def __unicode__",
     "def __repr__",
+    "if TYPE_CHECKING",
 ]
 exclude_also = ["\\A(?s:.*# pragma: exclude file.*)\\Z"]
 omit = [

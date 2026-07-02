@@ -1,4 +1,5 @@
 from decimal import Decimal
+from typing import TYPE_CHECKING
 
 from django.conf import settings
 from django.utils.translation import gettext as _
@@ -12,13 +13,15 @@ from camac.billing.utils import (
     validate_product_number,
 )
 from camac.instance.master_data import MasterData
-from camac.settings.modules.billing_schema import ProductNumberConfig
 from camac.settings.utils import is_module_enabled
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
     GroupResourceRelatedField,
 )
 from camac.user.serializers import CurrentGroupDefault
+
+if TYPE_CHECKING:
+    from camac.settings.modules.billing_schema import ProductNumberConfig
 
 
 class BillingV2CommonEntrySerializer(serializers.ModelSerializer):

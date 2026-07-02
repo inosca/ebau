@@ -1,10 +1,13 @@
 from datetime import datetime, timedelta
+from typing import TYPE_CHECKING
 
-from caluma.caluma_workflow.models import WorkItem
 from django.core.management.base import BaseCommand
 from django.db.models import Q, QuerySet
 
 from camac.instance.models import Instance
+
+if TYPE_CHECKING:
+    from caluma.caluma_workflow.models import WorkItem
 
 
 class Command(BaseCommand):

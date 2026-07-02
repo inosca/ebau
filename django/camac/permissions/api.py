@@ -5,7 +5,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from functools import reduce
-from typing import List, Optional, Union
+from typing import TYPE_CHECKING, List, Optional, Union
 
 from django.conf import ImproperlyConfigured, settings
 from django.contrib.auth.models import AnonymousUser
@@ -19,10 +19,12 @@ from camac.instance.models import Instance
 from camac.permissions import models
 from camac.permissions.conditions import PermissionContext, Static
 from camac.permissions.models import AccessLevel, InstanceACL
-from camac.user import models as user_models
 from camac.user.models import Role, Service, ServiceGroup, User
 
 from . import exceptions
+
+if TYPE_CHECKING:
+    from camac.user import models as user_models
 
 # for direct access
 GRANT_CHOICES = models.GRANT_CHOICES

@@ -9,7 +9,7 @@ from django.conf import ImproperlyConfigured
 
 from camac.utils import call_with_accepted_kwargs, get_unversioned_slug
 
-if TYPE_CHECKING:  # pragma: no cover
+if TYPE_CHECKING:
     from camac.instance.models import Instance
 
 """

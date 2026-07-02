@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-import typing
+from typing import TYPE_CHECKING
 
 from django.conf import settings
 
 from camac.permissions.conditions import Check
 
-if typing.TYPE_CHECKING:  # pragma: no cover
+if TYPE_CHECKING:
     from camac.alexandria.permissions import AlexandriaPermissionContext
     from camac.permissions.api import ACLUserInfo
 

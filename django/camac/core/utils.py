@@ -14,7 +14,7 @@ from django.utils.translation import get_language, gettext
 from camac.core.models import HistoryActionConfig
 from camac.core.translations import get_translations
 
-if TYPE_CHECKING:  # pragma: no cover
+if TYPE_CHECKING:
     from camac.instance.models import Instance
     from camac.user.models import User
 

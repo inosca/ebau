@@ -6,10 +6,9 @@ from caluma.caluma_form.models import Answer, Question
 from django.conf import settings
 from rest_framework.exceptions import ValidationError
 
-from camac.instance.models import Instance
-
-if TYPE_CHECKING:  # pragma: no cover
+if TYPE_CHECKING:
     from camac.applicants.models import Applicant
+    from camac.instance.models import Instance
 
 
 def get_applicants_requiring_confirmation(
