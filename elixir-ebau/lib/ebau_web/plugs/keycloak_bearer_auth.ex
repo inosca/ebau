@@ -15,7 +15,7 @@ defmodule EbauWeb.Plugs.KeycloakBearerAuth do
   def call(conn, _opts) do
     with ["Bearer " <> token] <- Plug.Conn.get_req_header(conn, "authorization"),
          [group_id | _] <- Plug.Conn.get_req_header(conn, "x-camac-group"),
-         {:ok, user} <- EbauWeb.OAuth2.fetch_user(token),
+         {:ok, user} <- oauth2_module().fetch_user(token),
          {:ok, group} <-
            Ebau.User.get_group_for_actor(group_id,
              load: [:role, service: [:service_group]],
@@ -39,5 +39,9 @@ defmodule EbauWeb.Plugs.KeycloakBearerAuth do
         )
         |> Plug.Conn.halt()
     end
+  end
+
+  defp oauth2_module do
+    Application.get_env(:ebau, :oauth2_module, EbauWeb.OAuth2)
   end
 end

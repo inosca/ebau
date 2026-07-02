@@ -10,6 +10,7 @@ defmodule EbauWeb.OAuth2 do
   It reads the Keycloak settings from the `:ebau, :keycloak` application
   config and caches successful lookups through `EbauWeb.TokenCache`.
   """
+  @behaviour EbauWeb.Behaviours.OAuth2
 
   alias Assent.Strategy.OAuth2
 
@@ -25,13 +26,13 @@ defmodule EbauWeb.OAuth2 do
     ]
   end
 
-  @spec fetch_user(binary()) :: {:ok, Ebau.User.User.t()} | {:error, term()}
   @doc """
   Fetches the local user for a Keycloak bearer token.
 
   The token is sent to the Keycloak userinfo endpoint. The configured email
   claim is then used to look up the matching local user.
   """
+  @impl EbauWeb.Behaviours.OAuth2
   def fetch_user(token) do
     EbauWeb.TokenCache.fetch(token, fn ->
       email_claim = Ebau.Secrets.keycloak_config() |> Keyword.get(:email_claim, "email")

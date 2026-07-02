@@ -26,6 +26,9 @@ config :ebau, :keycloak,
   email_claim: "email",
   scopes: "openid"
 
+# Use the dummy Keycloak adapter in tests; token is just the user id
+config :ebau, :oauth2_module, EbauWeb.OAuth2Dummy
+
 config :ebau,
   legacy_fixture_root: Path.expand("../priv/test_fixtures", __DIR__)
 

@@ -164,6 +164,32 @@ Resolution order is:
 2. `config :ebau, :legacy_fixture_root`
 3. fallback `../django`
 
+## Authentication in tests
+
+The REST API is protected by `EbauWeb.Plugs.KeycloakBearerAuth`, which resolves
+a bearer token to an `Ebau.User.User` via an OAuth2 adapter. The adapter module
+is injectable through config:
+
+```elixir
+config :ebau, :oauth2_module, EbauWeb.OAuth2Dummy
+```
+
+- Production/dev (default): `EbauWeb.OAuth2` hits the Keycloak userinfo
+  endpoint and maps the email claim to a local user.
+- Test (`config/test.exs`): `EbauWeb.OAuth2Dummy`, where the bearer token is
+  simply the user id (e.g. `"1"`), looked up directly. No Keycloak server needed.
+
+Both implement the `EbauWeb.Behaviours.OAuth2` behaviour (single `fetch_user/1`
+callback).
+
+In tests, build an authenticated conn with the helper from `EbauWeb.ConnCase`:
+
+```elixir
+conn = authenticated_rest_api_conn(conn, actor)
+```
+
+It sets `authorization: "Bearer <user.id>"` and the `x-camac-group` header.
+
 ## Cantonal theming of uikit
 
 Cantonal theming of uikit is done using custom input files to dart_sass. The `runtime.exs` file uses the `APPLICATION`
