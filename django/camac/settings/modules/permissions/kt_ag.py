@@ -335,6 +335,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
             ("form-kantonale-pruefung-write", MODULE_CANTONAL_EXAM),
+            ("form-rpg2-read", MODULE_RPG2_READ),
+            ("form-rpg2-write", MODULE_RPG2_WRITE),
             ("form-vorlaeufige-pruefung-write", MODULE_FORMAL_EXAM),
             ("form-read", MODULE_FORM),
             (

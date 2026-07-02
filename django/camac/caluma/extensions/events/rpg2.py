@@ -40,27 +40,11 @@ def is_rpg2_relevant_form(work_item):
     return get_unversioned_slug(work_item.case.family.document.form_id) in forms
 
 
-@on(post_resume_work_item, raise_exception=True)
-@if_module_enabled("RPG2")
-@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
-@transaction.atomic
-def post_resume_inquiry_for_rpg2(sender, work_item, user, context=None, **kwargs):
-    if not is_rpg2_service_addressed(work_item):
-        return
-
-    if not is_rpg2_relevant_form(work_item):
-        return
-
-    # get the main case from the distribution child case
-    case = work_item.case.family
-
+def create_rpg2_work_item(case):
     if case.work_items.filter(task_id=settings.RPG2.task).exists():
-        return  # "rpg2" work-item already exists
+        return
 
-    # Assume task exists (created per canton) when module is enabled.
     task = Task.objects.get(pk=settings.RPG2.task)
-
-    # The rpg2 work_item is addressed to all cantonal services configured.
     group_pks = [
         str(pk)
         for pk in Service.objects.filter(
@@ -76,6 +60,20 @@ def post_resume_inquiry_for_rpg2(sender, work_item, user, context=None, **kwargs
         status=WorkItem.STATUS_READY,
         document=Document.objects.create_document_for_task(task, None),
     )
+
+
+@on(post_resume_work_item, raise_exception=True)
+@if_module_enabled("RPG2")
+@filter_by_task(setting("DISTRIBUTION", "INQUIRY_TASK"))
+@transaction.atomic
+def post_resume_inquiry_for_rpg2(sender, work_item, user, context=None, **kwargs):
+    if not is_rpg2_service_addressed(work_item):
+        return
+
+    if not is_rpg2_relevant_form(work_item):
+        return
+
+    create_rpg2_work_item(work_item.case.family)
 
 
 @on(post_create_work_item, raise_exception=False)

@@ -2,15 +2,26 @@ from datetime import timedelta
 
 from caluma.caluma_core.events import on
 from caluma.caluma_workflow.api import cancel_work_item
-from caluma.caluma_workflow.events import post_create_work_item, post_resume_work_item
+from caluma.caluma_workflow.events import (
+    post_complete_work_item,
+    post_create_work_item,
+    post_resume_work_item,
+)
 from caluma.caluma_workflow.models import WorkItem
 from django.db import transaction
 from django.utils.timezone import now
 
-from camac.caluma.event_utils import filter_by_canton, filter_by_task, setting
+from camac.caluma.event_utils import (
+    filter_by_canton,
+    filter_by_task,
+    if_module_enabled,
+    setting,
+)
+from camac.caluma.extensions.events.rpg2 import create_rpg2_work_item
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import date_to_deadline
 from camac.user.models import Service
+from camac.utils import get_unversioned_slug
 
 
 @on(post_resume_work_item, raise_exception=True)
@@ -51,6 +62,22 @@ def set_cantonal_exam_deadline_anfrage_intern(
 
     work_item.deadline = date_to_deadline(now().date() + timedelta(days=5))
     work_item.save(update_fields=["deadline"])
+
+
+@on(post_complete_work_item, raise_exception=True)
+@if_module_enabled("RPG2")
+@filter_by_canton("kt_ag")
+@filter_by_task("cantonal-exam")
+@transaction.atomic
+def create_rpg2_work_item_anfrage_intern(
+    sender, work_item, user, context=None, **kwargs
+):
+    case = work_item.case.family
+
+    if get_unversioned_slug(case.document.form_id) != "anfrage-intern":
+        return  # pragma: no cover
+
+    create_rpg2_work_item(case)
 
 
 @on(post_resume_work_item, raise_exception=True)
