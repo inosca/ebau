@@ -3,6 +3,8 @@ defmodule EbauWeb.Plugs.KeycloakBearerAuthTest do
 
   alias EbauWeb.Plugs.KeycloakBearerAuth
 
+  @moduletag capture_log: true
+
   describe "call/2" do
     test "returns 401 when no authorization header is present", %{conn: conn} do
       conn = KeycloakBearerAuth.call(conn, [])
