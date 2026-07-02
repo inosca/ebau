@@ -144,7 +144,7 @@ class Command(BaseCommand):
 
         child_case_data = Case.objects.filter(
             workflow_id=settings.ADDITIONAL_DEMAND["WORKFLOW"],
-            **{"meta__has_key": MIGRATION_META_TIMESTAMP_KEY},
+            meta__has_key=MIGRATION_META_TIMESTAMP_KEY,
         ).values_list(f"meta__{MIGRATION_META_CLAIM_ID_KEY}", "instance__pk")
 
         migrated_child_map = {
@@ -158,7 +158,7 @@ class Command(BaseCommand):
             WorkItem.objects.filter(
                 task_id=settings.ADDITIONAL_DEMAND["TASK"],
                 child_case__isnull=False,
-                **{"meta__has_key": MIGRATION_META_TIMESTAMP_KEY},
+                meta__has_key=MIGRATION_META_TIMESTAMP_KEY,
             ).values_list(f"meta__{MIGRATION_META_CLAIM_ID_KEY}", flat=True)
         )
         parent_work_item_document_ids = {
@@ -168,7 +168,7 @@ class Command(BaseCommand):
         send_work_item_document_ids = set(
             WorkItem.objects.filter(
                 task_id=settings.ADDITIONAL_DEMAND["SEND_TASK"],
-                **{"meta__has_key": MIGRATION_META_TIMESTAMP_KEY},
+                meta__has_key=MIGRATION_META_TIMESTAMP_KEY,
             ).values_list(f"meta__{MIGRATION_META_CLAIM_ID_KEY}", flat=True)
         )
 

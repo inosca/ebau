@@ -159,7 +159,6 @@ def _upload_data(config, data):
                     model.save()
         except Exception:
             breakpoint()
-            pass
 
 
 class Command(BaseCommand):

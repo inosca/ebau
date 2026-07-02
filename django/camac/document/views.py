@@ -603,7 +603,7 @@ class TemplateView(ModelViewSet):
         """
         template = self.get_object()
         instance = generics.get_object_or_404(
-            Instance.objects, **{"pk": self.request.query_params.get("instance")}
+            Instance.objects, pk=self.request.query_params.get("instance")
         )
         to_type = self.request.query_params.get("type", "docx")
 

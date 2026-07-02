@@ -54,7 +54,6 @@ def _upload_data(data):
 
         except Exception:
             breakpoint()
-            pass
 
 
 class Command(BaseCommand):

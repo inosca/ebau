@@ -48,13 +48,9 @@ class Permission:
 class ReadPermission(Permission):
     """Read permission."""
 
-    pass
-
 
 class ReadInternalPermission(SameServiceQSMixin, Permission):
     """Read permission on attachments owned by the current service."""
-
-    pass
 
 
 class WritePermission(ReadPermission):
@@ -172,8 +168,6 @@ class AdminServiceBeforeDecisionPermission(
     - Attachment is owned by the current service
     - Instance state is before the decision
     """
-
-    pass
 
 
 class AdminServiceRunningInquiryPermission(AdminServicePermission):

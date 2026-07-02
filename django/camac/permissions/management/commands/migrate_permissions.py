@@ -354,7 +354,6 @@ class Command(BaseCommand):
                     construction_control = get_construction_control(municipality_svc)
                 except Exception:
                     # TODO log?
-                    pass
                     continue
 
                 yield ACL(

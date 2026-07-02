@@ -1516,7 +1516,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     @permission_aware
     def _ur_internal_submission(self, instance, group):
         """Run side effects when instance is submitted by internal role."""
-        pass
 
     def _ur_internal_submission_for_municipality(self, instance, group):
         if settings.APPLICATION_NAME == "kt_uri":

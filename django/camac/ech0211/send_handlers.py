@@ -669,9 +669,7 @@ class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
     def _get_additional_demand(self, additional_demand_init):
         return self._get_work_item(
             settings.ADDITIONAL_DEMAND["TASK"],
-            **{
-                "previous_work_item": additional_demand_init,
-            },
+            previous_work_item=additional_demand_init,
         )
 
     def get_instance_id(self):

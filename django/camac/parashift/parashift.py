@@ -105,7 +105,6 @@ class ParashiftImporter:
             record["barcodes"].pop(0)
         except IndexError:  # pragma: no cover
             print(f"{record['external-id']}: no barcode in record")
-            pass
 
         documents = []
         for index, code in enumerate(record["barcodes"], start=1):

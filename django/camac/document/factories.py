@@ -30,7 +30,7 @@ class AttachmentFactory(DjangoModelFactory):
     user = SubFactory(UserFactory)
     mime_type = Faker("mime_type")
     uuid = Faker("uuid4")
-    context = LazyFunction(lambda: {})
+    context = LazyFunction(dict)
 
     class Meta:
         model = models.Attachment

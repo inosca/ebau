@@ -19,7 +19,7 @@ class WorkItemTemplateFactory(DjangoModelFactory):
 
 class WorkItemListFilterPresetFactory(DjangoModelFactory):
     name = Faker("word")
-    query_params = LazyFunction(lambda: {})
+    query_params = LazyFunction(dict)
     prefilter_work_item_templates = True
     prefilter_tasks = False
 

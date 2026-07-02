@@ -17,13 +17,9 @@ logger = logging.getLogger(__name__)
 class EebaHandlerBadRequestException(Exception):
     """Exception for errors that should result in a 400 Bad Request response."""
 
-    pass
-
 
 class EebaHandlerServerException(Exception):
     """Exception for errors that should result in a 500 Internal Server Error response."""
-
-    pass
 
 
 def handle_eeba_client_exceptions(function):

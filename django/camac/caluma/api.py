@@ -391,11 +391,9 @@ class CalumaApi:
         caluma_settings = settings.APPLICATION.get("CALUMA", {})
 
         audit_work_item = caluma_workflow_models.WorkItem.objects.filter(
-            **{
-                "task_id": caluma_settings.get("AUDIT_TASK"),
-                "status": caluma_workflow_models.WorkItem.STATUS_READY,
-                "case__family__instance__pk": instance_id,
-            }
+            task_id=caluma_settings.get("AUDIT_TASK"),
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+            case__family__instance__pk=instance_id,
         ).first()
 
         if not audit_work_item:

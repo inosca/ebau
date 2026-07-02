@@ -48,7 +48,7 @@ def _is_addressed_to_the_responsible_service(instance):
 
 def _get_date_of_downloaded_decision_document(instance):
     decision_attachments = Attachment.objects.filter(
-        **{"context__isDecision": True}, instance_id=instance.pk
+        context__isDecision=True, instance_id=instance.pk
     )
 
     for decision_attachment in decision_attachments:

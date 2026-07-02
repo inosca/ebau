@@ -681,18 +681,14 @@ class CalumaYesNoFilter(BooleanFilter):
 
         if self.task_id:
             return queryset.filter(
-                **{
-                    "case__work_items__task_id": self.task_id,
-                    "case__work_items__document__answers__question_id": self.question,
-                    "case__work_items__document__answers__value": yes_no_value,
-                }
+                case__work_items__task_id=self.task_id,
+                case__work_items__document__answers__question_id=self.question,
+                case__work_items__document__answers__value=yes_no_value,
             )
         else:
             return queryset.filter(
-                **{
-                    "case__document__answers__question_id": self.question,
-                    "case__document__answers__value": yes_no_value,
-                }
+                case__document__answers__question_id=self.question,
+                case__document__answers__value=yes_no_value,
             )
 
 
