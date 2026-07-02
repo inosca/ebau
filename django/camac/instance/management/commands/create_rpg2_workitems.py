@@ -261,7 +261,7 @@ class Command(BaseCommand):
                     slug_stats["updated"] += 1
                     self.stdout.write(
                         self.style.NOTICE(
-                            f"  ...created work-item (state: {status}, instance: {instance.pk})"
+                            f"  [{slug_stats['processed']}/{total} - {slug}] ...created work-item (state: {status}, instance: {instance.pk})"
                         )
                     )
 
