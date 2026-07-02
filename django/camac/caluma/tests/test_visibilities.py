@@ -990,7 +990,7 @@ def test_publication_visibility(
 def test_publication_visibility_form_not_enabled(
     be_instance,
     caluma_admin_public_schema_executor,
-    create_caluma_publication,  # noqa: F811
+    create_caluma_publication,
     caluma_work_item_factory,
     caluma_document_factory,
     caluma_answer_factory,

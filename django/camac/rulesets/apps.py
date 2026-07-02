@@ -6,4 +6,4 @@ class RulesetsConfig(AppConfig):
     name = "camac.rulesets"
 
     def ready(self):
-        import camac.rulesets.signals  # noqa
+        import camac.rulesets.signals  # noqa: F401

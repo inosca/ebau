@@ -1,4 +1,4 @@
-import copy  # noqa: I001
+import copy
 import inspect
 import logging
 import os
@@ -10,7 +10,6 @@ from importlib import import_module, reload
 from pathlib import Path
 from typing import Callable, Literal, Optional
 from uuid import uuid4
-from django.utils import translation
 
 import django.db
 import faker
@@ -20,7 +19,6 @@ from alexandria.core import tasks as alexandria_tasks
 from alexandria.storages.backends.s3 import SsecGlobalS3Storage
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_core.relay import extract_global_id
-from camac.permissions.conditions import Check
 from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
@@ -31,14 +29,14 @@ from caluma.caluma_workflow import (
     models as caluma_workflow_models,
 )
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
-from celery.contrib.pytest import (  # noqa: F403, F401
+from celery.contrib.pytest import (
     # These are needed to make celery pytesting work
     # Check here for why that redundant rename is necesary
     # https://docs.astral.sh/ruff/rules/unused-import/
     celery_app as celery_app,
     celery_config as celery_config,
-    celery_parameters as celery_parameters,
     celery_enable_logging as celery_enable_logging,
+    celery_parameters as celery_parameters,
     use_celery_app_trap as use_celery_app_trap,
 )
 from django.conf import settings as django_settings
@@ -46,6 +44,7 @@ from django.core.cache import cache
 from django.core.management import call_command
 from django.http import FileResponse
 from django.urls import clear_url_caches
+from django.utils import translation
 from django.utils.module_loading import import_string
 from django.utils.timezone import make_aware, now
 from factory import Faker
@@ -60,8 +59,8 @@ from camac.alert_message import factories as alert_message_factories
 from camac.applicants import factories as applicant_factories
 from camac.billing import factories as billing_factories
 from camac.caluma.utils import CalumaInfo
-from camac.constants import kt_ag as ag_constants
 from camac.communications import factories as communications_factories
+from camac.constants import kt_ag as ag_constants
 from camac.core import factories as core_factories
 from camac.deadlines import factories as deadlines_factories
 from camac.document import factories as document_factories
@@ -70,7 +69,7 @@ from camac.dossier_import import factories as dossier_import_factories
 from camac.ech0211 import factories as ech_factories
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.fixtures.generated import external_factories
-from camac.fixtures.generated.settings_fixtures import *  # noqa F403, F401
+from camac.fixtures.generated.settings_fixtures import *  # noqa: F403
 from camac.gis import factories as gis_factories
 from camac.instance import factories as instance_factories
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
@@ -80,6 +79,7 @@ from camac.notification.serializers import (
 )
 from camac.objection import factories as objection_factories
 from camac.permissions import factories as permissions_factories
+from camac.permissions.conditions import Check
 from camac.permissions.models import AccessLevel
 from camac.responsible import factories as responsible_factories
 from camac.rulesets import factories as rulesets_factories
@@ -3417,7 +3417,7 @@ def mock_celery(mocker):
 
 
 @pytest.fixture
-def celery_fake_worker(celery_app, mocker):  # noqa: F811,C901
+def celery_fake_worker(celery_app, mocker):  # noqa: C901
     """
     Mock Celery task scheduling and allow running those tasks in tests.
 
@@ -3458,7 +3458,7 @@ def celery_fake_worker(celery_app, mocker):  # noqa: F811,C901
             try:
                 self.result = self.func(*self.args, **self.kwargs)
                 self.status = "SUCCESSFUL"
-            except Exception as exc:  # noqa
+            except Exception as exc:  # noqa: B902
                 self.result = exc
                 self.status = "FAILED"
                 if raise_errors:  # pragma: no cover

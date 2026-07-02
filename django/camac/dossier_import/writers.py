@@ -627,7 +627,7 @@ class CaseMetaWriter(FieldWriter):
 
 
 class EbauNumberWriter(FieldWriter):
-    def write(self, instance, value):  # noqa: C901
+    def write(self, instance, value):
         # do not rewrite the ebau-number
         if instance.case.meta.get("ebau-number"):
             return

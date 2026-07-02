@@ -1,1 +1,1 @@
-from psqlextra.backend.utils import *  # NOQA
+from psqlextra.backend.utils import *  # noqa: F403

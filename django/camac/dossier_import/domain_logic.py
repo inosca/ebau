@@ -246,7 +246,7 @@ def _do_transmit_import(dossier_import):
         r.raise_for_status()
         dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMITTED
 
-    except Exception as e:  # pragma: no cover # noqa: B902
+    except Exception as e:  # pragma: no cover  # noqa: B902
         log.exception(e)
         dossier_import.messages["import"]["exception"] = str(e)
         dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMISSION_FAILED
@@ -295,7 +295,7 @@ def _do_undo_import(dossier_import):
         Case.objects.filter(**{"meta__import-id": str(dossier_import.pk)}).delete()
         dossier_import.delete()
         return DossierImport.IMPORT_STATUS_UNDONE
-    except Exception as e:  # pragma: no cover # noqa: B902
+    except Exception as e:  # pragma: no cover  # noqa: B902
         log.exception(e)
         dossier_import.status = DossierImport.IMPORT_STATUS_UNDO_FAILED
         dossier_import.save()
@@ -306,7 +306,7 @@ def clean_import(dossier_import):
     try:
         dossier_import.delete_file()
         dossier_import.status = DossierImport.IMPORT_STATUS_CLEANED
-    except Exception as e:  # pragma: no cover # noqa: B902
+    except Exception as e:  # pragma: no cover  # noqa: B902
         log.exception(e, exc_info=True)
         dossier_import.messages["import"]["exception"] = str(sys.exc_info())
         dossier_import.status = DossierImport.IMPORT_STATUS_CLEAN_FAILED

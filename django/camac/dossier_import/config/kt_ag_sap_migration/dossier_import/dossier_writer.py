@@ -1805,7 +1805,7 @@ class KtAargauDossierWriter(DossierWriter):
             caluma_user=self._caluma_user,
             camac_user=self._user,
             group=service.groups.filter(role__name="municipality-lead").first(),
-            caluma_form=CalumaForm.objects.get(  # noqa: F821
+            caluma_form=CalumaForm.objects.get(
                 pk=caluma_form_id or settings.DOSSIER_IMPORT["CALUMA_FORM"]
             ),
             start_caluma=True,
@@ -2157,7 +2157,7 @@ class KtAargauDossierWriter(DossierWriter):
             if has_rows:
                 answers.append(answer_option)
 
-        form_api.save_answer(  # noqa: F821
+        form_api.save_answer(
             document=instance.case.document,
             question=Question.objects.get(pk="weitere-personen"),
             value=answers,

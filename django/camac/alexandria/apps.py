@@ -5,4 +5,4 @@ class AlexandriaConfig(AppConfig):
     name = "camac.alexandria"
 
     def ready(self):
-        import camac.alexandria.extensions.events  # noqa: F401 imported for signales
+        import camac.alexandria.extensions.events  # noqa: F401

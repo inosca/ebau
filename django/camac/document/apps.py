@@ -7,7 +7,7 @@ class DefaultConfig(AppConfig):
     name = "camac.document"
 
     def ready(self):
-        import camac.document.signals  # noqa
+        import camac.document.signals  # noqa: F401
 
         _monkeypatch_sorl()
 
