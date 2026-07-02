@@ -79,6 +79,7 @@ MODULE_CONSTRUCTION_MONITORING_COMPLETE = (
 )
 MODULE_CONSTRUCTION_MONITORING_SKIP = MODULE_CONSTRUCTION_MONITORING_COMPLETE
 MODULE_COMMUNICATIONS = STATES_ALL
+MODULE_COMPLETE_INSTANCE = RequireWorkItem("complete-instance", "ready")
 MODULE_CORRECTIONS = (
     STATES_ALL | RequireInstanceState(["correction"])
 ) & ROLES_MUNICIPALITY
@@ -302,6 +303,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
             ("construction-monitoring-skip", MODULE_CONSTRUCTION_MONITORING_SKIP),
             ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING_WRITE),
+            ("complete-instance-read", MODULE_COMPLETE_INSTANCE),
             ("corrections-read", MODULE_CORRECTIONS),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),

@@ -564,6 +564,7 @@ ECH0211 = {
                 ("complete", "construction-acceptance", None),
                 # set "skip" context for 'resolve_after_construction_monitoring' (see dynamic_tasks.py)
                 ("skip", "init-construction-monitoring", {"skip": True}),
+                ("complete", "complete-instance", None),
             ],
         },
         "TASK_SEND": {

@@ -126,18 +126,51 @@ class CustomDynamicTasks(BaseDynamicTasks):
         return [settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"]]
 
     def resolve_after_decision_gr(self, case, user, prev_work_item, context):
-        if domain_logic.DecisionLogic.should_continue_after_decision(
-            case.instance, prev_work_item
-        ):
-            # construction monitoring is already started on dossier submit in GR,
-            # if the module is enabled.
-            return (
-                []
-                if is_module_enabled("CONSTRUCTION_MONITORING")
-                else ["construction-acceptance"]
-            )
+        # until construction monitoring is active in production for GR,
+        # we will handle both scenario's differently below.
+        # TODO: when construction monitoring is enabled, use instead:
+        # complete_instance_task = `settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"]`
+        complete_instance_task = "complete-instance"
+        instance = case.instance
+        should_continue = domain_logic.DecisionLogic.should_continue_after_decision(
+            instance,
+            prev_work_item,
+        )
 
-        return []
+        if is_module_enabled("CONSTRUCTION_MONITORING"):
+            init_task = settings.CONSTRUCTION_MONITORING[
+                "INIT_CONSTRUCTION_MONITORING_TASK"
+            ]
+
+            if should_continue:
+                # when continuing after the decision, we create the init work item if
+                # it doesn't exist yet. (normally created after submit, but not for
+                # dossiers that are submitted before this change).
+                # note: we don't care for the workitem status here.
+                init_exists = instance.case.work_items.filter(
+                    task_id=init_task
+                ).exists()
+
+                return [init_task] if not init_exists else []
+            else:
+                # if construction monitoring init item has been completed, we
+                # don't want to create the complete instance work item yet, because it
+                # will be created after completing the construction monitoring.
+                init_completed = instance.case.work_items.filter(
+                    task_id=init_task,
+                    status=WorkItem.STATUS_COMPLETED,
+                ).first()
+
+                return [] if init_completed else [complete_instance_task]
+        else:
+            if should_continue:
+                # we always create the construction-acceptance work item after a
+                # decision that will continue the workflow.
+                return ["construction-acceptance"]
+            else:
+                # we always create the complete instance workitem after a decision
+                # that will not continue the workflow.
+                return [complete_instance_task]
 
     @register_dynamic_task("after-decision-ur")
     def resolve_after_decision_ur(self, case, user, prev_work_item, context):

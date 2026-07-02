@@ -334,6 +334,7 @@ def test_decision_event_handler_gr(
     aib_answer.save()
 
     access_level_factory(slug="read")
+    instance_state_factory(name="decided")
     instance_state_factory(name="finished")
 
     assert InstanceACL.objects.filter(instance=gr_instance).count() == 0

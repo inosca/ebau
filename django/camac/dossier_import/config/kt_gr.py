@@ -260,7 +260,7 @@ class KtGraubundenDossierWriter(DossierWriter):
             "distribution",
             "decision",
         ]
-        REJECTED = DECIDED + ["create-manual-workitems"]
+        REJECTED = DECIDED + ["create-manual-workitems", "complete-instance"]
         DONE = (
             DECIDED
             + ["create-manual-workitems"]
@@ -269,6 +269,7 @@ class KtGraubundenDossierWriter(DossierWriter):
                 if is_module_enabled("CONSTRUCTION_MONITORING")
                 else ["construction-acceptance"]
             )
+            + ["complete-instance"]
         )
 
         path_to_state = {
