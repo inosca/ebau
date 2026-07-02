@@ -1,5 +1,6 @@
 from caluma.caluma_form.models import Form
 from django import forms
+from django.conf import settings
 from django.contrib.admin import ModelAdmin, display, register
 from django.contrib.admin.widgets import FilteredSelectMultiple
 from django.forms import ModelForm
@@ -27,7 +28,7 @@ class DeadlineTypeForm(ModelForm):
             "exclude_public_holidays",
             "services",
             "service_groups",
-            "form_types",
+            "procedure_type",
         )
 
     def __init__(self, *args, **kwargs):
@@ -42,6 +43,9 @@ class DeadlineTypeForm(ModelForm):
         )
         self.fields["form_types"].choices = [(s, s) for s in slugs]
         self.initial["form_types"] = self.instance.form_types or []
+
+        if not settings.DEADLINES.procedure_type.enabled:
+            self.fields["procedure_type"].widget = forms.HiddenInput()
 
     def clean_form_types(self):
         return list(self.cleaned_data.get("form_types", []))
@@ -60,11 +64,19 @@ class DeadlineTypeAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
         "get_service_names",
         "get_service_group_names",
         "get_form_types",
+        "procedure_type",
     ]
     autocomplete_fields = ["services", "service_groups"]
     search_fields = ["name"]
     ordering = ["name"]
     form = DeadlineTypeForm
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if not settings.DEADLINES.procedure_type.enabled:
+            self.list_display = [
+                field for field in self.list_display if field != "procedure_type"
+            ]
 
     @display(description=_("Services"))
     def get_service_names(self, obj):
