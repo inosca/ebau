@@ -199,10 +199,8 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             )
         except Exception:
             print(
-                _(
-                    "Could not find lead authority for construction control %(id)d"
-                    % {"id": obj.pk}
-                )
+                _("Could not find lead authority for construction control %(id)d")
+                % {"id": obj.pk}
             )
             return None
 

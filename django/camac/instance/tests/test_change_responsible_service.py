@@ -158,7 +158,7 @@ def test_change_responsible_service(
     elif expected_status == status.HTTP_400_BAD_REQUEST:
         assert (
             response.data[0]["detail"]
-            == f"{service_type} is not a valid service type - valid types are: municipality, construction_control"
+            == f"{service_type} ist kein korrekter Servicetyp - korrekte Typen sind: municipality, construction_control"
         )
 
 
