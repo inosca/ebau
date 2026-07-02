@@ -250,7 +250,6 @@ class ApplicationView(
     instance_field = None
     serializer_class = Serializer
     renderer_classes = (XMLRenderer,)
-    instance_field = None
     queryset = Instance.objects
     allow_external_clients = True
 
@@ -301,7 +300,6 @@ class ApplicationsView(
     instance_field = None
     serializer_class = ApplicationsSerializer
     queryset = Instance.objects
-    instance_field = None
     filter_backends = []
     allow_external_clients = True
 

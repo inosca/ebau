@@ -1273,7 +1273,6 @@ class Command(BaseCommand):
                     tqdm.write(
                         f"\n ERROR: FAILED to migrate Row PK {row.pk} for Instance {case.instance.pk}, Case {case.pk}: {str(e)}"
                     )
-                    pass
             attachment_summary = self._transfer_batch_to_db(
                 batch_data=batch_data, case=case
             )
@@ -1287,7 +1286,6 @@ class Command(BaseCommand):
             self._log_case_summary(
                 case=case, case_trace_data=case_trace_data, attachment_summary={}
             )
-            pass
 
         case.meta[MIGRATION_META_TIMESTAMP_KEY] = timezone.now().isoformat()
         case.save(update_fields=["meta"])

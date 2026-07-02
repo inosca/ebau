@@ -111,7 +111,6 @@ def extract_node(node, info):  # pragma: no cover
     dict/list structure, but any variable references are de-referenced and
     inlined, so the return structure can be dealt with directly.
     """
-    ...
 
 
 @extract_node.register

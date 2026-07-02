@@ -24,7 +24,7 @@ class Command(BaseCommand):
         counter = 0
         for instance in instances:
             is_decision_oereb_attachments = instance.attachments.filter(
-                **{"context__isDecision": True}
+                context__isDecision=True
             )
 
             if is_decision_oereb_attachments:

@@ -177,7 +177,7 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
         lang = get_language()
         values = [v.strip() for v in raw_value.split(",") if v.strip()]
 
-        if param.endswith("_after") or param.endswith("_before"):
+        if param.endswith(("_after", "_before")):
             try:
                 return date.fromisoformat(raw_value).strftime(_DATE_STRFTIME)
             except ValueError:  # pragma: no cover

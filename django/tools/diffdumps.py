@@ -345,10 +345,8 @@ class Diffy:
                 return action()
             except IndexError:
                 self._print_e("Invalid choice, try again\n")
-                pass
             except KeyboardInterrupt:
                 self._print_e("Aborted, try again\n")
-                pass
 
     def dump(self):
         """Dump the merged result to output, display conflicts afterwards."""

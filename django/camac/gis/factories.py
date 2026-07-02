@@ -7,7 +7,7 @@ from camac.gis import models
 class GISDataSourceFactory(DjangoModelFactory):
     description = Faker("text")
     client = fuzzy.FuzzyChoice(dict(models.GISDataSource.CLIENT_CHOICES).keys())
-    config = LazyFunction(lambda: {})
+    config = LazyFunction(dict)
     disabled = False
 
     class Meta:

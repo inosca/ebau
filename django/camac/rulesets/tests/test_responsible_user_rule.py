@@ -382,8 +382,7 @@ def test_responsible_user_rule_reorder(
     service,
 ):
     rules = [
-        responsible_user_rule_factory(sort=sort, service=service)
-        for sort in range(0, 3)
+        responsible_user_rule_factory(sort=sort, service=service) for sort in range(3)
     ]
 
     response = admin_client.post(

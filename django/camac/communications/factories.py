@@ -16,7 +16,7 @@ class CommunicationsTopicFactory(DjangoModelFactory):
     subject = Faker("text")
     allow_replies = True
 
-    involved_entities = LazyFunction(lambda: [])
+    involved_entities = LazyFunction(list)
 
     class Meta:
         model = models.CommunicationsTopic

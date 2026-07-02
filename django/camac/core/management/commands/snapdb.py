@@ -158,8 +158,6 @@ class Command(BaseCommand):
             ):
                 proc.send_signal(signal.SIGUSR2)
 
-        pass
-
     def _print_list(self):
         snaps = self._list()
         for snap in snaps:

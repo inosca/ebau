@@ -133,7 +133,6 @@ class Command(BaseCommand):
                 # return (For example, a `build_q()` method in the permission
                 # class or one if it's parent / mixin classes)
                 raise RuntimeError(f"Permission class {perm_cls} not mapped yet")
-        pass
 
     def _role_to_accesslevel(self, role_name):
         mapping = {
@@ -290,7 +289,6 @@ class Command(BaseCommand):
                 else:
                     breakpoint()
                     # Something not properly matched...
-                    ...
             else:
                 actual_role = _role_permissions_lc[role]
 

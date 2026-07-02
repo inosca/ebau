@@ -113,7 +113,7 @@ def test_unsubscribe_responsible_service_removes_correct_services(
         active=0,
     )
 
-    for i in range(0, 2):
+    for i in range(2):
         instance_service_factory(
             instance=be_instance,
             service=service_factory(service_group__name="municipality"),

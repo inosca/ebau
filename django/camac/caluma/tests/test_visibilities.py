@@ -162,7 +162,7 @@ def test_document_visibility_filter(
 
     request = rf.get(
         "/graphql",
-        **{"HTTP_X_CAMAC_FILTERS": "inquiry_state=pending"},
+        HTTP_X_CAMAC_FILTERS="inquiry_state=pending",
     )
     request.user = caluma_admin_user
     query = """

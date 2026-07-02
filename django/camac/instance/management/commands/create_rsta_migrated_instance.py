@@ -47,7 +47,7 @@ class Command(BaseCommand):
         caluma_user.username = user.username
         caluma_user.group = group.pk
 
-        for _ in range(0, options["count"]):
+        for _ in range(options["count"]):
             instance = Instance.objects.create(
                 creation_date=now(),
                 modification_date=now(),
