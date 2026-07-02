@@ -717,7 +717,7 @@ def revoke(acl: InstanceACL, ends_at: Optional[datetime] = None, **kwargs):
     return PermissionManager.for_anonymous().revoke(acl, ends_at=ends_at, **kwargs)
 
 
-def _validate_grant(  # noqa: C901
+def _validate_grant(
     grant_type,
     user,
     service,

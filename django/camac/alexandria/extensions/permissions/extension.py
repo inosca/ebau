@@ -70,7 +70,7 @@ class CustomPermission:
 
         return set()  # pragma: no cover
 
-    def get_needed_patch_permissions(self, request, document) -> set:  # noqa: C901
+    def get_needed_patch_permissions(self, request, document) -> set:
         used_permissions = {MODE_UPDATE}
         for key in settings.ALEXANDRIA["RESTRICTED_FIELDS"]:
             if key not in request.parsed_data:

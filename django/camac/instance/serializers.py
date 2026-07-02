@@ -1632,7 +1632,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             ]:
                 self._send_notification(**notification_config)
 
-    def _send_notifications(self, case):  # noqa: C901
+    def _send_notifications(self, case):
         notification_key = "SUBMIT"
         if case.workflow_id == "preliminary-clarification":  # pragma: no cover
             notification_key = "SUBMIT_PRELIMINARY_CLARIFICATION"

@@ -149,7 +149,7 @@ def start_wait_for_docs_from_sap_to_s3_task(
     # give the started replication some time to write the first status to the database
     sleep(10)
 
-    wait_for_docs_from_sap_to_s3_task.delay(  # noqa: transaction
+    wait_for_docs_from_sap_to_s3_task.delay(  # noqa: SG001
         municipality, replication_id, dossier_ids, segment_name, start_time
     )
 
@@ -165,4 +165,4 @@ def start_import_task(
         dossier_ids,
         segment_name,
         start_time,
-    )  # noqa: transaction
+    )  # noqa: SG001

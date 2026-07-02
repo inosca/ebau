@@ -334,7 +334,7 @@ def validate_extra_columns(headings):
         ) % dict(extra="\n".join(extra_text))
 
 
-def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierImport:  # noqa
+def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierImport:
     """
     ZIP archive validation.
 

@@ -85,7 +85,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             timeout=settings.OIDC_BEARER_TOKEN_REVALIDATION_TIME,
         )
 
-    def _verify_token(self, jwt_value, accept_language_header):  # noqa: C901
+    def _verify_token(self, jwt_value, accept_language_header):
         try:
             jwt_decoded = self.keycloak.decode_token(
                 jwt_value.decode(), check_claims={"exp": None}

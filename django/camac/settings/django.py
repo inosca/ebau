@@ -24,9 +24,8 @@ from camac.utils import (
 # We need to import the caluma settings after we merge os.environ with our
 # local .env file otherwise caluma tries to get it's settings from it's own env
 # file (which doesn't exist)
-
-from caluma.settings.caluma import *  # noqa isort:skip
-from alexandria.settings.alexandria import *  # noqa isort:skip
+from alexandria.settings.alexandria import *  # noqa: F403  # isort: skip
+from caluma.settings.caluma import *  # noqa: F403  # isort: skip
 
 ENV = env.str("APPLICATION_ENV", default="production")
 APPLICATION_NAME = env.str("APPLICATION")

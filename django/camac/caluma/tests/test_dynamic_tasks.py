@@ -359,9 +359,9 @@ def test_after_decision_ag(
 @pytest.mark.django_db
 def test_dynamic_task_after_inquiries_completed(
     caluma_admin_user,
-    distribution_child_case_be,  # noqa: F811
+    distribution_child_case_be,
     be_distribution_settings,
-    inquiry_factory_be,  # noqa: F811
+    inquiry_factory_be,
     service,
     service_factory,
     is_lead_authority,

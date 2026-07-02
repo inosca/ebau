@@ -1,1 +1,1 @@
-from .extension import *  # noqa: F401, F403
+from .extension import *  # noqa: F403

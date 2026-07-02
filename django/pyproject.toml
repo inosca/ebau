@@ -38,7 +38,11 @@ lint.ignore = [
 line-length = 88
 
 
-lint.select = ["C9", "D", "E", "F", "W", "I", "INT", "FLY", "TC", "PIE"]
+lint.select = ["C9", "D", "E", "F", "W", "I", "INT", "FLY", "TC", "PIE", "PGH"]
+
+# codes owned by other tools (ast-grep) that appear in `# noqa` comments and
+# should not be flagged by ruff as invalid directives
+lint.external = ["SG001"]
 
 [tool.ruff.lint.mccabe]
 max-complexity = 11

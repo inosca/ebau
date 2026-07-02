@@ -1,1 +1,1 @@
-from camac.notification.admin.views import *  # noqa 401, 403
+from camac.notification.admin.views import *  # noqa: F403

@@ -90,7 +90,7 @@ class Command(BaseCommand):
 
         return circulation
 
-    def _update_activation(self, activation, parent):  # noqa: C901
+    def _update_activation(self, activation, parent):
         changed = False
         self.stdout.write(
             "Activation '%s' belongs to '%s' issued by '%s'"

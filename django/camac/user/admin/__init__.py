@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.models import Group as DjangoGroup
 from django_celery_beat import admin as dcb_admin
 
-from camac.user.admin.views import *  # noqa 401, 403
+from camac.user.admin.views import *  # noqa: F403
 
 admin.site.unregister(DjangoGroup)
 

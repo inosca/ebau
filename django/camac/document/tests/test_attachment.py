@@ -1912,7 +1912,7 @@ def test_accesslevel_based_permission(
     doc_a_same = af("Doc A Same", my_service, section_a)
     doc_a_othr = af("Doc A Othr", other_service, section_a)
     doc_b_same = af("Doc B Same", my_service, section_b)
-    doc_b_othr = af("Doc B Othr", other_service, section_b)  # noqa
+    doc_b_othr = af("Doc B Othr", other_service, section_b)  # noqa: F841
 
     url = reverse("attachment-list")
 

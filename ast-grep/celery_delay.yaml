@@ -7,7 +7,7 @@ message: "Using `.delay()` directly can lead to race conditions (celery starting
 note: |
   Use `django.db.transaction.on_commit(lambda: task.delay(...))` instead
   to ensure the task only runs after a successful commit.
-  Hint: You can use `# noqa: transaction` to ignore this rule.
+  Hint: You can use `# noqa: SG001` to ignore this rule.
 rule:
   all:
     - pattern: "$TASK.delay($$$ARGS)"
@@ -21,9 +21,9 @@ rule:
                 - kind: lambda
                 - precedes:
                     kind: comment
-                    regex: "noqa: transaction"
+                    regex: "noqa: SG001"
                 - follows:
                     kind: comment
-                    regex: "noqa: transaction"
+                    regex: "noqa: SG001"
           - has:
-              regex: "#.*noqa: transaction"
+              regex: "#.*noqa: SG001"

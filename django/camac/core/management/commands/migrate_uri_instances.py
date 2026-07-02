@@ -259,7 +259,7 @@ class Command(BaseCommand):
 
         return work_item
 
-    def handle(self, *args, **options):  # noqa: C901
+    def handle(self, *args, **options):
         self.verbose = not options["only_creation_log"]
 
         self.stdout.write("Starting Instance to Caluma Case and WorkItem migration")

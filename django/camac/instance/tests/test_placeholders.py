@@ -72,7 +72,7 @@ def test_dms_placeholders_gr(
     admin_user,
     admin_client,
     application_settings,
-    gr_master_data_case,  # noqa
+    gr_master_data_case,
     settings,
     gr_instance,
     snapshot,
@@ -585,7 +585,7 @@ def test_dms_placeholders_be(
     settings,
     set_application_be,
     be_instance,
-    be_master_data_case,  # noqa
+    be_master_data_case,
     billing_v2_entry_factory,
     group,
     instance_service,

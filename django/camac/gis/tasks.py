@@ -35,7 +35,7 @@ def schedule_process_gis_data_sources(queryset, query_params):
     # TODO: somehow pass aloing the "gis" group that django-q used.
     # I guess this should be used as a queue identifier (or whatever the
     # meaning of "group" was in django-q)
-    return process_gis_data_sources.delay(client_ids, query_params)  # noqa: transaction
+    return process_gis_data_sources.delay(client_ids, query_params)  # noqa: SG001
 
 
 @shared_task

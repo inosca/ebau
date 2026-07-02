@@ -38,7 +38,7 @@ def get_question_slug(mapping, question_id):
     raise Exception(f"No slug for question '{question_id}' found")
 
 
-def get_value(value, question, value_mapping):  # noqa: C901
+def get_value(value, question, value_mapping):
     if value.startswith("[") and value.endswith("]"):
         # multiple values
         return [get_value(raw, question, value_mapping) for raw in json.loads(value)]
