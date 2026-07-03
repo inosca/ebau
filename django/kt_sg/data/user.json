@@ -4630,6 +4630,22 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 292,
+    "fields": {
+      "role": 8,
+      "service": 145,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 4,
     "fields": {
@@ -7510,6 +7526,16 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 292,
+    "fields": {
+      "group": 292,
+      "language": "de",
+      "name": "Feueraufseher (Gemeinde St. Gallen)",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -7572,6 +7598,17 @@
       "group": 155,
       "default_group": 0,
       "created_at": "2026-02-13T11:28:40.149Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 7,
+    "fields": {
+      "user": 1,
+      "group": 292,
+      "default_group": 0,
+      "created_at": "2026-07-03T15:22:17.718Z",
       "created_by": 1
     }
   },
@@ -11426,6 +11463,32 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 145,
+    "fields": {
+      "slug": null,
+      "service_group": 1,
+      "service_parent": 3,
+      "name": null,
+      "description": null,
+      "sort": 144,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 1,
     "fields": {
@@ -13150,6 +13213,18 @@
       "name": "AB Appenzeller Bahnen",
       "description": "AB Appenzeller Bahnen",
       "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 145,
+    "fields": {
+      "service": 145,
+      "language": "de",
+      "name": "Feueraufseher (Gemeinde St. Gallen)",
+      "description": "Feueraufseher (Gemeinde St. Gallen)",
+      "city": "",
       "department": null
     }
   }
