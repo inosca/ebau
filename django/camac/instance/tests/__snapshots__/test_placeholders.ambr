@@ -21728,24 +21728,11 @@
     'field_projektverfasser_planer': list([
     ]),
     'field_publikation_bemerkung': '',
-    'field_punkte': list([
-      list([
-        dict({
-          'lat': 47.175669937318816,
-          'lng': 8.8984885140077,
-        }),
-        dict({
-          'lat': 47.03185841071765,
-          'lng': 8.622585392467867,
-        }),
-      ]),
-      list([
-        dict({
-          'lat': 47.03185841071765,
-          'lng': 8.622585392467867,
-        }),
-      ]),
-    ]),
+    'field_punkte': '''
+      2’710’662 / 1’225’997, 2’689’990 / 1’209’658
+      
+      2’689’990 / 1’209’658
+    ''',
     'field_standort_adresse': '',
     'field_standort_koordinaten': '''
       2693525; 1210987

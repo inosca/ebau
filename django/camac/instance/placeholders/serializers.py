@@ -25,6 +25,7 @@ from camac.instance.placeholders.utils import (
     format_gis_center_coordinates,
     to_configured_case,
 )
+from camac.instance.validators import transform_coordinates
 from camac.user.models import Location, Service
 from camac.utils import build_url, clean_join
 
@@ -2771,6 +2772,9 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     field_punkte = fields.MasterDataField(
         source="coordinates",
         aliases=["FIELD_PUNKTE"],
+        join_by="\n\n",
+        # parser with join_by is applied to each value of the list implicitly
+        parser=lambda path: ", ".join(transform_coordinates(path)),
         description=_(
             "List of geolocated geometries (paths) outlining the project's affected area"
         ),
