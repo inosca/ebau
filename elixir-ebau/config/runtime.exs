@@ -30,6 +30,7 @@ if config_env() == :dev do
     version: "1.77.8",
     default: [
       args: [
+        "--load-path=../deps/elixir_uikit/priv/vendor/uikit/scss",
         "css/app-#{System.fetch_env!("APPLICATION")}.scss",
         "../priv/static/assets/css/app.css"
       ],

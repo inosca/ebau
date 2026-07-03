@@ -19,23 +19,44 @@
 
 // Include phoenix_html to handle method=PUT/DELETE in forms and buttons.
 import "phoenix_html"
+
+import UIkit from "../../deps/elixir_uikit/priv/vendor/uikit/js/uikit.min.js"
+import Icons from "../../deps/elixir_uikit/priv/vendor/uikit/js/uikit-icons.min.js"
+
+UIkit.use(Icons)
+window.UIkit = UIkit
+
+import UikitHooks, {onBeforeElUpdated} from "../../deps/elixir_uikit/priv/static/js/elixir_uikit.js"
+
 // Establish Phoenix Socket and LiveView configuration.
 import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import {hooks as colocatedHooks} from "phoenix-colocated/ebau"
-import topbar from "../vendor/topbar"
 
 const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: {_csrf_token: csrfToken},
-  hooks: {...colocatedHooks},
+  hooks: {...colocatedHooks, ...UikitHooks},
+  dom: {onBeforeElUpdated},
 })
 
-// Show progress bar on live navigation and form submits
-topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
-window.addEventListener("phx:page-loading-start", _info => topbar.show(300))
-window.addEventListener("phx:page-loading-stop", _info => topbar.hide())
+// Form reset utility
+// This can be used to reset a form in the DOM after a successfull submission.
+//
+// Example:
+//
+//   socket
+//   |> put_flash(:info, "Comment saved")
+//   |> push_event("reset-form", %{id: "comment-form"}) # <- This will reset the HTML form
+window.addEventListener("phx:reset-form", e => {
+  const el = document.getElementById(e.detail.id);
+  if (el) {
+    el.reset();
+  } else {
+    console.error(`Element with the ID "${e.detail.id}" not found!`);
+  }
+})
 
 // connect if there are any LiveViews on the page
 liveSocket.connect()
