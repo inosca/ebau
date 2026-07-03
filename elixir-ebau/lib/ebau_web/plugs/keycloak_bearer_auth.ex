@@ -21,12 +21,7 @@ defmodule EbauWeb.Plugs.KeycloakBearerAuth do
              load: [:role, service: [:service_group]],
              actor: %{user: user}
            ) do
-      Ash.PlugHelpers.set_actor(conn, %Ebau.Actor{
-        user: user,
-        group: group,
-        service: group.service,
-        role: group.role
-      })
+      Ash.PlugHelpers.set_actor(conn, Ebau.Actor.new(user, group))
     else
       error ->
         Logger.warning("Bearer auth failed: #{inspect(error)}")

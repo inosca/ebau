@@ -50,7 +50,7 @@ defmodule Ebau.User.Group do
       source :GROUP_ID
     end
 
-    attribute :name, :string do
+    attribute :name_untranslated, :string do
       constraints max_length: 100
       source :NAME
     end
@@ -80,5 +80,15 @@ defmodule Ebau.User.Group do
     end
 
     has_many :user_groups, Ebau.User.UserGroup
+
+    has_one :user_group_for_user, Ebau.User.UserGroup do
+      filter expr(user_id == ^actor([:user, :id]))
+    end
+
+    has_many :trans, Ebau.User.GroupT
+  end
+
+  calculations do
+    calculate :name, :string, Ebau.Calculations.LocalisedName
   end
 end

@@ -28,6 +28,7 @@ defmodule Ebau.User.User do
     strategies do
       oidc :ebau do
         client_id Ebau.Secrets
+        client_secret Ebau.Secrets
         base_url Ebau.Secrets
         authorization_params Ebau.Secrets
         redirect_uri Ebau.Secrets
@@ -41,6 +42,21 @@ defmodule Ebau.User.User do
   relationships do
     many_to_many :groups, Ebau.User.Group do
       through Ebau.User.UserGroup
+      sort :name
+    end
+
+    has_many :user_groups, Ebau.User.UserGroup
+
+    has_one :default_user_group, Ebau.User.UserGroup do
+      filter expr(default_group == 1)
+      # The legacy table has no unique constraint on the default flag,
+      # so pick deterministically if duplicates ever exist.
+      sort id: :asc
+      from_many? true
+    end
+
+    has_one :default_group, Ebau.User.Group do
+      through [:default_user_group, :group]
     end
   end
 

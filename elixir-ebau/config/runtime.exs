@@ -59,7 +59,8 @@ if config_env() != :test do
     realm: System.get_env("KEYCLOAK_REALM", "ebau"),
     client_id: System.get_env("KEYCLOAK_CLIENT", "camac"),
     scopes: System.get_env("KEYCLOAK_SCOPES", "openid email"),
-    email_claim: System.get_env("DJANGO_OIDC_EMAIL_CLAIM", "email")
+    email_claim: System.get_env("DJANGO_OIDC_EMAIL_CLAIM", "email"),
+    client_secret: System.get_env("KEYCLOAK_CLIENT_SECRET", "NOTNEEDED")
 end
 
 if config_env() == :dev do

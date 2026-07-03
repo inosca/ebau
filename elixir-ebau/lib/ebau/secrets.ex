@@ -16,7 +16,7 @@ defmodule Ebau.Secrets do
   def secret_for(path, Ebau.User.User, _opts, _context) do
     key = List.last(path)
 
-    if key not in [:client_id, :base_url, :authorization_params, :redirect_uri] do
+    if key not in [:client_id, :client_secret, :base_url, :authorization_params, :redirect_uri] do
       raise ArgumentError, "unknown secret path: #{inspect(path)}"
     end
 
@@ -26,6 +26,11 @@ defmodule Ebau.Secrets do
   defp oauth2_secret(:client_id) do
     keycloak_config()
     |> Keyword.fetch!(:client_id)
+  end
+
+  defp oauth2_secret(:client_secret) do
+    keycloak_config()
+    |> Keyword.fetch!(:client_secret)
   end
 
   defp oauth2_secret(:base_url) do

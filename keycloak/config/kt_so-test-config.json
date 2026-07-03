@@ -4111,6 +4111,7 @@
         "clientAuthenticatorType": "client-secret",
         "redirectUris": [
           "http://localhost:4400/*",
+          "http://localhost:4000/*",
           "http://ember-ebau.localhost/*",
           "https://oauth.pstmn.io/*"
         ],

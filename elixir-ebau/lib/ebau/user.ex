@@ -11,7 +11,10 @@ defmodule Ebau.User do
 
   authorization do
     authorize :by_default
-    require_actor? true
+
+    # No `require_actor?` here: AshAuthentication resolves the session user
+    # via `subject_to_user/3` without an actor (covered by the
+    # AshAuthenticationInteraction bypass on the User resource).
   end
 
   resources do
@@ -31,9 +34,15 @@ defmodule Ebau.User do
     resource Ebau.User.Group do
       define :create_group
       define :get_group_for_actor, get_by: [:id]
+      define :get_group_by_id, get_by: [:id], action: :read
     end
 
-    resource Ebau.User.UserGroup
+    resource Ebau.User.GroupT
+
+    resource Ebau.User.UserGroup do
+      define :set_default_user_group
+      define :clear_default_user_group
+    end
 
     resource Ebau.User.Service do
       define :create_service
