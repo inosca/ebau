@@ -131,7 +131,21 @@ class PermissionEventHandlerGR(
             )
 
     def inquiry_completed(self, instance: Instance, work_item: WorkItem):
-        # USOs keep their access if they respond to an inquiry.
+        # USOs keep their access if they respond to an inquiry (excludes automatic completion after deadline).
+        status_answer = (
+            work_item.child_case.document.answers.filter(
+                question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
+            ).first()
+            if work_item.child_case
+            else None
+        )
+        is_automatic_renounced = (
+            status_answer
+            and status_answer.value
+            == settings.DISTRIBUTION["INQUIRY_ANSWER_AUTOMATIC_RENOUNCED"]
+        )
+
+        # automatic renounced inquiries are excluded, these should not give permission for uso.
         for addr in work_item.addressed_groups:
             service = Service.objects.get(pk=addr)
             if "uso" in service.groups.values_list("role__name", flat=True):
@@ -139,13 +153,17 @@ class PermissionEventHandlerGR(
                     instance=instance, service_id=service
                 ):
                     self.manager.revoke(acl, event_name="inquiry-completed")
-                self.manager.grant(
-                    instance,
-                    grant_type="SERVICE",
-                    access_level="uso",
-                    service=service,
-                    event_name="inquiry-completed",
-                )
+
+                # don't give a new ACL if the inquiry was automatically renounced,
+                # as the USO didn't actually respond to the inquiry.
+                if not is_automatic_renounced:
+                    self.manager.grant(
+                        instance,
+                        grant_type="SERVICE",
+                        access_level="uso",
+                        service=service,
+                        event_name="inquiry-completed",
+                    )
 
     def gvg_work_item_created(self, work_item: WorkItem):
         if (

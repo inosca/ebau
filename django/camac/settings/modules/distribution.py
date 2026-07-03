@@ -33,6 +33,7 @@ DISTRIBUTION = {
         "INQUIRY_WORKFLOW": "inquiry",
         "INQUIRY_ANSWER_FORM": "inquiry-answer",
         "INQUIRY_ANSWER_FILL_TASK": "fill-inquiry",
+        "INQUIRY_ANSWER_AUTOMATIC_RENOUNCED": "inquiry-answer-status-automatic-renounced",
         "HISTORY": {},
         "REDO_INQUIRY": {},
         "REDO_DISTRIBUTION": {},
