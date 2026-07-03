@@ -119,7 +119,11 @@
           rel="noopener noreferrer"
         >{{format-coordinate @case.centerCoordinate}}</a>){{/if}}
 
-      {{#if (and @case.plots this.gisLinksForInstance.records)}}
+      {{#if
+        (and
+          (has-feature "gis.links") @case.plots this.gisLinksForInstance.records
+        )
+      }}
         <a href="#">{{or @case.plots "-"}}</a>
         <div
           uk-dropdown
