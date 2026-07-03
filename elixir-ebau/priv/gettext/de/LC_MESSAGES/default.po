@@ -1,0 +1,101 @@
+## "msgid"s in this file come from POT (.pot) files.
+###
+### Do not add, change, or remove "msgid"s manually here as
+### they're tied to the ones in the corresponding POT file
+### (with the same domain).
+###
+### Use "mix gettext.extract --merge" or "mix gettext.merge"
+### to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lib/ebau_web/components/core_components.ex:370
+#, elixir-autogen, elixir-format
+msgid "Actions"
+msgstr "Aktionen"
+
+#: lib/ebau_web/components/layouts.ex:121
+#: lib/ebau_web/components/layouts.ex:133
+#, elixir-autogen, elixir-format
+msgid "Attempting to reconnect"
+msgstr "Verbindung wird wiederhergestellt"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:81
+#, elixir-autogen, elixir-format
+msgid "Delete"
+msgstr "Löschen"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:64
+#, elixir-autogen, elixir-format
+msgid "Description"
+msgstr "Beschreibung"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:21
+#, elixir-autogen, elixir-format
+msgid "GIS links"
+msgstr "GIS Links"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:18
+#, elixir-autogen, elixir-format
+msgid "Invitations"
+msgstr "Einladungen"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:38
+#: lib/ebau_web/live/service_permissions/gis_links.ex:65
+#, elixir-autogen, elixir-format
+msgid "Link"
+msgstr "Link"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:19
+#, elixir-autogen, elixir-format
+msgid "Master data"
+msgstr "Stammdaten"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:33
+#, elixir-autogen, elixir-format
+msgid "Name"
+msgstr "Name"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:17
+#, elixir-autogen, elixir-format
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:42
+#, elixir-autogen, elixir-format
+msgid "Save"
+msgstr "Speichern"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:47
+#: lib/ebau_web/live/service_permissions/gis_links.ex:54
+#, elixir-autogen, elixir-format
+msgid "Search"
+msgstr "Suche"
+
+#: lib/ebau_web/components/layouts.ex:80
+#: lib/ebau_web/components/layouts.ex:82
+#, elixir-autogen, elixir-format
+msgid "Sign out"
+msgstr "Ausloggen"
+
+#: lib/ebau_web/components/layouts.ex:128
+#, elixir-autogen, elixir-format
+msgid "Something went wrong!"
+msgstr "Etwas ist schiefgelaufen!"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:20
+#, elixir-autogen, elixir-format
+msgid "Sub-services"
+msgstr "Unterfachstellen"
+
+#: lib/ebau_web/components/layouts.ex:116
+#, elixir-autogen, elixir-format
+msgid "We can't find the internet"
+msgstr "Keine Internetverbindung"
+
+#: lib/ebau_web/components/core_components.ex:76
+#, elixir-autogen, elixir-format
+msgid "close"
+msgstr "schliessen"

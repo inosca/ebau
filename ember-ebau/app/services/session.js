@@ -115,6 +115,12 @@ export default class CustomSession extends Session {
     // eslint-disable-next-line ember/classic-decorator-no-classic-methods
     this.set("data.group", value);
     this._group = value;
+
+    // Mirror the selected group to a cookie so the Phoenix LiveView side
+    // (which can't read localStorage) can resolve the active group.
+    if (typeof document !== "undefined") {
+      document.cookie = `camac_group=${value ?? ""}; path=/; SameSite=Lax`;
+    }
   }
 
   get isInternal() {

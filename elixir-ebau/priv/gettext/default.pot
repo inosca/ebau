@@ -1,0 +1,101 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new messages manually only if they're dynamic
+## messages that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here has no
+## effect: edit them in PO (.po) files instead.
+#
+msgid ""
+msgstr ""
+
+#: lib/ebau_web/components/core_components.ex:370
+#, elixir-autogen, elixir-format
+msgid "Actions"
+msgstr ""
+
+#: lib/ebau_web/components/layouts.ex:121
+#: lib/ebau_web/components/layouts.ex:133
+#, elixir-autogen, elixir-format
+msgid "Attempting to reconnect"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:81
+#, elixir-autogen, elixir-format
+msgid "Delete"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:64
+#, elixir-autogen, elixir-format
+msgid "Description"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:21
+#, elixir-autogen, elixir-format
+msgid "GIS links"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:18
+#, elixir-autogen, elixir-format
+msgid "Invitations"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:38
+#: lib/ebau_web/live/service_permissions/gis_links.ex:65
+#, elixir-autogen, elixir-format
+msgid "Link"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:19
+#, elixir-autogen, elixir-format
+msgid "Master data"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:33
+#, elixir-autogen, elixir-format
+msgid "Name"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:17
+#, elixir-autogen, elixir-format
+msgid "Permissions"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:42
+#, elixir-autogen, elixir-format
+msgid "Save"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:47
+#: lib/ebau_web/live/service_permissions/gis_links.ex:54
+#, elixir-autogen, elixir-format
+msgid "Search"
+msgstr ""
+
+#: lib/ebau_web/components/layouts.ex:80
+#: lib/ebau_web/components/layouts.ex:82
+#, elixir-autogen, elixir-format
+msgid "Sign out"
+msgstr ""
+
+#: lib/ebau_web/components/layouts.ex:128
+#, elixir-autogen, elixir-format
+msgid "Something went wrong!"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:20
+#, elixir-autogen, elixir-format
+msgid "Sub-services"
+msgstr ""
+
+#: lib/ebau_web/components/layouts.ex:116
+#, elixir-autogen, elixir-format
+msgid "We can't find the internet"
+msgstr ""
+
+#: lib/ebau_web/components/core_components.ex:76
+#, elixir-autogen, elixir-format
+msgid "close"
+msgstr ""
