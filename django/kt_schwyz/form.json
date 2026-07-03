@@ -10348,10 +10348,10 @@
       }
     },
     "info-vorhaben-mit-baute": {
-      "label": "Aufgrund Ihrer aktuellen Auswahl ist ein Energienachweis erforderlich<br/><br/>Bitte erstellen Sie den Energienachweis auf EVEN und laden Sie diesen anschliessend bei den Dokumenten hoch.<br/><br/><a href='https://www.energievollzug.ch/SZ/login' target='_blank'>Zur Projektübersicht EVEN wechseln</a><br/><br/>Wenn Sie noch kein EVEN Login haben, bitten wir Sie, sich auf EVEN zu registrieren.",
+      "label": "Es ist ein Energienachweis erforderlich.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value",
+      "active-expression": "'Beheizte oder gekühlte Neu- und Umbauten' in 'energienachweis-betrifft'|value || 'Die Änderung der Gebäudehülle beheizter oder gekühlter Bauten' in 'energienachweis-betrifft'|value || 'Die Installation / Änderung gebäudetechnischer Anlagen (Heizung, Lüftung, Klima- und/oder Kälteanlage)' in 'energienachweis-betrifft'|value",
       "config": {
         "options": ["Vorhanden"]
       }
