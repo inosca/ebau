@@ -48282,6 +48282,26 @@
     }
   },
   {
+    "model": "core.instanceresourcet",
+    "pk": 18000012,
+    "fields": {
+      "instance_resource": 18000007,
+      "language": "fr",
+      "name": "Saisie des données LAT",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 18000013,
+    "fields": {
+      "instance_resource": 18000008,
+      "language": "fr",
+      "name": "Saisie des données LAT",
+      "description": null
+    }
+  },
+  {
     "model": "core.irpage",
     "pk": 20012,
     "fields": {
