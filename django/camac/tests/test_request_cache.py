@@ -7,12 +7,12 @@ def test_get_or_set(fake_request, mocker):
 
     assert not hasattr(fake_request, "test1")
     assert get_or_set(fake_request, "test1", value) == 100
-    assert getattr(fake_request, "test1") == 100
+    assert fake_request.test1 == 100
     assert get_or_set(fake_request, "test1", "something") == 100
 
     assert not hasattr(fake_request, "test2")
     assert get_or_set(fake_request, "test2", value_factory) == 999
-    assert getattr(fake_request, "test2") == 999
+    assert fake_request.test2 == 999
     assert value_factory.call_count == 1
     assert get_or_set(fake_request, "test2", "something") == 999
 

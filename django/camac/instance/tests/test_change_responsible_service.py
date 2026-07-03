@@ -219,6 +219,6 @@ def test_change_responsible_service_with_permission_module(
     )
     assert response.status_code == expected_status
     if change_to_municipality:
-        be_instance.case.document.answers.filter(
+        assert be_instance.case.document.answers.filter(
             question_id="gemeinde"
-        ).first().value == new_service.pk
+        ).first().value == str(new_service.pk)

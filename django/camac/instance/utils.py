@@ -36,11 +36,11 @@ def get_lead_authority(service):
                 "Baukontrolle", "Leitbehörde"
             ),
         )
-    except Service.DoesNotExist:  # pragma: no cover
+    except Service.DoesNotExist as e:  # pragma: no cover
         raise Exception(
             _("Could not find lead authority for construction control %(id)d")
             % {"id": service.pk}
-        )
+        ) from e
 
 
 def get_construction_control(service):
@@ -53,11 +53,11 @@ def get_construction_control(service):
                 "Leitbehörde", "Baukontrolle"
             ),
         )
-    except Service.DoesNotExist:  # pragma: no cover
+    except Service.DoesNotExist as e:  # pragma: no cover
         raise Exception(
             _("Could not find construction control for lead authority %(id)d")
             % {"id": service.pk}
-        )
+        ) from e
 
 
 def get_municipality(instance: Instance) -> Service:
@@ -129,11 +129,13 @@ def copy_instance(
     user: User,
     caluma_user: OIDCUser,
     skip_submit: bool = True,
-    new_meta: dict = {},
-    old_meta: dict = {},
+    new_meta: dict = None,
+    old_meta: dict = None,
 ) -> Instance:
     from camac.instance.serializers import CalumaInstanceSerializer
 
+    old_meta = old_meta or {}
+    new_meta = new_meta or {}
     FakeRequest = namedtuple(
         "FakeRequest", ["group", "user", "caluma_info", "query_params"]
     )

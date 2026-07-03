@@ -41,8 +41,8 @@ class Command(BaseCommand):
             instance = Instance.objects.select_related("case", "instance_state").get(
                 pk=instance_id
             )
-        except Instance.DoesNotExist:
-            raise CommandError(f"Instance with ID {instance_id} does not exist")
+        except Instance.DoesNotExist as e:
+            raise CommandError(f"Instance with ID {instance_id} does not exist") from e
 
         # Check if the instance has a building-permit workflow
         if instance.case.workflow_id != "building-permit":
@@ -62,10 +62,10 @@ class Command(BaseCommand):
                 task_id="decision",
                 status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
             )
-        except WorkItem.DoesNotExist:
+        except WorkItem.DoesNotExist as e:
             raise CommandError(
                 f"No completed decision work item found for instance {instance_id}"
-            )
+            ) from e
 
         decision_created_at = decision_work_item.created_at
         self.stdout.write(

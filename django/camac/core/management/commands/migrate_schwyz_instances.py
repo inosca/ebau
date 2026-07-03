@@ -30,18 +30,21 @@ class Command(BaseCommand):
             default=False,
         )
 
-    def create_work_item_from_task(
+    def create_work_item_from_task(  # noqa: C901
         self,
         case,
         task_slug,
-        meta={},
+        meta=None,
         child_case=None,
-        context={},
+        context=None,
         deadline=None,
         instance=None,
         applicant=False,
-        additional_filters={},
+        additional_filters=None,
     ):
+        additional_filters = additional_filters or {}
+        context = context or {}
+        meta = meta or {}
         task = Task.objects.get(pk=task_slug)
 
         if WorkItem.objects.filter(case=case, task=task, **additional_filters).exists():

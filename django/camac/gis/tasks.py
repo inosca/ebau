@@ -30,7 +30,7 @@ def schedule_process_gis_data_sources(queryset, query_params):
             client_ids.append(gis_data.pk)
 
         except ValueError as e:
-            raise ValidationError(e)
+            raise ValidationError(e) from e
 
     # TODO: somehow pass aloing the "gis" group that django-q used.
     # I guess this should be used as a queue identifier (or whatever the

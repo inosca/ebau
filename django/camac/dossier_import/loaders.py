@@ -281,7 +281,7 @@ class XlsxFileDossierLoader(DossierLoader):
             return None, messages
         epoints = epoints.split(",") if isinstance(epoints, str) else [epoints]
         npoints = npoints.split(",") if isinstance(npoints, str) else [npoints]
-        for e, n in zip(epoints, npoints):
+        for e, n in zip(epoints, npoints, strict=False):
             e, n = numbers(e), numbers(n)
 
             if any(
@@ -344,9 +344,7 @@ class XlsxFileDossierLoader(DossierLoader):
                 if isinstance(egrids, str)
                 else [egrids]
             )
-            municipality = dossier_row.get(
-                getattr(XlsxFileDossierLoader.Column, "city").value
-            )
+            municipality = dossier_row.get(XlsxFileDossierLoader.Column.city.value)
 
             # handle deletable value
             if any(
@@ -384,10 +382,10 @@ class XlsxFileDossierLoader(DossierLoader):
 
         try:
             __, rows = get_worksheet_headings_and_rows(data_file)
-        except zipfile.BadZipfile:
+        except zipfile.BadZipfile as e:
             raise InvalidImportDataError(
                 _("Meta data file in archive is corrupt or not a valid .xlsx file.")
-            )
+            ) from e
 
         for row in rows:
             dossier = self._load_dossier(row)

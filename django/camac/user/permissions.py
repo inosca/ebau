@@ -76,11 +76,11 @@ def permission_aware(func):
         if not bool(group) and permission_func is None:  # pragma: no cover
             try:
                 return self.queryset.none()
-            except AttributeError:
+            except AttributeError as e:
                 raise RuntimeError(
                     f"Bad configuration: Anonymous User accessing unguarded method `{func.__name__}`, "
                     f"should be handled by a `{func.__name__}_for_public` method."
-                )
+                ) from e
 
         return func(self, *args, **kwargs)
 

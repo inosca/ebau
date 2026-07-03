@@ -48,9 +48,9 @@ class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
 
             # Set the camac_user property on the caluma request
             request.camac_user = request.camac_request.user
-        except User.DoesNotExist:
+        except User.DoesNotExist as e:
             # Raise a 401 error if the user was not found in the CAMAC database
-            raise HttpError(HttpResponseUnauthorized())
+            raise HttpError(HttpResponseUnauthorized()) from e
 
         if not has_required_lot(request.camac_request) or not is_allowed_client(
             request.camac_request

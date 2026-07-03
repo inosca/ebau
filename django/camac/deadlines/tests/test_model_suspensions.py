@@ -666,7 +666,7 @@ def test_suspension_save_validation_gr(
         }
     }
 
-    response = getattr(admin_client, "patch")(
+    response = admin_client.patch(
         reverse("suspensions-detail", args=[suspension.pk]),
         data,
     )

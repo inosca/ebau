@@ -1245,7 +1245,7 @@ def test_attachment_section_filters(
 
     docs = attachment_factory.create_batch(3, instance=instance)
     for doc, section in zip(
-        docs, [section_visible_1, section_visible_2, section_forbidden]
+        docs, [section_visible_1, section_visible_2, section_forbidden], strict=False
     ):
         doc.attachment_sections.add(section)
 

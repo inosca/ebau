@@ -1134,7 +1134,7 @@ class FormFieldOrdering(OrderingFilter):
     ordering_fields = None
 
     def _get_instance_pk_filter_expr(self, view):
-        instance_field_name = getattr(view, "instance_field")
+        instance_field_name = view.instance_field
         return (
             "pk"
             if not instance_field_name

@@ -46,7 +46,7 @@ class Command(BaseCommand):
             print("Please fix your CSV first.")
             exit(1)
 
-        for user, row in zip(users, rows):
+        for user, row in zip(users, rows, strict=False):
             if row.email:
                 user.email = row.email
                 if row.disabled:

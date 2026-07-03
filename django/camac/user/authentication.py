@@ -38,15 +38,11 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         # connections and LibSSL state.
         cls = type(self)
         if not hasattr(cls, "keycloak"):
-            setattr(
-                cls,
-                "keycloak",
-                KeycloakOpenID(
-                    server_url=settings.KEYCLOAK_URL,
-                    client_id=settings.KEYCLOAK_CLIENT,
-                    realm_name=settings.KEYCLOAK_REALM,
-                    verify=settings.OIDC_VERIFY_SSL,
-                ),
+            cls.keycloak = KeycloakOpenID(
+                server_url=settings.KEYCLOAK_URL,
+                client_id=settings.KEYCLOAK_CLIENT,
+                realm_name=settings.KEYCLOAK_REALM,
+                verify=settings.OIDC_VERIFY_SSL,
             )
 
     def get_jwt_value(self, request):
@@ -90,22 +86,22 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             jwt_decoded = self.keycloak.decode_token(
                 jwt_value.decode(), check_claims={"exp": None}
             )
-        except JWTExpired:
-            raise AuthenticationFailed(_("Signature has expired."))
-        except JWException:
-            raise AuthenticationFailed(_("Invalid token."))
+        except JWTExpired as e:
+            raise AuthenticationFailed(_("Signature has expired.")) from e
+        except JWException as e:
+            raise AuthenticationFailed(_("Invalid token.")) from e
 
         try:
             resp = self.keycloak.userinfo(jwt_value.decode())
-        except KeycloakAuthenticationError:  # pragma: no cover
+        except KeycloakAuthenticationError as e:  # pragma: no cover
             raise AuthenticationFailed(
                 _("User session not found or doesn't have client attached on it")
-            )
+            ) from e
         except KeycloakGetError as e:  # pragma: no cover
             request_logger.error(
                 f"Error while fetching the userinfo endpoint of Keycloak: {str(e)}"
             )
-            raise AuthenticationFailed(_("Error while fetching userinfo"))
+            raise AuthenticationFailed(_("Error while fetching userinfo")) from e
 
         # TODO: don't use jwt token at all, once Middleware is refactored
         return self._build_user(resp, accept_language_header), jwt_decoded

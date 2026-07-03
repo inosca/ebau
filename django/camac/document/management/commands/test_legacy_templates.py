@@ -39,7 +39,7 @@ def test_remove_dangling(template_factory, settings):
     tmpl2 = template_factory()
     tmpl2.delete()
     templates_dir = settings.MEDIA_ROOT / "templates"
-    len(templates_dir.listdir()) == 2
+    assert len(templates_dir.listdir()) == 2
     call_command("legacy_templates", "remove_dangling", "--run")
     assert len(templates_dir.listdir()) == 1
     assert (settings.MEDIA_ROOT / tmpl1.path.name).exists()

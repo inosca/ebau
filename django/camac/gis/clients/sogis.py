@@ -55,11 +55,11 @@ class SoGisClient(GISBaseClient):
 
         try:
             response.raise_for_status()
-        except requests.HTTPError:
+        except requests.HTTPError as e:
             raise RuntimeError(
                 _("Error %(code)s while fetching data from the geo.so.ch API")
                 % {"code": response.status_code}
-            )
+            ) from e
 
         result = response.json()
 

@@ -215,10 +215,11 @@ def set_is_published(sender, work_item, user, **kwargs):
 @on([post_redo_work_item, post_reopen_case], raise_exception=True)
 @transaction.atomic
 def set_work_items_unread_on_reopen(
-    work_items=[],  # argument of `post_reopen_case`
+    work_items=None,  # argument of `post_reopen_case`
     work_item=None,  # argument of `post_redo_work_item`
     **kwargs,
 ):
+    work_items = work_items or []
     for wi in filter(None, [*work_items, work_item]):
         wi.meta = {**wi.meta, "not-viewed": True}
         wi.save()

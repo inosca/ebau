@@ -1,13 +1,13 @@
-import importlib
 import json
 from pathlib import Path
 
 from django.conf import settings
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from django.utils.text import slugify
 from docxtpl import DocxTemplate
 from jinja2.exceptions import TemplateSyntaxError
 
+from camac.document.models import Template
 from camac.jinja import get_jinja_env
 
 
@@ -16,14 +16,6 @@ class Command(BaseCommand):
 
     def __init__(self, stdout=None, stderr=None, no_color=False, force_color=False):
         super().__init__(stdout, stderr, no_color, force_color)
-        try:
-            self.template_class = getattr(
-                importlib.import_module("camac.document.models"), "Template"
-            )
-        except ImportError:  # pragma: no cover, handles future deprecation
-            raise CommandError(
-                "'camac.document.models.Template' is not defined anymore."
-            )
         self.all_placeholders = set()
         self.fail_count = 0
         self.jinja_env = get_jinja_env()
@@ -64,7 +56,7 @@ class Command(BaseCommand):
         method(*args, **options)
 
     def extract_used(self, *args, **options):
-        for template in self.template_class.objects.all():
+        for template in Template.objects.all():
             doc = DocxTemplate(template.path)
 
             try:
@@ -96,7 +88,7 @@ class Command(BaseCommand):
         target_file = Path(options["out_file"])
 
         templates = []
-        for templ in self.template_class.objects.all():
+        for templ in Template.objects.all():
             template = Path(templ.path.name).name
             templ_slug = (
                 slugify(templ.name)
@@ -127,7 +119,7 @@ class Command(BaseCommand):
         )
 
     def remove_dangling(self, *args, **options):
-        referenced = self.template_class.objects.values_list("path", flat=True)
+        referenced = Template.objects.values_list("path", flat=True)
         match = "**/templates/*"
         all_files = Path(settings.MEDIA_ROOT).glob(match)
         self.stdout.write(

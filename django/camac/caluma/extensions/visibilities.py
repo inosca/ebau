@@ -287,7 +287,7 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         ):
             instance_ids = list(instance_ids.values_list("pk", flat=True))
 
-        setattr(info.context, "_visibility_instances_cache", instance_ids)
+        info.context._visibility_instances_cache = instance_ids
         return instance_ids
 
     def visible_additional_demands_expression(self, group):

@@ -38,8 +38,8 @@ def get_bbox(x: Union[float, str], y: Union[float, str], buffer: int = 0) -> str
     try:
         x = float(x)
         y = float(y)
-    except ValueError:
-        raise ValueError(_("Coordinates must be floats"))
+    except ValueError as e:
+        raise ValueError(_("Coordinates must be floats")) from e
 
     return ",".join(map(str, [x - delta, y - delta, x + delta, y + delta]))
 

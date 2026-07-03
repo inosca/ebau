@@ -52,10 +52,10 @@ def valid_date(date_string):
 
     try:
         return datetime.strptime(date_string, "%d.%m.%Y").date()
-    except ValueError:
+    except ValueError as e:
         raise argparse.ArgumentTypeError(
             f"Not a valid date: '{date_string}'. Use the 'dd.mm.YYYY' format."
-        )
+        ) from e
 
 
 class Command(BaseCommand):

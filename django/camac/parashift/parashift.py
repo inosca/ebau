@@ -184,15 +184,15 @@ class ParashiftImporter:
             raise ParashiftValidationError(
                 f"{parashift_id}: {identifier}: {post_process[1]}",
                 original_exception=e,
-            )
+            ) from e
 
     def _fetch_document(self, para_id):
         result = self._get(self.LINK_URI_FORMAT.format(document_id=para_id)).json()
 
         try:
             url = result["included"][0]["attributes"]["url"]
-        except (KeyError, IndexError):
-            raise ParashiftDataError("Couldn't fetch original PDF.")
+        except (KeyError, IndexError) as e:
+            raise ParashiftDataError("Couldn't fetch original PDF.") from e
 
         file_resp = self._get(url, auth=False)
         file = io.BytesIO(file_resp.content)

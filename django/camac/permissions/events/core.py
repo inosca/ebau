@@ -75,7 +75,7 @@ def decision_dispatch_method(fn: Callable) -> Callable:
         return decorator
 
     # setattr() is accepted by ruff, "wrapped.register =.." is no bueno
-    setattr(wrapped, "register", register)
+    wrapped.register = register
     return wrapped
 
 

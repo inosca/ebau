@@ -60,7 +60,7 @@ def validate_metainfo(model_obj: Model, value: dict):
     """
 
     model_cls = type(model_obj)
-    original_value = getattr(model_obj, "meta")
+    original_value = model_obj.meta
 
     resettable = RESETTABLE_META_VALUES.get(model_cls, [])
 

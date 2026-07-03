@@ -1517,7 +1517,7 @@ def test_instance_submit_sz(
 
         assert len(mailoutbox) == 2
         mail = mailoutbox[0]
-        mail.subject == notification_template.subject
+        assert notification_template.subject in mail.subject
 
         assert WorkflowEntry.objects.filter(
             instance=instance, workflow_item=workflow_item

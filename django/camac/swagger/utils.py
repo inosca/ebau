@@ -9,15 +9,14 @@ group_param = openapi.Parameter(
 )
 
 
-def get_operation_description(
-    companies: list = ["GemDat", "CMI", "Nexplore"], is_preview=False
-) -> str:
+def get_operation_description(companies: list = None, is_preview=False) -> str:
     """Generate a description for the given operation.
 
     You can override the list of companies, if one endpoint is only used for some
     of them. If you pass is_preview=True, a slightly different text is generated
     that will warn the users that this is not "set in stone" just yet.
     """
+    companies = companies or ["GemDat", "CMI", "Nexplore"]
     if not len(companies):  # pragma: no cover
         return ""
 

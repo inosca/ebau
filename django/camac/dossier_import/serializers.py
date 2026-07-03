@@ -64,4 +64,4 @@ class DossierImportSerializer(serializers.ModelSerializer):
         try:
             return validate_zip_archive_structure(str(dossier_import.pk))
         except InvalidImportDataError as e:
-            raise ValidationError(e)
+            raise ValidationError(e) from e

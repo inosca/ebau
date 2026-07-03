@@ -314,12 +314,12 @@ def post_complete_construction_step_work_item(
 )
 @transaction.atomic
 def post_complete_construction_monitoring(sender, work_item, user, context, **kwargs):
-    for work_item in work_item.case.work_items.filter(
+    for construction_stage in work_item.case.work_items.filter(
         task_id=settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STAGE_TASK"],
         status=WorkItem.STATUS_READY,
     ):
         # Unfinished construction stages must be skipped
-        skip_work_item(work_item=work_item, user=user, context=context)
+        skip_work_item(work_item=construction_stage, user=user, context=context)
 
     instance = get_instance(work_item)
     camac_user = User.objects.get(username=user.username)

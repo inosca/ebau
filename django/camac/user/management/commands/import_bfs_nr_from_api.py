@@ -94,7 +94,7 @@ class Command(BaseCommand):
             response = requests.get(api_url, stream=True)
             response.raise_for_status()
         except requests.exceptions.RequestException as e:
-            raise CommandError(f"Error fetching data from API: {e}")
+            raise CommandError(f"Error fetching data from API: {e}") from e
 
         decoded_content = (line.decode("utf-8") for line in response.iter_lines())
         filtered_list = self._filter_csv(
@@ -156,7 +156,7 @@ class Command(BaseCommand):
             bfs_code_idx = header.index("BfsCode")
             parent_idx = header.index("Parent")
         except ValueError as e:
-            raise CommandError(f"Missing expected column in CSV header: {e}")
+            raise CommandError(f"Missing expected column in CSV header: {e}") from e
 
         self.stdout.write(
             self.style.NOTICE(f"Processing communities for canton: {canton_filter}...")

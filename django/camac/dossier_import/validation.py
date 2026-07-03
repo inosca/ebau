@@ -55,20 +55,20 @@ def verify_source_file(source_file: str) -> str:
 
     try:
         archive = zipfile.ZipFile(source_file)
-    except zipfile.BadZipfile:
-        raise ValidationError(_("Uploaded file is not a valid .zip file"))
+    except zipfile.BadZipfile as e:
+        raise ValidationError(_("Uploaded file is not a valid .zip file")) from e
     try:
         metadata = archive.open("dossiers.xlsx")
-    except KeyError:
+    except KeyError as e:
         raise ValidationError(
             _("No metadata file 'dossiers.xlsx' found in uploaded archive.")
-        )
+        ) from e
     try:
         zipfile.ZipFile(metadata, "r")
-    except zipfile.BadZipfile:
+    except zipfile.BadZipfile as e:
         raise ValidationError(
             _("Metadata file `dossiers.xlsx` is not a valid .xlsx file.")
-        )
+        ) from e
     return source_file
 
 
@@ -354,10 +354,10 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
 
     try:
         headings, rows = get_worksheet_headings_and_rows(data_file)
-    except zipfile.BadZipfile:
+    except zipfile.BadZipfile as e:
         raise InvalidImportDataError(
             _("Meta data file in archive is corrupt or not a valid .xlsx file.")
-        )
+        ) from e
 
     if extra_columns_message := validate_extra_columns(headings):
         dossier_import.messages["validation"]["summary"]["warning"].append(

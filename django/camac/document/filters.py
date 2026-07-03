@@ -78,12 +78,12 @@ class AttachmentDownloadFilterSet(FilterSet):
     def filter_attachments(self, queryset, name, value):
         try:
             queryset = queryset.filter(pk__in=value)
-        except ValueError:
+        except ValueError as e:
             raise ValidationError(
                 _(
                     'The "attachments" filter must consist of a comma delimited list of attachment PKs!'
                 )
-            )
+            ) from e
         return queryset
 
     class Meta:

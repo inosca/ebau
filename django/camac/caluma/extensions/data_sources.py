@@ -54,7 +54,8 @@ def get_municipality_label(service, municipality_prefix=False):
     return label
 
 
-def get_additional_option(slug="-1", text=gettext_noop("Others")):
+def get_additional_option(slug="-1", text=None):
+    text = text or gettext_noop("Others")
     label = {}
 
     for language in LANGUAGES:

@@ -339,8 +339,14 @@ class AttachmentView(
         # - FileNotFoundError: path not found
         # - EngineError: sorl-thumbnail engine throws an error
         # - TypeError: No data in S3 bucket
-        except (TypeError, AttributeError, ValueError, FileNotFoundError, EngineError):
-            raise exceptions.NotFound()
+        except (
+            TypeError,
+            AttributeError,
+            ValueError,
+            FileNotFoundError,
+            EngineError,
+        ) as e:
+            raise exceptions.NotFound() from e
 
     @action(methods=["post"], detail=True)
     @swagger_auto_schema(auto_schema=None, deprecated=True)

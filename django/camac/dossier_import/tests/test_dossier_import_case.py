@@ -1652,14 +1652,20 @@ def test_import_documents(dossier, setup_dossier_writer, camac_instance, config)
     ]
     writer._create_dossier_attachments(dossier, camac_instance)
 
-    if config in ["kt_so"]:
-        camac_instance.alexandria_instance_documents.count() == len(dossier.attachments)
+    if config not in ["kt_bern", "kt_schwyz"]:
+        txt_imported = config != "kt_so"
+        expected_count = (
+            len(dossier.attachments) if txt_imported else len(dossier.attachments) - 1
+        )
+
+        assert camac_instance.alexandria_instance_documents.count() == expected_count
         for attachment in dossier.attachments:
             alexandria_doc = camac_instance.alexandria_instance_documents.filter(
                 document__title=attachment.name
             ).first()
 
-            if attachment.file_accessor.name.endswith(".txt"):
+            if not txt_imported and attachment.file_accessor.name.endswith(".txt"):
+                # Kt. SO doesn't allow .txt files - make sure it's not imported
                 assert not alexandria_doc
             else:
                 assert alexandria_doc
@@ -1668,19 +1674,6 @@ def test_import_documents(dossier, setup_dossier_writer, camac_instance, config)
                     attachment.file_accessor.read()
                     == alexandria_doc.document.get_latest_original().content.file.file.read()
                 )
-    elif config in ["kt_gr", "kt_ag"]:
-        camac_instance.alexandria_instance_documents.count() == len(dossier.attachments)
-        for attachment in dossier.attachments:
-            alexandria_doc = camac_instance.alexandria_instance_documents.filter(
-                document__title=attachment.name
-            ).first()
-
-            assert alexandria_doc
-            attachment.file_accessor.seek(0)
-            assert (
-                attachment.file_accessor.read()
-                == alexandria_doc.document.get_latest_original().content.file.file.read()
-            )
     else:
         assert camac_instance.attachments.count() == len(dossier.attachments)
         for attachment in dossier.attachments:

@@ -135,7 +135,7 @@ def distribution_permission_for(
                     except Exception as e:  # pragma: no cover
                         raise RuntimeError(
                             f"Error in permission predicate: {type(e).__name__}: {e}"
-                        )
+                        ) from e
 
             return wrapped_has_permission
 

@@ -186,14 +186,14 @@ class AlexandriaDocumentMixin:
             file_response = requests.get(file.pathFileName)
             try:
                 file_response.raise_for_status()
-            except Exception:  # pragma: todo cover
+            except Exception as e:  # pragma: todo cover
                 # FIXME: coverage here is missing (exception block), need to investigate
                 # The inner block raise_on_download_error) was never covered.
 
                 if raise_on_download_error:  # pragma: no cover
                     raise SendHandlerException(
                         f'File at "{file.pathFileName}" could not be downloaded.'
-                    )
+                    ) from e
                 continue
 
             file_name = urlparse(file.pathFileName).path.split("/")[-1]
@@ -242,20 +242,24 @@ class BaseSendHandler:
     def _get_instance(self, queryset):
         try:
             return queryset.get(pk=self.get_instance_id())
-        except Instance.DoesNotExist:
-            raise SendHandlerException("Unknown instance")
-        except ValueError:
+        except Instance.DoesNotExist as e:
+            raise SendHandlerException("Unknown instance") from e
+        except ValueError as e:
             raise SendHandlerException(
                 "dossierIdentification must be of type integer", status=400
-            )
+            ) from e
 
     def get_instance_id(self):  # pragma: no cover
         raise NotImplementedError()
 
-    def complete_work_item(self, task, filters={}, context={}):
+    def complete_work_item(self, task, filters=None, context=None):
+        filters = filters or {}
+        context = context or {}
         return self._process_work_item("complete", task, filters, context)
 
-    def skip_work_item(self, task, filters={}, context={}):
+    def skip_work_item(self, task, filters=None, context=None):
+        filters = filters or {}
+        context = context or {}
         return self._process_work_item("skip", task, filters, context)
 
     def _process_work_item(self, action, task, filters, context):
@@ -365,10 +369,10 @@ class NoticeRulingSendHandler(
 
         try:
             decision = judgement_to_decision(judgement, workflow_slug)
-        except KeyError:
+        except KeyError as e:
             raise SendHandlerException(
                 f'"{judgement}" is not a valid judgement for "{workflow_slug}"'
-            )
+            ) from e
 
         if judgement == ECH_JUDGEMENT_DECLINED:
             # reject instance
@@ -492,8 +496,8 @@ class ChangeResponsibilitySendHandler(BaseSendHandler):
 
         try:
             new_service = Service.objects.get(pk=new_service_id)
-        except Service.DoesNotExist:
-            raise SendHandlerException("Unknown target service!")
+        except Service.DoesNotExist as e:
+            raise SendHandlerException("Unknown target service!") from e
 
         data = {
             "service_type": "municipality",
@@ -684,10 +688,12 @@ class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
                 status=WorkItem.STATUS_READY,
                 **kwargs,
             )
-        except WorkItem.DoesNotExist:
-            raise SendHandlerException(f"No '{task_id}' work item found!")
-        except WorkItem.MultipleObjectsReturned:
-            raise SendHandlerException(f"More than one '{task_id}' work item found!")
+        except WorkItem.DoesNotExist as e:
+            raise SendHandlerException(f"No '{task_id}' work item found!") from e
+        except WorkItem.MultipleObjectsReturned as e:
+            raise SendHandlerException(
+                f"More than one '{task_id}' work item found!"
+            ) from e
 
     def _get_service(self):
         try:
@@ -695,8 +701,8 @@ class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
                 0
             ].firstChild.value
             return Service.objects.get(pk=int(service_id))
-        except (ValueError, Service.DoesNotExist):
-            raise SendHandlerException("Unknown service!")
+        except (ValueError, Service.DoesNotExist) as e:
+            raise SendHandlerException("Unknown service!") from e
 
     def _get_inquiry(self, service):
         return (

@@ -160,7 +160,9 @@ def _compress_ranges(all_nums, to_compress):
     # The [-1] ensures that when we reach the end in the *checking* loop,
     # there is the condition next_to_compress > next_valid, and therefore
     # allows us to treat every iteration the same
-    next_valid = {num: succ for num, succ in zip(all_nums, all_nums[1:] + [-1])}
+    next_valid = {
+        num: succ for num, succ in zip(all_nums, all_nums[1:] + [-1], strict=False)
+    }
 
     if not all_nums:
         return []
@@ -168,7 +170,7 @@ def _compress_ranges(all_nums, to_compress):
     ranges = []
     start = to_compress[0]
 
-    for num, nextnum in zip(to_compress, to_compress[1:] + [0]):
+    for num, nextnum in zip(to_compress, to_compress[1:] + [0], strict=False):
         # The [0] at the end conveniently also allows us to cover the last
         # iteration correctly
         next_valid_num = next_valid[num]

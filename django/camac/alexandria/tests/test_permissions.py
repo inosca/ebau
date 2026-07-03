@@ -28,7 +28,8 @@ from camac.tests.form_utils import FormUtils
 from camac.timelines.models import FormTimeline
 
 
-def document_post_data(category_id, instance_id, metainfo={}):
+def document_post_data(category_id, instance_id, metainfo=None):
+    metainfo = metainfo or {}
     content = io.BytesIO(
         b"%PDF-1.\ntrailer<</Root<</Pages<</Kids[<</MediaBox[0 0 3 3]>>]>>>>>>"
     )

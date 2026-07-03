@@ -750,7 +750,7 @@ def test_post_complete_inquiry_fill_ag_creates_deadline(
     )
 
     if has_suspension:
-        deadlines_models.Suspension.objects.count() == 1
+        assert deadlines_models.Suspension.objects.count() == 1
         suspension = deadlines_models.Suspension.objects.first()
         assert suspension.deadline.service == service
     else:

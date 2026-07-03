@@ -44,7 +44,7 @@ class ApplicantsEventHandlerMixin:
             user=applicant.invitee,
             access_level=APPLICANT_ACCESS_LEVEL,
         )
-        if not acls and getattr(applicant, "invitee"):  # pragma: no cover
+        if not acls and applicant.invitee:  # pragma: no cover
             # applicant (with invitee, so not an email invite) didn't have an
             # ACL - this is no good
             log.warning(

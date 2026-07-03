@@ -599,7 +599,7 @@ class UserGroupSerializer(serializers.ModelSerializer):
     def validate_email(self, value):
         try:
             self._invitable_users_qs().get(email=value)
-        except models.User.DoesNotExist:
+        except models.User.DoesNotExist as e:
             raise ValidationError(
                 _(
                     "No user with this email address found. Please make sure"
@@ -607,9 +607,9 @@ class UserGroupSerializer(serializers.ModelSerializer):
                     "or check the spelling of the email address."
                 ),
                 "not_found",
-            )
-        except models.User.MultipleObjectsReturned:
-            raise ValidationError(_("Multiple users with that email exist"))
+            ) from e
+        except models.User.MultipleObjectsReturned as e:
+            raise ValidationError(_("Multiple users with that email exist")) from e
 
         return value
 

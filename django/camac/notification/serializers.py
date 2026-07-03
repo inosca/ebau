@@ -310,15 +310,16 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         inquiry=None,
         work_item=None,
         escape=False,
-        used_placeholders=[],
+        used_placeholders=None,
         *args,
         **kwargs,
     ):
+        used_placeholders = used_placeholders or []
         self.escape = escape
         self.inquiry = inquiry
         self.work_item = work_item
 
-        super().__init__(instance=instance, *args, **kwargs)
+        super().__init__(*args, **kwargs, instance=instance)
 
         if instance:
             instance._master_data = MasterData(instance.case)
@@ -1231,7 +1232,7 @@ class NotificationTemplateMergeSerializer(
                 for placeholder in jinja2.meta.find_undeclared_variables(ast)
             ]
         except jinja2.TemplateError as e:
-            raise exceptions.ValidationError(str(e))
+            raise exceptions.ValidationError(str(e)) from e
 
     def validate(self, data):
         notification_template = data["notification_template"]

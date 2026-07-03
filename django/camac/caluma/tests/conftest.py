@@ -205,7 +205,8 @@ def inquiry_factory_be(
     service,
     service_factory,
 ):
-    def factory(to_service=service_factory(), from_service=service, sent=False):
+    def factory(to_service=None, from_service=service, sent=False):
+        to_service = to_service or service_factory()
         return make_inquiry(
             to_service=to_service,
             from_service=from_service,
@@ -226,7 +227,8 @@ def inquiry_factory_gr(
     service_factory,
     service,
 ):
-    def factory(to_service=service_factory(), from_service=service, sent=False):
+    def factory(to_service=None, from_service=service, sent=False):
+        to_service = to_service or service_factory()
         return make_inquiry(
             to_service=to_service,
             from_service=from_service,
@@ -247,7 +249,8 @@ def inquiry_factory_sz(
     service,
     service_factory,
 ):
-    def factory(to_service=service_factory(), sent=False):
+    def factory(to_service=None, sent=False):
+        to_service = to_service or service_factory()
         return make_inquiry(
             to_service=to_service,
             from_service=service,
@@ -268,7 +271,8 @@ def inquiry_factory_ag(
     service_factory,
     service,
 ):
-    def factory(to_service=service_factory(), from_service=service, sent=False):
+    def factory(to_service=None, from_service=service, sent=False):
+        to_service = to_service or service_factory()
         return make_inquiry(
             to_service=to_service,
             from_service=from_service,

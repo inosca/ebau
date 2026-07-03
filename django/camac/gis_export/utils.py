@@ -63,8 +63,6 @@ def export_agis():
                     f"Failed to diff or update export entry for instance {instance.pk}"
                 )
             log.warning(e)
-        finally:
-            continue
 
     log.info(f"Updated export entries for {updated} instances(s).")
 

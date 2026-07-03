@@ -375,7 +375,7 @@ class MasterData(object):
         """
         return self._parse_value(self.case.meta.get(lookup), **kwargs)
 
-    def table_resolver(self, lookup, column_mapping={}, **kwargs):
+    def table_resolver(self, lookup, column_mapping=None, **kwargs):
         """Resolve data from caluma table answers.
 
         Example configuration:
@@ -420,6 +420,7 @@ class MasterData(object):
             }
         }
         """
+        column_mapping = column_mapping or {}
         document = self._get_document(kwargs.get("document_from_work_item"))
         if not document:
             return []
@@ -444,7 +445,7 @@ class MasterData(object):
             for row in table_field.children()
         ]
 
-    def baukontrolle_resolver(self, lookup, column_mapping={}, **kwargs):
+    def baukontrolle_resolver(self, lookup, column_mapping=None, **kwargs):
         """Find a specific date from the "Baukontrolle" caluma table.
 
         This goes through all rows and returns the first non-empty value.
@@ -458,6 +459,7 @@ class MasterData(object):
         }
         """
 
+        column_mapping = column_mapping or {}
         rows = self.table_resolver(
             "baukontrolle-realisierung-table",
             column_mapping={"value": (lookup, {"value_key": "date"})},
@@ -607,7 +609,7 @@ class MasterData(object):
         parsed_value = self._parse_value(field.value if field else None, **kwargs)
         return parsed_value if parsed_value else default
 
-    def ng_table_resolver(self, lookup, column_mapping={}, **kwargs):
+    def ng_table_resolver(self, lookup, column_mapping=None, **kwargs):
         """Resolve data from camac-ng table fields.
 
         Example configuration for a camac-ng table with potential table override:
@@ -678,6 +680,7 @@ class MasterData(object):
             }
         }
         """
+        column_mapping = column_mapping or {}
         return [
             {
                 key: self._get_ng_cell_value(row, lookup_config)
@@ -702,7 +705,7 @@ class MasterData(object):
         except AttributeError as e:
             raise AttributeError(
                 f"Instance property lookup failed for lookup `{lookup}` with {e}."
-            )
+            ) from e
 
         if isinstance(value, MultilingualModel):
             value = value.get_name()
@@ -720,7 +723,8 @@ class MasterData(object):
         except ParserError:  # pragma: no cover
             return default
 
-    def value_mapping_parser(self, value, default, mapping={}, **kwargs):
+    def value_mapping_parser(self, value, default, mapping=None, **kwargs):
+        mapping = mapping or {}
         if isinstance(value, list):
             return [
                 self.value_mapping_parser(v, default, mapping=mapping) for v in value
@@ -738,7 +742,8 @@ class MasterData(object):
 
         return datetime_timestamp(value) if value else default
 
-    def list_mapping_parser(self, value, default, mapping={}, **kwargs):
+    def list_mapping_parser(self, value, default, mapping=None, **kwargs):
+        mapping = mapping or {}
         return [
             {
                 key: (

@@ -216,8 +216,8 @@ class MessageView(ECHGeofenceMixin, RetrieveModelMixin, GenericViewSet):
         if last:
             try:
                 last_message = queryset.get(pk=last)
-            except ValidationError:
-                raise ParseError("'last' parameter must be a valid UUID")
+            except ValidationError as e:
+                raise ParseError("'last' parameter must be a valid UUID") from e
             except Message.DoesNotExist:
                 return
 

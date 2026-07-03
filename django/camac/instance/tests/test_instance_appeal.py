@@ -42,7 +42,8 @@ def instance_for_appeal(
     instance_state_factory(name="conclusion")
     instance_state_factory(name="finished")
 
-    def wrapper(instance_state_name, previous_instance_state_name, meta={}):
+    def wrapper(instance_state_name, previous_instance_state_name, meta=None):
+        meta = meta or {}
         be_instance.case.meta.update({"ebau-number": "2023-123"})
         be_instance.case.save()
 
