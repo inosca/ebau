@@ -72,6 +72,18 @@ defmodule Ebau.Instances.GisLink do
       prepare build(load: [gis_link_for_instance: %{instance_id: arg(:instance_id)}])
     end
 
+    read :search_gis_link do
+      description "Lists GIS link templates whose name contains the search term."
+
+      argument :search, :ci_string do
+        allow_nil? false
+      end
+
+      prepare build(sort: :name)
+
+      filter expr(contains(name, ^arg(:search)))
+    end
+
     create :create_gis_link do
       description """
       Creates a new GIS link template for the actor's service.
