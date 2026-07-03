@@ -88,16 +88,6 @@ class AlexandriaPermissions:
 
         return AlexandriaPermissionManager.from_request(request).scoped_for(obj)
 
-    def prefix(self, obj: str | Document) -> str:
-        """Get category prefix for requested permissions.
-
-        This must always return a category slug. As child categories cannot have
-        their own permissions they need to use the permissions of the parent
-        category.
-        """
-
-        return get_category_prefix(obj)
-
     @property
     def base_permission(self) -> P:
         """The base permission required to do anything in alexandria.
@@ -183,7 +173,7 @@ class AlexandriaPermissions:
 
         data = get_data_from_multipart_request(request)
 
-        prefix = self.prefix(data["category"])
+        prefix = get_category_prefix(data["category"])
         instance = Instance.objects.get(pk=data["metainfo"]["camac-instance-id"])
 
         if not self.has_base_permission_for(request, instance):
@@ -232,7 +222,9 @@ class AlexandriaPermissions:
                 f"{self.__class__.__name__}: missing function to get required permissions for action {action}"
             )
 
-        required_permissions = permissions_fn(document, request, self.prefix(document))
+        required_permissions = permissions_fn(
+            document, request, get_category_prefix(document)
+        )
 
         if required_permissions is None:
             return True
@@ -289,7 +281,7 @@ class AlexandriaPermissions:
             # If the document is copied into another category, we need to check
             # permissions for the target category instead of the current
             # category.
-            prefix = self.prefix(changed_fields["category"][1])
+            prefix = get_category_prefix(changed_fields["category"][1])
 
         return P.any(
             f"{prefix}:all",
@@ -337,7 +329,7 @@ class AlexandriaPermissions:
             # this allows to move documents within a parent category, but disallow
             # moving files out of the category.
             from_category_prefix = prefix
-            to_category_prefix = self.prefix(changed_fields["category"][1])
+            to_category_prefix = get_category_prefix(changed_fields["category"][1])
 
             if from_category_prefix == to_category_prefix:
                 # If we move a document within the same parent category we only need
@@ -418,7 +410,7 @@ class AlexandriaPermissions:
             return False
 
         document = Document.objects.get(pk=request.data["document"])
-        prefix = self.prefix(document)
+        prefix = get_category_prefix(document)
 
         if not self.has_base_permission_for(request, document):
             # Don't allow anything without base permission
