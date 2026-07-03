@@ -37,7 +37,8 @@ config :ebau,
     Caluma.Form,
     Ebau.Instances,
     Ebau.MasterData,
-    Ebau.User
+    Ebau.User,
+    Ebau.Core
   ]
 
 # Configure esbuild (the version is required)
