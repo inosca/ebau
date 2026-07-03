@@ -189,6 +189,11 @@ defmodule Ebau.MixProject do
             description:
               "Use this skill working with Phoenix Framework. Consult this when working with the web layer, controllers, views, liveviews etc.",
             usage_rules: [:phoenix, ~r/^phoenix_/]
+          ],
+          "elixir-uikit": [
+            description:
+              "Use this skill when you have to do frontend work and have to use uikit.",
+            usage_rules: [:elixir_uikit]
           ]
         ]
       ]
