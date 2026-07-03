@@ -1473,21 +1473,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "energie.art-der-stromerzeugung-oder-windanlage",
-    "fields": {
-      "created_at": "2026-05-19T15:15:31.140Z",
-      "modified_at": "2026-05-19T15:15:31.140Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energie",
-      "question": "art-der-stromerzeugung-oder-windanlage",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "energie.art-des-heizungssystems",
     "fields": {
       "created_at": "2026-05-19T15:13:30.618Z",
@@ -1498,7 +1483,7 @@
       "modified_by_group": null,
       "form": "energie",
       "question": "art-des-heizungssystems",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -1513,7 +1498,22 @@
       "modified_by_group": null,
       "form": "energie",
       "question": "energie-titel",
-      "sort": 8
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "energie.erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten",
+    "fields": {
+      "created_at": "2026-07-03T08:56:15.800Z",
+      "modified_at": "2026-07-03T08:56:15.800Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "energie",
+      "question": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten",
+      "sort": 5
     }
   },
   {
@@ -1528,7 +1528,7 @@
       "modified_by_group": null,
       "form": "energie",
       "question": "heizungssystem-erneuert-oder-veraendert",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -1548,17 +1548,32 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "energie.stromerzeugung-oder-windanlage-installiert-oder-veraendert",
+    "pk": "energie.stromerzeugungsanlage-art",
     "fields": {
-      "created_at": "2026-05-19T15:14:42.538Z",
-      "modified_at": "2026-05-19T15:14:42.538Z",
+      "created_at": "2026-07-03T08:54:59.332Z",
+      "modified_at": "2026-07-03T08:54:59.332Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "energie",
-      "question": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
-      "sort": 5
+      "question": "stromerzeugungsanlage-art",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "energie.stromerzeugungsanlage-erstellt",
+    "fields": {
+      "created_at": "2026-07-03T08:54:10.180Z",
+      "modified_at": "2026-07-03T08:54:10.180Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "energie",
+      "question": "stromerzeugungsanlage-erstellt",
+      "sort": 7
     }
   },
   {
@@ -1574,6 +1589,21 @@
       "form": "energie",
       "question": "wasserkraftanlage-erneruert-oder-veraendert",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "energie.wird-eine-speicheranlage-erstellt",
+    "fields": {
+      "created_at": "2026-07-03T08:56:45.705Z",
+      "modified_at": "2026-07-03T08:56:45.705Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "energie",
+      "question": "wird-eine-speicheranlage-erstellt",
+      "sort": 4
     }
   },
   {
@@ -6040,6 +6070,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten-ersatzabgabe",
+    "fields": {
+      "created_at": "2026-07-03T08:56:15.513Z",
+      "modified_at": "2026-07-03T08:56:15.513Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ersatzabgabe gestützt auf PV-Ersatzsabgabe-Rechner\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten-reduktion-gewichteter-energiebedarf",
+    "fields": {
+      "created_at": "2026-07-03T08:56:15.527Z",
+      "modified_at": "2026-07-03T08:56:15.527Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reduktion gewichteter Energiebedarf um mind. 5 KWh/m² EBF geplant (Nachweis in EN-101b)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten-speicheranlage-vorgesehen",
+    "fields": {
+      "created_at": "2026-07-03T08:56:15.562Z",
+      "modified_at": "2026-07-03T08:56:15.562Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Speicheranlage vorgesehen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten-zev",
+    "fields": {
+      "created_at": "2026-07-03T08:56:15.512Z",
+      "modified_at": "2026-07-03T08:56:15.512Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Realisierung mittels Zusammenschlusses zum Eigenverbrauch (ZEV)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "frisch-verbrennungsluft-fenster",
     "fields": {
       "created_at": "2026-06-04T08:17:32.665Z",
@@ -7264,6 +7362,108 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "stromerzeugungsanlage-art-blockheizkraftwerk",
+    "fields": {
+      "created_at": "2026-07-03T08:54:58.965Z",
+      "modified_at": "2026-07-03T08:54:58.965Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Blockheizkraftwerk\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "stromerzeugungsanlage-art-notstromaggregat",
+    "fields": {
+      "created_at": "2026-07-03T08:54:58.922Z",
+      "modified_at": "2026-07-03T08:54:58.922Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Notstromaggregat\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "stromerzeugungsanlage-art-photovoltaikanlage",
+    "fields": {
+      "created_at": "2026-07-03T08:54:58.938Z",
+      "modified_at": "2026-07-03T08:54:58.938Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Photovoltaikanlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "stromerzeugungsanlage-art-windanlage",
+    "fields": {
+      "created_at": "2026-07-03T08:54:58.912Z",
+      "modified_at": "2026-07-03T08:54:58.912Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Windanlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "stromerzeugungsanlage-erstellt-ja",
+    "fields": {
+      "created_at": "2026-07-03T08:54:09.936Z",
+      "modified_at": "2026-07-03T08:54:09.936Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "stromerzeugungsanlage-erstellt-nein",
+    "fields": {
+      "created_at": "2026-07-03T08:54:09.934Z",
+      "modified_at": "2026-07-03T08:54:09.934Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "umgang-mit-regenabwasser-einleitung-gewaesser",
     "fields": {
       "created_at": "2026-05-20T07:08:02.648Z",
@@ -8016,6 +8216,40 @@
     "fields": {
       "created_at": "2026-05-20T07:00:37.691Z",
       "modified_at": "2026-05-20T07:00:37.691Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wird-eine-speicheranlage-erstellt-ja",
+    "fields": {
+      "created_at": "2026-07-03T08:56:45.489Z",
+      "modified_at": "2026-07-03T08:56:45.489Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wird-eine-speicheranlage-erstellt-nein",
+    "fields": {
+      "created_at": "2026-07-03T08:56:45.490Z",
+      "modified_at": "2026-07-03T08:56:45.490Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -10213,6 +10447,37 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"###Entsorgung\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten",
+    "fields": {
+      "created_at": "2026-07-03T08:56:15.685Z",
+      "modified_at": "2026-07-03T08:59:15.577Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erfüllung der Eigenstromerzeugungspflicht bei Neubauten\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"stromerzeugungsanlage-erstellt\"|answer != \"stromerzeugungsanlage-erstellt-nein\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Für Ersatzabgaben verwenden Sie bitten den PV-Ersatzgabe-Rechner: <https://formularsystem.sg.ch/pv-ersatzabgabe>\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -14059,6 +14324,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "stromerzeugungsanlage-art",
+    "fields": {
+      "created_at": "2026-07-03T08:54:59.217Z",
+      "modified_at": "2026-07-03T08:57:55.679Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Stromerzeugungsanlage (z.B. Photovoltaikanlage, Windanlage, Blockheizkraftwerk)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"stromerzeugungsanlage-erstellt\"|answer != \"stromerzeugungsanlage-erstellt-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "stromerzeugungsanlage-erstellt",
+    "fields": {
+      "created_at": "2026-07-03T08:54:10.062Z",
+      "modified_at": "2026-07-03T08:56:27.120Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird eine Stromerzeugungsanlage (z.B. Photovoltaikanlage, Windanlage, Blockheizkraftwerk) erstellt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!(\n\t[\n\t\t\"art-des-vorhabens-neubau\",\n\t\t\"art-des-vorhabens-umbau\"\n\t] intersects \"art-des-vorhabens\"|answer([])\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "svgw-nr",
     "fields": {
       "created_at": "2026-06-04T07:33:02.052Z",
@@ -14858,19 +15185,19 @@
     "pk": "wasserkraftanlage-erneruert-oder-veraendert",
     "fields": {
       "created_at": "2026-05-19T15:17:10.075Z",
-      "modified_at": "2026-05-19T15:17:10.075Z",
+      "modified_at": "2026-07-03T08:51:07.730Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Wird eine Wasserkraftanlage erneruert oder verändert?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Wird eine Wasserkraftanlage erneuert oder verändert?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -15920,6 +16247,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wird-eine-speicheranlage-erstellt",
+    "fields": {
+      "created_at": "2026-07-03T08:56:45.592Z",
+      "modified_at": "2026-07-03T08:58:40.816Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird eine Speicheranlage erstellt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!(\n\t[\n\t\t\"art-des-vorhabens-neubau\",\n\t\t\"art-des-vorhabens-umbau\"\n\t] intersects \"art-des-vorhabens\"|answer([])\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -17782,6 +18140,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten.erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten-ersatzabgabe",
+    "fields": {
+      "created_at": "2026-07-03T08:59:15.596Z",
+      "modified_at": "2026-07-03T08:59:15.596Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten",
+      "option": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten-ersatzabgabe",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten.erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten-reduktion-gewichteter-energiebedarf",
+    "fields": {
+      "created_at": "2026-07-03T08:59:15.592Z",
+      "modified_at": "2026-07-03T08:59:15.592Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten",
+      "option": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten-reduktion-gewichteter-energiebedarf",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten.erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten-speicheranlage-vorgesehen",
+    "fields": {
+      "created_at": "2026-07-03T08:59:15.587Z",
+      "modified_at": "2026-07-03T08:59:15.587Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten",
+      "option": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten-speicheranlage-vorgesehen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten.erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten-zev",
+    "fields": {
+      "created_at": "2026-07-03T08:59:15.601Z",
+      "modified_at": "2026-07-03T08:59:15.601Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten",
+      "option": "erfuellung-der-eigenstromerzeugungspflicht-bei-neubauten-zev",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "frisch-verbrennungsluft.frisch-verbrennungsluft-fenster",
     "fields": {
       "created_at": "2026-06-04T08:17:42.738Z",
@@ -18862,6 +19280,96 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "stromerzeugungsanlage-art.stromerzeugungsanlage-art-blockheizkraftwerk",
+    "fields": {
+      "created_at": "2026-07-03T08:57:55.691Z",
+      "modified_at": "2026-07-03T08:57:55.691Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stromerzeugungsanlage-art",
+      "option": "stromerzeugungsanlage-art-blockheizkraftwerk",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stromerzeugungsanlage-art.stromerzeugungsanlage-art-notstromaggregat",
+    "fields": {
+      "created_at": "2026-07-03T08:57:55.687Z",
+      "modified_at": "2026-07-03T08:57:55.687Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stromerzeugungsanlage-art",
+      "option": "stromerzeugungsanlage-art-notstromaggregat",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stromerzeugungsanlage-art.stromerzeugungsanlage-art-photovoltaikanlage",
+    "fields": {
+      "created_at": "2026-07-03T08:57:55.699Z",
+      "modified_at": "2026-07-03T08:57:55.699Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stromerzeugungsanlage-art",
+      "option": "stromerzeugungsanlage-art-photovoltaikanlage",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stromerzeugungsanlage-art.stromerzeugungsanlage-art-windanlage",
+    "fields": {
+      "created_at": "2026-07-03T08:57:55.695Z",
+      "modified_at": "2026-07-03T08:57:55.695Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stromerzeugungsanlage-art",
+      "option": "stromerzeugungsanlage-art-windanlage",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stromerzeugungsanlage-erstellt.stromerzeugungsanlage-erstellt-ja",
+    "fields": {
+      "created_at": "2026-07-03T08:56:27.132Z",
+      "modified_at": "2026-07-03T08:56:27.132Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stromerzeugungsanlage-erstellt",
+      "option": "stromerzeugungsanlage-erstellt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stromerzeugungsanlage-erstellt.stromerzeugungsanlage-erstellt-nein",
+    "fields": {
+      "created_at": "2026-07-03T08:56:27.128Z",
+      "modified_at": "2026-07-03T08:56:27.128Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stromerzeugungsanlage-erstellt",
+      "option": "stromerzeugungsanlage-erstellt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "umgang-mit-regenabwasser.umgang-mit-regenabwasser-einleitung-gewaesser",
     "fields": {
       "created_at": "2026-05-20T07:13:09.124Z",
@@ -19074,8 +19582,8 @@
     "model": "caluma_form.questionoption",
     "pk": "wasserkraftanlage-erneruert-oder-veraendert.wasserkraftanlage-erneruert-oder-veraendert-ja",
     "fields": {
-      "created_at": "2026-05-19T15:17:10.083Z",
-      "modified_at": "2026-05-19T15:17:10.083Z",
+      "created_at": "2026-07-03T08:51:07.745Z",
+      "modified_at": "2026-07-03T08:51:07.745Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -19089,8 +19597,8 @@
     "model": "caluma_form.questionoption",
     "pk": "wasserkraftanlage-erneruert-oder-veraendert.wasserkraftanlage-erneruert-oder-veraendert-nein",
     "fields": {
-      "created_at": "2026-05-19T15:17:10.080Z",
-      "modified_at": "2026-05-19T15:17:10.080Z",
+      "created_at": "2026-07-03T08:51:07.740Z",
+      "modified_at": "2026-07-03T08:51:07.740Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -19532,6 +20040,36 @@
       "modified_by_group": null,
       "question": "wird-boden-ausserhalb-des-standortes-entsorgtverwertet",
       "option": "wird-boden-ausserhalb-des-standortes-entsorgtverwertet-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-eine-speicheranlage-erstellt.wird-eine-speicheranlage-erstellt-ja",
+    "fields": {
+      "created_at": "2026-07-03T08:58:40.827Z",
+      "modified_at": "2026-07-03T08:58:40.827Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wird-eine-speicheranlage-erstellt",
+      "option": "wird-eine-speicheranlage-erstellt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-eine-speicheranlage-erstellt.wird-eine-speicheranlage-erstellt-nein",
+    "fields": {
+      "created_at": "2026-07-03T08:58:40.823Z",
+      "modified_at": "2026-07-03T08:58:40.823Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wird-eine-speicheranlage-erstellt",
+      "option": "wird-eine-speicheranlage-erstellt-nein",
       "sort": 1
     }
   },
