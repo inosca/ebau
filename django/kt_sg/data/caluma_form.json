@@ -256,6 +256,52 @@
     }
   },
   {
+    "model": "caluma_form.historicalanswer",
+    "pk": "18c27758-d734-4511-be92-d12f12583f99",
+    "fields": {
+      "created_at": "2026-05-20T07:36:56.504Z",
+      "modified_at": "2026-05-20T07:36:56.504Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "06a0d649-8812-761e-8000-9d831d98e4cf",
+      "value": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-nein",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "history_date": "2026-07-03T09:00:49.657Z",
+      "history_change_reason": null,
+      "history_type": "-"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "867fdcd6-66c0-409a-a28c-ababf9edf7e7",
+    "fields": {
+      "created_at": "2026-05-20T07:36:27.079Z",
+      "modified_at": "2026-05-20T07:36:27.079Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "06a0d647-b144-76f5-8000-8e6c5ea86056",
+      "value": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-nein",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "history_date": "2026-07-03T09:00:49.661Z",
+      "history_change_reason": null,
+      "history_type": "-"
+    }
+  },
+  {
     "model": "caluma_form.answer",
     "pk": "069958a6-73ad-70db-8000-b93575ea5a09",
     "fields": {
@@ -1478,30 +1524,13 @@
     "pk": "06a0d647-a6ae-771f-8000-39ec992c9688",
     "fields": {
       "created_at": "2026-05-20T07:36:26.417Z",
-      "modified_at": "2026-06-05T11:11:54.295Z",
+      "modified_at": "2026-07-03T08:52:43.427Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "heizungssystem-erneuert-oder-veraendert",
-      "value": "heizungssystem-erneuert-oder-veraendert-ja",
-      "meta": {},
-      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "06a0d647-b144-76f5-8000-8e6c5ea86056",
-    "fields": {
-      "created_at": "2026-05-20T07:36:27.079Z",
-      "modified_at": "2026-05-20T07:36:27.079Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
-      "value": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-nein",
+      "value": "heizungssystem-erneuert-oder-veraendert-nein",
       "meta": {},
       "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
       "date": null
@@ -1512,7 +1541,7 @@
     "pk": "06a0d647-c13f-7407-8000-d75ffe045a6c",
     "fields": {
       "created_at": "2026-05-20T07:36:28.078Z",
-      "modified_at": "2026-05-20T07:36:28.078Z",
+      "modified_at": "2026-07-03T08:52:56.203Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1529,7 +1558,7 @@
     "pk": "06a0d647-cb7c-70eb-8000-a08e11405e34",
     "fields": {
       "created_at": "2026-05-20T07:36:28.718Z",
-      "modified_at": "2026-05-20T07:36:28.718Z",
+      "modified_at": "2026-07-03T08:52:54.565Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1655,23 +1684,6 @@
       "modified_by_group": null,
       "question": "heizungssystem-erneuert-oder-veraendert",
       "value": "heizungssystem-erneuert-oder-veraendert-nein",
-      "meta": {},
-      "document": "069958a6-7204-712c-8000-71d5f39de78c",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "06a0d649-8812-761e-8000-9d831d98e4cf",
-    "fields": {
-      "created_at": "2026-05-20T07:36:56.504Z",
-      "modified_at": "2026-05-20T07:36:56.504Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
-      "value": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-nein",
       "meta": {},
       "document": "069958a6-7204-712c-8000-71d5f39de78c",
       "date": null
@@ -3081,6 +3093,57 @@
       "modified_by_group": null,
       "question": "art-des-heizungssystems",
       "value": ["art-des-heizungssystems-gasfeuerung"],
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a4779c-f8fe-7f0f-8000-9baf501c840b",
+    "fields": {
+      "created_at": "2026-07-03T08:58:55.562Z",
+      "modified_at": "2026-07-03T08:58:59.964Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wird-eine-speicheranlage-erstellt",
+      "value": "wird-eine-speicheranlage-erstellt-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a4779d-5480-7c1d-8000-877b87270e44",
+    "fields": {
+      "created_at": "2026-07-03T08:59:01.281Z",
+      "modified_at": "2026-07-03T08:59:56.913Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stromerzeugungsanlage-erstellt",
+      "value": "stromerzeugungsanlage-erstellt-ja",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a4779f-2816-7042-8000-679b7d6af998",
+    "fields": {
+      "created_at": "2026-07-03T08:59:30.505Z",
+      "modified_at": "2026-07-03T08:59:30.505Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stromerzeugungsanlage-art",
+      "value": ["stromerzeugungsanlage-art-photovoltaikanlage"],
       "meta": {},
       "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
       "date": null
