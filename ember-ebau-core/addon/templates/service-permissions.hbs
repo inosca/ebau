@@ -1,9 +1,18 @@
 {{#if this.hasMoreThenOneRoute}}
   <UkTab as |Tab|>
     {{#each this.includeSubRoutes as |subRoute|}}
-      <Tab.item @href={{concat "/service-permissions/" subRoute}}>
-        {{t (concat "service-permissions." subRoute)}}
-      </Tab.item>
+      {{#if subRoute.external}}
+        {{! full page load, the route is served outside of the Ember app }}
+        <li>
+          <a href={{concat "/service-permissions/" subRoute.route}}>
+            {{t (concat "service-permissions." subRoute.route)}}
+          </a>
+        </li>
+      {{else}}
+        <Tab.item @href={{concat "/service-permissions/" subRoute.route}}>
+          {{t (concat "service-permissions." subRoute.route)}}
+        </Tab.item>
+      {{/if}}
     {{/each}}
   </UkTab>
 {{/if}}

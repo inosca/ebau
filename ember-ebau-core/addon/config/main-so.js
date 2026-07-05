@@ -180,7 +180,8 @@ const config = {
       "invitations",
       "organisation",
       "sub-services",
-      { route: "gis-links" },
+      // served by the Phoenix app, needs a full page load
+      { route: "gis-links", external: true },
       { route: "static-keywords", forServiceSlugs: ["afu"] },
     ],
   },

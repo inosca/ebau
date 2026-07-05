@@ -13,7 +13,18 @@ defmodule EbauWeb.Components.Navbar do
 
   def navbar(assigns) do
     ~H"""
-    <nav class="main-navigation uk-navbar-container">
+    <script :type={Phoenix.LiveView.ColocatedHook} name=".NavbarSync">
+      export default {
+        mounted() { this.sync() },
+        updated() { this.sync() },
+        sync() {
+          try {
+            localStorage.setItem("ebau-navbar", this.el.outerHTML)
+          } catch (_e) {}
+        }
+      }
+    </script>
+    <nav id="main-navbar" phx-hook=".NavbarSync" class="main-navigation uk-navbar-container">
       <div class="uk-padding-small uk-padding-remove-vertical">
         <div class="uk-navbar">
           <div :if={@left != []} class="uk-navbar-left uk-flex-nowrap">
@@ -48,7 +59,7 @@ defmodule EbauWeb.Components.Navbar do
         <a href={resource.link}><span>{resource.name}</span></a>
       </.navbar_item>
       <.navbar_item>
-        <a href="http://localhost:4400/">to ember</a>
+        <a href="/">to ember</a>
       </.navbar_item>
     </.navbar_nav>
     """

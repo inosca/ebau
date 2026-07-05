@@ -13,13 +13,16 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinks do
     ~H"""
     <Layouts.app flash={@flash} scope={@scope} resources={@resources} current_path={@current_path}>
       <.uk_container>
-        <.uk_subnav id="service-permissions-tabs">
-          <:item href="/service-permissions/permissions">{gettext("Permissions")}</:item>
-          <:item href="/service-permissions/invitations">{gettext("Invitations")}</:item>
-          <:item href="/service-permissions/organisation">{gettext("Master data")}</:item>
-          <:item href="/service-permissions/sub-services">{gettext("Sub-services")}</:item>
-          <:item href="/service-permissions/gis-links" active>{gettext("GIS links")}</:item>
-        </.uk_subnav>
+        <%!-- TODO: replace with a uk_tab component once elixir_uikit provides one --%>
+        <ul class="uk-tab">
+          <li><a href="/service-permissions/permissions">{gettext("Permissions")}</a></li>
+          <li><a href="/service-permissions/invitations">{gettext("Invitations")}</a></li>
+          <li><a href="/service-permissions/organisation">{gettext("Master data")}</a></li>
+          <li><a href="/service-permissions/sub-services">{gettext("Sub-services")}</a></li>
+          <li class="uk-active">
+            <a href="/service-permissions/gis-links">{gettext("GIS links")}</a>
+          </li>
+        </ul>
 
         <.uk_form
           :if={Ebau.Instances.can_create_gis_link?(@actor, reuse_values?: true)}
@@ -45,7 +48,7 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinks do
 
         <form phx-change="search" id="search-form" class="uk-margin-large-top">
           <label for="gis-link-search" class="uk-hidden">{gettext("Search")}</label>
-          <.uk_form_icon icon="search">
+          <.uk_form_icon icon="search" wrapper_class="uk-width-1-1">
             <input
               id="gis-link-search"
               name="search"

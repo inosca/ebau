@@ -22,14 +22,14 @@ export default class ServicePermissionsController extends Controller {
         }
         return true;
       })
-      .map((route) => route.route ?? route);
+      .map((route) => (typeof route === "string" ? { route } : route));
 
     return (
       configuredRoutes || [
-        "permissions",
-        "invitations",
-        "organisation",
-        "sub-services",
+        { route: "permissions" },
+        { route: "invitations" },
+        { route: "organisation" },
+        { route: "sub-services" },
       ]
     );
   }

@@ -49,9 +49,16 @@ if config_env() != :test do
     pool_size: String.to_integer(System.get_env("POOL_SIZE", "10")),
     pool_count: String.to_integer(System.get_env("POOL_COUNT", "1"))
 
+  # The URL_* variables describe the public-facing URL (the nginx proxy),
+  # which also determines the OIDC redirect URI. The app itself listens on
+  # PORT behind the proxy.
   config :ebau, EbauWeb.Endpoint,
     http: [port: String.to_integer(System.get_env("PORT", "4000"))],
-    url: [path: System.get_env("URL_PREFIX", "/")]
+    url: [
+      host: System.get_env("URL_HOST", "ember-ebau.localhost"),
+      port: String.to_integer(System.get_env("URL_PORT", "80")),
+      path: System.get_env("URL_PREFIX", "/")
+    ]
 end
 
 if config_env() != :test do
