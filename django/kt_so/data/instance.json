@@ -42,11 +42,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "087e3c47-df7c-4c6d-a80c-19ef8c0f116d",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -62,11 +62,11 @@
       "previous_instance_state": 4,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "484dcd39-ea8e-4553-828d-50bc1408a3f0",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -82,11 +82,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "0bbfa433-1fd9-41dc-a834-6f24bb31458e",
       "instance_group": 6,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -102,11 +102,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "a1edce36-9478-4023-a8d6-bc399404971f",
       "instance_group": 5,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -122,11 +122,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "0848e6ba-deb9-4943-aae6-8be67b549d5b",
       "instance_group": 4,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -142,11 +142,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "3a99a9e2-8f6a-4305-b22e-d9ff1cdbfa1f",
       "instance_group": 3,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -162,11 +162,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "06889dd7-f453-71e9-8000-15bb6bafb7f0",
       "instance_group": 2,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -182,11 +182,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "06889e46-cb92-7d81-8000-65ba048ef660",
       "instance_group": 1,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -202,11 +202,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "068bfe33-8b8e-7849-8000-48f08b67fedb",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -222,11 +222,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "068bfe33-ddc3-7a2c-8000-03e9875a34c2",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -242,11 +242,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "068bfe34-167b-7677-8000-53405fe293d3",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -262,11 +262,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "068bfe34-674a-7f5d-8000-388d466f5b33",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -282,11 +282,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "068bfe34-bc20-7da9-8000-0c1a03348ef0",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -302,11 +302,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "068bfe34-f771-72c0-8000-f92d6f577e9f",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {

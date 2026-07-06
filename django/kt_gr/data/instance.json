@@ -12,11 +12,11 @@
       "previous_instance_state": 120004,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "0387a295-76c1-492d-bbf2-a2b10a0652a5",
       "instance_group": null,
       "rejection_feedback": "please make corrections",
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -32,11 +32,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "0699ef59-5aa8-79db-8000-e6b307d4892e",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -52,11 +52,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "0699efa4-c9d3-7754-8000-434728bc6f9f",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -72,11 +72,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "0699efd2-edf2-741d-8000-9cc3bde343f4",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -92,11 +92,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "0699effd-4770-79b8-8000-e2a1e35498fb",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -112,11 +112,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "0699f017-df68-7410-8000-9a8e32179ba6",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
