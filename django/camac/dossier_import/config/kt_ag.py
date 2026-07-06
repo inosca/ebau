@@ -15,9 +15,8 @@ from django.conf import settings
 from django.utils import timezone
 from django.utils.translation import gettext as _
 
-from camac.caluma.extensions.data_sources import Municipalities
 from camac.caluma.extensions.events.general import get_caluma_setting
-from camac.dossier_import.dossier_classes import Dossier, PlotData
+from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
     Message,
     MessageCodes,
@@ -262,32 +261,11 @@ class MultipleTargetsWriter(FieldWriter):
                 )
 
 
-def _lookup_service_id_by_name(municipality_name):
-    for item in Municipalities().get_data(None, None, None):
-        if item[1].get("de") == municipality_name:
-            return item[0]
-    return None
-
-
-def _convert_municipality_in_plots(
-    plots: List[PlotData], d: Dossier, u: BaseUser, i: Instance
-):
-    if not plots:
-        return plots
-
-    for plot in plots:
-        plot.municipality = _lookup_service_id_by_name(plot.municipality)
-    return plots
-
-
 class KtAargauDossierWriter(DossierWriter):
     cantonal_id = KeywordWriter()
 
-    plot_data = Transform(
-        transform=_convert_municipality_in_plots,
-        writer=CalumaListAnswerWriter(
-            target="parzelle", column_mapping=PLOT_DATA_MAPPING
-        ),
+    plot_data = CalumaListAnswerWriter(
+        target="parzelle", column_mapping=PLOT_DATA_MAPPING
     )
 
     coordinates = CalumaAnswerWriter(
