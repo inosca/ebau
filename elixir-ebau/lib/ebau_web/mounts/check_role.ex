@@ -11,7 +11,12 @@ defmodule EbauWeb.Mounts.CheckRole do
   @doc """
   Checks if the user has an admin role. If we don't match on any of the checks above we redirect to the root path
   """
-  def on_mount(:admin, _params, _session, %{assigns: %{actor: %{role: %{admin_role?: true}}}} = socket) do
+  def on_mount(
+        :admin,
+        _params,
+        _session,
+        %{assigns: %{actor: %{role: %{admin_role?: true}}}} = socket
+      ) do
     {:cont, socket}
   end
 

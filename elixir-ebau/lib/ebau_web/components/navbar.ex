@@ -82,12 +82,16 @@ defmodule EbauWeb.Components.Navbar do
 
   def navbar_item(assigns) do
     uri = URI.parse(assigns.current_path)
-    active? = if assigns.resource do
-      String.contains?(uri.path, assigns.resource.link)
-    else
-      false
-    end
+
+    active? =
+      if assigns.resource do
+        String.contains?(uri.path, assigns.resource.link)
+      else
+        false
+      end
+
     assigns = assign(assigns, :active?, active?)
+
     ~H"""
     <li class={@active? && "uk-active"} {@rest}>
       {render_slot(@inner_block)}

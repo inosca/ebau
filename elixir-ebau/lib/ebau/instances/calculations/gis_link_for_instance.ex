@@ -56,11 +56,19 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
   end
 
   defp replace_query(query_map, %{host: "geo.so.ch"}, first_plot_data) do
-    Map.put(query_map, "c", "#{coord_int(first_plot_data.coord_east)},#{coord_int(first_plot_data.coord_north)}")
+    Map.put(
+      query_map,
+      "c",
+      "#{coord_int(first_plot_data.coord_east)},#{coord_int(first_plot_data.coord_north)}"
+    )
   end
 
   defp replace_query(query_map, %{host: "map.geo.admin.ch"}, first_plot_data) do
-    Map.put(query_map, "center", "#{coord_int(first_plot_data.coord_east)},#{coord_int(first_plot_data.coord_north)}")
+    Map.put(
+      query_map,
+      "center",
+      "#{coord_int(first_plot_data.coord_east)},#{coord_int(first_plot_data.coord_north)}"
+    )
   end
 
   defp replace_query(_, _, _), do: %{}
