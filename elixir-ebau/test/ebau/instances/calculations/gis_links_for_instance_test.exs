@@ -74,7 +74,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
 
     gis_link =
       Ebau.Instances.create_gis_link!(
-        %{name: "test", placeholder: "https://example.com?c=999%2C999"},
+        %{name: "test", placeholder: "https://geo.so.ch?c=999%2C999"},
         actor: actor
       )
 
@@ -100,7 +100,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
     gis_link =
       Ash.load!(gis_link, [gis_link_for_instance: %{instance_id: instance.id}], actor: actor)
 
-    assert gis_link.gis_link_for_instance == "https://example.com?c=456%2C123"
+    assert gis_link.gis_link_for_instance == "https://geo.so.ch?c=456%2C123"
   end
 
   test "uses coordinates from the first plot when multiple exist", %{
@@ -129,7 +129,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
     gis_link =
       Ash.load!(gis_link, [gis_link_for_instance: %{instance_id: instance.id}], actor: actor)
 
-    assert gis_link.gis_link_for_instance == "https://example.com?c=456%2C123"
+    assert gis_link.gis_link_for_instance == "https://geo.so.ch?c=456%2C123"
   end
 
   test "returns empty coordinates when instance has no plot data", %{
@@ -161,7 +161,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
         actor: actor
       )
 
-    assert gis_link.gis_link_for_instance == "https://example.com?c=999%2C999"
+    assert is_nil(gis_link.gis_link_for_instance)
   end
 
   test "denies access to gis links for instances without an ACL", %{

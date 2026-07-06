@@ -24,8 +24,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
            )
          ) do
       {:ok, instance} ->
-        coords = first_plot_coords(List.first(instance.plot_data))
-        Enum.map(records, &set_coordinate_param(&1.placeholder, coords))
+        Enum.map(records, fn gis_link -> replace_placeholder(gis_link, instance) end)
 
       {:error, %Ash.Error.Query.NotFound{}} ->
         {:error,
@@ -36,38 +35,43 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
     end
   end
 
-  defp first_plot_coords(nil), do: {:error}
+  defp replace_placeholder(_gis_link, %{plot_data: []}), do: nil
 
-  defp first_plot_coords(plot) do
-    case {coord_int(plot.coord_east), coord_int(plot.coord_north)} do
-      {{:ok, coord_east}, {:ok, coord_north}} -> {:ok, "#{coord_east},#{coord_north}"}
-      _ -> {:error}
-    end
+  defp replace_placeholder(gis_link, %{plot_data: [first_plot_data | _rest]}) do
+    uri = URI.parse(gis_link.placeholder)
+
+    new_query =
+      (uri.query || uri.fragment || "")
+      |> URI.decode_query()
+      |> replace_query(uri, first_plot_data)
+      |> URI.encode_query()
+
+    URI.to_string(%{uri | query: new_query})
   end
 
-  defp coord_int(value) when is_integer(value), do: {:ok, Integer.to_string(value)}
-  defp coord_int(value) when is_float(value), do: {:ok, Float.to_string(trunc(value))}
+  defp replace_query(query_map, %{host: "map.geo.gr.ch"}, first_plot_data) do
+    query_map
+    |> Map.put("map_x", coord_int(first_plot_data.coord_east))
+    |> Map.put("map_y", coord_int(first_plot_data.coord_north))
+  end
+
+  defp replace_query(query_map, %{host: "geo.so.ch"}, first_plot_data) do
+    Map.put(query_map, "c", "#{coord_int(first_plot_data.coord_east)},#{coord_int(first_plot_data.coord_north)}")
+  end
+
+  defp replace_query(query_map, %{host: "map.geo.admin.ch"}, first_plot_data) do
+    Map.put(query_map, "center", "#{coord_int(first_plot_data.coord_east)},#{coord_int(first_plot_data.coord_north)}")
+  end
+
+  defp replace_query(_, _, _), do: %{}
+
+  defp coord_int(value) when is_integer(value), do: Integer.to_string(value)
+  defp coord_int(value) when is_float(value), do: Float.to_string(trunc(value))
 
   defp coord_int(value) when is_binary(value) do
     case Float.parse(value) do
-      {float, _rest} -> {:ok, Integer.to_string(trunc(float))}
+      {float, _rest} -> Integer.to_string(trunc(float))
       :error -> {:error}
     end
-  end
-
-  defp coord_int(_), do: {:error}
-
-  defp set_coordinate_param(url, {:error}), do: url
-
-  defp set_coordinate_param(url, {:ok, coords}) do
-    uri = URI.parse(url)
-
-    query =
-      (uri.query || "")
-      |> URI.decode_query()
-      |> Map.put("c", coords)
-      |> URI.encode_query()
-
-    URI.to_string(%{uri | query: query})
   end
 end
