@@ -28,7 +28,7 @@ export default class CustomSession extends Session {
   @tracked currentInstanceId;
 
   @localCopy("data.language") _language;
-  @localCopy("data.group") _group;
+  @tracked group;
 
   _data = trackedFunction(this, async () => {
     await Promise.resolve();
@@ -50,8 +50,8 @@ export default class CustomSession extends Session {
     if (!groupId || !availableGroups.includes(groupId)) {
       groupId = defaultGroup ?? availableGroups[0];
 
-      this.group = groupId;
     }
+    this.group = defaultGroup ?? availableGroups[0];
 
     const group = groupId ? this.store.peekRecord("group", groupId) : null;
     const service = await group?.service;
@@ -106,22 +106,7 @@ export default class CustomSession extends Session {
     return this._data.value?.service;
   }
 
-  @cached
-  get group() {
-    return this._group;
-  }
 
-  set group(value) {
-    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
-    this.set("data.group", value);
-    this._group = value;
-
-    // Mirror the selected group to a cookie so the Phoenix LiveView side
-    // (which can't read localStorage) can resolve the active group.
-    if (typeof document !== "undefined") {
-      document.cookie = `camac_group=${value ?? ""}; path=/; SameSite=Lax`;
-    }
-  }
 
   get isInternal() {
     return Boolean(this.group);
