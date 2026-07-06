@@ -29,9 +29,9 @@ migrate() {
 load_data() {
   if [ "$LOAD_TEMPLATES_ON_STARTUP" = 'true' ]; then
     echo "Loading templates"
-    python manage.py loaddata /tmp/document-merge-service/dump.json
-    python manage.py upload_local_templates -s '/tmp/document-merge-service/templatefiles/*.docx'
-    python manage.py upload_local_templates -s '/tmp/document-merge-service/templatefiles/*.xlsx'
+    python manage.py loaddata /data/document-merge-service/dump.json
+    python manage.py upload_local_templates -s '/data/document-merge-service/templatefiles/*.docx'
+    python manage.py upload_local_templates -s '/data/document-merge-service/templatefiles/*.xlsx'
   fi
 }
 

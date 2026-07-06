@@ -4,7 +4,8 @@ FROM ghcr.io/adfinis/document-merge-service:9.2.3
 USER root
 RUN \
   --mount=type=cache,target=/var/cache/apt,sharing=locked \
-  apt-get update && apt-get install -y --no-install-recommends hyphen-de hyphen-fr
+  apt-get update && apt-get install -y --no-install-recommends hyphen-de hyphen-fr \
+  && mkdir -p /data/document-merge-service
 USER document-merge-service
 
 ENV CACHE_BACKEND=django.core.cache.backends.memcached.PyMemcacheCache
