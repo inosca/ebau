@@ -7150,7 +7150,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Autoabstellplätze für Fahrzeuge oder Fahrradabstellplätze?\", \"fr\": \"Places de stationnement pour voitures ou cycles?\", \"it\": null}",
+      "label": "{\"de\": \"Autoabstellplätze für Fahrzeuge oder Fahrradabstellplätze?\", \"fr\": \"Places de stationnement pour les véhicules à moteur ou les cycles?\", \"it\": null}",
       "type": "choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes') && ['nutzungsart-wohnen', 'nutzungsart-gewerbe', 'nutzungsart-gastgewerbe'] intersects 'nutzungsart'|answer",
       "is_hidden": "false",
