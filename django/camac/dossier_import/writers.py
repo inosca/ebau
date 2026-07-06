@@ -21,6 +21,8 @@ from caluma.caluma_form.models import (
     Question,
 )
 from caluma.caluma_user.models import BaseUser
+from caluma.caluma_workflow import api as workflow_api
+from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.files import File
@@ -47,6 +49,7 @@ from camac.dossier_import.messages import (
     Severity,
     get_message_max_level,
 )
+from camac.dossier_import.validation import TargetStatus
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.permissions.events import core as permissions_events
@@ -880,7 +883,7 @@ class DossierWriter:
         self.write_fields(instance, dossier)           # generic
         self._post_write_fields(instance, dossier)     # optional
         self._handle_dossier_attachments(dossier)      # mandatory
-        self._set_workflow_state(instance, dossier)    # mandatory
+        self.set_workflow_state(instance, dossier)     # mandatory
         """
 
         dossier_summary = DossierSummary(
@@ -944,7 +947,7 @@ class DossierWriter:
             instance.case.meta["import-id"] = import_session_id
             instance.case.save()
 
-            workflow_messages = self._set_workflow_state(instance, dossier)
+            workflow_messages = self.set_workflow_state(instance, dossier)
             instance.history.all().delete()
             dossier_summary.details.extend(workflow_messages)
 
@@ -1033,11 +1036,222 @@ class DossierWriter:
         else:
             instance.keywords.create(name=dossier.id, service=self._group.service)
 
-    def _set_workflow_state(
-        self, instance: Instance, dossier: Dossier
-    ) -> list[Message]:
-        """Fast-Forward case to Dossier.Meta.target_state."""
+    def get_workflow_skip_path(self, instance: Instance, dossier: Dossier) -> list[str]:
+        """Return the ordered task_ids to skip to reach the target state.
+
+        The tasks are skipped in the returned order to walk the case from its
+        current state to the dossier's target state. Overwrite this in your
+        config to define the path for each supported target state.
+
+        Args:
+            instance: The instance whose case is being advanced.
+            dossier: The dossier being imported.
+
+        Returns:
+            The task_ids to skip, in the order they should be skipped.
+
+        Raises:
+            ConfigurationError: If the config does not implement this method.
+        """
         raise DossierWriter.ConfigurationError  # pragma: no cover
+
+    def get_decision_answer_value(self, dossier: Dossier) -> str:
+        """Map the dossier's target state to the decision form's answer value.
+
+        Overwrite this in your config if the canton's decision answers differ
+        from the default (e.g. Kt. BE uses a workflow-dependent mapping).
+
+        Args:
+            dossier: The dossier being imported.
+
+        Returns:
+            The answer value to write for the decision question.
+        """
+        decision = settings.DECISION["ANSWERS"]["DECISION"]
+
+        return {
+            TargetStatus.APPROVED.value: decision["APPROVED"],
+            TargetStatus.REJECTED.value: decision["REJECTED"],
+            TargetStatus.WRITTEN_OFF.value: decision["WITHDRAWAL"],
+            TargetStatus.DONE.value: decision["APPROVED"],
+        }[dossier._meta.target_state]
+
+    def write_decision_form(self, decision_work_item: WorkItem, dossier: Dossier):
+        """Write the decision answer onto the decision work item's document.
+
+        Called from `before_skip_work_item` when the decision work item is
+        skipped. Overwrite this in your config (calling `super`) to write
+        additional canton-specific decision answers.
+
+        Args:
+            decision_work_item: The decision work item being skipped.
+            dossier: The dossier being imported.
+        """
+        form_api.save_answer(
+            document=decision_work_item.document,
+            question=Question.objects.get(
+                slug=settings.DECISION["QUESTIONS"]["DECISION"]
+            ),
+            value=self.get_decision_answer_value(dossier),
+            user=self._caluma_user,
+        )
+
+    def get_pre_complete_config(self, dossier: Dossier) -> dict:
+        """Return the `PRE_COMPLETE` config that drives `run_pre_complete`.
+
+        Overwrite this in your config to adjust the sibling-handling side
+        effects for the import (e.g. Kt. SZ tweaks them before skipping).
+
+        Returns:
+            The mapping of task_id to the actions (skip, cancel, ...) and the
+            sibling tasks to run them on before that task is completed.
+        """
+        return settings.APPLICATION["CALUMA"]["PRE_COMPLETE"]
+
+    def run_pre_complete(
+        self, work_item: WorkItem, instance: Instance, dossier: Dossier
+    ):
+        """Resolve blocking sibling work items before skipping a work item.
+
+        A work item can only be completed or skipped once none of its siblings
+        are still in the `ready` state. The `PRE_COMPLETE` config (see
+        `get_pre_complete_config`) defines, per task, which sibling tasks to
+        deal with and how (e.g. skip or cancel) before that task is handled.
+        """
+        config = self.get_pre_complete_config(dossier)
+        task_config = config.get(work_item.task_id) if config else None
+
+        if not task_config:
+            return
+
+        for action_name, tasks in task_config.items():
+            action = getattr(workflow_api, f"{action_name}_work_item")
+            for item in work_item.case.work_items.filter(
+                task_id__in=tasks, status=WorkItem.STATUS_READY
+            ):
+                action(item, self._caluma_user)
+
+    def before_skip_work_item(
+        self, work_item: WorkItem, instance: Instance, dossier: Dossier
+    ):
+        """Run side effects before a work item is skipped.
+
+        By default this writes the decision form when the decision work item is
+        being skipped, and always resolves blocking sibling work items via
+        `run_pre_complete`. Overwrite this in your config (calling `super`) for
+        custom per-canton behaviour.
+
+        Args:
+            work_item: The work item that is about to be skipped.
+            instance: The instance whose case is being advanced.
+            dossier: The dossier being imported.
+        """
+        if work_item.task_id == "decision":
+            self.write_decision_form(work_item, dossier)
+
+        self.run_pre_complete(work_item, instance, dossier)
+
+    def get_skip_context(self, work_item: WorkItem) -> dict:
+        """Return the context passed to `skip_work_item` for a work item.
+
+        By default no notifications or history entries are created. For the
+        `init-construction-monitoring` work item we additionally pass `skip` so
+        the construction monitoring process is marked as skipped instead of
+        completed.
+
+        Args:
+            work_item: The work item that is about to be skipped.
+
+        Returns:
+            The context forwarded to the caluma `skip_work_item` API.
+        """
+        context = {"no-notification": True, "no-history": True}
+
+        if work_item.task_id == "init-construction-monitoring":
+            context["skip"] = True
+
+        return context
+
+    def after_skip_work_item(
+        self, work_item: WorkItem, instance: Instance, dossier: Dossier
+    ):
+        """Run side effects after a work item is skipped.
+
+        By default this triggers the `decision_decreed` permission event once
+        the decision work item has been skipped. Overwrite this in your config
+        (calling `super`) for custom per-canton behaviour.
+
+        Args:
+            work_item: The work item that was just skipped.
+            instance: The instance whose case is being advanced.
+            dossier: The dossier being imported.
+        """
+        if work_item.task_id == "decision":
+            permissions_events.Trigger.decision_decreed(None, instance)
+
+    def set_workflow_state(self, instance: Instance, dossier: Dossier) -> list[Message]:
+        """Fast-forward the instance's case to the dossier's target state.
+
+        A caluma workflow can only advance by completing work items, so to reach
+        the target state we walk the ordered tasks from `get_workflow_skip_path`
+        and, for each one, resolve the blocking siblings and run any decision
+        handling (`before_skip_work_item`), skip the work item, then run the
+        follow-up side effects (`after_skip_work_item`).
+
+        Args:
+            instance: The instance whose case should be advanced.
+            dossier: The dossier being imported; its target state defines how
+                far the case is advanced.
+
+        Returns:
+            The messages collected while advancing the workflow, for the import
+            summary.
+        """
+        messages = []
+        target_state = dossier._meta.target_state
+
+        for task_id in self.get_workflow_skip_path(instance, dossier):
+            try:
+                work_item = instance.case.work_items.get(task_id=task_id)
+            except WorkItem.DoesNotExist as e:  # pragma: no cover
+                messages.append(
+                    Message(
+                        level=Severity.ERROR.value,
+                        code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
+                        detail=_(
+                            "Skip work item with task_id %(task_id)s failed with %(error)s."
+                        )
+                        % {
+                            "task_id": task_id,
+                            "error": DossierWriter.ConfigurationError(e),
+                        },
+                    )
+                )
+                continue
+
+            if work_item.case.status != Case.STATUS_RUNNING:  # pragma: no cover
+                # TODO: This was copied from the original implementation in AG &
+                # GR. Check if this is really necessary. How could we even get
+                # into such a state realistically?
+                continue
+
+            self.before_skip_work_item(work_item, instance, dossier)
+            workflow_api.skip_work_item(
+                work_item,
+                user=self._caluma_user,
+                context=self.get_skip_context(work_item),
+            )
+            self.after_skip_work_item(work_item, instance, dossier)
+
+        messages.append(
+            Message(
+                level=Severity.DEBUG.value,
+                code=MessageCodes.SET_WORKFLOW_STATE.value,
+                detail=_("Workflow state set to %(state)s.") % {"state": target_state},
+            )
+        )
+
+        return messages
 
     def _post_create_instance(
         self, instance: Instance, dossier: Dossier

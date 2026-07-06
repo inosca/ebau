@@ -9,14 +9,9 @@ from typing import Any
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_user.models import BaseUser
-from caluma.caluma_workflow import api as workflow_api
-from caluma.caluma_workflow.api import skip_work_item
-from caluma.caluma_workflow.models import Case, WorkItem
-from django.conf import settings
 from django.utils import timezone
 from django.utils.translation import gettext as _
 
-from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
     Message,
@@ -35,7 +30,6 @@ from camac.dossier_import.writers import (
     ResponsibleUserWriter,
 )
 from camac.instance.models import Instance, JournalEntry
-from camac.permissions.events import core as permissions_events
 from camac.tags.models import Keyword
 from camac.user.models import Service
 
@@ -474,10 +468,8 @@ class KtAargauDossierWriter(DossierWriter):
             user=self._caluma_user,
         )
 
-    def _set_workflow_state(self, instance: Instance, dossier) -> list[Message]:
-        messages = []
-        target_state = dossier._meta.target_state
-
+    def get_workflow_skip_path(self, instance: Instance, dossier: Dossier) -> list[str]:
+        """Return the skip path per target state."""
         SUBMITTED = ["submit"]
         DECIDED = SUBMITTED + [
             "formal-exam",
@@ -497,84 +489,13 @@ class KtAargauDossierWriter(DossierWriter):
             "archive-instance",
         ]
 
-        path_to_state = {
+        return {
             TargetStatus.SUBMITTED.value: SUBMITTED,
             TargetStatus.APPROVED.value: DECIDED,
             TargetStatus.REJECTED.value: REJECTED,
             TargetStatus.WRITTEN_OFF.value: DECIDED,
             TargetStatus.DONE.value: DONE,
-        }
-
-        default_context = {"no-notification": True, "no-history": True, "skip": True}
-
-        # In order for a work item to be completed no sibling work items can be
-        # in state ready. They have to be dealt with in advance.
-        for task_id in path_to_state[target_state]:
-            try:
-                work_item = instance.case.work_items.get(task_id=task_id)
-            except WorkItem.DoesNotExist as e:  # pragma: no cover
-                messages.append(
-                    Message(
-                        level=Severity.ERROR.value,
-                        code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
-                        detail=_(
-                            "Skip work item with task_id %(task_id)s failed with %(error)s."
-                        )
-                        % {
-                            "task_id": task_id,
-                            "error": DossierWriter.ConfigurationError(e),
-                        },
-                    )
-                )
-                continue
-
-            if task_id == "decision":
-                self.write_decision_form(work_item, dossier)
-                permissions_events.Trigger.decision_decreed(None, instance)
-
-            if config := get_caluma_setting("PRE_COMPLETE") and get_caluma_setting(
-                "PRE_COMPLETE"
-            ).get(work_item.task_id):
-                for action_name, tasks in config.items():
-                    action = getattr(workflow_api, f"{action_name}_work_item")
-
-                    for item in work_item.case.work_items.filter(
-                        task_id__in=tasks, status=WorkItem.STATUS_READY
-                    ):
-                        action(item, self._caluma_user)
-
-            if work_item.case.status != Case.STATUS_RUNNING:  # pragma: no cover
-                continue
-
-            skip_work_item(work_item, user=self._caluma_user, context=default_context)
-
-        messages.append(  # pragma: no cover
-            Message(
-                level=Severity.DEBUG.value,
-                code=MessageCodes.SET_WORKFLOW_STATE.value,
-                detail=_("Workflow state set to %(state)s.") % {"state": target_state},
-            )
-        )
-
-        return messages
-
-    def write_decision_form(self, decision_work_item, dossier):
-        decision_settings = settings.DECISION["ANSWERS"]["DECISION"]
-        decision_mapping = {
-            TargetStatus.APPROVED.value: decision_settings["APPROVED"],
-            TargetStatus.REJECTED.value: decision_settings["REJECTED"],
-            TargetStatus.WRITTEN_OFF.value: decision_settings["WITHDRAWAL"],
-            TargetStatus.DONE.value: decision_settings["APPROVED"],
-        }
-
-        save_answer(
-            document=decision_work_item.document,
-            question=Question.objects.get(
-                slug=settings.DECISION["QUESTIONS"]["DECISION"]
-            ),
-            value=decision_mapping[dossier._meta.target_state],
-            user=self._caluma_user,
-        )
+        }[dossier._meta.target_state]
 
     def get_existing_and_new_dossier_ids(
         self, dossier_and_cantonal_ids: list[tuple[str, str]]
