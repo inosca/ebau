@@ -15,14 +15,13 @@ def get_similar_value(
     similarity_score_threshold: int = 85,
 ) -> Union[str, None]:
     """Check if there's a similar expected value."""
-    similarity_scores = reversed(
-        sorted(
-            (
-                (expected_value, fuzz.ratio(original_value, expected_value))
-                for expected_value in expected_values
-            ),
-            key=lambda i: i[1],
-        )
+    similarity_scores = sorted(
+        (
+            (expected_value, fuzz.ratio(original_value, expected_value))
+            for expected_value in expected_values
+        ),
+        key=lambda i: i[1],
+        reverse=True,
     )
 
     return next(

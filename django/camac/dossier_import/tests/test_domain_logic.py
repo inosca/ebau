@@ -171,10 +171,10 @@ def test_perform_reimport(  # noqa: C901
     # get the imported values from the secondary archive that should have
     # been written to the dossier
     dossier = next(dossier_loader.load_dossiers(reimport), None)
-    dossier_dict = dict(
-        (field.name, getattr(dossier, field.name))
+    dossier_dict = {
+        field.name: getattr(dossier, field.name)
         for field in dataclasses.fields(dossier)
-    )
+    }
 
     # assert that the updates from the secondary import have indeed been
     # persisted to the dossier

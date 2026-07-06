@@ -337,11 +337,9 @@ class BeGisClient(GISBaseClient):
             </Query>
         """
         query = "".join(
-            map(
-                lambda layer: template.format(
-                    code=service_code, layer=layer, polygon=polygon
-                ),
-                boolean_layers + special_layers,
+            (
+                template.format(code=service_code, layer=layer, polygon=polygon)
+                for layer in boolean_layers + special_layers
             )
         )
         return query

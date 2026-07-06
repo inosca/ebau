@@ -343,9 +343,9 @@ def test_form_field_list_filtering(
     json = response.json()
     assert len(json["data"]) == size
 
-    instances_from_json = set(
+    instances_from_json = {
         int(entry["relationships"]["instance"]["data"]["id"]) for entry in json["data"]
-    )
+    }
     assert set(instance_ids) == instances_from_json
 
 

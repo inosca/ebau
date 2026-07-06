@@ -610,9 +610,8 @@ class KtAargauDossierWriter(DossierWriter):
         }
         all_ids_excel = ids_excel.union(cantonal_ids_excel)
 
-        keyword_to_dossier_number = {
-            keyword: dossier_number
-            for keyword, dossier_number in (
+        keyword_to_dossier_number = dict(
+            (
                 list(
                     Keyword.objects.filter(
                         name__in=all_ids_excel,
@@ -621,7 +620,7 @@ class KtAargauDossierWriter(DossierWriter):
                     ).values_list("name", "instances__case__meta__dossier-number")
                 )
             )
-        }
+        )
         all_keywords_from_db = set(keyword_to_dossier_number.keys())
 
         # 1. ids from Excel that are not yet in the database with a keyword

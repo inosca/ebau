@@ -180,9 +180,9 @@ def test_update_deadline_instance_meta(
         end_date=None,
     )
     deadline1.recalculate_progression()
-    assert set(deadline1.instance.case.meta.get("suspended-services")) == set(
-        [str(service.pk)]
-    ), "Service should be added to the suspended services"
+    assert set(deadline1.instance.case.meta.get("suspended-services")) == {
+        str(service.pk)
+    }, "Service should be added to the suspended services"
 
     suspension2 = suspension_factory(
         deadline=deadline2,
@@ -190,41 +190,37 @@ def test_update_deadline_instance_meta(
         end_date=None,
     )
     deadline2.recalculate_progression()
-    assert set(deadline2.instance.case.meta.get("suspended-services")) == set(
-        [
-            str(service.pk),
-            str(service2.pk),
-        ]
-    ), "Service should be added to the suspended services"
+    assert set(deadline2.instance.case.meta.get("suspended-services")) == {
+        str(service.pk),
+        str(service2.pk),
+    }, "Service should be added to the suspended services"
 
     suspension1.end_date = date(2025, 5, 28)
     suspension1.save()
 
     deadline1.recalculate_progression()
-    assert set(deadline1.instance.case.meta.get("suspended-services")) == set(
-        [str(service2.pk)]
-    ), "Service should be removed from the suspended services"
+    assert set(deadline1.instance.case.meta.get("suspended-services")) == {
+        str(service2.pk)
+    }, "Service should be removed from the suspended services"
 
     suspension1.end_date = None
     suspension1.save()
 
     deadline1.recalculate_progression()
-    assert set(deadline1.instance.case.meta.get("suspended-services")) == set(
-        [
-            str(service2.pk),
-            str(service.pk),
-        ]
-    ), "Service should be added to the suspended services again"
+    assert set(deadline1.instance.case.meta.get("suspended-services")) == {
+        str(service2.pk),
+        str(service.pk),
+    }, "Service should be added to the suspended services again"
 
     suspension1.delete()
     deadline1.recalculate_progression()
-    assert set(deadline1.instance.case.meta.get("suspended-services")) == set(
-        [str(service2.pk)]
-    ), "Service should be removed from the suspended services"
+    assert set(deadline1.instance.case.meta.get("suspended-services")) == {
+        str(service2.pk)
+    }, "Service should be removed from the suspended services"
 
     suspension2.delete()
     deadline2.recalculate_progression()
-    assert set(deadline2.instance.case.meta.get("suspended-services")) == set([]), (
+    assert set(deadline2.instance.case.meta.get("suspended-services")) == set(), (
         "No service should be in the suspended services anymore"
     )
 
@@ -970,15 +966,10 @@ def test_deadlines_deadline_type_manager(
     for_other_service.service_groups.set([service.service_group])
     for_other_service.save()
 
-    assert set(
-        [
-            v.name.get()
-            for v in deadlines_models.DeadlineType.objects.for_service(service)
-        ]
-    ) == set(
-        [
-            "global",
-            "current_service",
-            "current_service_group",
-        ]
-    ), "Only global, current service/service group deadline types should be visible"
+    assert {
+        v.name.get() for v in deadlines_models.DeadlineType.objects.for_service(service)
+    } == {
+        "global",
+        "current_service",
+        "current_service_group",
+    }, "Only global, current service/service group deadline types should be visible"

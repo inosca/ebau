@@ -250,24 +250,24 @@ class Command(BaseCommand):
             slug = row[2] or None
             meta = json.loads(row[11]) if row[11] else {}
 
-            service_data = dict(
-                service_parent=None,
-                service_group=service_group,
-                name=None,
-                slug=slug,
-                description=None,
-                email=scrub(row[3], "email@example.ch"),
-                zip=scrub(str(row[4])),
-                city=None,
-                address=scrub(row[6]),
-                phone=scrub(row[7]),
-                website=scrub(row[8]),
-                notification=1,
-                responsibility_construction_control=0,
-                disabled=int(row[9] or 0),
-                external_identifier=row[10] or None,
-                meta=meta,
-            )
+            service_data = {
+                "service_parent": None,
+                "service_group": service_group,
+                "name": None,
+                "slug": slug,
+                "description": None,
+                "email": scrub(row[3], "email@example.ch"),
+                "zip": scrub(str(row[4])),
+                "city": None,
+                "address": scrub(row[6]),
+                "phone": scrub(row[7]),
+                "website": scrub(row[8]),
+                "notification": 1,
+                "responsibility_construction_control": 0,
+                "disabled": int(row[9] or 0),
+                "external_identifier": row[10] or None,
+                "meta": meta,
+            }
 
             existing = None
             if slug:
@@ -289,13 +289,13 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.SUCCESS(f"Creating service {name}"))
                 service = Service.objects.create(**service_data)
 
-            service_t_data = dict(
-                language="de",
-                service=service,
-                name=name,
-                description=name,
-                city=scrub(row[5]),
-            )
+            service_t_data = {
+                "language": "de",
+                "service": service,
+                "name": name,
+                "description": name,
+                "city": scrub(row[5]),
+            }
 
             if existing and update:
                 ServiceT.objects.filter(service_id=existing.pk).update(**service_t_data)
@@ -308,18 +308,18 @@ class Command(BaseCommand):
 
                 group_name = f"{group_type_name} {name}"
 
-                group_data = dict(
-                    service=service,
-                    role=roles[group_type],
-                    name=None,
-                    email=None,
-                    zip=None,
-                    city=None,
-                    address=None,
-                    phone=None,
-                    website=None,
-                    disabled=int(row[9] or 0),
-                )
+                group_data = {
+                    "service": service,
+                    "role": roles[group_type],
+                    "name": None,
+                    "email": None,
+                    "zip": None,
+                    "city": None,
+                    "address": None,
+                    "phone": None,
+                    "website": None,
+                    "disabled": int(row[9] or 0),
+                }
 
                 existing = Group.objects.filter(trans__name=group_name).first()
 
@@ -330,12 +330,12 @@ class Command(BaseCommand):
                 else:
                     group = Group.objects.create(**group_data)
 
-                group_t_data = dict(
-                    language="de",
-                    group=group,
-                    name=group_name,
-                    city=scrub(row[5]),
-                )
+                group_t_data = {
+                    "language": "de",
+                    "group": group,
+                    "name": group_name,
+                    "city": scrub(row[5]),
+                }
 
                 if existing and update:
                     GroupT.objects.filter(group_id=existing.pk).update(**group_t_data)

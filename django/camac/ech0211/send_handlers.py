@@ -54,7 +54,7 @@ class SendHandlerException(Exception):
 
 class AttachmentAccessibilityMixin:
     def get_attachments(self, ech_documents):
-        uuids = set([doc.uuid for doc in ech_documents])
+        uuids = {doc.uuid for doc in ech_documents}
         attachments = Attachment.objects.filter(uuid__in=uuids).distinct()
         if attachments.count() != len(uuids):
             attachment_uuids = set(attachments.values_list("uuid", flat=True))
@@ -822,13 +822,11 @@ class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
 
         # store meta information for all work items for later processing
         # during the applicant fill task
-        update_work_items = set(
-            [
-                additional_demand_init,
-                additional_demand,
-                *additional_demand.child_case.work_items.all(),
-            ]
-        )
+        update_work_items = {
+            additional_demand_init,
+            additional_demand,
+            *additional_demand.child_case.work_items.all(),
+        }
         for work_item in update_work_items:
             work_item.meta["ech-init-workitem"] = str(additional_demand_init.pk)
             work_item.save(update_fields=["meta"])

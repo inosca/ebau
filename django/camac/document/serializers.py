@@ -205,7 +205,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
         deleted_attachment_sections = models.AttachmentSection.objects.filter(
             pk__in=existing_section_ids
-            - set([section.pk for section in attachment_sections])
+            - {section.pk for section in attachment_sections}
         )
 
         for attachment_section in deleted_attachment_sections:

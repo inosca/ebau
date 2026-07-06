@@ -315,10 +315,7 @@ class CustomPermission(BasePermission):
             )
 
         return all(
-            [
-                permissions_for_key.get(changed_key, False)
-                for changed_key in changed_keys
-            ]
+            permissions_for_key.get(changed_key, False) for changed_key in changed_keys
         )
 
     @distribution_permission_for(

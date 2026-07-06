@@ -337,7 +337,7 @@ class InstanceSerializer(
 
         visible_ids = {int(item["id"]) for item in representation}
 
-        return [k for k in keywords.exclude(id__in=visible_ids)]
+        return list(keywords.exclude(id__in=visible_ids))
 
     def _update_instance_location(self, instance):
         """
@@ -746,7 +746,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     @permission_aware
     def _get_main_form_permissions(self, instance):
-        permissions = set(["read"])
+        permissions = {"read"}
 
         if instance.instance_state.name == "new":
             permissions.add("write")
@@ -754,13 +754,13 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return permissions
 
     def _get_main_form_permissions_for_coordination(self, instance):
-        return set(["read", "write"])
+        return {"read", "write"}
 
     def _get_main_form_permissions_for_service(self, instance):
         if instance.instance_state.name == "new":
             return set()
 
-        return set(["read"])
+        return {"read"}
 
     def _get_main_form_permissions_for_municipality(self, instance):
         state = instance.instance_state.name
@@ -792,7 +792,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return permissions
 
     def _get_main_form_permissions_for_support(self, instance):
-        return set(["read", "write"])
+        return {"read", "write"}
 
     @permission_aware
     def _get_sb1_form_permissions_base(self, instance):
@@ -812,7 +812,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     def _get_sb1_form_permissions_base_for_service(self, instance):
         if instance.instance_state.name in ["sb2", "conclusion"]:
-            return set(["read"])
+            return {"read"}
 
         return set()
 
@@ -872,7 +872,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     def _get_sb2_form_permissions_for_service(self, instance):
         if instance.instance_state.name == "conclusion":
-            return set(["read"])
+            return {"read"}
 
         return set()
 
@@ -908,10 +908,10 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         if instance.instance_state.name in ["new", "subm", "correction"]:
             return set()
 
-        return set(["read"])
+        return {"read"}
 
     def _get_dossierpruefung_form_permissions_for_municipality(self, instance):
-        permissions = set(["read"])
+        permissions = {"read"}
 
         if (
             instance.instance_state.name
@@ -928,7 +928,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return permissions
 
     def _get_dossierpruefung_form_permissions_for_support(self, instance):
-        return set(["read", "write"])
+        return {"read", "write"}
 
     @permission_aware
     def _get_ebau_number_form_permissions(self, instance):
@@ -936,9 +936,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     def _get_ebau_number_form_permissions_for_municipality(self, instance):
         if instance.instance_state.name in ["subm", "in_progress_internal"]:
-            return set(["read", "write"])
+            return {"read", "write"}
 
-        return set(["read"])
+        return {"read"}
 
     @permission_aware
     def _get_decision_form_permissions(self, instance):
@@ -950,9 +950,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             in ["coordination", "in_progress", "in_progress_internal"]
             and not self._is_read_only()
         ):
-            return set(["read", "write"])
+            return {"read", "write"}
 
-        return set(["read"])
+        return {"read"}
 
     @permission_aware
     def _get_publikation_form_permissions(self, instance):
@@ -962,7 +962,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         if instance.instance_state.name in ["new", "subm", "correction"]:
             return set()
 
-        return set(["read"])
+        return {"read"}
 
     def _get_publikation_form_permissions_for_municipality(self, instance):
         permissions = set()
@@ -981,20 +981,20 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return permissions
 
     def _get_publikation_form_permissions_for_support(self, instance):
-        return set(["read", "write"])
+        return {"read", "write"}
 
     def _get_information_of_neighbors_form_permissions(self, instance):
         return self._get_publikation_form_permissions(instance)
 
     @permission_aware
     def _get_case_meta_permissions(self, instance):
-        return set(["read"])
+        return {"read"}
 
     def _get_case_meta_permissions_for_service(self, instance):
-        return set(["read"])
+        return {"read"}
 
     def _get_case_meta_permissions_for_municipality(self, instance):
-        permissions = set(["read"])
+        permissions = {"read"}
 
         if instance.instance_state.name != "new" and not self._is_read_only():
             permissions.add("write")
@@ -1002,15 +1002,15 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return permissions
 
     def _get_case_meta_permissions_for_support(self, instance):
-        return set(["read", "write"])
+        return {"read", "write"}
 
     @permission_aware
     def _get_inquiry_form_permissions(self, instance):
-        return set(["read", "write"])
+        return {"read", "write"}
 
     @permission_aware
     def _get_inquiry_answer_form_permissions(self, instance):
-        return set(["read", "write"])
+        return {"read", "write"}
 
     @permission_aware
     def _get_geometer_form_permissions(self, instance):
@@ -1018,18 +1018,18 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     def _get_geometer_form_permissions_for_geometer(self, instance):
         # TODO: Are the form permissions too lenient?
-        return set(["read", "write"])
+        return {"read", "write"}
 
     @permission_aware
     def _get_review_building_commission_form_permissions(self, instance):
-        return set(["read"])
+        return {"read"}
 
     def _get_review_building_commission_form_permissions_for_building_commission(
         self, instance
     ):
         if instance.instance_state.name in ["comm", "circ"]:
-            return set(["read", "write"])
-        return set(["read"])
+            return {"read", "write"}
+        return {"read"}
 
     @permission_switching_method
     @permission_aware

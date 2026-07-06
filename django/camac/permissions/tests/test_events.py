@@ -99,7 +99,7 @@ def test_instance_submit(instance, access_level, permissions_settings):
 
 @pytest.mark.parametrize(
     "involve_feuerungskontrolle,expected_result",
-    [(True, set(["read", "lead-authority"])), (False, set(["lead-authority"]))],
+    [(True, {"read", "lead-authority"}), (False, {"lead-authority"})],
 )
 @pytest.mark.django_db
 def test_permission_event_handler_be(
@@ -434,13 +434,11 @@ def test_submit_create_acl_be(
         "CalumaInstanceSerializer.get_permissions",
     }
 
-    logged_discrepancies = set(
-        [
-            re.match(r"Permissions module discrepancy in `(.*)`", message).group(1)
-            for message in caplog.messages
-            if message.startswith("Permissions module discrepancy")
-        ]
-    )
+    logged_discrepancies = {
+        re.match(r"Permissions module discrepancy in `(.*)`", message).group(1)
+        for message in caplog.messages
+        if message.startswith("Permissions module discrepancy")
+    }
 
     assert logged_discrepancies == expected_discrepancies, (
         "There are permissions module discrepancies that are either unexpected or are expected but weren't logged"

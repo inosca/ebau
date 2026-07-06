@@ -181,10 +181,7 @@ class Command(BaseCommand):
             self.stdout.write(
                 self.style.WARNING(
                     "\n".join(
-                        map(
-                            lambda i: f" - {i}: {', '.join(self.failures[i])}",
-                            warning,
-                        )
+                        (f" - {i}: {', '.join(self.failures[i])}" for i in warning)
                     )
                 )
             )

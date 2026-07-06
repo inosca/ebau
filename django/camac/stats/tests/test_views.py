@@ -65,7 +65,7 @@ def test_summary_filter_period(
         request, Instance.objects.all(), instance_summary_view
     )
     assert sorted(
-        list(filtered_instances.values_list("case__meta__expected", flat=True))
+        filtered_instances.values_list("case__meta__expected", flat=True)
     ) == sorted(expected)
 
     claims_summary_view = ClaimSummaryView()
@@ -75,7 +75,7 @@ def test_summary_filter_period(
         claims_summary_view,
     )
     assert sorted(
-        list(filtered_claims.values_list("case__family__meta__expected", flat=True))
+        filtered_claims.values_list("case__family__meta__expected", flat=True)
     ) == sorted(expected)
 
 
@@ -360,12 +360,9 @@ def test_instance_cycle_time_view(
     if has_access:
         # assert there is a value for each year for which decisions have been created
         assert sorted([year_data["year"] for year_data in resp]) == sorted(years)
-        assert (
-            set([year_data["year"] for year_data in resp]).intersection(
-                set(exclude_years)
-            )
-            == set()
-        )
+        assert {year_data["year"] for year_data in resp}.intersection(
+            set(exclude_years)
+        ) == set()
         assert len(admin_client.get(url, {"form": "main-form"}).json()) == 3
 
     assert len(admin_client.get(url, {"procedure": "something"}).json()) == 0

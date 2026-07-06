@@ -204,7 +204,7 @@ class Command(BaseCommand):
                         "    Claim Document IDs (Eligible but not migrated):"
                     )
                 )
-                for document_id in sorted(list(missing_migration_document_ids)):
+                for document_id in sorted(missing_migration_document_ids):
                     instance_id = eligible_source_map.get(document_id)
                     self.stdout.write(
                         f"      - Claim Document ID: {document_id} (Instance ID : {instance_id})"
@@ -216,7 +216,7 @@ class Command(BaseCommand):
                         "    Claim Document IDs (Migrated but unexpected):"
                     )
                 )
-                for document_id in sorted(list(unexpected_migration_document_ids)):
+                for document_id in sorted(unexpected_migration_document_ids):
                     instance_id = migrated_child_map.get(document_id)
                     self.stdout.write(
                         f"      - Claim Document ID: {document_id} (Instance ID : {instance_id})"
@@ -250,7 +250,7 @@ class Command(BaseCommand):
                     "    Migrated Claim Document IDs missing 'Send' Work Item:"
                 )
             )
-            for document_id in sorted(list(missing_send_items_document_ids)):
+            for document_id in sorted(missing_send_items_document_ids):
                 instance_id = migrated_child_map.get(document_id)
                 self.stdout.write(
                     f"      - Claim Document ID: {document_id} (Instance ID: {instance_id})"
@@ -284,7 +284,7 @@ class Command(BaseCommand):
                     "    Migrated Document IDs missing 'Parent' Work Item:"
                 )
             )
-            for document_id in sorted(list(missing_parent_items_document_ids)):
+            for document_id in sorted(missing_parent_items_document_ids):
                 instance_id = migrated_child_map.get(document_id)
                 self.stdout.write(
                     f"      - Claim Document ID: {document_id} (Instance ID: {instance_id})"
@@ -496,13 +496,13 @@ class Command(BaseCommand):
             self.stdout.write("   - No migrated attachments found to check.")
             return None
 
-        valid_migrated_doc_ids = set(
+        valid_migrated_doc_ids = {
             str(pk)
             for pk in Document.objects.filter(
                 meta__has_key=MIGRATION_META_CLAIM_ID_KEY,
                 form_id=FILL_DEMAND_FORM_ID,
             ).values_list("pk", flat=True)
-        )
+        }
 
         self.stdout.write(
             f"   => Checking {total_count} attachments against {len(valid_migrated_doc_ids)} migrated claim documents..."

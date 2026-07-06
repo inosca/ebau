@@ -65,7 +65,7 @@ def test_deadline_types_list_gr(
     assert len(result) == expected_count
 
     if expected_count > 0:
-        actual_ids = set([str(r["id"]) for r in result])
+        actual_ids = {str(r["id"]) for r in result}
         expected_ids = {
             str(global_deadline_type.pk),
             str(service_deadline_type.pk),
@@ -177,7 +177,7 @@ def test_deadline_types_list_instance_gr(
     result = response.json()["data"]
     assert len(result) == expected_count
 
-    actual_ids = set([str(r["id"]) for r in result])
+    actual_ids = {str(r["id"]) for r in result}
     if procedure_type == "regular":
         expected_ids = {str(type_regular.pk)}
     elif procedure_type == "simplified":

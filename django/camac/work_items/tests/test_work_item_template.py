@@ -46,4 +46,4 @@ def test_work_item_template_list(
     data = response.json()["data"]
 
     assert len(data) == len(expected_names)
-    assert set([e["attributes"]["name"] for e in data]) == expected_names
+    assert {e["attributes"]["name"] for e in data} == expected_names

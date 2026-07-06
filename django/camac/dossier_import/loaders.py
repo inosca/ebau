@@ -298,7 +298,7 @@ class XlsxFileDossierLoader(DossierLoader):
                         detail=_(
                             "The given coordinates (E: %(e)i and N: %(n)i) are not in Switzerland or are not using the Swiss coordinate system (epsg:2056)."
                         )
-                        % dict(e=e, n=n),
+                        % {"e": e, "n": n},
                     )
                 )
                 continue
@@ -316,7 +316,7 @@ class XlsxFileDossierLoader(DossierLoader):
                             detail=_(
                                 "Failed to load and transform coordinates from E: %(e)i and N: %(n)i"
                             )
-                            % dict(e=e, n=n),
+                            % {"e": e, "n": n},
                         )
                     )
                     continue
@@ -369,7 +369,7 @@ class XlsxFileDossierLoader(DossierLoader):
                     detail=_(
                         "Failed to load plot with numbers `%(plot_numbers)s` and egrid values `%(egrids)s`"
                     )
-                    % dict(plot_numbers=plot_numbers, egrids=egrids),
+                    % {"plot_numbers": plot_numbers, "egrids": egrids},
                 )
             )
         return out, messages

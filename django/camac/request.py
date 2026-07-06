@@ -9,6 +9,6 @@ def get_request(obj):
     request = getattr(obj, "request", None)
     if request is None:
         # on serializer request is in context dict
-        request = getattr(obj, "context", dict()).get("request")
+        request = getattr(obj, "context", {}).get("request")
 
     return request

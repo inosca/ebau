@@ -157,9 +157,9 @@ def test_suspension_list_default(
     assert len(response.data) == expected_count
 
     if expected_count > 0:
-        assert set([entry["id"] for entry in response.data]) == set(
-            [str(entry.pk) for entry in instance_suspensions]
-        )
+        assert {entry["id"] for entry in response.data} == {
+            str(entry.pk) for entry in instance_suspensions
+        }
 
 
 @pytest.mark.parametrize(
@@ -231,9 +231,9 @@ def test_suspension_list_gr(
     assert len(response.data) == expected_count
 
     if expected_count > 0:
-        assert set([entry["id"] for entry in response.data]) == set(
-            [str(entry.pk) for entry in instance_suspensions]
-        )
+        assert {entry["id"] for entry in response.data} == {
+            str(entry.pk) for entry in instance_suspensions
+        }
 
 
 @pytest.mark.parametrize(
@@ -320,9 +320,9 @@ def test_suspension_list_ag(
     assert len(response.data) == expected_count
 
     if expected_count > 0:
-        assert set([entry["id"] for entry in response.data]) == set(
-            [str(entry.pk) for entry in instance_suspensions]
-        )
+        assert {entry["id"] for entry in response.data} == {
+            str(entry.pk) for entry in instance_suspensions
+        }
 
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
@@ -712,9 +712,9 @@ def test_suspension_queryset_status(
         suspension_factory(deadline=deadline, start_date="2023-01-01", end_date=None),
     ]
 
-    assert set([s.pk for s in closed_suspensions]) == set(
+    assert {s.pk for s in closed_suspensions} == set(
         deadline.suspensions.only_closed().values_list("pk", flat=True)
     )
-    assert set([s.pk for s in open_suspensions]) == set(
+    assert {s.pk for s in open_suspensions} == set(
         deadline.suspensions.only_open().values_list("pk", flat=True)
     )

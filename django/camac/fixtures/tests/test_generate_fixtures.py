@@ -45,16 +45,17 @@ def test_get_enabled_cantons_for_module(mocker):
     )
 
     assert get_enabled_cantons_for_module(distribution_settings) == ["kt_bern"]
-    assert set(get_enabled_cantons_for_module(distribution_settings, True)) == set(
-        ["kt_bern", "kt_gr"]
-    )
+    assert set(get_enabled_cantons_for_module(distribution_settings, True)) == {
+        "kt_bern",
+        "kt_gr",
+    }
 
     assert get_enabled_cantons_for_module(permissions_alexandria_settings) == [
         "kt_bern"
     ]
     assert set(
         get_enabled_cantons_for_module(permissions_alexandria_settings, True)
-    ) == set(["kt_bern", "kt_gr"])
+    ) == {"kt_bern", "kt_gr"}
 
 
 @pytest.mark.parametrize("_", [1, 2])

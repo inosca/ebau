@@ -97,7 +97,7 @@ def test_included_in_preset_filter(
     data = response.json()["data"]
 
     assert len(data) == len(expected_names)
-    assert set([e["attributes"]["name"] for e in data]) == expected_names
+    assert {e["attributes"]["name"] for e in data} == expected_names
 
 
 @pytest.mark.django_db

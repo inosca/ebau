@@ -92,7 +92,7 @@ def test_geometer_instance_access(
     permissions_after_acl = admin_client.get(permissions_url)
     assert len(permissions_after_acl.json()["data"]) == 1
     perm = permissions_after_acl.json()["data"][0]
-    assert set(perm["attributes"]["permissions"]) == set(["geometer", "read-form"])
+    assert set(perm["attributes"]["permissions"]) == {"geometer", "read-form"}
 
     if expect_results:
         # Just ensure it's the right instance (there should be only

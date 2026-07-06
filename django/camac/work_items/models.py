@@ -125,7 +125,7 @@ class WorkItemTemplate(models.Model):
         help_text=_(
             'The assigned user will only be considered if the responsibility rule "%(rule)s" is selected above'
         )
-        % dict(rule=ResponsibilityRuleChoices.SPECIFIC_USER.label),
+        % {"rule": ResponsibilityRuleChoices.SPECIFIC_USER.label},
     )
 
     objects: WorkItemTemplateQuerySet = WorkItemTemplateQuerySet.as_manager()

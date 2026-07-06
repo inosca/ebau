@@ -115,7 +115,7 @@ def test_message_read_flags_and_filter(
     filter_params = {"is_read": filter} if filter is not None else {}
 
     resp = admin_client.get(reverse("communications-message-list"), data=filter_params)
-    received_ids = set([rec["id"] for rec in resp.json()["data"]])
+    received_ids = {rec["id"] for rec in resp.json()["data"]}
 
     assert resp.status_code == status.HTTP_200_OK
     assert received_ids == expected_ids

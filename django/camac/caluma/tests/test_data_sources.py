@@ -409,7 +409,7 @@ def test_landowners_dynamic_on_copy(
         str(referenced_document1.pk),
         str(referenced_document2.pk),
     ]
-    assert set([option.slug for option in new_dynamic_options]) == {
+    assert {option.slug for option in new_dynamic_options} == {
         str(referenced_document1.pk),
         str(referenced_document2.pk),
     }
@@ -467,7 +467,7 @@ def test_municipalities_with_instance_ag(
 
     data = Municipalities().get_data(user, None, {"instanceId": ag_instance.pk})
 
-    assert set([r[1]["de"] for r in data]) == set(expected)
+    assert {r[1]["de"] for r in data} == set(expected)
 
 
 @pytest.mark.django_db
@@ -526,7 +526,7 @@ def test_buildings(
         {"instanceId": so_instance.pk},
     )
 
-    names = set([item[1] for item in data])
+    names = {item[1] for item in data}
 
     assert len(data) == 3
     assert names == {"MFH 1", "MFH 2", "EFH 1"}
@@ -626,7 +626,7 @@ def test_services_for_final_report(
         {"instanceId": ur_instance.pk},
     )
 
-    service_names = set([service[1] for service in data])
+    service_names = {service[1] for service in data}
 
     assert len(data) == 1
     assert service_names == {services_that_wants_to_be_invited.name}

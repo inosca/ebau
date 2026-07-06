@@ -20,7 +20,7 @@ def test_inquiry(
 
     assert WorkItem.objects.count() == 10
     assert queryset.count() == 5
-    assert set(queryset.values_list("pk", flat=True)) == set([i.pk for i in inquiries])
+    assert set(queryset.values_list("pk", flat=True)) == {i.pk for i in inquiries}
 
 
 @pytest.fixture

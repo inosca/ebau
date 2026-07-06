@@ -220,12 +220,7 @@ class Command(BaseCommand):
         return None
 
     def _get_assigned_users(self, service_id, instance):
-        return [
-            username
-            for username in self.responsible_user(
-                service_id=service_id, instance=instance
-            )
-        ]
+        return list(self.responsible_user(service_id=service_id, instance=instance))
 
     @staticmethod
     def _determine_init_status(case):

@@ -30,9 +30,12 @@ def test_group_list(admin_client, group, group_factory, service_factory):
 
     json = response.json()
     assert len(json["data"]) == 4
-    assert {int(entry["id"]) for entry in json["data"]} == set(
-        [group.pk, group_same_service.pk, group_parent_service.pk, group_sub_service.pk]
-    )
+    assert {int(entry["id"]) for entry in json["data"]} == {
+        group.pk,
+        group_same_service.pk,
+        group_parent_service.pk,
+        group_sub_service.pk,
+    }
 
 
 def test_group_detail(admin_client, group, multilang, application_settings):

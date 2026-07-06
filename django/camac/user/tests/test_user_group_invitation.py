@@ -48,11 +48,11 @@ def test_user_group_invitation_list(
 
     assert response.status_code == status.HTTP_200_OK
 
-    ids = set([int(row["id"]) for row in response.json()["data"]])
+    ids = {int(row["id"]) for row in response.json()["data"]}
 
     assert len(ids) == 2
-    assert len(ids - set([row.pk for row in visible_invitations])) == 0
-    assert len(ids - set([row.pk for row in non_visible_invitations])) == 2
+    assert len(ids - {row.pk for row in visible_invitations}) == 0
+    assert len(ids - {row.pk for row in non_visible_invitations}) == 2
 
 
 @pytest.mark.freeze_time("2023-05-22")

@@ -22,11 +22,11 @@ def test_user_group_list(admin_client, user_group_factory, service, service_fact
 
     assert response.status_code == status.HTTP_200_OK
 
-    ids = set([int(row["id"]) for row in response.json()["data"]])
+    ids = {int(row["id"]) for row in response.json()["data"]}
 
     assert len(ids) == 3  # 2 newly created + admin user
-    assert len(ids - set([row.pk for row in visible_user_groups])) == 1
-    assert len(ids - set([row.pk for row in non_visible_user_groups])) == 3
+    assert len(ids - {row.pk for row in visible_user_groups}) == 1
+    assert len(ids - {row.pk for row in non_visible_user_groups}) == 3
 
 
 @pytest.mark.freeze_time("2023-05-22")

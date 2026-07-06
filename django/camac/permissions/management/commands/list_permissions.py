@@ -136,7 +136,7 @@ class Command(BaseCommand):
             access_levels = "\n".join(sorted(level_labels))
 
         else:
-            access_levels = "\n".join(sorted(set(level for level, _c in where)))
+            access_levels = "\n".join(sorted({level for level, _c in where}))
         return access_levels
 
     def _get_irs(self, perm, where: set[tuple[str, str, int]]):

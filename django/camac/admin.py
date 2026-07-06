@@ -38,10 +38,8 @@ class EbauAdminMixin:
             settings.ENV == "development"
             or model_name in settings.DJANGO_ADMIN["CUSTOMER_MANAGED_MODELS"]
             or any(
-                [
-                    request.user.email.endswith(f"@{domain}")
-                    for domain in settings.DEVELOPER_EMAIL_DOMAINS
-                ]
+                request.user.email.endswith(f"@{domain}")
+                for domain in settings.DEVELOPER_EMAIL_DOMAINS
             )
         )
 

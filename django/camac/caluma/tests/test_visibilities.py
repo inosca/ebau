@@ -293,18 +293,14 @@ def test_work_item_visibility_sz(
     )
 
     assert not result.errors
-    retrieved_workitems = set(
-        [
-            extract_global_id(edge["node"]["id"])
-            for edge in result.data["allWorkItems"]["edges"]
-        ]
-    )
+    retrieved_workitems = {
+        extract_global_id(edge["node"]["id"])
+        for edge in result.data["allWorkItems"]["edges"]
+    }
 
     assert len(retrieved_workitems) == 6
 
-    assert retrieved_workitems == set(
-        [str(work_item) for work_item in visible_workitems]
-    )
+    assert retrieved_workitems == {str(work_item) for work_item in visible_workitems}
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -353,12 +349,10 @@ def test_work_item_visibility(
 
     assert not result.errors
 
-    visible_workitems = set(
-        [
-            extract_global_id(edge["node"]["id"])
-            for edge in result.data["allWorkItems"]["edges"]
-        ]
-    )
+    visible_workitems = {
+        extract_global_id(edge["node"]["id"])
+        for edge in result.data["allWorkItems"]["edges"]
+    }
     assert (
         len(visible_workitems) == 6
     )  # submit, init-additional-demand, create-manual-workitem, ebau-number, inquiry (incl. distribution)
@@ -368,10 +362,9 @@ def test_work_item_visibility(
         case__family__instance=visible_instance
     )
     assert visible.count() == 6
-    assert (
-        set([str(_id) for _id in visible.values_list("id", flat=True)])
-        == visible_workitems
-    )
+    assert {
+        str(_id) for _id in visible.values_list("id", flat=True)
+    } == visible_workitems
 
     # not so for not_visible_instance
     not_visible = caluma_workflow_models.WorkItem.objects.filter(
@@ -380,12 +373,9 @@ def test_work_item_visibility(
     assert (
         not_visible.count() == 4
     )  # submit, init-additional-demand, create-manual-workitem, ebau-number
-    assert (
-        set(
-            [str(_id) for _id in not_visible.values_list("id", flat=True)]
-        ).intersection(visible_workitems)
-        == set()
-    )
+    assert {str(_id) for _id in not_visible.values_list("id", flat=True)}.intersection(
+        visible_workitems
+    ) == set()
 
 
 @pytest.mark.parametrize(
@@ -483,13 +473,11 @@ def test_work_item_additional_demand_visibility(
 
     assert not result.errors
 
-    visible_workitems = set(
-        [
-            extract_global_id(edge["node"]["id"])
-            for edge in result.data["allWorkItems"]["edges"]
-            if edge["node"]["task"]["slug"] != "submit"
-        ]
-    )
+    visible_workitems = {
+        extract_global_id(edge["node"]["id"])
+        for edge in result.data["allWorkItems"]["edges"]
+        if edge["node"]["task"]["slug"] != "submit"
+    }
     if role.name == "Applicant":
         assert visible_workitems == {
             str(visible_base.pk),
@@ -538,12 +526,10 @@ def test_work_item_visibility_for_applicants_sz(
 
     assert not result.errors
 
-    visible_workitems = set(
-        [
-            extract_global_id(edge["node"]["id"])
-            for edge in result.data["allWorkItems"]["edges"]
-        ]
-    )
+    visible_workitems = {
+        extract_global_id(edge["node"]["id"])
+        for edge in result.data["allWorkItems"]["edges"]
+    }
 
     if User.objects.filter(groups__role__name="Applicant"):
         assert len(visible_workitems) == 0
@@ -1106,12 +1092,10 @@ def test_visibility_performance_heuristic_workitems(
 
     assert not result.errors
 
-    visible_workitems = set(
-        [
-            extract_global_id(edge["node"]["id"])
-            for edge in result.data["allWorkItems"]["edges"]
-        ]
-    )
+    visible_workitems = {
+        extract_global_id(edge["node"]["id"])
+        for edge in result.data["allWorkItems"]["edges"]
+    }
     assert (
         len(visible_workitems) == 6
     )  # submit, init-additional-demand, create-manual-workitem, ebau-number, inquiry (incl. distribution)

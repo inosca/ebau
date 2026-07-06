@@ -1791,22 +1791,22 @@ def test_aliased_placeholder_field(
     untransl_field = serializer.fields["untransl_field"]
     untransl_docs = untransl_field.get_docs()
     assert untransl_docs["aliases"] == [
-        {lang: "UNTRANSLATED" for lang in available_langs},
-        {lang: "UNTRANSLATED_TEST" for lang in available_langs},
+        dict.fromkeys(available_langs, "UNTRANSLATED"),
+        dict.fromkeys(available_langs, "UNTRANSLATED_TEST"),
     ]
     if is_complex:
         assert untransl_docs["nested_aliases"] == {
             "NAME": [
-                {lang: "UNTRANSLATED_NAME" for lang in available_langs},
-                {lang: "OTHER_NAME" for lang in available_langs},
+                dict.fromkeys(available_langs, "UNTRANSLATED_NAME"),
+                dict.fromkeys(available_langs, "OTHER_NAME"),
             ],
             "NESTED": [
-                {lang: "UNTRANSLATED_NESTED" for lang in available_langs},
-                {lang: "OTHER_NESTED" for lang in available_langs},
+                dict.fromkeys(available_langs, "UNTRANSLATED_NESTED"),
+                dict.fromkeys(available_langs, "OTHER_NESTED"),
             ],
             "NESTED.NAME": [
-                {lang: "UNTRANSLATED_NESTED_NAME" for lang in available_langs},
-                {lang: "OTHER_NESTED_NAME" for lang in available_langs},
+                dict.fromkeys(available_langs, "UNTRANSLATED_NESTED_NAME"),
+                dict.fromkeys(available_langs, "OTHER_NESTED_NAME"),
             ],
         }
 

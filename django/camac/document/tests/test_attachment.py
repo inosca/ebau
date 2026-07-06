@@ -1275,9 +1275,7 @@ def test_attachment_section_filters(
     json = response.json()
     assert response.status_code == status.HTTP_200_OK
     assert len(json["data"]) == 2
-    assert set([docs[0].pk, docs[1].pk]) == set(
-        int(result["id"]) for result in json["data"]
-    )
+    assert {docs[0].pk, docs[1].pk} == {int(result["id"]) for result in json["data"]}
 
     # Second test: include filter. Include the forbidden seciton,
     # but its corresponding document should not be returned
@@ -1395,7 +1393,7 @@ def test_attachment_public_access(
     assert res.status_code == status.HTTP_200_OK
     data = res.json()["data"]
     assert len(data) == 2
-    assert set(d["id"] for d in data) == set([str(aasa.pk), str(aas2.attachment_id)])
+    assert {d["id"] for d in data} == {str(aasa.pk), str(aas2.attachment_id)}
 
     res = client.get(
         url,
@@ -1947,9 +1945,9 @@ def test_accesslevel_based_permission(
     response = admin_client.get(url)
 
     resp_data = response.json()
-    resp_ids = set([rec["id"] for rec in resp_data["data"]])
+    resp_ids = {rec["id"] for rec in resp_data["data"]}
 
-    expect_ids = set([str(doc_a_same.pk), str(doc_a_othr.pk), str(doc_b_same.pk)])
+    expect_ids = {str(doc_a_same.pk), str(doc_a_othr.pk), str(doc_b_same.pk)}
     # doc_b_othr should NOT be part of the result - section B as "admin internal"
     # permissions, so should only see same-service documents
 

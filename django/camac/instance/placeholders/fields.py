@@ -159,14 +159,12 @@ class AliasedMixin:
 
         """
         if flat:
-            return set(
-                [
-                    to_configured_case(alias_t)
-                    for alias_t in get_translations_canton_aware(
-                        alias, static=self.static_translations
-                    ).values()
-                ]
-            )
+            return {
+                to_configured_case(alias_t)
+                for alias_t in get_translations_canton_aware(
+                    alias, static=self.static_translations
+                ).values()
+            }
 
         return {
             lang: to_configured_case(alias_t)
@@ -740,7 +738,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
         #  - select one: pass a list holding exactly one string.
         #    The string must be a InquiriesField attribute name. More than 1 string in
         #    the list will raise a configuration error.
-        if not all([isinstance(prop, tuple) for prop in props]) and len(props) > 1:
+        if not all(isinstance(prop, tuple) for prop in props) and len(props) > 1:
             raise ImproperlyConfigured(
                 (
                     "InquiriesField props must be either a list of 2-tuples or a list "
@@ -813,7 +811,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
         # in the available nested aliases dict.
         # Otherwise the value should be a primitive (i. e. provide `join_by`) or a
         # list of primitves to avoid undocumented objects in the returned render context.
-        if not all([isinstance(prop_config, tuple) for prop_config in self.props]):
+        if not all(isinstance(prop_config, tuple) for prop_config in self.props):
             return {}
 
         # Select all properties as nested aliases from available aliased properties

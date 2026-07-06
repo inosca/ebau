@@ -118,9 +118,9 @@ def test_formtimeline_manager(
     # first additional demand timeline
     timeline = FormTimeline.objects.open_additional_demand(work_item)
     assert timeline.end_date is None
-    assert set(instance.case.meta.get("additional-demand-changes")) == set(
-        [str(work_item.child_case.pk)]
-    )
+    assert set(instance.case.meta.get("additional-demand-changes")) == {
+        str(work_item.child_case.pk)
+    }
     assert timeline.cases.count() == 1
 
     # second addtional demand while timeline is still open,
@@ -135,12 +135,14 @@ def test_formtimeline_manager(
     # Should return the same timeline
     assert timeline2.pk == timeline.pk
     assert timeline2.end_date is None
-    assert set(instance.case.meta.get("additional-demand-changes")) == set(
-        [str(work_item.child_case.pk), str(work_item2.child_case.pk)]
-    )
-    assert set([str(pk) for pk in timeline2.cases.values_list("pk", flat=True)]) == set(
-        [str(work_item.child_case.pk), str(work_item2.child_case.pk)]
-    )
+    assert set(instance.case.meta.get("additional-demand-changes")) == {
+        str(work_item.child_case.pk),
+        str(work_item2.child_case.pk),
+    }
+    assert {str(pk) for pk in timeline2.cases.values_list("pk", flat=True)} == {
+        str(work_item.child_case.pk),
+        str(work_item2.child_case.pk),
+    }
 
     # closing first additional demand, timeline should remain open
     FormTimeline.objects.close_additional_demand(work_item)
@@ -170,9 +172,9 @@ def test_formtimeline_manager(
     timeline3 = FormTimeline.objects.open_additional_demand(work_item3)
     assert timeline3.pk != timeline.pk
     assert timeline3.end_date is None
-    assert set(instance.case.meta.get("additional-demand-changes")) == set(
-        [str(work_item3.child_case.pk)]
-    )
-    assert set([str(pk) for pk in timeline3.cases.values_list("pk", flat=True)]) == set(
-        [str(work_item3.child_case.pk)]
-    )
+    assert set(instance.case.meta.get("additional-demand-changes")) == {
+        str(work_item3.child_case.pk)
+    }
+    assert {str(pk) for pk in timeline3.cases.values_list("pk", flat=True)} == {
+        str(work_item3.child_case.pk)
+    }

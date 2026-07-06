@@ -138,7 +138,7 @@ def test_suggestion_for_instance_filter_caluma(
 
     assert response.status_code == status.HTTP_200_OK
 
-    assert set(int(entry["id"]) for entry in response.json()["data"]) == set(
+    assert {int(entry["id"]) for entry in response.json()["data"]} == set(
         expected_services
     )
 
@@ -364,7 +364,7 @@ def test_suggestion_for_instance_filter_camac_ng(
 
     assert response.status_code == status.HTTP_200_OK
 
-    assert set(int(entry["id"]) for entry in response.json()["data"]) == set(
+    assert {int(entry["id"]) for entry in response.json()["data"]} == set(
         expected_services
     )
 
@@ -477,9 +477,7 @@ def test_suggestion_for_instance_filter_caluma_gr(
         {"suggestion_for_instance": gr_instance.pk},
     )
     assert response.status_code == status.HTTP_200_OK
-    assert set(
-        [
-            str(Service.objects.get(pk=entry["id"]).slug)
-            for entry in response.json()["data"]
-        ]
-    ) == set(expected_services)
+    assert {
+        str(Service.objects.get(pk=entry["id"]).slug)
+        for entry in response.json()["data"]
+    } == set(expected_services)

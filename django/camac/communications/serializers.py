@@ -282,7 +282,7 @@ class TopicSerializer(VisibilitySerializerMixin, serializers.ModelSerializer):
                     gettext("There is no active service for this instance")
                 )
 
-            acceptable_entities = set(["APPLICANT", str(active_service.pk)])
+            acceptable_entities = {"APPLICANT", str(active_service.pk)}
             inacceptable_entities = set(validated_entities) - acceptable_entities
 
             if inacceptable_entities:

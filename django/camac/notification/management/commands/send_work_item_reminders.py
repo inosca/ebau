@@ -134,11 +134,11 @@ class Command(BaseCommand):
         emails = []
 
         # assigned_users
-        all_assigned_usernames = set(
+        all_assigned_usernames = {
             username
             for item in work_items.values_list("assigned_users", flat=True)
             for username in item
-        )
+        }
         all_assigned_users = (
             User.objects.exclude(disabled=1)
             .filter(username__in=all_assigned_usernames)
