@@ -189,7 +189,9 @@ class Instance(models.Model):
     )
 
     def _get_queryset_for_linked_instances(self, queryset):
-        return queryset if queryset else Instance.objects.all()
+        if queryset is None:
+            return Instance.objects.all()
+        return queryset
 
     @canton_aware
     def get_linked_instances(self, queryset=None):
