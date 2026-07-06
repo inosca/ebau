@@ -169,4 +169,4 @@ def test_so_distribution_services(
     data = response.json()["data"]
 
     assert len(data) == expected_count
-    assert set([i["attributes"]["name"] for i in data]) == snapshot
+    assert {i["attributes"]["name"] for i in data} == snapshot

@@ -53,12 +53,11 @@ class Command(BaseCommand):
         for instance in affected_instances:
             instance_id = instance.pk
             instance = Instance.objects.get(pk=instance_id)
-            entries = [
-                entry
-                for entry in BillingEntry.objects.filter(
+            entries = list(
+                BillingEntry.objects.filter(
                     instance__pk=instance_id, invoiced=1
                 ).order_by("created")
-            ]
+            )
 
             log.info("")
             log.info("============= PROCESSING INSTANCE =============")
@@ -201,7 +200,7 @@ class Command(BaseCommand):
         return affected_instances
 
     def _try_reconnect(self, entry, invoices):
-        list_invoices = [invoice for invoice in invoices]
+        list_invoices = list(invoices)
         try:
             current_invoice_index = list_invoices.index(entry.invoice)
         except ValueError:

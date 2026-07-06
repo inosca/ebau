@@ -53,12 +53,10 @@ def test_inquiry_visibility_be(
 
     assert not result.errors
 
-    ids = set(
-        [
-            extract_global_id(edge["node"]["id"])
-            for edge in result.data["allWorkItems"]["edges"]
-        ]
-    )
+    ids = {
+        extract_global_id(edge["node"]["id"])
+        for edge in result.data["allWorkItems"]["edges"]
+    }
 
     visible_ids = {str(i.pk) for i in visible_inquiries}
 
@@ -108,12 +106,10 @@ def test_inquiry_visibility_gr(
 
     assert not result.errors
 
-    ids = set(
-        [
-            extract_global_id(edge["node"]["id"])
-            for edge in result.data["allWorkItems"]["edges"]
-        ]
-    )
+    ids = {
+        extract_global_id(edge["node"]["id"])
+        for edge in result.data["allWorkItems"]["edges"]
+    }
 
     assert len(ids) == expected_count
 
@@ -319,18 +315,18 @@ def test_inquiry_visibility_ag(
             controlling_groups=[str(controlling.pk)],
         )
 
-    services = dict(
-        authority=authority,
-        authority_subservice=authority_subservice,
-        municipality=municipality,
-        municipality_subservice=municipality_subservice,
-        afb=afb,
-        afb_subservice=afb_subservice,
-        canton=canton,
-        canton_subservice=canton_subservice,
-        external=external,
-        external_subservice=external_subservice,
-    )
+    services = {
+        "authority": authority,
+        "authority_subservice": authority_subservice,
+        "municipality": municipality,
+        "municipality_subservice": municipality_subservice,
+        "afb": afb,
+        "afb_subservice": afb_subservice,
+        "canton": canton,
+        "canton_subservice": canton_subservice,
+        "external": external,
+        "external_subservice": external_subservice,
+    }
 
     for name, service in services.items():
         group.service = service
@@ -378,12 +374,10 @@ def test_inquiry_visibility_ur(
 
     assert not result.errors
 
-    ids = set(
-        [
-            extract_global_id(edge["node"]["id"])
-            for edge in result.data["allWorkItems"]["edges"]
-        ]
-    )
+    ids = {
+        extract_global_id(edge["node"]["id"])
+        for edge in result.data["allWorkItems"]["edges"]
+    }
 
     visible_ids = {str(i.pk) for i in visible_inquiries}
 

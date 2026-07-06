@@ -991,9 +991,9 @@ def test_involved_services(
     json = response.json()
     involved_services = json["data"]["relationships"]["involved-services"]["data"]
     assert len(involved_services) == 2
-    assert set([str(invited_service.pk), str(group.service_id)]) == set(
-        [service["id"] for service in involved_services]
-    )
+    assert {str(invited_service.pk), str(group.service_id)} == {
+        service["id"] for service in involved_services
+    }
 
 
 @pytest.mark.parametrize("main_instance_has_group", [False, True])
@@ -1950,7 +1950,7 @@ def test_circulation_state_filter(
 @pytest.mark.parametrize("role__name,", [("Applicant")])
 def test_tags_filter(admin_client, admin_user, instance_factory):
     inst_a, inst_b, inst_c = instance_factory.create_batch(3, user=admin_user)
-    tag_args = dict(service=admin_user.groups.first().service)
+    tag_args = {"service": admin_user.groups.first().service}
 
     inst_a.tags.create(name="foo", **tag_args)
     inst_a.tags.create(name="bar", **tag_args)
@@ -1973,8 +1973,8 @@ def test_tags_filter(admin_client, admin_user, instance_factory):
         assert response.status_code == status.HTTP_200_OK
 
         data = response.json()["data"]
-        got_ids = set([row["id"] for row in data])
-        expect_ids = set([str(inst.pk) for inst in expectation])
+        got_ids = {row["id"] for row in data}
+        expect_ids = {str(inst.pk) for inst in expectation}
         assert got_ids == expect_ids
 
 

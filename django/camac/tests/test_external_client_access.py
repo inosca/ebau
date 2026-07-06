@@ -140,10 +140,8 @@ def test_external_client_access(
                 # - https://github.com/encode/django-rest-framework/pull/6499
                 # - https://github.com/encode/django-rest-framework/pull/6502
                 if received_code != IsAllowedClientToken.code and any(
-                    [
-                        isinstance(permission_cls, OperandHolder)
-                        for permission_cls in view.permission_classes
-                    ]
+                    isinstance(permission_cls, OperandHolder)
+                    for permission_cls in view.permission_classes
                 ):
                     continue
 

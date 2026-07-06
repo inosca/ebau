@@ -89,10 +89,8 @@ class CustomPermission:
             # ManyToManyField
             elif hasattr(old_value, "values_list"):
                 # can be a set because ids are unique
-                old_value = set(
-                    [str(v) for v in old_value.values_list("pk", flat=True)]
-                )
-                new_value = set([item["id"] for item in new_value])
+                old_value = {str(v) for v in old_value.values_list("pk", flat=True)}
+                new_value = {item["id"] for item in new_value}
 
             if old_value != new_value:
                 used_permissions.add(f"{MODE_UPDATE}-{key}")

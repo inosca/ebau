@@ -867,7 +867,7 @@ class MasterData(object):
             return queryset
 
         config = settings.MASTER_DATA["CONFIG"].values()
-        all_resolvers = set([prop[0] for prop in config])
+        all_resolvers = {prop[0] for prop in config}
         uses_work_items = any(
             isinstance(property_config[2], dict)
             and "document_from_work_item" in property_config[2]

@@ -1128,9 +1128,9 @@ def test_task_send_claim_handler(
         if test_case == "ok_dossierkorrektur":
             assert FormTimeline.objects.count() == 1
             timeline = FormTimeline.objects.first()
-            timeline_case_pks = set(
-                [str(pk) for pk in timeline.cases.values_list("pk", flat=True)]
-            )
+            timeline_case_pks = {
+                str(pk) for pk in timeline.cases.values_list("pk", flat=True)
+            }
             assert (
                 set(fill_work_item.case.family.meta.get("additional-demand-changes"))
                 == timeline_case_pks

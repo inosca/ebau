@@ -141,7 +141,7 @@ class DistributionDeadlineRule(models.Model):
         deadline = today + timedelta(days=self.lead_time)
 
         exclude_holidays = self.should_exclude_holidays()
-        affected_years = [year for year in range(today.year, deadline.year + 2)]
+        affected_years = list(range(today.year, deadline.year + 2))
         holidays = AargauAdministrationHolidays(years=affected_years)
 
         current_date = today

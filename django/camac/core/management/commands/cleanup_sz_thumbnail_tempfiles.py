@@ -25,7 +25,7 @@ class Command(BaseCommand):
         threshold = time.time() - settings.TEMPFILE_RETENTION_TIME
 
         for path in base_path.glob("**/*"):
-            if exclude_path in [path] + [parent for parent in path.parents]:
+            if exclude_path in [path] + list(path.parents):
                 continue
 
             # we assume that modification time is same as creation time

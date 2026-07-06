@@ -96,4 +96,4 @@ def test_ag_distribution_services(
 
     data = response.json()["data"]
 
-    assert set([i["attributes"]["name"] for i in data]) == snapshot
+    assert {i["attributes"]["name"] for i in data} == snapshot

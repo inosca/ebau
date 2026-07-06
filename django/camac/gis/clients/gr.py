@@ -349,7 +349,7 @@ class GrGisClient(GISBaseClient):
 
 
 def add_result(previous_value, value_to_add):
-    return sorted(list(set(previous_value + [value_to_add])))
+    return sorted(set(previous_value + [value_to_add]))
 
 
 def find(element, property, fallback=None):

@@ -78,20 +78,20 @@ def validate_attachments(archive: zipfile.ZipFile, dossier_ids: List[str]):
         for filename in archive.namelist()
         if "/" in filename and len(filename.split("/")) < 3
     }
-    orphan_dirs = sorted(list(dirs - set(dossier_ids)))
+    orphan_dirs = sorted(dirs - set(dossier_ids))
     result = []
     if orphan_dirs:
         result.append(
             _(
                 "%(count)i document folders were not found in the metadata file and will not be imported:\n%(entries)s"
             )
-            % dict(count=len(orphan_dirs), entries=", ".join(orphan_dirs))
+            % {"count": len(orphan_dirs), "entries": ", ".join(orphan_dirs)}
         )
     dossiers_without_documents = list(set(dossier_ids) - dirs)
     if dossiers_without_documents:
         result.append(
             _("%(count)i dossiers have no document folder.")
-            % dict(count=len(dossiers_without_documents))
+            % {"count": len(dossiers_without_documents)}
         )
     return result
 
@@ -262,9 +262,10 @@ def _validate_new_dossier(dossier_id, dossier_msgs, headings, rows):
         valid = False
     elif status not in valid_status:
         if similar := get_similar_value(status, valid_status):  # pragma: no cover
-            detail = _('%(original)s - did you mean "%(similar)s"?') % dict(
-                original=status, similar=similar
-            )
+            detail = _('%(original)s - did you mean "%(similar)s"?') % {
+                "original": status,
+                "similar": similar,
+            }
         else:
             detail = status
 
@@ -306,32 +307,32 @@ def _raise_for_missing_columns(headings, *columns):
             _(
                 "Meta data file in archive is missing required columns %(missing)s. Required columns %(required)s"
             )
-            % dict(
-                required=", ".join(columns),
-                missing=", ".join([col for col in missing_columns]),
-            )
+            % {
+                "required": ", ".join(columns),
+                "missing": ", ".join(list(missing_columns)),
+            }
         )
 
 
 def validate_extra_columns(headings):
-    existing_columns = set([e.value for e in XlsxFileDossierLoader.Column])
+    existing_columns = {e.value for e in XlsxFileDossierLoader.Column}
 
     if extra := set(headings) - existing_columns:
-        sorted_extra_columns = sorted([str(x) for x in (extra - set(["None", None]))])
+        sorted_extra_columns = sorted([str(x) for x in (extra - {"None", None})])
         extra_text = []
 
         for column in sorted_extra_columns:
             if similar := get_similar_value(column, existing_columns):
                 extra_text.append(
                     _('%(original)s - did you mean "%(similar)s"?')
-                    % dict(original=column, similar=similar)
+                    % {"original": column, "similar": similar}
                 )
             else:
                 extra_text.append(column)
 
         return _(
             "Found unknown columns which will be ignored while importing:\n%(extra)s"
-        ) % dict(extra="\n".join(extra_text))
+        ) % {"extra": "\n".join(extra_text)}
 
 
 def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierImport:
@@ -378,7 +379,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
 
     # exclude and report duplicate IDs
     dossier_ids = [d for d, _ in dossier_and_cantonal_ids if d]
-    dupes = set([d for d in dossier_ids if dossier_ids.count(d) > 1])
+    dupes = {d for d in dossier_ids if dossier_ids.count(d) > 1}
     for dupe in dupes:
         messages.append_or_update_dossier_message(
             dossier_id=dupe[0],

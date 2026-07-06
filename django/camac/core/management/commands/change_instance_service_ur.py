@@ -50,24 +50,16 @@ class Command(BaseCommand):
 
         for work_item in work_items:
             if str(old_service.pk) in work_item.addressed_groups:
-                work_item.addressed_groups = list(
-                    map(
-                        lambda x: (
-                            str(new_service.pk) if x == str(old_service.pk) else x
-                        ),
-                        work_item.addressed_groups,
-                    )
-                )
+                work_item.addressed_groups = [
+                    (str(new_service.pk) if x == str(old_service.pk) else x)
+                    for x in work_item.addressed_groups
+                ]
 
             if str(old_service.pk) in work_item.controlling_groups:
-                work_item.controlling_groups = list(
-                    map(
-                        lambda x: (
-                            str(new_service.pk) if x == str(old_service.pk) else x
-                        ),
-                        work_item.controlling_groups,
-                    )
-                )
+                work_item.controlling_groups = [
+                    (str(new_service.pk) if x == str(old_service.pk) else x)
+                    for x in work_item.controlling_groups
+                ]
 
             work_item.save()
 

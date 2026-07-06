@@ -165,9 +165,9 @@ def test_send_notifications_gr(
     serializer._send_notifications(case)
 
     assert mocked_send.call_count == 2
-    assert set(
-        [call.kwargs["template_slug"] for call in mocked_send.call_args_list]
-    ) == set(expected_notifications)
+    assert {call.kwargs["template_slug"] for call in mocked_send.call_args_list} == set(
+        expected_notifications
+    )
 
 
 @pytest.mark.django_db

@@ -78,7 +78,7 @@ class Command(BaseCommand):
             group by kcu.table_name;"""
         with connection.cursor() as cursor:
             cursor.execute(query)
-            return [row for row in cursor.fetchall()]
+            return list(cursor.fetchall())
 
     def _get_queries(self, table, column, source, target):
         if table == "rulesets_responsibleuserrule_municipalities":

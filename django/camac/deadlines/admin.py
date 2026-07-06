@@ -34,12 +34,9 @@ class DeadlineTypeForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         slugs = list(
-            [
-                f
-                for f in Form.objects.filter(
-                    **{"meta__is-main-form": True},
-                ).values_list("slug", flat=True)
-            ]
+            Form.objects.filter(
+                **{"meta__is-main-form": True},
+            ).values_list("slug", flat=True)
         )
         self.fields["form_types"].choices = [(s, s) for s in slugs]
         self.initial["form_types"] = self.instance.form_types or []

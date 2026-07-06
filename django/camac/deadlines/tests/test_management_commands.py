@@ -124,22 +124,19 @@ def test_management_command_deadline_progression_query(
         end_date=None,
     )
 
-    updates = [
-        v
-        for v in (
+    updates = list(
+        (
             deadlines_models.InstanceDeadline.objects.only_running()
             .order_by("instance__pk", "service__pk")
             .values_list("instance__pk", "service__pk")
         )
-    ]
+    )
 
-    assert set(
-        [
-            (instance1.pk, service1.pk),
-            (instance1.pk, service2.pk),
-            (instance2.pk, service2.pk),
-            (instance3.pk, service3.pk),
-        ]
-    ) == set(updates), (
+    assert {
+        (instance1.pk, service1.pk),
+        (instance1.pk, service2.pk),
+        (instance2.pk, service2.pk),
+        (instance3.pk, service3.pk),
+    } == set(updates), (
         "The query should only return deadlines with open suspensions or not ended."
     )

@@ -142,13 +142,13 @@ class KtSchwyzDossierWriter(DossierWriter):
         instance_state = instance_state_id and InstanceState.objects.get(
             pk=instance_state_id
         )
-        creation_data = dict(
-            instance_state=instance_state,
-            previous_instance_state=instance_state,
-            user=self._user,
-            group=self._group,
-            form=Form.objects.get(pk=settings.DOSSIER_IMPORT["FORM_ID"]),
-        )
+        creation_data = {
+            "instance_state": instance_state,
+            "previous_instance_state": instance_state,
+            "user": self._user,
+            "group": self._group,
+            "form": Form.objects.get(pk=settings.DOSSIER_IMPORT["FORM_ID"]),
+        }
         instance = CreateInstanceLogic.create(
             creation_data,
             caluma_user=self._caluma_user,

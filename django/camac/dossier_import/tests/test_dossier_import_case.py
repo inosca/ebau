@@ -347,67 +347,59 @@ COMMON_IMPORT_ROWS = [
         "completion_date",
     ),
     (
-        dict(
-            [
-                ("APPLICANT-FIRST-NAME", "Willy"),
-                ("APPLICANT-LAST-NAME", "Wonka"),
-                ("APPLICANT-COMPANY", "Chocolate Factory"),
-                ("APPLICANT-STREET", "Candy Lane"),
-                ("APPLICANT-STREET-NUMBER", "13"),
-                ("APPLICANT-ZIP", 1234),
-                ("APPLICANT-CITY", "Wonderland"),
-                ("APPLICANT-PHONE", "+1 101 10 01 101"),
-                ("APPLICANT-EMAIL", "candy@example.com"),
-            ]
-        ),
+        {
+            "APPLICANT-FIRST-NAME": "Willy",
+            "APPLICANT-LAST-NAME": "Wonka",
+            "APPLICANT-COMPANY": "Chocolate Factory",
+            "APPLICANT-STREET": "Candy Lane",
+            "APPLICANT-STREET-NUMBER": "13",
+            "APPLICANT-ZIP": 1234,
+            "APPLICANT-CITY": "Wonderland",
+            "APPLICANT-PHONE": "+1 101 10 01 101",
+            "APPLICANT-EMAIL": "candy@example.com",
+        },
         "applicants",
     ),
     (
-        dict(
-            [
-                ("LANDOWNER-FIRST-NAME", "Willy"),
-                ("LANDOWNER-LAST-NAME", "Wonka"),
-                ("LANDOWNER-COMPANY", "Chocolate Factory"),
-                ("LANDOWNER-STREET", "Candy Lane"),
-                ("LANDOWNER-STREET-NUMBER", "13"),
-                ("LANDOWNER-CITY", "Wonderland"),
-                ("LANDOWNER-ZIP", "1234"),
-                ("LANDOWNER-PHONE", "+1 101 10 01 101"),
-                ("LANDOWNER-EMAIL", "candy@example.com"),
-            ]
-        ),
+        {
+            "LANDOWNER-FIRST-NAME": "Willy",
+            "LANDOWNER-LAST-NAME": "Wonka",
+            "LANDOWNER-COMPANY": "Chocolate Factory",
+            "LANDOWNER-STREET": "Candy Lane",
+            "LANDOWNER-STREET-NUMBER": "13",
+            "LANDOWNER-CITY": "Wonderland",
+            "LANDOWNER-ZIP": "1234",
+            "LANDOWNER-PHONE": "+1 101 10 01 101",
+            "LANDOWNER-EMAIL": "candy@example.com",
+        },
         "landowners",
     ),
     (
-        dict(
-            [
-                ("PROJECTAUTHOR-FIRST-NAME", "Willy"),
-                ("PROJECTAUTHOR-LAST-NAME", "Wonka"),
-                ("PROJECTAUTHOR-COMPANY", None),
-                ("PROJECTAUTHOR-STREET", "Candy Lane"),
-                ("PROJECTAUTHOR-STREET-NUMBER", None),
-                ("PROJECTAUTHOR-CITY", "Wonderland"),
-                ("PROJECTAUTHOR-ZIP", "1234"),
-                ("PROJECTAUTHOR-PHONE", "+1 101 10 01 101"),
-                ("PROJECTAUTHOR-EMAIL", "candy@example.com"),
-            ]
-        ),
+        {
+            "PROJECTAUTHOR-FIRST-NAME": "Willy",
+            "PROJECTAUTHOR-LAST-NAME": "Wonka",
+            "PROJECTAUTHOR-COMPANY": None,
+            "PROJECTAUTHOR-STREET": "Candy Lane",
+            "PROJECTAUTHOR-STREET-NUMBER": None,
+            "PROJECTAUTHOR-CITY": "Wonderland",
+            "PROJECTAUTHOR-ZIP": "1234",
+            "PROJECTAUTHOR-PHONE": "+1 101 10 01 101",
+            "PROJECTAUTHOR-EMAIL": "candy@example.com",
+        },
         "project_authors",
     ),
     (
-        dict(
-            [
-                ("PROJECTAUTHOR-FIRST-NAME", None),
-                ("PROJECTAUTHOR-LAST-NAME", None),
-                ("PROJECTAUTHOR-COMPANY", None),
-                ("PROJECTAUTHOR-STREET", None),
-                ("PROJECTAUTHOR-STREET-NUMBER", None),
-                ("PROJECTAUTHOR-ZIP", None),
-                ("PROJECTAUTHOR-CITY", None),
-                ("PROJECTAUTHOR-PHONE", None),
-                ("PROJECTAUTHOR-EMAIL", None),
-            ]
-        ),
+        {
+            "PROJECTAUTHOR-FIRST-NAME": None,
+            "PROJECTAUTHOR-LAST-NAME": None,
+            "PROJECTAUTHOR-COMPANY": None,
+            "PROJECTAUTHOR-STREET": None,
+            "PROJECTAUTHOR-STREET-NUMBER": None,
+            "PROJECTAUTHOR-ZIP": None,
+            "PROJECTAUTHOR-CITY": None,
+            "PROJECTAUTHOR-PHONE": None,
+            "PROJECTAUTHOR-EMAIL": None,
+        },
         "project_authors",
     ),
 ]
@@ -791,7 +783,7 @@ def test_record_loading_all_empty(
     """Load data from import record, make persistent and verify with master_data API."""
     writer = setup_dossier_writer(config)
     loader = XlsxFileDossierLoader()
-    dossier_row_sparse = {key: "" for key in dossier_row_sparse.keys()}
+    dossier_row_sparse = dict.fromkeys(dossier_row_sparse.keys(), "")
     dossier = loader._load_dossier(dossier_row_sparse)
     writer.write_fields(camac_instance, dossier)
     assert sorted(["id", "status", "proposal", "submit_date"]) == sorted(
@@ -830,17 +822,15 @@ def test_reimport_delete_values(
     excluded = ["ID", "STATUS", "PROPOSAL", "SUBMIT-DATE"]
     dossier = loader._load_dossier(dossier_row_full)
     writer.write_fields(camac_instance, dossier)
-    deletable_fields = {key: "<LÖSCHEN>" for key in dossier_row_full.keys()}
+    deletable_fields = dict.fromkeys(dossier_row_full.keys(), "<LÖSCHEN>")
     orig_values = {}
     caluma_work_item_factory(task_id="building-authority", case=camac_instance.case)
     md = MasterData(camac_instance.case)
-    targets = set(
-        [
-            target
-            for row_names, target in import_rows
-            if set(row_names.keys()).intersection(set(excluded)) == set()
-        ]
-    )
+    targets = {
+        target
+        for row_names, target in import_rows
+        if set(row_names.keys()).intersection(set(excluded)) == set()
+    }
     orig_values = {}
     for target in targets:
         orig_values[target] = getattr(md, target)
@@ -921,15 +911,13 @@ def test_reimport_ignores_empty(
     orig_values = {}
     caluma_work_item_factory(task_id="building-authority", case=camac_instance.case)
     md = MasterData(camac_instance.case)
-    targets = set(
-        [
-            target
-            for _, target in IMPORT_ROWS_BE
-            + IMPORT_ROWS_SZ
-            + IMPORT_ROWS_SO
-            + IMPORT_ROWS_GR
-        ]
-    )
+    targets = {
+        target
+        for _, target in IMPORT_ROWS_BE
+        + IMPORT_ROWS_SZ
+        + IMPORT_ROWS_SO
+        + IMPORT_ROWS_GR
+    }
     orig_values = {}
     for target in targets:
         try:
@@ -1228,18 +1216,14 @@ def test_set_workflow_state_be(
     )
     if ebau_number and target_state == "SUBMITTED":
         assert be_instance.instance_state.name == "circulation_init"
-        assert set(ebau_number_answers.values_list("question", flat=True)) == set(
-            [
-                "ebau-number-has-existing",
-                "ebau-number-existing",
-            ]
-        )
-        assert set(ebau_number_answers.values_list("value", flat=True)) == set(
-            [
-                "ebau-number-has-existing-yes",
-                ebau_number,
-            ]
-        )
+        assert set(ebau_number_answers.values_list("question", flat=True)) == {
+            "ebau-number-has-existing",
+            "ebau-number-existing",
+        }
+        assert set(ebau_number_answers.values_list("value", flat=True)) == {
+            "ebau-number-has-existing-yes",
+            ebau_number,
+        }
 
 
 @pytest.mark.parametrize(

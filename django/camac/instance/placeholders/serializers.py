@@ -92,7 +92,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def get_aliased_field(self, field_name, value):
         field = self.fields[field_name]
-        field_aliases = set([to_configured_case(field_name)])
+        field_aliases = {to_configured_case(field_name)}
 
         for alias_config in field.aliases:
             for alias in get_translations_canton_aware(

@@ -147,9 +147,7 @@ def test_responsible_user_rule_list(
     assert len(result) == expected_count
 
     if expected_count > 0:
-        assert set([entry.pk for entry in visible]) == set(
-            [int(entry["id"]) for entry in result]
-        )
+        assert {entry.pk for entry in visible} == {int(entry["id"]) for entry in result}
 
 
 @pytest.mark.parametrize(

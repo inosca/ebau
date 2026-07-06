@@ -140,7 +140,7 @@ class CamacNgListAnswerWriter(CamacNgAnswerWriter):
         if not values:
             return
         if values == self.owner.delete_keyword or any(
-            [val == self.owner.delete_keyword for val in values]
+            val == self.owner.delete_keyword for val in values
         ):
             return super().write(instance, self.owner.delete_keyword)
 
@@ -167,7 +167,7 @@ class CamacNgPersonListAnswerWriter(CamacNgListAnswerWriter):
     def write(self, instance, value):
         if not value:
             return
-        if any([val == self.owner.delete_keyword for val in value]):
+        if any(val == self.owner.delete_keyword for val in value):
             return super().write(instance, self.owner.delete_keyword)
 
         for person in value:
@@ -186,7 +186,7 @@ class CamacNgPointsWriter(CamacNgAnswerWriter):
         if not values:
             return
         if values == self.owner.delete_keyword or any(
-            [val == self.owner.delete_keyword for val in values]
+            val == self.owner.delete_keyword for val in values
         ):
             return super().write(instance, self.owner.delete_keyword)
 
@@ -361,9 +361,11 @@ class CalumaAnswerWriter(FieldWriter):
                         detail=_(
                             'Value "%(value)s" in field %(target)s is too long (max: %(max)s)'
                         )
-                        % dict(
-                            value=value, target=self.target, max=question.max_length
-                        ),
+                        % {
+                            "value": value,
+                            "target": self.target,
+                            "max": question.max_length,
+                        },
                     )
                 )
             try:
@@ -482,7 +484,7 @@ class CalumaListAnswerWriter(FieldWriter):
             return
 
         if values == self.owner.delete_keyword or any(
-            [val == self.owner.delete_keyword for val in values]
+            val == self.owner.delete_keyword for val in values
         ):
             # avoid creating entries with the e. g. <delete> value if the
             # answer does not exist
@@ -595,7 +597,7 @@ class CalumaPlotDataWriter(CalumaListAnswerWriter):
         coordinates = dossier.coordinates if dossier else []
 
         if values == self.owner.delete_keyword or any(
-            [val == self.owner.delete_keyword for val in values]
+            val == self.owner.delete_keyword for val in values
         ):
             return super().write(instance, self.owner.delete_keyword)
         for plot_data, coordinate in itertools.zip_longest(values, coordinates or []):
@@ -789,13 +791,13 @@ class DossierWriter:
 
         instance_state = self.get_instance_state(dossier)
 
-        creation_data = dict(
-            instance_state=instance_state,
-            previous_instance_state=instance_state,
-            user=self._user,
-            group=self._group,
-            form=Form.objects.get(pk=settings.DOSSIER_IMPORT["FORM_ID"]),
-        )
+        creation_data = {
+            "instance_state": instance_state,
+            "previous_instance_state": instance_state,
+            "user": self._user,
+            "group": self._group,
+            "form": Form.objects.get(pk=settings.DOSSIER_IMPORT["FORM_ID"]),
+        }
 
         instance = CreateInstanceLogic.create(
             creation_data,
@@ -1106,7 +1108,7 @@ class DossierWriter:
                     detail=_(
                         'Unallowed mime type for file "%(filename)s" (%(mime_type)s) - the file was not imported'
                     )
-                    % dict(filename=filename, mime_type=mime_type),
+                    % {"filename": filename, "mime_type": mime_type},
                 )
             )
 
@@ -1177,17 +1179,17 @@ class DossierWriter:
         from camac.document.models import Attachment, AttachmentSection
 
         messages = []
-        defaults = dict(
-            user=self._user,
-            instance=instance,
-            service=self._group.service,
-            group=self._group,
-            name=filename,
-            size=content.size,
-            context={},
-            date=timezone.localtime(),
-            mime_type=mime_type,
-        )
+        defaults = {
+            "user": self._user,
+            "instance": instance,
+            "service": self._group.service,
+            "group": self._group,
+            "name": filename,
+            "size": content.size,
+            "context": {},
+            "date": timezone.localtime(),
+            "mime_type": mime_type,
+        }
 
         attachment, created = Attachment.objects.get_or_create(
             instance=instance,

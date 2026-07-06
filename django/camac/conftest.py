@@ -3018,15 +3018,15 @@ def active_inquiry_factory(
         status = kwargs.pop("status", caluma_workflow_models.WorkItem.STATUS_READY)
 
         if status == caluma_workflow_models.WorkItem.STATUS_SUSPENDED:
-            child_case_args = dict(child_case=None)
+            child_case_args = {"child_case": None}
         else:
-            child_case_args = dict(
-                child_case__family=for_instance.case,
-                child_case__workflow_id=distribution_settings["INQUIRY_WORKFLOW"],
-                child_case__document__form_id=distribution_settings[
+            child_case_args = {
+                "child_case__family": for_instance.case,
+                "child_case__workflow_id": distribution_settings["INQUIRY_WORKFLOW"],
+                "child_case__document__form_id": distribution_settings[
                     "INQUIRY_ANSWER_FORM"
                 ],
-            )
+            }
 
         inquiry = caluma_work_item_factory(
             case=distribution_work_item.child_case,

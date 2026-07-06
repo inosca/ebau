@@ -90,7 +90,7 @@ def _compute_total_idle_days(
                 # breaks the loop as expected, is this a change in python 3.8?
                 break  # pragma: no cover
         merged_ranges.append((start, end))
-    return sum(map(lambda duration: (duration[1] - duration[0]).days, merged_ranges))
+    return sum(((duration[1] - duration[0]).days for duration in merged_ranges))
 
 
 def _retrieve_waiting_periods(

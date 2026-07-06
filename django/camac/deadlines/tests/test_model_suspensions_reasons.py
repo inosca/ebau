@@ -37,7 +37,7 @@ def test_suspension_reasons_list(
 
     assert response.status_code == status.HTTP_200_OK
     result = response.json()["data"]
-    actual_ids = set([str(r["id"]) for r in result])
+    actual_ids = {str(r["id"]) for r in result}
 
     expected_reasons = (
         [  # default reasons

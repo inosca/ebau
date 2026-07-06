@@ -575,12 +575,10 @@ def test_construction_monitoring_work_item_visibility_service_gvg_gr(
     )
 
     assert not result.errors
-    workitems_id = set(
-        [
-            extract_global_id(edge["node"]["id"])
-            for edge in result.data["allWorkItems"]["edges"]
-        ]
-    )
+    workitems_id = {
+        extract_global_id(edge["node"]["id"])
+        for edge in result.data["allWorkItems"]["edges"]
+    }
 
     if expected_visible:
         assert str(wi.pk) in workitems_id

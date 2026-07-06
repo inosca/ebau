@@ -298,7 +298,7 @@ def test_user_admin_for_service_filter(
     result = response.json()["data"]
     assert len(result) == len(admins)
 
-    assert set(int(r["id"]) for r in result) == set([a.user.pk for a in admins])
+    assert {int(r["id"]) for r in result} == {a.user.pk for a in admins}
 
 
 @pytest.mark.django_db

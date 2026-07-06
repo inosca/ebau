@@ -163,13 +163,13 @@ class KtBernDossierWriter(DossierWriter):
             .get(dossier._meta.target_state)
         )
 
-        creation_data = dict(
-            instance_state=instance_state,
-            previous_instance_state=instance_state,
-            user=self._user,
-            group=self._group,
-            form=Form.objects.get(pk=settings.DOSSIER_IMPORT["FORM_ID"]),
-        )
+        creation_data = {
+            "instance_state": instance_state,
+            "previous_instance_state": instance_state,
+            "user": self._user,
+            "group": self._group,
+            "form": Form.objects.get(pk=settings.DOSSIER_IMPORT["FORM_ID"]),
+        }
 
         workflow_slug = {
             "BUILDINGPERMIT": "building-permit",

@@ -110,9 +110,7 @@ class Command(BaseCommand):
         )
 
     def migrate_instance(self, instance, case):
-        initial_workitems = set(
-            list(case.work_items.all().values_list("task", flat=True))
-        )
+        initial_workitems = set(case.work_items.all().values_list("task", flat=True))
 
         # pretend the case is still in previous state
         case.status = Case.STATUS_RUNNING
@@ -140,9 +138,7 @@ class Command(BaseCommand):
 
         workflow_api.suspend_case(case, self.user)
 
-        final_workitems = set(
-            list(case.work_items.all().values_list("task", flat=True))
-        )
+        final_workitems = set(case.work_items.all().values_list("task", flat=True))
 
         out = f"Importing {instance.pk:5} with previous state {instance_state.name} resulted in"
         if initial_workitems == final_workitems:

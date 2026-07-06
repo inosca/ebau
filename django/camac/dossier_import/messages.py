@@ -229,11 +229,11 @@ def compile_message_for_code(code, filtered_summaries):
         )
     ]
 
-    return _("%(count)i dossiers %(message)s. Affected dossiers:\n%(entries)s") % dict(
-        count=len(filtered_summaries),
-        message=messages.get(code, ""),
-        entries="\n".join(entries),
-    )
+    return _("%(count)i dossiers %(message)s. Affected dossiers:\n%(entries)s") % {
+        "count": len(filtered_summaries),
+        "message": messages.get(code, ""),
+        "entries": "\n".join(entries),
+    }
 
 
 def update_summary(dossier_import):

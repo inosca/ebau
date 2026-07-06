@@ -702,12 +702,10 @@ def test_dynamic_task_after_create_inquiry(
         )
     )
 
-    expected_tasks = set(
-        [
-            distribution_settings["INQUIRY_CREATE_TASK"],
-            distribution_settings["INQUIRY_TASK"],
-        ]
-    )
+    expected_tasks = {
+        distribution_settings["INQUIRY_CREATE_TASK"],
+        distribution_settings["INQUIRY_TASK"],
+    }
 
     if create_additional_demand:
         expected_tasks.add(additional_demand_settings["CREATE_TASK"])
@@ -1217,7 +1215,7 @@ def test_dynamic_task_after_formal_exam(
     if len(result) > 1:
         result.sort()
 
-    assert all([task in result for task in expected_tasks])
+    assert all(task in result for task in expected_tasks)
 
 
 @pytest.mark.parametrize(

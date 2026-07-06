@@ -188,12 +188,10 @@ def test_document_and_file_visibility(
 
     assert response.status_code == HTTP_200_OK
     json = response.json()
-    assert set(
-        [
-            obj["attributes"]["title"]
-            for obj in json["included" if type == "file" else "data"]
-        ]
-    ) == set(expected)
+    assert {
+        obj["attributes"]["title"]
+        for obj in json["included" if type == "file" else "data"]
+    } == set(expected)
 
 
 @pytest.mark.parametrize(
@@ -236,7 +234,7 @@ def test_category_visibility(admin_client, role, expected):
 
     assert response.status_code == HTTP_200_OK
     json = response.json()
-    assert set([obj["id"] for obj in json["data"]]) == set(expected)
+    assert {obj["id"] for obj in json["data"]} == set(expected)
 
 
 @pytest.mark.parametrize(
@@ -332,7 +330,7 @@ def test_category_visibility_camac_instance_gr(
 
     assert response.status_code == HTTP_200_OK
     json = response.json()
-    assert set([obj["id"] for obj in json["data"]]) == set(expected)
+    assert {obj["id"] for obj in json["data"]} == set(expected)
 
 
 @pytest.mark.parametrize(
@@ -416,7 +414,7 @@ def test_mark_visibility(admin_client, visible_marks):
 
     assert response.status_code == HTTP_200_OK
 
-    marks = set([mark["id"] for mark in response.json()["data"]])
+    marks = {mark["id"] for mark in response.json()["data"]}
 
     assert marks == visible_marks
 

@@ -126,12 +126,12 @@ class InstanceACL(models.Model):
 
     # all "auditing" foreign keys are nullable, and return to NULL if their
     # reference is deleted, so let's apply some DRY
-    _audit_fkey_args = dict(
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name="+",
-    )
+    _audit_fkey_args = {
+        "null": True,
+        "blank": True,
+        "on_delete": models.SET_NULL,
+        "related_name": "+",
+    }
     created_by_user = models.ForeignKey(user_models.User, **_audit_fkey_args)
     revoked_by_user = models.ForeignKey(user_models.User, **_audit_fkey_args)
     created_by_service = models.ForeignKey(user_models.Service, **_audit_fkey_args)

@@ -73,11 +73,11 @@ def test_migrate_gemeinderat_services(
     assert service_groups_extern[0].name == "Gemeinderat Altdorf Pendenzen"
     assert groups_extern[0].name == "Gemeinderat Altdorf Pendenzen"
 
+    assert sorted(user_group.user.groups.values_list("group_id", flat=True)) == sorted(
+        [g.pk for g in groups_extern]
+    )
     assert sorted(
-        list(user_group.user.groups.values_list("group_id", flat=True))
-    ) == sorted([g.pk for g in groups_extern])
-    assert sorted(
-        list(user_group_2.user.groups.values_list("group_id", flat=True))
+        user_group_2.user.groups.values_list("group_id", flat=True)
     ) == sorted([groups_extern[0].pk])
 
     assert activation.service_id == services_extern[0].pk

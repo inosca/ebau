@@ -199,7 +199,6 @@ def test_distribution_services(
     )
 
     assert response.status_code == status.HTTP_200_OK
-    assert (
-        set([i["attributes"]["name"] for i in response.json()["data"]])
-        == expected_services
-    )
+    assert {
+        i["attributes"]["name"] for i in response.json()["data"]
+    } == expected_services

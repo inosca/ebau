@@ -37,7 +37,7 @@ def test_billing_entry_template_list(
     assert len(result) == expected_count
 
     if expected_count > 0:
-        actual_ids = set([str(r["id"]) for r in result])
+        actual_ids = {str(r["id"]) for r in result}
         expected_ids = {
             str(global_template.pk),
             str(service_template.pk),

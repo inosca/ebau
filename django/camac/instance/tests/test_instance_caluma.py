@@ -734,7 +734,7 @@ def test_instance_submit_ur(
 
     ur_instance.case.document.answers.update_or_create(
         question_id="municipality",
-        defaults=dict(value=str(ur_instance.location.communal_federal_number)),
+        defaults={"value": str(ur_instance.location.communal_federal_number)},
     )
     caluma_dynamic_option_factory(
         slug=str(ur_instance.location.communal_federal_number),
@@ -4013,22 +4013,22 @@ def test_instance_keywords_visibility_aware(
     assert response.status_code == status.HTTP_200_OK
 
     # now both current keywords should be visible via the API
-    assert set(
+    assert {
         d["id"] for d in response.json()["data"]["relationships"]["keywords"]["data"]
-    ) == {
+    } == {
         str(kw_current1.pk),
         str(kw_current2.pk),
     }
     response = admin_client.get(url)
-    assert set(
+    assert {
         d["id"] for d in response.json()["data"]["relationships"]["keywords"]["data"]
-    ) == {str(kw_current1.pk), str(kw_current2.pk)}
+    } == {str(kw_current1.pk), str(kw_current2.pk)}
 
     # but on the instance, the keywords for other services should still exist.
     instance.refresh_from_db()
     instance_keywords = list(instance.keywords.all())
     assert len(instance_keywords) == 3
-    assert set(kw.pk for kw in instance_keywords) == {
+    assert {kw.pk for kw in instance_keywords} == {
         kw_current1.pk,
         kw_current2.pk,
         kw_other1.pk,

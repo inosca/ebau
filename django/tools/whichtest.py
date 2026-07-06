@@ -48,14 +48,7 @@ def which_tests_for_code(file, line):
         if line in cov_info["contexts"]:
             return cov_info["contexts"][line], True
     all_contexts = sorted(
-        set(
-            [
-                ctx
-                for ctx_list in cov_info["contexts"].values()
-                for ctx in ctx_list
-                if ctx
-            ]
-        )
+        {ctx for ctx_list in cov_info["contexts"].values() for ctx in ctx_list if ctx}
     )
     return all_contexts, False
 
@@ -160,9 +153,7 @@ def _compress_ranges(all_nums, to_compress):
     # The [-1] ensures that when we reach the end in the *checking* loop,
     # there is the condition next_to_compress > next_valid, and therefore
     # allows us to treat every iteration the same
-    next_valid = {
-        num: succ for num, succ in zip(all_nums, all_nums[1:] + [-1], strict=False)
-    }
+    next_valid = dict(zip(all_nums, all_nums[1:] + [-1], strict=False))
 
     if not all_nums:
         return []
