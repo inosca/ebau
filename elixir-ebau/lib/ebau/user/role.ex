@@ -66,4 +66,12 @@ defmodule Ebau.User.Role do
   identities do
     identity :unique_slug, [:slug]
   end
+
+  calculations do
+    calculate :admin_role?, :boolean, expr(contains(slug, "-admin"))
+  end
+
+  preparations do
+    prepare build(load: :admin_role?)
+  end
 end
