@@ -1,6 +1,7 @@
 @import "variables-theme";
 @import "mixins-theme";
 @import "uikit-theme";
+@import "a11y";
 
 $border-color: darken($global-muted-background, 10%);
 $main-nav-height: 80px;
