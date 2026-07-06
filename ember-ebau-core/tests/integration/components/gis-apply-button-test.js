@@ -106,51 +106,51 @@ module("Integration | Component | gis-apply-button", function (hooks) {
       assert.dom("[data-test-apply]").exists();
 
       await click("[data-test-apply]");
-      await waitFor("[data-test-gis-data-row]");
+      await waitFor("[data-test-import-preview-row]");
 
       // Root level questions
       assert
         .dom(
-          "[data-test-gis-data-row]:nth-of-type(1) [data-test-gis-data-label]",
+          "[data-test-import-preview-row]:nth-of-type(1) [data-test-import-preview-label]",
         )
         .hasText("Some Question");
       assert
         .dom(
-          "[data-test-gis-data-row]:nth-of-type(1) [data-test-gis-data-value]",
+          "[data-test-import-preview-row]:nth-of-type(1) [data-test-import-preview-value]",
         )
         .hasText("My value");
 
       // Table row 1
       assert
         .dom(
-          "[data-test-gis-data-row]:nth-of-type(2) [data-test-gis-data-label]",
+          "[data-test-import-preview-row]:nth-of-type(2) [data-test-import-preview-label]",
         )
-        .hasText(`Some Table ${t("gis.row-count", { count: 1 })}`);
+        .hasText(`Some Table ${t("import-preview.row-count", { count: 1 })}`);
       assert
         .dom(
-          "[data-test-gis-data-row]:nth-of-type(2) [data-test-gis-data-table-label]",
+          "[data-test-import-preview-row]:nth-of-type(2) [data-test-import-preview-table-label]",
         )
         .hasText("Some Table Question");
       assert
         .dom(
-          "[data-test-gis-data-row]:nth-of-type(2) [data-test-gis-data-table-value]",
+          "[data-test-import-preview-row]:nth-of-type(2) [data-test-import-preview-table-value]",
         )
         .hasText("My 2nd value");
 
       // Table row 2
       assert
         .dom(
-          "[data-test-gis-data-row]:nth-of-type(3) [data-test-gis-data-label]",
+          "[data-test-import-preview-row]:nth-of-type(3) [data-test-import-preview-label]",
         )
-        .hasText(`Some Table ${t("gis.row-count", { count: 2 })}`);
+        .hasText(`Some Table ${t("import-preview.row-count", { count: 2 })}`);
       assert
         .dom(
-          "[data-test-gis-data-row]:nth-of-type(3) [data-test-gis-data-table-label]",
+          "[data-test-import-preview-row]:nth-of-type(3) [data-test-import-preview-table-label]",
         )
         .hasText("Some Table Question");
       assert
         .dom(
-          "[data-test-gis-data-row]:nth-of-type(3) [data-test-gis-data-table-value]",
+          "[data-test-import-preview-row]:nth-of-type(3) [data-test-import-preview-table-value]",
         )
         .hasText("My 3rd value");
 

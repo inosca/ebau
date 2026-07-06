@@ -23,7 +23,6 @@ gis:
   bounds-error: Die Auswahl liegt ausserhalb der Kantonsgrenzen.
   select: Auswählen
   search-error: Die Suche ist fehlgeschlagen
-  row-count: "(Zeile {count})"
 
   groups:
     # GR

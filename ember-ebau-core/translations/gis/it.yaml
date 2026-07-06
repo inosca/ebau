@@ -21,7 +21,6 @@ gis:
   point-error: Non è stato possibile selezionare la particella.
   select: Seleziona
   search-error: La ricerca non è andata a buon fine
-  row-count: "(riga {count})"
 
   groups:
     addresses: "Indirizzi"
