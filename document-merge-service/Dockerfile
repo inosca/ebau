@@ -29,7 +29,7 @@ ARG APPLICATION
 COPY Makefile .
 COPY fonts /usr/local/share/fonts
 COPY extensions document_merge_service/extensions
-COPY $APPLICATION /tmp/document-merge-service/
+COPY $APPLICATION /data/document-merge-service/
 
 COPY entrypoint.sh /app/
 
