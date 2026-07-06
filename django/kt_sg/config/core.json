@@ -916,6 +916,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 34,
+    "fields": {
+      "resource": 10,
+      "role": 8
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
