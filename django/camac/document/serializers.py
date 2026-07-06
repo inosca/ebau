@@ -120,12 +120,10 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             not settings.MANABI_ENABLE
             or not view.has_object_update_permission(instance)
             or not any(
-                (
-                    section_permissions.can_write(
-                        section, instance, group, instance.instance
-                    )
-                    for section in instance.attachment_sections.all()
+                section_permissions.can_write(
+                    section, instance, group, instance.instance
                 )
+                for section in instance.attachment_sections.all()
             )
         ):
             return None

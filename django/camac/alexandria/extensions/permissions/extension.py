@@ -1,6 +1,5 @@
 import datetime
 import json
-from typing import Union
 
 from alexandria.core.models import BaseModel, Category, Document, File, Mark, Tag
 from django.conf import settings
@@ -112,8 +111,8 @@ class CustomPermission:
         request,
         instance: Instance,
         category: Category,
-        document: Union[Document, None] = None,
-        created_by_group: Union[str, None] = None,
+        document: Document | None = None,
+        created_by_group: str | None = None,
     ) -> set:
         category_permissions = resolve_permissions(category, request.group)
 
@@ -299,7 +298,7 @@ class CustomPermission:
         document: Document,
         old_category: Category,
         new_category: Category,
-        created_by_group: Union[str, None],
+        created_by_group: str | None,
     ) -> bool:
         if not is_copy:
             available_permissions_old = self.get_available_permissions(

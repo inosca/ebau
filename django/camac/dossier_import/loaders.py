@@ -1,8 +1,8 @@
 import itertools
 import zipfile
+from collections.abc import Generator, Iterable
 from dataclasses import fields
 from enum import Enum
-from typing import Generator, Iterable, List, Optional, Tuple
 
 from django.conf import settings
 from django.utils.timezone import datetime
@@ -195,7 +195,7 @@ class XlsxFileDossierLoader(DossierLoader):
             return [Person(**person)]
 
     def _load_dossier(
-        self, dossier_row: dict, dossier_import: Optional[DossierImport] = None
+        self, dossier_row: dict, dossier_import: DossierImport | None = None
     ) -> Dossier:
         """Read one line and handle each column.
 
@@ -279,7 +279,7 @@ class XlsxFileDossierLoader(DossierLoader):
 
     def load_coordinates(
         self, dossier_row
-    ) -> Tuple[List[Coordinates], Optional[List[Message]]]:
+    ) -> tuple[list[Coordinates], list[Message] | None]:
         out = []
         messages = []
         epoints = dossier_row.get(XlsxFileDossierLoader.Column.coordinate_e.value)
@@ -332,7 +332,7 @@ class XlsxFileDossierLoader(DossierLoader):
 
     def load_plot_data(
         self, dossier_row, municipality
-    ) -> Tuple[List[PlotData], Optional[List[Message]]]:
+    ) -> tuple[list[PlotData], list[Message] | None]:
         out = []
         messages = []
         plot_numbers = dossier_row.get(XlsxFileDossierLoader.Column.parcel.value)

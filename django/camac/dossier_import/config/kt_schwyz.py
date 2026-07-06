@@ -1,6 +1,5 @@
 import weakref
 from copy import deepcopy
-from typing import List
 
 from caluma.caluma_form.models import Form as CalumaForm
 from caluma.caluma_workflow import api as workflow_api
@@ -197,7 +196,7 @@ class KtSchwyzDossierWriter(DossierWriter):
 
     def _set_workflow_state(
         self, instance: Instance, dossier: Dossier
-    ) -> List[Message]:
+    ) -> list[Message]:
         """Advance instance's case through defined workflow sequence to target state.
 
         In order to advance to a specified worklow state after every flow all tasks need to be

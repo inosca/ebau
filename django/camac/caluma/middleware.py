@@ -3,7 +3,7 @@ from django.utils.functional import SimpleLazyObject
 from camac.caluma.utils import CalumaInfo
 
 
-class CalumaInfoMiddleware(object):
+class CalumaInfoMiddleware:
     def __init__(self, get_response=None):
         self.get_response = get_response
 

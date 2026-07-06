@@ -133,6 +133,4 @@ class ServiceContentAdmin(
     def formfield_for_manytomany(self, db_field, request, **kwargs):
         if db_field.name == "forms":
             kwargs["queryset"] = Form.objects.filter(**{"meta__is-main-form": True})
-        return super(ServiceContentAdmin, self).formfield_for_manytomany(
-            db_field, request, **kwargs
-        )
+        return super().formfield_for_manytomany(db_field, request, **kwargs)

@@ -1,6 +1,5 @@
 import logging
 from functools import reduce
-from typing import Optional
 
 from caluma.caluma_form.models import Answer, Question
 from django.conf import settings
@@ -32,7 +31,7 @@ def unpack_service_emails(queryset):
         yield from emails.split(",")
 
 
-def get_group(request) -> Optional[Group]:
+def get_group(request) -> Group | None:
     """
     Get group based on request.
 

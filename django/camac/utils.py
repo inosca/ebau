@@ -3,7 +3,7 @@ import itertools
 import re
 import time
 from datetime import datetime, timedelta
-from typing import Any, Optional
+from typing import Any
 from urllib.parse import parse_qsl
 
 import holidays
@@ -198,7 +198,7 @@ def has_permission_for_inquiry_answer_document(group, document):
     )
 
 
-def clean_join(*parts: Any, separator: Optional[str] = " ") -> str:
+def clean_join(*parts: Any, separator: str | None = " ") -> str:
     """Join all truthy arguments as trimmed string with a given separator.
 
     >>> clean_join(" John", None, "", " Smith ")

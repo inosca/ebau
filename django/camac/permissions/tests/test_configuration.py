@@ -28,7 +28,7 @@ def test_duplicate_conditionals(try_get_fixture, any_application):
     for access_level, permissions in access_levels.items():
         for perm, check in permissions:
             try:
-                key = ",".join(sorted((extract_allowed_states(check))))
+                key = ",".join(sorted(extract_allowed_states(check)))
             except IncompatibleCheck:
                 # not plain combination of instance state checks
                 key = repr(check)

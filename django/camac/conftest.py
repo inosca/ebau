@@ -3,12 +3,13 @@ import inspect
 import logging
 import os
 import sys
+from collections.abc import Callable
 from copy import deepcopy
 from dataclasses import dataclass, field
 from datetime import date, timedelta
 from importlib import import_module, reload
 from pathlib import Path
-from typing import Callable, Literal, Optional
+from typing import Literal
 from uuid import uuid4
 
 import django.db
@@ -3588,7 +3589,7 @@ def setup_sql_views(django_db_setup, django_db_blocker):
 
 
 @pytest.fixture
-def try_get_fixture(request) -> Callable[[str, Optional[dict]], dict | None]:
+def try_get_fixture(request) -> Callable[[str, dict | None], dict | None]:
     """Return the requested fixture, or None if it's not available.
 
     Useful for module-specific settings that may or may not be available for

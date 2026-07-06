@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 
 from django.db.backends.postgresql.psycopg_any import DateTimeTZRange
 from factory import Faker, LazyFunction, SubFactory
@@ -10,7 +10,7 @@ from . import models
 class ObjectionTimeframeFactory(DjangoModelFactory):
     instance = SubFactory("camac.instance.factories.InstanceFactory")
     timeframe = LazyFunction(
-        lambda: DateTimeTZRange(None, datetime.now(timezone.utc) + timedelta(days=10))
+        lambda: DateTimeTZRange(None, datetime.now(UTC) + timedelta(days=10))
     )
 
     class Meta:
@@ -19,7 +19,7 @@ class ObjectionTimeframeFactory(DjangoModelFactory):
 
 class ObjectionFactory(DjangoModelFactory):
     instance = SubFactory("camac.instance.factories.InstanceFactory")
-    creation_date = Faker("future_datetime", tzinfo=timezone.utc)
+    creation_date = Faker("future_datetime", tzinfo=UTC)
 
     class Meta:
         model = models.Objection

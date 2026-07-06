@@ -125,11 +125,9 @@ def test_management_command_deadline_progression_query(
     )
 
     updates = list(
-        (
-            deadlines_models.InstanceDeadline.objects.only_running()
-            .order_by("instance__pk", "service__pk")
-            .values_list("instance__pk", "service__pk")
-        )
+        deadlines_models.InstanceDeadline.objects.only_running()
+        .order_by("instance__pk", "service__pk")
+        .values_list("instance__pk", "service__pk")
     )
 
     assert {

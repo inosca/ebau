@@ -88,7 +88,7 @@ class AnswerField(serializers.ReadOnlyField):
             )
         else:
             documents = documents.filter(
-                (Q(case=instance.case) | Q(work_item__in=instance._all_work_items))
+                Q(case=instance.case) | Q(work_item__in=instance._all_work_items)
             )
 
         answers = Answer.objects.filter(

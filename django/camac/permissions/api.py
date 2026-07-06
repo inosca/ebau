@@ -5,7 +5,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from functools import reduce
-from typing import TYPE_CHECKING, List, Optional, Union
+from typing import TYPE_CHECKING
 
 from django.conf import ImproperlyConfigured, settings
 from django.contrib.auth.models import AnonymousUser
@@ -133,10 +133,10 @@ class P:
 class ACLUserInfo:
     """Representation of a user as required by the lower-level ACL APIs."""
 
-    user: Optional[user_models.User] = None
-    service: Optional[user_models.Service] = None
-    token: Optional[str] = None
-    role: Optional[user_models.Role] = None
+    user: user_models.User | None = None
+    service: user_models.Service | None = None
+    token: str | None = None
+    role: user_models.Role | None = None
 
     @classmethod
     def from_request(cls, request):
@@ -224,7 +224,7 @@ class PermissionScope:
 
 class PermissionManager:
     userinfo: ACLUserInfo
-    default_event: Optional[str] = None
+    default_event: str | None = None
 
     def __init__(self, userinfo: ACLUserInfo, permission_settings=None):
         self.permission_settings = permission_settings or settings.PERMISSIONS
@@ -237,19 +237,19 @@ class PermissionManager:
         return PermissionScope(self, context)
 
     @classmethod
-    def for_anonymous(cls) -> "PermissionManager":
+    def for_anonymous(cls) -> PermissionManager:
         userinfo = ACLUserInfo(user=None, service=None, token=None)
         return cls(userinfo=userinfo)
 
     @classmethod
     def from_params(
         cls, user=None, service=None, token=None, role=None
-    ) -> "PermissionManager":
+    ) -> PermissionManager:
         userinfo = ACLUserInfo(user=user, service=service, token=token, role=role)
         return cls(userinfo=userinfo)
 
     @classmethod
-    def from_request(cls, request, permission_settings=None) -> "PermissionManager":
+    def from_request(cls, request, permission_settings=None) -> PermissionManager:
         userinfo = ACLUserInfo.from_request(request)
         return cls(userinfo=userinfo, permission_settings=permission_settings)
 
@@ -345,8 +345,8 @@ class PermissionManager:
     def get_permissions(
         self,
         context: PermissionContext | Instance,
-        check_only: Optional[List[str]] = None,
-    ) -> List[str]:
+        check_only: list[str] | None = None,
+    ) -> list[str]:
         """
         Return permissions of the user in the current context.
 
@@ -431,7 +431,7 @@ class PermissionManager:
     def has_any(
         self,
         context: Instance | PermissionContext,
-        required_permissions: Union[str, List[str]],
+        required_permissions: str | list[str],
         check_only_required: bool = False,
     ):
         """Return True if user has at least one of the required permissions.
@@ -488,7 +488,7 @@ class PermissionManager:
     def has_all(
         self,
         context: Instance | PermissionContext,
-        required_permissions: Union[str, List[str]],
+        required_permissions: str | list[str],
         check_only_required: bool = False,
     ):
         """Return True if user has all required permissions.
@@ -511,7 +511,7 @@ class PermissionManager:
     def require_any(
         self,
         context: Instance | PermissionContext,
-        required_permissions: Union[str, List[str]],
+        required_permissions: str | list[str],
     ):
         """Enforce presence of at least one of the given permissions."""
         if self.has_any(context, required_permissions):
@@ -521,7 +521,7 @@ class PermissionManager:
     def require_all(
         self,
         context: Instance | PermissionContext,
-        required_permissions: Union[str, List[str]],
+        required_permissions: str | list[str],
     ):
         """Enforce presence of all of the given the given permissions."""
         if self.has_all(context, required_permissions):
@@ -546,15 +546,15 @@ class PermissionManager:
         self,
         instance: Instance,
         grant_type: str,
-        access_level: Union[AccessLevel, str],
-        user: Optional[User] = None,
-        service: Optional[Service] = None,
-        service_group: Optional[ServiceGroup] = None,
-        role: Optional[Role] = None,
-        token: Optional[str] = None,
-        starting_at: Optional[datetime] = None,
-        ends_at: Optional[datetime] = None,
-        event_name: Optional[str] = None,
+        access_level: AccessLevel | str,
+        user: User | None = None,
+        service: Service | None = None,
+        service_group: ServiceGroup | None = None,
+        role: Role | None = None,
+        token: str | None = None,
+        starting_at: datetime | None = None,
+        ends_at: datetime | None = None,
+        event_name: str | None = None,
         **additional_attrs,
     ):
         """Grant permissions by creating a new ACL on the given Instance.
@@ -615,8 +615,8 @@ class PermissionManager:
     def revoke(
         self,
         acl: InstanceACL,
-        ends_at: Optional[datetime] = None,
-        event_name: Optional[str] = None,
+        ends_at: datetime | None = None,
+        event_name: str | None = None,
     ):
         # if default event has been set and no override is given, use it
         event_name = event_name or self.default_event
@@ -708,7 +708,7 @@ def grant(instance, **kwargs):
     return PermissionManager.for_anonymous().grant(instance, **kwargs)
 
 
-def revoke(acl: InstanceACL, ends_at: Optional[datetime] = None, **kwargs):
+def revoke(acl: InstanceACL, ends_at: datetime | None = None, **kwargs):
     """Shortcut revoke for "anonymous" users (ie system, testing).
 
     You should probably always go through the PermissionManager instead.

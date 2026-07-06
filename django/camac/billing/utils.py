@@ -2,7 +2,7 @@ from collections import OrderedDict
 from decimal import Decimal
 from difflib import ndiff
 from logging import Logger, getLogger
-from typing import List, TypedDict, Union
+from typing import TypedDict
 from unicodedata import normalize
 
 from django.conf import settings
@@ -22,7 +22,7 @@ class OrganizationTotals(TypedDict):
     total: str
 
 
-BillingTotals = dict[str, OrganizationTotals]
+type BillingTotals = dict[str, OrganizationTotals]
 
 
 def round_decimal(num: Decimal) -> Decimal:
@@ -33,11 +33,11 @@ def round_decimal(num: Decimal) -> Decimal:
 
 def calculate_final_rate(
     calculation: str,
-    total_cost: Union[Decimal, None] = None,
-    percentage: Union[Decimal, None] = None,
-    hours: Union[Decimal, None] = None,
-    hourly_rate: Union[Decimal, None] = None,
-) -> Union[Decimal, None]:
+    total_cost: Decimal | None = None,
+    percentage: Decimal | None = None,
+    hours: Decimal | None = None,
+    hourly_rate: Decimal | None = None,
+) -> Decimal | None:
     """Calculate final rate for given calculation type.
 
     - flat: use `total_cost`
@@ -70,7 +70,7 @@ def calculate_final_rate(
 
 def add_taxes_to_final_rate(
     final_rate: Decimal | None, tax_mode: str, tax_rate: Decimal
-) -> Union[Decimal, None]:
+) -> Decimal | None:
     """Add taxes to final rate.
 
     This only applies the `tax_rate` to the `final_rate` if the `tax_mode` is
@@ -87,7 +87,7 @@ def add_taxes_to_final_rate(
     return round_decimal(final_rate + final_rate * tax_rate / Decimal(100))
 
 
-def get_totals(entries: List[OrderedDict]) -> BillingTotals:
+def get_totals(entries: list[OrderedDict]) -> BillingTotals:
     """Get totals for a list of billing entries.
 
     This will return a dict of totals per organization type and over all
@@ -105,7 +105,7 @@ def get_totals(entries: List[OrderedDict]) -> BillingTotals:
 
 
 def get_totals_for_organization(
-    entries: List[OrderedDict], organization: Union[str, None] = None
+    entries: list[OrderedDict], organization: str | None = None
 ) -> OrganizationTotals:
     """Calculate total including uncharged total for an organization."""
 

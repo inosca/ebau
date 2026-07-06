@@ -62,7 +62,7 @@ def test_me_service_municipality(
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
     user_service_id = json["data"]["relationships"]["service"]["data"]["id"]
-    user_service = next((i for i in json["included"] if i["id"] == user_service_id))
+    user_service = next(i for i in json["included"] if i["id"] == user_service_id)
     assert (
         int(user_service["relationships"]["municipality"]["data"]["id"])
         == lead_authority.pk

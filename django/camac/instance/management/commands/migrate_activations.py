@@ -73,8 +73,8 @@ class Command(BaseCommand):
         )
 
     def _create_new_circulation(self, instance, service, instance_resource_id):
-        circulation_name = "Zirkulation vom %s" % (
-            datetime.today().strftime("%d.%m.%Y %H:%M")
+        circulation_name = (
+            f"Zirkulation vom {datetime.today().strftime('%d.%m.%Y %H:%M')}"
         )
         circulation = Circulation(
             name=circulation_name,
@@ -84,8 +84,7 @@ class Command(BaseCommand):
         )
         circulation.save()
         self.stdout.write(
-            "New circulation '%s: %s (%s)'"
-            % (circulation.circulation_id, circulation.service, circulation.name)
+            f"New circulation '{circulation.circulation_id}: {circulation.service} ({circulation.name})'"
         )
 
         return circulation
@@ -93,16 +92,10 @@ class Command(BaseCommand):
     def _update_activation(self, activation, parent):
         changed = False
         self.stdout.write(
-            "Activation '%s' belongs to '%s' issued by '%s'"
-            % (activation.activation_id, activation.service, activation.service_parent)
+            f"Activation '{activation.activation_id}' belongs to '{activation.service}' issued by '{activation.service_parent}'"
         )
         self.stdout.write(
-            "Activation '%s' has circulation '%s: %s'"
-            % (
-                activation.activation_id,
-                activation.circulation,
-                activation.circulation.service,
-            )
+            f"Activation '{activation.activation_id}' has circulation '{activation.circulation}: {activation.circulation.service}'"
         )
 
         current_instance = activation.circulation.instance
@@ -141,8 +134,7 @@ class Command(BaseCommand):
                 )
 
             self.stdout.write(
-                "Using circulation '%s: %s (%s)'"
-                % (circulation.circulation_id, circulation.service, circulation.name)
+                f"Using circulation '{circulation.circulation_id}: {circulation.service} ({circulation.name})'"
             )
 
             if activation.circulation != circulation:
@@ -153,13 +145,7 @@ class Command(BaseCommand):
             activation.save()
             self.stdout.write(
                 self.style.SUCCESS(
-                    "Activation '%s' moved to Service '%s' and Circulation '%s: %s' "
-                    % (
-                        activation,
-                        activation.service_parent,
-                        activation.circulation,
-                        activation.circulation.service,
-                    )
+                    f"Activation '{activation}' moved to Service '{activation.service_parent}' and Circulation '{activation.circulation}: {activation.circulation.service}' "
                 )
             )
 
@@ -206,13 +192,7 @@ class Command(BaseCommand):
             )
             bgz_activation.save()
             self.stdout.write(
-                "Created BGZ Activation '%s' for Circulation '%s: %s (%s)'"
-                % (
-                    bgz_activation,
-                    bgz_circulation.circulation_id,
-                    bgz_circulation.service,
-                    bgz_circulation.name,
-                )
+                f"Created BGZ Activation '{bgz_activation}' for Circulation '{bgz_circulation.circulation_id}: {bgz_circulation.service} ({bgz_circulation.name})'"
             )
 
     def handle(self, *args, **options):

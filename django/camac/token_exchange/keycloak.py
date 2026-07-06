@@ -1,5 +1,3 @@
-from typing import Union
-
 import requests
 from django.conf import settings
 
@@ -25,7 +23,7 @@ class KeycloakClient:
 
         return response.json()["access_token"]
 
-    def get_user(self, username: str) -> Union[str, None]:
+    def get_user(self, username: str) -> str | None:
         response = requests.get(
             build_url(
                 settings.KEYCLOAK_URL,

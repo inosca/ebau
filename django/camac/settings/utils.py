@@ -1,6 +1,5 @@
 import copy
 import re
-from typing import List
 
 from deepmerge import always_merger
 from django.conf import settings
@@ -143,7 +142,7 @@ def get_all_modules() -> dict[str, str]:
 
 def get_enabled_cantons_for_module(
     import_path: str, ignore_enabled_value: bool = False
-) -> List[str]:
+) -> list[str]:
     cantons_config: dict | ModuleConfig = import_string(import_path)
 
     is_pydantic = isinstance(cantons_config, ModuleConfig)

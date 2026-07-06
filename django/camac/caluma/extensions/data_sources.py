@@ -1,5 +1,4 @@
 import uuid
-from typing import Tuple
 
 from alexandria.core.models import Document as AlexandriaDocument
 from caluma.caluma_data_source.data_sources import BaseDataSource
@@ -66,8 +65,8 @@ def get_additional_option(slug="-1", text=None):
 
 
 def on_copy_from_reference_document(
-    old_answer: Answer, new_answer: Answer, old_value: Tuple[str, str]
-) -> Tuple[str | None, str | None]:
+    old_answer: Answer, new_answer: Answer, old_value: tuple[str, str]
+) -> tuple[str | None, str | None]:
     old_slug, old_label = old_value
     if not old_slug:
         return (None, None)
@@ -383,8 +382,8 @@ class Landowners(BaseDataSource):
         return [(person["row_id"], get_person_name(person)) for person in people]
 
     def on_copy(
-        self, old_answer: Answer, new_answer: Answer, old_value: Tuple[str, str]
-    ) -> Tuple[str | None, str | None]:
+        self, old_answer: Answer, new_answer: Answer, old_value: tuple[str, str]
+    ) -> tuple[str | None, str | None]:
         return on_copy_from_reference_document(old_answer, new_answer, old_value)
 
 
@@ -454,8 +453,8 @@ class Buildings(BaseDataSource):
         )
 
     def on_copy(
-        self, old_answer: Answer, new_answer: Answer, old_value: Tuple[str, str]
-    ) -> Tuple[str | None, str | None]:
+        self, old_answer: Answer, new_answer: Answer, old_value: tuple[str, str]
+    ) -> tuple[str | None, str | None]:
         return on_copy_from_reference_document(old_answer, new_answer, old_value)
 
 

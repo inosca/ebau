@@ -1,5 +1,4 @@
 import json
-from typing import List
 
 from caluma.caluma_form import api as form_api
 from caluma.caluma_form.models import Question
@@ -167,7 +166,7 @@ class KtGraubundenDossierWriter(DossierWriter):
             user=self._caluma_user,
         )
 
-    def _set_workflow_state(self, instance: Instance, dossier) -> List[Message]:
+    def _set_workflow_state(self, instance: Instance, dossier) -> list[Message]:
         messages = []
         target_state = dossier._meta.target_state
 

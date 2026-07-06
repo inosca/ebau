@@ -9,8 +9,7 @@ class DumpConfig:
     dependency: str
 
     def __iter__(self):
-        for filter in self.filters:
-            yield filter
+        yield from self.filters
 
     def __getitem__(self, key):
         return self.filters[key]

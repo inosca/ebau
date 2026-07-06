@@ -10,7 +10,7 @@ request_logger = logging.getLogger("django.request")
 log = logging.getLogger()
 
 
-class LoggingMiddleware(object):
+class LoggingMiddleware:
     """Middleware logging all request incl. json data and user."""
 
     def __init__(self, get_response=None):
@@ -41,7 +41,7 @@ class LoggingMiddleware(object):
         return response
 
 
-class EBauLocalePriority(object):
+class EBauLocalePriority:
     """
     Middleware for setting the locale detection priorities right.
 

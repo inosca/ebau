@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from rest_framework_json_api.views import ModelViewSet
 
@@ -76,7 +76,7 @@ class ObjectionView(InstanceQuerysetMixin, ModelViewSet):
         if not objection_timeframe:
             return True
 
-        return objection_timeframe.timeframe.upper > datetime.now(timezone.utc)
+        return objection_timeframe.timeframe.upper > datetime.now(UTC)
 
     def has_create_permission_for_service(self):
         return self.has_create_permission_for_municipality()

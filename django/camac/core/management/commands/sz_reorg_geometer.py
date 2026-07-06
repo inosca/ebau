@@ -1,5 +1,3 @@
-import typing
-
 from caluma.caluma_form.models import transaction
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
@@ -163,7 +161,7 @@ class Command(BaseCommand):
         group.service.save()
         group.save()
 
-    def _create_group_and_service(self, name) -> typing.Tuple[Group, Service]:
+    def _create_group_and_service(self, name) -> tuple[Group, Service]:
         if self.verbosity >= 1:
             self.stdout.write(f"Creating group and service: {name}")
         service, _ = Service.objects.get_or_create(

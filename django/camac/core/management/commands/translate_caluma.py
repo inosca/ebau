@@ -45,7 +45,7 @@ def _load_csv(translation_file):
 
 
 def _open_config_file(config_file):
-    with open(config_file, "r") as file:
+    with open(config_file) as file:
         return json.loads(file.read())
 
 
@@ -82,7 +82,7 @@ class Command(BaseCommand):
                         .replace("\\u00f6", "ö")
                     )
 
-                    match = next((t for t in translations if t[0] == prop_de))
+                    match = next(t for t in translations if t[0] == prop_de)
                     prop["fr"] = match[1]
                     model_entry["fields"][key] = json.dumps(prop)
                     counter += 1

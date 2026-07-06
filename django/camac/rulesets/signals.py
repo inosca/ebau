@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Type
+from typing import TYPE_CHECKING
 
 from django.conf import settings
 from django.db.models.signals import post_save
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 @receiver(post_save, sender=InstanceACL)
 def assign_responsible_user_on_acl_creation(
-    sender: Type[InstanceACL],
+    sender: type[InstanceACL],
     instance: InstanceACL,
     created: bool,
     **kwargs: dict,

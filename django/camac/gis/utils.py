@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Any, List, Union
+from typing import Any
 
 from django.utils.translation import gettext as _
 
@@ -29,7 +29,7 @@ class MergeStrategy(Enum):
     MERGE_FIRST_BUT_APPEND_TABLES = "merge_first_but_append_tables"
 
 
-def get_bbox(x: Union[float, str], y: Union[float, str], buffer: int = 0) -> str:
+def get_bbox(x: float | str, y: float | str, buffer: int = 0) -> str:
     delta = 0
 
     if buffer:
@@ -98,10 +98,10 @@ def concat_values(*parts: Any) -> str:
 
 
 def merge_table(
-    existing_rows: List[dict],
+    existing_rows: list[dict],
     new_row: dict,
     merge_strategy: MergeStrategy,
-) -> List[dict]:
+) -> list[dict]:
     if merge_strategy == MergeStrategy.MERGE_FIRST:
         merge_data(existing_rows[0], new_row, merge_strategy)
 

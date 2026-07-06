@@ -5,7 +5,6 @@ import itertools
 import logging
 import re
 import xml.dom.minidom
-from typing import Union
 
 import pyxb
 from alexandria.core.models import Document
@@ -270,7 +269,7 @@ def get_parking_lots(md):
     if hasattr(md, "parking_lots"):
         return bool(md.parking_lots)
     elif hasattr(md, "civil_engineering"):
-        return any((row.get("is_parking_lot", False) for row in md.civil_engineering))
+        return any(row.get("is_parking_lot", False) for row in md.civil_engineering)
 
     return False
 
@@ -648,7 +647,7 @@ def request(
 def accompanying_report(
     instance: Instance,
     event_type: str,
-    documents: Union[QuerySet[Attachment], QuerySet[Document]],
+    documents: QuerySet[Attachment] | QuerySet[Document],
     inquiry: WorkItem,
     request: HttpRequest,
 ):

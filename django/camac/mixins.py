@@ -1,4 +1,4 @@
-class AttributeMixin(object):
+class AttributeMixin:
     """Methods to help working with attributes on views and serializers."""
 
     def serializer_getattr(self, attr, default=None):

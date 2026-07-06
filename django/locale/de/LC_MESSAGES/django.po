@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-01 14:46+0200\n"
+"POT-Creation-Date: 2026-07-06 19:36+0200\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -112,12 +112,12 @@ msgid "Billing"
 msgstr "Gebühren"
 
 #: camac/billing/filters.py
-#, python-brace-format
+#, python-format
 msgid ""
-"Too many records in output. Reduce data range using filters to below {max}"
+"Too many records in output. Reduce data range using filters to below %(max)s"
 msgstr ""
 "Zuviele Datensätze im Resultat. Reduzieren Sie die Datenmenge durch enger "
-"gesetzte Filter, um unter {max} Datensätze zu kommen."
+"gesetzte Filter, um unter %(max)s Datensätze zu kommen."
 
 #: camac/billing/models.py camac/billing/serializers.py
 msgid "inclusive"

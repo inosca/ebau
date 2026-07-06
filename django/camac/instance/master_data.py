@@ -2,7 +2,7 @@ import re
 from dataclasses import dataclass, field
 from logging import getLogger
 from operator import attrgetter
-from typing import List, Optional, TypeVar
+from typing import TypeVar
 from uuid import UUID
 
 from caluma.caluma_core.models import HistoricalRecords
@@ -27,7 +27,7 @@ T = TypeVar("T", bound="MasterData")
 
 
 @dataclass
-class MasterData(object):
+class MasterData:
     """Helper class to access common information on a case (municipality, dossier number, etc.).
 
     Master data should be used to access common information of a case in the
@@ -50,7 +50,7 @@ class MasterData(object):
 
     case: Case
     validation_context: dict = field(default_factory=dict)
-    _fastloader: Optional[FastLoader] = field(default=None)
+    _fastloader: FastLoader | None = field(default=None)
 
     @classmethod
     def from_case_id(
@@ -830,14 +830,14 @@ class MasterData(object):
         )
         return self._return_option(dynamic_option, value, prop, default)
 
-    def to_dict(self, fields: Optional[List[str]] = None) -> dict:
+    def to_dict(self, fields: list[str] | None = None) -> dict:
         if not fields:
             fields = settings.MASTER_DATA["CONFIG"].keys()
 
         return {key: getattr(self, key) for key in fields}
 
     @staticmethod
-    def get_question_slug(property_name: str) -> str | List[str] | None:
+    def get_question_slug(property_name: str) -> str | list[str] | None:
         config = get_dict_item(
             settings.MASTER_DATA, f"CONFIG.{property_name}", default=None
         )
@@ -926,7 +926,7 @@ class MasterData(object):
             *prefetch_related
         )
 
-    def municipality_service_content_resolver(self, lookup) -> Optional[str]:
+    def municipality_service_content_resolver(self, lookup) -> str | None:
         """Find the municipality service content.
 
         Resolve the municipality specific text for a form.

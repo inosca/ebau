@@ -1,5 +1,6 @@
+from collections.abc import Callable
 from functools import partial, wraps
-from typing import Any, Callable
+from typing import Any
 
 from django.http import HttpRequest
 from rest_framework.request import Request

@@ -337,16 +337,14 @@ class BeGisClient(GISBaseClient):
             </Query>
         """
         query = "".join(
-            (
-                template.format(code=service_code, layer=layer, polygon=polygon)
-                for layer in boolean_layers + special_layers
-            )
+            template.format(code=service_code, layer=layer, polygon=polygon)
+            for layer in boolean_layers + special_layers
         )
         return query
 
     def get_feature_xml(self, service_code, query):
         get_feature_xml = open(
-            path.join(path.dirname(__file__), "xml/get_feature.xml"), "r"
+            path.join(path.dirname(__file__), "xml/get_feature.xml")
         ).read()
         return get_feature_xml.format(
             baseURL=self.base_url, service_code=service_code, query=query

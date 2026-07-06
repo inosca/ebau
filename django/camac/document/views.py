@@ -75,8 +75,7 @@ class FileUploadSwaggerAutoSchema(SwaggerAutoSchema):
             ):  # pragma: no cover
                 raise SwaggerGenerationError(
                     "your query_serializer contains fields that conflict with the "
-                    "filter_backend or paginator_class on the view - %s %s"
-                    % (self.method, self.path)
+                    f"filter_backend or paginator_class on the view - {self.method} {self.path}"
                 )
 
         return natural_parameters + serializer_parameters

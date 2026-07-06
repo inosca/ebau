@@ -3,13 +3,15 @@ from __future__ import annotations
 import operator
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Callable, List, Optional
+from typing import TYPE_CHECKING
 
 from django.conf import ImproperlyConfigured
 
 from camac.utils import call_with_accepted_kwargs, get_unversioned_slug
 
 if TYPE_CHECKING:
+    from collections.abc import Callable
+
     from camac.instance.models import Instance
 
 """
@@ -135,7 +137,7 @@ class UnaryCheck(Check):
 class HasRole(Check):
     """Permission check for requiring any role of a given list."""
 
-    required_roles: List[str]
+    required_roles: list[str]
 
     def apply(self, userinfo, context: PermissionContext):
         return userinfo.role.name in self.required_roles
@@ -177,7 +179,7 @@ class Callback(Check):
 class RequireInstanceState(Check):
     """Permission check: Require instance is in one of the configured states."""
 
-    require_states: List[str]
+    require_states: list[str]
     condition_name: str | None = None
 
     def apply(self, userinfo, context: PermissionContext):
@@ -295,7 +297,7 @@ class Never(Check):
 class IsForm(Check):
     """Permission check for requiring any form of a given list."""
 
-    forms: List[str]
+    forms: list[str]
 
     def apply(self, userinfo, context: PermissionContext):
         return context.instance.case.document.form_id in self.forms
@@ -325,7 +327,7 @@ class IsUnversionedForm(IsForm):
 class IsWorkflow(Check):
     """Permission check for requiring any workflow of a given list."""
 
-    workflows: List[str]
+    workflows: list[str]
 
     def apply(self, userinfo, context: PermissionContext):
         return context.instance.case.workflow_id in self.workflows
@@ -347,7 +349,7 @@ class IsWorkflow(Check):
 class HasApplicantRole(Check):
     """Permission check for requiring any applicant role of a given list."""
 
-    roles: List[str]
+    roles: list[str]
 
     def apply(self, userinfo, context: PermissionContext):
         applicant = context.instance.involved_applicants.filter(
@@ -393,8 +395,8 @@ class RequireWorkItem(Check):
     """Require instance to have a work item of a given task."""
 
     task_id: str
-    status: Optional[str | List[str]] = None
-    addressed_to_current_service: Optional[bool] = False
+    status: str | list[str] | None = None
+    addressed_to_current_service: bool | None = False
     condition_name: str | None = None
 
     def apply(self, userinfo, context: PermissionContext):
@@ -473,7 +475,7 @@ class HasAdditionalDemandWithFormEdit(Check):
 class IsServiceGroup(Check):
     """Permission check for requiring any service group of a given list."""
 
-    required_service_groups: List[str]
+    required_service_groups: list[str]
     allow_caching: bool = True
 
     def apply(self, userinfo, context: PermissionContext):
@@ -495,7 +497,7 @@ class IsServiceGroup(Check):
 class IsService(Check):
     """Permission check for requiring any service of a given list of service slugs."""
 
-    required_service_slugs: List[str]
+    required_service_slugs: list[str]
     allow_caching: bool = True
 
     def apply(self, userinfo, context: PermissionContext):

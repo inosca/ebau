@@ -1,7 +1,6 @@
 import logging
 from copy import copy
 from datetime import date, datetime, timedelta
-from typing import Optional
 
 import pytz
 from caluma.caluma_core.exceptions import ConfigurationError
@@ -119,10 +118,10 @@ def find_answer(document: Document, question: str, **kwargs) -> str:
 
 def get_answer_display_value(
     answer: Answer,
-    option_separator: Optional[str] = ", ",
-    date_format: Optional[str] = None,
-    language: Optional[str] = get_language(),
-    raw_value: Optional[bool] = False,
+    option_separator: str | None = ", ",
+    date_format: str | None = None,
+    language: str | None = get_language(),
+    raw_value: bool | None = False,
 ) -> str:
     """
     Get the display value of an answer depending on the question type.
@@ -162,9 +161,7 @@ def is_addressed_to_service_slug(work_item, slugs):
     ).exists()
 
 
-def sync_inquiry_deadline(
-    inquiry: WorkItem, deadline: Optional[date] = None
-) -> WorkItem:
+def sync_inquiry_deadline(inquiry: WorkItem, deadline: date | None = None) -> WorkItem:
     """Synchronize the inquriy deadline from input or the document."""
 
     if not is_module_enabled("DISTRIBUTION"):  # pragma: no cover

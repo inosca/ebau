@@ -1,5 +1,4 @@
 from dataclasses import dataclass, field
-from typing import List
 
 import pytest
 from graphql import (
@@ -23,7 +22,7 @@ from camac.caluma import ast_utils
 @dataclass
 class FakeInfo:
     variable_values: dict
-    field_nodes: List[Node] = field(default_factory=list)
+    field_nodes: list[Node] = field(default_factory=list)
 
 
 @pytest.mark.parametrize(

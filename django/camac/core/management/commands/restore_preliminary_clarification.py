@@ -99,7 +99,7 @@ class Command(BaseCommand):
             f.write(json.dumps(data, indent=2, cls=DjangoJSONEncoder))
 
     def run_import(self):
-        with open(self.restore_file, "r") as f:
+        with open(self.restore_file) as f:
             all_data = json.load(f)
 
             for document in self.documents:

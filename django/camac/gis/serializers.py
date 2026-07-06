@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, List
+from typing import Any
 
 from caluma.caluma_core.exceptions import ConfigurationError
 from caluma.caluma_form.api import save_answer
@@ -28,7 +28,7 @@ def convert_answer_value(question_type: str, value: Any) -> int | float | Any:
 class GISApplyResponse:
     pk: None
     instance: Instance
-    questions: List[str]
+    questions: list[str]
 
 
 class GISApplySerializer(serializers.Serializer):

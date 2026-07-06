@@ -183,11 +183,9 @@ class PublicServiceFilterSet(FilterSet):
             conditions = config_part.get("conditions", [])
 
             if len(conditions) and not all(
-                (
-                    getattr(self, f"_condition_{condition['name']}")(instance)
-                    != condition.get("invert", False)
-                    for condition in conditions
-                )
+                getattr(self, f"_condition_{condition['name']}")(instance)
+                != condition.get("invert", False)
+                for condition in conditions
             ):
                 continue
 

@@ -23,9 +23,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         sid = transaction.savepoint()
 
-        due_date = datetime.datetime(
-            2024, 1, 13, 0, 0, 0, 0, tzinfo=datetime.timezone.utc
-        )
+        due_date = datetime.datetime(2024, 1, 13, 0, 0, 0, 0, tzinfo=datetime.UTC)
 
         instances = Instance.objects.filter(
             Q(creation_date__gte=due_date, case__document__form_id="building-permit")

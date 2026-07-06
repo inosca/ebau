@@ -101,7 +101,7 @@ class Command(BaseCommand):
         count_created = 0
         for row in model_objects:
             try:
-                match = next((t for t in translations if t[0] == row.name))
+                match = next(t for t in translations if t[0] == row.name)
                 additional_params = {key: getattr(row, key)}
                 _, created = model.objects.get_or_create(
                     language="fr", name=match[1], **additional_params

@@ -305,7 +305,7 @@ def test_set_workflow_state_exceptions(
     camac_instance.case.work_items.get(task_id=expected_work_items_states[0]).delete()
     messages = writer._set_workflow_state(camac_instance, dossier)
     assert (
-        list((filter(lambda x: x.level == Severity.ERROR.value, messages)))[0].code
+        list(filter(lambda x: x.level == Severity.ERROR.value, messages))[0].code
         == MessageCodes.WORKFLOW_SKIP_ITEM_FAILED
     )
 

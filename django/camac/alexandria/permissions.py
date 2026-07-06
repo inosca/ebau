@@ -30,11 +30,11 @@ class AlexandriaPermissionContext(PermissionContext):
         return str(self.document.pk)
 
     @classmethod
-    def from_document(cls, document: Document) -> "AlexandriaPermissionContext":
+    def from_document(cls, document: Document) -> AlexandriaPermissionContext:
         return cls(instance=document.instance_document.instance, document=document)
 
     @classmethod
-    def from_instance(cls, instance: Instance) -> "AlexandriaPermissionContext":
+    def from_instance(cls, instance: Instance) -> AlexandriaPermissionContext:
         return cls(instance=instance, document=None)
 
 

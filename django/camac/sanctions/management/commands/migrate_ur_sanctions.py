@@ -38,7 +38,7 @@ class Command(BaseCommand):
             transaction.savepoint_rollback(tid)
 
     def create_sanction(self, legacy_sanction):
-        migration_date = datetime.datetime.now(tz=datetime.timezone.utc)
+        migration_date = datetime.datetime.now(tz=datetime.UTC)
 
         new_sanction = Sanction.objects.filter(
             meta__legacy_sanction__sanction_id=legacy_sanction.sanction_id,

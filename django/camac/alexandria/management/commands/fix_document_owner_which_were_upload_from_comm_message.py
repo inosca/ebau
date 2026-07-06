@@ -23,7 +23,7 @@ class Command(BaseCommand):
         )
 
     @transaction.atomic
-    def handle(self, *args, **options):  # noqa C901
+    def handle(self, *args, **options):  # noqa: C901
         sid = transaction.savepoint()
 
         qs = (

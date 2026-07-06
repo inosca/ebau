@@ -18,8 +18,8 @@ def test_translate(tmp_path):
     with open(work_file, "r+") as file:
         data = json.load(file)
 
-    item = next((item for item in data if item["pk"] == "werden-siloanlagen-erstellt"))
-    untranslated_item = next((item for item in data if item["pk"] == "Test"))
+    item = next(item for item in data if item["pk"] == "werden-siloanlagen-erstellt")
+    untranslated_item = next(item for item in data if item["pk"] == "Test")
 
     assert json.loads(item["fields"]["label"])["de"] == "Werden Siloanlagen erstellt?"
     assert json.loads(item["fields"]["label"])["fr"] == "Des silos sont-ils prévus?"

@@ -1,4 +1,4 @@
-from datetime import date, datetime, timedelta, timezone
+from datetime import UTC, date, datetime, timedelta
 
 import pytest
 from django.core.exceptions import ObjectDoesNotExist
@@ -33,7 +33,7 @@ def test_objection_timeframe_list(admin_client, objection_timeframe, size):
 def test_objection_timeframe_create(admin_client, group, instance, status_code):
     url = reverse("objectiontimeframe-list")
 
-    start_date = datetime.now(timezone.utc)
+    start_date = datetime.now(UTC)
     data = {
         "data": {
             "type": "objection-timeframes",
@@ -41,7 +41,7 @@ def test_objection_timeframe_create(admin_client, group, instance, status_code):
             "attributes": {
                 "timeframe": {
                     "lower": start_date,
-                    "upper": datetime.now(timezone.utc) + timedelta(days=3),
+                    "upper": datetime.now(UTC) + timedelta(days=3),
                 }
             },
             "relationships": {
@@ -69,13 +69,13 @@ def test_objection_timeframe_create(admin_client, group, instance, status_code):
 )
 @pytest.mark.parametrize(
     "objection_timeframe__timeframe",
-    (DateTimeTZRange(datetime.now(timezone.utc), None),),
+    (DateTimeTZRange(datetime.now(UTC), None),),
 )
 def test_objection_timeframe_update(admin_client, objection_timeframe, status_code):
     url = reverse("objectiontimeframe-detail", args=[objection_timeframe.pk])
 
-    start_date = datetime.now(timezone.utc) - timedelta(days=5)
-    end_date = datetime.now(timezone.utc) + timedelta(days=3)
+    start_date = datetime.now(UTC) - timedelta(days=5)
+    end_date = datetime.now(UTC) + timedelta(days=3)
     data = {
         "data": {
             "type": "objection-timeframes",
@@ -116,7 +116,7 @@ def test_objection_timeframe_destroy(admin_client, objection_timeframe, status_c
     [
         (
             "Municipality",
-            DateTimeTZRange(None, (datetime.now(timezone.utc) - timedelta(days=30))),
+            DateTimeTZRange(None, (datetime.now(UTC) - timedelta(days=30))),
         )
     ],
 )

@@ -1,6 +1,6 @@
 import json
+from collections.abc import Callable
 from datetime import date, datetime
-from typing import Callable, List, Union
 
 from babel.dates import format_date
 from caluma.caluma_form.models import Document
@@ -24,7 +24,7 @@ def to_configured_case(placeholder_name):
     return options[configured](str(placeholder_name))
 
 
-def get_option_label(option: Union[dict, None]) -> Union[str, None]:
+def get_option_label(option: dict | None) -> str | None:
     """Get the label of an option.
 
     >>> get_option_label({"slug": "test-option", "label": "Test Option"})
@@ -174,14 +174,14 @@ def clean_and_add_full_name(entry):
     return {k: v if v is not None else "" for k, v in entry.items()}
 
 
-def _readable_date(value: Union[datetime, date, None], format="long") -> str | None:
+def _readable_date(value: datetime | date | None, format="long") -> str | None:
     if not value:
         return None
 
     return format_date(value, format, locale=get_language())
 
 
-def human_readable_date(value: Union[datetime, date, None]) -> str | None:
+def human_readable_date(value: datetime | date | None) -> str | None:
     """Format date or datetime to a human readable date.
 
     >>> human_readable_date(date(2021, 10, 4))
@@ -190,7 +190,7 @@ def human_readable_date(value: Union[datetime, date, None]) -> str | None:
     return _readable_date(value)
 
 
-def compact_human_readable_date(value: Union[datetime, date, None]) -> str | None:
+def compact_human_readable_date(value: datetime | date | None) -> str | None:
     """Format date or datetime to a compact human readable date.
 
     >>> human_readable_date(date(2021, 10, 4))
@@ -199,7 +199,7 @@ def compact_human_readable_date(value: Union[datetime, date, None]) -> str | Non
     return _readable_date(value, format="medium")
 
 
-def datetime_timestamp(value: Union[date, datetime, None]) -> str:
+def datetime_timestamp(value: date | datetime | None) -> str:
     """Format datetime to a timestamp.
 
     >>> datetime_timestamp(date(2021, 10, 4))
@@ -282,7 +282,7 @@ def row_to_person(document: Document) -> dict:
     }
 
 
-def parse_person_row(row: dict, keys: List[str]) -> dict:
+def parse_person_row(row: dict, keys: list[str]) -> dict:
     data = {}
     initial_data = {
         "NAME": get_person_name(row),
@@ -308,14 +308,14 @@ def parse_person_row(row: dict, keys: List[str]) -> dict:
     return data
 
 
-def get_yes_no(options: Union[List[bool], bool]) -> str:
+def get_yes_no(options: list[bool] | bool) -> str:
     if not isinstance(options, list):
         options = [options]
 
     return _("Yes") if any(options) else _("No")
 
 
-def get_date_parser_for_canton() -> Callable[[Union[datetime, date, None]], str | None]:
+def get_date_parser_for_canton() -> Callable[[datetime | date | None], str | None]:
     match settings.APPLICATION_NAME:
         case "kt_so":
             return compact_human_readable_date

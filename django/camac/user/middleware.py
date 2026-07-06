@@ -3,7 +3,7 @@ from django.utils.functional import SimpleLazyObject
 from camac.user.utils import get_group
 
 
-class GroupMiddleware(object):
+class GroupMiddleware:
     """Middleware to determine current group."""
 
     def __init__(self, get_response=None):
