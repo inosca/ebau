@@ -51,15 +51,13 @@ defmodule EbauWeb.Components.Navbar do
   end
 
   attr :resources, :list, required: true
+  attr :current_path, :string, required: true
 
   def resource_navigation(assigns) do
     ~H"""
     <.navbar_nav class="uk-margin-right">
-      <.navbar_item :for={resource <- @resources}>
+      <.navbar_item :for={resource <- @resources} current_path={@current_path} resource={resource}>
         <a href={resource.link}><span>{resource.name}</span></a>
-      </.navbar_item>
-      <.navbar_item>
-        <a href="/">to ember</a>
       </.navbar_item>
     </.navbar_nav>
     """
@@ -77,11 +75,19 @@ defmodule EbauWeb.Components.Navbar do
     """
   end
 
-  attr :active?, :boolean, default: false
+  attr :current_path, :string, default: ""
+  attr :resource, Ebau.Core.Resource, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
   def navbar_item(assigns) do
+    uri = URI.parse(assigns.current_path)
+    active? = if assigns.resource do
+      String.contains?(uri.path, assigns.resource.link)
+    else
+      false
+    end
+    assigns = assign(assigns, :active?, active?)
     ~H"""
     <li class={@active? && "uk-active"} {@rest}>
       {render_slot(@inner_block)}

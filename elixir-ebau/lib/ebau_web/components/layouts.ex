@@ -43,7 +43,7 @@ defmodule EbauWeb.Layouts do
     <.navbar>
       <:left>
         <.navbar_logo src={logo_src()} alt="eBau by inosca Logo" />
-        <.resource_navigation resources={@resources} />
+        <.resource_navigation resources={@resources} current_path={@current_path}/>
       </:left>
       <:right>
         <.navbar_nav>
