@@ -89,7 +89,10 @@ class BinaryCheck(Check):
         )
 
     def __repr__(self):
-        return f"{self._left!r} {OP_SYMBOLS[self._op]} {self._right!r}"
+        return f"{self._repr_clause(self._left)} {OP_SYMBOLS[self._op]} {self._repr_clause(self._right)}"
+
+    def _repr_clause(self, clause):
+        return f"({clause!r})" if " " in clause.__repr__() else clause.__repr__()
 
     @property
     def allow_caching(self):  # pragma: no cover

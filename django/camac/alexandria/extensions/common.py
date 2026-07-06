@@ -8,6 +8,7 @@ from django.http import HttpRequest
 from django.utils.functional import SimpleLazyObject
 from rest_framework.request import Request
 
+from camac.alexandria.extensions.permissions_v2 import get_category_prefix
 from camac.alexandria.permissions import AlexandriaPermissionManager
 from camac.instance.models import Instance
 from camac.permissions.api import P
@@ -128,16 +129,19 @@ def has_alexandria_create_permission(
 
     from camac.alexandria.extensions.permissions.extension import MODE_CREATE
 
+    v2_prefix = get_category_prefix(category)
+    v2_permission = P.any(
+        f"{v2_prefix}:all",
+        f"{v2_prefix}:create",
+    )
+
     return has_alexandria_permission(
         request,
         instance,
         category,
         None,
         MODE_CREATE,
-        P.any(
-            f"{category.pk}:all",
-            f"{category.pk}:create",
-        ),
+        v2_permission,
     )
 
 
@@ -153,16 +157,19 @@ def has_alexandria_delete_permission(request: Request, document: Document) -> bo
     instance = document.instance_document.instance
     category = document.category
 
+    v2_prefix = get_category_prefix(category)
+    v2_permission = P.any(
+        f"{v2_prefix}:all",
+        f"{v2_prefix}:delete",
+    )
+
     return has_alexandria_permission(
         request,
         instance,
         category,
         document,
         MODE_DELETE,
-        P.any(
-            f"{category.pk}:all",
-            f"{category.pk}:delete",
-        ),
+        v2_permission,
     )
 
 
@@ -192,12 +199,16 @@ def has_alexandria_move_permission(
             created_by_group=document.created_by_group,
         )
 
+    # use parent category for permission expressions.
+    old_category_pk = get_category_prefix(old_category)
+    new_category_pk = get_category_prefix(new_category)
+
     return (
         AlexandriaPermissionManager.from_request(request)
         .scoped_for(document)
         .has(
-            P.any(f"{old_category.pk}:all", f"{old_category.pk}:move")
-            & P.any(f"{new_category.pk}:all", f"{new_category.pk}:create")
+            P.any(f"{old_category_pk}:all", f"{old_category_pk}:move")
+            & P.any(f"{new_category_pk}:all", f"{new_category_pk}:create")
         )
     )
 
@@ -220,15 +231,18 @@ def has_alexandria_mark_permission(
     instance = document.instance_document.instance
     category = document.category
 
+    v2_prefix = get_category_prefix(category)
+    v2_permission = P.any(
+        f"{v2_prefix}:all",
+        f"{v2_prefix}:mark:all",
+        f"{v2_prefix}:mark:{mark_pk}",
+    )
+
     return has_alexandria_permission(
         request,
         instance,
         category,
         document,
         f"{MODE_UPDATE}-marks-{mark_pk}",
-        P.any(
-            f"{category.pk}:all",
-            f"{category.pk}:mark:all",
-            f"{category.pk}:mark:{mark_pk}",
-        ),
+        v2_permission,
     )

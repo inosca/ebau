@@ -58,32 +58,35 @@ def get_changed_fields(request: Request, document: Document) -> dict[str, tuple]
     return changed_fields
 
 
+def get_category_prefix(obj: str | Document | Category) -> str:
+    """Get category prefix for requested permissions.
+
+    This must always return a category slug. As child categories cannot have
+    their own permissions they need to use the permissions of the parent
+    category.
+    """
+
+    match obj:
+        case str():
+            category = Category.objects.get(pk=obj)
+        case Document():
+            category = obj.category
+        case Category():
+            category = obj
+        case _:  # pragma: no cover
+            raise RuntimeError()
+
+    if category.parent_id is not None:
+        return category.parent_id
+
+    return category.pk
+
+
 class AlexandriaPermissions:
     def scope(self, request: Request, obj: Document | Instance) -> PermissionScope:
         """Get permission scope for the current request and object."""
 
         return AlexandriaPermissionManager.from_request(request).scoped_for(obj)
-
-    def prefix(self, obj: str | Document) -> str:
-        """Get category prefix for requested permissions.
-
-        This must always return a category slug. As child categories cannot have
-        their own permissions they need to use the permissions of the parent
-        category.
-        """
-
-        match obj:
-            case str():
-                category = Category.objects.get(pk=obj)
-            case Document():
-                category = obj.category
-            case _:  # pragma: no cover
-                raise RuntimeError()
-
-        if category.parent_id is not None:
-            return category.parent_id
-
-        return category.pk
 
     @property
     def base_permission(self) -> P:
@@ -170,7 +173,7 @@ class AlexandriaPermissions:
 
         data = get_data_from_multipart_request(request)
 
-        prefix = self.prefix(data["category"])
+        prefix = get_category_prefix(data["category"])
         instance = Instance.objects.get(pk=data["metainfo"]["camac-instance-id"])
 
         if not self.has_base_permission_for(request, instance):
@@ -219,7 +222,9 @@ class AlexandriaPermissions:
                 f"{self.__class__.__name__}: missing function to get required permissions for action {action}"
             )
 
-        required_permissions = permissions_fn(document, request, self.prefix(document))
+        required_permissions = permissions_fn(
+            document, request, get_category_prefix(document)
+        )
 
         if required_permissions is None:
             return True
@@ -276,7 +281,7 @@ class AlexandriaPermissions:
             # If the document is copied into another category, we need to check
             # permissions for the target category instead of the current
             # category.
-            prefix = self.prefix(changed_fields["category"][1])
+            prefix = get_category_prefix(changed_fields["category"][1])
 
         return P.any(
             f"{prefix}:all",
@@ -319,13 +324,25 @@ class AlexandriaPermissions:
             action_permissions.append(P(f"{prefix}:tag"))
 
         if "category" in changed_fields:
-            action_permissions.append(P(f"{prefix}:move"))
+            # if we move within the same parent category we don't need move permissions
+            # since permissions are always checked against the parent category.
+            # this allows to move documents within a parent category, but disallow
+            # moving files out of the category.
+            from_category_prefix = prefix
+            to_category_prefix = get_category_prefix(changed_fields["category"][1])
 
-            # If we move a document to another category we need to check that we
-            # have creation permission in the target category as well as move
-            # permissions in the current category.
-            new_category = self.prefix(changed_fields["category"][1])
-            extra_permission = P.any(f"{new_category}:all", f"{new_category}:create")
+            if from_category_prefix == to_category_prefix:
+                # If we move a document within the same parent category we only need
+                # the create permission in the category.
+                action_permissions.append(P(f"{from_category_prefix}:create"))
+            else:
+                action_permissions.append(P(f"{from_category_prefix}:move"))
+
+                # If we move a document to another category we need to check that we
+                # have creation permission in the target category.
+                extra_permission = P.any(
+                    f"{to_category_prefix}:all", f"{to_category_prefix}:create"
+                )
 
         if "marks" in changed_fields:
             old, new = changed_fields["marks"]
@@ -393,7 +410,7 @@ class AlexandriaPermissions:
             return False
 
         document = Document.objects.get(pk=request.data["document"])
-        prefix = self.prefix(document)
+        prefix = get_category_prefix(document)
 
         if not self.has_base_permission_for(request, document):
             # Don't allow anything without base permission

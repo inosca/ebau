@@ -23,8 +23,9 @@ from camac.filters import MultilingualSearchFilter
 from camac.instance.models import Instance
 from camac.permissions.conditions import Check
 from camac.permissions.models import AccessLevel
-from camac.user.models import Service, ServiceT, User
+from camac.user.models import Role, Service, ServiceT, User
 from camac.user.permissions import DefaultPermission, PublicationPermission
+from camac.utils import get_dict_item
 
 
 class AlexandriaFileDownloadPermission(BasePermission):
@@ -169,25 +170,37 @@ class PatchedCategoryViewSet(views.CategoryViewSet):
         if not instance_id:
             raise ValidationError("'instance' query parameter must be passed")
 
-        cache_key = "-".join(
-            [
-                "permissions",
-                f"category:{pk}",
-                f"instance:{instance_id}",
-                f"user:{request.user.pk}",
-                f"group:{request.group.pk}",
-            ]
-        )
+        # If we are using v1 permissions, we cache the permissions for a category on an instance for 1 hour.
+        # For V2 we don't cache, since we're using the permission module already taking care of cache.
+        if not settings.ALEXANDRIA["USE_V2_PERMISSIONS"]:
+            instance_state_id = Instance.objects.get(pk=instance_id).instance_state_id
 
-        permissions = cache.get_or_set(
-            cache_key,
-            lambda: self._get_permissions_for_category_on_instance(
+            cache_key = "-".join(
+                [
+                    "permissions",
+                    f"category:{pk}",
+                    f"instance:{instance_id}",
+                    f"instance_state:{instance_state_id}",
+                    f"user:{request.user.pk}",
+                    f"group:{request.group.pk}",
+                ]
+            )
+
+            permissions = cache.get_or_set(
+                cache_key,
+                lambda: self._get_permissions_for_category_on_instance(
+                    self.get_object(),
+                    request.query_params.get("instance"),
+                    request,
+                ),
+                3600,
+            )
+        else:
+            permissions = self._get_permissions_for_category_on_instance(
                 self.get_object(),
                 request.query_params.get("instance"),
                 request,
-            ),
-            3600,
-        )
+            )
 
         return Response(permissions, status=status.HTTP_200_OK)
 
@@ -283,6 +296,7 @@ class AlexandriaPermissionsDebuggerView(APIView):
                     "children": [
                         {
                             "name": category.name,
+                            "slug": category.pk,
                             **matrix.get((category.pk, access_level.pk)),
                         }
                         for category in categories
@@ -298,6 +312,7 @@ class AlexandriaPermissionsDebuggerView(APIView):
                     "children": [
                         {
                             "name": access_level.name,
+                            "slug": access_level.pk,
                             **matrix.get((category.pk, access_level.pk)),
                         }
                         for access_level in access_levels
@@ -312,5 +327,104 @@ class AlexandriaPermissionsDebuggerView(APIView):
                 "actions": self.get_actions(),
                 "by": by,
                 "switch_to": "access_level" if by is None else None,
+            }
+        )
+
+
+class AlexandriaVisibilitiesDebuggerView(APIView):
+    authentication_classes = []
+    permission_classes = []
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = "visibilities.html"
+
+    def get_visibility_for(self, category: Category, role: dict) -> str:
+        visibility = get_dict_item(
+            category.metainfo,
+            f"access.{role.get('slug')}.visibility",
+            default="none",
+        )
+
+        if visibility == "none":
+            color = "red"
+        elif visibility == "all":
+            color = "green"
+        else:
+            color = "amber"
+
+        return {"text": visibility, "color": color}
+
+    def get(self, request, **kwargs) -> Response:
+        if not settings.DEBUG:  # pragma: no cover
+            # Make sure to never return anything if we're not in debug mode even
+            # if the url should not be registered anyways.
+            raise NotFound()
+
+        # TODO: support USE_ROLE_PERMISSIONS_MAPPING and SERVICE_GROUP_APPEND_ROLE.
+        # this version doesn't yet support these settings yet.
+        permission_key_settings = settings.ALEXANDRIA["PERMISSION_KEY"]
+        categories = Category.objects.filter(parent__isnull=True).order_by("sort")
+        roles = [
+            {"slug": role.slug, "name": f"{role.name}".lower()}
+            for role in Role.objects.all().order_by("name")
+        ]
+        for service_group in permission_key_settings["SERVICE_GROUP_MAPPING"].keys():
+            roles.append(
+                {
+                    "slug": permission_key_settings["SERVICE_GROUP_MAPPING"][
+                        service_group
+                    ],
+                    "name": service_group,
+                }
+            )
+        roles = sorted(roles, key=lambda r: r["name"])
+
+        matrix = {
+            (category.pk, role.get("slug")): {
+                "visibility": self.get_visibility_for(category, role)
+            }
+            for category in categories
+            for role in roles
+        }
+
+        by = request.query_params.get("by")
+
+        if by == "role":
+            data = [
+                {
+                    "name": role.get("name"),
+                    "slug": role.get("slug"),
+                    "children": [
+                        {
+                            "name": category.name,
+                            "slug": category.pk,
+                            **matrix.get((category.pk, role.get("slug"))),
+                        }
+                        for category in categories
+                    ],
+                }
+                for role in roles
+            ]
+        else:
+            data = [
+                {
+                    "name": category.name,
+                    "slug": category.pk,
+                    "children": [
+                        {
+                            "name": role.get("name"),
+                            "slug": role.get("slug"),
+                            **matrix.get((category.pk, role.get("slug"))),
+                        }
+                        for role in roles
+                    ],
+                }
+                for category in categories
+            ]
+
+        return Response(
+            {
+                "data": data,
+                "by": by,
+                "switch_to": "role" if by is None else None,
             }
         )
