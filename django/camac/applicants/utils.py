@@ -27,6 +27,7 @@ def get_applicants_requiring_confirmation(
     answers = Answer.objects.filter(
         question_id=settings.APPLICANTS.applicant_identifier_question,
         document__family__case__instance=instance,
+        value__isnull=False,
     )
 
     for answer in answers:

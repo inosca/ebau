@@ -31,7 +31,7 @@ def test_get_applicants_requiring_confirmation(
     form_utils.add_table_answer(
         document,
         "grundeigentuemerin",
-        [{question: str(applicant_and_landowner.pk)}],
+        [{question: str(applicant_and_landowner.pk)}, {question: None}],
     )
 
     result = get_applicants_requiring_confirmation(instance)
