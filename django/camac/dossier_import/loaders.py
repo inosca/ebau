@@ -194,11 +194,15 @@ class XlsxFileDossierLoader(DossierLoader):
         if any(person.values()):
             return [Person(**person)]
 
-    def _load_dossier(self, dossier_row: dict) -> Dossier:
+    def _load_dossier(
+        self, dossier_row: dict, dossier_import: Optional[DossierImport] = None
+    ) -> Dossier:
         """Read one line and handle each column.
 
         Based on the instance of the importer instanciate an ImportCaseData. Loading
         the dossier knows of every column value where to store it.
+
+        dossier_import is only optional for tests.
         """
         dossier = Dossier(
             **{
@@ -254,7 +258,10 @@ class XlsxFileDossierLoader(DossierLoader):
                     date = date
             setattr(dossier, key, date)
 
-        dossier.plot_data, load_plot_data_errors = self.load_plot_data(dossier_row)
+        dossier.plot_data, load_plot_data_errors = self.load_plot_data(
+            dossier_row,
+            str(dossier_import.group.service_id) if dossier_import else None,
+        )
         if load_plot_data_errors:  # pragma: no cover
             dossier._meta.errors += load_plot_data_errors
 
@@ -324,7 +331,7 @@ class XlsxFileDossierLoader(DossierLoader):
         return out, messages
 
     def load_plot_data(
-        self, dossier_row
+        self, dossier_row, municipality
     ) -> Tuple[List[PlotData], Optional[List[Message]]]:
         out = []
         messages = []
@@ -344,7 +351,6 @@ class XlsxFileDossierLoader(DossierLoader):
                 if isinstance(egrids, str)
                 else [egrids]
             )
-            municipality = dossier_row.get(XlsxFileDossierLoader.Column.city.value)
 
             # handle deletable value
             if any(
@@ -388,7 +394,7 @@ class XlsxFileDossierLoader(DossierLoader):
             ) from e
 
         for row in rows:
-            dossier = self._load_dossier(row)
+            dossier = self._load_dossier(row, dossier_import)
             if dossier.id is None:  # pragma: no cover
                 continue
             dossier = self._load_attachments(dossier, archive)

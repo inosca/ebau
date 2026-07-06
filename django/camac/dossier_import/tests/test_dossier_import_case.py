@@ -98,6 +98,7 @@ def test_create_instance_dossier_import_case(
     writer = setup_dossier_writer(config)
     dossier_import = dossier_import_factory(
         source_file=archive_file("import-example-no-errors.zip"),
+        group__service__service_group__name="municipality",
     )
     loader = XlsxFileDossierLoader()
 
