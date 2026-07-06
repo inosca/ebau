@@ -81,7 +81,7 @@ defmodule Ebau.MixProject do
       {:dart_sass, "~> 0.7", only: [:dev]},
       {:dns_cluster, "~> 0.2.0"},
       {:ecto_sql, "~> 3.13"},
-      {:elixir_uikit, "~> 0.7.6"},
+      {:elixir_uikit, "~> 0.8.0"},
       {:esbuild, "~> 0.10", runtime: Mix.env() == :dev},
       {:ex_doc, "~> 0.38", only: :dev, runtime: false},
       {:gettext, "~> 1.0"},
