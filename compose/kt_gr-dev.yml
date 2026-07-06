@@ -56,34 +56,35 @@ services:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
       - /app/staticfiles # prevent staticfiles from leaking to the host system
-    environment:
-      - APPLICATION_ENV=development
-      - ENV=development # used in caluma and alexandria settings
-      - KEYCLOAK_URL=http://ebau-keycloak.localhost/auth/
-      - DATABASE_PASSWORD=camac
-      - DATABASE_USER=camac
-      - DJANGO_EMAIL_HOST=mailpit
-      - DJANGO_EMAIL_PORT=1025
-      - OAUTHLIB_INSECURE_TRANSPORT=1
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
-      - PYTHONDONTWRITEBYTECODE=1
-      - DJANGO_INTERNAL_BASE_URL=http://ember-ebau.localhost
-      - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/document-merge-service/api/v1/
-      - CONSTRUCTION_MONITORING_ENABLED=true
-      - DEADLINES_ENABLED=true
+    environment: &django_env
+      APPLICATION_ENV: development
+      ENV: development # used in caluma and alexandria settings
+      KEYCLOAK_URL: http://ebau-keycloak.localhost/auth/
+      DATABASE_PASSWORD: camac
+      DATABASE_USER: camac
+      DJANGO_EMAIL_HOST: mailpit
+      DJANGO_EMAIL_PORT: 1025
+      OAUTHLIB_INSECURE_TRANSPORT: 1
+      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
+      PYTHONDONTWRITEBYTECODE: 1
+      DJANGO_INTERNAL_BASE_URL: http://ember-ebau.localhost
+      DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
+      CONSTRUCTION_MONITORING_ENABLED: true
+      DEADLINES_ENABLED: true
       # Alexandria
-      - TIKA_SERVER_ENDPOINT=http://tika:9998
+      TIKA_SERVER_ENDPOINT: http://tika:9998
+      ALEXANDRIA_CONTENT_SEARCH_CELERY_QUEUE: tika
       # GWR
-      - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
-      - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
+      GWR_FERNET_KEY: GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
+      GWR_HOUSING_STAT_BASE_URI: https://www-r.housing-stat.ch/regbl/api/ech0216/2
       # GIS
-      - GR_GIS_BASE_URL=https://wps-test.geo.gr.ch
+      GR_GIS_BASE_URL: https://wps-test.geo.gr.ch
       # celery
-      - CELERY_RDB_HOST=0.0.0.0. # to be able to telnet from outside the container
-      - CELERY_WORKER_CONCURRENCY=1
-      - CELERY_TASK_SOFT_TIME_LIMIT=43200 # 12hours
-      - PYTHONUNBUFFERED=1
-      - FORMAT_VALIDATOR_CLASSES=camac.caluma.extensions.format_validators.EEBADeclarationFormatValidator,camac.caluma.extensions.format_validators.DateAfterValidator
+      CELERY_RDB_HOST: 0.0.0.0. # to be able to telnet from outside the container
+      CELERY_WORKER_CONCURRENCY: 1
+      CELERY_TASK_SOFT_TIME_LIMIT: 43200 # 12hours
+      PYTHONUNBUFFERED: 1
+      FORMAT_VALIDATOR_CLASSES: camac.caluma.extensions.format_validators.EEBADeclarationFormatValidator,camac.caluma.extensions.format_validators.DateAfterValidator
     env_file:
       - ../garage/compose-env/dev-ebau.conf
       - ../garage/compose-env/dev-alexandria.conf
@@ -200,6 +201,33 @@ services:
     ports:
       - "6899:6899" # celery rdb
       - "5679:5679" # debugpy
+    environment:
+      <<: *django_env
+      CELERY_QUEUE: celery
+      CELERY_WORKER_CONCURRENCY: 2
+      CELERY_TASK_SOFT_TIME_LIMIT: 120 # 2min
+    command: celerydev
+
+  celery-import:
+    <<: *django
+    image: acr.run/camac-ng/camac-ng/django:master
+    ports: []
+    environment:
+      <<: *django_env
+      CELERY_QUEUE: import
+      CELERY_WORKER_CONCURRENCY: 1
+      CELERY_TASK_SOFT_TIME_LIMIT: 43200 # 12hours
+    command: celerydev
+
+  celery-tika:
+    <<: *django
+    image: acr.run/camac-ng/camac-ng/django:master
+    ports: []
+    environment:
+      <<: *django_env
+      CELERY_QUEUE: tika
+      CELERY_WORKER_CONCURRENCY: 1
+      CELERY_TASK_SOFT_TIME_LIMIT: 300 # 5min
     command: celerydev
 
   celery-beat:
