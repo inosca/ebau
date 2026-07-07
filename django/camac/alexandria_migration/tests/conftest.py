@@ -47,11 +47,10 @@ def clear_all_functools_caches():
         try:
             if isinstance(ref, functools._lru_cache_wrapper):
                 ref.cache_clear()
-        except ReferenceError:  # pragma: no cover
-            # Object was GC'd already - skip
-            pass
-        except ValueError:  # pragma: no cover
-            # some cached objects may cause this on deconstruction
+        except Exception:  # pragma: no cover
+            # There may be weird stuff happening when trying to check
+            # the references from the GC. None of them should cause
+            # the fixture here to fail.
             pass
 
     gc.collect()

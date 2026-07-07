@@ -1,5 +1,3 @@
-from typing import TypeAlias
-
 import uuid_extensions
 from alexandria.core.models import Document
 from django.db import models
@@ -9,7 +7,7 @@ from django.db.models.functions import Coalesce, Now
 from camac.alexandria_migration.utils import humanize_timedelta
 from camac.instance.models import Instance
 
-DocumentMark: TypeAlias = Document.marks.through
+DocumentMark = Document.marks.through
 
 
 class InstanceMigrationManager(models.Manager):  # pragma: no cover
