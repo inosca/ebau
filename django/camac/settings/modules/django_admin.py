@@ -74,21 +74,45 @@ DJANGO_ADMIN = {
             "ech0211.Message",
             "user.GeometerChangeTask",
             "core.ServiceContent",
+            "alexandria_migration.MigrationLog",
+            "alexandria_migration.MigrationRun",
+            "alexandria_migration.InstanceMigration",
         ],
         "CUSTOMER_MANAGED_MODELS": [
             "core.ServiceContent",
+            "alexandria_migration.MigrationLog",
+            "alexandria_migration.MigrationRun",
+            "alexandria_migration.InstanceMigration",
         ],
     },
     "kt_schwyz": {
         "ENABLED": True,
         "ENABLED_MODELS": [
             "billing.BillingV2EntryTemplate",
+            "alexandria_migration.MigrationLog",
+            "alexandria_migration.MigrationRun",
+            "alexandria_migration.InstanceMigration",
         ],
         "CUSTOMER_MANAGED_MODELS": [
             "billing.BillingV2EntryTemplate",
+            "alexandria_migration.MigrationLog",
+            "alexandria_migration.MigrationRun",
+            "alexandria_migration.InstanceMigration",
         ],
     },
-    "kt_uri": {"ENABLED": True},
+    "kt_uri": {
+        "ENABLED": True,
+        "ENABLED_MODELS": [
+            "alexandria_migration.MigrationLog",
+            "alexandria_migration.MigrationRun",
+            "alexandria_migration.InstanceMigration",
+        ],
+        "CUSTOMER_MANAGED_MODELS": [
+            "alexandria_migration.MigrationLog",
+            "alexandria_migration.MigrationRun",
+            "alexandria_migration.InstanceMigration",
+        ],
+    },
     "kt_ag": {
         "ENABLED": True,
         "ENABLED_MODELS": [

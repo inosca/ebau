@@ -1,4 +1,6 @@
-import copy
+import copy  # noqa: I001
+import moto.server
+import boto3
 import inspect
 import logging
 import os
@@ -11,6 +13,7 @@ from importlib import import_module, reload
 from pathlib import Path
 from typing import Literal
 from uuid import uuid4
+from django.utils import translation
 
 import django.db
 import faker
@@ -20,6 +23,7 @@ from alexandria.core import tasks as alexandria_tasks
 from alexandria.storages.backends.s3 import SsecGlobalS3Storage
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_core.relay import extract_global_id
+from camac.permissions.conditions import Check
 from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
@@ -30,7 +34,7 @@ from caluma.caluma_workflow import (
     models as caluma_workflow_models,
 )
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
-from celery.contrib.pytest import (
+from celery.contrib.pytest import (  # noqa: F403, F401
     # These are needed to make celery pytesting work
     # Check here for why that redundant rename is necesary
     # https://docs.astral.sh/ruff/rules/unused-import/
@@ -45,7 +49,6 @@ from django.core.cache import cache
 from django.core.management import call_command
 from django.http import FileResponse
 from django.urls import clear_url_caches
-from django.utils import translation
 from django.utils.module_loading import import_string
 from django.utils.timezone import make_aware, now
 from factory import Faker
@@ -70,7 +73,7 @@ from camac.dossier_import import factories as dossier_import_factories
 from camac.ech0211 import factories as ech_factories
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.fixtures.generated import external_factories
-from camac.fixtures.generated.settings_fixtures import *  # noqa: F403
+from camac.fixtures.generated.settings_fixtures import *  # noqa: F403, F401
 from camac.gis import factories as gis_factories
 from camac.instance import factories as instance_factories
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
@@ -80,7 +83,6 @@ from camac.notification.serializers import (
 )
 from camac.objection import factories as objection_factories
 from camac.permissions import factories as permissions_factories
-from camac.permissions.conditions import Check
 from camac.permissions.models import AccessLevel
 from camac.responsible import factories as responsible_factories
 from camac.rulesets import factories as rulesets_factories
@@ -3321,6 +3323,14 @@ def reload_urlconf(urlconf=None):
 
 
 @pytest.fixture
+def reload_urlconf_after():
+    yield
+    all_url_modules = [mod for mod in sys.modules if mod.endswith("urls")]
+    for mod in all_url_modules:
+        reload_urlconf(mod)
+
+
+@pytest.fixture
 def reload_ech0211_urls():
     reload_urlconf("camac.urls")
     reload_urlconf("camac.ech0211.urls")
@@ -3423,7 +3433,7 @@ def mock_celery(mocker):
 
 
 @pytest.fixture
-def celery_fake_worker(celery_app, mocker):  # noqa: C901
+def celery_fake_worker(celery_app, mocker):  # noqa: F811,C901
     """
     Mock Celery task scheduling and allow running those tasks in tests.
 
@@ -3775,6 +3785,92 @@ def parse_xlsx_response(response: FileResponse) -> pyexcel.Book:
         file_content=b"".join(response.streaming_content),
         file_type="xlsx",
     )
+
+
+@pytest.fixture
+def s3_server(settings):
+    """Provide a real moto HTTP server for the test session.
+
+    Yields a dict with all the data needed for configuring an S3 client:
+    - `endpoint`
+    - `access_key`
+    - `secret_key`
+    - `region`
+    - `bucket_name`
+
+    Moto could also just mock the client, but we need this so any subcommands
+    called (like s3cmd) get the mocked variant as well
+    """
+    server = moto.server.ThreadedMotoServer(port=0)  # port=0 = random free port
+    server.start()
+    host, port = server.get_host_and_port()
+    endpoint = f"http://{host}:{port}"
+    options = {
+        "endpoint_url": endpoint,
+        "access_key": "test",
+        "secret_key": "test",
+        "region_name": "us-east-1",
+        "bucket_name": f"test{port}",
+    }
+
+    # we need the bucket to exist for a fully mocked setup
+    client = boto3.client(
+        "s3",
+        endpoint_url=options["endpoint_url"],
+        aws_access_key_id=options["access_key"],
+        aws_secret_access_key=options["secret_key"],
+        verify=False,
+    )
+    client.create_bucket(Bucket=options["bucket_name"])
+
+    try:
+        yield options
+    finally:
+        server.stop()
+
+
+@pytest.fixture
+def alexandria_s3_mock(settings, s3_server):
+    """Mock S3 storage for Alexandria.
+
+    Start an Mock S3 server in a background thread, create the required bucket,
+    and configure Alexandria to use it.
+    """
+    settings.ALEXANDRIA_S3_ENDPOINT_URL = s3_server["endpoint_url"]
+    settings.ALEXANDRIA_S3_BUCKET_NAME = s3_server["bucket_name"]
+    settings.ALEXANDRIA_S3_ACCESS_KEY = s3_server["access_key"]
+    settings.ALEXANDRIA_S3_SECRET_KEY = s3_server["secret_key"]
+    settings.ALEXANDRIA_FILE_STORAGE = "alexandria.storages.backends.s3.S3Storage"
+
+    # Tell moto that we're actually not using Amazon AWS S3
+    os.environ["MOTO_S3_CUSTOM_ENDPOINTS"] = settings.ALEXANDRIA_S3_ENDPOINT_URL
+
+    client = boto3.client(
+        "s3",
+        endpoint_url=settings.ALEXANDRIA_S3_ENDPOINT_URL,
+        aws_access_key_id=settings.ALEXANDRIA_S3_ACCESS_KEY,
+        aws_secret_access_key=settings.ALEXANDRIA_S3_SECRET_KEY,
+        verify=False,
+    )
+    client.create_bucket(Bucket=settings.ALEXANDRIA_S3_BUCKET_NAME)
+
+
+@pytest.fixture
+def django_s3_mock(settings, s3_server):
+    """
+    Mock S3 for the full django installation.
+
+    Start a mocked S3 server in the background, configure Django's storage
+    settings to use it.
+    """
+    settings.STORAGES = {
+        **settings.STORAGES,
+        "default": {
+            "BACKEND": "storages.backends.s3.S3Storage",
+            # pull in endpoint_url, access_key, secret_key, region_name, bucket_name
+            "OPTIONS": {**s3_server},
+        },
+    }
 
 
 _ensure_no_user_after_test_test_logger_log = []

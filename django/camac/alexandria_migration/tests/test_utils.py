@@ -1,10 +1,12 @@
 from collections import OrderedDict
+from datetime import timedelta
 
 import pytest
 
 from camac.alexandria_migration.utils import (
     get_available_categories,
     get_target_category,
+    humanize_timedelta,
 )
 
 
@@ -55,3 +57,15 @@ def test_category_mapping(canton, request, snapshot):
             data[section_key][bucket] = get_target_category(section, bucket).pk
 
     assert data == snapshot
+
+
+@pytest.mark.parametrize(
+    "delta, expect_results",
+    [
+        (timedelta(seconds=3600), "1h"),
+        (timedelta(hours=2, minutes=5), "2h 5m"),
+        (timedelta(hours=2, minutes=5, seconds=30), "2h 5m 30s"),
+    ],
+)
+def test_humanize_timedelta(delta, expect_results):
+    assert humanize_timedelta(delta) == expect_results

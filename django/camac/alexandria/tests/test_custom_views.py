@@ -111,6 +111,7 @@ def test_alexandria_permissions_debugger_view(
     settings,
     snapshot,
     permissions_alexandria_settings,
+    reload_urlconf_after,
 ):
     settings.DEBUG = True
     reload_urlconf("camac.urls")

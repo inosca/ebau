@@ -27,6 +27,8 @@ from camac.utils import (
 from alexandria.settings.alexandria import *  # noqa: F403  # isort: skip
 from caluma.settings.caluma import *  # noqa: F403  # isort: skip
 
+ALEXANDRIA_SSEC_ALGORITHM = "AES256"
+
 ENV = env.str("APPLICATION_ENV", default="production")
 APPLICATION_NAME = env.str("APPLICATION")
 APPLICATION_DIR = ROOT_DIR.path(APPLICATION_NAME)
@@ -3407,11 +3409,13 @@ if (
                 "EBAU_S3_STORAGE_SSEC_SECRET",
                 default=default("x" * 32, require_if(EBAU_ENABLE_AT_REST_ENCRYPTION)),
             ),
-            "SSECustomerAlgorithm": "AES256",
+            "SSECustomerAlgorithm": ALEXANDRIA_SSEC_ALGORITHM,
         }
 
     STORAGES["default"]["OPTIONS"] = storage_options
     AWS_S3_ADDRESSING_STYLE = env.str("AWS_S3_ADDRESSING_STYLE", default=None)
+
+THUMBNAIL_STORAGE = "camac.utils.sorl_thumbnail_s3_storage"
 
 
 FILE_UPLOAD_PERMISSIONS = env.int("FILE_UPLOAD_PERMISSIONS", default=0o644)

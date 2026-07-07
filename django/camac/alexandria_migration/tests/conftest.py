@@ -1,3 +1,6 @@
+import functools
+import gc
+
 import pytest
 from django.core.management import call_command
 
@@ -30,3 +33,27 @@ def be_category_setup(db, settings, clear_category_cache):
     ]
 
     return AttachmentSection.objects.order_by("sort"), buckets
+
+
+@pytest.fixture(scope="function", autouse=True)
+def clear_all_functools_caches():
+    """Clear all caches that use functools.lru_cache.
+
+    Note that this is a rather expensive operation, so we're only doing it here
+    where it's really important (And we heavily rely on caching).
+    """
+
+    def _clear_if_cache(ref):
+        try:
+            if isinstance(ref, functools._lru_cache_wrapper):
+                ref.cache_clear()
+        except ReferenceError:  # pragma: no cover
+            # Object was GC'd already - skip
+            pass
+        except ValueError:  # pragma: no cover
+            # some cached objects may cause this on deconstruction
+            pass
+
+    gc.collect()
+    for ref in gc.get_objects():
+        _clear_if_cache(ref)

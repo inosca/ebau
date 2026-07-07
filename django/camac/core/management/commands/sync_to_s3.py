@@ -86,6 +86,9 @@ class S3CMD:
         if not target.endswith("/"):
             target = f"{target}/"
 
+        if not local_path.endswith("/"):
+            local_path = f"{local_path}/"
+
         self.run_cmd_and_wait("sync", local_path, target, *args)
 
     def clean_s3(self, path_in_bucket, *args):
@@ -275,10 +278,14 @@ class Command(BaseCommand):
         if options["clean_before_sync"]:
             self.s3.clean_s3("")
         if options["do_sync"]:
-            self.s3.sync(settings.MEDIA_ROOT, "")
+            print(
+                f"Sync to S3: {settings.MEDIA_ROOT} to {settings.ALEXANDRIA_S3_ENDPOINT_URL} "
+                f"(Bucket {settings.ALEXANDRIA_S3_BUCKET_NAME})"
+            )
+            self.s3.sync(str(settings.MEDIA_ROOT), "")
 
         if options["validate"]:
-            self.s3.validate(settings.MEDIA_ROOT, "")
+            self.s3.validate(str(settings.MEDIA_ROOT), "")
 
     def check_config(self):
         # Note: This checks the django storages backend config. Alexandria

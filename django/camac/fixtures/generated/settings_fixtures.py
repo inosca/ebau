@@ -417,6 +417,24 @@ def disable_alexandria_migration_settings(
 
 
 @pytest.fixture
+def sz_alexandria_migration_settings(
+    request,
+    settings,
+    alexandria_migration_settings,
+):
+    """Module-specific settings for alexandria migration (canton SZ)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=alexandria_migration_settings,
+        settings_name="ALEXANDRIA_MIGRATION",
+        import_path="camac.settings.modules.alexandria_migration.ALEXANDRIA_MIGRATION",
+        canton="kt_schwyz",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def be_alexandria_migration_settings(
     request,
     settings,

@@ -36,6 +36,9 @@ services:
     ports:
       - "5555:5555"
       - "5678:5678"
+
+    # add init to catch all the zombies
+    init: true
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp
@@ -112,6 +115,16 @@ services:
     environment:
       KEYCLOAK_HOST: http://ebau-keycloak.localhost
       GIS_HOST: map-t.geo.sz.ch
+
+  tika:
+    image: apache/tika:3.2.3.0-full
+    profiles:
+      - alexandria
+      - full
+    environment:
+      TIKA_CONFIG: file:///config/tika-config.xml
+    volumes:
+      - ../tika:/config
 
   ember-camac-ng:
     environment:
@@ -235,6 +248,8 @@ services:
       - ../garage/garage.toml:/etc/garage.toml:ro
     env_file:
       - ../garage/compose-env/dev-garage.conf
+    environment:
+      GARAGE_CLUSTER_CAPACITY: "100G"
 
   garage-webui:
     image: khairul169/garage-webui:latest
