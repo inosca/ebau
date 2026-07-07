@@ -37,7 +37,7 @@ defmodule Ebau.Caluma.CantonResolver do
   @impl true
   def resolve(mapping) do
     canton = @canton
-    result = if canton, do: mapping[canton] || mapping[:default], else: mapping[:default]
+    result = Map.get(mapping, canton, mapping[:default])
 
     result ||
       raise "CantonResolver: no mapping for canton #{inspect(canton)} and no :default in #{inspect(Map.keys(mapping))}"

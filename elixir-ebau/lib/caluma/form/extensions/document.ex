@@ -326,8 +326,6 @@ defmodule Caluma.Form.Extensions.Document.AnswerTransformer do
 
   use Spark.Dsl.Transformer
 
-  require Ash.Expr
-
   alias Caluma.Form.Extensions.Document
 
   def transform(dsl_state) do
