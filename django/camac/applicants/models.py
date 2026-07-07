@@ -50,7 +50,7 @@ class ApplicantManager(models.Manager):
 
         for email in set(emails):
             if existing := existing_applicants.filter(email=email).first():
-                if not existing.role == ROLE_CHOICES.PROJECT_OWNER:
+                if existing.role != ROLE_CHOICES.PROJECT_OWNER:
                     existing.role = ROLE_CHOICES.PROJECT_OWNER
                     existing.save()
             else:

@@ -367,7 +367,7 @@ class AlexandriaVisibilitiesDebuggerView(APIView):
             {"slug": role.slug, "name": f"{role.name}".lower()}
             for role in Role.objects.all().order_by("name")
         ]
-        for service_group in permission_key_settings["SERVICE_GROUP_MAPPING"].keys():
+        for service_group in permission_key_settings["SERVICE_GROUP_MAPPING"]:
             roles.append(
                 {
                     "slug": permission_key_settings["SERVICE_GROUP_MAPPING"][

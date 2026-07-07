@@ -107,14 +107,15 @@ def post_cancel_additional_demand(sender, work_item, user, context=None, **kwarg
     service = Service.objects.get(pk=work_item.created_by_group)
     instance = get_instance(work_item)
 
-    if deadline := instance.deadlines.filter(service=service).first():
-        if suspension := (
+    if (deadline := instance.deadlines.filter(service=service).first()) and (
+        suspension := (
             deadlines_models.Suspension.objects.for_deadline(deadline)
             .for_workitem(work_item=work_item)
             .order_by("-created_at")
             .first()
-        ):
-            suspension.complete()
+        )
+    ):
+        suspension.complete()
 
 
 @on(post_complete_work_item, raise_exception=True)
@@ -137,14 +138,15 @@ def post_complete_fill_additional_demand(
         service = Service.objects.get(pk=main_workitem.created_by_group)
         instance = get_instance(main_workitem)
 
-        if deadline := instance.deadlines.filter(service=service).first():
-            if suspension := (
+        if (deadline := instance.deadlines.filter(service=service).first()) and (
+            suspension := (
                 deadlines_models.Suspension.objects.for_deadline(deadline)
                 .for_workitem(work_item=main_workitem)
                 .order_by("-created_at")
                 .first()
-            ):
-                suspension.complete()
+            )
+        ):
+            suspension.complete()
 
 
 @on(post_create_work_item, raise_exception=True)

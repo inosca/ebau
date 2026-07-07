@@ -17,7 +17,6 @@ class S3CMD:
     }
 
     def __init__(self):
-
         # These are the ones we need for sync. Note this will only work for
         # synchronizing document module data (for now), DMS and communications
         # have their own buckets, so it would end up in the wrong place.
@@ -106,65 +105,74 @@ class S3CMD:
         if not target.endswith("/"):
             target = f"{target}/"
 
-        list_file_s3 = NamedTemporaryFile()
-        list_file_fs = NamedTemporaryFile()
+        # The temp files are kept open across the subprocess pipeline below until
+        # validation is done, hence the single enclosing context manager.
+        with (
+            NamedTemporaryFile() as list_file_s3,
+            NamedTemporaryFile() as list_file_fs,
+            NamedTemporaryFile(suffix=".db") as dbfile,
+        ):
+            s3cmd = self.run(
+                "ls", "--recursive", "--list-md5", target, stdout=list_file_s3
+            )
 
-        s3cmd = self.run("ls", "--recursive", "--list-md5", target, stdout=list_file_s3)
+            finder = subprocess.Popen(
+                [
+                    "find",
+                    local_path,
+                    # "-print0",
+                    "-type",
+                    "f",
+                ],
+                stdout=subprocess.PIPE,
+            )
+            localcmd = subprocess.Popen(
+                [
+                    "xargs",
+                    # "-0",
+                    "md5sum",
+                ],
+                stdin=finder.stdout,
+                stdout=list_file_fs,
+            )
 
-        finder = subprocess.Popen(
-            [
-                "find",
-                local_path,
-                # "-print0",
-                "-type",
-                "f",
-            ],
-            stdout=subprocess.PIPE,
-        )
-        localcmd = subprocess.Popen(
-            [
-                "xargs",
-                # "-0",
-                "md5sum",
-            ],
-            stdin=finder.stdout,
-            stdout=list_file_fs,
-        )
+            finder.wait()  # ensure stdin is consumed, cmd is run
+            localcmd.wait()
+            s3cmd.wait()
 
-        finder.wait()  # ensure stdin is consumed, cmd is run
-        localcmd.wait()
-        s3cmd.wait()
+            db = sqlite3.Connection(dbfile.name)
+            # We don't create indexes, as we basically only do some very few lookups
+            # before ditching the DB again
+            db.execute(
+                "create table s3(id bigint primary key, hash varchar, path varchar)"
+            )
+            db.execute(
+                "create table fs(id bigint primary key, hash varchar, path varchar)"
+            )
 
-        dbfile = NamedTemporaryFile(suffix=".db")
-        db = sqlite3.Connection(dbfile.name)
-        # We don't create indexes, as we basically only do some very few lookups before
-        # ditching the DB again
-        db.execute("create table s3(id bigint primary key, hash varchar, path varchar)")
-        db.execute("create table fs(id bigint primary key, hash varchar, path varchar)")
+            # Load files and compare results
+            list_file_s3.seek(0)
+            list_file_fs.seek(0)
 
-        # Load files and compare results
-        list_file_s3.seek(0)
-        list_file_fs.seek(0)
+            # fsdata entry format: md5<tab>path\n
+            # s3data entry format: date time      size  md5     s3://path
+            re_fs = re.compile(rf"(\w+)\s+{local_path}/(.*)\n$")
+            re_s3 = re.compile(
+                rf"([0-9-]+)\s+([0-9:]+)\s+(\d+)\s+([\w]+)\s+{target}([^\s]+)$"
+            )
 
-        # fsdata entry format: md5<tab>path\n
-        # s3data entry format: date time      size  md5     s3://path
-        re_fs = re.compile(rf"(\w+)\s+{local_path}/(.*)\n$")
-        re_s3 = re.compile(
-            rf"([0-9-]+)\s+([0-9:]+)\s+(\d+)\s+([\w]+)\s+{target}([^\s]+)$"
-        )
+            def parse_fs(line):
+                matchy = re_fs.match(line.decode("utf8"))
+                return (matchy.group(2), matchy.group(1)) if matchy else (None, None)
 
-        def parse_fs(line):
-            matchy = re_fs.match(line.decode("utf8"))
-            return (matchy.group(2), matchy.group(1)) if matchy else (None, None)
+            def parse_s3(line):
+                matchy = re_s3.match(line.decode("utf8"))
+                return (matchy.group(5), matchy.group(4)) if matchy else (None, None)
 
-        def parse_s3(line):
-            matchy = re_s3.match(line.decode("utf8"))
-            return (matchy.group(5), matchy.group(4)) if matchy else (None, None)
-
-        with db:
-            self._load_validation_logs(list_file_s3, parse_s3, db, "s3")
-            self._load_validation_logs(list_file_fs, parse_fs, db, "fs")
-        return self._validate(db)
+            with db:
+                self._load_validation_logs(list_file_s3, parse_s3, db, "s3")
+                self._load_validation_logs(list_file_fs, parse_fs, db, "fs")
+            return self._validate(db)
 
     def _validate(self, db):
         """Validate check results from DB vs S3.
@@ -297,7 +305,7 @@ class Command(BaseCommand):
         backend = settings.STORAGES["default"]["BACKEND"]
         storage_opts = settings.STORAGES["default"].get("OPTIONS", {})
 
-        if not backend == "storages.backends.s3.S3Storage":
+        if backend != "storages.backends.s3.S3Storage":
             print("Error: S3 backend not configured")
             errors += 1
 
@@ -321,16 +329,15 @@ class Command(BaseCommand):
         # TODO: use regular S3 client to create and remove a temporary object
         # to ensure our "normal" client works as well
 
-        tmp_in = NamedTemporaryFile()
         test_value = b"Testing content"
-        tmp_in.write(test_value)
-        tmp_in.seek(0)
-        with TemporaryDirectory() as tmpdir:
+        with NamedTemporaryFile() as tmp_in, TemporaryDirectory() as tmpdir:
+            tmp_in.write(test_value)
+            tmp_in.seek(0)
             tmpout = Path(tmpdir) / "test_out"
 
             self.s3.put(tmp_in.name, tmp_in.name)  # use tmp_in as "filename in bucket"
             self.s3.get(tmp_in.name, str(tmpout))
             self.s3.delete(tmp_in.name)
 
-            read_write_ok = tmpout.open().read() == test_value
-            return read_write_ok
+            with tmpout.open() as tmpout_file:
+                return tmpout_file.read() == test_value

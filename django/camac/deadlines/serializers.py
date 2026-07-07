@@ -45,12 +45,15 @@ class SuspensionSerializer(serializers.ModelSerializer):
     author_formatted = serializers.CharField(read_only=True)
 
     def validate(self, data):
-        if data.get("start_date") and data.get("end_date"):
-            # Validate that start date is before end date
-            if data["start_date"] > data["end_date"]:
-                raise serializers.ValidationError(
-                    _("End date can not be before start date.")
-                )
+        # Validate that start date is before end date
+        if (
+            data.get("start_date")
+            and data.get("end_date")
+            and data["start_date"] > data["end_date"]
+        ):
+            raise serializers.ValidationError(
+                _("End date can not be before start date.")
+            )
 
         if (
             data.get("reason")

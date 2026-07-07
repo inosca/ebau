@@ -248,7 +248,7 @@ class Command(BaseCommand):
                 document=work_item.document,
                 question=Question.objects.get(slug=question["caluma_question_slug"]),
                 value=ANSWER_MAP[answer.question_id][answer.answer]
-                if answer.question_id in ANSWER_MAP.keys()
+                if answer.question_id in ANSWER_MAP
                 else int(answer.answer),
             )
 

@@ -122,7 +122,7 @@ class CreateInstanceLogic:
     def _get_identifier_start(instance: Instance, name: str, prefix: str = None) -> str:
         abbreviations = settings.APPLICATION.get("INSTANCE_IDENTIFIER_FORM_ABBR", {})
 
-        if name in abbreviations.keys():
+        if name in abbreviations:
             identifier_start = abbreviations[name]
         elif settings.APPLICATION.get("SHORT_DOSSIER_NUMBER", False):
             identifier_start = (

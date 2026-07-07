@@ -1,5 +1,5 @@
+import io
 import json
-import os
 from glob import glob
 from uuid import uuid4
 
@@ -37,7 +37,7 @@ def test_dump_and_load(
     call_command(
         "camac_load",
         user="test-dummy@adfinis.com",
-        stdout=open(os.devnull, "w"),
+        stdout=io.StringIO(),
     )
 
     # make sure pure config models are flushed
@@ -50,7 +50,7 @@ def test_dump_and_load(
         call_command(
             f"camac_dump_{dump_type}",
             output_dir=str(outdir),
-            stdout=open(os.devnull, "w"),
+            stdout=io.StringIO(),
         )
 
         for filepath in glob(settings.APPLICATION_DIR(f"{dump_type}/*.json")):

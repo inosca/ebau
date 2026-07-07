@@ -22,9 +22,10 @@ def test_verify_proposal_config(app_name, settings):
     form_config = []
 
     for config in ["caluma_form", "caluma_form_v2"]:
-        form_config += json.load(
-            open(settings.ROOT_DIR + app_name + f"config/{config}.json")
-        )
+        with open(
+            settings.ROOT_DIR + app_name + f"config/{config}.json"
+        ) as config_file:
+            form_config += json.load(config_file)
 
     proposal_config = settings.APPLICATIONS.get(app_name, {}).get("SUGGESTIONS", [])
 

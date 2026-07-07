@@ -716,7 +716,7 @@ def test_create_work_item_permission(
 ):
     case = sz_instance.case
 
-    if not involved_type == "addressed":
+    if involved_type != "addressed":
         caluma_admin_user.group = service_factory()
 
     variables = {"input": {"case": str(case.pk), "multipleInstanceTask": task_id}}

@@ -10,20 +10,19 @@ def _load_csv():
     data = []
     file = "camac/core/translation_files/GR_SERVICES/Service_name_it.csv"
 
-    blob = open(file, "rb").read()
+    with open(file, "rb") as binary_file:
+        blob = binary_file.read()
     m = magic.open(magic.MAGIC_MIME_ENCODING)
     m.load()
     encoding = m.buffer(blob)
     print(f"detected encoding of {file} as {encoding}")
     with open(file, encoding=encoding) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=",")
-        line_count = 0
-        for item in csv_reader:
+        for line_count, item in enumerate(csv_reader):
             if line_count == 0:
                 pass
             else:
                 data.append({"pk": item[0], "de_name": item[1], "translation": item[2]})
-            line_count += 1
     return data
 
 

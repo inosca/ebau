@@ -29,7 +29,7 @@ from .exceptions import InvalidImportDataError
 
 
 def numbers(string):
-    if isinstance(string, float) or isinstance(string, int):
+    if isinstance(string, (float, int)):
         return string
 
     return int("".join(char for char in str(string) if char.isdigit()) or 0)

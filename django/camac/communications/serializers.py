@@ -244,12 +244,10 @@ class TopicSerializer(VisibilitySerializerMixin, serializers.ModelSerializer):
         roles = settings.COMMUNICATIONS["ROLES_WITH_APPLICANT_CONTACT"]
         if "service" in roles and instance.has_inquiry(my_entity):
             return True
-        if (
+        return (
             "active_or_involved_lead_authority" in roles
             and instance.is_active_or_involved_lead_authority(my_entity)
-        ):
-            return True
-        return False
+        )
 
     def validate_involved_entities(self, value):
         my_entity = models.entity_for_current_user(self.context["request"])

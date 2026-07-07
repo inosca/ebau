@@ -199,12 +199,14 @@ class Command(BaseCommand):
             if not corresponding_workflow_entry:
                 status = WorkItem.STATUS_SKIPPED
 
-        if task_slug in ["decision"]:
-            # we have to deduce the date of the decision from the expiry of the permit
-            if corresponding_workflow_entry := get_workflow_entry(
-                instance, WORKFLOW_ENTRIES["BAUENTSCHEID"]
-            ):  # "Bau und Einspracheentscheid"
-                closed_at = corresponding_workflow_entry.workflow_date
+        # we have to deduce the date of the decision from the expiry of the permit
+        if task_slug == "decision" and (
+            corresponding_workflow_entry := get_workflow_entry(
+                instance,
+                WORKFLOW_ENTRIES["BAUENTSCHEID"],  # "Bau und Einspracheentscheid"
+            )
+        ):
+            closed_at = corresponding_workflow_entry.workflow_date
 
         deadline = None
         if task.lead_time:
@@ -334,9 +336,11 @@ class Command(BaseCommand):
 
             return instance.group.service
 
-        if form_slug in ["commercial-permit"]:
-            if municipality_value in ["1221", "1222"]:
-                return KOOR_NP_SERVICE
+        if form_slug == "commercial-permit" and municipality_value in [
+            "1221",
+            "1222",
+        ]:
+            return KOOR_NP_SERVICE
 
         if form_slug in ["cantonal-territory-usage"]:
             veranstaltung_answer = instance.case.document.answers.filter(

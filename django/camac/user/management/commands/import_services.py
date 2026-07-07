@@ -177,28 +177,24 @@ def get_type_map(canton):
 
 
 def get_group_types(canton):
-    if canton == "kt_gr":
-        return {"lead": "Sachbearbeitung", "admin": "Administration"}
-    elif canton == "kt_so":
-        return {
+    return {
+        "kt_gr": {"lead": "Sachbearbeitung", "admin": "Administration"},
+        "kt_so": {
             "lead": "Sachbearbeitung",
             "admin": "Administration",
             "read": "Einsichtsberechtigte",
-        }
-    elif canton == "kt_ag":
-        return {
+        },
+        "kt_ag": {
             "lead": "Leitung",
             "clerk": "Sachbearbeitung",
             "admin": "Administration",
             "read": "Einsichtsberechtigte",
-        }
-    elif canton == "kt_sg":
-        return {
+        },
+        "kt_sg": {
             "admin": "Administration",
             "lead": "Sachbearbeitung",
-        }
-
-    return {}
+        },
+    }.get(canton, {})
 
 
 TYPE_MAP = get_type_map(settings.APPLICATION_NAME)

@@ -191,9 +191,7 @@ def test_post_create_check_additional_demand(
     )
 
     # disable claim settings for ech_claim_not_enabled
-    gr_ech0211_settings["CLAIM"]["ENABLED"] = (
-        False if test_case == "ech_claim_not_enabled" else True
-    )
+    gr_ech0211_settings["CLAIM"]["ENABLED"] = test_case != "ech_claim_not_enabled"
 
     work_item_init = caluma_work_item_factory(
         case=gr_instance.case.family,

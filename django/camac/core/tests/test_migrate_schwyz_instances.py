@@ -1,4 +1,4 @@
-import os
+import io
 
 import pytest
 from caluma.caluma_workflow.models import WorkItem
@@ -40,9 +40,7 @@ def test_migrate_schwyz_instances(
     }
 
     # load data including test data
-    call_command(
-        "camac_load", user="test-dummy@adfinis.com", stdout=open(os.devnull, "w")
-    )
+    call_command("camac_load", user="test-dummy@adfinis.com", stdout=io.StringIO())
 
     for state in [
         "new",

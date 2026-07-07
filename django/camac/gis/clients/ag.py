@@ -198,7 +198,4 @@ class AgGisClient(GISBaseClient):
     @staticmethod
     def layer_exists(agis_info, identifiers):
         """Return true if one or more layers exists in agis_ingo from identifiers list, else false."""
-        for layer in agis_info:
-            if layer.get("layerName") in identifiers:
-                return True
-        return False
+        return any(layer.get("layerName") in identifiers for layer in agis_info)

@@ -87,9 +87,9 @@ def test_migrate_service(
         assert ag_instance.case.meta["migrated-from-service"] == source.pk
     else:
         assert ag_instance.responsible_service() == source
-        assert not work_item.addressed_groups == target.pk
-        assert not work_item.assigned_users == []
-        assert not controlling_work_item.controlling_groups == target.pk
+        assert work_item.addressed_groups != target.pk
+        assert work_item.assigned_users != []
+        assert controlling_work_item.controlling_groups != target.pk
         assert "migrated-from-service" not in ag_instance.case.meta
 
         snapshot.assert_match(

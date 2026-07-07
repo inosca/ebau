@@ -1035,7 +1035,7 @@ def test_task_send_claim_handler(
     group.service = ech_instance_gr.responsible_service()
     group.save()
 
-    if not test_case == "no_access":
+    if test_case != "no_access":
         permissions_api.grant(
             ech_instance_gr,
             grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,

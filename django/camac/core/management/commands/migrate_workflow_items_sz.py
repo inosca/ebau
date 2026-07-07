@@ -134,9 +134,8 @@ class Command(BaseCommand):
                     document=document,
                 )
 
-        content = open(
-            "camac/core/management/commands/config/workflow_entries.txt"
-        ).readlines()[2:]
+        with open("camac/core/management/commands/config/workflow_entries.txt") as f:
+            content = f.readlines()[2:]
 
         workflow_entries = [
             line.replace(" ", "").replace("\n", "").split("|") for line in content

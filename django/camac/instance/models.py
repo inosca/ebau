@@ -258,7 +258,7 @@ class Instance(models.Model):
         if filter_type:
             filter_type = filter_type.upper()
 
-            if filter_type not in active_services_settings.keys():  # pragma: no cover
+            if filter_type not in active_services_settings:  # pragma: no cover
                 raise Exception(
                     f"Active service `filter_type` {filter_type} is not configured"
                 )

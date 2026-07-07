@@ -161,10 +161,7 @@ def test_master_data_parsers(
     master_data = MasterData(case)
 
     snapshot.assert_match(
-        {
-            key: getattr(master_data, key)
-            for key in master_data_settings["CONFIG"].keys()
-        }
+        {key: getattr(master_data, key) for key in master_data_settings["CONFIG"]}
     )
 
 

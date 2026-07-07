@@ -404,7 +404,7 @@ def test_change_responsible_service_audit_validation(
     assert response.status_code == status.HTTP_400_BAD_REQUEST
 
     assert len(result["errors"])
-    assert "Ungültige Prüfung" == result["errors"][0]["detail"]
+    assert result["errors"][0]["detail"] == "Ungültige Prüfung"
 
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])

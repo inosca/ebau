@@ -47,7 +47,7 @@ def get_municipality_label(service, municipality_prefix=False):
         label[translation.language] = name
 
     for language in LANGUAGES:
-        if language not in label.keys():
+        if language not in label:
             label[language] = list(label.values())[0]
 
     return label
@@ -470,11 +470,11 @@ class ServicesForFinalReport(BaseDataSource):
         pks_of_services_to_be_invited = []
 
         for inquiry in Inquiry.objects.for_instance(instance):
-            if invite_answer := inquiry.child_case.document.answers.filter(
-                question_id="inquiry-answer-invite-service"
-            ).first():
-                if invite_answer.value == "inquiry-answer-invite-service-yes":
-                    pks_of_services_to_be_invited.append(*inquiry.addressed_groups)
+            if inquiry.child_case.document.answers.filter(
+                question_id="inquiry-answer-invite-service",
+                value="inquiry-answer-invite-service-yes",
+            ).exists():
+                pks_of_services_to_be_invited.append(*inquiry.addressed_groups)
 
         return (
             [

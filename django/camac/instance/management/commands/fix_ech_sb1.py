@@ -52,7 +52,7 @@ class Command(BaseCommand):
                 )
 
             # Set case status to running
-            if not instance.case.status == Case.STATUS_RUNNING:
+            if instance.case.status != Case.STATUS_RUNNING:
                 instance.case.status = Case.STATUS_RUNNING
                 instance.case.save()
                 self.stdout.write(f"\t- Set case status: {instance.case.status}")

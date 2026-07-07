@@ -130,16 +130,15 @@ class InstanceExportSerializerBE(CalumaInstanceExportSerializer):
     coordinates_north = serializers.CharField(label=_("Coordinates north"))
 
     def load_municipality_sheet(self):
-        reader = csv.DictReader(
-            open(settings.APPLICATION.get("MUNICIPALITY_DATA_SHEET"))
-        )
+        with open(settings.APPLICATION.get("MUNICIPALITY_DATA_SHEET")) as sheet_file:
+            reader = csv.DictReader(sheet_file)
 
-        return {
-            row["Gemeinde"]: {
-                key: row[key] for key in ["Verwaltungskreis", "Verwaltungsregion"]
+            return {
+                row["Gemeinde"]: {
+                    key: row[key] for key in ["Verwaltungskreis", "Verwaltungsregion"]
+                }
+                for row in reader
             }
-            for row in reader
-        }
 
     @property
     def municipality_sheet(self):

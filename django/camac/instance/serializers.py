@@ -1566,7 +1566,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
     def _ur_copy_oereb_instance_for_koor_afj(self, instance):
         """In Kt. UR, for specific ÖREB instances a copy for KOOR AFJ is created."""
-        if not settings.APPLICATION_NAME == "kt_uri":
+        if settings.APPLICATION_NAME != "kt_uri":
             return
 
         if instance.case.document.form.slug in [
@@ -1987,17 +1987,19 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def validate(self, data):
         data = super().validate(data)
 
-        if settings.APPLICATION_NAME == "kt_bern":
-            if be_should_prevent_process_step_for_deactivated_municipality(
+        if (
+            settings.APPLICATION_NAME == "kt_bern"
+            and be_should_prevent_process_step_for_deactivated_municipality(
                 self.instance, self.instance.municipality
-            ):  # pragma: no cover
-                raise exceptions.ValidationError(
-                    detail=_(
-                        "No forms for minicipality '%(municipality)s' can be submitted."
-                    )
-                    % {"municipality": self.instance.municipality.get_name()},
-                    code=PREVENT_SUBMIT_MUNICIPALITY_RESPONSE_CODE,
+            )
+        ):  # pragma: no cover
+            raise exceptions.ValidationError(
+                detail=_(
+                    "No forms for minicipality '%(municipality)s' can be submitted."
                 )
+                % {"municipality": self.instance.municipality.get_name()},
+                code=PREVENT_SUBMIT_MUNICIPALITY_RESPONSE_CODE,
+            )
 
         return data
 
@@ -2330,8 +2332,7 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
 
     def validate_service_type(self, value):
         expected = [
-            key.lower()
-            for key in settings.APPLICATION.get("ACTIVE_SERVICES", {}).keys()
+            key.lower() for key in settings.APPLICATION.get("ACTIVE_SERVICES", {})
         ]
 
         if value not in expected:
@@ -2633,7 +2634,7 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                 ) from e
 
         for history_field in settings.APPLICATION.get("FORM_FIELD_HISTORY_ENTRY", []):
-            if not validated_data["name"] == history_field["name"]:  # pragma: no cover
+            if validated_data["name"] != history_field["name"]:  # pragma: no cover
                 continue
 
             if (
@@ -2921,9 +2922,10 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):
         return ""
 
     def get_instance_state(self, case):
-        if settings.APPLICATION.get("USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"):
-            return case.instance.instance_state.name
-        elif settings.APPLICATION_NAME == "kt_schwyz":
+        if (
+            settings.APPLICATION.get("USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT")
+            or settings.APPLICATION_NAME == "kt_schwyz"
+        ):
             return case.instance.instance_state.name
         return ""
 

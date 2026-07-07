@@ -252,9 +252,8 @@ class BeGisClient(GISBaseClient):
             data[layer] = sorted(set(new_layer_data + previous_layer_data))
 
         for key, value in new_data.items():
-            if not data.get(key):
-                data[key] = value
-            elif data.get(key) and value:
+            existing = data.get(key)
+            if not existing or existing and value:
                 data[key] = value
 
     def map_data(self, layer, layer_data, intermediate_result):
@@ -279,9 +278,7 @@ class BeGisClient(GISBaseClient):
     def map_options(self, values, intermediate_result, question, values_mapping):
         previous_value = intermediate_result.get(question, [])
 
-        values_to_add = [
-            values_mapping[key] for key in values if key in values_mapping.keys()
-        ]
+        values_to_add = [values_mapping[key] for key in values if key in values_mapping]
 
         return (
             sorted(set(previous_value + values_to_add))
@@ -343,9 +340,8 @@ class BeGisClient(GISBaseClient):
         return query
 
     def get_feature_xml(self, service_code, query):
-        get_feature_xml = open(
-            path.join(path.dirname(__file__), "xml/get_feature.xml")
-        ).read()
+        with open(path.join(path.dirname(__file__), "xml/get_feature.xml")) as xml_file:
+            get_feature_xml = xml_file.read()
         return get_feature_xml.format(
             baseURL=self.base_url, service_code=service_code, query=query
         )

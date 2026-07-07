@@ -1474,7 +1474,7 @@ def test_dms_placeholders_sz(
     case_fn = getattr(str, sz_placeholders_settings["PLACEHOLDER_CASE"])
 
     for placeholder in placeholders:
-        assert case_fn(placeholder) in response.json().keys()
+        assert case_fn(placeholder) in response.json()
 
 
 @pytest.mark.parametrize(

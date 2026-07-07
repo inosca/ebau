@@ -250,9 +250,9 @@ class FormUtils:
                 ... )
         """
         answer = (
-            self.add_answer(document, question, value=None, question_type="table")
-            if not table_answer
-            else table_answer
+            table_answer
+            if table_answer
+            else self.add_answer(document, question, value=None, question_type="table")
         )
         if row_form_id:
             answer.question.row_form_id = row_form_id

@@ -201,13 +201,15 @@ def test_attachment_section_special_permissions_ur(
         group.name = "Baukommission Altdorf"
         group.save()
 
-    if group_key:
-        if group_key not in ["RECHTSVERTRETUNG_ALTDORF", "BAUKOMMISSION_ALTDORF"]:
-            mocker.patch(f"camac.constants.kt_uri.{group_key}_GROUP_ID", group.pk)
-            if group_key == "ARE":
-                mocker.patch("camac.constants.kt_uri.DOCUMENTS_ARE_GROUPS", [group.pk])
-            if group_key == "AFU":
-                mocker.patch("camac.constants.kt_uri.DOCUMENTS_AFU_GROUPS", [group.pk])
+    if group_key and group_key not in [
+        "RECHTSVERTRETUNG_ALTDORF",
+        "BAUKOMMISSION_ALTDORF",
+    ]:
+        mocker.patch(f"camac.constants.kt_uri.{group_key}_GROUP_ID", group.pk)
+        if group_key == "ARE":
+            mocker.patch("camac.constants.kt_uri.DOCUMENTS_ARE_GROUPS", [group.pk])
+        if group_key == "AFU":
+            mocker.patch("camac.constants.kt_uri.DOCUMENTS_AFU_GROUPS", [group.pk])
 
     if group_key not in ["RECHTSVERTRETUNG_ALTDORF", "BAUKOMMISSION_ALTDORF"]:
         mocker.patch(

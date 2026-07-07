@@ -16,26 +16,26 @@ def create_sql_file(sql_file):
         "Baukontrolle",
     ]
     services = ServiceT.objects.filter(language="fr")
-    file = open(sql_file, "w+")
-    for service in services:
-        if any(item in service.name for item in german):
-            file.write(
-                f"""UPDATE "SERVICE_T"
+    with open(sql_file, "w+") as file:
+        for service in services:
+            if any(item in service.name for item in german):
+                file.write(
+                    f"""UPDATE "SERVICE_T"
             SET "NAME" = '{
-                    set_uppercase(
-                        service.name.replace("Sachbearbeiter", "collaborateur")
-                        .replace(
-                            "Einsichtsberechtigte", "personne autorisée à consulter"
+                        set_uppercase(
+                            service.name.replace("Sachbearbeiter", "collaborateur")
+                            .replace(
+                                "Einsichtsberechtigte",
+                                "personne autorisée à consulter",
+                            )
+                            .replace("Leitung", "responsable")
+                            .replace("Leitbehörde", "autorité directrice")
+                            .replace("Baukontrolle", "contrôle construction")
+                            .replace("'", "''")
                         )
-                        .replace("Leitung", "responsable")
-                        .replace("Leitbehörde", "autorité directrice")
-                        .replace("Baukontrolle", "contrôle construction")
-                        .replace("'", "''")
-                    )
-                }'
+                    }'
             WHERE id = {service.pk};"""
-            )
-    file.close()
+                )
 
 
 class Command(BaseCommand):

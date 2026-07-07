@@ -1441,7 +1441,7 @@ class MasterDataPersonObjectField(MasterDataField):
             return [
                 parse_person_row(
                     self.parser(row),
-                    [key for key in self.nested_aliases],
+                    list(self.nested_aliases),
                 )
                 for row in value
             ]

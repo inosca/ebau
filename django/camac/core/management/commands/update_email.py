@@ -10,7 +10,7 @@ Row = namedtuple("Row", ["username", "email", "disabled"])
 
 
 def is_disabled(row):
-    return not row[6].lower().strip() == "x"
+    return row[6].lower().strip() != "x"
 
 
 def load_csv(csv_file):

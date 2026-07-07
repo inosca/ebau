@@ -534,9 +534,11 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
             documents=context.get("documents") if context else None,
         )
 
-    if settings.APPLICATION_NAME == "kt_uri":  # pragma: no cover
-        if int(work_item.addressed_groups[0]) in URI_KOOR_SERVICE_IDS:
-            send_inquiry_notification("KOOR_INQUIRY_ANSWERED", work_item, user)
+    if (
+        settings.APPLICATION_NAME == "kt_uri"
+        and int(work_item.addressed_groups[0]) in URI_KOOR_SERVICE_IDS
+    ):  # pragma: no cover
+        send_inquiry_notification("KOOR_INQUIRY_ANSWERED", work_item, user)
 
 
 @on(pre_complete_work_item, raise_exception=True)

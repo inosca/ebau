@@ -37,11 +37,9 @@ def post_complete_publication(sender, work_item, user, context=None, **kwargs):
 
 
 def _is_not_so_and_publication(work_item: WorkItem) -> bool:
-    return not settings.APPLICATION.get(
-        "SHORT_NAME"
-    ) == "so" or not work_item.task_id == settings.PUBLICATION.get(
-        "FILL_TASKS", {}
-    ).get("PUBLIC")
+    return settings.APPLICATION_NAME != "kt_so" or work_item.task_id != get_dict_item(
+        settings.PUBLICATION, "FILL_TASKS.PUBLIC", default=None
+    )
 
 
 @receiver(pre_save, sender=WorkItem)

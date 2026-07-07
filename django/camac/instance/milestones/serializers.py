@@ -70,9 +70,8 @@ def _check_decision_answer(instance, answer_slug, question_slug):
             .document.answers.filter(question_id=question_slug)
             .first()
         )
-        if feedback_answer:
-            if feedback_answer.value == answer_slug:
-                return True
+        if feedback_answer and feedback_answer.value == answer_slug:
+            return True
     return False
 
 

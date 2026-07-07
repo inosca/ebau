@@ -1,4 +1,4 @@
-import os
+import io
 
 import pytest
 from caluma.caluma_form.api import save_answer, save_document
@@ -58,7 +58,7 @@ def test_recalculate_calculated_answers(
         "recalculate_calculated_answers",
         questions=question_list,
         commit=True,
-        stdout=open(os.devnull, "w"),
+        stdout=io.StringIO(),
     )
 
     # Check answer value after running recalculate management command
@@ -75,7 +75,7 @@ def test_recalculate_calculated_answers(
         "recalculate_calculated_answers",
         questions=question_list,
         commit=True,
-        stdout=open(os.devnull, "w"),
+        stdout=io.StringIO(),
     )
 
     calculated_answer.refresh_from_db()
@@ -92,7 +92,7 @@ def test_recalculate_calculated_answers(
         "recalculate_calculated_answers",
         questions=question_list,
         commit=True,
-        stdout=open(os.devnull, "w"),
+        stdout=io.StringIO(),
     )
 
     calculated_answer.refresh_from_db()

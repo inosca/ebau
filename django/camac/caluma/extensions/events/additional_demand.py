@@ -138,18 +138,23 @@ def post_complete_check_additional_demand(
             camac_user,
         )
 
-    if settings.APPLICATION_NAME == "kt_uri":
-        # if the "init-distribution" work item has been suspended
-        # because of the "Vollständigkeitsprüfung" we need to resume it
-        if decision_is_positive and not has_pending_checks:
-            if suspended_distribution_work_item := WorkItem.objects.filter(
+    # if the "init-distribution" work item has been suspended
+    # because of the "Vollständigkeitsprüfung" we need to resume it
+    if (
+        settings.APPLICATION_NAME == "kt_uri"
+        and decision_is_positive
+        and not has_pending_checks
+        and (
+            suspended_distribution_work_item := WorkItem.objects.filter(
                 task_id=settings.DISTRIBUTION["DISTRIBUTION_INIT_TASK"],
                 case__family=instance.case,
                 status=WorkItem.STATUS_SUSPENDED,
-            ).first():
-                workflow_api.resume_work_item(
-                    work_item=suspended_distribution_work_item, user=user
-                )
+            ).first()
+        )
+    ):
+        workflow_api.resume_work_item(
+            work_item=suspended_distribution_work_item, user=user
+        )
 
 
 @on(post_cancel_work_item, raise_exception=True)

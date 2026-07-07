@@ -1710,7 +1710,7 @@ def test_instance_generate_identifier(
         form_abbreviation_value = form_abbreviation[:2].upper()
         application_settings["INSTANCE_IDENTIFIER_FORM_ABBR"] = {
             form_abbreviation: form_abbreviation_value
-        } or {}
+        }
         form_field_factory(
             name="meta",
             value=json.dumps({"formType": form_abbreviation}),
@@ -1791,7 +1791,7 @@ def test_instance_generate_identifier_sz(
         form_abbreviation_value = form_abbreviation[:2].upper()
         application_settings["INSTANCE_IDENTIFIER_FORM_ABBR"] = {
             form_abbreviation: form_abbreviation_value
-        } or {}
+        }
         form_field_factory(
             name="meta",
             value=json.dumps({"formType": form_abbreviation}),

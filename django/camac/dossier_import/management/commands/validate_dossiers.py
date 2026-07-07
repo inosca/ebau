@@ -44,15 +44,15 @@ class Command(BaseCommand):
 
         source_file = verify_source_file(options["path_to_source"][0])
 
-        f = open(source_file, "rb")
-        file_content = File(f)
+        with open(source_file, "rb") as f:
+            file_content = File(f)
 
-        dossier_import = DossierImport.objects.create(
-            user_id=options["user_id"][0],
-            location_id=options["location_id"][0],
-            group=group,
-            source_file=file_content,
-        )
+            dossier_import = DossierImport.objects.create(
+                user_id=options["user_id"][0],
+                location_id=options["location_id"][0],
+                group=group,
+                source_file=file_content,
+            )
         if verbosity > 2:  # pragma: no cover
             self.stdout.write(f"Validation started: {datetime.now()}")
         dossier_import = validate_zip_archive_structure(str(dossier_import.pk))

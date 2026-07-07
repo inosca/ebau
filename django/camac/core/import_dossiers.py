@@ -53,7 +53,7 @@ def _import_dossier(data, bfs_nr):
     )
 
     for required_key in settings.PARASHIFT.get("REQUIRED_KEYS", []):
-        if required_key not in data.keys():
+        if required_key not in data:
             raise ValidationError(
                 f"The required field {required_key} has not been found in the record {data}"
             )  # pragma: no cover

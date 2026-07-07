@@ -105,15 +105,15 @@ def _load_csv(config):
             f"camac/core/translation_files/GR_IT/{config['filename']}_{column}_it.csv"
         )
 
-        blob = open(file, "rb").read()
+        with open(file, "rb") as binary_file:
+            blob = binary_file.read()
         m = magic.open(magic.MAGIC_MIME_ENCODING)
         m.load()
         encoding = m.buffer(blob)
         print(f"detected encoding of {file} as {encoding}")
         with open(file, encoding=encoding) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=",")
-            line_count = 0
-            for item in csv_reader:
+            for line_count, item in enumerate(csv_reader):
                 if line_count == 0:
                     pass
                 else:
@@ -125,7 +125,6 @@ def _load_csv(config):
 
                     else:
                         data[pk] = {column: translation} if translation else {}
-                line_count += 1
     return data
 
 
@@ -154,7 +153,7 @@ def _upload_data(config, data):
                     print(f"{translation_model_name}({pk}) was created: {row}")
             elif config["type"] == "caluma":
                 model = config["model"].objects.get(slug=pk)
-                for column in row.keys():
+                for column in row:
                     getattr(model, column).set("it", row[column])
                     model.save()
         except Exception:

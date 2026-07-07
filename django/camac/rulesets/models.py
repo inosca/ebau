@@ -146,9 +146,11 @@ class DistributionDeadlineRule(models.Model):
 
         current_date = today
         while current_date <= deadline:
-            if exclude_holidays and not holidays.is_working_day(current_date):
-                deadline += timedelta(days=1)
-            elif is_weekend_day(current_date):
+            if (
+                exclude_holidays
+                and not holidays.is_working_day(current_date)
+                or is_weekend_day(current_date)
+            ):
                 deadline += timedelta(days=1)
 
             current_date += timedelta(days=1)

@@ -108,7 +108,7 @@ class GISDataView(ListAPIView):
         for question, config in data.items():
             if config.get("form") and isinstance(config.get("value"), list):
                 for row in config.get("value"):
-                    for row_question in row.keys():
+                    for row_question in row:
                         row[row_question]["hidden"] = (
                             f"{question}.{row_question}" in hidden_questions
                         )

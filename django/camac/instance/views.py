@@ -1601,7 +1601,7 @@ class PublicCalumaInstanceView(
     def get_serializer(self, *args, **kwargs):
         # The first argument may be a queryset or a list of cases (after
         # pagination). If so, we build the master data fastloader beforehand.
-        if args and (isinstance(args[0], QuerySet) or isinstance(args[0], list)):
+        if args and isinstance(args[0], (QuerySet, list)):
             self.request._masterdata = MultipleCaseMasterdata(args[0])
         return super().get_serializer(*args, **kwargs)
 

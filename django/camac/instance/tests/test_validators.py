@@ -511,7 +511,7 @@ def test_form_data_validator_validation(
 
     form_data_validator = validators.FormDataValidator(instance)
 
-    for question in questions.keys():
+    for question in questions:
         assert is_active[question] == form_data_validator._check_question_active(
             question, form_config["questions"][question]
         )

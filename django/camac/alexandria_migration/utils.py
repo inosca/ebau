@@ -48,7 +48,7 @@ def get_target_category(
     if suffix is not None:
         full_slug += suffix
 
-    if full_slug not in available_categories.keys():
+    if full_slug not in available_categories:
         full_slug = category
 
     return available_categories[full_slug]

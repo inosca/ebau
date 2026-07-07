@@ -1051,15 +1051,18 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             return None
 
         # Do not use instance.case here because construction monitoring has nested cases
-        if schlussabnahme_planing_work_item := self.work_item.case.work_items.filter(
-            task_id=settings.CONSTRUCTION_MONITORING[
-                "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
-            ]
-        ).first():
-            if answer := schlussabnahme_planing_work_item.document.answers.filter(
+        if (
+            schlussabnahme_planing_work_item := self.work_item.case.work_items.filter(
+                task_id=settings.CONSTRUCTION_MONITORING[
+                    "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
+                ]
+            ).first()
+        ) and (
+            answer := schlussabnahme_planing_work_item.document.answers.filter(
                 question_id="construction-step-schlussabnahme-projekt-planen-zeit-der-abnahme"
-            ).first():
-                return answer.value
+            ).first()
+        ):
+            return answer.value
 
     def get_schlussabnahme_datum(self, instance):
         if (
@@ -1070,15 +1073,18 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             return None
 
         # Do not use instance.case here because construction monitoring has nested cases
-        if schlussabnahme_planing_work_item := self.work_item.case.work_items.filter(
-            task_id=settings.CONSTRUCTION_MONITORING[
-                "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
-            ]
-        ).first():
-            if answer := schlussabnahme_planing_work_item.document.answers.filter(
+        if (
+            schlussabnahme_planing_work_item := self.work_item.case.work_items.filter(
+                task_id=settings.CONSTRUCTION_MONITORING[
+                    "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
+                ]
+            ).first()
+        ) and (
+            answer := schlussabnahme_planing_work_item.document.answers.filter(
                 question_id="construction-step-schlussabnahme-projekt-planen-datum-der-abnahme"
-            ).first():
-                return answer.date.strftime("%d.%m.%Y")
+            ).first()
+        ):
+            return answer.date.strftime("%d.%m.%Y")
 
     def get_notes(self, instance):
         work_item = instance.case.work_items.filter(task_id="fill-publication").last()

@@ -158,7 +158,7 @@ def get_service_suggestions_caluma(instance, suggestions):
                     [
                         Q(question_id=question, value=answer)
                         | Q(question_id=question, value__contains=answer)
-                        for question, answer in questions.keys()
+                        for question, answer in questions
                     ],
                     Q(pk=None),
                 )

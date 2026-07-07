@@ -10,10 +10,10 @@ def get_missing_groups():
 
 def create_sql_file(sql_file):
     missing_groups = get_missing_groups()
-    file = open(sql_file, "w+")
-    for group in missing_groups:
-        file.write(
-            f"""INSERT INTO "GROUP_T" (
+    with open(sql_file, "w+") as file:
+        for group in missing_groups:
+            file.write(
+                f"""INSERT INTO "GROUP_T" (
             "LANGUAGE",
             "NAME",
             "CITY",
@@ -25,8 +25,7 @@ def create_sql_file(sql_file):
             {group.get_trans_attr("group_id")}
         );
         \n"""
-        )
-    file.close()
+            )
 
 
 class Command(BaseCommand):

@@ -624,9 +624,10 @@ def special_permissions_uri(group):
             uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission,
             uri_constants.ARE_ATTACHMENT_SECTION_ID: AdminServicePermission,
         }
-    elif group.group_id == uri_constants.KOOR_BD_GROUP_ID:
-        return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
-    elif group.group_id == uri_constants.KOOR_AFU_GROUP_ID:
+    elif group.group_id in [
+        uri_constants.KOOR_BD_GROUP_ID,
+        uri_constants.KOOR_AFU_GROUP_ID,
+    ]:
         return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
     elif group.group_id in uri_constants.DOCUMENTS_ARE_GROUPS:
         return {uri_constants.ARE_ATTACHMENT_SECTION_ID: AdminServicePermission}
@@ -683,11 +684,10 @@ def section_permissions(group, instance=None):
         settings.APPLICATION.get("USE_INSTANCE_SERVICE")
         and instance
         and role.startswith("municipality-")
-    ):
-        if not instance.instance_services.filter(
-            service=group.service, active=1
-        ).exists():
-            role = role.replace("municipality-", "service-")
+    ) and not instance.instance_services.filter(
+        service=group.service, active=1
+    ).exists():
+        role = role.replace("municipality-", "service-")
 
     all_app_permissions = rebuild_app_permissions(
         PERMISSIONS[app_name], group, instance

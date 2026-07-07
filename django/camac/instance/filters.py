@@ -1072,7 +1072,7 @@ class InstanceFormFieldFilterBackend(BaseFilterBackend):
 
     def filter_queryset(self, request, queryset, view):
         query_params = request.query_params
-        for param in query_params.keys():
+        for param in query_params:
             fields_match = re.match(r"^fields\[(.*?)\]$", param)
             valuelist = query_params.getlist(param)
             if fields_match and valuelist:

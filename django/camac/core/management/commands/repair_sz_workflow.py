@@ -124,7 +124,7 @@ class Command(BaseCommand):
                     }
                 ).first()
 
-                if not work_item.status == WorkItem.STATUS_READY:
+                if work_item.status != WorkItem.STATUS_READY:
                     # Check statement work item was already skipped - continue
                     continue
 

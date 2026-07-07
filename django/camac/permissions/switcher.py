@@ -12,6 +12,7 @@ See the docs for a full explanation of the modes (or the enum below for a very
 short hint regarding the behaviour).
 """
 
+import contextlib
 from enum import Enum
 from functools import singledispatchmethod
 from logging import getLogger
@@ -177,10 +178,8 @@ class PermissionMethod:
                 from camac.user.permissions import get_group
 
                 group = None
-                try:
+                with contextlib.suppress(AttributeError):
                     group = get_group(self._instance)
-                except AttributeError:
-                    pass
 
                 # Return old method for cases where either no request or no
                 # group can be determined.

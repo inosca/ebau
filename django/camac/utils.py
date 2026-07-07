@@ -382,10 +382,10 @@ def should_notify_on_manual_workitems(work_item, ignore_addressed_self=False) ->
 
     return (
         work_item.previous_work_item is None
-        and not work_item.case.family.work_items.filter(
+        and work_item.case.family.work_items.filter(
             task_id="create-manual-workitems"
         ).count()
-        == 1
+        != 1
     )
 
 
