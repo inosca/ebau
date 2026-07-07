@@ -103,9 +103,9 @@ class JournalWriter(FieldWriter):
     def __init__(
         self,
         convert_entry: Callable[[Any], TextWithDate],
-        visibility: str | None = "own_organization",
+        visibility: str = "own_organization",
         service: Service | None = None,
-        identify_by_text_only: bool | None = False,
+        identify_by_text_only: bool = False,
     ):
         """Initialize journal writer for importing historical entries.
 

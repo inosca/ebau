@@ -118,10 +118,10 @@ def find_answer(document: Document, question: str, **kwargs) -> str:
 
 def get_answer_display_value(
     answer: Answer,
-    option_separator: str | None = ", ",
+    option_separator: str = ", ",
     date_format: str | None = None,
-    language: str | None = get_language(),
-    raw_value: bool | None = False,
+    language: str = get_language(),
+    raw_value: bool = False,
 ) -> str:
     """
     Get the display value of an answer depending on the question type.

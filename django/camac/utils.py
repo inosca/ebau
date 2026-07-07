@@ -198,7 +198,7 @@ def has_permission_for_inquiry_answer_document(group, document):
     )
 
 
-def clean_join(*parts: Any, separator: str | None = " ") -> str:
+def clean_join(*parts: Any, separator: str = " ") -> str:
     """Join all truthy arguments as trimmed string with a given separator.
 
     >>> clean_join(" John", None, "", " Smith ")

@@ -62,7 +62,7 @@ class ACL:
     # but are ignored when comparing ACLs
     start_time: datetime | None = field(default=None)
     end_time: datetime | None = field(default=None)
-    metainfo: dict | None = field(default_factory=dict)
+    metainfo: dict = field(default_factory=dict)
     created_by_event: str | None = field(default=None)
 
     def __eq__(self, other):

@@ -396,7 +396,7 @@ class RequireWorkItem(Check):
 
     task_id: str
     status: str | list[str] | None = None
-    addressed_to_current_service: bool | None = False
+    addressed_to_current_service: bool = False
     condition_name: str | None = None
 
     def apply(self, userinfo, context: PermissionContext):

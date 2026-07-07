@@ -44,7 +44,7 @@ class Person:
     town: str | None
     phone: str | None
     email: str | None
-    is_juristic_person: bool | None = False
+    is_juristic_person: bool = False
 
     def __post_init__(self):
         self.is_juristic_person = bool(self.company)
@@ -95,6 +95,6 @@ class Dossier:
         target_state: str
         workflow: str | None = None
         instance: Instance | None = None
-        missing: list | None = field(default_factory=list)
-        errors: list | None = field(default_factory=list)
-        warnings: list | None = field(default_factory=list)
+        missing: list = field(default_factory=list)
+        errors: list = field(default_factory=list)
+        warnings: list = field(default_factory=list)
