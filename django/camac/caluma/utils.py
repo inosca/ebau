@@ -120,7 +120,7 @@ def get_answer_display_value(
     answer: Answer,
     option_separator: str = ", ",
     date_format: str | None = None,
-    language: str = get_language(),
+    language: str | None = None,
     raw_value: bool = False,
 ) -> str:
     """
@@ -135,6 +135,9 @@ def get_answer_display_value(
     # behave unexpectedly, especially in tests
     if not date_format:
         date_format = settings.SHORT_DATE_FORMAT
+
+    if language is None:
+        language = get_language()
 
     if raw_value:
         return answer.value
