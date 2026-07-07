@@ -35,6 +35,9 @@ class ApplicantManager(models.Manager):
         There may be more than one applicant, they will all receive the new project_owner role.
         """
 
+        # Import causes exceptions due to models not being ready
+        from camac.permissions.events.core import Trigger
+
         emails = []
         for applicant in applicants_from_form:
             if email := applicant.get("email"):
@@ -75,6 +78,8 @@ class ApplicantManager(models.Manager):
                         email_list=applicant.email,
                         instance={"id": instance.pk, "type": "instances"},
                     )
+
+                Trigger.applicant_added(None, applicant.instance, applicant)
 
 
 class ROLE_CHOICES(models.TextChoices):
