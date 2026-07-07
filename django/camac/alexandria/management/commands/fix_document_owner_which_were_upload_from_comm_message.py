@@ -4,7 +4,8 @@ from django.db import transaction
 from tqdm import tqdm
 
 from camac.communications.models import CommunicationsAttachment
-from camac.user.models import User
+from camac.instance.models import Instance
+from camac.user.models import Service, User
 
 
 class Command(BaseCommand):
@@ -22,7 +23,7 @@ class Command(BaseCommand):
         )
 
     @transaction.atomic
-    def handle(self, *args, **options):
+    def handle(self, *args, **options):  # noqa C901
         sid = transaction.savepoint()
 
         qs = (
@@ -61,7 +62,21 @@ class Command(BaseCommand):
             topic = message.topic
             file_obj = comm_attachment.alexandria_file
             doc = file_obj.document
-            instance_id = doc.metainfo.get("camac-instance-id", "?")
+            instance_string = doc.metainfo.get("camac-instance-id")
+
+            try:
+                if instance_string:
+                    instance = Instance.objects.filter(pk=instance_string).first()
+                    dossier_number = (
+                        instance.case.meta.get("dossier-number", "?")
+                        if instance
+                        else "?"
+                    )
+                    instance_string = f"{instance_string}:{dossier_number}"
+            except Exception:
+                pass
+
+            prefix = f"doc={doc.pk}:{doc.title} attachment={comm_attachment.pk} instance={instance_string}"
 
             sender_entity = message.created_by
             recipient_services = [
@@ -71,17 +86,21 @@ class Command(BaseCommand):
             ]
 
             if not recipient_services:
-                self.stderr.write(
-                    f"  Document {doc.pk} (attachment {comm_attachment.pk}, "
-                    f"instance {instance_id}): no service recipient in topic, skipping"
-                )
+                tqdm.write(f"[SKIP/no-recipient]  {prefix}")
                 skipped_no_recipient += 1
                 continue
 
             if len(recipient_services) > 1:
-                self.stderr.write(
-                    f"  Document {doc.pk} (attachment {comm_attachment.pk}, "
-                    f"instance {instance_id}): ambiguous recipients {recipient_services}, skipping"
+                try:
+                    recipient_services = [
+                        f"{s.pk}:{s.get_name()}"
+                        for s in Service.objects.filter(pk__in=recipient_services)
+                    ]
+                except Exception:
+                    pass
+
+                tqdm.write(
+                    f"[SKIP/ambiguous]     {prefix} recipients={recipient_services}"
                 )
                 skipped_ambiguous += 1
                 continue
@@ -92,6 +111,9 @@ class Command(BaseCommand):
                 skipped_already_correct += 1
                 continue
 
+            old_user = doc.created_by_user
+            old_group = doc.created_by_group
+
             doc.created_by_user = user_id
             doc.created_by_group = recipient_service_id
             doc.save(update_fields=["created_by_user", "created_by_group"])
@@ -100,6 +122,30 @@ class Command(BaseCommand):
             file_obj.created_by_group = recipient_service_id
             file_obj.save(update_fields=["created_by_user", "created_by_group"])
 
+            new_user_string = user_id
+            old_user_string = old_user
+            new_group_string = recipient_service_id
+            old_group_string = old_group
+            try:
+                new_service = Service.objects.get(pk=recipient_service_id)
+                new_group_string = f"{new_service.pk}:{new_service.get_name()}"
+
+                old_service = Service.objects.get(pk=old_group)
+                old_group_string = f"{old_service.pk}:{old_service.get_name()}"
+
+                new_user = User.objects.get(pk=user_id)
+                new_user_string = f"{new_user.pk}:{new_user.username}"
+
+                old_user_model = User.objects.get(pk=old_user)
+                old_user_string = f"{old_user_model.pk}:{old_user_model.username}"
+            except Exception:
+                pass
+
+            tqdm.write(
+                f"[FIXED]              {prefix} "
+                f"user: {old_user_string!r} -> {new_user_string!r}  "
+                f"group: {old_group_string!r} -> {new_group_string!r}"
+            )
             fixed += 1
 
         self.stdout.write(self.style.SUCCESS(f"Fixed {fixed} document(s)."))
