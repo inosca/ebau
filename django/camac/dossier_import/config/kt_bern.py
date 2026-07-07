@@ -1,14 +1,12 @@
 from caluma.caluma_form import api as form_api
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Form as CalumaForm, Question
-from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.utils.translation import gettext as _
 from rest_framework.exceptions import ValidationError
 
-from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.core.models import InstanceService
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
@@ -270,33 +268,13 @@ class KtBernDossierWriter(DossierWriter):
             user=self._caluma_user,
         )
 
-    def _set_workflow_state(  # noqa: C901
-        self,
-        instance: Instance,
-        dossier,
-    ) -> list[Message]:
-        """Advance instance's case through defined workflow sequence to target state.
+    def get_workflow_skip_path(self, instance: Instance, dossier: Dossier) -> list[str]:
+        """Return the skip path for the building-permit and preliminary workflows.
 
-        In order to advance to a specified worklow state after every flow all tasks need to be
-        in a status other than ready so that the relevant work_item can be completed.
-
-        Therefore every target_state needs to be informed on the sibling work-items and how to handle
-        them before completion and progression to the next task in line.
-
-        This is configured in the following:
-
-        <TARGETSTATE> = [
-            (<task_to_complete>: [<task_to_sikp>, ... ]),
-            ...
-        ]
-
-        If required this could be extended with the option to handle sibling tasks differently on each stage, such
-         as cancelling them instead of skipping.
+        The `PRELIMINARY` workflow ends at the decision, so its `DONE` path does
+        not include the post-decision building-permit tasks (`sb1`, `sb2`,
+        `complete`).
         """
-        messages = []
-        target_state = dossier._meta.target_state
-
-        # configure workflow state advance path and strategies (skip | cancel)
         SUBMITTED = ["submit"]
         DECIDED = SUBMITTED + ["ebau-number", "distribution", "decision"]
         DONE = DECIDED + ["sb1", "sb2", "complete"]
@@ -304,78 +282,47 @@ class KtBernDossierWriter(DossierWriter):
         if dossier._meta.workflow == "PRELIMINARY":
             DONE = DECIDED
 
-        path_to_state = {
+        return {
             "SUBMITTED": SUBMITTED,
             "APPROVED": DECIDED,
             "REJECTED": DECIDED,
             "WRITTEN OFF": DECIDED,
             "DONE": DONE,
-        }
+        }[dossier._meta.target_state]
 
-        default_context = {"no-notification": True, "no-history": True}
+    def after_skip_work_item(
+        self, work_item: WorkItem, instance: Instance, dossier: Dossier
+    ):
+        """Set up the construction control and, for `SUBMITTED`, the ebau number.
 
-        # In order for a work item to be completed no sibling work items can be
-        # in state ready. They have to be dealt with in advance.
-        for task_id in path_to_state[target_state]:
-            try:
-                work_item = instance.case.work_items.get(task_id=task_id)
-            except WorkItem.DoesNotExist as e:
-                messages.append(
-                    Message(
-                        level=Severity.ERROR.value,
-                        code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
-                        detail=_(
-                            "Skip work item with task_id %(task_id)s failed with %(error)s."
-                        )
-                        % {
-                            "task_id": task_id,
-                            "error": DossierWriter.ConfigurationError(e),
-                        },
-                    )
+        After the decision, the construction control service is granted access
+        so it can take over. When only importing up to `SUBMITTED`, the ebau
+        number work item is skipped and its form filled so the case lands in the
+        correct instance state (circulation vs. submitted).
+        """
+        if (
+            work_item.task_id == "decision"
+            and DecisionLogic.should_continue_after_decision(instance, work_item)
+        ):
+            set_construction_control(instance)
+
+        if dossier._meta.target_state == "SUBMITTED":
+            if instance.case.meta.get("ebau-number"):
+                ebau_work_item = instance.case.work_items.get(task_id="ebau-number")
+                skip_work_item(
+                    ebau_work_item,
+                    user=self._caluma_user,
+                    context=self.get_skip_context(ebau_work_item),
                 )
-                continue
+                self.write_ebau_number_form(instance, ebau_work_item, dossier)
+                instance.instance_state = InstanceState.objects.get(
+                    name="circulation_init"
+                )
+            else:
+                instance.instance_state = InstanceState.objects.get(name="subm")
+            instance.save()
 
-            if task_id == "decision":
-                self.write_decision_form(work_item, dossier)
-
-            config = get_caluma_setting("PRE_COMPLETE") and get_caluma_setting(
-                "PRE_COMPLETE"
-            ).get(work_item.task_id)
-            if config:
-                for action_name, tasks in config.items():
-                    action = getattr(workflow_api, f"{action_name}_work_item")
-
-                    for item in work_item.case.work_items.filter(
-                        task_id__in=tasks, status=WorkItem.STATUS_READY
-                    ):
-                        action(item, self._caluma_user)
-            skip_work_item(work_item, user=self._caluma_user, context=default_context)
-            if task_id == "decision":
-                if DecisionLogic.should_continue_after_decision(instance, work_item):
-                    set_construction_control(instance)
-
-                permissions_events.Trigger.decision_decreed(None, instance)
-            if target_state == "SUBMITTED":
-                if instance.case.meta.get("ebau-number"):
-                    work_item = instance.case.work_items.get(task_id="ebau-number")
-                    skip_work_item(
-                        work_item, user=self._caluma_user, context=default_context
-                    )
-                    self.write_ebau_number_form(instance, work_item, dossier)
-                    instance.instance_state = InstanceState.objects.get(
-                        name="circulation_init"
-                    )
-                else:
-                    instance.instance_state = InstanceState.objects.get(name="subm")
-                instance.save()
-        messages.append(  # pragma: no cover
-            Message(
-                level=Severity.DEBUG.value,
-                code=MessageCodes.SET_WORKFLOW_STATE.value,
-                detail=_("Workflow state set to %(state)s.") % {"state": target_state},
-            )
-        )
-        return messages
+        super().after_skip_work_item(work_item, instance, dossier)
 
     def write_ebau_number_form(self, instance, ebau_number_work_item, dossier):
         document = ebau_number_work_item.document
@@ -431,45 +378,39 @@ class KtBernDossierWriter(DossierWriter):
             )
             return
 
-    def write_decision_form(self, decision_work_item, dossier):
+    def get_decision_answer_value(self, dossier: Dossier) -> str:
+        """Map the target state to a decision answer, per workflow.
+
+        The building-permit and preliminary-clarification workflows use
+        different decision answers (e.g. approved/rejected vs.
+        positive/negative, and depreciated for a written-off building permit).
+        """
+        decision = settings.DECISION["ANSWERS"]["DECISION"]
         decision_mapping = {
             "BUILDINGPERMIT": {
-                TargetStatus.APPROVED.value: settings.DECISION["ANSWERS"]["DECISION"][
-                    "APPROVED"
-                ],
-                TargetStatus.REJECTED.value: settings.DECISION["ANSWERS"]["DECISION"][
-                    "REJECTED"
-                ],
-                TargetStatus.WRITTEN_OFF.value: settings.DECISION["ANSWERS"][
-                    "DECISION"
-                ]["DEPRECIATED"],
-                TargetStatus.DONE.value: settings.DECISION["ANSWERS"]["DECISION"][
-                    "APPROVED"
-                ],
+                TargetStatus.APPROVED.value: decision["APPROVED"],
+                TargetStatus.REJECTED.value: decision["REJECTED"],
+                TargetStatus.WRITTEN_OFF.value: decision["DEPRECIATED"],
+                TargetStatus.DONE.value: decision["APPROVED"],
             },
             "PRELIMINARY": {
-                TargetStatus.APPROVED.value: settings.DECISION["ANSWERS"]["DECISION"][
-                    "POSITIVE"
-                ],
-                TargetStatus.REJECTED.value: settings.DECISION["ANSWERS"]["DECISION"][
-                    "NEGATIVE"
-                ],
-                TargetStatus.WRITTEN_OFF.value: settings.DECISION["ANSWERS"][
-                    "DECISION"
-                ]["NEGATIVE"],
-                TargetStatus.DONE.value: settings.DECISION["ANSWERS"]["DECISION"][
-                    "POSITIVE"
-                ],
+                TargetStatus.APPROVED.value: decision["POSITIVE"],
+                TargetStatus.REJECTED.value: decision["NEGATIVE"],
+                TargetStatus.WRITTEN_OFF.value: decision["NEGATIVE"],
+                TargetStatus.DONE.value: decision["POSITIVE"],
             },
         }
-        form_api.save_answer(
-            document=decision_work_item.document,
-            question=Question.objects.get(
-                slug=settings.DECISION["QUESTIONS"]["DECISION"]
-            ),
-            value=decision_mapping[dossier._meta.workflow][dossier._meta.target_state],
-            user=self._caluma_user,
-        )
+
+        return decision_mapping[dossier._meta.workflow][dossier._meta.target_state]
+
+    def write_decision_form(self, decision_work_item: WorkItem, dossier: Dossier):
+        """Write the decision form including an unknown approval type.
+
+        The approval type is not available from the import, so building-permit
+        decisions get the `UNKNOWN` approval type.
+        """
+        super().write_decision_form(decision_work_item, dossier)
+
         if dossier._meta.workflow == "BUILDINGPERMIT":
             form_api.save_answer(
                 document=decision_work_item.document,

@@ -256,7 +256,7 @@ def test_set_workflow_state_sz(
     # state.
     writer = setup_dossier_writer("kt_schwyz")
     dossier._meta.target_state = target_state
-    writer._set_workflow_state(sz_instance_with_form, dossier)
+    writer.set_workflow_state(sz_instance_with_form, dossier)
     if can_perform_construction_monitoring and target_state == "APPROVED":
         current_expected_work_items_states.append(
             ("init-construction-monitoring", "ready")
@@ -303,7 +303,7 @@ def test_set_workflow_state_exceptions(
     writer = setup_dossier_writer(config)
     dossier._meta.target_state = target_state
     camac_instance.case.work_items.get(task_id=expected_work_items_states[0]).delete()
-    messages = writer._set_workflow_state(camac_instance, dossier)
+    messages = writer.set_workflow_state(camac_instance, dossier)
     assert (
         list(filter(lambda x: x.level == Severity.ERROR.value, messages))[0].code
         == MessageCodes.WORKFLOW_SKIP_ITEM_FAILED
@@ -1182,7 +1182,7 @@ def test_set_workflow_state_be(
 
     dossier = Dossier(id=123, proposal="Just a test")
     dossier._meta = Dossier.Meta(target_state=target_state, workflow=workflow_type)
-    writer._set_workflow_state(be_instance, dossier)
+    writer.set_workflow_state(be_instance, dossier)
     be_instance.case.refresh_from_db()
     for task_id, expected_status in expected_work_items_states:
         assert (
@@ -1315,7 +1315,7 @@ def test_set_workflow_state_so(
     # state.
     writer = setup_dossier_writer("kt_so")
     dossier._meta.target_state = target_state
-    writer._set_workflow_state(so_instance, dossier)
+    writer.set_workflow_state(so_instance, dossier)
 
     for task_id, expected_status in expected_work_items_states:
         work_item = so_instance.case.work_items.get(task_id=task_id)
@@ -1474,7 +1474,7 @@ def test_set_workflow_state_gr(
 
     writer = setup_dossier_writer("kt_gr")
     dossier._meta.target_state = target_state
-    messages = writer._set_workflow_state(gr_instance, dossier)
+    messages = writer.set_workflow_state(gr_instance, dossier)
     assert any(msg.level == Severity.ERROR.value for msg in messages) is False, (
         f"Errors occurred while setting workflow state to {target_state}: {messages}"
     )
@@ -1583,7 +1583,7 @@ def test_set_workflow_state_ag(
 ):
     writer = setup_dossier_writer("kt_ag")
     dossier._meta.target_state = target_state
-    messages = writer._set_workflow_state(ag_instance, dossier)
+    messages = writer.set_workflow_state(ag_instance, dossier)
     assert any(msg.level == Severity.ERROR.value for msg in messages) is False, (
         f"Errors occurred while setting workflow state to {target_state}: {messages}"
     )

@@ -2,22 +2,14 @@ import weakref
 from copy import deepcopy
 
 from caluma.caluma_form.models import Form as CalumaForm
-from caluma.caluma_workflow import api as workflow_api
-from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
+from caluma.caluma_workflow.api import cancel_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.utils.translation import gettext as _
 
 from camac.caluma.extensions.events.construction_monitoring import (
     can_perform_construction_monitoring,
 )
-from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.dossier_import.dossier_classes import Dossier
-from camac.dossier_import.messages import (
-    Message,
-    MessageCodes,
-    Severity,
-)
 from camac.dossier_import.validation import TargetStatus
 from camac.dossier_import.writers import (
     BuildingAuthorityRowWriter,
@@ -49,10 +41,6 @@ PERSON_MAPPING = {
 PARCEL_MAPPING = {"egrid": "egrid", "number": "number", "municipality": "municipality"}
 
 COORDINATES_MAPPING = {"e": "lat", "n": "lng"}
-
-
-class ConfigurationError(Exception):
-    pass
 
 
 class KtSchwyzDossierWriter(DossierWriter):
@@ -194,32 +182,13 @@ class KtSchwyzDossierWriter(DossierWriter):
         self.cantonal_id.owner = weakref.proxy(self)
         self.cantonal_id.write(instance, dossier.id)
 
-    def _set_workflow_state(
-        self, instance: Instance, dossier: Dossier
-    ) -> list[Message]:
-        """Advance instance's case through defined workflow sequence to target state.
+    def get_workflow_skip_path(self, instance: Instance, dossier: Dossier) -> list[str]:
+        """Return the skip path per target state.
 
-        In order to advance to a specified worklow state after every flow all tasks need to be
-        in a status other than ready so that the relevant work_item can be completed.
-
-        Therefore every target_state needs to be informed on the sibling work-items and how to handle
-        them before completion and progression to the next task in line.
-
-        This is configured in the following:
-
-        <TARGETSTATE> = [
-            (<task_to_complete>: [<task_to_sikp>, ... ]),
-            ...
-        ]
-
-        If required this could be extended with the option to handle sibling tasks differently on each stage, such
-         as cancelling them instead of skipping.
+        A written-off dossier depreciates the case right after submission
+        instead of going through the decision. Construction monitoring is only
+        initialized for a `DONE` dossier when the instance is eligible for it.
         """
-        messages = []
-
-        target_state = dossier._meta.target_state
-
-        # configure workflow state advance path and strategies
         SUBMITTED = ["submit"]
         APPROVED = SUBMITTED + [
             "complete-check",
@@ -240,68 +209,53 @@ class KtSchwyzDossierWriter(DossierWriter):
         )
         WRITTEN_OFF = SUBMITTED + ["depreciate-case"]
 
-        path_to_state = {
+        return {
             TargetStatus.SUBMITTED.value: SUBMITTED,
             TargetStatus.APPROVED.value: APPROVED,
             TargetStatus.DONE.value: DONE,
             TargetStatus.WRITTEN_OFF.value: WRITTEN_OFF,
-        }
+        }[dossier._meta.target_state]
 
-        default_context = {"no-notification": True, "no-history": True, "skip": True}
+    def get_pre_complete_config(self, dossier: Dossier) -> dict:
+        """Tweak the `PRE_COMPLETE` side effects for the import.
 
-        # In order for a work item to be completed no sibling work items can be
-        # in state ready. They have to be dealt with in advance.
-        for task_id in path_to_state[target_state]:
-            try:
-                work_item = instance.case.work_items.get(task_id=task_id)
-            except WorkItem.DoesNotExist as e:
-                messages.append(
-                    Message(
-                        level=Severity.ERROR.value,
-                        code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
-                        detail=_(
-                            "Skip work item with task_id %(task_id)s failed with %(error)s."
-                        )
-                        % {
-                            "task_id": task_id,
-                            "error": ConfigurationError(e),
-                        },
-                    )
+        The `depreciate-case` side effect is only kept for written-off dossiers,
+        and the `publication` work item is additionally cancelled when the
+        `make-decision` task is completed.
+        """
+        # deepcopy to not mutate any global settings
+        config = deepcopy(super().get_pre_complete_config(dossier))
+
+        if dossier._meta.target_state != TargetStatus.WRITTEN_OFF.value:
+            config.pop("depreciate-case", None)
+        if config.get("make-decision"):
+            config["make-decision"]["cancel"].append("publication")
+
+        return config
+
+    def after_skip_work_item(
+        self, work_item: WorkItem, instance: Instance, dossier: Dossier
+    ):
+        """Cancel the reject form once the submit work item has been skipped.
+
+        Imported dossiers can't be rejected as there is no applicant involved
+        that could react on it.
+        """
+        if work_item.task_id == "submit":
+            reject_form = work_item.case.work_items.filter(
+                task_id="reject-form", status=WorkItem.STATUS_READY
+            ).first()
+            if reject_form:
+                cancel_work_item(
+                    reject_form,
+                    user=self._caluma_user,
+                    context=self.get_skip_context(reject_form),
                 )
-                continue
-            # overwrite side effects for import
-            config = deepcopy(get_caluma_setting("PRE_COMPLETE"))
-            # skip side effects in task `make-decision`
-            if config and target_state != TargetStatus.WRITTEN_OFF.value:
-                config.pop("depreciate-case", None)
-            if config.get("make-decision"):
-                config["make-decision"]["cancel"] = config["make-decision"][
-                    "cancel"
-                ] + ["publication"]
-                permissions_events.Trigger.decision_decreed(None, instance)
-            config = config and config.get(work_item.task_id)
-            if config:
-                for action_name, tasks in config.items():
-                    action = getattr(workflow_api, f"{action_name}_work_item")
 
-                    for item in work_item.case.work_items.filter(
-                        task_id__in=tasks, status=WorkItem.STATUS_READY
-                    ):
-                        action(item, self._caluma_user)
-            skip_work_item(work_item, user=self._caluma_user, context=default_context)
-            # post complete submit
-            if task_id == "submit":
-                item = work_item.case.work_items.filter(
-                    task_id="reject-form", status=WorkItem.STATUS_READY
-                ).first()
-                item and cancel_work_item(
-                    item, user=self._caluma_user, context=default_context
-                )
-        messages.append(
-            Message(
-                level=Severity.DEBUG.value,
-                code=MessageCodes.SET_WORKFLOW_STATE.value,
-                detail=_("Workflow state set to %(state)s.") % {"state": target_state},
-            )
-        )
-        return messages
+        # SZ decides in the `make-decision` task instead of the regular
+        # `decision` task, so the base class doesn't trigger this event for us.
+        # This can be removed once SZ uses the regular decision form.
+        if work_item.task_id == "make-decision":
+            permissions_events.Trigger.decision_decreed(None, instance)
+
+        super().after_skip_work_item(work_item, instance, dossier)

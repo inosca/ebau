@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-06 19:36+0200\n"
+"POT-Creation-Date: 2026-07-07 15:16+0200\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -890,22 +890,6 @@ msgstr "È obbligatorio specificare un filtro \"attachments\"!"
 msgid "Failed to write %(value)s: %(error)s"
 msgstr ""
 
-#: camac/dossier_import/config/kt_ag.py camac/dossier_import/config/kt_bern.py
-#: camac/dossier_import/config/kt_gr.py
-#: camac/dossier_import/config/kt_schwyz.py
-#: camac/dossier_import/config/kt_so.py
-#, python-format
-msgid "Skip work item with task_id %(task_id)s failed with %(error)s."
-msgstr ""
-
-#: camac/dossier_import/config/kt_ag.py camac/dossier_import/config/kt_bern.py
-#: camac/dossier_import/config/kt_gr.py
-#: camac/dossier_import/config/kt_schwyz.py
-#: camac/dossier_import/config/kt_so.py
-#, python-format
-msgid "Workflow state set to %(state)s."
-msgstr ""
-
 #: camac/dossier_import/config/kt_bern.py camac/dossier_import/writers.py
 #, python-format
 msgid "Failed to write %(value)s to %(target)s for dossier %(dossier)s"
@@ -1206,6 +1190,16 @@ msgstr ""
 
 #: camac/dossier_import/writers.py
 msgid "Form data written."
+msgstr ""
+
+#: camac/dossier_import/writers.py
+#, python-format
+msgid "Skip work item with task_id %(task_id)s failed with %(error)s."
+msgstr ""
+
+#: camac/dossier_import/writers.py
+#, python-format
+msgid "Workflow state set to %(state)s."
 msgstr ""
 
 #: camac/dossier_import/writers.py
