@@ -4,7 +4,6 @@ from dataclasses import dataclass, field
 from mimetypes import guess_extension
 from pathlib import Path
 from tempfile import NamedTemporaryFile
-from typing import Optional
 
 from alexandria.core.models import Document, File
 from alexandria.core.tika import TikaClient
@@ -57,7 +56,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
     create_files: list[File] = field(default_factory=list)
     instance_documents: list[InstanceAlexandriaDocument] = field(default_factory=list)
     copy_paths: list[tuple[str, str]] = field(default_factory=list)
-    no_parallel: Optional[bool] = field(default=False)
+    no_parallel: bool = field(default=False)
 
     def process(self) -> None:
         documents = Document.objects.filter(
