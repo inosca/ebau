@@ -180,9 +180,7 @@ class Command(BaseCommand):
             )
             self.stdout.write(
                 self.style.WARNING(
-                    "\n".join(
-                        (f" - {i}: {', '.join(self.failures[i])}" for i in warning)
-                    )
+                    "\n".join(f" - {i}: {', '.join(self.failures[i])}" for i in warning)
                 )
             )
 

@@ -1,5 +1,3 @@
-from typing import Optional
-
 from .api import PermissionManager
 
 
@@ -18,7 +16,7 @@ class PermissionVisibilityMixin:
     DB, related to the queryset/model that is dealth with here.
     """
 
-    instance_prefix: Optional[str] = None
+    instance_prefix: str | None = None
 
     def get_queryset(self):
         qs = super().get_queryset()

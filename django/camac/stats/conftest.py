@@ -1,5 +1,5 @@
 import datetime
-from typing import Callable, List, Union
+from collections.abc import Callable
 
 import pytest
 from caluma.caluma_workflow.models import WorkItem
@@ -90,7 +90,7 @@ def rejected_application_factory(
 
 @pytest.fixture
 def nest_rejected_applications(rejected_application_factory):
-    def wrapper(parent: Instance, recursions: List[int]) -> Union[Instance, Callable]:
+    def wrapper(parent: Instance, recursions: list[int]) -> Instance | Callable:
         """
         Recursively nest rejected instances.
 

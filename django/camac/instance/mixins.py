@@ -27,7 +27,7 @@ from . import models
 log = logging.getLogger(__name__)
 
 
-class InstanceQuerysetMixin(object):
+class InstanceQuerysetMixin:
     """
     Mixin to filter queryset by instances which may be read by given role.
 

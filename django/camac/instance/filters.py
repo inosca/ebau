@@ -741,10 +741,8 @@ class CaseBabFilter(CharFilter):
 
         if value == "bib":
             return queryset.filter(
-                (
-                    Q(**{"case__meta__is-bab__isnull": True})
-                    | Q(**{"case__meta__is-bab": False})
-                )
+                Q(**{"case__meta__is-bab__isnull": True})
+                | Q(**{"case__meta__is-bab": False})
             )
         else:
             return queryset.filter(Q(**{"case__meta__is-bab": True}))
@@ -760,10 +758,8 @@ class CaseBabFilter(CharFilter):
 
         if value == "bib":
             return queryset.filter(
-                (
-                    Q(**{"case__meta__is-bab__isnull": True})
-                    | Q(**{"case__meta__is-bab": False})
-                )
+                Q(**{"case__meta__is-bab__isnull": True})
+                | Q(**{"case__meta__is-bab": False})
             )
         else:
             return queryset.filter(Q(**{"case__meta__is-bab": True}))

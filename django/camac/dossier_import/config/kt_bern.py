@@ -1,5 +1,3 @@
-from typing import List
-
 from caluma.caluma_form import api as form_api
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Form as CalumaForm, Question
@@ -276,7 +274,7 @@ class KtBernDossierWriter(DossierWriter):
         self,
         instance: Instance,
         dossier,
-    ) -> List[Message]:
+    ) -> list[Message]:
         """Advance instance's case through defined workflow sequence to target state.
 
         In order to advance to a specified worklow state after every flow all tasks need to be

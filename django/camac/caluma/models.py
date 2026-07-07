@@ -1,5 +1,5 @@
 from itertools import chain
-from typing import List, TypeAlias, TypeVar
+from typing import TypeVar
 from uuid import UUID
 
 from caluma.caluma_workflow.models import Case, WorkItem
@@ -11,10 +11,10 @@ from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
 
 T = TypeVar("T", bound="InquiryQuerySet")
-ServiceType: TypeAlias = Service | int | str | None | List["ServiceType"]
+type ServiceType = Service | int | str | None | list["ServiceType"]
 
 
-def to_groups(service: ServiceType) -> List[str]:
+def to_groups(service: ServiceType) -> list[str]:
     """Convert a service argument to a list of strings acceptable for caluma group filters.
 
     The caluma group attributes (`addressed_groups` and `controlling_groups`)
@@ -38,7 +38,7 @@ def to_groups(service: ServiceType) -> List[str]:
     return [s for s in service if s is not None]
 
 
-def build_array_filter(base: str, values: List[str]) -> Q:
+def build_array_filter(base: str, values: list[str]) -> Q:
     """Create a django filter for `ArrayField`s.
 
     This will either use the lookup `contains` (0 or 1 values) or `overlap` (1+
@@ -60,7 +60,7 @@ class InquiryQuerySet(QuerySet["Inquiry"]):
     query the inquiries you need.
     """
 
-    def for_status(self: T, *status: List[str]) -> T:
+    def for_status(self: T, *status: list[str]) -> T:
         """Return inquiries that match the given status."""
 
         return self.filter(status__in=status)

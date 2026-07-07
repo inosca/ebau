@@ -1,5 +1,4 @@
 from itertools import chain
-from typing import Optional, Union
 
 from caluma.caluma_form.models import Answer
 from caluma.caluma_user.models import BaseUser
@@ -271,7 +270,7 @@ class DecisionLogic:
 
     @classmethod
     def is_construction_tee_decision_so(
-        cls, decision: str, construction_tee: Optional[str]
+        cls, decision: str, construction_tee: str | None
     ) -> bool:
         return (
             decision == settings.DECISION["ANSWERS"]["DECISION"]["REJECTED"]
@@ -390,9 +389,9 @@ class DecisionLogic:
     def get_decision_answer(
         cls,
         question_id: str,
-        work_item: Optional[workflow_models.WorkItem] = None,
-        instance: Optional[Instance] = None,
-    ) -> Union[str, None]:
+        work_item: workflow_models.WorkItem | None = None,
+        instance: Instance | None = None,
+    ) -> str | None:
         filters = None
 
         if work_item:

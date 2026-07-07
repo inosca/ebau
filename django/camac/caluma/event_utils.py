@@ -18,8 +18,9 @@ Both kinds can be combined in a single filter:
         ...
 """
 
+from collections.abc import Callable
 from itertools import chain
-from typing import Any, Callable
+from typing import Any
 
 from caluma.caluma_core.events import filter_events
 from django.conf import settings
@@ -27,7 +28,7 @@ from django.conf import settings
 from camac.settings.utils import is_module_enabled
 from camac.utils import get_dict_item
 
-Source = str | Callable[[], list]
+type Source = str | Callable[[], list]
 """A task or workflow source.
 
 Either a static slug (`str`) or a zero-argument callable returning a list of

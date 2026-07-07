@@ -126,7 +126,7 @@ def create_instance_service(instance: Instance, service_id: int):
     )
 
 
-class NewInstanceStateDefault(object):
+class NewInstanceStateDefault:
     def __call__(self):
         return models.InstanceState.objects.get(name="new")
 

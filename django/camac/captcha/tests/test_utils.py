@@ -29,11 +29,9 @@ def test_validate_request(
 
     signer = Signer()
     expiry = make_aware(
-        (
-            (datetime.now() - timedelta(minutes=15))
-            if action == "expired_token"
-            else datetime.now() + timedelta(minutes=15)
-        )
+        (datetime.now() - timedelta(minutes=15))
+        if action == "expired_token"
+        else datetime.now() + timedelta(minutes=15)
     ).timestamp()
 
     if action == "already_authenticated":

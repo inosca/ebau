@@ -1,7 +1,8 @@
 from abc import ABCMeta, abstractmethod
+from collections.abc import Callable
 from functools import wraps
 from logging import getLogger
-from typing import Callable, Literal, Type
+from typing import Literal
 
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
@@ -250,7 +251,7 @@ class EmptyEventHandler(PermissionEventHandler):
         return  # pragma: no cover
 
 
-def get_event_handler_class() -> Type[PermissionEventHandler]:
+def get_event_handler_class() -> type[PermissionEventHandler]:
     """Return the configured event handler class.
 
     The event handler class is the place where all the permissions-specific

@@ -616,7 +616,7 @@ class InstanceDeadline(models.Model):
             self.instance.case.meta["suspended-services"] = new_value
             self.instance.case.save(update_fields=["meta"])
 
-    def _define_startdate(self) -> Optional[datetime]:
+    def _define_startdate(self) -> datetime | None:
         """Define the deadline start date based on the instance and service.
 
         The responsible service is calculated differently from a inquired service.
@@ -651,7 +651,7 @@ class InstanceDeadline(models.Model):
         # only return unique suspension dates, no overlapping
         return set(suspension_dates)
 
-    def _get_process_deadline_days(self) -> Optional[int]:
+    def _get_process_deadline_days(self) -> int | None:
         """Calculate the number of days processed since the start date.
 
         This is the total number of days from the start date to the process deadline date,
@@ -683,7 +683,7 @@ class InstanceDeadline(models.Model):
 
         return total_days
 
-    def _get_enddate_responsible(self) -> Optional[datetime]:
+    def _get_enddate_responsible(self) -> datetime | None:
         if self.instance.instance_state.name == settings.REJECTION["INSTANCE_STATE"]:
             rejected_translations = set(get_translations("Instance rejected").values())
             rejected_entry = (
@@ -706,7 +706,7 @@ class InstanceDeadline(models.Model):
         )
 
     @canton_aware
-    def _get_enddate_inquired(self) -> Optional[datetime]:
+    def _get_enddate_inquired(self) -> datetime | None:
         """For inquired services, the end date is set to the inquiry answer date."""
         work_item = (
             Inquiry.objects.for_instance(self.instance)
@@ -718,7 +718,7 @@ class InstanceDeadline(models.Model):
 
         return work_item.closed_at.date() if work_item and work_item.closed_at else None
 
-    def _get_enddate_inquired_ag(self) -> Optional[datetime]:
+    def _get_enddate_inquired_ag(self) -> datetime | None:
         """For inquired services in AG, the end date is based on the decision.
 
         If the decision is set to "Unterlagenergänzung", a suspension is created,
@@ -747,11 +747,11 @@ class InstanceDeadline(models.Model):
         return work_item.closed_at.date() if work_item and work_item.closed_at else None
 
     @canton_aware
-    def _get_startdate_responsible(self) -> Optional[datetime]:
+    def _get_startdate_responsible(self) -> datetime | None:
         """Will set the start date for responsible services to the submit date."""
         return self._get_submit_date()
 
-    def _get_startdate_responsible_gr(self) -> Optional[datetime]:
+    def _get_startdate_responsible_gr(self) -> datetime | None:
         """Canton GR handles the responsible service start date differently.
 
         If the formal exam is simplified, the start date is set to the submission date.
@@ -812,7 +812,7 @@ class InstanceDeadline(models.Model):
             else self._get_submit_date()
         )
 
-    def _get_startdate_inquired(self) -> Optional[datetime]:
+    def _get_startdate_inquired(self) -> datetime | None:
         """For inquired services, the start date is set to the inquiry date.
 
         Since an inquiry is originally only a draft, we take the date of the first
@@ -843,7 +843,7 @@ class InstanceDeadline(models.Model):
             else None
         )
 
-    def _get_target_enddate(self) -> Optional[datetime]:
+    def _get_target_enddate(self) -> datetime | None:
         suspension_dates = self.get_suspension_dates()
 
         # Start with the the base process deadline date
@@ -876,7 +876,7 @@ class InstanceDeadline(models.Model):
 
         return process_deadline_date
 
-    def _get_publication_end_date(self) -> Optional[datetime]:
+    def _get_publication_end_date(self) -> datetime | None:
         """Will return the publication date from the workitem."""
         work_item = (
             WorkItem.objects.filter(
@@ -897,7 +897,7 @@ class InstanceDeadline(models.Model):
 
         return publication_end_date_answer.date if publication_end_date_answer else None
 
-    def _get_submit_date(self) -> Optional[datetime]:
+    def _get_submit_date(self) -> datetime | None:
         submit_date = MasterData(self.instance.case).submit_date
 
         return (

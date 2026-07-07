@@ -740,12 +740,10 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
         #    the list will raise a configuration error.
         if not all(isinstance(prop, tuple) for prop in props) and len(props) > 1:
             raise ImproperlyConfigured(
-                (
-                    "InquiriesField props must be either a list of 2-tuples or a list "
-                    "holding a single string. If two or more props are required they "
-                    "must be configured in `available_nested_aliases`. "
-                    "See InquriesField.nested_aliases for details."
-                )
+                "InquiriesField props must be either a list of 2-tuples or a list "
+                "holding a single string. If two or more props are required they "
+                "must be configured in `available_nested_aliases`. "
+                "See InquriesField.nested_aliases for details."
             )
         return props
 

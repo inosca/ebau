@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from io import StringIO
 from pathlib import Path
 
@@ -130,7 +130,7 @@ def test_mark_work_items_for_imported_dossiers_manage_command(
         case=so_instance.case,
     )
     for work_item in work_items_not_imported:
-        work_item.created_at = datetime.now(timezone.utc) + timedelta(days=1)
+        work_item.created_at = datetime.now(UTC) + timedelta(days=1)
         work_item.save()
 
     so_instance.case.document.form_id = "migriertes-dossier"

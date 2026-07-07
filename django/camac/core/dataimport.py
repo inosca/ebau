@@ -45,7 +45,7 @@ class ImportCommand(BaseCommand):
 
     def handle(self, *args, **options):
         if options["path"]:
-            with open(options["path"], "r") as csvfile:
+            with open(options["path"]) as csvfile:
                 reader = csv.DictReader(csvfile)
                 data = list(reader)
         else:
@@ -81,9 +81,7 @@ class ImportCommand(BaseCommand):
             )
             if not pk:
                 print(
-                    "Old name '{0}' specified, but no corresponding entry found".format(
-                        row.get("old_name")
-                    )
+                    f"Old name '{row.get('old_name')}' specified, but no corresponding entry found"
                 )
                 sys.exit(1)
         if pk:

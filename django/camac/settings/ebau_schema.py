@@ -1,5 +1,3 @@
-from typing import Generic
-
 from pydantic import BaseModel, ConfigDict
 from typing_extensions import TypeVar
 
@@ -11,7 +9,7 @@ class EBauConfig(BaseModel):
 Module = TypeVar("Module")
 
 
-class ModuleConfig(EBauConfig, Generic[Module]):
+class ModuleConfig[Module](EBauConfig):
     default: Module
     demo: Module | None = None
     test: Module | None = None

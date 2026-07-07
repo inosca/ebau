@@ -1,5 +1,6 @@
 [tool.ruff]
-
+line-length = 88
+target-version = "py312"
 exclude = [
     ".git",
     ".hg",
@@ -14,7 +15,6 @@ exclude = [
     "camac/ech0211/schema",
     ".*/snapshots",
 ]
-
 lint.ignore = [
     "D100", # Missing docstring in public module
     "D101", # Missing docstring in public class
@@ -34,10 +34,6 @@ lint.ignore = [
     "D413", # Missing blank line after last section
     "D417", # Missing argument descriptions in the docstring
 ]
-
-line-length = 88
-
-
 lint.select = [
     "B",   # https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
     "C4",  # https://docs.astral.sh/ruff/rules/#flake8-comprehensions-c4
@@ -51,9 +47,9 @@ lint.select = [
     "PGH", # https://docs.astral.sh/ruff/rules/#pygrep-hooks-pgh
     "PIE", # https://docs.astral.sh/ruff/rules/#flake8-pie-pie
     "TC",  # https://docs.astral.sh/ruff/rules/#flake8-type-checking-tc
+    "UP",  # https://docs.astral.sh/ruff/rules/#pyupgrade-up
     "W",   # https://docs.astral.sh/ruff/rules/#warning-w
 ]
-
 # codes owned by other tools (ast-grep) that appear in `# noqa` comments and
 # should not be flagged by ruff as invalid directives
 lint.external = ["SG001"]
@@ -169,7 +165,6 @@ omit = [
     "camac/instance/management/commands/fix_broken_be_instances.py",
     "camac/instance/management/commands/fix_decision_documents.py",
     "camac/instance/management/commands/fix_gr_workitems_no_addressedgroups.py",
-    "camac/instance/management/commands/migrate_activations.py",
     "camac/instance/management/commands/migrate_bab_case_gr.py",
     "camac/instance/management/commands/migrate_service_plot_numbers.py",
     "camac/core/management/commands/repair_sz_workflow.py",

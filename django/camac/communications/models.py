@@ -86,11 +86,14 @@ class CommunicationsMessage(models.Model):
 
 
 def attachment_path_directory_path(attachment, filename):
-    return "communications/files/{0}/{1}/{2}/{3}".format(
-        attachment.message.topic.instance_id,
-        attachment.message.topic.pk,
-        uuid.uuid4(),
-        filename,
+    return "/".join(
+        [
+            "communications/files",
+            str(attachment.message.topic.instance_id),
+            str(attachment.message.topic.pk),
+            str(uuid.uuid4()),
+            filename,
+        ]
     )
 
 

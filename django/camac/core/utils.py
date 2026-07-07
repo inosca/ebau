@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from functools import wraps
-from typing import TYPE_CHECKING, Callable
+from typing import TYPE_CHECKING
 
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
@@ -15,6 +15,8 @@ from camac.core.models import HistoryActionConfig
 from camac.core.translations import get_translations
 
 if TYPE_CHECKING:
+    from collections.abc import Callable
+
     from camac.instance.models import Instance
     from camac.user.models import User
 

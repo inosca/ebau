@@ -37,10 +37,11 @@ class BillingV2EntryExportFilterBackend(BaseFilterBackend):
             raise ValidationError(
                 gettext(
                     "Too many records in output. Reduce "
-                    "data range using filters to below {max}",
-                ).format(
-                    max=settings.BILLING_EXPORT_MAX_RECORDS,
+                    "data range using filters to below %(max)s",
                 )
+                % {
+                    "max": settings.BILLING_EXPORT_MAX_RECORDS,
+                }
             )
 
     def filter_queryset(self, request, queryset, view):

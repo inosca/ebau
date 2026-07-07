@@ -1,6 +1,5 @@
 from functools import lru_cache
 from itertools import chain
-from typing import List, Tuple, Union
 
 from alexandria.core.models import Category, Document
 from django.conf import settings
@@ -16,7 +15,7 @@ from camac.user.models import Group, Service
 from camac.user.permissions import get_role_name
 
 
-def get_permission_key(group: Union[Group, SimpleLazyObject]) -> str:
+def get_permission_key(group: Group | SimpleLazyObject) -> str:
     """Get the key used in alexandria permissions and visibilities.
 
     This can consist of various components depending on the current role and
@@ -58,7 +57,7 @@ def get_permission_key(group: Union[Group, SimpleLazyObject]) -> str:
 
 
 @lru_cache
-def get_service_parent_and_children(service_id: Union[int, str]) -> List[str]:
+def get_service_parent_and_children(service_id: int | str) -> list[str]:
     ids = set(
         chain(
             *Service.objects.filter(pk=service_id).values_list(
@@ -75,7 +74,7 @@ def get_service_parent_and_children(service_id: Union[int, str]) -> List[str]:
     return [str(id) for id in ids if id is not None]
 
 
-def get_user_and_group(request: HttpRequest) -> Tuple[int, int]:
+def get_user_and_group(request: HttpRequest) -> tuple[int, int]:
     if request is None:  # pragma: no cover
         return None, None
 

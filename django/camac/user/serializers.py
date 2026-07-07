@@ -21,7 +21,7 @@ from camac.user.relations import CurrentUserResourceRelatedField
 from . import models
 
 
-class CurrentGroupDefault(object):
+class CurrentGroupDefault:
     requires_context = True
 
     def __call__(self, serializer_field):
@@ -37,7 +37,7 @@ class CurrentGroupDefault(object):
         return f"{self.__class__.__name__}()"
 
 
-class CurrentServiceDefault(object):
+class CurrentServiceDefault:
     requires_context = True
 
     def __call__(self, serializer_field):

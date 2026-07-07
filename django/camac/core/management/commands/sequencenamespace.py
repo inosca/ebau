@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from __future__ import unicode_literals
 
 import re
 
@@ -87,7 +86,7 @@ class Command(AppCommand):
         return output
 
     def add_arguments(self, parser):
-        super(Command, self).add_arguments(parser)
+        super().add_arguments(parser)
         parser.add_argument(
             "--database",
             default=DEFAULT_DB_ALIAS,
@@ -131,8 +130,8 @@ class Command(AppCommand):
                 ns_start = 1
             else:
                 print(
-                    "User %s not configured! "
-                    "Update SEQUENCE_NAMESPACES in settings" % user
+                    f"User {user} not configured! "
+                    "Update SEQUENCE_NAMESPACES in settings"
                 )
                 return
 
@@ -143,8 +142,8 @@ class Command(AppCommand):
         )
         if options.get("execute"):
             print(
-                "Updating SEQUENCEs for user %s (range %d..%d) in app %s"
-                % (user, ns_start, ns_end, app_config.verbose_name)
+                f"Updating SEQUENCEs for user {user} "
+                f"(range {ns_start}..{ns_end}) in app {app_config.verbose_name}"
             )
             with connection.cursor() as cursor:
                 for stmt in statements:

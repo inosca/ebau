@@ -265,8 +265,7 @@ class Diffy:
 
             if dict_a.get(key, Diffy._NE()) == dict_b.get(key, Diffy._NE()):
                 self._print_e(
-                    "  Values in %s and %s are equal: %s\n"
-                    % (cas, cbs, json.dumps(dict_a[key]))
+                    f"  Values in {cas} and {cbs} are equal: {json.dumps(dict_a[key])}\n"
                 )
 
                 options = (
@@ -322,7 +321,7 @@ class Diffy:
         for k in sorted(conflict.keys()):
             print(f"    # {k}", file=output)
             dump = json.dumps(conflict.get(k)["fields"], indent=2)
-            print("    %s" % dump.replace("\n", "\n    "), file=output)
+            print(f"    {dump.replace('\n', '\n    ')}", file=output)
 
             print("\n", file=output)
         print("}", file=output)

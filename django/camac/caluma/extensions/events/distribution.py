@@ -625,11 +625,9 @@ def post_cancel_inquiry(sender, work_item, user, context=None, **kwargs):
             service = Service.objects.get(pk=work_item.addressed_groups[0])
 
             raise RuntimeError(
-                (
-                    f'Service "{service.get_name()}" has multiple '
-                    f'"{settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]}" work '
-                    f"items on instance {work_item.case.family.instance.pk}"
-                )
+                f'Service "{service.get_name()}" has multiple '
+                f'"{settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]}" work '
+                f"items on instance {work_item.case.family.instance.pk}"
             ) from e
 
 

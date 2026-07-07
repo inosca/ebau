@@ -231,7 +231,7 @@ class Command(BaseCommand):
 
         if settings.APPLICATION_NAME == "kt_schwyz":
             path = settings.APPLICATION_DIR("form.json")
-            with open(path, "r") as fh:
+            with open(path) as fh:
                 return json.load(fh)["questions"][slug]
         elif settings.APPLICATION_NAME == "kt_uri":
             # Copied from php/public/public-shared/js/src/translation-messages.js

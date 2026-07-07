@@ -123,7 +123,7 @@ class Command(BaseCommand):
     def get_migration_meta(self):
         return {
             "migration-date-utc": datetime.datetime.now(
-                tz=datetime.timezone.utc,
+                tz=datetime.UTC,
             ).isoformat(),
             "migration-mr": "!9374",
         }

@@ -1,5 +1,3 @@
-from typing import List
-
 from django.conf import settings
 from django.templatetags.static import static
 from drf_yasg import openapi
@@ -10,7 +8,7 @@ from camac.settings.utils import is_module_enabled
 from camac.user.permissions import ViewPermissions
 
 
-def convert_to_table_data(rows: dict) -> List[List]:
+def convert_to_table_data(rows: dict) -> list[list]:
     return [
         [
             config["type"],  # Type
@@ -29,7 +27,6 @@ def convert_to_table_data(rows: dict) -> List[List]:
 def get_swagger_description():
     with open(
         str(settings.ROOT_DIR(f"camac/ech0211/docs/{settings.APPLICATION_NAME}.md")),
-        "r",
     ) as myfile:
         desc = myfile.read()
 

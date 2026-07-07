@@ -118,7 +118,7 @@ class Command(BaseCommand):
         content = content.strip() + "\n"
 
         if self.check_only:
-            with open(file, "r") as f:
+            with open(file) as f:
                 if f.read() != content:
                     raise CommandError(
                         f"The generated file `{file}` does not match the "

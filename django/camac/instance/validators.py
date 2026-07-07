@@ -37,7 +37,7 @@ def transform_coordinates(coordinates):
     return converted_values
 
 
-class FormDataValidator(object):
+class FormDataValidator:
     def __init__(self, instance):
         self.forms_def = settings.FORM_CONFIG
         self.instance = instance

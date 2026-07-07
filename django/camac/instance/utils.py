@@ -1,7 +1,6 @@
 from collections import namedtuple
 from datetime import datetime
 from itertools import chain
-from typing import Set, Union
 
 from alexandria.core import models as alexandria_models
 from alexandria.core.api import create_document_file as create_alexandria_document_file
@@ -86,7 +85,7 @@ def get_municipality(instance: Instance) -> Service:
 
 
 def get_municipality_provider_services(
-    instance: Union[Instance, str, int], function: str
+    instance: Instance | str | int, function: str
 ) -> QuerySet[Service]:
     """
     Return *all* services that provde a function in the context of this instance.
@@ -313,7 +312,7 @@ def geometer_cadastral_survey_necessary_answer(instance):
     return None
 
 
-def get_changeable_forms(current_form: str) -> Set[str]:
+def get_changeable_forms(current_form: str) -> set[str]:
     if not is_module_enabled("CHANGE_FORM"):  # pragma: no cover
         return set()
 

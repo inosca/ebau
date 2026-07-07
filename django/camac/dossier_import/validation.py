@@ -1,6 +1,6 @@
 import zipfile
 from enum import Enum
-from typing import Any, List, Set
+from typing import Any
 
 from django.conf import settings
 from django.utils import timezone
@@ -72,7 +72,7 @@ def verify_source_file(source_file: str) -> str:
     return source_file
 
 
-def validate_attachments(archive: zipfile.ZipFile, dossier_ids: List[str]):
+def validate_attachments(archive: zipfile.ZipFile, dossier_ids: list[str]):
     dirs = {
         filename.split("/")[0]
         for filename in archive.namelist()
@@ -96,7 +96,7 @@ def validate_attachments(archive: zipfile.ZipFile, dossier_ids: List[str]):
     return result
 
 
-def get_attachment_validation_stats(archive: zipfile.ZipFile, dossier_ids: Set[str]):
+def get_attachment_validation_stats(archive: zipfile.ZipFile, dossier_ids: set[str]):
     return sum(
         [
             1
@@ -302,7 +302,7 @@ def _validate_new_dossier(dossier_id, dossier_msgs, headings, rows):
 
 
 def _raise_for_missing_columns(headings, *columns):
-    if any((missing_columns := [col for col in columns if col not in headings])):
+    if any(missing_columns := [col for col in columns if col not in headings]):
         raise InvalidImportDataError(
             _(
                 "Meta data file in archive is missing required columns %(missing)s. Required columns %(required)s"

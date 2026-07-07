@@ -1,4 +1,3 @@
-from typing import List, Tuple
 from urllib.parse import urlparse
 from uuid import UUID
 
@@ -88,7 +87,7 @@ class AlexandriaDocumentMixin:
         skip_linking=False,
         caluma_document_id=None,
         raise_on_download_error=True,
-    ) -> List[alexandria_models.Document]:
+    ) -> list[alexandria_models.Document]:
         created_documents = []
         all_documents = []
         for doc in xmlDocuments:
@@ -135,7 +134,7 @@ class AlexandriaDocumentMixin:
                 status=400,
             )
 
-    def link_alexandria_documents(self, documents: List[alexandria_models.Document]):
+    def link_alexandria_documents(self, documents: list[alexandria_models.Document]):
         for document in documents:
             InstanceAlexandriaDocument.objects.create(
                 instance=self.instance, document=document
@@ -569,7 +568,7 @@ class AccompanyingReportSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
             elements = self.data.eventAccompanyingReport.extension.wildcardElements()
 
             for slug, mapping in extensions.items():
-                el = next((el for el in elements if el.tagName == mapping["tag"]))
+                el = next(el for el in elements if el.tagName == mapping["tag"])
                 question = Question.objects.get(pk=slug)
 
                 text_value = el.firstChild.value.strip()
@@ -959,7 +958,7 @@ class SubmitPlanningPermissionApplicationSendHandler(
 
         return super()._get_instance(queryset)
 
-    def has_permission(self) -> Tuple[bool, str]:
+    def has_permission(self) -> tuple[bool, str]:
         submit_planning_enabled = settings.ECH0211.get(
             "SUBMIT_PLANNING_PERMISSION_APPLICATION", {}
         ).get("ENABLED", False)

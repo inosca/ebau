@@ -3779,8 +3779,8 @@ def parse_admins(admins):
         match = re.search(r"(.+) \<(.+@.+)\>", admin)
         if not match:
             raise environ.ImproperlyConfigured(
-                'In DJANGO_ADMINS admin "{0}" is not in correct '
-                '"Firstname Lastname <email@example.com>"'.format(admin)
+                f'In DJANGO_ADMINS admin "{admin}" is not in correct '
+                '"Firstname Lastname <email@example.com>"'
             )
         result.append((match.group(1), match.group(2)))
     return result

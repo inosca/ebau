@@ -1,9 +1,10 @@
 import json
 import os
 import re
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Any, Callable, List, Mapping, Optional, Set, Tuple
+from typing import Any
 
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
@@ -102,9 +103,9 @@ class JournalWriter(FieldWriter):
     def __init__(
         self,
         convert_entry: Callable[[Any], TextWithDate],
-        visibility: Optional[str] = "own_organization",
-        service: Optional[Service] = None,
-        identify_by_text_only: Optional[bool] = False,
+        visibility: str = "own_organization",
+        service: Service | None = None,
+        identify_by_text_only: bool = False,
     ):
         """Initialize journal writer for importing historical entries.
 
@@ -145,9 +146,7 @@ class JournalWriter(FieldWriter):
         else:
             self._create_entry(self.convert(value), instance, responsible_service)
 
-    def _create_entry(
-        self, value: Optional[TextWithDate], instance, responsible_service
-    ):
+    def _create_entry(self, value: TextWithDate | None, instance, responsible_service):
         if value and value.text and value.date:
             existing_entry = (
                 JournalEntry.objects.filter(instance=instance, text=value.text).first()
@@ -229,7 +228,7 @@ class MultipleTargetsWriter(FieldWriter):
     """
 
     def __init__(
-        self, writers: List[FieldWriter], one_successfull_sufficient: bool = False
+        self, writers: list[FieldWriter], one_successfull_sufficient: bool = False
     ):
         super().__init__(target="")
         self.writers = writers
@@ -475,7 +474,7 @@ class KtAargauDossierWriter(DossierWriter):
             user=self._caluma_user,
         )
 
-    def _set_workflow_state(self, instance: Instance, dossier) -> List[Message]:
+    def _set_workflow_state(self, instance: Instance, dossier) -> list[Message]:
         messages = []
         target_state = dossier._meta.target_state
 
@@ -578,8 +577,8 @@ class KtAargauDossierWriter(DossierWriter):
         )
 
     def get_existing_and_new_dossier_ids(
-        self, dossier_and_cantonal_ids: List[Tuple[str, str]]
-    ) -> tuple[Set[str], Set[str], Mapping[str, str]]:
+        self, dossier_and_cantonal_ids: list[tuple[str, str]]
+    ) -> tuple[set[str], set[str], Mapping[str, str]]:
         """Set-based implementation of AG-specific validation code for find_existing_dossier."""
 
         ids_excel = {dossier_id for dossier_id, _ in dossier_and_cantonal_ids}
@@ -589,14 +588,12 @@ class KtAargauDossierWriter(DossierWriter):
         all_ids_excel = ids_excel.union(cantonal_ids_excel)
 
         keyword_to_dossier_number = dict(
-            (
-                list(
-                    Keyword.objects.filter(
-                        name__in=all_ids_excel,
-                        service=self._group.service,
-                        instances__isnull=False,
-                    ).values_list("name", "instances__case__meta__dossier-number")
-                )
+            list(
+                Keyword.objects.filter(
+                    name__in=all_ids_excel,
+                    service=self._group.service,
+                    instances__isnull=False,
+                ).values_list("name", "instances__case__meta__dossier-number")
             )
         )
         all_keywords_from_db = set(keyword_to_dossier_number.keys())

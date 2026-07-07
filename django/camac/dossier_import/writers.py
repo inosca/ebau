@@ -4,10 +4,11 @@ import re
 import traceback
 import weakref
 from abc import ABC, abstractmethod
+from collections.abc import Callable, Mapping
 from dataclasses import asdict, fields, is_dataclass
-from datetime import datetime, timezone as dt_timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Callable, List, Mapping, Optional, Set, Tuple
+from typing import Any
 
 import magic
 from alexandria.core.tasks import make_checksum
@@ -58,7 +59,7 @@ log = logging.getLogger("dossier_import")
 class FieldWriter(ABC):
     target: str
     value: Any = None
-    name: Optional[str] = None
+    name: str | None = None
     protected: bool = False
 
     def __init__(
@@ -68,8 +69,8 @@ class FieldWriter(ABC):
         name=None,
         owner=None,
         context=None,
-        column_mapping: Optional[dict] = None,
-        value_mapping: Optional[dict] = None,
+        column_mapping: dict | None = None,
+        value_mapping: dict | None = None,
         protected: bool = False,
     ):
         # The field writer allows for static values: set value in the field definition
@@ -270,7 +271,7 @@ class CalumaAnswerWriter(FieldWriter):
     def __init__(
         self,
         task: str = None,
-        formatter: Optional[str | Callable] = None,
+        formatter: str | Callable | None = None,
         *args,
         **kwargs,
     ):
@@ -630,7 +631,7 @@ class CaseMetaWriter(FieldWriter):
         formatted_value = value
         if self.formatter == "datetime-to-string":
             if not timezone.is_aware(value):
-                value = timezone.make_aware(value, dt_timezone.utc)
+                value = timezone.make_aware(value, UTC)
 
             formatted_value = datetime.strftime(value, SUBMIT_DATE_FORMAT)
         instance.case.meta[self.target] = formatted_value
@@ -971,7 +972,7 @@ class DossierWriter:
 
         return dossier_summary
 
-    def get_existing_dossier_ids(self, dossier_ids: List[str]) -> List[str]:
+    def get_existing_dossier_ids(self, dossier_ids: list[str]) -> list[str]:
         """Return all dossier IDs that already exist.
 
         Looks for existing keyword records for all the dossier IDs passed in the
@@ -986,8 +987,8 @@ class DossierWriter:
         )
 
     def get_existing_and_new_dossier_ids(
-        self, dossier_and_cantonal_ids: List[Tuple[str, str]]
-    ) -> Tuple[Set[str], Set[str], Mapping[str, str]]:
+        self, dossier_and_cantonal_ids: list[tuple[str, str]]
+    ) -> tuple[set[str], set[str], Mapping[str, str]]:
         # Each dossier ID may be discarded for various reasons and based on
         # different criteria depending on the import status as a new or reimported
         # dossier.
@@ -1000,7 +1001,7 @@ class DossierWriter:
 
     def find_existing_instance(
         self, dossier: Dossier, user: BaseUser
-    ) -> Optional[Instance]:
+    ) -> Instance | None:
         """Return the instance identified linked by the dossier.
 
         Looks for a keyword record with the dossier's ID as name and returns the
@@ -1034,20 +1035,20 @@ class DossierWriter:
 
     def _set_workflow_state(
         self, instance: Instance, dossier: Dossier
-    ) -> List[Message]:
+    ) -> list[Message]:
         """Fast-Forward case to Dossier.Meta.target_state."""
         raise DossierWriter.ConfigurationError  # pragma: no cover
 
     def _post_create_instance(
         self, instance: Instance, dossier: Dossier
-    ) -> Optional[List[Message]]:
+    ) -> list[Message] | None:
         """Do stuff in import_dossier after a new instance was created.
 
         Overwrite this in your config for custom behaviour.
         """
         return
 
-    def _post_write_fields(self, instance, dossier) -> Optional[List[Message]]:
+    def _post_write_fields(self, instance, dossier) -> list[Message] | None:
         """Do stuff after fields have been written.
 
         Overwrite this in your config for custom behaviour.
@@ -1083,7 +1084,7 @@ class DossierWriter:
 
     def _handle_alexandria_document(
         self, content: File, filename: str, mime_type: str, instance: Instance
-    ) -> List[Message]:
+    ) -> list[Message]:
         """Handle a single document when importing if documents are managed with Alexandria.
 
         Requires settings.DOSSIER_IMPORT['ALEXANDRIA_CATEGORY'] to be set.
@@ -1171,7 +1172,7 @@ class DossierWriter:
 
     def _handle_legacy_document(
         self, content: File, filename: str, mime_type: str, instance: Instance
-    ) -> List[Message]:
+    ) -> list[Message]:
         """Handle importing documents in the legacy Attachment based structure.
 
         Requires settings.DOSSIER_IMPORT['ATTACHMENT_SECTION_ID'] to be set.
@@ -1263,7 +1264,7 @@ class DossierWriter:
 
     def _create_dossier_attachments(
         self, dossier: Dossier, instance: Instance
-    ) -> List[Message]:
+    ) -> list[Message]:
         """Create attachments for files in dossier's attachments.
 
         This will get the file-name after stripping the dossier-id from the

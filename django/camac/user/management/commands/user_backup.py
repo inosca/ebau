@@ -75,7 +75,7 @@ class Command(BaseCommand):
 
         self.stdout.write(f"Restoring users from {file_path}...")
 
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             users_data = json.load(f)
 
         users_created = 0

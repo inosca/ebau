@@ -1,6 +1,6 @@
 import datetime
 from dataclasses import dataclass, field
-from typing import IO, List, Optional, Union
+from typing import IO, Optional
 
 from camac.instance.models import Instance
 
@@ -28,23 +28,23 @@ class CalumaPlotData:
 
 @dataclass
 class SiteAddress:
-    street: Optional[str]
-    street_number: Optional[str]
-    city: Optional[str]
+    street: str | None
+    street_number: str | None
+    city: str | None
 
 
 @dataclass
 class Person:
-    first_name: Optional[str]
-    last_name: Optional[str]
-    company: Optional[str]
-    street: Optional[str]
-    street_number: Optional[str]
-    zip: Optional[int]
-    town: Optional[str]
-    phone: Optional[str]
-    email: Optional[str]
-    is_juristic_person: Optional[bool] = False
+    first_name: str | None
+    last_name: str | None
+    company: str | None
+    street: str | None
+    street_number: str | None
+    zip: int | None
+    town: str | None
+    phone: str | None
+    email: str | None
+    is_juristic_person: bool = False
 
     def __post_init__(self):
         self.is_juristic_person = bool(self.company)
@@ -60,31 +60,31 @@ class Attachment:
 class Dossier:
     id: str
     proposal: str
-    cantonal_id: Optional[str] = None
-    plot_data: Optional[Union[List[PlotData], str]] = None
-    coordinates: Optional[Union[List[Coordinates], str]] = None
-    street: Optional[str] = None
-    street_number: Optional[str] = None
-    zip: Optional[str] = None
-    city: Optional[str] = None
-    usage: Optional[str] = None
-    application_type: Optional[str] = None
-    submit_date: Optional[Union[datetime.datetime, str]] = None
-    publication_date: Optional[Union[datetime.datetime, str]] = None
-    decision_date: Optional[Union[datetime.datetime, str]] = None
-    construction_start_date: Optional[Union[datetime.datetime, str]] = None
-    profile_approval_date: Optional[Union[datetime.datetime, str]] = None
-    final_approval_date: Optional[Union[datetime.datetime, str]] = None
-    completion_date: Optional[Union[datetime.datetime, str]] = None
-    link: Optional[str] = None
-    custom_1: Optional[str] = None
-    custom_2: Optional[str] = None
-    project_cost: Optional[str] = None
-    applicant: Optional[Union[List[Person], str]] = None
-    landowner: Optional[Union[List[Person], str]] = None
-    project_author: Optional[Union[List[Person], str]] = None
-    attachments: Optional[Union[List[Attachment], str]] = None
-    responsible: Optional[str] = field(default=None)
+    cantonal_id: str | None = None
+    plot_data: list[PlotData] | str | None = None
+    coordinates: list[Coordinates] | str | None = None
+    street: str | None = None
+    street_number: str | None = None
+    zip: str | None = None
+    city: str | None = None
+    usage: str | None = None
+    application_type: str | None = None
+    submit_date: datetime.datetime | str | None = None
+    publication_date: datetime.datetime | str | None = None
+    decision_date: datetime.datetime | str | None = None
+    construction_start_date: datetime.datetime | str | None = None
+    profile_approval_date: datetime.datetime | str | None = None
+    final_approval_date: datetime.datetime | str | None = None
+    completion_date: datetime.datetime | str | None = None
+    link: str | None = None
+    custom_1: str | None = None
+    custom_2: str | None = None
+    project_cost: str | None = None
+    applicant: list[Person] | str | None = None
+    landowner: list[Person] | str | None = None
+    project_author: list[Person] | str | None = None
+    attachments: list[Attachment] | str | None = None
+    responsible: str | None = field(default=None)
 
     _meta: Optional["Dossier.Meta"] = field(
         default_factory=lambda: Dossier.Meta(target_state="DRAFT")
@@ -93,8 +93,8 @@ class Dossier:
     @dataclass
     class Meta:
         target_state: str
-        workflow: Optional[str] = None
-        instance: Optional[Instance] = None
-        missing: Optional[List] = field(default_factory=list)
-        errors: Optional[List] = field(default_factory=list)
-        warnings: Optional[List] = field(default_factory=list)
+        workflow: str | None = None
+        instance: Instance | None = None
+        missing: list = field(default_factory=list)
+        errors: list = field(default_factory=list)
+        warnings: list = field(default_factory=list)

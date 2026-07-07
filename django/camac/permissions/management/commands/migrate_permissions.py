@@ -5,7 +5,6 @@ from datetime import datetime
 from functools import partial
 from itertools import islice
 from logging import getLogger
-from typing import Optional
 
 import tqdm
 from caluma.caluma_form.models import Answer
@@ -54,17 +53,17 @@ class ACL:
     state: str
     type: permission_models.GRANT_CHOICES
 
-    user_id: Optional[int] = field(default=None)
-    service_id: Optional[int] = field(default=None)
-    role_id: Optional[int] = field(default=None)
+    user_id: int | None = field(default=None)
+    service_id: int | None = field(default=None)
+    role_id: int | None = field(default=None)
 
     # Non-identifying optional attributes: These are used
     # to pass in additional data to be used during *creation*,
     # but are ignored when comparing ACLs
-    start_time: Optional[datetime] = field(default=None)
-    end_time: Optional[datetime] = field(default=None)
-    metainfo: Optional[dict] = field(default_factory=dict)
-    created_by_event: Optional[str] = field(default=None)
+    start_time: datetime | None = field(default=None)
+    end_time: datetime | None = field(default=None)
+    metainfo: dict = field(default_factory=dict)
+    created_by_event: str | None = field(default=None)
 
     def __eq__(self, other):
         return hash(self) == hash(other)

@@ -1,5 +1,3 @@
-from typing import Union
-
 from django.conf import settings
 from django.utils import translation
 
@@ -25,7 +23,7 @@ def get_translations(s):
     return {lang: get_translation_in(lang, s) for lang, _ in get_available_languages()}
 
 
-def get_translations_canton_aware(config: Union[dict, str], static=False) -> dict:
+def get_translations_canton_aware(config: dict | str, static=False) -> dict:
     """Make translations for configured locales of the current config.
 
     :param config: the string or a dict specifying a config specific translation

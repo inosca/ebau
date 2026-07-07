@@ -1,7 +1,6 @@
 from copy import copy
 from datetime import timedelta
 from itertools import chain
-from typing import List
 
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form.models import Document
@@ -676,7 +675,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
     @register_dynamic_task("after-construction-step-item")
     def resolve_after_construction_step_item(
         self, case: object, user: object, prev_work_item: object, context: dict
-    ) -> List[str]:
+    ) -> list[str]:
         """Resolve the next task within a construction step."""
         step_id = prev_work_item.meta["construction-step-id"]
         current_index = prev_work_item.meta.get("construction-step").get("index")
@@ -701,7 +700,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
     @register_dynamic_task("after-construction-step")
     def resolve_after_construction_step(
         self, case: object, user: object, prev_work_item: object, context: dict
-    ) -> List[str]:
+    ) -> list[str]:
         previous_step = prev_work_item.meta["construction-step-id"]
 
         # Return first task of current construction step if the step
@@ -745,8 +744,8 @@ class CustomDynamicTasks(BaseDynamicTasks):
         # in construction stage planning step. Certain construction steps may
         # have multiple succeeding construction steps.
         def find_next_steps(
-            construction_step: str, selected_construction_steps: List[str]
-        ) -> List[str]:
+            construction_step: str, selected_construction_steps: list[str]
+        ) -> list[str]:
             if (
                 previous_step != construction_step
                 and construction_step in selected_construction_steps

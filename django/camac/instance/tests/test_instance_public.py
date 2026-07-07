@@ -1,4 +1,4 @@
-from datetime import date, datetime, timedelta, timezone as time_zone
+from datetime import UTC, date, datetime, timedelta
 
 import pytest
 from caluma.caluma_form.factories import (
@@ -582,7 +582,7 @@ def test_public_caluma_instance_municipality_filter_sz(
     assert response.status_code == status.HTTP_200_OK
     assert len(response.json()["data"]) == 3
     date = response.json()["data"][0]["attributes"]["publication-date"]
-    assert datetime.fromisoformat(date).astimezone(time_zone.utc) == publication_date
+    assert datetime.fromisoformat(date).astimezone(UTC) == publication_date
 
 
 @pytest.mark.django_db

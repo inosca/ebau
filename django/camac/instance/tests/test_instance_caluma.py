@@ -1,6 +1,7 @@
 import itertools
 from datetime import date, datetime
 from pathlib import Path
+from unittest.mock import call
 
 import pytest
 from alexandria.core.factories import (
@@ -16,7 +17,6 @@ from caluma.caluma_workflow import api as workflow_api, models as caluma_workflo
 from django.core import mail
 from django.urls import reverse
 from django.utils.timezone import make_aware
-from mock import call
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 

@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
-from enum import Enum
-from typing import List, Literal, Union
+from enum import Enum, StrEnum
+from typing import Literal
 
 from dataclasses_json import dataclass_json
 from django.utils.translation import gettext as _
@@ -14,7 +14,7 @@ from camac.instance.models import Instance
 class Message:
     level: int
     code: str
-    detail: Union[list, str, dict]
+    detail: list | str | dict
 
 
 @dataclass_json
@@ -28,7 +28,7 @@ class FieldValidationMessage(Message):
 class DossierSummary:
     status: str  # one of success, warning, error
     dossier_id: str
-    details: List[Message]
+    details: list[Message]
 
 
 @dataclass_json
@@ -57,7 +57,7 @@ DOSSIER_IMPORT_STATUS_WARNING = "warning"
 DOSSIER_IMPORT_STATUS_ERROR = "error"
 
 
-class MessageCodes(str, Enum):
+class MessageCodes(StrEnum):
     """Message codes that are used for identifying messages.
 
     NOTE: Only codes listed here are included in summary reports.
@@ -102,7 +102,7 @@ class MessageCodes(str, Enum):
     UNHANDLED_EXCEPTION = "unhandled-exceptions"
 
 
-def get_message_max_level(message_list: List[Message], default=Severity.DEBUG.value):
+def get_message_max_level(message_list: list[Message], default=Severity.DEBUG.value):
     return (
         message_list
         and sorted(message_list, key=lambda msg: msg.level, reverse=True)[0].level

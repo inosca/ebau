@@ -1,5 +1,4 @@
 import datetime
-from typing import Dict, List, Tuple
 
 from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import WorkItem
@@ -53,7 +52,7 @@ def _get_rejected_instance_cycletime(rejected_instance: Instance) -> int:
 
 
 def _compute_total_idle_days(
-    sorted_durations: List[Tuple[datetime.datetime, datetime.datetime]],
+    sorted_durations: list[tuple[datetime.datetime, datetime.datetime]],
 ) -> int:
     """
     Compute total idle days from a set of durations that may encompass and overlap one another.
@@ -90,12 +89,12 @@ def _compute_total_idle_days(
                 # breaks the loop as expected, is this a change in python 3.8?
                 break  # pragma: no cover
         merged_ranges.append((start, end))
-    return sum(((duration[1] - duration[0]).days for duration in merged_ranges))
+    return sum((duration[1] - duration[0]).days for duration in merged_ranges)
 
 
 def _retrieve_waiting_periods(
     instance: Instance,
-) -> List[Tuple[datetime.datetime, datetime.datetime]]:
+) -> list[tuple[datetime.datetime, datetime.datetime]]:
     """
     Retrieve a list of waiting periods from an Instance's additional demands.
 
@@ -133,7 +132,7 @@ def _retrieve_waiting_periods(
     return sorted(results, key=lambda pair: pair[0])
 
 
-def _get_cycle_time(instance: Instance) -> Tuple[int]:
+def _get_cycle_time(instance: Instance) -> tuple[int]:
     extra_time = _get_rejected_instance_cycletime(instance)
     # If predating instance has no duration it's pointless to calculate waiting periods
     if not extra_time:
@@ -142,7 +141,7 @@ def _get_cycle_time(instance: Instance) -> Tuple[int]:
     return extra_time, idle_time
 
 
-def _rejected_instances(instance) -> List[Instance]:
+def _rejected_instances(instance) -> list[Instance]:
     flat_list = []
     previous_rejected = _get_previously_rejected_instance(instance)
     while previous_rejected:
@@ -151,7 +150,7 @@ def _rejected_instances(instance) -> List[Instance]:
     return flat_list
 
 
-def compute_cycle_time(instance: Instance) -> Dict:
+def compute_cycle_time(instance: Instance) -> dict:
     master_data = MasterData(instance.case)
     cycle_start = master_data.paper_submit_date or master_data.submit_date
     decision_date = master_data.decision_date
@@ -173,7 +172,7 @@ def compute_cycle_time(instance: Instance) -> Dict:
     }
 
 
-def aggregate_cycle_times(instances: QuerySet) -> Dict:
+def aggregate_cycle_times(instances: QuerySet) -> dict:
     # Categorize by year and aggregate (AVG) instances's cycle times.
     return (
         instances.annotate(

@@ -3,9 +3,10 @@ import re
 import sys
 import time
 import traceback
+from collections.abc import Callable
 from dataclasses import asdict
 from logging import getLogger
-from typing import TYPE_CHECKING, Callable
+from typing import TYPE_CHECKING
 
 import requests
 from alexandria.core.models import Document

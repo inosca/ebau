@@ -282,10 +282,10 @@ def test_distribution_permission_for_task(
     mocker.patch("camac.notification.utils.send_mail", return_value=None)
 
     result = caluma_admin_schema_executor(
-        """
+        f"""
         mutation {mutation} {{
             {mutation}(
-            input: {{id: "{work_item}"}}
+            input: {{id: "{work_item.pk}"}}
             ) {{
                 clientMutationId
                 workItem {{
@@ -294,7 +294,7 @@ def test_distribution_permission_for_task(
                 }}
             }}
         }}
-        """.format(mutation=mutation, work_item=work_item.pk)
+        """
     )
 
     if not is_permitted:
@@ -455,10 +455,10 @@ def test_distribution_permission_for_answer(
     value = _distribution_settings["ANSWERS"].get(question, {}).get(value) or value
 
     result = caluma_admin_schema_executor(
-        """
+        f"""
         mutation {mutation} {{
             {mutation}(
-            input: {{document: "{document}", question: "{question}", value: "{value}"}}
+            input: {{document: "{document.pk}", question: "{question_slug}", value: "{value}"}}
             ) {{
                 clientMutationId
                 answer {{
@@ -466,12 +466,7 @@ def test_distribution_permission_for_answer(
                 }}
             }}
         }}
-        """.format(
-            mutation=mutation,
-            document=document.pk,
-            question=question_slug,
-            value=value,
-        )
+        """
     )
 
     if not is_permitted:

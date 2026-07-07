@@ -100,27 +100,26 @@ def test_public_workflow_visibility(
         else caluma_admin_schema_executor
     )
     result = executor(
-        """
-        query {
-            allDocuments(filter: [{ id: "%s" }]) {
-                edges {
-                    node {
+        f"""
+        query {{
+            allDocuments(filter: [{{ id: "{be_instance.case.document.pk}" }}]) {{
+                edges {{
+                    node {{
                         id
-                        case {
+                        case {{
                             __typename
-                            workflow {
+                            workflow {{
                                 id
                                 slug
                                 __typename
-                            }
-                        }
+                            }}
+                        }}
                         __typename
-                    }
-                }
-            }
-        }
+                    }}
+                }}
+            }}
+        }}
     """
-        % be_instance.case.document.pk
     )
 
     assert not result.errors

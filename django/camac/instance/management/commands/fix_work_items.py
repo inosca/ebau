@@ -339,11 +339,11 @@ class Command(BaseCommand):
                         f"{instance.pk} ({instance.instance_state.get_name()}):"
                     )
                 )
-                created_slugs = ", ".join((f"'{s}'" for s in created))
+                created_slugs = ", ".join(f"'{s}'" for s in created)
                 self.stdout.write(self.style.SUCCESS(f"\tCreated: {created_slugs}"))
 
                 if len(canceled):
-                    canceled_slugs = ", ".join((f"'{s}'" for s in canceled))
+                    canceled_slugs = ", ".join(f"'{s}'" for s in canceled)
                     self.stdout.write(self.style.ERROR(f"\tCanceled: {canceled_slugs}"))
 
     def fix_wrongly_closed_cases(self):

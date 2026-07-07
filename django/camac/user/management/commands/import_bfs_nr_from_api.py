@@ -1,7 +1,8 @@
 import csv
 import re
+from collections.abc import Iterable
 from datetime import date
-from typing import Iterable, TypedDict
+from typing import TypedDict
 
 import requests
 from django.core.management.base import BaseCommand, CommandError

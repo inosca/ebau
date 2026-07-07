@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from functools import singledispatch
-from typing import List
 
 from camac.instance.models import InstanceState
 from camac.permissions.conditions import (
@@ -45,7 +44,7 @@ def _(c: Always): ...
 def _(c: Never): ...
 
 
-def extract_allowed_states(cond: Check) -> List[str]:
+def extract_allowed_states(cond: Check) -> list[str]:
     """List all instance states (untranslated names) that the condition allows.
 
     Note: This really only works with `RequireInstanceState` conditions

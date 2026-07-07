@@ -1,5 +1,5 @@
 import re
-from typing import Any, List, Tuple, Union
+from typing import Any
 
 import pyexcel_xlsx
 from caluma.caluma_workflow.models import WorkItem
@@ -11,9 +11,9 @@ from .exceptions import InvalidImportDataError
 
 def get_similar_value(
     original_value: str,
-    expected_values: List[str],
+    expected_values: list[str],
     similarity_score_threshold: int = 85,
-) -> Union[str, None]:
+) -> str | None:
     """Check if there's a similar expected value."""
     similarity_scores = sorted(
         (
@@ -44,7 +44,7 @@ def clean_value(value: Any) -> Any:
     return value.strip() if isinstance(value, str) else value
 
 
-def get_worksheet_headings_and_rows(file) -> Tuple[List[str], List[dict]]:
+def get_worksheet_headings_and_rows(file) -> tuple[list[str], list[dict]]:
     """Get headings and rows of an XLSX file."""
 
     workbook = pyexcel_xlsx.get_data(file)
