@@ -411,7 +411,6 @@
     "fields": {
       "slug": null,
       "service_group": 2,
-      "meta": {},
       "service_parent": null,
       "name": null,
       "description": null,
@@ -428,6 +427,7 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
+      "meta": {},
       "uses_ech_api": 0
     }
   },
@@ -438,7 +438,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 707,
@@ -454,6 +453,7 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
+      "meta": {},
       "uses_ech_api": 0
     }
   },

@@ -12,11 +12,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "edf81bff-4f33-48d6-b8de-2aee7643a97e",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -32,11 +32,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "7d2bb3fe-83a1-4abc-a6c8-732c366678b1",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -52,11 +52,11 @@
       "previous_instance_state": 20011,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "e9197275-36df-460c-b261-ff27f781c5d9",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -72,11 +72,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "069281a6-1fcb-7693-8000-53d79d1acb0d",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
