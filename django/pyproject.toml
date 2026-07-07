@@ -165,7 +165,6 @@ omit = [
     "camac/instance/management/commands/fix_broken_be_instances.py",
     "camac/instance/management/commands/fix_decision_documents.py",
     "camac/instance/management/commands/fix_gr_workitems_no_addressedgroups.py",
-    "camac/instance/management/commands/migrate_activations.py",
     "camac/instance/management/commands/migrate_bab_case_gr.py",
     "camac/instance/management/commands/migrate_service_plot_numbers.py",
     "camac/core/management/commands/repair_sz_workflow.py",
