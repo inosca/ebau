@@ -1,0 +1,25 @@
+# Commit hashes from large-scale linter runs are listed here so they don't
+# clutter `git blame`. Configure git to honor the file by running:
+#
+# ```bash
+# git config blame.ignoreRevsFile .git-blame-ignore-revs
+# ```
+#
+# GitHub and GitLab honor this file automatically.
+
+# https://git.adfinis.com/camac-ng/camac-ng/-/merge_requests/12826
+539eb36480dc7ef0eee8f2a58c3f9026e4a29e42
+# https://git.adfinis.com/camac-ng/camac-ng/-/merge_requests/12830
+098f7e5f1986a20fa8e6b95fec51ad78beff61ee
+# https://git.adfinis.com/camac-ng/camac-ng/-/merge_requests/12834
+b02d77a3914fbeee62895d9f4ae925a3a2019c62
+# https://git.adfinis.com/camac-ng/camac-ng/-/merge_requests/12835
+d428abf459cb6e5ae78dd26599b0e98bbe870d6c
+# https://git.adfinis.com/camac-ng/camac-ng/-/merge_requests/12838
+ccadc0a4c3e1cdf9059913407bba27f6fc984a2c
+# https://git.adfinis.com/camac-ng/camac-ng/-/merge_requests/12843
+55a586bb0c1ef69b5ca99b8a37b8162ea053be62
+# https://git.adfinis.com/camac-ng/camac-ng/-/merge_requests/12855
+7d255feb8497ea57bc5e0dac1ca296b5516a32eb
+# https://git.adfinis.com/camac-ng/camac-ng/-/merge_requests/12877
+50166f5a4de17a3c8d16837e1183ff7df6c257b0
