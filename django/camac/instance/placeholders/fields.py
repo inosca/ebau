@@ -1066,7 +1066,7 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
                 "EINSPRECHER_ANREDE": [_("OPPOSING_SALUTATION")],
                 "ALLE_EINSPRECHENDEN": [_("ALL_OPPOSING")],
                 **{
-                    f"ALLE_EINSPRECHENDEN.{k.upper()}": v
+                    f"ALLE_EINSPRECHENDEN.{k}": v
                     for k, v in MasterDataPersonObjectField().nested_aliases.items()
                 },
             }
@@ -1358,6 +1358,7 @@ class MasterDataPersonObjectField(MasterDataField):
                                 representation if available. Possible values are the
                                 keys of `available_nested_aliases` in this class'
                                 `nested_aliases` not starting with `REPRESENTATIVE_`.
+                                Props are case insensitive.
                                 Default: all of the mentioned keys.
     use_represenative (bool):   Switch whether to include `REPRESENTATIVE_` props.
     parser (callable):          Function applied to every object before handling single
@@ -1414,9 +1415,19 @@ class MasterDataPersonObjectField(MasterDataField):
         # Filtering props is case insensitive.
         # Props selection is done for person attributes as well as
         # representative attributes.
+        if bad_props := [
+            prop for prop in self.props if prop.upper() not in available_nested_aliases
+        ]:
+            raise ImproperlyConfigured(
+                f"Unavailable value provided in props: {', '.join(bad_props)}."
+                f" Available props: {', '.join(available_nested_aliases)}"
+            )
+
         return {
             key: value
             for key, value in available_nested_aliases.items()
+            # representatives' properties should equal the represented person's
+            # that's why `REPRESENTATIVE_` prefix is ignored in props
             if key.removeprefix("REPRESENTATIVE_")
             in [prop.upper() for prop in self.props]
         }
