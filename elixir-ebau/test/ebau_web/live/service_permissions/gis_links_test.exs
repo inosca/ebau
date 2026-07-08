@@ -8,7 +8,7 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinksTest do
 
     gis_link =
       Ebau.Instances.create_gis_link!(
-        %{name: "My GIS link", placeholder: "https://example.com?c=0,0"},
+        %{name: "My GIS link", placeholder: "https://geo.so.ch"},
         actor: actor
       )
 
@@ -28,7 +28,7 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinksTest do
 
       other_link =
         Ebau.Instances.create_gis_link!(
-          %{name: "Other service link", placeholder: "https://example.com?c=0,0"},
+          %{name: "Other service link", placeholder: "https://geo.so.ch?c=0,0"},
           actor: other_actor
         )
 
@@ -45,11 +45,11 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinksTest do
       |> within("#new-gis-link", fn session ->
         session
         |> fill_in("Name", with: "Second")
-        |> fill_in("Link", with: "https://example.com/map")
+        |> fill_in("Link", with: "https://geo.so.ch/map")
         |> submit()
       end)
       |> assert_has("td", text: "Second")
-      |> assert_has("td", text: "https://example.com/map")
+      |> assert_has("td", text: "https://geo.so.ch/map")
     end
   end
 
@@ -57,7 +57,7 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinksTest do
     test "filters the stream by matching name", %{conn: conn, actor: actor, gis_link: gis_link} do
       other =
         Ebau.Instances.create_gis_link!(
-          %{name: "Parcels map", placeholder: "https://example.com?c=0,0"},
+          %{name: "Parcels map", placeholder: "https://geo.so.ch?c=0,0"},
           actor: actor
         )
 
@@ -75,7 +75,7 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinksTest do
     } do
       other =
         Ebau.Instances.create_gis_link!(
-          %{name: "Parcels map", placeholder: "https://example.com?c=0,0"},
+          %{name: "Parcels map", placeholder: "https://geo.so.ch?c=0,0"},
           actor: actor
         )
 

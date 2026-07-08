@@ -132,7 +132,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
     assert gis_link.gis_link_for_instance == "https://geo.so.ch?c=456%2C123"
   end
 
-  test "returns empty coordinates when instance has no plot data", %{
+  test "returns the placeholder if instance has no plot data", %{
     actor: actor,
     gis_link: gis_link
   } do
@@ -161,7 +161,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
         actor: actor
       )
 
-    assert is_nil(gis_link.gis_link_for_instance)
+    assert "https://geo.so.ch?c=999%2C999" == gis_link.gis_link_for_instance
   end
 
   test "denies access to gis links for instances without an ACL", %{
