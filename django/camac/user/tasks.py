@@ -41,9 +41,11 @@ def _should_perform_geometer_change_for_instance(instance, selected_municipality
 
         # Lead authority is not a municipality. The selected municipality is one of multiple involved
         # municipalities and the municipality answer corresponds to the selected municipality.
-        elif count_involved_municipalities > 1:
-            if instance.municipality == selected_municipality:
-                perform_change = True
+        elif (
+            count_involved_municipalities > 1
+            and instance.municipality == selected_municipality
+        ):
+            perform_change = True
 
     return perform_change
 

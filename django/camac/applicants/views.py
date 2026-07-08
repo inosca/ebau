@@ -103,20 +103,15 @@ class ApplicantsView(InstanceQuerysetMixin, ModelViewSet):
 
         # Make sure that admins can only be deleted if there is another admin
         # that has an invitee (unregistered applicants don't count)
-        if (
+        return not (
             obj.role == models.ROLE_CHOICES.ADMIN.value
             and not admins.exclude(pk=obj.pk).exists()
-        ):
-            return False
-
-        return True
+        )
 
     def has_object_destroy_permission_for_support(self, obj):
         # Support override ¯\_(ツ)_/¯
         # Project owner cannot be removed
-        if obj.role == models.ROLE_CHOICES.PROJECT_OWNER.value:
-            return False
-        return True
+        return obj.role != models.ROLE_CHOICES.PROJECT_OWNER.value
 
     @has_object_destroy_permission.register_old
     @permission_aware
@@ -137,9 +132,7 @@ class ApplicantsView(InstanceQuerysetMixin, ModelViewSet):
         return False
 
     def _has_object_destroy_permission_for_support(self, obj):
-        if obj.role == models.ROLE_CHOICES.PROJECT_OWNER.value:
-            return False
-        return True
+        return obj.role != models.ROLE_CHOICES.PROJECT_OWNER.value
 
 
 class ApplicantConfirmationViewSet(InstanceQuerysetMixin, ReadOnlyModelViewSet):

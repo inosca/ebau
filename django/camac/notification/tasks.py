@@ -72,7 +72,7 @@ def send_notification_for_overdue_workitems(self):
             cut_off_date = process_deadlines_from
             log.info(f"Use configured value for process_deadlines_from: {cut_off_date}")
 
-    for task_id in config.keys():
+    for task_id in config:
         try:
             work_items = WorkItem.objects.filter(
                 **{

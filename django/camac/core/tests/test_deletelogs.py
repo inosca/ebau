@@ -1,4 +1,4 @@
-import os
+import io
 
 import pytest
 from django.core.management import call_command
@@ -16,7 +16,7 @@ def test_deletelogs():
         id=2, action="test", user_id=1, modification_date="2017-04-25 23:09:56+00:00"
     )
 
-    call_command("deletelogs", days=2, stdout=open(os.devnull, "w"))
+    call_command("deletelogs", days=2, stdout=io.StringIO())
 
     assert InstanceLog.objects.count() == 1
     assert InstanceLog.objects.first().id == 1

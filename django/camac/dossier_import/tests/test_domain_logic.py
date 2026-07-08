@@ -153,9 +153,7 @@ def test_perform_reimport(  # noqa: C901
     imported_dossier.refresh_from_db()
     md = MasterData(imported_dossier.case)
     # get an abstracted dataset for the dossier that we can work with
-    updated_values = {
-        key: getattr(md, key) for key in MASTER_DATA[config]["CONFIG"].keys()
-    }
+    updated_values = {key: getattr(md, key) for key in MASTER_DATA[config]["CONFIG"]}
 
     if config == "kt_bern" and reimport_file == "import-example-no-errors-reimport.zip":
         # in the reimport file, the user should be removed
@@ -231,7 +229,7 @@ def test_perform_reimport(  # noqa: C901
                 continue
         diff = [
             (data, imported[k])
-            for k in imported.keys()
+            for k in imported
             if (dataset := updated_values.get(key)) and (data := dataset[0].get(k))
         ]
         for d, u in diff:

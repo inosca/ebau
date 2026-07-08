@@ -21,7 +21,7 @@ def schedule_process_gis_data_sources(queryset, query_params):
     for gis_data in queryset:
         try:
             for required_param in gis_data.get_required_params():
-                if required_param not in query_params.keys():
+                if required_param not in query_params:
                     raise ValueError(
                         _("Required parameter %(parameter)s was not passed")
                         % {"parameter": required_param}

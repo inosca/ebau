@@ -71,16 +71,16 @@ class Command(BaseCommand):
             location_id = options["location_id"][0]
 
         if options.get("path_to_source"):
-            f = open(options["path_to_source"][0], "rb")
-            file_content = File(f)
-            group = Group.objects.get(pk=options["group_id"][0])
-            user_id = options["user_id"][0]
-            dossier_import = DossierImport.objects.create(
-                user_id=user_id,
-                location_id=location_id,
-                group=group,
-                source_file=file_content,
-            )
+            with open(options["path_to_source"][0], "rb") as f:
+                file_content = File(f)
+                group = Group.objects.get(pk=options["group_id"][0])
+                user_id = options["user_id"][0]
+                dossier_import = DossierImport.objects.create(
+                    user_id=user_id,
+                    location_id=location_id,
+                    group=group,
+                    source_file=file_content,
+                )
 
         if options.get("dosser_import_id"):
             dossier_import = DossierImport.objects.get(
@@ -102,14 +102,12 @@ class Command(BaseCommand):
         if (
             dossier_import.status != DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL
             and not options.get("no_input")
+            and input(
+                "The archive has errors. Do you still want to import (enter y) or abort and remove the file (enter n)"
+            )
+            != "y"
         ):  # pragma: no cover
-            if (
-                input(
-                    "The archive has errors. Do you still want to import (enter y) or abort and remove the file (enter n)"
-                )
-                != "y"
-            ):
-                return
+            return
         perform_import(dossier_import)
         self.stdout.write("========= Dossier import =========")
         if options["verbosity"] > 1:

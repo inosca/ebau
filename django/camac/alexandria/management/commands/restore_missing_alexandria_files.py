@@ -132,10 +132,8 @@ class Command(BaseCommand):
 
         print("Checking all Alexandria files against bucket")
         total = AlexandriaFile.objects.count()
-        count = 0
         unrestored_files = []
-        for alexandria_file in AlexandriaFile.objects.all():
-            count += 1
+        for count, alexandria_file in enumerate(AlexandriaFile.objects.all(), 1):
             print(f"{count}/{total}", end="\r")
             if alexandria_file.content.name not in bucket_files:
                 self.print_file(alexandria_file)

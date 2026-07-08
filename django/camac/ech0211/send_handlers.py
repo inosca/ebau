@@ -1,3 +1,4 @@
+import contextlib
 from urllib.parse import urlparse
 from uuid import UUID
 
@@ -380,11 +381,9 @@ class NoticeRulingSendHandler(
 
             # question *may* be hidden here if it's not a building-permit,
             # but we don't care and fill anyway
-            try:
+            # WorkItem.DoesNotExist happens if we're too early in the workflow
+            with contextlib.suppress(WorkItem.DoesNotExist):
                 self._find_and_fill_geometer(self._get_decision_document(case))
-            except WorkItem.DoesNotExist:
-                # Happens if we're too early in the workflow
-                pass
 
             # send eCH event
             ruling.send(
@@ -720,7 +719,7 @@ class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
 
         if (
             settings.APPLICATION_NAME == "kt_bern"
-            and not self.instance.instance_state.name == "circulation"
+            and self.instance.instance_state.name != "circulation"
         ):
             return (
                 False,

@@ -39,7 +39,7 @@ class SoGisClient(GISBaseClient):
 
         query = to_query(
             {
-                "filter": config.get("filter", None),
+                "filter": config.get("filter"),
                 "bbox": get_bbox(
                     self.params["x"],
                     self.params["y"],

@@ -19,12 +19,10 @@ class Base:
 
     def decode(self, encoded: str) -> int:
         decoded = 0
-        power = 0
         lookup = self.lookup
         base = self.base
-        for char in reversed(encoded):
+        for power, char in enumerate(reversed(encoded)):
             decoded += lookup[char] * (base**power)
-            power += 1
 
         return decoded
 

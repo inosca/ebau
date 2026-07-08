@@ -204,37 +204,36 @@ class Command(BaseCommand):
                     is_within_target_canton = False
                 continue  # Always skip Level 1 entries from the final list
 
-            if is_within_target_canton:
-                if community_level == 3:
-                    # It's a municipality, so add it to our list
+            if is_within_target_canton and community_level == 3:
+                # It's a municipality, so add it to our list
 
-                    modified_name = community_name
-                    modified_short_name = community_short_name
+                modified_name = community_name
+                modified_short_name = community_short_name
 
-                    if append_identifier:
-                        if not canton_identifier_pattern.search(community_name):
-                            modified_name = f"{community_name} ({canton_filter})"
-                        if not canton_identifier_pattern.search(community_short_name):
-                            modified_short_name = (
-                                f"{community_short_name} ({canton_filter})"
-                            )
-                    else:
-                        modified_name = canton_identifier_pattern.sub(
-                            "", community_name
-                        ).strip()
-                        modified_short_name = canton_identifier_pattern.sub(
-                            "", community_short_name
-                        ).strip()
+                if append_identifier:
+                    if not canton_identifier_pattern.search(community_name):
+                        modified_name = f"{community_name} ({canton_filter})"
+                    if not canton_identifier_pattern.search(community_short_name):
+                        modified_short_name = (
+                            f"{community_short_name} ({canton_filter})"
+                        )
+                else:
+                    modified_name = canton_identifier_pattern.sub(
+                        "", community_name
+                    ).strip()
+                    modified_short_name = canton_identifier_pattern.sub(
+                        "", community_short_name
+                    ).strip()
 
-                    filtered_communities.append(
-                        {
-                            "BfsCode": row[bfs_code_idx],
-                            "Name": modified_name,
-                            "ShortName": modified_short_name,
-                            "Level": community_level,
-                            "Parent": row[parent_idx],
-                        }
-                    )
+                filtered_communities.append(
+                    {
+                        "BfsCode": row[bfs_code_idx],
+                        "Name": modified_name,
+                        "ShortName": modified_short_name,
+                        "Level": community_level,
+                        "Parent": row[parent_idx],
+                    }
+                )
 
         if not filtered_communities:
             self.stdout.write(

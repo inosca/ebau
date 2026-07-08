@@ -51,7 +51,7 @@ def test_filter_only_involved_applicants(
         url,
         {
             "attachment": attachment.pk,
-            "only_involved_applicants": True if only_involved_applicants else False,
+            "only_involved_applicants": only_involved_applicants,
         },
     )
 

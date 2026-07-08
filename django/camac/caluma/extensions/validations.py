@@ -69,7 +69,7 @@ def validate_metainfo(model_obj: Model, value: dict):
         if field in resettable:
             # resettable, we don't care
             continue
-        if value.get(field, None) is None and orig_value is not None:
+        if value.get(field) is None and orig_value is not None:
             # We had a value before, but now we don't; and the
             # field is not configured as being resettable
             raise exceptions.ValidationError(

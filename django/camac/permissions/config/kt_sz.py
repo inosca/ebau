@@ -26,15 +26,16 @@ class PermissionEventHandlerSZ(
                 access_level="read",
                 service=tax_admin_service,
             )
-        if form_family := instance.form.family:
-            if form_family.name == "abbruchpraemie":
-                self.manager.grant(
-                    instance,
-                    grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
-                    access_level="rpg2-demolition-premium-service",
-                    service=Service.objects.get(
-                        slug=settings.APPLICATION.get(
-                            "RPG2_DEMOLITION_PREMIUM_PAYMENT_SERVICE"
-                        )
-                    ),
-                )
+        if (
+            form_family := instance.form.family
+        ) and form_family.name == "abbruchpraemie":
+            self.manager.grant(
+                instance,
+                grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+                access_level="rpg2-demolition-premium-service",
+                service=Service.objects.get(
+                    slug=settings.APPLICATION.get(
+                        "RPG2_DEMOLITION_PREMIUM_PAYMENT_SERVICE"
+                    )
+                ),
+            )

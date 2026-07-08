@@ -1,4 +1,4 @@
-import os
+import io
 from datetime import date, timedelta
 
 import pytest
@@ -30,7 +30,7 @@ def test_checkissuedeadlines(
     call_command(
         "checkissuedeadlines",
         template=notification_template.pk,
-        stdout=open(os.devnull, "w"),
+        stdout=io.StringIO(),
     )
 
     assert len(mailoutbox) == 1
@@ -52,5 +52,5 @@ def test_checkissuedeadlines_invalid_template(issue, notification_template):
         call_command(
             "checkissuedeadlines",
             template=notification_template.pk,
-            stdout=open(os.devnull, "w"),
+            stdout=io.StringIO(),
         )

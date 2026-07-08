@@ -16,26 +16,26 @@ def create_sql_file(sql_file):
         "Baukontrolle",
     ]
     groups = GroupT.objects.filter(language="fr")
-    file = open(sql_file, "w+")
-    for group in groups:
-        if any(item in group.name for item in german):
-            file.write(
-                f"""UPDATE "GROUP_T"
+    with open(sql_file, "w+") as file:
+        for group in groups:
+            if any(item in group.name for item in german):
+                file.write(
+                    f"""UPDATE "GROUP_T"
             SET "NAME" = '{
-                    set_uppercase(
-                        group.name.replace("Sachbearbeiter", "collaborateur")
-                        .replace(
-                            "Einsichtsberechtigte", "personne autorisée à consulter"
+                        set_uppercase(
+                            group.name.replace("Sachbearbeiter", "collaborateur")
+                            .replace(
+                                "Einsichtsberechtigte",
+                                "personne autorisée à consulter",
+                            )
+                            .replace("Leitung", "responsable")
+                            .replace("Leitbehörde", "autorité directrice")
+                            .replace("Baukontrolle", "contrôle construction")
+                            .replace("'", "''")
                         )
-                        .replace("Leitung", "responsable")
-                        .replace("Leitbehörde", "autorité directrice")
-                        .replace("Baukontrolle", "contrôle construction")
-                        .replace("'", "''")
-                    )
-                }'
+                    }'
             WHERE id = {group.pk};"""
-            )
-    file.close()
+                )
 
 
 class Command(BaseCommand):

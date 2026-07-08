@@ -37,22 +37,20 @@ from camac.utils import get_unversioned_slug
 
 def check_gwr_relevancy(case, user, prev_work_item, context, task_slug):
     tasks = []
-    gwr_relevant = False
 
     gwr_relevancy_work_item = case.family.work_items.filter(
-        task_id="check-gwr-relevancy", status="completed"
+        task_id="check-gwr-relevancy", status=WorkItem.STATUS_COMPLETED
     ).first()
 
     if not gwr_relevancy_work_item:
         return [task_slug]
 
-    if gwr_relevancy_answer := gwr_relevancy_work_item.document.answers.filter(
-        question_id="fuer-gwr-relevant"
-    ).first():
-        gwr_relevant = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
-
-    if gwr_relevant:
+    if gwr_relevancy_work_item.document.answers.filter(
+        question_id="fuer-gwr-relevant",
+        value="fuer-gwr-relevant-ja",
+    ).exists():
         tasks.append(task_slug)
+
     return tasks
 
 
@@ -175,29 +173,28 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_decision_ur(self, case, user, prev_work_item, context):
         tasks = []
 
-        gwr_relevancy_work_item = case.work_items.filter(task_id="check-gwr-relevancy")
+        gwr_relevancy_work_item = case.work_items.filter(
+            task_id="check-gwr-relevancy"
+        ).first()
         involve_geometer = False
 
-        if gwr_relevancy_work_item:
-            if (
-                gwr_relevancy_answer := gwr_relevancy_work_item.first()
-                .document.answers.filter(question_id="fuer-gwr-relevant")
-                .first()
-            ):
-                relevant_for_gwr = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
-
-                if relevant_for_gwr:
-                    decision = domain_logic.DecisionLogic.get_decision_answer(
-                        question_id="decision-task-entscheid-beurteilung",
-                        work_item=prev_work_item,
-                    )
-                    if decision in [
-                        "entscheid-beurteilung-nicht-bewilligt",
-                        "decision-task-entscheid-beurteilung-bewilligung-nicht-in-aussicht-gestellt",
-                    ]:
-                        tasks.append("update-gwr-status-refused")
-                    else:
-                        tasks.append("update-gwr-status")
+        if gwr_relevancy_work_item and (
+            gwr_relevancy_work_item.document.answers.filter(
+                question_id="fuer-gwr-relevant",
+                value="fuer-gwr-relevant-ja",
+            ).exists()
+        ):
+            decision = domain_logic.DecisionLogic.get_decision_answer(
+                question_id="decision-task-entscheid-beurteilung",
+                work_item=prev_work_item,
+            )
+            if decision in [
+                "entscheid-beurteilung-nicht-bewilligt",
+                "decision-task-entscheid-beurteilung-bewilligung-nicht-in-aussicht-gestellt",
+            ]:
+                tasks.append("update-gwr-status-refused")
+            else:
+                tasks.append("update-gwr-status")
 
         decision_work_item = case.family.work_items.get(task_id="decision")
 
@@ -648,9 +645,10 @@ class CustomDynamicTasks(BaseDynamicTasks):
         return self._resolve_after_make_decision(case, user, prev_work_item, context)
 
     def resolve_after_make_decision_sz(self, case, user, prev_work_item, context):
-        if form_family := case.instance.form.family:
-            if form_family.name == "abbruchpraemie":
-                return [settings.APPLICATION["RPG2_DEMOLITION_PREMIUM_PAYMENT_TASK"]]
+        if (
+            form_family := case.instance.form.family
+        ) and form_family.name == "abbruchpraemie":
+            return [settings.APPLICATION["RPG2_DEMOLITION_PREMIUM_PAYMENT_TASK"]]
 
         return self._resolve_after_make_decision(case, user, prev_work_item, context)
 

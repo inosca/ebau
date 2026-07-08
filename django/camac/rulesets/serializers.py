@@ -107,15 +107,10 @@ class DistributionDeadlineRuleSerializer(serializers.ModelSerializer):
         return rule.get_deadline()
 
     def validate_target_service(self, service):
-        if (
-            service.service_group.name
-            in settings.DISTRIBUTION.get(
-                "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS", {}
-            ).keys()
-            or service.slug
-            in settings.DISTRIBUTION.get(
-                "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES", {}
-            ).keys()
+        if service.service_group.name in settings.DISTRIBUTION.get(
+            "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS", {}
+        ) or service.slug in settings.DISTRIBUTION.get(
+            "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES", {}
         ):
             raise ValidationError(
                 _("Defining a deadline rule for this service is not allowed")

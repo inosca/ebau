@@ -79,7 +79,7 @@ def test_swagger_paths(
     urls = []
 
     for url, config in result["paths"].items():
-        for method in config.keys():
+        for method in config:
             if method == "parameters":
                 continue
 

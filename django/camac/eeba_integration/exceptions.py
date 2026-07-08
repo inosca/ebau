@@ -10,6 +10,7 @@ from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
 
 from camac.instance.models import Instance
+from camac.utils import get_dict_item
 
 logger = logging.getLogger(__name__)
 
@@ -57,15 +58,14 @@ def handle_eeba_client_exceptions(function):
 
 
 def save_eeba_error_to_form(args):  # pragma: no cover
-    if args.get("data") and args.get("data").get("relation"):
-        if instance_id := args.get("data").get("relation").get("eBauId"):
-            document = Instance.objects.get(pk=instance_id).case.document
+    if instance_id := get_dict_item(args, "data.relation.eBauId", default=None):
+        document = Instance.objects.get(pk=instance_id).case.document
 
-            save_answer(
-                document=document,
-                question=Question.objects.get(slug="eeba-state"),
-                value="error",
-            )
+        save_answer(
+            document=document,
+            question=Question.objects.get(slug="eeba-state"),
+            value="error",
+        )
 
 
 def handle_view_exceptions(view_method):

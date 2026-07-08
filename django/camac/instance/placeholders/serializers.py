@@ -1842,8 +1842,11 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         if not sheet:  # pragma: no cover
             return None
 
-        reader = csv.DictReader(open(sheet))
-        municipalities = {row["Gemeinde"]: row["Verwaltungskreis"] for row in reader}
+        with open(sheet) as sheet_file:
+            reader = csv.DictReader(sheet_file)
+            municipalities = {
+                row["Gemeinde"]: row["Verwaltungskreis"] for row in reader
+            }
 
         caluma_api = CalumaApi()
         municipality_id = caluma_api.get_gemeinde(instance.case.document)
@@ -1872,7 +1875,7 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         ]:
             answer = instance.case.document.answers.filter(question_id=question).first()
 
-            if not answer or not answer.value == f"{question}-ja":
+            if not answer or answer.value != f"{question}-ja":
                 continue
 
             if question in ["rrb", "vertrag"]:

@@ -197,16 +197,17 @@ class DMSHandler:
             ),
         }
 
-        if settings.DMS.get("ADD_ADDRESS_DATA"):
-            if municipality := get_authority(instance):
-                address_data = {
-                    "addressRecipient": municipality.get_trans_attr("name"),
-                    "addressStreet": municipality.address,
-                    "addressCityZip": clean_join(
-                        municipality.zip, municipality.get_trans_attr("city")
-                    ),
-                }
-                data.update(address_data)
+        if settings.DMS.get("ADD_ADDRESS_DATA") and (
+            municipality := get_authority(instance)
+        ):
+            address_data = {
+                "addressRecipient": municipality.get_trans_attr("name"),
+                "addressStreet": municipality.address,
+                "addressCityZip": clean_join(
+                    municipality.zip, municipality.get_trans_attr("city")
+                ),
+            }
+            data.update(address_data)
 
         if settings.DMS.get("ADD_HEADER_DATA"):
             header_data = {
@@ -476,9 +477,9 @@ class DMSClient:
     def _make_dms_request(self, url, **kwargs):
         response = requests.post(
             url,
-            data=kwargs.get("data", None),
-            headers=kwargs.get("headers", None),
-            files=kwargs.get("files", None),
+            data=kwargs.get("data"),
+            headers=kwargs.get("headers"),
+            files=kwargs.get("files"),
         )
 
         if response.status_code == status.HTTP_401_UNAUTHORIZED:
@@ -567,10 +568,7 @@ class DMSVisitor:
             return False
 
         # Some special cases
-        if self._should_exclude_mp_form_stuff(field):
-            return False
-
-        return True
+        return not self._should_exclude_mp_form_stuff(field)
 
     def _should_exclude_mp_form_stuff(self, field):
         """Decide whether to exclude the MP form parts.
@@ -613,16 +611,13 @@ class DMSVisitor:
             ):
                 return True
 
-        if field.question.type == Question.TYPE_FORM:
-            # If our sub-fields are all excluded, we can exclude this form as well.
-            if all(
-                self._should_exclude_mp_form_stuff(child) for child in field.children()
-            ):
-                return True
-
-        if field.slug() == "mp-eigene-pruefgegenstaende" and not field.children():
+        # If our sub-fields are all excluded, we can exclude this form as well.
+        if field.question.type == Question.TYPE_FORM and all(
+            self._should_exclude_mp_form_stuff(child) for child in field.children()
+        ):
             return True
-        return False
+
+        return field.slug() == "mp-eigene-pruefgegenstaende" and not field.children()
 
     def collect_field(self, field, flatten=False):
         # Build up basic return value

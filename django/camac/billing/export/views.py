@@ -1,3 +1,5 @@
+import contextlib
+
 from rest_framework.exceptions import ErrorDetail
 from rest_framework.generics import ListAPIView
 from rest_framework.renderers import BaseRenderer
@@ -34,12 +36,10 @@ class XLSXRenderer(jsonapi_renderers.JSONRenderer, BaseRenderer):
         columns = list(fields)
 
         is_error = False
-        try:
+        with contextlib.suppress(KeyError):
             is_error = (
                 isinstance(data[0]["detail"], ErrorDetail) if len(data) else False
             )
-        except KeyError:
-            pass
 
         if is_error:
             return super().render(data)

@@ -129,7 +129,7 @@ class DecisionLogic:
         # construction monitoring, we do not continue the workflow after the decision.
         # without construction monitoring, the workflow should not be continued
         # for certain instance types (bauanzeige, solaranlage, vorlaeufige-beurteilung)
-        if is_module_enabled(
+        if is_module_enabled(  # noqa: SIM114
             "CONSTRUCTION_MONITORING"
         ) and not can_perform_construction_monitoring(instance):
             return False

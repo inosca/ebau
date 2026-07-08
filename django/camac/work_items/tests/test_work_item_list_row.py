@@ -1,3 +1,4 @@
+import contextlib
 import re
 from datetime import date, datetime
 
@@ -83,10 +84,8 @@ def work_item_list_row_factory(db, caluma_work_item_factory, service_factory, re
             "deadlines",
             "work_item_list",
         ]:
-            try:
+            with contextlib.suppress(pytest.FixtureLookupError):
                 request.getfixturevalue(f"{canton.lower()}_{module}_settings")
-            except pytest.FixtureLookupError:
-                pass
 
         addressed = addressed if addressed else service_factory()
         controlling = controlling if controlling else service_factory()

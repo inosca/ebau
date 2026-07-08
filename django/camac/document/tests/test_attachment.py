@@ -944,7 +944,7 @@ def test_attachment_update_context(
     aasa = attachment_attachment_sections.attachment
     url = reverse("attachment-detail", args=[aasa.pk])
 
-    if "displayName" in aasa.context.keys():
+    if "displayName" in aasa.context:
         application_settings["ATTACHMENT_SECTION_INTERNAL"] = (
             aasa.attachment_sections.first().attachment_section_id
         )

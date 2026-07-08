@@ -1,3 +1,4 @@
+import contextlib
 import json
 import sys
 from functools import partial
@@ -259,10 +260,7 @@ class FormDataValidator:
             module = self.forms_def["modules"][module_name]
 
             for question_name in module["questions"]:
-                if (
-                    not question_name == "layer"
-                    and not question_name.split("-")[0] == "info"
-                ):
+                if question_name != "layer" and question_name.split("-")[0] != "info":
                     question = self.forms_def["questions"][question_name]
 
                     if self._check_question_active(question_name, question):
@@ -318,7 +316,7 @@ class FormDataValidator:
 
                     if question["value"] is not None:
                         for value in question["value"]:
-                            firma = value["firma"] if "firma" in value else ""
+                            firma = value.get("firma", "")
                             name = f"{value.get('name', '')} {value.get('vorname', '')}"
 
                             names.append(f"{firma}\n{name}")
@@ -356,12 +354,10 @@ class FormDataValidator:
             expression, partial(ExtractTransformSubjectAnalyzer, transforms=["value"])
         )
         active = False
-        try:
+        # A TypeError is raised if a question is not filled. It then tries
+        # to e.g compare None < 250 which can't work
+        with contextlib.suppress(TypeError):
             active = self._check_questions_active(dep_questions) and self.jexl.evaluate(
                 expression, {"form": self.instance.form.family.name}
             )
-        except TypeError:
-            # A TypeError is raised if a question is not filled. It then tries
-            # to e.g compare None < 250 which can't work
-            pass
         return active

@@ -80,19 +80,21 @@ def export_form():
         data = json.load(f)
     questions = data["questions"]
 
-    form_export = open("form-export.csv", "w", encoding="utf-8")
-    writer = csv.writer(form_export, delimiter=";", quotechar='"')
+    with open("form-export.csv", "w", encoding="utf-8") as form_export:
+        writer = csv.writer(form_export, delimiter=";", quotechar='"')
 
-    for slug, question in questions.items():
-        try:
-            writer.writerow([slug, "", question["label"], question["hint"]])
-        except KeyError as e:
-            print(f"Question {slug} does not have a {e}, skipping it.")
+        for slug, question in questions.items():
+            try:
+                writer.writerow([slug, "", question["label"], question["hint"]])
+            except KeyError as e:
+                print(f"Question {slug} does not have a {e}, skipping it.")
 
-        if "columns" in question["config"]:
-            _write_recursive_columns(writer, slug, "", question["config"]["columns"])
+            if "columns" in question["config"]:
+                _write_recursive_columns(
+                    writer, slug, "", question["config"]["columns"]
+                )
 
-    form_export.close()
+        form_export.close()
 
 
 if sys.argv[1] == "import":

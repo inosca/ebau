@@ -274,7 +274,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             # it uses the fallback language. Create a fallback translation, to ensure that
             # the application doesn't run into issues for the other languages that have no
             # translation defined.
-            if not language == settings.LANGUAGE_CODE:  # pragma: todo cover
+            if language != settings.LANGUAGE_CODE:  # pragma: todo cover
                 models.ServiceT.objects.create(
                     service=service,
                     language=settings.LANGUAGE_CODE,
@@ -304,7 +304,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
 
                 # Create a fallback translation, to ensure that the application doesn't run
                 # into issues for the other languages that have no translation defined.
-                if not language == settings.LANGUAGE_CODE:  # pragma: todo cover
+                if language != settings.LANGUAGE_CODE:  # pragma: todo cover
                     models.GroupT.objects.create(
                         group=group,
                         name=name,
@@ -367,7 +367,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             # If there is no service translation defined for the current language
             # we create a new service translation to edit, instead of editing the
             # fallback translation
-            if service_t and not service_t.language == language:  # pragma: todo cover
+            if service_t and service_t.language != language:  # pragma: todo cover
                 models.ServiceT.objects.create(
                     service=instance,
                     language=language,
@@ -390,9 +390,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
                 name = self.get_group_name(new_name, group.role)
                 if settings.APPLICATION.get("IS_MULTILINGUAL"):
                     group_t = group.get_trans_obj()
-                    if (
-                        group_t and not group_t.language == language
-                    ):  # pragma: todo cover
+                    if group_t and group_t.language != language:  # pragma: todo cover
                         models.GroupT.objects.create(
                             group=group, name=name, language=language
                         )

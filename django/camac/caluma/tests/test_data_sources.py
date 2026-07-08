@@ -336,8 +336,8 @@ def test_landowners_dynamic_on_copy(
 
     # test default fallback values
     data_source = Landowners()
-    assert (None, None) == data_source.on_copy(None, None, (None, None))
-    assert (None, None) == data_source.on_copy(None, None, ("invalid-uuid", None))
+    assert data_source.on_copy(None, None, (None, None)) == (None, None)
+    assert data_source.on_copy(None, None, ("invalid-uuid", None)) == (None, None)
 
     main_document = caluma_document_factory()
     test_document_a = caluma_document_factory()
@@ -544,8 +544,8 @@ def test_buildings_dynamic_on_copy(
 
     # test default fallback values
     data_source = Buildings()
-    assert (None, None) == data_source.on_copy(None, None, (None, None))
-    assert (None, None) == data_source.on_copy(None, None, ("invalid-uuid", None))
+    assert data_source.on_copy(None, None, (None, None)) == (None, None)
+    assert data_source.on_copy(None, None, ("invalid-uuid", None)) == (None, None)
 
     main_document = caluma_document_factory()
     test_document = caluma_document_factory()

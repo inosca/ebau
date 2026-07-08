@@ -5,7 +5,7 @@ def is_additional_demand_with_changes(work_item) -> bool:
         work_item.case.work_items.filter(
             task_id=settings.ADDITIONAL_DEMAND["SEND_TASK"],
         ).first()
-        if not work_item.task_id == settings.ADDITIONAL_DEMAND["SEND_TASK"]
+        if work_item.task_id != settings.ADDITIONAL_DEMAND["SEND_TASK"]
         else work_item
     )
 

@@ -568,12 +568,12 @@ def test_instance_selection_for_geometer_change(
         == geometer_has_changed[0]
     )
     assert (
-        not InstanceACL.currently_active()
+        InstanceACL.currently_active()
         .filter(
             instance=be_instance, service=existing_geometer, access_level="geometer"
         )
         .exists()
-        == geometer_has_changed[0]
+        != geometer_has_changed[0]
     )
 
     InstanceACL.objects.all().delete()
@@ -602,12 +602,12 @@ def test_instance_selection_for_geometer_change(
         == geometer_has_changed[1]
     )
     assert (
-        not InstanceACL.currently_active()
+        InstanceACL.currently_active()
         .filter(
             instance=be_instance, service=existing_geometer, access_level="geometer"
         )
         .exists()
-        == geometer_has_changed[1]
+        != geometer_has_changed[1]
     )
 
 

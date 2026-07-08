@@ -111,7 +111,7 @@ if __name__ == "__main__":
 
         return ns
 
-    nsmap = [(ns_prefix(ns), ns) for ns in ns_to_file.keys()]
+    nsmap = [(ns_prefix(ns), ns) for ns in ns_to_file]
 
     nsmap_text = " ".join(f'xmlns:{prefix}="{ns}"' for prefix, ns in nsmap)
 

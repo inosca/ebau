@@ -366,19 +366,19 @@ def post_complete_instance(
         work_item.task.pk, []
     )
 
-    if settings.APPLICATION_NAME == "kt_uri":
-        if (
-            work_item
-            and work_item.document.answers.filter(
-                question_id="complete-instance-ac",
-                value="complete-instance-ac-verfahren-abgeschlossen-dossier-wird-archiviert",
-            ).exists()
-        ):
-            camac_user = User.objects.get(username=user.username)
-            instance.set_instance_state(
-                settings.CONSTRUCTION_MONITORING["AFTER_INSTANCE_STATE"],
-                camac_user,
-            )
+    if (
+        settings.APPLICATION_NAME == "kt_uri"
+        and work_item
+        and work_item.document.answers.filter(
+            question_id="complete-instance-ac",
+            value="complete-instance-ac-verfahren-abgeschlossen-dossier-wird-archiviert",
+        ).exists()
+    ):
+        camac_user = User.objects.get(username=user.username)
+        instance.set_instance_state(
+            settings.CONSTRUCTION_MONITORING["AFTER_INSTANCE_STATE"],
+            camac_user,
+        )
 
     for config in notifications:
         send_mail_without_request(

@@ -121,7 +121,7 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
     ):
         history_text = settings.WITHDRAWAL["HISTORY_ENTRIES"]["CONFIRMED"]
     elif workflow == "building-permit" and (
-        not settings.APPLICATION_NAME == "kt_so"
+        settings.APPLICATION_NAME != "kt_so"
         or get_unversioned_slug(work_item.case.document.form_id)
         not in ["voranfrage", "meldung", "meldung-pv"]
     ):

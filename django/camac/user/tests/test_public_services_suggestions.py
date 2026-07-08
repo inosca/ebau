@@ -15,7 +15,7 @@ def mock_cache(mocker):
         cached_result[key] = value
 
     def cache_get(key):
-        return cached_result[key] if key in cached_result else None
+        return cached_result.get(key)
 
     mocker.patch("django.core.cache.cache.set", side_effect=cache_set)
     mocker.patch("django.core.cache.cache.get", side_effect=cache_get)

@@ -487,15 +487,17 @@ class CalumaListAnswerWriter(FieldWriter):
         if not values:
             return
 
-        if values == self.owner.delete_keyword or any(
-            val == self.owner.delete_keyword for val in values
-        ):
-            # avoid creating entries with the e. g. <delete> value if the
-            # answer does not exist
-            if answer := instance.case.document.answers.filter(
+        # avoid creating entries with the e. g. <delete> value if the
+        # answer does not exist
+        if (
+            values == self.owner.delete_keyword
+            or any(val == self.owner.delete_keyword for val in values)
+        ) and (
+            answer := instance.case.document.answers.filter(
                 question__slug=self.target
-            ).first():
-                return answer.documents.all().delete()
+            ).first()
+        ):
+            return answer.documents.all().delete()
         if not any(any(self._values(obj)) for obj in values):  # pragma: no cover
             return
         try:
@@ -1329,32 +1331,33 @@ class DossierWriter:
 
             return messages
 
-        if settings.DOSSIER_IMPORT.get("ALEXANDRIA_UPDATE_EXISTING_DOCUMENTS", False):
-            if document := AlexandriaDocument.objects.filter(
+        if settings.DOSSIER_IMPORT.get("ALEXANDRIA_UPDATE_EXISTING_DOCUMENTS") and (
+            document := AlexandriaDocument.objects.filter(
                 title=filename, **{"metainfo__camac-instance-id": str(instance.pk)}
-            ).first():
-                original = document.get_latest_original()
-                if original.checksum == make_checksum(content.read()):
-                    return messages
-                content.seek(0)
-                create_file(
-                    document,
-                    user=self._user.pk,
-                    group=self._group.pk,
-                    name=filename,
-                    content=content,
-                    mime_type=mime_type,
-                    size=content.size,
-                )
-
-                messages.append(
-                    Message(
-                        level=Severity.INFO.value,
-                        code=MessageCodes.ATTACHMENT_UPDATED.value,
-                        detail=filename,
-                    )
-                )
+            ).first()
+        ):
+            original = document.get_latest_original()
+            if original.checksum == make_checksum(content.read()):
                 return messages
+            content.seek(0)
+            create_file(
+                document,
+                user=self._user.pk,
+                group=self._group.pk,
+                name=filename,
+                content=content,
+                mime_type=mime_type,
+                size=content.size,
+            )
+
+            messages.append(
+                Message(
+                    level=Severity.INFO.value,
+                    code=MessageCodes.ATTACHMENT_UPDATED.value,
+                    detail=filename,
+                )
+            )
+            return messages
 
         doc, _file = create_document_file(
             user=self._user.pk,

@@ -10,10 +10,10 @@ def get_missing_services():
 
 def create_sql_file(sql_file):
     missing_services = get_missing_services()
-    file = open(sql_file, "w+")
-    for service in missing_services:
-        file.write(
-            f"""INSERT INTO "SERVICE_T" (
+    with open(sql_file, "w+") as file:
+        for service in missing_services:
+            file.write(
+                f"""INSERT INTO "SERVICE_T" (
             "LANGUAGE",
             "NAME",
             "DESCRIPTION",
@@ -27,8 +27,7 @@ def create_sql_file(sql_file):
             {service.get_trans_attr("service_id")}
         );
         \n"""
-        )
-    file.close()
+            )
 
 
 class Command(BaseCommand):

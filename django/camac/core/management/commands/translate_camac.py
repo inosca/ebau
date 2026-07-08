@@ -77,15 +77,13 @@ def _load_csv(translation_file):
     """Load a csv file and return a list with translations."""
     with open(translation_file) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=",")
-        line_count = 0
         data = []
-        for item in csv_reader:
+        for line_count, item in enumerate(csv_reader):
             if line_count == 0:
                 pass  # skip header
             else:
                 row = [item[0], item[1], item[2]]
                 data.append(row)
-            line_count += 1
         return data
 
 

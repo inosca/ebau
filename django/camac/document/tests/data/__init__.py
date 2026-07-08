@@ -1,3 +1,4 @@
+import contextlib
 import os
 import shutil
 
@@ -11,10 +12,8 @@ def django_file(name, mode="rb"):
     abspath = os.path.join(_data_path, name)
     new_path = f"{settings.MEDIA_ROOT}/attachments"
 
-    try:
+    with contextlib.suppress(FileExistsError):
         os.makedirs(new_path)
-    except FileExistsError:  # pragma: no cover
-        pass
 
     new_name = os.path.basename(name)
     shutil.copy(abspath, f"{new_path}/{new_name}")

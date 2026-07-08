@@ -3775,7 +3775,7 @@ def ensure_no_leaks(request):
         else:
             # pydantic settings. Again, canton-wise diffing for reduced
             # output in case of issues
-            for canton in django_settings.APPLICATIONS.keys():
+            for canton in django_settings.APPLICATIONS:
                 before_cantonal = getattr(before, canton)
                 after_cantonal = getattr(after, canton)
 

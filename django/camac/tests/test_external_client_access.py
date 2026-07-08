@@ -1,3 +1,5 @@
+import contextlib
+
 import pytest
 from django.conf import settings
 from django.urls import get_resolver
@@ -101,10 +103,8 @@ def test_external_client_access(
     except pytest.FixtureLookupError:
         request.getfixturevalue("disable_ech0211_settings")
 
-    try:
+    with contextlib.suppress(pytest.FixtureLookupError):
         request.getfixturevalue(f"{canton}_billing_settings")
-    except pytest.FixtureLookupError:
-        pass
 
     request.getfixturevalue("reload_ech0211_urls")
 

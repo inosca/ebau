@@ -76,7 +76,7 @@ class Command(BaseCommand):
                     question__slug=old_slug,
                     document__form__slug="vorabklaerung-einfach",
                 )
-                if old_slug not in ALLGEMEINE_ANGABEN_SLUG_MAPPING.keys():
+                if old_slug not in ALLGEMEINE_ANGABEN_SLUG_MAPPING:
                     self.obsolete_answers.add(answer.pk)
 
                 form_api.save_answer(
@@ -114,7 +114,7 @@ class Command(BaseCommand):
                     question__slug=old_slug,
                     document__form__slug="vorabklaerung-einfach",
                 )
-                if old_slug not in ALLGEMEINE_ANGABEN_SLUG_MAPPING.keys():
+                if old_slug not in ALLGEMEINE_ANGABEN_SLUG_MAPPING:
                     self.obsolete_answers.add(answer.pk)
 
                 form_api.save_answer(
@@ -136,7 +136,7 @@ class Command(BaseCommand):
         )
 
     def _migrate_simple_answers(self):
-        for slug in ALLGEMEINE_ANGABEN_SLUG_MAPPING.keys():
+        for slug in ALLGEMEINE_ANGABEN_SLUG_MAPPING:
             Answer.objects.filter(
                 question_id=slug, document__form__slug="vorabklaerung-einfach"
             ).update(question_id=ALLGEMEINE_ANGABEN_SLUG_MAPPING[slug])

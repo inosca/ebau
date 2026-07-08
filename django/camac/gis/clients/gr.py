@@ -198,9 +198,12 @@ class GrGisClient(GISBaseClient):
                 for data in self.get_xml(response_content, layer):
                     if bezeichnung := find(data, "Bezeichnung"):
                         bracket = ""
-                        if verbindlichkeit := find(data, "Verbindlichkeit"):
-                            if verbindlichkeit != "Nutzungsplanfestlegung":
-                                bracket = " (" + verbindlichkeit + ")"
+                        verbindlichkeit = find(data, "Verbindlichkeit")
+                        if (
+                            verbindlichkeit
+                            and verbindlichkeit != "Nutzungsplanfestlegung"
+                        ):
+                            bracket = " (" + verbindlichkeit + ")"
 
                         result[question] += [bezeichnung + bracket]
 

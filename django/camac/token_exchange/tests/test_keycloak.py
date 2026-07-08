@@ -35,6 +35,6 @@ def test_keycloak_client(snapshot, settings):
     )
 
     assert decoded_token == snapshot
-    assert "lot" in decoded_token.keys()
+    assert "lot" in decoded_token
     assert decoded_token["azp"] == settings.KEYCLOAK_PORTAL_CLIENT
     assert settings.TOKEN_EXCHANGE_SCOPE in decoded_token["scope"]

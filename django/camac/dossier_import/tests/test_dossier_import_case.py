@@ -908,7 +908,7 @@ def test_reimport_ignores_empty(
         caluma_work_item_factory(task_id="decision", case=camac_instance.case)
     dossier = loader._load_dossier(dossier_row_full)
     writer.write_fields(camac_instance, dossier)
-    empty_rows = {key: None for key in dossier_row_full.keys() if key != "ID"}
+    empty_rows = {key: None for key in dossier_row_full if key != "ID"}
     orig_values = {}
     caluma_work_item_factory(task_id="building-authority", case=camac_instance.case)
     md = MasterData(camac_instance.case)

@@ -71,7 +71,7 @@ def test_no_bare_mutable_attrs_in_factories(request):
     factories_checked = []
     candidate_names = [
         fact
-        for fact in request._fixturemanager._arg2fixturedefs.keys()
+        for fact in request._fixturemanager._arg2fixturedefs
         if fact.endswith("_factory")
     ]
 

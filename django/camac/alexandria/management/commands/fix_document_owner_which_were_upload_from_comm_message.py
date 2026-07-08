@@ -1,3 +1,5 @@
+import contextlib
+
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -91,13 +93,11 @@ class Command(BaseCommand):
                 continue
 
             if len(recipient_services) > 1:
-                try:
+                with contextlib.suppress(Exception):
                     recipient_services = [
                         f"{s.pk}:{s.get_name()}"
                         for s in Service.objects.filter(pk__in=recipient_services)
                     ]
-                except Exception:
-                    pass
 
                 tqdm.write(
                     f"[SKIP/ambiguous]     {prefix} recipients={recipient_services}"

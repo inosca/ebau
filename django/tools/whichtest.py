@@ -10,24 +10,24 @@ import tomli
 
 
 def get_coverage_data():
-    cov_json = tempfile.NamedTemporaryFile(suffix=".json")
-    subprocess.check_call(
-        # fail under 0 - we're not interested in whether full coverage is reached.
-        [
-            "coverage",
-            "json",
-            "--show-contexts",
-            "-o",
-            cov_json.name,
-            "--fail-under=0",
-            "--ignore-errors",
-        ],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
+    with tempfile.NamedTemporaryFile(suffix=".json") as cov_json:
+        subprocess.check_call(
+            # fail under 0 - we're not interested in whether full coverage is reached.
+            [
+                "coverage",
+                "json",
+                "--show-contexts",
+                "-o",
+                cov_json.name,
+                "--fail-under=0",
+                "--ignore-errors",
+            ],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
 
-    cov_data = json.load(cov_json)
-    return cov_data
+        cov_data = json.load(cov_json)
+        return cov_data
 
 
 def which_tests_for_code(file, line):
@@ -44,9 +44,8 @@ def which_tests_for_code(file, line):
     if not cov_info:
         return []
 
-    if line:
-        if line in cov_info["contexts"]:
-            return cov_info["contexts"][line], True
+    if line and line in cov_info["contexts"]:
+        return cov_info["contexts"][line], True
     all_contexts = sorted(
         {ctx for ctx_list in cov_info["contexts"].values() for ctx in ctx_list if ctx}
     )

@@ -1,8 +1,8 @@
+import io
 import os
 import shutil
 import zipfile
 from pathlib import Path
-from tempfile import NamedTemporaryFile
 
 import celery.result
 import uuid_extensions
@@ -174,19 +174,20 @@ class DossierImport(models.Model):
         }.get(self.status, self.status)
 
     def get_archive(self):
-        tmp = NamedTemporaryFile(suffix="zip")
-        tmp_file = Path(tmp.name)
-        tmp_fh = tmp_file.open("w+b")
+        # Read into an in-memory buffer so the returned ZipFile owns a seekable
+        # file object regardless of the storage backend. The buffer stays alive
+        # via the ZipFile reference, so there's no file handle to leak.
+        buffer = io.BytesIO()
 
         # Ensure regardless of storage API, and what happened to the model/file
         # beforehand, we properly read the source file every time
         with self.source_file.file.open() as source_file:
             source_file.seek(0)
-            tmp_fh.write(source_file.read())
+            buffer.write(source_file.read())
 
-        tmp_fh.seek(0)
+        buffer.seek(0)
 
-        return zipfile.ZipFile(tmp_fh, "r")
+        return zipfile.ZipFile(buffer, "r")
 
 
 class MigrationDocumentStatus(models.Model):

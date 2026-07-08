@@ -1,4 +1,4 @@
-import os
+import io
 
 import pytest
 from django.core.management import call_command
@@ -55,7 +55,7 @@ def test_create_admin_groups(
         "create_admin_groups",
         "--exec",
         "--no-transaction",
-        stdout=open(os.devnull, "w"),
+        stdout=io.StringIO(),
     )
 
     new_group = service.groups.get(role=admin_role)
