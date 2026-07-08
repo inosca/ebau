@@ -9342,12 +9342,12 @@
         ]),
         'DATUM_ENDE': list([
           dict({
-            'de': 'date_end',
+            'de': 'end_date',
           }),
         ]),
         'DATUM_START': list([
           dict({
-            'de': 'date_start',
+            'de': 'start_date',
           }),
         ]),
         'ERSTELLT': list([
@@ -9397,7 +9397,7 @@
         ]),
         'ZIRKULATION_STATUS': list([
           dict({
-            'de': 'circulation_status',
+            'de': 'circulation_state',
           }),
         ]),
       }),
@@ -9864,11 +9864,6 @@
         'de': 'Name und Adresse aller Gesuchsteller/innen',
       }),
       'nested_aliases': dict({
-        'ADDRESS': list([
-          dict({
-            'de': 'adresse',
-          }),
-        ]),
         'EMAIL': list([
           dict({
             'de': 'email',
@@ -9886,87 +9881,7 @@
         ]),
         'LAST_NAME': list([
           dict({
-            'de': 'nachname',
-          }),
-        ]),
-        'NAME': list([
-          dict({
             'de': 'name',
-          }),
-        ]),
-        'PO_BOX': list([
-          dict({
-            'de': 'postfach',
-          }),
-        ]),
-        'REPRESENTATIVE_ADDRESS': list([
-          dict({
-            'de': 'vertreter_adresse',
-          }),
-        ]),
-        'REPRESENTATIVE_EMAIL': list([
-          dict({
-            'de': 'vertreter_email',
-          }),
-        ]),
-        'REPRESENTATIVE_FIRST_NAME': list([
-          dict({
-            'de': 'vertreter_vorname',
-          }),
-        ]),
-        'REPRESENTATIVE_JURISTIC_NAME': list([
-          dict({
-            'de': 'vertreter_name_juristische_person',
-          }),
-        ]),
-        'REPRESENTATIVE_LAST_NAME': list([
-          dict({
-            'de': 'vertreter_nachname',
-          }),
-        ]),
-        'REPRESENTATIVE_NAME': list([
-          dict({
-            'de': 'vertreter_name',
-          }),
-        ]),
-        'REPRESENTATIVE_PO_BOX': list([
-          dict({
-            'de': 'vertreter_postfach',
-          }),
-        ]),
-        'REPRESENTATIVE_SALUTATION': list([
-          dict({
-            'de': 'vertreter_anrede',
-          }),
-        ]),
-        'REPRESENTATIVE_STREET': list([
-          dict({
-            'de': 'vertreter_strasse',
-          }),
-        ]),
-        'REPRESENTATIVE_STREET_NUMBER': list([
-          dict({
-            'de': 'vertreter_hausnummer',
-          }),
-        ]),
-        'REPRESENTATIVE_TEL': list([
-          dict({
-            'de': 'vertreter_telefon',
-          }),
-        ]),
-        'REPRESENTATIVE_TITLE': list([
-          dict({
-            'de': 'vertreter_titel',
-          }),
-        ]),
-        'REPRESENTATIVE_TOWN': list([
-          dict({
-            'de': 'vertreter_ortschaft',
-          }),
-        ]),
-        'REPRESENTATIVE_ZIP': list([
-          dict({
-            'de': 'vertreter_plz',
           }),
         ]),
         'SALUTATION': list([
@@ -9979,19 +9894,9 @@
             'de': 'strasse',
           }),
         ]),
-        'STREET_NUMBER': list([
-          dict({
-            'de': 'hausnummer',
-          }),
-        ]),
         'TEL': list([
           dict({
             'de': 'tel',
-          }),
-        ]),
-        'TITLE': list([
-          dict({
-            'de': 'titel',
           }),
         ]),
         'TOWN': list([
@@ -10055,11 +9960,6 @@
         'de': 'Name und Adresse aller Grundstückbesitzer/innen',
       }),
       'nested_aliases': dict({
-        'ADDRESS': list([
-          dict({
-            'de': 'adresse',
-          }),
-        ]),
         'EMAIL': list([
           dict({
             'de': 'email',
@@ -10077,87 +9977,7 @@
         ]),
         'LAST_NAME': list([
           dict({
-            'de': 'nachname',
-          }),
-        ]),
-        'NAME': list([
-          dict({
             'de': 'name',
-          }),
-        ]),
-        'PO_BOX': list([
-          dict({
-            'de': 'postfach',
-          }),
-        ]),
-        'REPRESENTATIVE_ADDRESS': list([
-          dict({
-            'de': 'vertreter_adresse',
-          }),
-        ]),
-        'REPRESENTATIVE_EMAIL': list([
-          dict({
-            'de': 'vertreter_email',
-          }),
-        ]),
-        'REPRESENTATIVE_FIRST_NAME': list([
-          dict({
-            'de': 'vertreter_vorname',
-          }),
-        ]),
-        'REPRESENTATIVE_JURISTIC_NAME': list([
-          dict({
-            'de': 'vertreter_name_juristische_person',
-          }),
-        ]),
-        'REPRESENTATIVE_LAST_NAME': list([
-          dict({
-            'de': 'vertreter_nachname',
-          }),
-        ]),
-        'REPRESENTATIVE_NAME': list([
-          dict({
-            'de': 'vertreter_name',
-          }),
-        ]),
-        'REPRESENTATIVE_PO_BOX': list([
-          dict({
-            'de': 'vertreter_postfach',
-          }),
-        ]),
-        'REPRESENTATIVE_SALUTATION': list([
-          dict({
-            'de': 'vertreter_anrede',
-          }),
-        ]),
-        'REPRESENTATIVE_STREET': list([
-          dict({
-            'de': 'vertreter_strasse',
-          }),
-        ]),
-        'REPRESENTATIVE_STREET_NUMBER': list([
-          dict({
-            'de': 'vertreter_hausnummer',
-          }),
-        ]),
-        'REPRESENTATIVE_TEL': list([
-          dict({
-            'de': 'vertreter_telefon',
-          }),
-        ]),
-        'REPRESENTATIVE_TITLE': list([
-          dict({
-            'de': 'vertreter_titel',
-          }),
-        ]),
-        'REPRESENTATIVE_TOWN': list([
-          dict({
-            'de': 'vertreter_ortschaft',
-          }),
-        ]),
-        'REPRESENTATIVE_ZIP': list([
-          dict({
-            'de': 'vertreter_plz',
           }),
         ]),
         'SALUTATION': list([
@@ -10170,19 +9990,9 @@
             'de': 'strasse',
           }),
         ]),
-        'STREET_NUMBER': list([
-          dict({
-            'de': 'hausnummer',
-          }),
-        ]),
         'TEL': list([
           dict({
             'de': 'tel',
-          }),
-        ]),
-        'TITLE': list([
-          dict({
-            'de': 'titel',
           }),
         ]),
         'TOWN': list([
@@ -10256,11 +10066,6 @@
         'de': 'Name und Adresse der Projektautor:innen',
       }),
       'nested_aliases': dict({
-        'ADDRESS': list([
-          dict({
-            'de': 'adresse',
-          }),
-        ]),
         'EMAIL': list([
           dict({
             'de': 'email',
@@ -10278,87 +10083,7 @@
         ]),
         'LAST_NAME': list([
           dict({
-            'de': 'nachname',
-          }),
-        ]),
-        'NAME': list([
-          dict({
             'de': 'name',
-          }),
-        ]),
-        'PO_BOX': list([
-          dict({
-            'de': 'postfach',
-          }),
-        ]),
-        'REPRESENTATIVE_ADDRESS': list([
-          dict({
-            'de': 'vertreter_adresse',
-          }),
-        ]),
-        'REPRESENTATIVE_EMAIL': list([
-          dict({
-            'de': 'vertreter_email',
-          }),
-        ]),
-        'REPRESENTATIVE_FIRST_NAME': list([
-          dict({
-            'de': 'vertreter_vorname',
-          }),
-        ]),
-        'REPRESENTATIVE_JURISTIC_NAME': list([
-          dict({
-            'de': 'vertreter_name_juristische_person',
-          }),
-        ]),
-        'REPRESENTATIVE_LAST_NAME': list([
-          dict({
-            'de': 'vertreter_nachname',
-          }),
-        ]),
-        'REPRESENTATIVE_NAME': list([
-          dict({
-            'de': 'vertreter_name',
-          }),
-        ]),
-        'REPRESENTATIVE_PO_BOX': list([
-          dict({
-            'de': 'vertreter_postfach',
-          }),
-        ]),
-        'REPRESENTATIVE_SALUTATION': list([
-          dict({
-            'de': 'vertreter_anrede',
-          }),
-        ]),
-        'REPRESENTATIVE_STREET': list([
-          dict({
-            'de': 'vertreter_strasse',
-          }),
-        ]),
-        'REPRESENTATIVE_STREET_NUMBER': list([
-          dict({
-            'de': 'vertreter_hausnummer',
-          }),
-        ]),
-        'REPRESENTATIVE_TEL': list([
-          dict({
-            'de': 'vertreter_telefon',
-          }),
-        ]),
-        'REPRESENTATIVE_TITLE': list([
-          dict({
-            'de': 'vertreter_titel',
-          }),
-        ]),
-        'REPRESENTATIVE_TOWN': list([
-          dict({
-            'de': 'vertreter_ortschaft',
-          }),
-        ]),
-        'REPRESENTATIVE_ZIP': list([
-          dict({
-            'de': 'vertreter_plz',
           }),
         ]),
         'SALUTATION': list([
@@ -10371,19 +10096,9 @@
             'de': 'strasse',
           }),
         ]),
-        'STREET_NUMBER': list([
-          dict({
-            'de': 'hausnummer',
-          }),
-        ]),
         'TEL': list([
           dict({
             'de': 'tel',
-          }),
-        ]),
-        'TITLE': list([
-          dict({
-            'de': 'titel',
           }),
         ]),
         'TOWN': list([
@@ -10468,11 +10183,6 @@
         'de': 'Name und Adresse der Vertreter/innen mit Vollmacht',
       }),
       'nested_aliases': dict({
-        'ADDRESS': list([
-          dict({
-            'de': 'adresse',
-          }),
-        ]),
         'EMAIL': list([
           dict({
             'de': 'email',
@@ -10490,87 +10200,7 @@
         ]),
         'LAST_NAME': list([
           dict({
-            'de': 'nachname',
-          }),
-        ]),
-        'NAME': list([
-          dict({
             'de': 'name',
-          }),
-        ]),
-        'PO_BOX': list([
-          dict({
-            'de': 'postfach',
-          }),
-        ]),
-        'REPRESENTATIVE_ADDRESS': list([
-          dict({
-            'de': 'vertreter_adresse',
-          }),
-        ]),
-        'REPRESENTATIVE_EMAIL': list([
-          dict({
-            'de': 'vertreter_email',
-          }),
-        ]),
-        'REPRESENTATIVE_FIRST_NAME': list([
-          dict({
-            'de': 'vertreter_vorname',
-          }),
-        ]),
-        'REPRESENTATIVE_JURISTIC_NAME': list([
-          dict({
-            'de': 'vertreter_name_juristische_person',
-          }),
-        ]),
-        'REPRESENTATIVE_LAST_NAME': list([
-          dict({
-            'de': 'vertreter_nachname',
-          }),
-        ]),
-        'REPRESENTATIVE_NAME': list([
-          dict({
-            'de': 'vertreter_name',
-          }),
-        ]),
-        'REPRESENTATIVE_PO_BOX': list([
-          dict({
-            'de': 'vertreter_postfach',
-          }),
-        ]),
-        'REPRESENTATIVE_SALUTATION': list([
-          dict({
-            'de': 'vertreter_anrede',
-          }),
-        ]),
-        'REPRESENTATIVE_STREET': list([
-          dict({
-            'de': 'vertreter_strasse',
-          }),
-        ]),
-        'REPRESENTATIVE_STREET_NUMBER': list([
-          dict({
-            'de': 'vertreter_hausnummer',
-          }),
-        ]),
-        'REPRESENTATIVE_TEL': list([
-          dict({
-            'de': 'vertreter_telefon',
-          }),
-        ]),
-        'REPRESENTATIVE_TITLE': list([
-          dict({
-            'de': 'vertreter_titel',
-          }),
-        ]),
-        'REPRESENTATIVE_TOWN': list([
-          dict({
-            'de': 'vertreter_ortschaft',
-          }),
-        ]),
-        'REPRESENTATIVE_ZIP': list([
-          dict({
-            'de': 'vertreter_plz',
           }),
         ]),
         'SALUTATION': list([
@@ -10583,19 +10213,9 @@
             'de': 'strasse',
           }),
         ]),
-        'STREET_NUMBER': list([
-          dict({
-            'de': 'hausnummer',
-          }),
-        ]),
         'TEL': list([
           dict({
             'de': 'tel',
-          }),
-        ]),
-        'TITLE': list([
-          dict({
-            'de': 'titel',
           }),
         ]),
         'TOWN': list([
@@ -10651,12 +10271,12 @@
         ]),
         'DATUM_ENDE': list([
           dict({
-            'de': 'date_end',
+            'de': 'end_date',
           }),
         ]),
         'DATUM_START': list([
           dict({
-            'de': 'date_start',
+            'de': 'start_date',
           }),
         ]),
         'ERSTELLT': list([
@@ -10706,7 +10326,7 @@
         ]),
         'ZIRKULATION_STATUS': list([
           dict({
-            'de': 'circulation_status',
+            'de': 'circulation_state',
           }),
         ]),
       }),
@@ -10714,7 +10334,7 @@
     'objections': dict({
       'aliases': list([
         dict({
-          'de': 'einsprachen',
+          'de': 'objections',
         }),
       ]),
       'description': dict({
@@ -10733,7 +10353,7 @@
         ]),
         'participants.address': list([
           dict({
-            'de': 'adresse',
+            'de': 'address',
           }),
         ]),
         'participants.city': list([
@@ -10743,7 +10363,7 @@
         ]),
         'participants.company': list([
           dict({
-            'de': 'firma',
+            'de': 'company',
           }),
         ]),
         'participants.email': list([
@@ -10758,12 +10378,12 @@
         ]),
         'participants.phone': list([
           dict({
-            'de': 'telefon',
+            'de': 'phone',
           }),
         ]),
         'title': list([
           dict({
-            'de': 'titel',
+            'de': 'title',
           }),
         ]),
       }),
@@ -19346,11 +18966,10 @@
     'activations[]',
     'activations[].answered',
     'activations[].circulation_answer',
-    'activations[].circulation_status',
+    'activations[].circulation_state',
     'activations[].created',
-    'activations[].date_end',
-    'activations[].date_start',
     'activations[].deadline_date',
+    'activations[].end_date',
     'activations[].name',
     'activations[].notices',
     'activations[].notices[]',
@@ -19358,6 +18977,7 @@
     'activations[].notices[].notice_type',
     'activations[].reason',
     'activations[].service',
+    'activations[].start_date',
     'bauverwaltung',
     'bauverwaltung.baukontrolle_baugespannkontrolle_bemerkungen',
     'bauverwaltung.baukontrolle_baugespannkontrolle_datum',
@@ -19437,47 +19057,16 @@
     'date_dossiereingang',
     'date_dossiervollstandig',
     'date_start_zirkulation',
-    'einsprachen',
-    'einsprachen[]',
-    'einsprachen[].creation_date',
-    'einsprachen[].participants',
-    'einsprachen[].participants[]',
-    'einsprachen[].participants[].adresse',
-    'einsprachen[].participants[].city',
-    'einsprachen[].participants[].email',
-    'einsprachen[].participants[].firma',
-    'einsprachen[].participants[].name',
-    'einsprachen[].participants[].telefon',
-    'einsprachen[].titel',
     'field_bauherrschaft',
     'field_bauherrschaft[]',
-    'field_bauherrschaft[].adresse',
     'field_bauherrschaft[].anrede',
     'field_bauherrschaft[].email',
     'field_bauherrschaft[].firma',
-    'field_bauherrschaft[].hausnummer',
-    'field_bauherrschaft[].nachname',
     'field_bauherrschaft[].name',
     'field_bauherrschaft[].ort',
     'field_bauherrschaft[].plz',
-    'field_bauherrschaft[].postfach',
     'field_bauherrschaft[].strasse',
     'field_bauherrschaft[].tel',
-    'field_bauherrschaft[].titel',
-    'field_bauherrschaft[].vertreter_adresse',
-    'field_bauherrschaft[].vertreter_anrede',
-    'field_bauherrschaft[].vertreter_email',
-    'field_bauherrschaft[].vertreter_hausnummer',
-    'field_bauherrschaft[].vertreter_nachname',
-    'field_bauherrschaft[].vertreter_name',
-    'field_bauherrschaft[].vertreter_name_juristische_person',
-    'field_bauherrschaft[].vertreter_ortschaft',
-    'field_bauherrschaft[].vertreter_plz',
-    'field_bauherrschaft[].vertreter_postfach',
-    'field_bauherrschaft[].vertreter_strasse',
-    'field_bauherrschaft[].vertreter_telefon',
-    'field_bauherrschaft[].vertreter_titel',
-    'field_bauherrschaft[].vertreter_vorname',
     'field_bauherrschaft[].vorname',
     'field_betroffene_nutzungszonen',
     'field_bezeichnung',
@@ -19485,33 +19074,14 @@
     'field_energie_photovoltaik_gesamtleistung',
     'field_grundeigentumerschaft',
     'field_grundeigentumerschaft[]',
-    'field_grundeigentumerschaft[].adresse',
     'field_grundeigentumerschaft[].anrede',
     'field_grundeigentumerschaft[].email',
     'field_grundeigentumerschaft[].firma',
-    'field_grundeigentumerschaft[].hausnummer',
-    'field_grundeigentumerschaft[].nachname',
     'field_grundeigentumerschaft[].name',
     'field_grundeigentumerschaft[].ort',
     'field_grundeigentumerschaft[].plz',
-    'field_grundeigentumerschaft[].postfach',
     'field_grundeigentumerschaft[].strasse',
     'field_grundeigentumerschaft[].tel',
-    'field_grundeigentumerschaft[].titel',
-    'field_grundeigentumerschaft[].vertreter_adresse',
-    'field_grundeigentumerschaft[].vertreter_anrede',
-    'field_grundeigentumerschaft[].vertreter_email',
-    'field_grundeigentumerschaft[].vertreter_hausnummer',
-    'field_grundeigentumerschaft[].vertreter_nachname',
-    'field_grundeigentumerschaft[].vertreter_name',
-    'field_grundeigentumerschaft[].vertreter_name_juristische_person',
-    'field_grundeigentumerschaft[].vertreter_ortschaft',
-    'field_grundeigentumerschaft[].vertreter_plz',
-    'field_grundeigentumerschaft[].vertreter_postfach',
-    'field_grundeigentumerschaft[].vertreter_strasse',
-    'field_grundeigentumerschaft[].vertreter_telefon',
-    'field_grundeigentumerschaft[].vertreter_titel',
-    'field_grundeigentumerschaft[].vertreter_vorname',
     'field_grundeigentumerschaft[].vorname',
     'field_kategorie_des_vorhabens',
     'field_kategorie_des_vorhabens[]',
@@ -19522,33 +19092,14 @@
     'field_parzellen[].number',
     'field_projektverfasser_planer',
     'field_projektverfasser_planer[]',
-    'field_projektverfasser_planer[].adresse',
     'field_projektverfasser_planer[].anrede',
     'field_projektverfasser_planer[].email',
     'field_projektverfasser_planer[].firma',
-    'field_projektverfasser_planer[].hausnummer',
-    'field_projektverfasser_planer[].nachname',
     'field_projektverfasser_planer[].name',
     'field_projektverfasser_planer[].ort',
     'field_projektverfasser_planer[].plz',
-    'field_projektverfasser_planer[].postfach',
     'field_projektverfasser_planer[].strasse',
     'field_projektverfasser_planer[].tel',
-    'field_projektverfasser_planer[].titel',
-    'field_projektverfasser_planer[].vertreter_adresse',
-    'field_projektverfasser_planer[].vertreter_anrede',
-    'field_projektverfasser_planer[].vertreter_email',
-    'field_projektverfasser_planer[].vertreter_hausnummer',
-    'field_projektverfasser_planer[].vertreter_nachname',
-    'field_projektverfasser_planer[].vertreter_name',
-    'field_projektverfasser_planer[].vertreter_name_juristische_person',
-    'field_projektverfasser_planer[].vertreter_ortschaft',
-    'field_projektverfasser_planer[].vertreter_plz',
-    'field_projektverfasser_planer[].vertreter_postfach',
-    'field_projektverfasser_planer[].vertreter_strasse',
-    'field_projektverfasser_planer[].vertreter_telefon',
-    'field_projektverfasser_planer[].vertreter_titel',
-    'field_projektverfasser_planer[].vertreter_vorname',
     'field_projektverfasser_planer[].vorname',
     'field_publikation_bemerkung',
     'field_punkte',
@@ -19558,33 +19109,14 @@
     'field_standort_spezialbezeichnung',
     'field_vertreter_mit_vollmacht',
     'field_vertreter_mit_vollmacht[]',
-    'field_vertreter_mit_vollmacht[].adresse',
     'field_vertreter_mit_vollmacht[].anrede',
     'field_vertreter_mit_vollmacht[].email',
     'field_vertreter_mit_vollmacht[].firma',
-    'field_vertreter_mit_vollmacht[].hausnummer',
-    'field_vertreter_mit_vollmacht[].nachname',
     'field_vertreter_mit_vollmacht[].name',
     'field_vertreter_mit_vollmacht[].ort',
     'field_vertreter_mit_vollmacht[].plz',
-    'field_vertreter_mit_vollmacht[].postfach',
     'field_vertreter_mit_vollmacht[].strasse',
     'field_vertreter_mit_vollmacht[].tel',
-    'field_vertreter_mit_vollmacht[].titel',
-    'field_vertreter_mit_vollmacht[].vertreter_adresse',
-    'field_vertreter_mit_vollmacht[].vertreter_anrede',
-    'field_vertreter_mit_vollmacht[].vertreter_email',
-    'field_vertreter_mit_vollmacht[].vertreter_hausnummer',
-    'field_vertreter_mit_vollmacht[].vertreter_nachname',
-    'field_vertreter_mit_vollmacht[].vertreter_name',
-    'field_vertreter_mit_vollmacht[].vertreter_name_juristische_person',
-    'field_vertreter_mit_vollmacht[].vertreter_ortschaft',
-    'field_vertreter_mit_vollmacht[].vertreter_plz',
-    'field_vertreter_mit_vollmacht[].vertreter_postfach',
-    'field_vertreter_mit_vollmacht[].vertreter_strasse',
-    'field_vertreter_mit_vollmacht[].vertreter_telefon',
-    'field_vertreter_mit_vollmacht[].vertreter_titel',
-    'field_vertreter_mit_vollmacht[].vertreter_vorname',
     'field_vertreter_mit_vollmacht[].vorname',
     'identifier',
     'location',
@@ -19592,11 +19124,10 @@
     'my_activations[]',
     'my_activations[].answered',
     'my_activations[].circulation_answer',
-    'my_activations[].circulation_status',
+    'my_activations[].circulation_state',
     'my_activations[].created',
-    'my_activations[].date_end',
-    'my_activations[].date_start',
     'my_activations[].deadline_date',
+    'my_activations[].end_date',
     'my_activations[].name',
     'my_activations[].notices',
     'my_activations[].notices[]',
@@ -19604,6 +19135,19 @@
     'my_activations[].notices[].notice_type',
     'my_activations[].reason',
     'my_activations[].service',
+    'my_activations[].start_date',
+    'objections',
+    'objections[]',
+    'objections[].creation_date',
+    'objections[].participants',
+    'objections[].participants[]',
+    'objections[].participants[].address',
+    'objections[].participants[].city',
+    'objections[].participants[].company',
+    'objections[].participants[].email',
+    'objections[].participants[].name',
+    'objections[].participants[].phone',
+    'objections[].title',
     'publication_date',
     'publications',
     'publications[]',
@@ -22037,11 +21581,10 @@
         'ZIRKULATION_STATUS': 'OK',
         'answered': '14.04.2018',
         'circulation_answer': 'Abschliessend beurteilbar',
-        'circulation_status': 'OK',
+        'circulation_state': 'OK',
         'created': '14.03.2018',
-        'date_end': '',
-        'date_start': '20.12.2020',
         'deadline_date': '29.04.2018',
+        'end_date': '',
         'name': 'Fachstelle',
         'notices': list([
           dict({
@@ -22059,6 +21602,7 @@
         ]),
         'reason': 'Grund',
         'service': 'Fachstelle',
+        'start_date': '20.12.2020',
       }),
       dict({
         'BEANTWORTET': '',
@@ -22075,16 +21619,16 @@
         'ZIRKULATION_STATUS': 'RUN',
         'answered': '',
         'circulation_answer': '',
-        'circulation_status': 'RUN',
+        'circulation_state': 'RUN',
         'created': '20.12.2020',
-        'date_end': '',
-        'date_start': '20.12.2020',
         'deadline_date': '28.06.2001',
+        'end_date': '',
         'name': 'Jasmine Phelps',
         'notices': list([
         ]),
         'reason': '',
         'service': 'Jasmine Phelps',
+        'start_date': '20.12.2020',
       }),
       dict({
         'BEANTWORTET': '',
@@ -22101,16 +21645,16 @@
         'ZIRKULATION_STATUS': 'RUN',
         'answered': '',
         'circulation_answer': '',
-        'circulation_status': 'RUN',
+        'circulation_state': 'RUN',
         'created': '20.12.2020',
-        'date_end': '',
-        'date_start': '20.12.2020',
         'deadline_date': '21.07.2012',
+        'end_date': '',
         'name': 'Alex Smith',
         'notices': list([
         ]),
         'reason': '',
         'service': 'Alex Smith',
+        'start_date': '20.12.2020',
       }),
     ]),
     'bauverwaltung': dict({
@@ -22143,82 +21687,25 @@
     'date_dossiereingang': '14.10.2020',
     'date_dossiervollstandig': '25.10.2020',
     'date_start_zirkulation': '05.11.2020',
-    'einsprachen': list([
-      dict({
-        'creation_date': '23.12.2020',
-        'participants': list([
-          dict({
-            'address': 'Malone Corner',
-            'adresse': 'Malone Corner',
-            'city': 'North Brendan',
-            'company': 'James Todd',
-            'firma': 'James Todd',
-            'name': 'Michael Burton',
-            'phone': '671-276-7342x95469',
-            'telefon': '671-276-7342x95469',
-          }),
-        ]),
-        'titel': '',
-        'title': '',
-      }),
-    ]),
     'field_bauherrschaft': list([
       dict({
-        'ADDRESS': 'Teststrasse 3, 5678 Musterdorf',
-        'EMAIL': '',
+        'EMAIL': 'muster@example.com',
         'FIRST_NAME': 'Max',
         'JURISTIC_NAME': 'ACME AG',
         'LAST_NAME': 'Mustermann',
-        'NAME': 'Max Mustermann',
-        'PO_BOX': '',
-        'REPRESENTATIVE_ADDRESS': '',
-        'REPRESENTATIVE_EMAIL': '',
-        'REPRESENTATIVE_FIRST_NAME': '',
-        'REPRESENTATIVE_JURISTIC_NAME': '',
-        'REPRESENTATIVE_LAST_NAME': '',
-        'REPRESENTATIVE_NAME': '',
-        'REPRESENTATIVE_PO_BOX': '',
-        'REPRESENTATIVE_SALUTATION': '',
-        'REPRESENTATIVE_STREET': '',
-        'REPRESENTATIVE_STREET_NUMBER': '',
-        'REPRESENTATIVE_TEL': '',
-        'REPRESENTATIVE_TITLE': '',
-        'REPRESENTATIVE_TOWN': '',
-        'REPRESENTATIVE_ZIP': '',
-        'SALUTATION': '',
+        'SALUTATION': 'Herr',
         'STREET': 'Teststrasse 3',
-        'STREET_NUMBER': '',
-        'TEL': '',
-        'TITLE': '',
+        'TEL': '+411234567',
         'TOWN': 'Musterdorf',
         'ZIP': 5678,
-        'adresse': 'Teststrasse 3, 5678 Musterdorf',
-        'anrede': '',
-        'email': '',
+        'anrede': 'Herr',
+        'email': 'muster@example.com',
         'firma': 'ACME AG',
-        'hausnummer': '',
-        'nachname': 'Mustermann',
-        'name': 'Max Mustermann',
+        'name': 'Mustermann',
         'ort': 'Musterdorf',
         'plz': 5678,
-        'postfach': '',
         'strasse': 'Teststrasse 3',
-        'tel': '',
-        'titel': '',
-        'vertreter_adresse': '',
-        'vertreter_anrede': '',
-        'vertreter_email': '',
-        'vertreter_hausnummer': '',
-        'vertreter_nachname': '',
-        'vertreter_name': '',
-        'vertreter_name_juristische_person': '',
-        'vertreter_ortschaft': '',
-        'vertreter_plz': '',
-        'vertreter_postfach': '',
-        'vertreter_strasse': '',
-        'vertreter_telefon': '',
-        'vertreter_titel': '',
-        'vertreter_vorname': '',
+        'tel': '+411234567',
         'vorname': 'Max',
       }),
     ]),
@@ -22241,24 +21728,11 @@
     'field_projektverfasser_planer': list([
     ]),
     'field_publikation_bemerkung': '',
-    'field_punkte': list([
-      list([
-        dict({
-          'lat': 47.175669937318816,
-          'lng': 8.8984885140077,
-        }),
-        dict({
-          'lat': 47.03185841071765,
-          'lng': 8.622585392467867,
-        }),
-      ]),
-      list([
-        dict({
-          'lat': 47.03185841071765,
-          'lng': 8.622585392467867,
-        }),
-      ]),
-    ]),
+    'field_punkte': '''
+      2’710’662 / 1’225’997, 2’689’990 / 1’209’658
+      
+      2’689’990 / 1’209’658
+    ''',
     'field_standort_adresse': '',
     'field_standort_koordinaten': '''
       2693525; 1210987
@@ -22286,16 +21760,16 @@
         'ZIRKULATION_STATUS': 'RUN',
         'answered': '',
         'circulation_answer': '',
-        'circulation_status': 'RUN',
+        'circulation_state': 'RUN',
         'created': '20.12.2020',
-        'date_end': '',
-        'date_start': '20.12.2020',
         'deadline_date': '21.07.2012',
+        'end_date': '',
         'name': 'Alex Smith',
         'notices': list([
         ]),
         'reason': '',
         'service': 'Alex Smith',
+        'start_date': '20.12.2020',
       }),
     ]),
     'objections': list([
@@ -22304,16 +21778,12 @@
         'participants': list([
           dict({
             'address': 'Malone Corner',
-            'adresse': 'Malone Corner',
             'city': 'North Brendan',
             'company': 'James Todd',
-            'firma': 'James Todd',
             'name': 'Michael Burton',
             'phone': '671-276-7342x95469',
-            'telefon': '671-276-7342x95469',
           }),
         ]),
-        'titel': '',
         'title': '',
       }),
     ]),

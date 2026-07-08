@@ -785,8 +785,8 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                 _("DISPATCH_DECISION_FURTHER_SERVICES")
             ],
             "BEMERKUNGEN": [_("REMARKS")],
-            "DATUM_START": [_("DATE_START")],
-            "DATUM_ENDE": [_("DATE_END")],
+            "DATUM_START": [{"default": _("DATE_START"), "sz": "START_DATE"}],
+            "DATUM_ENDE": [{"default": _("DATE_END"), "sz": "END_DATE"}],
             "SACHVERHALT": [_("SITUATION")],
             "ERWAEGUNGEN": [_("CONSIDERATIONS")],
             "BEURTEILUNG": [_("STATEMENT")],
@@ -794,7 +794,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
             "MELDUNGEN.ART": [{"default": _("NOTICE_TYPE"), "sz": "NOTICE_TYPE"}],
             "MELDUNGEN.INHALT": [{"default": _("CONTENT"), "sz": "CONTENT"}],
             "ZIRKULATION_STATUS": [
-                {"default": _("CIRCULATION_STATUS"), "sz": "CIRCULATION_STATUS"}
+                {"default": _("CIRCULATION_STATE"), "sz": "CIRCULATION_STATE"}
             ],
             "ZIRKULATION_ANTWORT": [
                 {"default": _("CIRCULATION_ANSWER"), "sz": "CIRCULATION_ANSWER"}
@@ -916,7 +916,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                 )
             ]
             if inquiry.child_case
-            else None
+            else []
         )
 
     def get_prop_value(self, inquiry, prop):
@@ -1065,7 +1065,7 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
                 "ALLE_EINSPRECHENDEN": [_("ALL_OPPOSING")],
                 **{
                     f"ALLE_EINSPRECHENDEN.{k}": v
-                    for k, v in MasterDataPersonObjectField.nested_aliases.items()
+                    for k, v in MasterDataPersonObjectField().nested_aliases.items()
                 },
             }
 
@@ -1130,7 +1130,7 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
                     "ALLE_EINSPRECHENDEN": [
                         parse_person_row(
                             person,
-                            MasterDataPersonObjectField.nested_aliases.keys(),
+                            list(MasterDataPersonObjectField().nested_aliases),
                         )
                         for person in legal_claimants
                     ],
@@ -1350,42 +1350,113 @@ class MasterDataPersonField(MasterDataField):
 
 
 class MasterDataPersonObjectField(MasterDataField):
-    nested_aliases = {
-        "NAME": [_("NAME")],
-        "ADDRESS": [_("ADDRESS")],
-        "JURISTIC_NAME": [{"default": _("NAME_JURISTIC_PERSON"), "sz": _("COMPANY")}],
-        "SALUTATION": [_("SALUTATION")],
-        "TITLE": [_("TITLE")],
-        "FIRST_NAME": [_("FIRST_NAME")],
-        "LAST_NAME": [_("LAST_NAME")],
-        "STREET": [_("STREET")],
-        "STREET_NUMBER": [_("STREET_NUMBER")],
-        "PO_BOX": [_("PO_BOX")],
-        "ZIP": [_("ZIP")],
-        "TOWN": [{"default": _("TOWN"), "sz": _("LOCATION")}],
-        "TEL": [{"default": _("PHONE"), "sz": _("TEL")}],
-        "EMAIL": [_("EMAIL")],
-        "REPRESENTATIVE_NAME": [_("REPRESENTATIVE_NAME")],
-        "REPRESENTATIVE_ADDRESS": [_("REPRESENTATIVE_ADDRESS")],
-        "REPRESENTATIVE_JURISTIC_NAME": [_("REPRESENTATIVE_NAME_JURISTIC_PERSON")],
-        "REPRESENTATIVE_SALUTATION": [_("REPRESENTATIVE_SALUTATION")],
-        "REPRESENTATIVE_TITLE": [_("REPRESENTATIVE_TITLE")],
-        "REPRESENTATIVE_FIRST_NAME": [_("REPRESENTATIVE_FIRST_NAME")],
-        "REPRESENTATIVE_LAST_NAME": [_("REPRESENTATIVE_LAST_NAME")],
-        "REPRESENTATIVE_STREET": [_("REPRESENTATIVE_STREET")],
-        "REPRESENTATIVE_STREET_NUMBER": [_("REPRESENTATIVE_STREET_NUMBER")],
-        "REPRESENTATIVE_PO_BOX": [_("REPRESENTATIVE_PO_BOX")],
-        "REPRESENTATIVE_ZIP": [_("REPRESENTATIVE_ZIP")],
-        "REPRESENTATIVE_TOWN": [_("REPRESENTATIVE_TOWN")],
-        "REPRESENTATIVE_TEL": [_("REPRESENTATIVE_PHONE")],
-        "REPRESENTATIVE_EMAIL": [_("REPRESENTATIVE_EMAIL")],
-    }
+    """DMS serializer field for lists of personal data objects from MasterData.
 
-    def __init__(self, *args, **kwargs):
+    Params:
+    props (list[str]):          List of each person object to be included in the
+                                representation if available. Possible values are the
+                                keys of `available_nested_aliases` in this class'
+                                `nested_aliases` not starting with `REPRESENTATIVE_`.
+                                Props are case insensitive.
+                                Default: all of the mentioned keys.
+    use_represenative (bool):   Switch whether to include `REPRESENTATIVE_` props.
+    parser (callable):          Function applied to every object before handling single
+                                person row.
+    """
+
+    @property
+    def nested_aliases(self):
+        available_nested_aliases = {
+            "NAME": [_("NAME")],
+            "ADDRESS": [_("ADDRESS")],
+            "JURISTIC_NAME": [{"default": _("NAME_JURISTIC_PERSON"), "sz": "FIRMA"}],
+            "SALUTATION": [{"default": _("SALUTATION"), "sz": "ANREDE"}],
+            "TITLE": [_("TITLE")],
+            "FIRST_NAME": [{"default": _("FIRST_NAME"), "sz": "VORNAME"}],
+            "LAST_NAME": [{"default": _("LAST_NAME"), "sz": "NAME"}],
+            "STREET": [{"default": _("STREET"), "sz": "STRASSE"}],
+            "STREET_NUMBER": [_("STREET_NUMBER")],
+            "PO_BOX": [_("PO_BOX")],
+            "ZIP": [{"default": _("ZIP"), "sz": "PLZ"}],
+            "TOWN": [{"default": _("TOWN"), "sz": "ORT"}],
+            "TEL": [{"default": _("PHONE"), "sz": "TEL"}],
+            "EMAIL": [_("EMAIL")],
+            "REPRESENTATIVE_NAME": [_("REPRESENTATIVE_NAME")],
+            "REPRESENTATIVE_ADDRESS": [_("REPRESENTATIVE_ADDRESS")],
+            "REPRESENTATIVE_JURISTIC_NAME": [_("REPRESENTATIVE_NAME_JURISTIC_PERSON")],
+            "REPRESENTATIVE_SALUTATION": [_("REPRESENTATIVE_SALUTATION")],
+            "REPRESENTATIVE_TITLE": [_("REPRESENTATIVE_TITLE")],
+            "REPRESENTATIVE_FIRST_NAME": [_("REPRESENTATIVE_FIRST_NAME")],
+            "REPRESENTATIVE_LAST_NAME": [_("REPRESENTATIVE_LAST_NAME")],
+            "REPRESENTATIVE_STREET": [_("REPRESENTATIVE_STREET")],
+            "REPRESENTATIVE_STREET_NUMBER": [_("REPRESENTATIVE_STREET_NUMBER")],
+            "REPRESENTATIVE_PO_BOX": [_("REPRESENTATIVE_PO_BOX")],
+            "REPRESENTATIVE_ZIP": [_("REPRESENTATIVE_ZIP")],
+            "REPRESENTATIVE_TOWN": [_("REPRESENTATIVE_TOWN")],
+            "REPRESENTATIVE_TEL": [_("REPRESENTATIVE_PHONE")],
+            "REPRESENTATIVE_EMAIL": [_("REPRESENTATIVE_EMAIL")],
+        }
+
+        if not self.use_representative:
+            available_nested_aliases = {
+                key: value
+                for key, value in available_nested_aliases.items()
+                if not key.startswith("REPRESENTATIVE_")
+            }
+
+        # If no props are specified at definition time go with the
+        # default: all of them
+        if not self.props:
+            return available_nested_aliases
+
+        # Otherwise:
+        # Filter nested aliases for selected person props.
+        # Filtering props is case insensitive.
+        # Props selection is done for person attributes as well as
+        # representative attributes.
+        if bad_props := [
+            prop for prop in self.props if prop.upper() not in available_nested_aliases
+        ]:
+            raise ImproperlyConfigured(
+                f"Unavailable value provided in props: {', '.join(bad_props)}."
+                f" Available props: {', '.join(available_nested_aliases)}"
+            )
+
+        return {
+            key: value
+            for key, value in available_nested_aliases.items()
+            # representatives' properties should equal the represented person's
+            # that's why `REPRESENTATIVE_` prefix is ignored in props
+            if key.removeprefix("REPRESENTATIVE_")
+            in [prop.upper() for prop in self.props]
+        }
+
+    def __init__(self, *args, props=None, use_representative=True, **kwargs):
         super().__init__(*args, is_collection=True, **kwargs)
+        self.use_representative = use_representative
+        self.props = props
 
     def to_representation(self, value):
-        return [parse_person_row(row, self.nested_aliases.keys()) for row in value]
+        if self.use_representative:
+            return [
+                parse_person_row(
+                    self.parser(row),
+                    [key for key in self.nested_aliases],
+                )
+                for row in value
+            ]
+
+        return [
+            parse_person_row(
+                self.parser(row),
+                [
+                    key
+                    for key in self.nested_aliases
+                    if not key.startswith("REPRESENTATIVE_")
+                ],
+            )
+            for row in value
+        ]
 
 
 class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):

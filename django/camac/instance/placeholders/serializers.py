@@ -25,6 +25,7 @@ from camac.instance.placeholders.utils import (
     format_gis_center_coordinates,
     to_configured_case,
 )
+from camac.instance.validators import transform_coordinates
 from camac.user.models import Location, Service
 from camac.utils import build_url, clean_join
 
@@ -2361,6 +2362,18 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
 
 
 class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    _PERSON_PROPS = [
+        "first_name",
+        "last_name",
+        "email",
+        "street",
+        "zip",
+        "salutation",
+        "tel",  # CAUTION: not the actual MD attr name. See _normalize_md_person.
+        "juristic_name",
+        "town",
+    ]
+
     publication_date = fields.MasterDataField(
         aliases=["PUBLICATION_DATE"],
         description=_(
@@ -2690,6 +2703,7 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "participants.email": ["EMAIL"],
         },
         is_collection=True,
+        static_translations=True,
     )
     activations = fields.InquiriesField(
         aliases=["ACTIVATIONS"],
@@ -2704,88 +2718,125 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     )
     field_bauherrschaft = fields.MasterDataPersonObjectField(
         source="applicants",
-        aliases=[_("FIELD_BAUHERRSCHAFT")],
+        aliases=["FIELD_BAUHERRSCHAFT"],
         description=_("Name and address of all applicants"),
+        props=_PERSON_PROPS,
+        parser=lambda obj: SzDMSPlaceholdersSerializer._normalize_md_person(obj),
+        use_representative=False,
+        static_translations=True,
     )
     field_betroffene_nutzungszonen = fields.MasterDataField(
         source="usage_zone",
-        aliases=[_("FIELD_BETROFFENE_NUTZUNGSZONEN")],
+        aliases=["FIELD_BETROFFENE_NUTZUNGSZONEN"],
         description=_("Usage zones affected by the project"),
+        static_translations=True,
     )
     field_bezeichnung = fields.MasterDataField(
         source="proposal",
-        aliases=[_("FIELD_BEZEICHNUNG"), _("FIELD_BEZEICHNUNG_OVERRIDE")],
+        aliases=["FIELD_BEZEICHNUNG", "FIELD_BEZEICHNUNG_OVERRIDE"],
         description=_("Project name and description"),
+        static_translations=True,
     )
     field_grundeigentumerschaft = fields.MasterDataPersonObjectField(
         source="landowners",
-        aliases=[_("FIELD_GRUNDEIGENTUMERSCHAFT")],
+        aliases=["FIELD_GRUNDEIGENTUMERSCHAFT"],
         description=_("Name and address of all land owners"),
+        use_representative=False,
+        props=_PERSON_PROPS,
+        parser=lambda obj: SzDMSPlaceholdersSerializer._normalize_md_person(obj),
+        static_translations=True,
     )
     field_kategorie_des_vorhabens = fields.MasterDataField(
         source="building_category",
-        aliases=[_("FIELD_KATEGORIE_DES_VORHABENS")],
+        aliases=["FIELD_KATEGORIE_DES_VORHABENS"],
         description=_("Usage type"),
         is_collection=True,
+        static_translations=True,
     )
     field_ortsbezeichnung_des_vorhabens = fields.MasterDataField(
         # settings.LOCATION_NAME_QUESTION (set to `ortsbezeichnung-des-vorhabens`)
         # is aliased with `standort-adresse`. No fields by that name found on prod,
         #  so assuming backwards compatibility with legacy template placeholders.
         source="street",
-        aliases=[_("FIELD_ORTSBEZEICHNUNG_DES_VORHABENS"), _("FIELD_STANDORT_ADRESSE")],
+        aliases=["FIELD_ORTSBEZEICHNUNG_DES_VORHABENS", "FIELD_STANDORT_ADRESSE"],
         description=_("Project address (street and building number)"),
+        static_translations=True,
     )
 
     field_energie_photovoltaik_gesamtleistung = fields.MasterDataField(
         source="energy_pv_total_power",
-        aliases=[_("FIELD_ENERGIE_PHOTOVOLTAIK_GESAMTLEISTUNG")],
+        aliases=["FIELD_ENERGIE_PHOTOVOLTAIK_GESAMTLEISTUNG"],
         description=_("Total PV power"),
+        static_translations=True,
     )
     field_punkte = fields.MasterDataField(
         source="coordinates",
-        aliases=[_("FIELD_PUNKTE")],
+        aliases=["FIELD_PUNKTE"],
+        join_by="\n\n",
+        # parser with join_by is applied to each value of the list implicitly
+        parser=lambda path: ", ".join(transform_coordinates(path)),
         description=_(
             "List of geolocated geometries (paths) outlining the project's affected area"
         ),
+        static_translations=True,
     )
     field_standort_koordinaten = fields.MasterDataField(
         source="location_coordinates",
-        aliases=[_("FIELD_STANDORT_KOORDINATEN")],
+        aliases=["FIELD_STANDORT_KOORDINATEN"],
         description=_("List of geolocated points referencing the project location"),
+        static_translations=True,
     )
     field_parzellen = fields.MasterDataField(
         source="plot_data",
-        aliases=[_("FIELD_PARZELLEN")],
+        aliases=["FIELD_PARZELLEN"],
         description=_("Project plot data (egrid ID/plot nr)"),
         is_collection=True,
-        nested_aliases={"plot_number": [_("NUMBER")], "egrid_number": [_("EGRID")]},
+        nested_aliases={"plot_number": ["NUMBER"], "egrid_number": ["EGRID"]},
+        static_translations=True,
     )
     field_projektverfasser_planer = fields.MasterDataPersonObjectField(
         source="project_authors",
-        aliases=[_("FIELD_PROJEKTVERFASSER_PLANER")],
+        aliases=["FIELD_PROJEKTVERFASSER_PLANER"],
         description=_("Name and address of project authors"),
+        props=_PERSON_PROPS,
+        use_representative=False,
+        parser=lambda obj: SzDMSPlaceholdersSerializer._normalize_md_person(obj),
+        static_translations=True,
     )
     field_publikation_bemerkung = fields.MasterDataField(
         source="publication_addon",
-        aliases=[_("FIELD_PUBLIKATION_BEMERKUNG")],
+        aliases=["FIELD_PUBLIKATION_BEMERKUNG"],
         description=_("Publication remark"),
+        static_translations=True,
     )
     field_standort_ort = fields.MasterDataField(
         source="city",
-        aliases=[_("FIELD_STANDORT_ORT")],
+        aliases=["FIELD_STANDORT_ORT"],
         description=_("Town name of project location"),
+        static_translations=True,
     )
     field_standort_spezialbezeichnung = fields.MasterDataField(
         source="street_addition",
-        aliases=[_("FIELD_STANDORT_SPEZIALBEZEICHNUNG")],
+        aliases=["FIELD_STANDORT_SPEZIALBEZEICHNUNG"],
         description=_("Addions to project location address"),
+        static_translations=True,
     )
     field_vertreter_mit_vollmacht = fields.MasterDataPersonObjectField(
         source="legal_representatives",
-        aliases=[_("FIELD_VERTRETER_MIT_VOLLMACHT")],
+        aliases=["FIELD_VERTRETER_MIT_VOLLMACHT"],
         description=_("Name and address of legal representatives."),
+        props=_PERSON_PROPS,
+        parser=lambda obj: SzDMSPlaceholdersSerializer._normalize_md_person(obj),
+        use_representative=False,
+        static_translations=True,
     )
+
+    @staticmethod
+    def _normalize_md_person(obj):
+        # Fix kt_schwyz using `phone` for person's phone number rather
+        # than `tel` as most of the others. To avoid another config indirection
+        # in a common field logic this is rather done here.
+        return {"tel" if key == "phone" else key: val for key, val in obj.items()}
 
     def get_publications(self, instance):
         publications = []

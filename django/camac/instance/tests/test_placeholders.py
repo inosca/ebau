@@ -26,7 +26,11 @@ from django.utils.translation import gettext_lazy as _, override
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from camac.instance.placeholders.fields import AliasedMethodField, InquiriesField
+from camac.instance.placeholders.fields import (
+    AliasedMethodField,
+    InquiriesField,
+    MasterDataPersonObjectField,
+)
 from camac.instance.placeholders.serializers import (
     DMSPlaceholdersSerializer,
     SzDMSPlaceholdersSerializer,
@@ -1866,3 +1870,16 @@ def test_inquiries_field_nested_translations(
         assert placeholders == expected_placeholders, (
             "Created placeholders do not match expected placeholders"
         )
+
+
+@pytest.mark.django_db
+def test_master_data_person_object_field_props(
+    service_group, be_instance, application_settings, settings, fake_request
+):
+    class DmsTestSerializer(DMSPlaceholdersSerializer):
+        persons = MasterDataPersonObjectField(props=["cat"])
+
+    serializer = DmsTestSerializer(be_instance, context={"request": fake_request})
+    persons = serializer.fields["persons"]
+    with pytest.raises(ImproperlyConfigured):
+        persons.make_placeholders()

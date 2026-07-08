@@ -1769,6 +1769,8 @@ def sz_master_data_case(db, sz_instance, form_field_factory, location_factory):
                 "strasse": "Teststrasse 2",
                 "plz": 1233,
                 "ort": "Musterdorf",
+                "tel": "+411234567",
+                "email": "muster@example.com",
             }
         ],
     )
@@ -1786,6 +1788,8 @@ def sz_master_data_case(db, sz_instance, form_field_factory, location_factory):
                 "strasse": "Teststrasse 2",
                 "plz": 1233,
                 "ort": "Musterdorf",
+                "tel": "+411234567",
+                "email": "muster@example.com",
             }
         ],
     )
@@ -1803,6 +1807,8 @@ def sz_master_data_case(db, sz_instance, form_field_factory, location_factory):
                 "strasse": "Teststrasse 3",
                 "plz": 5678,
                 "ort": "Musterdorf",
+                "tel": "+411234567",
+                "email": "muster@example.com",
             }
         ],
     )

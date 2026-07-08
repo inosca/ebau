@@ -243,7 +243,7 @@ msgid "CONTENT"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-msgid "CIRCULATION_STATUS"
+msgid "CIRCULATION_STATE"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
@@ -313,10 +313,6 @@ msgid "NAME_JURISTIC_PERSON"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-msgid "COMPANY"
-msgstr ""
-
-#: camac/instance/placeholders/fields.py
 msgid "SALUTATION"
 msgstr "APPELLATIVO"
 
@@ -352,16 +348,7 @@ msgid "TOWN"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-#: camac/instance/placeholders/serializers.py
-msgid "LOCATION"
-msgstr "UBICAZIONE"
-
-#: camac/instance/placeholders/fields.py
 msgid "PHONE"
-msgstr ""
-
-#: camac/instance/placeholders/fields.py
-msgid "TEL"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
@@ -892,6 +879,10 @@ msgstr "PROPRIE_DISPOSIZIONI_ACCESSORIE"
 #: camac/instance/placeholders/serializers.py
 msgid "Own ancillary clauses"
 msgstr "Proprie disposizioni accessorie"
+
+#: camac/instance/placeholders/serializers.py
+msgid "LOCATION"
+msgstr "UBICAZIONE"
 
 #: camac/instance/placeholders/serializers.py
 msgid "The location of the building site"
@@ -2885,15 +2876,7 @@ msgid "My activations"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "FIELD_BAUHERRSCHAFT"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
 msgid "Name and address of all applicants"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "FIELD_BETROFFENE_NUTZUNGSZONEN"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2901,19 +2884,7 @@ msgid "Usage zones affected by the project"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "FIELD_BEZEICHNUNG"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "FIELD_BEZEICHNUNG_OVERRIDE"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
 msgid "Project name and description"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "FIELD_GRUNDEIGENTUMERSCHAFT"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2921,31 +2892,11 @@ msgid "Name and address of all land owners"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "FIELD_KATEGORIE_DES_VORHABENS"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "FIELD_ORTSBEZEICHNUNG_DES_VORHABENS"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "FIELD_STANDORT_ADRESSE"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
 msgid "Project address (street and building number)"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "FIELD_ENERGIE_PHOTOVOLTAIK_GESAMTLEISTUNG"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
 msgid "Total PV power"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "FIELD_PUNKTE"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2954,15 +2905,7 @@ msgid ""
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "FIELD_STANDORT_KOORDINATEN"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
 msgid "List of geolocated points referencing the project location"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "FIELD_PARZELLEN"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2970,19 +2913,7 @@ msgid "Project plot data (egrid ID/plot nr)"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "NUMBER"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "FIELD_PROJEKTVERFASSER_PLANER"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
 msgid "Name and address of project authors"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "FIELD_PUBLIKATION_BEMERKUNG"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2990,23 +2921,11 @@ msgid "Publication remark"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "FIELD_STANDORT_ORT"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
 msgid "Town name of project location"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "FIELD_STANDORT_SPEZIALBEZEICHNUNG"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
 msgid "Addions to project location address"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "FIELD_VERTRETER_MIT_VOLLMACHT"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py

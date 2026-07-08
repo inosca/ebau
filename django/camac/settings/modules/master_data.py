@@ -147,6 +147,35 @@ SG_PERSONAL_DATA_MAPPING = {
     "juristic_name": "juristische-person-name",
 }
 
+SZ_PERSONAL_DATA_MAPPING = {
+    "salutation": "anrede",
+    "last_name": "name",
+    "first_name": "vorname",
+    "street": "strasse",
+    "zip": "plz",
+    "town": "ort",
+    "country": ("static", "Schweiz"),
+    "is_juristic_person": (
+        "anrede",
+        {
+            "value_parser": (
+                "value_mapping",
+                {
+                    "mapping": {
+                        "Herr": False,
+                        "Frau": False,
+                        "Firma": True,
+                    }
+                },
+            )
+        },
+    ),
+    "juristic_name": "firma",
+    "company": "firma",
+    "email": "email",
+    "phone": "tel",
+}
+
 
 MASTER_DATA = {
     "default": {},
@@ -165,35 +194,7 @@ MASTER_DATA = {
                     "bauherrschaft-v3",
                     "bauherrschaft-override",
                 ],
-                {
-                    "column_mapping": {
-                        "last_name": "name",
-                        "first_name": "vorname",
-                        "street": "strasse",
-                        "zip": "plz",
-                        "town": "ort",
-                        "country": ("static", "Schweiz"),
-                        "is_juristic_person": (
-                            "anrede",
-                            {
-                                "value_parser": (
-                                    "value_mapping",
-                                    {
-                                        "mapping": {
-                                            "Herr": False,
-                                            "Frau": False,
-                                            "Firma": True,
-                                        }
-                                    },
-                                )
-                            },
-                        ),
-                        "juristic_name": "firma",
-                        "company": "firma",
-                        "email": "email",
-                        "phone": "tel",
-                    }
-                },
+                {"column_mapping": SZ_PERSONAL_DATA_MAPPING},
             ),
             "building_owners": (
                 "ng_table",
@@ -203,35 +204,7 @@ MASTER_DATA = {
                     "bauherrschaft-v3",
                     "bauherrschaft-override",
                 ],  # TODO: hauseigentümerschaft in SZ?
-                {
-                    "column_mapping": {
-                        "last_name": "name",
-                        "first_name": "vorname",
-                        "street": "strasse",
-                        "zip": "plz",
-                        "town": "ort",
-                        "country": ("static", "Schweiz"),
-                        "is_juristic_person": (
-                            "anrede",
-                            {
-                                "value_parser": (
-                                    "value_mapping",
-                                    {
-                                        "mapping": {
-                                            "Herr": False,
-                                            "Frau": False,
-                                            "Firma": True,
-                                        }
-                                    },
-                                )
-                            },
-                        ),
-                        "juristic_name": "firma",
-                        "company": "firma",
-                        "email": "email",
-                        "phone": "tel",
-                    }
-                },
+                {"column_mapping": SZ_PERSONAL_DATA_MAPPING},
             ),
             "legal_representatives": (
                 "ng_table",
@@ -240,35 +213,7 @@ MASTER_DATA = {
                     "vertreter-mit-vollmacht-v2",
                     "vertreter-mit-vollmacht-override",
                 ],
-                {
-                    "column_mapping": {
-                        "last_name": "name",
-                        "first_name": "vorname",
-                        "street": "strasse",
-                        "zip": "plz",
-                        "town": "ort",
-                        "country": ("static", "Schweiz"),
-                        "is_juristic_person": (
-                            "anrede",
-                            {
-                                "value_parser": (
-                                    "value_mapping",
-                                    {
-                                        "mapping": {
-                                            "Herr": False,
-                                            "Frau": False,
-                                            "Firma": True,
-                                        }
-                                    },
-                                )
-                            },
-                        ),
-                        "juristic_name": "firma",
-                        "company": "firma",
-                        "email": "email",
-                        "phone": "tel",
-                    }
-                },
+                {"column_mapping": SZ_PERSONAL_DATA_MAPPING},
             ),
             "landowners": (
                 "ng_table",
@@ -277,35 +222,7 @@ MASTER_DATA = {
                     "grundeigentumerschaft-v2",
                     "grundeigentumerschaft-override",
                 ],
-                {
-                    "column_mapping": {
-                        "last_name": "name",
-                        "first_name": "vorname",
-                        "street": "strasse",
-                        "zip": "plz",
-                        "town": "ort",
-                        "country": ("static", "Schweiz"),
-                        "is_juristic_person": (
-                            "anrede",
-                            {
-                                "value_parser": (
-                                    "value_mapping",
-                                    {
-                                        "mapping": {
-                                            "Herr": False,
-                                            "Frau": False,
-                                            "Firma": True,
-                                        }
-                                    },
-                                )
-                            },
-                        ),
-                        "juristic_name": "firma",
-                        "company": "firma",
-                        "email": "email",
-                        "phone": "tel",
-                    }
-                },
+                {"column_mapping": SZ_PERSONAL_DATA_MAPPING},
             ),
             "project_authors": (
                 "ng_table",
@@ -315,35 +232,7 @@ MASTER_DATA = {
                     "projektverfasser-planer-v3",
                     "projektverfasser-planer-override",
                 ],
-                {
-                    "column_mapping": {
-                        "last_name": "name",
-                        "first_name": "vorname",
-                        "street": "strasse",
-                        "zip": "plz",
-                        "town": "ort",
-                        "country": ("static", "Schweiz"),
-                        "is_juristic_person": (
-                            "anrede",
-                            {
-                                "value_parser": (
-                                    "value_mapping",
-                                    {
-                                        "mapping": {
-                                            "Herr": False,
-                                            "Frau": False,
-                                            "Firma": True,
-                                        }
-                                    },
-                                )
-                            },
-                        ),
-                        "juristic_name": "firma",
-                        "company": "firma",
-                        "email": "email",
-                        "phone": "tel",
-                    }
-                },
+                {"column_mapping": SZ_PERSONAL_DATA_MAPPING},
             ),
             "joined_street_and_number": ("static", True),
             "street": ("ng_answer", "ortsbezeichnung-des-vorhabens"),
