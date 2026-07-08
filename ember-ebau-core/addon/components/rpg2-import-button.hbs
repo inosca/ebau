@@ -1,0 +1,47 @@
+<UkButton
+  @label={{t "rpg2-import-button.label"}}
+  @color="primary"
+  @onClick={{this.getData.perform}}
+  @disabled={{or @disabled this.getData.isRunning}}
+  @loading={{this.getData.isRunning}}
+  data-test-rpg2-import
+/>
+
+{{#if this.showModal}}
+  <UkModal
+    @visible={{true}}
+    @onHide={{fn (mut this.showModal) false}}
+    as |modal|
+  >
+    <modal.header>
+      <h2 class="uk-modal-title">{{t "rpg2-import-button.preview-title"}}</h2>
+    </modal.header>
+    <modal.body>
+      {{#if this.hasData}}
+        <p>{{t "rpg2-import-button.preview-hint"}}</p>
+        <div class="uk-alert uk-alert-warning">
+          {{t "rpg2-import-button.preview-warning" htmlSafe=true}}
+        </div>
+        <ImportPreview @data={{this.data}} />
+      {{else}}
+        <p>{{t "rpg2-import-button.empty"}}</p>
+      {{/if}}
+    </modal.body>
+    <modal.footer class="uk-text-right">
+      <UkButton
+        @label={{t "global.cancel"}}
+        @onClick={{fn (mut this.showModal) false}}
+        @disabled={{this.applyData.isRunning}}
+        data-test-rpg2-cancel
+      />
+      <UkButton
+        @label={{t "rpg2-import-button.confirm"}}
+        @color="primary"
+        @onClick={{this.applyData.perform}}
+        @disabled={{or this.applyData.isRunning (not this.hasData)}}
+        @loading={{this.applyData.isRunning}}
+        data-test-rpg2-confirm
+      />
+    </modal.footer>
+  </UkModal>
+{{/if}}
