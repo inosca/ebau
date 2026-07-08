@@ -114,22 +114,22 @@ def test_form_data_validator_validate_deactivation(
          ┌───────────────────────────────┐                        ┌───────────────────────────────┐
          │  Question 0 / FormField 0     │                        │  Question 1 / FormField 1     │
          │  value: 'Yes', active: True   │                        │  value: 'No', active: True    │
-         |  active-expr: None            |                        |  active-expr: None            |
+         │  active-expr: None            │                        │  active-expr: None            │
          └───────────────┬───────────────┘                        └─────────────┬─────────────────┘
-                         |                                                      |
+                         │                                                      │
     ┌────────────────────┴────────────────────────┐     ┌───────────────────────┴─────────────────────┐
     │  Question 2 / FormField 2                   │     │  Question 3 / FormField 3                   │
     │  value: 'Yes', active: True                 │     │  value: 'Yes', active: False                │
-    |  active-expr: "'Yes' == 'question-0'|value  │     |  active-expr: "'Yes' == 'question-1'|value  │
+    │  active-expr: "'Yes' == 'question-0'|value  │     │  active-expr: "'Yes' == 'question-1'|value  │
     └────────────────────┬────────────────────────┘     └───────────────────────┬─────────────────────┘
-                         |                                                      |
+                         │                                                      │
                          └───────────────────────────┬──────────────────────────┘
                                                      │
                        ┌─────────────────────────────┴──────────────────────────────────┐
                        │  Question 4 / FormField 4                                      │
                        │  value: None, active: False, required: True                    │
-                       |  active-expr:                                                  |
-                       |  "'Yes' == 'question-2'|value && 'Yes' == 'question-3'|value"  |
+                       │  active-expr:                                                  │
+                       │  "'Yes' == 'question-2'|value && 'Yes' == 'question-3'|value"  │
                        └────────────────────────────────────────────────────────────────┘
     """
     settings.FORM_CONFIG = FORM_CONFIG
@@ -173,7 +173,7 @@ DEFAULT_FORM_CONFIG = {
 
 
 @pytest.mark.parametrize(
-    "questions,form_fields,is_required,is_active,instance_state_name,raises_validation_error",
+    "questions,form_questions,form_fields,is_required,is_active,instance_state_name,raises_validation_error",
     [
         (
             {
@@ -184,6 +184,7 @@ DEFAULT_FORM_CONFIG = {
                     "config": {"options": ["Yes", "No"]},
                 },
             },
+            ["question-0"],
             [],
             {"question-0": True},
             {"question-0": True},
@@ -199,6 +200,7 @@ DEFAULT_FORM_CONFIG = {
                     "config": {"options": ["Yes", "No"]},
                 },
             },
+            ["question-0"],
             [("question-0", "No")],
             {"question-0": False},
             {"question-0": True},
@@ -214,6 +216,7 @@ DEFAULT_FORM_CONFIG = {
                     "config": {},
                 },
             },
+            ["question-0"],
             [("question-0", "test")],
             {"question-0": True},
             {"question-0": True},
@@ -236,6 +239,7 @@ DEFAULT_FORM_CONFIG = {
                     "config": {},
                 },
             },
+            ["question-0", "question-1"],
             [("question-0", 12), ("question-1", "test")],
             {"question-0": True, "question-1": True},
             {"question-0": True, "question-1": True},
@@ -265,6 +269,7 @@ DEFAULT_FORM_CONFIG = {
                     "config": {},
                 },
             },
+            ["question-0", "question-1", "question-2"],
             [("question-0", 12), ("question-1", "Nope.")],
             {"question-0": True, "question-1": True, "question-2": False},
             {"question-0": True, "question-1": True, "question-2": False},
@@ -293,6 +298,7 @@ DEFAULT_FORM_CONFIG = {
                     "config": {},
                 },
             },
+            ["question-0", "question-1", "question-2"],
             [("question-0", "No"), ("question-1", ["One", "Two"])],
             {"question-0": True, "question-1": False, "question-2": True},
             {"question-0": True, "question-1": True, "question-2": True},
@@ -321,6 +327,7 @@ DEFAULT_FORM_CONFIG = {
                     "config": {},
                 },
             },
+            ["question-0", "question-1", "question-2"],
             [("question-0", "No"), ("question-1", ["One", "Two"])],
             {"question-0": True, "question-1": False, "question-2": True},
             {"question-0": True, "question-1": True, "question-2": True},
@@ -351,6 +358,7 @@ DEFAULT_FORM_CONFIG = {
                     "config": {"options": ["One", "Two", "Three"]},
                 },
             },
+            ["question-0", "question-1", "question-2"],
             [("question-0", "No"), ("question-1", ["Three"]), ("question-2", "Test")],
             {"question-0": True, "question-1": True, "question-2": False},
             {"question-0": True, "question-1": True, "question-2": False},
@@ -379,6 +387,7 @@ DEFAULT_FORM_CONFIG = {
                     "config": {"options": ["Yes", "No"]},
                 },
             },
+            ["question-0", "question-1"],
             [("question-0", '{"formType": "municipality"}'), ("question-1", "Yes")],
             {"question-0": True, "question-1": True},
             {"question-0": True, "question-1": True},
@@ -407,6 +416,7 @@ DEFAULT_FORM_CONFIG = {
                     "config": {"options": ["Yes", "No"]},
                 },
             },
+            ["question-0", "question-1"],
             [("question-0", '{"formType": "canton"}')],
             {"question-0": True, "question-1": False},
             {"question-0": True, "question-1": False},
@@ -435,11 +445,35 @@ DEFAULT_FORM_CONFIG = {
                     "config": {"options": ["Yes", "No"]},
                 },
             },
+            ["question-0", "question-1"],
             [("question-0", '{"formType": "district"}')],
             {"question-0": True, "question-1": True},
             {"question-0": True, "question-1": True},
             "new",
             True,  # ValidationError, question-1 is required but missing
+        ),
+        (
+            {
+                "question-0": {
+                    "label": "Question 0",
+                    "type": "radio",
+                    "required": True,
+                    "config": {"options": ["Yes", "No"]},
+                },
+                "question-1": {
+                    "label": "Question 1",
+                    "type": "radio",
+                    "required": True,
+                    "active-expression": "'question-0'|value == 'Yes'",
+                    "config": {"options": ["Yes", "No"]},
+                },
+            },
+            ["question-1"],
+            [("question-0", "Yes")],
+            {"question-0": False, "question-1": False},
+            {"question-0": False, "question-1": False},
+            "new",
+            False,  # question-0 not part of the form, hence question-1 not active
         ),
     ],
 )
@@ -451,6 +485,7 @@ def test_form_data_validator_validation(
     instance,
     settings,
     questions,
+    form_questions,
     form_fields,
     is_required,
     is_active,
@@ -461,7 +496,7 @@ def test_form_data_validator_validation(
     # test parametrizations and not leak changes from one run to
     # the other
     form_config = deepcopy(DEFAULT_FORM_CONFIG)
-    form_config["modules"]["module-a"]["questions"].extend(questions.keys())
+    form_config["modules"]["module-a"]["questions"].extend(form_questions)
     form_config["questions"] = questions
 
     settings.FORM_CONFIG = form_config

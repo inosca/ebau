@@ -63,6 +63,7 @@ class FormDataValidator:
             "in", 20, lambda value, arr: value in arr if arr else False
         )
         self.active_question_cache = {}
+        self.relevant_questions = None
 
     def _get_field_value(self, name):
         return self.fields.get(name) if self._check_questions_active([name]) else None
@@ -157,6 +158,17 @@ class FormDataValidator:
                         module,
                     )
 
+    def _check_question_relevant(self, question):
+        if self.relevant_questions is None:
+            form_def = self.get_form_def(self.instance.form.name)
+            self.relevant_questions = [
+                question
+                for module in form_def
+                for question in self.forms_def["modules"][module]["questions"]
+            ]
+
+        return question in self.relevant_questions
+
     def _check_questions_active(self, questions):
         for question in questions:
             if self._check_question_active(
@@ -172,24 +184,16 @@ class FormDataValidator:
         if question in self.active_question_cache:
             return self.active_question_cache[question]
 
+        if not self._check_question_relevant(question):
+            self.active_question_cache[question] = False
+            return False
+
         expression = question_def.get("active-expression")
         if expression is None:
             self.active_question_cache[question] = True
             return True
 
-        dep_questions = self.jexl.analyze(
-            expression, partial(ExtractTransformSubjectAnalyzer, transforms=["value"])
-        )
-        active = False
-        try:
-            active = self._check_questions_active(dep_questions) and self.jexl.evaluate(
-                expression, {"form": self.instance.form.family.name}
-            )
-        except TypeError:
-            # A TypeError is raised if a question is not filled. It then tries
-            # to e.g compare None < 250 which can't work
-            pass
-
+        active = self.is_active_expression(expression)
         self.active_question_cache[question] = active
         return active
 
@@ -346,3 +350,18 @@ class FormDataValidator:
         relevant_data.append(bauherrschaft)
 
         return relevant_data
+
+    def is_active_expression(self, expression: str):
+        dep_questions = self.jexl.analyze(
+            expression, partial(ExtractTransformSubjectAnalyzer, transforms=["value"])
+        )
+        active = False
+        try:
+            active = self._check_questions_active(dep_questions) and self.jexl.evaluate(
+                expression, {"form": self.instance.form.family.name}
+            )
+        except TypeError:
+            # A TypeError is raised if a question is not filled. It then tries
+            # to e.g compare None < 250 which can't work
+            pass
+        return active

@@ -205,9 +205,7 @@ def get_service_suggestions_camac_ng(instance, suggestions):
 
     if suggestions_questions:
         for expression, services in suggestions_questions:
-            if form_data_validator._check_question_active(
-                None, {"active-expression": expression}
-            ):
+            if form_data_validator.is_active_expression(expression):
                 suggested_services.update(services)
 
     return suggested_services
