@@ -49,7 +49,6 @@ export default class CustomSession extends Session {
     let groupId = this.group;
     if (!groupId || !availableGroups.includes(groupId)) {
       groupId = defaultGroup ?? availableGroups[0];
-
     }
     this.group = defaultGroup ?? availableGroups[0];
 
@@ -105,8 +104,6 @@ export default class CustomSession extends Session {
   get service() {
     return this._data.value?.service;
   }
-
-
 
   get isInternal() {
     return Boolean(this.group);
