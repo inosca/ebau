@@ -31,7 +31,7 @@ def test_merge_duplicate_alexandria_tags():
     document_with_duplicate.tags.add(duplicate_tag)
     document_with_both_tags.tags.add(*duplicate_group_tags)
 
-    call_command("so_merge_duplicate_alexandria_tags")
+    call_command("merge_duplicate_alexandria_tags", commit=True)
 
     remaining_tag = Tag.objects.get(name="AfU", created_by_group="1")
 
@@ -46,7 +46,7 @@ def test_merge_duplicate_alexandria_tags():
 
 
 def test_merge_duplicate_alexandria_tags_dry_run():
-    tag_to_keep = TagFactory(
+    TagFactory(
         name="Dry Run Tag",
         created_by_group="1",
         modified_by_group="1",
@@ -60,13 +60,11 @@ def test_merge_duplicate_alexandria_tags_dry_run():
     document = DocumentFactory()
     document.tags.add(duplicate_tag)
 
-    call_command("so_merge_duplicate_alexandria_tags", dry=True)
+    call_command("merge_duplicate_alexandria_tags")
 
-    assert Tag.objects.filter(pk=tag_to_keep.pk).exists()
+    assert Tag.objects.filter(name="Dry Run Tag", created_by_group="1").count() == 2
     assert Tag.objects.filter(pk=duplicate_tag.pk).exists()
-
     assert document.tags.filter(pk=duplicate_tag.pk).exists()
-    assert not document.tags.filter(pk=tag_to_keep.pk).exists()
 
 
 def test_merge_duplicate_alexandria_tags_without_duplicates():
@@ -76,6 +74,6 @@ def test_merge_duplicate_alexandria_tags_without_duplicates():
         modified_by_group="1",
     )
 
-    call_command("so_merge_duplicate_alexandria_tags", dry=True)
+    call_command("merge_duplicate_alexandria_tags")
 
     assert Tag.objects.filter(name="Unique Tag", created_by_group="1").count() == 1
