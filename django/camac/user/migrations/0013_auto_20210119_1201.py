@@ -9,7 +9,10 @@ def email_to_lowercase(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
-    dependencies = [("user", "0012_add_group_prefix")]
+    dependencies = [
+        ("user", "0012_add_group_prefix"),
+        ("applicants", "0007_auto_20200811_0921"),
+    ]
 
     operations = [
         migrations.AlterField(
