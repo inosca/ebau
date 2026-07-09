@@ -8,6 +8,7 @@ $main-nav-height: 80px;
 $sidebar-width: 240px;
 $sidebar-padding: 48px;
 $main-navigation-background: $global-primary-background !default;
+$mandatory-asterisk-color: $text-danger-color !default;
 
 .main-content {
   margin-top: $main-nav-height;
@@ -122,6 +123,11 @@ $main-navigation-background: $global-primary-background !default;
   .active-group {
     color: #000;
   }
+}
+
+.mandatory-asterisk,
+.cf-label__mandatory-asterisk {
+  color: $mandatory-asterisk-color !important;
 }
 
 /* Make LiveView wrapper divs transparent for layout */
