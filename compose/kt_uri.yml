@@ -134,7 +134,6 @@ services:
       context: ../keycloak
       args:
         VERSION: 26.5.3
-      target: keycloak-v26
       cache_from:
         - acr.run/camac-ng/camac-ng/keycloak:master
     environment:
