@@ -1,0 +1,69 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new messages manually only if they're dynamic
+## messages that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here has no
+## effect: edit them in PO (.po) files instead.
+#
+msgid ""
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:87
+#, elixir-autogen, elixir-format
+msgid "Delete"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:69
+#, elixir-autogen, elixir-format
+msgid "Description"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:25
+#, elixir-autogen, elixir-format
+msgid "GIS links"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:21
+#, elixir-autogen, elixir-format
+msgid "Invitations"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:43
+#: lib/ebau_web/live/service_permissions/gis_links.ex:70
+#, elixir-autogen, elixir-format
+msgid "Link"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:22
+#, elixir-autogen, elixir-format
+msgid "Master data"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:38
+#, elixir-autogen, elixir-format
+msgid "Name"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:20
+#, elixir-autogen, elixir-format
+msgid "Permissions"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:47
+#, elixir-autogen, elixir-format
+msgid "Save"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:52
+#: lib/ebau_web/live/service_permissions/gis_links.ex:59
+#, elixir-autogen, elixir-format
+msgid "Search"
+msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:23
+#, elixir-autogen, elixir-format
+msgid "Sub-services"
+msgstr ""

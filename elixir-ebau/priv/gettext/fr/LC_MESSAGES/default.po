@@ -1,0 +1,31 @@
+#: lib/ebau_web/components/core_components.ex:370
+#, elixir-autogen, elixir-format
+msgid "Actions"
+msgstr ""
+
+#: lib/ebau_web/components/layouts.ex:129
+#: lib/ebau_web/components/layouts.ex:141
+#, elixir-autogen, elixir-format
+msgid "Attempting to reconnect"
+msgstr ""
+
+#: lib/ebau_web/components/layouts.ex:88
+#: lib/ebau_web/components/layouts.ex:90
+#, elixir-autogen, elixir-format
+msgid "Sign out"
+msgstr ""
+
+#: lib/ebau_web/components/layouts.ex:136
+#, elixir-autogen, elixir-format
+msgid "Something went wrong!"
+msgstr ""
+
+#: lib/ebau_web/components/layouts.ex:124
+#, elixir-autogen, elixir-format
+msgid "We can't find the internet"
+msgstr ""
+
+#: lib/ebau_web/components/core_components.ex:76
+#, elixir-autogen, elixir-format
+msgid "close"
+msgstr ""

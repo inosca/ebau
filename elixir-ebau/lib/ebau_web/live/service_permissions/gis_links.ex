@@ -17,12 +17,22 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinks do
       <.uk_container>
         <%!-- TODO: replace with a uk_tab component once elixir_uikit provides one --%>
         <ul class="uk-tab">
-          <li><a href="/service-permissions/permissions">{gettext("Permissions")}</a></li>
-          <li><a href="/service-permissions/invitations">{gettext("Invitations")}</a></li>
-          <li><a href="/service-permissions/organisation">{gettext("Master data")}</a></li>
-          <li><a href="/service-permissions/sub-services">{gettext("Sub-services")}</a></li>
+          <li>
+            <a href="/service-permissions/permissions">{dgettext("instances", "Permissions")}</a>
+          </li>
+          <li>
+            <a href="/service-permissions/invitations">{dgettext("instances", "Invitations")}</a>
+          </li>
+          <li>
+            <a href="/service-permissions/organisation">{dgettext("instances", "Master data")}</a>
+          </li>
+          <li>
+            <a href="/service-permissions/sub-services">{dgettext("instances", "Sub-services")}</a>
+          </li>
           <li class="uk-active">
-            <a href="/service-permissions/gis-links">{gettext("GIS links")}</a>
+            <.link navigate={~p"/service-permissions/gis-links"}>
+              {dgettext("instances", "GIS links")}
+            </.link>
           </li>
         </ul>
 
@@ -34,29 +44,35 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinks do
           phx-submit="save"
         >
           <div class="uk-margin">
-            <.uk_input field={@create_form[:name]}>
-              <:label>{gettext("Name")}</:label>
+            <.uk_input field={@create_form[:name]} required>
+              <:label>
+                {dgettext("instances", "Name")}
+                <span class="mandatory-asterisk">*</span>
+              </:label>
             </.uk_input>
           </div>
           <div class="uk-margin">
             <.uk_input field={@create_form[:placeholder]} required>
-              <:label>{gettext("Link")}</:label>
+              <:label>
+                {dgettext("instances", "Link")}
+                <span class="mandatory-asterisk">*</span>
+              </:label>
             </.uk_input>
           </div>
           <div class="uk-margin">
-            <.uk_button variant="primary" type="submit">{gettext("Save")}</.uk_button>
+            <.uk_button variant="primary" type="submit">{dgettext("instances", "Save")}</.uk_button>
           </div>
         </.uk_form>
 
         <form phx-change="search" id="search-form" class="uk-margin-large-top uk-margin-bottom">
-          <label for="gis-link-search" class="uk-hidden">{gettext("Search")}</label>
+          <label for="gis-link-search" class="uk-hidden">{dgettext("instances", "Search")}</label>
           <.uk_form_icon icon="search" wrapper_class="uk-width-1-1">
             <input
               id="gis-link-search"
               name="search"
               value={@search}
               class="uk-input"
-              placeholder={gettext("Search")}
+              placeholder={dgettext("instances", "Search")}
               type="search"
               phx-debounce="300"
             />
@@ -66,8 +82,8 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinks do
         <.uk_table striped middle>
           <.uk_thead>
             <tr>
-              <th class="uk-table-shrink">{gettext("Description")}</th>
-              <th>{gettext("Link")}</th>
+              <th class="uk-table-shrink">{dgettext("instances", "Description")}</th>
+              <th>{dgettext("instances", "Link")}</th>
               <th class="uk-table-shrink"></th>
             </tr>
           </.uk_thead>
@@ -84,7 +100,7 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinks do
                   class="uk-icon-button"
                 >
                   <.uk_icon name="trash" />
-                  <span class="uk-hidden">{gettext("Delete")}</span>
+                  <span class="uk-hidden">{dgettext("instances", "Delete")}</span>
                 </.uk_button>
               </td>
             </tr>

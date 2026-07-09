@@ -19,7 +19,8 @@ defmodule Ebau.MixProject do
         extras: [
           "README.md",
           "guides/ash-domains.md",
-          "guides/ash-policies.md"
+          "guides/ash-policies.md",
+          "guides/translations.md"
         ],
         groups_for_extras: [
           Guides: ~r/guides\/.*/
