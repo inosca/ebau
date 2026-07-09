@@ -18,30 +18,67 @@
     <UkSpinner @ratio="2" />
   </div>
 {{else}}
-  {{#each-in this.categories as |category snippets|}}
-    <SnippetsTable::Category
-      @editable={{@editable}}
-      @category={{category}}
-      @snippets={{snippets}}
-      @refresh={{this.refresh}}
-    />
-  {{else}}
-    <p class="uk-text-center uk-text-meta">
-      {{#if @search}}
-        {{t "snippets.empty-search"}}
-      {{else}}
-        {{t "snippets.empty"}}
+  {{#if (can "view snippet" type="own")}}
+    <div class="uk-flex uk-flex-between uk-flex-middle uk-margin-bottom">
+      <h2 class="uk-margin-top">{{t "snippets.title.own"}}</h2>
+      {{#if (and @editable (can "add snippet"))}}
+        <LinkTo
+          @route={{module-route "snippets-admin" "new"}}
+          class="uk-button uk-button-primary"
+          data-test-new-category
+        >
+          {{t "snippets.new-category"}}
+        </LinkTo>
       {{/if}}
-    </p>
-  {{/each-in}}
+    </div>
+    {{#each-in this.categories as |category snippets|}}
+      <SnippetsTable::Category
+        @editable={{@editable}}
+        @category={{category}}
+        @snippets={{snippets}}
+        @type="own"
+        @refresh={{this.refresh}}
+      />
+    {{else}}
+      <p class="uk-text-center uk-text-meta">
+        {{#if @search}}
+          {{t "snippets.empty-search"}}
+        {{else}}
+          {{t "snippets.empty"}}
+        {{/if}}
+      </p>
+    {{/each-in}}
+  {{/if}}
 
-  {{#if @editable}}
-    <LinkTo
-      @route={{module-route "snippets-admin" "new"}}
-      class="uk-button uk-button-primary"
-      data-test-new-category
-    >
-      {{t "snippets.new-category"}}
-    </LinkTo>
+  {{#if (has-feature "snippets.allowGlobalSnippets")}}
+    <div class="uk-flex uk-flex-between uk-flex-middle uk-margin-bottom">
+      <h2>{{t "snippets.title.system"}}</h2>
+      {{#if (and @editable (can "add snippet" type="system"))}}
+        <LinkTo
+          @route={{module-route "snippets-admin" "new"}}
+          class="uk-button uk-button-primary"
+          data-test-new-category
+        >
+          {{t "snippets.new-category"}}
+        </LinkTo>
+      {{/if}}
+    </div>
+    {{#each-in this.globalCategories as |category snippets|}}
+      <SnippetsTable::Category
+        @editable={{@editable}}
+        @category={{category}}
+        @snippets={{snippets}}
+        @type="system"
+        @refresh={{this.refresh}}
+      />
+    {{else}}
+      <p class="uk-text-center uk-text-meta">
+        {{#if @search}}
+          {{t "snippets.empty-search"}}
+        {{else}}
+          {{t "snippets.empty"}}
+        {{/if}}
+      </p>
+    {{/each-in}}
   {{/if}}
 {{/if}}

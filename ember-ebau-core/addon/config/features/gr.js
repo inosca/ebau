@@ -9,7 +9,6 @@ export default {
     useCaptchaAuthentication: true,
   },
   rejection: {
-    snippets: false,
     revert: true,
   },
   cases: {
@@ -73,5 +72,8 @@ export default {
   },
   instanceOverview: {
     useFormNameAsTabTitle: false,
+  },
+  snippets: {
+    rejection: true,
   },
 };

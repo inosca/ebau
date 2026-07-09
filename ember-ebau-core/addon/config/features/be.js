@@ -17,7 +17,6 @@ export default {
     costCenter: false,
   },
   rejection: {
-    snippets: true,
     revert: true,
   },
   cases: {
@@ -38,7 +37,6 @@ export default {
   },
   communications: {
     enabled: true,
-    snippets: true,
   },
   portal: {
     stateInfoButton: true,
@@ -72,5 +70,9 @@ export default {
   instanceSupport: true,
   instanceOverview: {
     useFormNameAsTabTitle: true,
+  },
+  snippets: {
+    communications: true,
+    rejection: true,
   },
 };

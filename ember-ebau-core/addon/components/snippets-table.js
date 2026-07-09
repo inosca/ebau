@@ -5,8 +5,11 @@ import Component from "@glimmer/component";
 import { task, timeout } from "ember-concurrency";
 import { query } from "ember-data-resources";
 
+import { groupAndSort } from "ember-ebau-core/utils/snippets";
+
 export default class SnippetsTable extends Component {
   @service store;
+  @service ebauModules;
 
   snippets = query(this, "notification-template", () => ({
     type: "textcomponent",
@@ -14,16 +17,18 @@ export default class SnippetsTable extends Component {
   }));
 
   get categories() {
-    const categories = new Set(this.snippets.records?.map((s) => s.purpose));
+    const records = this.snippets.records || [];
+    const ownRecords = records.filter(
+      (s) => s.service?.id === String(this.ebauModules.serviceId),
+    );
+    return groupAndSort(ownRecords);
+  }
 
-    return [...categories].toSorted().reduce((grouped, category) => {
-      return {
-        ...grouped,
-        [category]: this.snippets.records
-          .filter((s) => s.purpose === category)
-          .toSorted((a, b) => a.subject.localeCompare(b.subject)),
-      };
-    }, {});
+  get globalCategories() {
+    const records = this.snippets.records || [];
+    const globalRecords = records.filter((s) => s.service?.id === null);
+
+    return groupAndSort(globalRecords);
   }
 
   @action

@@ -7,10 +7,13 @@ snippets:
   new: Création d'un nouveau module de texte
   snippets: Modules de texte
   text: Texte
-  title: Titre
   copy: Copier le module de texte dans le clipboard
   empty: Pas de catégories de modules de texte disponibles
   empty-search: Pas de modules de texte disponibles
+  title:
+    new: Titre
+    own: ""
+    system: ""
 
   confirm:
     delete: Voulez-vous vraiment supprimer le module de texte <span class="uk-text-bold">"{name}"</span> ?

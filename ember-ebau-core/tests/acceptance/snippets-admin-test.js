@@ -7,13 +7,23 @@ import { setupApplicationTest } from "dummy/tests/helpers";
 module("Acceptance | snippets-admin", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
+  hooks.beforeEach(async function () {
+    this.user = this.server.create("public-user");
+    this.service = this.server.create("service");
+    const ebauModules = this.owner.lookup("service:ebau-modules");
+    ebauModules.serviceId = this.service.id;
+  });
 
   test("list snippets", async function (assert) {
     this.server.createList("notification-template", 3, {
       purpose: "A category",
+      type: "textcomponent",
+      service: this.service,
     });
     this.server.createList("notification-template", 5, {
       purpose: "B category",
+      type: "textcomponent",
+      service: this.service,
     });
 
     await visit("/snippets-admin");
@@ -27,7 +37,9 @@ module("Acceptance | snippets-admin", function (hooks) {
   });
 
   test("search snippets", async function (assert) {
-    this.server.createList("notification-template", 2);
+    this.server.createList("notification-template", 2, {
+      service: this.service,
+    });
 
     await visit("/snippets-admin");
     await fillIn("[data-test-search]", "Test");
@@ -36,19 +48,22 @@ module("Acceptance | snippets-admin", function (hooks) {
 
     const requests = this.server.pretender.handledRequests;
 
-    assert.strictEqual(requests.length, 2);
+    assert.strictEqual(requests.length, 3);
     assert.strictEqual(
       requests[0].url,
       "/api/v1/notification-templates?search=&type=textcomponent",
     );
     assert.strictEqual(
-      requests[1].url,
+      requests[2].url,
       "/api/v1/notification-templates?search=Test&type=textcomponent",
     );
   });
 
   test("create new snippet", async function (assert) {
-    this.server.create("notification-template", { purpose: "Test" });
+    this.server.create("notification-template", {
+      purpose: "Test",
+      service: this.service,
+    });
 
     await visit("/snippets-admin");
 
@@ -73,7 +88,9 @@ module("Acceptance | snippets-admin", function (hooks) {
   });
 
   test("edit snippet", async function (assert) {
-    const snippet = this.server.create("notification-template");
+    const snippet = this.server.create("notification-template", {
+      service: this.service,
+    });
 
     await visit("/snippets-admin");
 
@@ -102,6 +119,7 @@ module("Acceptance | snippets-admin", function (hooks) {
   test("delete snippet", async function (assert) {
     const snippets = this.server.createList("notification-template", 2, {
       purpose: "A category",
+      service: this.service,
     });
     const snippet = snippets[0];
 
@@ -144,6 +162,7 @@ module("Acceptance | snippets-admin", function (hooks) {
   test("edit category", async function (assert) {
     this.server.createList("notification-template", 3, {
       purpose: "Category old",
+      service: this.service,
     });
 
     await visit("/snippets-admin");
@@ -164,9 +183,11 @@ module("Acceptance | snippets-admin", function (hooks) {
   test("delete category", async function (assert) {
     this.server.createList("notification-template", 3, {
       purpose: "A category",
+      service: this.service,
     });
     this.server.createList("notification-template", 5, {
       purpose: "B category",
+      service: this.service,
     });
 
     await visit("/snippets-admin");

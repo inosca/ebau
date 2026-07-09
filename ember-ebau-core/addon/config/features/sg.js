@@ -7,18 +7,15 @@ export default {
   },
   workItems: {
     v2: true,
-    snippets: true,
   },
   instanceOverview: {
     useFormNameAsTabTitle: true,
   },
   communications: {
     enabled: true,
-    snippets: true,
   },
   rejection: {
     revert: true,
-    snippets: true,
   },
   alexandria: {
     showSearchLinkLabel: true,
@@ -38,24 +35,26 @@ export default {
   dms: {
     enableSystemTemplateEditing: true,
   },
-  journal: {
-    snippets: true,
-  },
   billing: {
     charge: true,
     reducedTaxRate: true,
     displayService: true,
     applyConstructionCosts: true,
     remark: true,
-    snippets: true,
-  },
-  deadlines: {
-    snippets: true,
   },
   form: {
     extraWide: true,
   },
   withdrawal: {
     light: true,
+  },
+  snippets: {
+    allowGlobalSnippets: true,
+    deadlines: true,
+    billing: true,
+    journal: true,
+    rejection: true,
+    communications: true,
+    workItems: true,
   },
 };

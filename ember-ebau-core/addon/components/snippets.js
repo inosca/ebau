@@ -1,8 +1,11 @@
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
-import { dropTask, enqueueTask } from "ember-concurrency";
-import { trackedTask } from "reactiveweb/ember-concurrency";
+import { enqueueTask } from "ember-concurrency";
+import { trackedFunction } from "reactiveweb/function";
+
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { groupAndSort } from "ember-ebau-core/utils/snippets";
 
 export default class SnippetsComponent extends Component {
   @service fetch;
@@ -11,38 +14,51 @@ export default class SnippetsComponent extends Component {
 
   _inputElement = null;
 
-  snippets = trackedTask(this, this.fetchSnippets, () => [
-    this.calumaOptions.currentServiceId,
-  ]);
+  snippets = trackedFunction(this, async () => {
+    const currentServiceId = this.calumaOptions.currentGroupId;
+    const globalSnippetsEnabled = hasFeature("snippets.allowGlobalSnippets");
 
-  @dropTask
-  *fetchSnippets(serviceId) {
     let snippets = this.store
       .peekAll("notification-template")
       .filter((template) => {
-        return (
-          parseInt(template.belongsTo("service").id()) === serviceId &&
-          template.notificationType === "textcomponent"
-        );
+        const serviceId = template.belongsTo("service").id();
+        const isValidService =
+          serviceId !== null
+            ? serviceId === currentServiceId
+            : globalSnippetsEnabled;
+
+        return template.notificationType === "textcomponent" && isValidService;
       });
 
     if (!snippets.length) {
-      snippets = yield this.store.query("notification-template", {
-        service: serviceId,
+      snippets = await this.store.query("notification-template", {
+        service: !globalSnippetsEnabled ? currentServiceId : undefined,
         type: "textcomponent",
       });
     }
 
-    return snippets.reduce((categorized, snippet) => {
-      if (!(snippet.purpose in categorized)) {
-        categorized[snippet.purpose] = [];
+    const ownSnippets = [];
+    const systemSnippets = [];
+
+    snippets.forEach((snippet) => {
+      const snippetServiceId = snippet.belongsTo("service").id();
+
+      if (snippetServiceId !== null && snippetServiceId === currentServiceId) {
+        ownSnippets.push(snippet);
+      } else if (globalSnippetsEnabled) {
+        systemSnippets.push(snippet);
       }
+    });
 
-      categorized[snippet.purpose].push(snippet);
+    const data = {
+      own: groupAndSort(ownSnippets),
+    };
 
-      return categorized;
-    }, {});
-  }
+    if (globalSnippetsEnabled) {
+      data.system = groupAndSort(systemSnippets);
+    }
+    return data;
+  });
 
   @enqueueTask
   *applySnippet(id, event) {

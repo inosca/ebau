@@ -2409,3 +2409,79 @@ def test_recipient_type_rpg2_demolition_premium_payment_service_sz(
         instance
     )
     assert result == [{"to": service.email}]
+
+
+def test_notification_templates_crud_for_support(
+    support_client, service_factory, notification_template_factory
+):
+    # create
+    url = reverse("notificationtemplate-list")
+
+    data = {
+        "data": {
+            "type": "notification-templates",
+            "id": None,
+            "attributes": {
+                "slug": "test",
+                "body": "Test",
+                "purpose": "Test",
+                "notification-type": "textcomponent",
+                "subject": "Test",
+            },
+        }
+    }
+
+    # POST automatically sets service_id to request.group.service
+    response = support_client.post(url, data=data)
+    assert response.status_code == status.HTTP_201_CREATED
+    json = response.json()
+    assert json["data"]["attributes"]["notification-type"] == "textcomponent"
+
+    snippet = NotificationTemplate.objects.get(subject="Test", type="textcomponent")
+
+    # list
+    url = reverse("notificationtemplate-list")
+    response = support_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert json["data"][0]["id"] == str(snippet.pk)
+
+    # update
+    url = reverse("notificationtemplate-detail", args=[snippet.pk])
+    response = support_client.patch(url)
+    assert response.status_code == status.HTTP_200_OK
+
+    # delete
+    url = reverse("notificationtemplate-detail", args=[snippet.pk])
+
+    response = support_client.delete(url)
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+
+    # update_purpose
+    service = service_factory()
+    notification_template_factory.create_batch(
+        5, purpose="test", type="textcomponent", service=None
+    )
+
+    notification_template_factory.create_batch(
+        5, purpose="test", type="textcomponent", service=service
+    )
+
+    url = reverse("notificationtemplate-update-purposes")
+    response = support_client.patch(url + "?current=test&new=NewPurpose")
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+
+    # assert that we've only updated our own 5 templates
+    templates = NotificationTemplate.objects.filter(purpose="NewPurpose")
+    assert templates.count() == 5
+    assert set(templates.values_list("service_id", flat=True)) == {None}
+
+    # delete_by_purpose
+    url = reverse("notificationtemplate-delete-by-purpose")
+
+    assert NotificationTemplate.objects.all().count() == 10
+
+    response = support_client.delete(url + "?purpose=NewPurpose")
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+
+    assert NotificationTemplate.objects.all().count() == 5

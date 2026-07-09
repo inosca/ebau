@@ -329,6 +329,17 @@ def admin_user(admin_user, group, group_location, user_group_factory):
 
 
 @pytest.fixture
+def support_user(user, group_factory, group_location, user_group_factory):
+    user.username = "123bbacg-oeb2-bd92-gaf1-jd9903n3lc02"
+    user.surname = "User"
+    user.name = "Support"
+    user.save()
+    group = group_factory.create(service=None, role__name="Support")
+    user_group_factory(group=group, user=user, default_group=1)
+    return user
+
+
+@pytest.fixture
 def token(admin_user, settings):
     return jwt_encode(
         {"azp": admin_user.groups.first().name, "username": "joël-tester"}, "secret"
@@ -362,6 +373,18 @@ def admin_client(db, admin_user, request_mock, settings):
         token={"azp": settings.KEYCLOAK_CLIENT},
     )
     api_client.user = admin_user
+    return api_client
+
+
+@pytest.fixture
+def support_client(db, support_user, request_mock, settings):
+    """Return instance of a JSONAPIClient that is logged in as user with the support role."""
+    api_client = APIClient()
+    api_client.force_authenticate(
+        user=support_user,
+        token={"azp": settings.KEYCLOAK_CLIENT},
+    )
+    api_client.user = support_user
     return api_client
 
 
