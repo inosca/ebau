@@ -17,6 +17,9 @@ $global-link-hover-color: $global-primary-background;
 $watermark-background-color: #f0506e;
 $mandatory-asterisk-color: #f0506e;
 
+// Features
+$enable-form-whitespace-correction: true;
+
 // increase alexandria side-nav width to fit longer category names.
 .alexandria-container .side-nav .category-nav {
   width: 335px;
