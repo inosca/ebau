@@ -16,7 +16,7 @@
           "type": "specific",
           "visibleFor": {
             "roles": [12],
-            "services": [7]
+            "services": [7, 12, 126, 268, 366, 367, 368]
           }
         },
         "is_creatable": true
@@ -285,7 +285,7 @@
           "type": "specific",
           "visibleFor": {
             "roles": [3, 12],
-            "services": [7]
+            "services": [7, 12, 126, 268, 366, 367, 368]
           }
         }
       },

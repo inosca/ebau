@@ -1078,6 +1078,90 @@ def test_involve_gvg_aib_gr(
     ) == set(expected)
 
 
+@pytest.mark.parametrize("role__name", ["Service"])
+@pytest.mark.parametrize(
+    "caluma_form_slug, should_create_are_acls",
+    [
+        ("are-geschaeft", True),
+        ("voranfrage", False),
+        ("building-permit", False),
+    ],
+)
+@pytest.mark.django_db
+def test_internal_are_geschaeft_acls_sz(
+    # fixtures
+    admin_client,
+    application_settings,
+    caluma_form_factory,
+    caluma_workflow_allow_forms_factory,
+    caluma_workflow_factory,
+    form_factory,
+    instance_state_factory,
+    role,
+    service,
+    service_factory,
+    settings,
+    sz_access_levels,
+    # params
+    caluma_form_slug,
+    should_create_are_acls,
+):
+    settings.APPLICATION_NAME = "kt_schwyz"
+
+    service.slug = "bar"
+    service.save()
+    application_settings["ARE_SERVICES"] = ["foo", service.slug, "baz"]
+    are_services = [
+        service_factory(slug=are_service_slug)
+        if are_service_slug != service.slug
+        else service
+        for are_service_slug in application_settings["ARE_SERVICES"]
+    ]
+
+    # Needed because the instance is initially created with instance_state=new and the
+    # serializer only switches it to internal afterwards:
+    instance_state_factory(name="new")
+    instance_state_factory(name="internal")
+    caluma_form = caluma_form_factory(slug=caluma_form_slug)
+    caluma_workflow = caluma_workflow_factory(slug="internal-document")
+    caluma_workflow_allow_forms_factory(workflow=caluma_workflow, form=caluma_form)
+    form = form_factory(name="geschaeftskontrolle")
+
+    data = {
+        "data": {
+            "type": "instances",
+            "id": None,
+            "attributes": {
+                "caluma-form": caluma_form.slug,
+                "caluma-workflow": caluma_workflow.slug,
+            },
+            "relationships": {
+                "form": {
+                    "data": {
+                        "type": "forms",
+                        "id": form.pk,
+                    },
+                },
+            },
+        }
+    }
+
+    url = reverse("instance-list")
+    response = admin_client.post(url, data=data)
+    assert response.status_code == status.HTTP_201_CREATED
+
+    instance_id = response.json()["data"]["id"]
+    instance = Instance.objects.get(pk=instance_id)
+    are_acls = instance.acls.filter(access_level_id="are-service")
+
+    if should_create_are_acls:
+        assert are_acls.count() == len(application_settings["ARE_SERVICES"])
+        for service in are_services:
+            assert service.pk in are_acls.values_list("service_id", flat=True)
+    else:
+        assert are_acls.count() == 0
+
+
 @pytest.mark.parametrize("have_geometer,expect_acl", [(True, True), (False, False)])
 @pytest.mark.django_db
 def test_decided_involve_geometer_sz(

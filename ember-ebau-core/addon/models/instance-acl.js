@@ -1,5 +1,6 @@
 import { service } from "@ember/service";
 import Model, { attr, belongsTo } from "@ember-data/model";
+import { getOwnConfig, macroCondition } from "@embroider/macros";
 import { DateTime } from "luxon";
 import { trackedFunction } from "reactiveweb/function";
 
@@ -192,10 +193,15 @@ export default class InstanceAclModel extends Model {
   });
 
   get revokeable() {
-    return (
-      this.createdByEvent === EVENT_TYPES.MANUAL_CREATION &&
-      this.status !== "expired"
-    );
+    /* TODO: Once all cantons have the permissions module fully enabled, we
+     * should properly check for the correct `permissions-revoke-…` permission
+     * rather than doing an approximation like this.
+     */
+    let canRevoke = this.createdByEvent === EVENT_TYPES.MANUAL_CREATION;
+    if (macroCondition(getOwnConfig().application === "sz")) {
+      canRevoke |= this.accessLevel.id === "are-service";
+    }
+    return canRevoke && this.status !== "expired";
   }
 
   async revoke() {

@@ -518,8 +518,9 @@ class InstanceEditableMixin(AttributeMixin):
     def has_editable_permission_from_permission_module(self, instance):
         """Return True if the required permission is granted by the permissions module.
 
-        In other words, `instance_editable_permission` is used to determine which permission
-        from the permissions module is required, and `True` is returned if that permission is
+        In other words, `instance_editable_permission` and
+        `instance_editable_acl_permission` are used to determine which permission from
+        the permissions module is required, and `True` is returned if that permission is
         granted.
         """
 
@@ -527,9 +528,12 @@ class InstanceEditableMixin(AttributeMixin):
         EDITABLE_PERMISSIONS = {
             "document": "documents-write",
             "form": "form-write",
+            "journal": "journal-write",
         }
 
-        editable_permission = self.serializer_getattr("instance_editable_permission")
+        editable_permission = self.serializer_getattr(
+            "instance_editable_permission"
+        ) or self.serializer_getattr("instance_editable_acl_permission")
         if not editable_permission or editable_permission not in EDITABLE_PERMISSIONS:
             return False
 

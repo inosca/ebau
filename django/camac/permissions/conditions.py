@@ -578,3 +578,23 @@ class IsCreatedByService(Check):
 
     def __eq__(self, other):  # pragma: no cover
         return isinstance(other, IsCreatedByService)
+
+
+@dataclass
+class RequireRunningCase(Check):
+    """Permission check for requiring a instance case to be running."""
+
+    def apply(self, userinfo, context: PermissionContext):
+        from caluma.caluma_workflow.models import Case
+
+        return context.instance.case.status == Case.STATUS_RUNNING
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return False
+
+    def __eq__(self, other):  # pragma: no cover
+        return isinstance(other, RequireRunningCase)
+
+    def __repr__(self):
+        return "RequireRunningCase()"

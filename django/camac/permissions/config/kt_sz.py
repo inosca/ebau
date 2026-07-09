@@ -11,6 +11,19 @@ from camac.user.utils import get_tax_administration
 class PermissionEventHandlerSZ(
     EmptyEventHandler,
 ):
+    def instance_created(self, instance: Instance):
+        super().instance_created(instance)
+        if instance.case.document.form.slug == "are-geschaeft":
+            are_services_slugs = settings.APPLICATION["ARE_SERVICES"]
+            for are_service in Service.objects.filter(slug__in=are_services_slugs):
+                self.manager.grant(
+                    instance=instance,
+                    grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+                    access_level="are-service",
+                    service=are_service,
+                    event_name="instance-created",
+                )
+
     def decision_decreed(self, instance: Instance):
         if geometer_service := get_geometer_service(instance):
             self.manager.grant(

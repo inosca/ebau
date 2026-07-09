@@ -6889,6 +6889,22 @@
   },
   {
     "model": "user.group",
+    "pk": 471,
+    "fields": {
+      "role": 5,
+      "service": 268,
+      "disabled": 0,
+      "name": "ESP-Koordinationsstelle",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
     "pk": 506,
     "fields": {
       "role": 5,
@@ -6948,6 +6964,54 @@
       "city": null,
       "address": null,
       "email": "geometer@geoinfra.example",
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 605,
+    "fields": {
+      "role": 5,
+      "service": 366,
+      "disabled": 0,
+      "name": "Amt für Raumentwicklung (Abteilungsleiter)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 606,
+    "fields": {
+      "role": 5,
+      "service": 367,
+      "disabled": 0,
+      "name": "Rechtsdienst ARE",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 607,
+    "fields": {
+      "role": 7,
+      "service": 367,
+      "disabled": 0,
+      "name": "Rechtsdienst ARE Sachbearbeiter",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
       "website": null
     }
   },
@@ -32960,7 +33024,7 @@
     "model": "user.service",
     "pk": 12,
     "fields": {
-      "slug": null,
+      "slug": "are-ortsplanung",
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Raumentwicklung (Ortsplanung)",
@@ -35924,7 +35988,7 @@
     "model": "user.service",
     "pk": 126,
     "fields": {
-      "slug": null,
+      "slug": "are-kantonale-planung",
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Raumentwicklung (Kantonale Planung)",
@@ -39588,6 +39652,32 @@
   },
   {
     "model": "user.service",
+    "pk": 268,
+    "fields": {
+      "slug": "esp-koordination",
+      "service_group": 2,
+      "service_parent": null,
+      "name": "ESP-Koordinationsstelle",
+      "description": "ESP-Koordinationsstelle",
+      "sort": 228,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
     "pk": 301,
     "fields": {
       "slug": null,
@@ -39705,6 +39795,58 @@
       "city": null,
       "address": null,
       "email": "geoinfra@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 366,
+    "fields": {
+      "slug": "are-abteilungsleiter",
+      "service_group": 2,
+      "service_parent": null,
+      "name": "Amt für Raumentwicklung (Abteilungsleiter)",
+      "description": "Amt für Raumentwicklung (Abteilungsleiter)",
+      "sort": 227,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 367,
+    "fields": {
+      "slug": "rechtsdienst-are",
+      "service_group": 2,
+      "service_parent": null,
+      "name": "Rechtsdienst ARE",
+      "description": "Rechtsdienst ARE",
+      "sort": 229,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
       "website": null,
       "logo": "",
       "disabled": 0,

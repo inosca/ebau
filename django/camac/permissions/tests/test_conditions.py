@@ -1,5 +1,5 @@
 import pytest
-from caluma.caluma_workflow.models import Workflow, WorkItem
+from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 from django.utils import timezone
 
 from camac.applicants.models import ROLE_CHOICES, ApplicantConfirmationRound
@@ -14,6 +14,7 @@ from camac.permissions.conditions import (
     IsServiceGroup,
     IsWorkflow,
     PermissionContext,
+    RequireRunningCase,
     RequireWorkItem,
 )
 from camac.tests.form_utils import FormUtils
@@ -390,3 +391,27 @@ def test_condition_equality(cond, params1, params2, expect_equal):
     is_equal = c1 == c2
 
     assert is_equal == expect_equal
+
+
+@pytest.mark.parametrize(
+    "case_status,expected_result",
+    [
+        (Case.STATUS_RUNNING, True),
+        (Case.STATUS_COMPLETED, False),
+    ],
+)
+@pytest.mark.django_db
+def test_condition_require_running_case(
+    caluma_case_factory,
+    instance_factory,
+    userinfo,
+    # parameters
+    case_status,
+    expected_result,
+):
+    instance = instance_factory(case=caluma_case_factory(status=case_status))
+
+    assert (
+        RequireRunningCase().apply(userinfo, PermissionContext(instance))
+        is expected_result
+    )

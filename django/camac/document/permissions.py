@@ -237,10 +237,9 @@ class AdminInternalBusinessControlPermission(AdminInternalPermission):
 
 
 def _is_internal_instance(group, instance):
-    return (
-        instance.instance_state.name
-        in settings.APPLICATION.get("ATTACHMENT_INTERNAL_STATES", [])
-    ) and (instance.group.service == group.service)
+    return instance.instance_state.name in settings.APPLICATION.get(
+        "ATTACHMENT_INTERNAL_STATES", []
+    )
 
 
 def _is_general_instance(group, instance):
@@ -532,6 +531,10 @@ PERMISSIONS_BY_ACCESSLEVEL = {
             # All sections excluding internal sections (2, 7) and
             # section for applicant (9)
             ReadPermission: (_allow_always, [1, 4, 5, 6, 8, 10, 11]),
+        },
+        "are-service": {
+            AdminPermission: (_has_documents_write_permission, [12]),
+            ReadPermission: (_allow_always, [12]),
         },
     },
     "kt_uri": {
