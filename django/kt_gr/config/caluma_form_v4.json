@@ -183,7 +183,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "anzahl-mitarbeitende-gewerbe",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -198,7 +198,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "ausserhalb-bauzone",
-      "sort": 37
+      "sort": 38
     }
   },
   {
@@ -213,7 +213,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "baute-oder-anlage",
-      "sort": 38
+      "sort": 39
     }
   },
   {
@@ -228,7 +228,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "bauvorhaben-mit-gewerbenutzung",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -258,7 +258,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "beschreibung-der-nutzung-v4",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -273,7 +273,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "beschreibung-der-wohnnutzung",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -288,7 +288,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "beschreibung-kantonsstrassen",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -318,7 +318,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "entsorgung-triage",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -333,7 +333,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "fallen-emissionen-an",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -348,7 +348,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "forstliche-baute",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -363,7 +363,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "haustechnische-anlagen-brandschutz",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -378,7 +378,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "hinweis-denkmalpflege",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -393,7 +393,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "hinweis-hindernisfreies-bauen",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -408,7 +408,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "hinweis-kantonales-brandschutzgesetz",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -438,7 +438,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "hinweis-vorabklaerungspflicht",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -468,7 +468,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "hinweis-waldabstandsbereich",
-      "sort": 35
+      "sort": 36
     }
   },
   {
@@ -483,7 +483,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "industrie-und-gewerbeabwasser",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -498,7 +498,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "ist-ein-gewaesser-betroffen",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -513,7 +513,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "kantonsstrassen",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -528,7 +528,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "mehr-als-50-arbeitsplaetze-v4",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -543,7 +543,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "mehr-als-vier-wohneinheiten",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -558,7 +558,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "muessen-ufervegetation-hecken-oder-feldgehoelze-entfernt-werden",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -573,7 +573,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "nichtforstliche-kleinbaute",
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -588,7 +588,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "objekt-der-denkmalpflege",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -603,7 +603,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "rodung",
-      "sort": 34
+      "sort": 35
     }
   },
   {
@@ -618,7 +618,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "triage-brandschutz",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -633,7 +633,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "triage-titel",
-      "sort": 39
+      "sort": 40
     }
   },
   {
@@ -663,7 +663,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "waldareal",
-      "sort": 36
+      "sort": 37
     }
   },
   {
@@ -678,7 +678,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "was-verursacht-die-emissionen",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -693,7 +693,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "werden-neue-wohnungen-erstellt",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -708,7 +708,22 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "wie-ist-das-gewaesser-betroffen",
-      "sort": 11
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben-v4.wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird",
+    "fields": {
+      "created_at": "2026-07-06T10:44:42.879Z",
+      "modified_at": "2026-07-06T10:44:42.879Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben-v4",
+      "question": "wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird",
+      "sort": 6
     }
   },
   {
@@ -723,7 +738,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "wird-material-vor-ort-aufbereitet",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -738,7 +753,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "wohnnutzung",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -753,7 +768,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "zweitwohnungsgesetz",
-      "sort": 26
+      "sort": 27
     }
   },
   {
