@@ -60,7 +60,7 @@ class LocationView(MultilangMixin, ReadOnlyModelViewSet):
 class UserView(ReadOnlyModelViewSet):
     filterset_class = filters.UserFilterSet
     serializer_class = serializers.UserSerializer
-    queryset = models.User.objects.filter(disabled=False)
+    queryset = models.User.objects.only_active()
     ordering = ["name"]
     ordering_fields = ("name", "surname")
 

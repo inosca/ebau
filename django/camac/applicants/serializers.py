@@ -1,6 +1,4 @@
 from caluma.caluma_form.models import Document
-from django.conf import settings
-from django.contrib.auth import get_user_model
 from django.db.models import Q
 from django.utils.translation import gettext as _
 from rest_framework.exceptions import ValidationError
@@ -9,6 +7,7 @@ from rest_framework_json_api import relations, serializers
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.permissions.events.core import Trigger
+from camac.user.models import User
 from camac.user.relations import CurrentUserResourceRelatedField
 from camac.user.serializers import UserSerializer
 
@@ -29,8 +28,6 @@ class ApplicantSerializer(serializers.ModelSerializer, InstanceEditableMixin):
         return new
 
     def validate(self, data):
-        User = get_user_model()
-
         if data.get("role") == models.ROLE_CHOICES.PROJECT_OWNER.value:
             raise ValidationError(
                 "Role Project owner can only be granted by the system."
@@ -38,16 +35,11 @@ class ApplicantSerializer(serializers.ModelSerializer, InstanceEditableMixin):
 
         data["email"] = data["email"].lower()
 
-        email_filter = Q(email=data["email"])
+        portal_user = (
+            User.objects.only_active().portal_users().get_by_email(data["email"])
+        )
 
-        if settings.ENABLE_TOKEN_EXCHANGE:
-            # If token exchange is enabled, we need to make sure that only users
-            # using that login method can be invited as applicants.
-            email_filter &= Q(
-                username__startswith=settings.TOKEN_EXCHANGE_USERNAME_PREFIX
-            )
-
-        data["invitee"] = User.objects.filter(email_filter, disabled=False).first()
+        data["invitee"] = portal_user
 
         unique_filter = (
             Q(email=data["email"])
@@ -71,7 +63,7 @@ class ApplicantSerializer(serializers.ModelSerializer, InstanceEditableMixin):
 
 class ApplicantConfirmationSerializer(serializers.ModelSerializer):
     user = relations.SerializerMethodResourceRelatedField(
-        model=get_user_model(),
+        model=User,
         read_only=True,
     )
     roles = serializers.SerializerMethodField()

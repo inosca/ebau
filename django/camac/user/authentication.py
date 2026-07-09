@@ -134,14 +134,14 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
     def _get_existing_user(self, defaults):
         user_model = get_user_model()
-        existing_user = user_model.objects.filter(username=defaults["username"]).first()
+        existing_user = user_model.objects.get_by_username(defaults["username"])
 
         if (
             not existing_user
             and settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK
             and defaults["email"]
         ):
-            existing_user = user_model.objects.filter(email=defaults["email"]).first()
+            existing_user = user_model.objects.get_by_email(defaults["email"])
 
         return existing_user
 

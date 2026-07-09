@@ -820,7 +820,7 @@ class InstanceView(
             except DjangoValidationError:
                 continue
 
-            user = User.objects.filter(email=email).first()
+            user = User.objects.get_by_email(email)
             applicant = Applicant.objects.filter(
                 instance=instance,
                 **({"invitee": user} if user else {"email": email}),

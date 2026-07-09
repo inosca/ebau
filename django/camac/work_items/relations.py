@@ -29,7 +29,7 @@ class CalumaUserRelatedField(ResourceRelatedField):
             return prefetched_users.get(username, None)
 
         # fallback to querying the database if the username is set.
-        return User.objects.filter(username=username).first() if username else None
+        return User.objects.get_by_username(username) if username else None
 
 
 class CalumaServiceRelatedField(ResourceRelatedField):
