@@ -110,28 +110,6 @@ $main-navigation-background: $global-primary-background !default;
   }
 }
 
-$loading-spinner: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke="%23aaa" stroke-width="5" stroke-dasharray="31.415,31.415" transform="rotate(-90 25 25)"><animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="1s" repeatCount="indefinite"/></circle></svg>');
-
-select.uk-select.phx-change-loading {
-  pointer-events: none;
-  background-image: $loading-spinner !important;
-  background-repeat: no-repeat;
-  background-position: right 10px center !important;
-  background-size: 1em 1em;
-}
-
-button.uk-button.phx-click-loading {
-  pointer-events: none;
-  background-image: $loading-spinner !important;
-  background-color: #ccc;
-  color: #666;
-  border-color: #bbb;
-  background-repeat: no-repeat;
-  background-size: 1.5em 1.5em;
-  background-position: center;
-  position: relative;
-}
-
 #group-dropdown {
   button {
     text-transform: inherit;
