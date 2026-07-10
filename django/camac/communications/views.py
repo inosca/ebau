@@ -356,7 +356,7 @@ class AttachmentView(
         elif obj.document_attachment:
             file = obj.document_attachment.path.file
         else:
-            raise NotFound()
+            raise NotFound
 
         as_attachment = (
             obj.content_type

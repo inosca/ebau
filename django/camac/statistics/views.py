@@ -121,7 +121,7 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
                 columns_config = role_columns
 
         if columns_config is None:
-            raise PermissionDenied()
+            raise PermissionDenied
 
         return getattr(columns_config, self.base_type)
 

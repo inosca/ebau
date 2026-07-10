@@ -250,7 +250,7 @@ class ApplicantConfirmation(models.Model):
         )
 
         if self.user is None or request.user != self.user:
-            raise PermissionDenied()
+            raise PermissionDenied
 
         if self.status != self.Status.PENDING:
             raise ValidationError(

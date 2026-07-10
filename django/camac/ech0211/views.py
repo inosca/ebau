@@ -151,13 +151,13 @@ def _check_alexandria_delete_document(
     request, document: ECH0211AlexandriaDocument
 ) -> None:
     if not has_alexandria_delete_permission(request, document):
-        raise PermissionDenied()
+        raise PermissionDenied
 
     # do not allow deletion of files that are linked to a communication attachment
     if CommunicationsAttachment.objects.filter(
         alexandria_file__document=document
     ).exists():
-        raise PermissionDenied()
+        raise PermissionDenied
 
 
 def _check_camac_delete_document(document: ECH0211Document) -> Response | None:
@@ -182,7 +182,7 @@ def _check_camac_delete_document(document: ECH0211Document) -> Response | None:
     if CommunicationsAttachment.objects.filter(
         document_attachment=document.attachment
     ).exists():
-        raise PermissionDenied()
+        raise PermissionDenied
 
 
 class FileSwaggerAutoSchema(SwaggerAutoSchema):
@@ -335,7 +335,7 @@ class EventView(ECHGeofenceMixin, ECHInstanceQuerysetMixin, GenericViewSet):
     @transaction.atomic
     def create(self, request, instance_id, event_type, *args, **kwargs):
         if settings.ECH0211.get("API_LEVEL") != "full":
-            raise NotFound()
+            raise NotFound
 
         instance = get_object_or_404(self.get_queryset(), pk=instance_id)
         try:
@@ -380,7 +380,7 @@ class SendView(ECHGeofenceMixin, ECHInstanceQuerysetMixin, GenericViewSet):
     @transaction.atomic
     def create(self, request, *args, **kwargs):
         if settings.ECH0211.get("API_LEVEL") != "full":
-            raise NotFound()
+            raise NotFound
 
         if not request.data:
             return HttpResponse(status=400)
@@ -531,7 +531,7 @@ class ECHFileView(
     )
     def retrieve(self, request, **kwargs):
         if not DocumentAPIFeature.can(DocumentAPIFeature.FILES_DOWNLOAD):
-            raise NotFound()  # pragma: no cover
+            raise NotFound  # pragma: no cover
 
         file = self.get_object()
         response = FileResponse(
@@ -588,7 +588,7 @@ class ECHFileView(
     )
     def create(self, request, **kwargs):
         if not DocumentAPIFeature.can(DocumentAPIFeature.FILES_UPLOAD):
-            raise NotFound()
+            raise NotFound
 
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -628,7 +628,7 @@ class ECHFileView(
     )
     def destroy(self, *args, **kwargs):
         if not DocumentAPIFeature.can(DocumentAPIFeature.FILES_DELETE):
-            raise NotFound()
+            raise NotFound
 
         if is_camac_backend():
             return self._destroy_camac(*args, **kwargs)
@@ -835,7 +835,7 @@ class ECHDocumentView(
         if is_camac_backend() or not DocumentAPIFeature.can(
             DocumentAPIFeature.DOCUMENTS_UPDATE
         ):
-            raise NotFound()
+            raise NotFound
 
         return super().partial_update(request, *args, **kwargs)
 
@@ -892,7 +892,7 @@ class ECHDocumentView(
                 and not DocumentAPIFeature.can(DocumentAPIFeature.DOCUMENTS_VOID_REMOVE)
             )
         ):
-            raise NotFound()
+            raise NotFound
 
         return self._update_mark(document=self.get_object(), mark_pk="void", add=is_add)
 
@@ -953,7 +953,7 @@ class ECHDocumentView(
                 )
             )
         ):
-            raise NotFound()
+            raise NotFound
 
         return self._update_mark(
             document=self.get_object(), mark_pk="decision", add=is_add
@@ -1018,7 +1018,7 @@ class ECHDocumentView(
                 )
             )
         ):
-            raise NotFound()
+            raise NotFound
 
         return self._update_mark(
             document=self.get_object(), mark_pk="publication", add=is_add
@@ -1083,7 +1083,7 @@ class ECHDocumentView(
                 )
             )
         ):
-            raise NotFound()
+            raise NotFound
 
         return self._update_mark(
             document=self.get_object(), mark_pk="sensitive", add=is_add
@@ -1101,7 +1101,7 @@ class ECHDocumentView(
     )
     def destroy(self, *args, **kwargs):
         if not DocumentAPIFeature.can(DocumentAPIFeature.DOCUMENTS_DELETE):
-            raise NotFound()
+            raise NotFound
 
         if is_camac_backend():
             return self._destroy_camac(*args, **kwargs)
@@ -1110,7 +1110,7 @@ class ECHDocumentView(
 
     def _update_mark(self, document, mark_pk: str, add: bool) -> Response:
         if not has_alexandria_mark_permission(self.request, document, mark_pk):
-            raise PermissionDenied()
+            raise PermissionDenied
 
         mark = alexandria_models.Mark.objects.filter(pk=mark_pk).first()
         if add:

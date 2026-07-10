@@ -341,7 +341,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             ).exists()
 
             if not attachment_in_intern_section and not is_allowed_service:
-                raise exceptions.PermissionDenied()
+                raise exceptions.PermissionDenied
 
         # prevent changing document's isDecision flag after case decision has been enacted
         if attachment.instance.instance_state.name in settings.APPLICATION.get(

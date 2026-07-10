@@ -26,7 +26,7 @@ class GISBaseClient:
         return []
 
     def process_data_source(self, config: dict, intermediate_data) -> dict:
-        raise NotImplementedError()
+        raise NotImplementedError
 
     def set_question_value(self, data: dict, question: str, value: Any) -> dict:
         if "." in question:

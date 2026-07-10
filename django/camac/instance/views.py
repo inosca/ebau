@@ -1050,7 +1050,7 @@ class InstanceView(
     @action(methods=["post"], detail=True)
     def appeal(self, request, pk):
         if not is_module_enabled("APPEAL"):
-            raise NotFound()
+            raise NotFound
 
         return self._custom_serializer_action(
             request, pk, status_code=status.HTTP_201_CREATED
@@ -1137,7 +1137,7 @@ class InstanceView(
     )
     def master_data(self, request, pk=None):
         if not is_module_enabled("MASTER_DATA"):  # pragma: no cover
-            raise NotFound()
+            raise NotFound
 
         instance = self.get_object()
         fields = request.query_params.get("fields")

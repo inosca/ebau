@@ -89,7 +89,7 @@ class BaseEventHandler:
         return request
 
     def get_xml(self, **kwargs):  # pragma: no cover
-        raise NotImplementedError()
+        raise NotImplementedError
 
     def create_message(self, xml, receiver=None, id=None):
         message_id = id or self.message_id

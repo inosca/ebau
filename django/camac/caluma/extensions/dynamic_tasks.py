@@ -465,7 +465,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
     @register_dynamic_task("after-submit")
     @canton_aware
     def resolve_after_submit(self, case, user, prev_work_item, context):
-        raise NotImplementedError()  # pragma: no cover
+        raise NotImplementedError  # pragma: no cover
 
     def resolve_after_submit_so(self, case, user, prev_work_item, context):
         tasks = ["create-manual-workitems"]

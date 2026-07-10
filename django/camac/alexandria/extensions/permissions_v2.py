@@ -74,7 +74,7 @@ def get_category_prefix(obj: str | Document | Category) -> str:
         case Category():
             category = obj
         case _:  # pragma: no cover
-            raise RuntimeError()
+            raise RuntimeError
 
     if category.parent_id is not None:
         return category.parent_id

@@ -118,7 +118,7 @@ class Command(BaseCommand):
         if _ := self.get_access_level("USO"):
             # TODO: Implement check for access level USO if needed for
             # other cantons
-            raise NotImplementedError()
+            raise NotImplementedError
 
         if support := self.get_access_level("SUPPORT"):
             self.check_support(support)
