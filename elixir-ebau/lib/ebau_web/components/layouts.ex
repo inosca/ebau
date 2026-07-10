@@ -157,7 +157,6 @@ defmodule EbauWeb.Layouts do
   defp language_switcher(assigns) do
     current_language = Gettext.get_locale(EbauWeb.Gettext)
     supported_langauges = EbauWeb.Gettext.supported_languages()
-    dbg(Gettext.get_locale(EbauWeb.Gettext))
 
     assigns =
       assign(assigns,

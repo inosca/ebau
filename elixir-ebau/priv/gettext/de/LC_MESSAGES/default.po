@@ -30,20 +30,20 @@ msgstr "Keine Internetverbindung"
 msgid "close"
 msgstr "schliessen"
 
-#: lib/ebau_web/components/layouts.ex:172
-#: lib/ebau_web/components/layouts.ex:194
+#: lib/ebau_web/components/layouts.ex:171
+#: lib/ebau_web/components/layouts.ex:193
 #, elixir-autogen, elixir-format
 msgid "French"
 msgstr "Französisch"
 
-#: lib/ebau_web/components/layouts.ex:171
-#: lib/ebau_web/components/layouts.ex:193
+#: lib/ebau_web/components/layouts.ex:170
+#: lib/ebau_web/components/layouts.ex:192
 #, elixir-autogen, elixir-format
 msgid "German"
 msgstr "Deutsch"
 
-#: lib/ebau_web/components/layouts.ex:173
-#: lib/ebau_web/components/layouts.ex:195
+#: lib/ebau_web/components/layouts.ex:172
+#: lib/ebau_web/components/layouts.ex:194
 #, elixir-autogen, elixir-format
 msgid "Italian"
 msgstr "Italienisch"

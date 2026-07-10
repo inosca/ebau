@@ -41,7 +41,7 @@ defmodule EbauWeb.Plugs.InitialiseGettext do
         session["locale"]
       end
 
-    Gettext.put_locale(Ebau.Scope.pick_locale(lang)) |> dbg()
+    Gettext.put_locale(Ebau.Scope.pick_locale(lang))
     {:cont, socket}
   end
 

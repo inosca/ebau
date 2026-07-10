@@ -37,6 +37,6 @@ defmodule EbauWeb.Gettext do
       ur: ["de"]
     }
 
-    Map.get(languages, canton)
+    Map.get(languages, canton, [])
   end
 end

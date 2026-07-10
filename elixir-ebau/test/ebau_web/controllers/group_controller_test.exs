@@ -57,7 +57,6 @@ defmodule EbauWeb.GroupControllerTest do
 
       conn = post(conn, ~p"/switch-group/#{other_actor.group.id}", %{"return_to" => "/foo"})
 
-      # switch silently failed — no cookie, but we still redirected somewhere safe
       assert redirected_to(conn) == "/foo"
       refute Map.has_key?(conn.resp_cookies, "camac_group")
     end

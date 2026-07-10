@@ -44,8 +44,8 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinksTest do
       |> visit(~p"/service-permissions/gis-links")
       |> within("#new-gis-link", fn session ->
         session
-        |> fill_in("Name", with: "Second")
-        |> fill_in("Link", with: "https://geo.so.ch/map")
+        |> fill_in("Name", with: "Second", exact: false)
+        |> fill_in("Link", with: "https://geo.so.ch/map", exact: false)
         |> submit()
       end)
       |> assert_has("td", text: "Second")
@@ -63,7 +63,7 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinksTest do
 
       conn
       |> visit(~p"/service-permissions/gis-links")
-      |> fill_in("Suche", with: "Parcels")
+      |> fill_in("Suche", with: "Parcels", exact: false)
       |> assert_has("td", text: other.name)
       |> refute_has("td", text: gis_link.name)
     end
@@ -81,9 +81,9 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinksTest do
 
       conn
       |> visit(~p"/service-permissions/gis-links")
-      |> fill_in("Suche", with: "Parcels")
+      |> fill_in("Suche", with: "Parcels", exact: false)
       |> refute_has("td", text: gis_link.name)
-      |> fill_in("Suche", with: "")
+      |> fill_in("Suche", with: "", exact: false)
       |> assert_has("td", text: gis_link.name)
       |> assert_has("td", text: other.name)
     end
