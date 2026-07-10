@@ -45,13 +45,14 @@ lint.select = [
     "FLY",    # https://docs.astral.sh/ruff/rules/#flynt-fly
     "I",      # https://docs.astral.sh/ruff/rules/#isort-i
     "INT",    # https://docs.astral.sh/ruff/rules/#flake8-gettext-int
+    "PERF",   # https://docs.astral.sh/ruff/rules/#perflint-perf
     "PGH",    # https://docs.astral.sh/ruff/rules/#pygrep-hooks-pgh
     "PIE",    # https://docs.astral.sh/ruff/rules/#flake8-pie-pie
+    "RUF100", # https://docs.astral.sh/ruff/rules/unused-noqa/
     "SIM",    # https://docs.astral.sh/ruff/rules/#flake8-simplify-sim
     "TC",     # https://docs.astral.sh/ruff/rules/#flake8-type-checking-tc
     "UP",     # https://docs.astral.sh/ruff/rules/#pyupgrade-up
     "W",      # https://docs.astral.sh/ruff/rules/#warning-w
-    "RUF100", # https://docs.astral.sh/ruff/rules/unused-noqa/
 ]
 # codes owned by other tools (ast-grep) that appear in `# noqa` comments and
 # should not be flagged by ruff as invalid directives

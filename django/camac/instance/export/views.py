@@ -317,38 +317,36 @@ def generate_bab_statistics_export_file(start_date, end_date):
         "Versiegelte / entsiegelte Flächen: Liegt das Vorhaben in einem Sömmerungsgebiet",
     ]
 
-    data = []
-
-    for row in qs:
-        data.append(
-            [
-                value_or_dash(row.municipality),
-                value_or_dash(row.applicant),
-                value_or_dash(row.instance_description),
-                str(row.case.meta["dossier-number"]),
-                str(row.pk),
-                value_or_dash(row.instance_name),
-                value_or_dash(row.bab_art_der_massnahme),
-                value_or_dash(row.bab_objektart),
-                value_or_dash(row.bab_objektbeschrieb),
-                value_or_dash(row.bab_nutzung_nach_rpg),
-                value_or_dash(row.bab_bewilligungsgrund),
-                value_or_dash(row.bab_entscheid),
-                value_or_dash(row.bab_typ_der_auftraggeber),
-                value_or_dash(row.bab_grundnutzung),
-                value_or_dash(row.bab_flaechenbedarf_grundnutzung),
-                value_or_dash(row.bab_flaechenbedarf_fruchtfolgeflaechen),
-                value_or_dash(row.bab_kompensation_fruchtfolgeflaechen),
-                value_or_dash(row.bab_neue_gebaeude),
-                value_or_dash(row.bab_gebaeude_abbruch),
-                value_or_dash(row.bab_anzahl_gebaeude_unter_schutz),
-                value_or_dash(row.bab_versiegelt_oder_entsiegelt),
-                value_or_dash(row.bab_art_versiegelung),
-                value_or_dash(row.bab_versiegelung_flaeche),
-                value_or_dash(row.bab_nutzung_versiegelte_flaeche),
-                value_or_dash(row.bab_soemmerungsgebiet),
-            ]
-        )
+    data = [
+        [
+            value_or_dash(row.municipality),
+            value_or_dash(row.applicant),
+            value_or_dash(row.instance_description),
+            str(row.case.meta["dossier-number"]),
+            str(row.pk),
+            value_or_dash(row.instance_name),
+            value_or_dash(row.bab_art_der_massnahme),
+            value_or_dash(row.bab_objektart),
+            value_or_dash(row.bab_objektbeschrieb),
+            value_or_dash(row.bab_nutzung_nach_rpg),
+            value_or_dash(row.bab_bewilligungsgrund),
+            value_or_dash(row.bab_entscheid),
+            value_or_dash(row.bab_typ_der_auftraggeber),
+            value_or_dash(row.bab_grundnutzung),
+            value_or_dash(row.bab_flaechenbedarf_grundnutzung),
+            value_or_dash(row.bab_flaechenbedarf_fruchtfolgeflaechen),
+            value_or_dash(row.bab_kompensation_fruchtfolgeflaechen),
+            value_or_dash(row.bab_neue_gebaeude),
+            value_or_dash(row.bab_gebaeude_abbruch),
+            value_or_dash(row.bab_anzahl_gebaeude_unter_schutz),
+            value_or_dash(row.bab_versiegelt_oder_entsiegelt),
+            value_or_dash(row.bab_art_versiegelung),
+            value_or_dash(row.bab_versiegelung_flaeche),
+            value_or_dash(row.bab_nutzung_versiegelte_flaeche),
+            value_or_dash(row.bab_soemmerungsgebiet),
+        ]
+        for row in qs
+    ]
     return header, data
 
 

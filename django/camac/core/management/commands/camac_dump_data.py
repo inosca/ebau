@@ -55,7 +55,7 @@ class Command(BaseCommand):
                 ):
                     continue
 
-                for _, model_filters in settings.DUMP["CONFIG"]["GROUPS"].items():
+                for model_filters in settings.DUMP["CONFIG"]["GROUPS"].values():
                     if model_identifier in model_filters:
                         # exclude models that are used in config group
                         excluded_pks += list(

@@ -35,5 +35,5 @@ def test_form_config_expressions(application):
     jexl.add_transform("mapby", lambda arr, key: ["Test"])
     jexl.add_transform("json", lambda value: {"Test": "Test"})
 
-    for _, question in questions.items():
+    for question in questions.values():
         jexl.evaluate(question.get("active-expression", "1 == 1"))

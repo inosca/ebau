@@ -84,7 +84,7 @@ def generate_module_settings(
             # root object needs to be the same. However the attributess within
             # can be merged via merger strategy (recursive, copy settings from
             # canton over the default settings).
-            for attr, _ in vars(canton_as_defined).items():
+            for attr in vars(canton_as_defined):
                 setattr(
                     base_fixture,
                     attr,

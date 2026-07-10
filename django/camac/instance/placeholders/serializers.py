@@ -2842,22 +2842,19 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         return {"tel" if key == "phone" else key: val for key, val in obj.items()}
 
     def get_publications(self, instance):
-        publications = []
-        for publication in instance.publication_entries.filter(is_published=1).order_by(
-            "publication_date"
-        ):
-            publications.append(
-                {
-                    "date": compact_human_readable_date(publication.publication_date),
-                    "end_date": compact_human_readable_date(
-                        publication.publication_end_date
-                    ),
-                    "journal_number": publication.publication_journal_number
-                    or publication.publication_date.isocalendar()[1],
-                }
-            )
-
-        return publications
+        return [
+            {
+                "date": compact_human_readable_date(publication.publication_date),
+                "end_date": compact_human_readable_date(
+                    publication.publication_end_date
+                ),
+                "journal_number": publication.publication_journal_number
+                or publication.publication_date.isocalendar()[1],
+            }
+            for publication in instance.publication_entries.filter(
+                is_published=1
+            ).order_by("publication_date")
+        ]
 
     def get_bauverwaltung(self, instance):
         if not settings.APPLICATION.get("INSTANCE_MERGE_CONFIG"):

@@ -1360,18 +1360,16 @@ class Command(BaseCommand):
             row_header = f"- NFD Row ({row_pk}):"
             log_lines.append(textwrap.indent(row_header, INDENT))
 
-            row_lines = []
-
             top_work_item_keys = ["new_init_work_item", "additional_demand_work_item"]
 
             # new_init_work_item and parent_work_item
-            for key in top_work_item_keys:
-                row_lines.append(
-                    self._format_work_item_log(
-                        step_data=step_data,
-                        work_item_key=key,
-                    )
+            row_lines = [
+                self._format_work_item_log(
+                    step_data=step_data,
+                    work_item_key=key,
                 )
+                for key in top_work_item_keys
+            ]
 
             # child case
             if "child_case" in step_data:

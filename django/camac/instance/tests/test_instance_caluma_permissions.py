@@ -244,7 +244,7 @@ def test_instance_paper_permissions(
     municipality_group = groups["municipality"]
     construction_control_group = groups["construction-control"]
 
-    for _, group in groups.items():
+    for group in groups.values():
         user_group_factory(group=group, user=admin_user)
         instance_service_factory(instance=be_instance, service=group.service)
 

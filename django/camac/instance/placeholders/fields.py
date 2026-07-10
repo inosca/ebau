@@ -457,17 +457,13 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                 else 0
             )
 
-        data = []
-
-        for entry in value:
-            data.append(
-                {
-                    field_name: self.get_entry_field(entry, field_name)
-                    for field_name in settings.PLACEHOLDERS["BILLING_ENTRY_FIELDS"]
-                }
-            )
-
-        return data
+        return [
+            {
+                field_name: self.get_entry_field(entry, field_name)
+                for field_name in settings.PLACEHOLDERS["BILLING_ENTRY_FIELDS"]
+            }
+            for entry in value
+        ]
 
     def get_entry_field(self, entry, field_name):  # noqa: C901
         match field_name:
@@ -839,9 +835,9 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                 # handle single-level nested props
                 if "." not in nested_prop:
                     for child_alias in nested_prop_aliases:
-                        for _, child_t in self._get_alias_translations(
+                        for child_t in self._get_alias_translations(
                             child_alias
-                        ).items():
+                        ).values():
                             nested_names.add(f"{nested_base}.{child_t}")
                     continue
 
@@ -1087,15 +1083,15 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
         data = []
 
         for document in value:
-            legal_claimants = []
-
-            for claimant in find_answer(
-                document,
-                settings.PLACEHOLDERS["LEGAL_SUBMISSIONS"][
-                    "LEGAL_CLAIMANTS_TABLE_QUESTION"
-                ],
-            ):
-                legal_claimants.append(row_to_person(claimant))
+            legal_claimants = [
+                row_to_person(claimant)
+                for claimant in find_answer(
+                    document,
+                    settings.PLACEHOLDERS["LEGAL_SUBMISSIONS"][
+                        "LEGAL_CLAIMANTS_TABLE_QUESTION"
+                    ],
+                )
+            ]
 
             if settings.APPLICATION_NAME == "kt_bern":
                 legal_submission = {

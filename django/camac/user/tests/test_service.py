@@ -874,8 +874,7 @@ def test_service_list_sorted(
         assert response.status_code == status.HTTP_200_OK
         data = response.json()
 
-        for rec in data["data"]:
-            displayed_names.append(rec["attributes"]["name"])
+        displayed_names.extend(rec["attributes"]["name"] for rec in data["data"])
 
         assert sorted(displayed_names) == displayed_names, (
             f"After loading page {page}, ordering is inconsistent"

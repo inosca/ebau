@@ -32,10 +32,11 @@ class ModelSerializerInspector(FieldInspector):
         )
 
     def generate_relationships(self, obj):
-        relationships_properties = []
-        for field in obj.fields.values():
-            if self.is_relationship_field(field) and not field.read_only:
-                relationships_properties.append(self.generate_relationship(field))
+        relationships_properties = [
+            self.generate_relationship(field)
+            for field in obj.fields.values()
+            if self.is_relationship_field(field) and not field.read_only
+        ]
         if relationships_properties:
             return openapi.Schema(
                 title="Relationships of object",

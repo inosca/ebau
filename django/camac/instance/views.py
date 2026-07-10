@@ -1565,19 +1565,18 @@ class IssueTemplateSetView(views.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         instance = serializer.validated_data["instance"]
 
-        issues = []
-        for template in issue_template_set.issue_templates.all():
-            issues.append(
-                models.Issue(
-                    group=template.group,
-                    instance=instance,
-                    service=template.service,
-                    user=template.user,
-                    deadline_date=timezone.now().date()
-                    + timedelta(int(template.deadline_length)),
-                    text=template.text,
-                )
+        issues = [
+            models.Issue(
+                group=template.group,
+                instance=instance,
+                service=template.service,
+                user=template.user,
+                deadline_date=timezone.now().date()
+                + timedelta(int(template.deadline_length)),
+                text=template.text,
             )
+            for template in issue_template_set.issue_templates.all()
+        ]
         models.Issue.objects.bulk_create(issues)
 
         return response.Response([], 204)

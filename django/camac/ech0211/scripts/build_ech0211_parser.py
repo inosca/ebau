@@ -73,7 +73,7 @@ def cleanup_xsd_file(schema_file, namespace_file_mapping):
             en.attrib["value"] = en.attrib["value"].strip()
 
     # Update schema location to local file
-    for ns, _ in namespace_file_mapping.items():
+    for ns in namespace_file_mapping:
         xsd_imports = xsd.findall(
             "xs:import", namespaces={"xs": "http://www.w3.org/2001/XMLSchema"}
         )

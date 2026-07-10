@@ -99,25 +99,24 @@ class GrGisClient(GISBaseClient):
         joined in a specific way.
         """
 
-        result = []
         liegenschaften_xml = self.get_xml(response_content, "liegenschaften")
 
-        for liegenschaften_data in liegenschaften_xml:
-            result.append(
-                {
-                    "parzellennummer": liegenschaften_data.find("nummer").text,
-                    "e-grid-nr": liegenschaften_data.find("egris_egrid").text,
-                }
-            )
+        result = [
+            {
+                "parzellennummer": liegenschaften_data.find("nummer").text,
+                "e-grid-nr": liegenschaften_data.find("egris_egrid").text,
+            }
+            for liegenschaften_data in liegenschaften_xml
+        ]
 
         selbstrecht_xml = self.get_xml(response_content, "selbstrecht")
-        for selbstrecht_data in selbstrecht_xml:
-            result.append(
-                {
-                    "baurecht-nummer": selbstrecht_data.find("nummer").text,
-                    "e-grid-nr": selbstrecht_data.find("egris_egrid").text,
-                }
-            )
+        result.extend(
+            {
+                "baurecht-nummer": selbstrecht_data.find("nummer").text,
+                "e-grid-nr": selbstrecht_data.find("egris_egrid").text,
+            }
+            for selbstrecht_data in selbstrecht_xml
+        )
 
         return result
 

@@ -312,7 +312,6 @@ class FormDataValidator:
             if module["parent"] == "personalien":
                 for question in active_questions:
                     names = []
-                    split_names = []
 
                     if question["value"] is not None:
                         for value in question["value"]:
@@ -333,16 +332,12 @@ class FormDataValidator:
                                 )
 
                     # split people into arrays of 3
-                    for i in range(0, len(names), 3):
-                        split_names.append(names[i : i + 3])
-
-                    signature["people"][question["label"]] = split_names
+                    signature["people"][question["label"]] = [
+                        names[index : index + 3] for index in range(0, len(names), 3)
+                    ]
 
         # sort signature categories alphabetically
-        sorted_signature = {}
-        for key, value in sorted(signature["people"].items()):
-            sorted_signature[key] = value
-        signature["people"] = sorted_signature
+        signature["people"] = dict(sorted(signature["people"].items()))
 
         relevant_data.append(signature)
         relevant_data.append(bauherrschaft)

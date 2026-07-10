@@ -107,9 +107,11 @@ class Ech0206(GISBaseClient):
 
             building_items = self.get_building_items(response.content)
 
-            for building_item in building_items:
-                if self.get_building_properties(config, building_item):
-                    result.append(self.get_building_properties(config, building_item))
+            result.extend(
+                properties
+                for building_item in building_items
+                if (properties := self.get_building_properties(config, building_item))
+            )
 
             if result:
                 data["gebaeude-und-anlagen"] = result
