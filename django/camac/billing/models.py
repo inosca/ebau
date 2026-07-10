@@ -1,4 +1,4 @@
-from typing import TypeVar
+from typing import Self
 from uuid import uuid4
 
 from django.db import models
@@ -110,19 +110,16 @@ class BillingV2CommonEntry(models.Model):
         abstract = True
 
 
-T = TypeVar("T", bound="BillingV2EntryQuerySet")
-
-
 class BillingV2EntryQuerySet(models.QuerySet["BillingV2Entry"]):
     """Custom queryset to query billing entries."""
 
     @canton_aware
-    def visible_for(self: T, service: Service | None) -> T:
+    def visible_for(self, service: Service | None) -> Self:
         """Return billing entries visible for a given service."""
 
         return self.all()
 
-    def visible_for_ag(self: T, service: Service | None) -> T:
+    def visible_for_ag(self, service: Service | None) -> Self:
         """Return billing entries visible for a given service (Kt. AG)."""
 
         if not service:  # pragma: no cover
