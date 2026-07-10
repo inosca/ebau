@@ -715,7 +715,7 @@ class CaseSuspendedFilter(CharFilter):
         if service_group == "service-cantonal":
             return Service.objects.get(slug="afb")
 
-        return service.service_parent if service.service_parent else service
+        return service.service_parent or service
 
     def filter(self, queryset, value):
         if value in EMPTY_VALUES:

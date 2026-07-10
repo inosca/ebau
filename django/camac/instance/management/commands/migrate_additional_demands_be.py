@@ -421,7 +421,7 @@ class Command(BaseCommand):
             document=document,
             previous_work_item=previous_work_item,
             addressed_groups=addressed_groups,
-            assigned_users=assigned_users if assigned_users else [],
+            assigned_users=assigned_users or [],
             controlling_groups=controlling_groups,
             meta=work_item_meta,
             created_by_user=created_by_user,

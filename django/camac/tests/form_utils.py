@@ -249,10 +249,8 @@ class FormUtils:
                 ...     ],
                 ... )
         """
-        answer = (
-            table_answer
-            if table_answer
-            else self.add_answer(document, question, value=None, question_type="table")
+        answer = table_answer or self.add_answer(
+            document, question, value=None, question_type="table"
         )
         if row_form_id:
             answer.question.row_form_id = row_form_id

@@ -465,14 +465,14 @@ class SchwyzInstanceSerializer(InstanceSerializer):
                 "bauverwaltung": {"read", "write"},
                 "main": {"read", "write"},
             }
-        elif instance.instance_state.name in ["internal"]:
+        elif instance.instance_state.name == "internal":
             return {"main": {"read", "write"}}
 
         else:
             return {}
 
     def get_permissions_for_service(self, instance):
-        if instance.instance_state.name in ["internal"]:
+        if instance.instance_state.name == "internal":
             return {"main": {"read", "write"}}
 
         elif instance.instance_state.name in ["circ", "nfd"]:

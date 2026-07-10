@@ -60,16 +60,12 @@ class Command(BaseCommand):
             created_by_service=legacy_sanction.service,
             created_by_user=legacy_sanction.user,
             assigned_service=(
-                legacy_sanction.control_instance
-                if legacy_sanction.control_instance
-                else legacy_sanction.service
+                legacy_sanction.control_instance or legacy_sanction.service
             ),
             control_notes=legacy_sanction.notice,
             **(
                 {
-                    "controlled_at": legacy_sanction.end_date
-                    if legacy_sanction.end_date
-                    else migration_date,
+                    "controlled_at": legacy_sanction.end_date or migration_date,
                     "controlled_by_user": legacy_sanction.finished_by_user,
                 }
                 if legacy_sanction.is_finished

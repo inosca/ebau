@@ -94,9 +94,7 @@ class MultilangMixin:
         # the direct translation models must always be prefetched
         if include == "__all__":
             if self._is_multilang_model(self.queryset.model):
-                return (prefetch_for_include if prefetch_for_include else []) + [
-                    "trans"
-                ]
+                return (prefetch_for_include or []) + ["trans"]
 
             return prefetch_for_include
 

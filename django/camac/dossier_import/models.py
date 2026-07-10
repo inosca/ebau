@@ -150,7 +150,7 @@ class DossierImport(models.Model):
                 self.messages["import"]["summary"]["error"].append(str(result.result))
             finally:
                 self.save()
-        elif result.state in ["SUCCESS"]:
+        elif result.state == "SUCCESS":
             # celery task is completed
             self.status = self.set_progressing_to_success()
             self.save()

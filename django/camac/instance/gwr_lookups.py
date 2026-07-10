@@ -243,7 +243,7 @@ class GwrSerializer(serializers.Serializer):
     @catch_and_log(fallback=[])
     def get_dwellings(self, building):
         if settings.APPLICATION_NAME == "kt_schwyz":
-            dwellings = building.get("dwellings") if building.get("dwellings") else []
+            dwellings = building.get("dwellings") or []
             return [dwelling_data(dwelling) for dwelling in dwellings]
 
         if settings.APPLICATION_NAME in ["kt_uri", "kt_so"]:

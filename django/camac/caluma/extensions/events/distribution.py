@@ -385,7 +385,7 @@ def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
         user=user,
         parent_work_item=work_item,
         context={
-            **(context if context else {}),
+            **(context or {}),
             "addressed_groups": work_item.addressed_groups,
         },
     )
