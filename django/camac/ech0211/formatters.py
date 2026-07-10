@@ -259,7 +259,7 @@ def get_location_address(md):
     return ns_address.swissAddressInformationType(
         houseNumber=assure_string_length(street_number or "0", max_length=12),
         street=assure_string_length(street or "unknown", max_length=60),
-        town=assure_string_length(md.city if md.city else "unknown", max_length=40),
+        town=assure_string_length(md.city or "unknown", max_length=40),
         swissZipCode=get_zip(md.zip),
         country="CH",
     )
@@ -431,14 +431,12 @@ def application(instance: Instance, request: HttpRequest):
             constructionProject=ns_objektwesen.constructionProject(
                 status=6701,  # we always send this. The real status is in namedMetaData
                 description=assure_string_length(
-                    md.proposal if md.proposal else "unknown",
+                    md.proposal or "unknown",
                     min_length=3,
                     max_length=1000,
                 ),
                 projectStartDate=md.construction_start_date,
-                durationOfConstructionPhase=(
-                    md.construction_duration if md.construction_duration else 999
-                ),
+                durationOfConstructionPhase=(md.construction_duration or 999),
                 totalCostsOfProject=get_cost(md.construction_costs),
             ),
             municipality=municipality(md),

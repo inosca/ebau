@@ -110,7 +110,7 @@ class DeadlineTypeQuerySet(DeadlinePermissionMixin, models.QuerySet["DeadlineTyp
         first_default = base_query.filter(is_default=True).first()
 
         # fallback to a non-default, but matching deadline type if no default is set.
-        return first_default if first_default else base_query.first()
+        return first_default or base_query.first()
 
 
 class SuspensionQuerySet(DeadlinePermissionMixin, models.QuerySet["Suspension"]):

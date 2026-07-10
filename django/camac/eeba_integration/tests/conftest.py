@@ -60,7 +60,7 @@ def make_eeba_mock_response(mocker):
         response = mocker.MagicMock()
         response.json.return_value = json_data
         response.status_code = status
-        response.headers = headers if headers else {}
+        response.headers = headers or {}
         if error_side_effect:
             response.raise_for_status.side_effect = error_side_effect
         else:

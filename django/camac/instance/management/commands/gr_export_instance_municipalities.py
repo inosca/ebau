@@ -30,7 +30,7 @@ class Command(BaseCommand):
         )
 
         print(f"\n# Auswertung Baugesuche Gemeinden - {qs.count()} dossier(s)")
-        print("")
+        print()
         writer.writerow(
             [
                 "Dossier-Nummer",

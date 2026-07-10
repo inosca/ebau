@@ -43,6 +43,7 @@ lint.select = [
     "E",      # https://docs.astral.sh/ruff/rules/#error-e
     "F",      # https://docs.astral.sh/ruff/rules/#pyflakes-f
     "FLY",    # https://docs.astral.sh/ruff/rules/#flynt-fly
+    "FURB",   # https://docs.astral.sh/ruff/rules/#refurb-furb
     "I",      # https://docs.astral.sh/ruff/rules/#isort-i
     "INT",    # https://docs.astral.sh/ruff/rules/#flake8-gettext-int
     "PERF",   # https://docs.astral.sh/ruff/rules/#perflint-perf

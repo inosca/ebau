@@ -137,7 +137,7 @@ class MasterData:
         self, value, default=None, value_parser=None, answer=None, field=None, **kwargs
     ):
         if not value_parser or not value:
-            return value if value else default
+            return value or default
 
         options = {}
 
@@ -607,7 +607,7 @@ class MasterData:
             )
 
         parsed_value = self._parse_value(field.value if field else None, **kwargs)
-        return parsed_value if parsed_value else default
+        return parsed_value or default
 
     def ng_table_resolver(self, lookup, column_mapping=None, **kwargs):
         """Resolve data from camac-ng table fields.
@@ -905,8 +905,7 @@ class MasterData:
         if "instance_property" in all_resolvers:
             select_related.update(["instance", "instance__form"])
         if uses_work_items:
-            if "work_items" in prefetch_related:
-                prefetch_related.remove("work_items")
+            prefetch_related.discard("work_items")
 
             # Prefetch all work items of the case including data of the related
             # document to reduce queries in the `get_validation_context` method

@@ -174,7 +174,7 @@ class Command(BaseCommand):
         def get_workflow_entry(instance, ids):
             return instance.workflowentry_set.filter(workflow_item_id__in=ids).first()
 
-        if task_slug in ["complete-check"]:
+        if task_slug == "complete-check":
             # ! If the "complete-check" is completed we ALWAYS need a closed_at date so the circulation migration can run!
             corresponding_workflow_entry = (
                 get_workflow_entry(
@@ -256,8 +256,8 @@ class Command(BaseCommand):
             document=Document.objects.create_document_for_task(task, None),
         )
 
-        work_item.created_at = created_at if created_at else work_item.created_at
-        work_item.closed_at = closed_at if closed_at else work_item.closed_at
+        work_item.created_at = created_at or work_item.created_at
+        work_item.closed_at = closed_at or work_item.closed_at
 
         work_item.save()
 
@@ -342,7 +342,7 @@ class Command(BaseCommand):
         ]:
             return KOOR_NP_SERVICE
 
-        if form_slug in ["cantonal-territory-usage"]:
+        if form_slug == "cantonal-territory-usage":
             veranstaltung_answer = instance.case.document.answers.filter(
                 question_id="veranstaltung-art"
             ).first()
@@ -362,7 +362,7 @@ class Command(BaseCommand):
         if form_slug in ["konzession-waermeentnahme", "bohrbewilligung-waermeentnahme"]:
             return KOOR_AFE_SERVICE
 
-        if form_slug in ["pgv-gemeindestrasse"]:
+        if form_slug == "pgv-gemeindestrasse":
             return KOOR_BD_SERVICE
 
         if instance.group.pk == uri_constants.KOOR_AFJ_GROUP_ID:

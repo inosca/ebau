@@ -229,8 +229,7 @@ class InstanceExportSerializerSZ(InstanceExportSerializer):
             *[
                 (
                     answer(applicant, "firma")
-                    if answer(applicant, "firma")
-                    else clean_join(
+                    or clean_join(
                         answer(applicant, "vorname"),
                         answer(applicant, "name"),
                     )
