@@ -1,17 +1,12 @@
 <tr>
-  {{#if
-    (or
-      (await (can "charge billing-v2-entries"))
-      (await (can "release-for-clearing billing-v2-entries"))
-    )
-  }}
+  {{#if @canSelect}}
     <td data-test-entry-charge>
       <input
         type="checkbox"
         class="uk-checkbox"
         aria-label={{t "billing.toggle-row"}}
         title={{t "billing.toggle-row"}}
-        disabled={{or @entry.dateCharged @entry.releasedForClearing}}
+        disabled={{await (cannot "select billing-v2-entry" @entry)}}
         checked={{or @entry.dateCharged @entry.releasedForClearing @selected}}
         data-test-toggle
         {{on "change" this.toggle}}
@@ -77,7 +72,7 @@
       {{/if}}
     </td>
   {{/if}}
-  {{#if (await (can "edit billing-v2-entries"))}}
+  {{#if @canEdit}}
     <td data-test-entry-delete>
       {{#if (await (can "delete billing-v2-entry" @entry))}}
         <button

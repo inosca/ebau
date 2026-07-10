@@ -18,16 +18,43 @@ export default class BillingV2EntryAbility extends Ability {
     return this.store.peekRecord("instance", this.ebauModules.instanceId);
   }
 
+  async canSelect() {
+    if (this.model?.dateCharged || this.model?.releasedForClearing) {
+      return false;
+    }
+
+    if (!hasFeature("billing.selectByOrganization")) {
+      return true;
+    }
+
+    return (await this.canCharge()) || (await this.canReleaseForClearing());
+  }
+
+  /*
+  This ability check can either be called with or without a model.
+
+  If its called with a model, pass in the loaded billing entries. This can be useful for reactivity if you need to reevaluate the check after loading / updating the entries.
+
+  If no model is passed, we just get all billing records currently in store.
+  */
   async canCharge() {
     if (this.permissions.fullyEnabled) {
       return await this.permissions.hasAll(this.instance?.id, "billing-charge");
     }
 
-    return (
-      hasFeature("billing.charge") &&
+    if (!hasFeature("billing.charge")) {
+      return false;
+    }
+
+    const canCharge =
       (await this.canEdit()) &&
-      isAuthority(this.instance, this.ebauModules.serviceId)
-    );
+      isAuthority(this.instance, this.ebauModules.serviceId);
+
+    if (!hasFeature("billing.selectByOrganization") || !this.model) {
+      return canCharge;
+    }
+
+    return canCharge && this.model.organization === "municipal";
   }
 
   /*
@@ -38,17 +65,20 @@ export default class BillingV2EntryAbility extends Ability {
   If no model is passed, we just get all billing records currently in store.
   */
   async canReleaseForClearing() {
+    if (!hasFeature("billing.releaseForClearing")) {
+      return false;
+    }
+
     const form = await this.instance.form;
     const settings = mainConfig.billing?.releaseForClearing;
-    const billingEntries =
-      this.model ??
-      this.store
-        .peekAll("billing-v2-entry")
-        .filter((billingEntry) => !billingEntry.isNew);
+    const billingEntries = this.model
+      ? [this.model]
+      : this.store
+          .peekAll("billing-v2-entry")
+          .filter((billingEntry) => !billingEntry.isNew);
 
     if (
       !billingEntries.length ||
-      !hasFeature("billing.releaseForClearing") ||
       (settings.forms && !settings.forms.includes(removeVersion(form.name)))
     ) {
       return false;
@@ -76,14 +106,17 @@ export default class BillingV2EntryAbility extends Ability {
     }
 
     const allowedForServiceGroups = settings.allowedForServiceGroups;
-    if (!allowedForServiceGroups) {
-      return await this.canEdit();
+
+    const canReleaseForClearing =
+      (await this.canEdit()) &&
+      (!allowedForServiceGroups ||
+        allowedForServiceGroups.includes(service.serviceGroup.get("slug")));
+
+    if (!hasFeature("billing.selectByOrganization") || !this.model) {
+      return canReleaseForClearing;
     }
 
-    const isCantonal = allowedForServiceGroups.includes(
-      service.serviceGroup.get("slug"),
-    );
-    return (await this.canEdit()) && isCantonal;
+    return canReleaseForClearing && this.model.organization === "cantonal";
   }
 
   async canEdit() {

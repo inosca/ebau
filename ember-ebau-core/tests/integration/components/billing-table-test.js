@@ -42,6 +42,8 @@ module("Integration | Component | billing-table", function (hooks) {
   @onToggleAll={{this.noop}}
   @onToggleRow={{this.noop}}
   @onRefresh={{this.noop}}
+  @canSelect={{true}}
+  @canEdit={{true}}
 />`);
 
     assert.dom("thead tr th").exists({ count: 11 });
@@ -104,6 +106,7 @@ module("Integration | Component | billing-table", function (hooks) {
 
   test("it can select entries for charging", async function (assert) {
     this.features.enable("billing.charge");
+    this.features.disable("billing.organization");
 
     this.toggleAll = () => assert.step("toggle-all");
     this.toggleRow = () => assert.step("toggle-row");
@@ -113,6 +116,7 @@ module("Integration | Component | billing-table", function (hooks) {
   @onToggleAll={{this.toggleAll}}
   @onToggleRow={{this.toggleRow}}
   @onRefresh={{this.noop}}
+  @canSelect={{true}}
 />`);
 
     await click("input[data-test-toggle-all]");

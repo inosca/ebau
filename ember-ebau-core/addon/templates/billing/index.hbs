@@ -8,9 +8,13 @@
   @onToggleAll={{this.toggleAll}}
   @onToggleRow={{this.toggleRow}}
   @onRefresh={{this.refresh}}
+  @canCharge={{this.canCharge}}
+  @canReleaseForClearing={{this.canReleaseForClearing}}
+  @canSelect={{this.canSelect}}
+  @canEdit={{this.canEdit}}
 />
 
-{{#if (await (can "edit billing-v2-entries"))}}
+{{#if this.canEdit}}
   <div class="uk-margin">
     <LinkTo
       @route={{module-route "billing" "new"}}
@@ -19,7 +23,7 @@
     >
       {{t "billing.add"}}
     </LinkTo>
-    {{#if (await (can "charge billing-v2-entries"))}}
+    {{#if this.canCharge}}
       <UkButton
         @label={{t "billing.charge"}}
         @loading={{this.charge.isRunning}}
@@ -28,11 +32,7 @@
         data-test-charge-submit
       />
     {{/if}}
-    {{#if
-      (await
-        (can "release-for-clearing billing-v2-entries" this.entries.records)
-      )
-    }}
+    {{#if this.canReleaseForClearing}}
       <UkButton
         @label={{t "billing.release-for-clearing"}}
         @loading={{this.releaseForClearing.isRunning}}
