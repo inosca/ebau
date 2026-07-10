@@ -16,24 +16,24 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: lib/ebau_web/components/layouts.ex:129
-#: lib/ebau_web/components/layouts.ex:141
+#: lib/ebau_web/components/layouts.ex:98
+#: lib/ebau_web/components/layouts.ex:110
 #, elixir-autogen, elixir-format
 msgid "Attempting to reconnect"
 msgstr ""
 
-#: lib/ebau_web/components/layouts.ex:88
-#: lib/ebau_web/components/layouts.ex:90
+#: lib/ebau_web/components/layouts.ex:57
+#: lib/ebau_web/components/layouts.ex:59
 #, elixir-autogen, elixir-format
 msgid "Sign out"
 msgstr ""
 
-#: lib/ebau_web/components/layouts.ex:136
+#: lib/ebau_web/components/layouts.ex:105
 #, elixir-autogen, elixir-format
 msgid "Something went wrong!"
 msgstr ""
 
-#: lib/ebau_web/components/layouts.ex:124
+#: lib/ebau_web/components/layouts.ex:93
 #, elixir-autogen, elixir-format
 msgid "We can't find the internet"
 msgstr ""
@@ -41,4 +41,22 @@ msgstr ""
 #: lib/ebau_web/components/core_components.ex:76
 #, elixir-autogen, elixir-format
 msgid "close"
+msgstr ""
+
+#: lib/ebau_web/components/layouts.ex:172
+#: lib/ebau_web/components/layouts.ex:194
+#, elixir-autogen, elixir-format
+msgid "French"
+msgstr ""
+
+#: lib/ebau_web/components/layouts.ex:171
+#: lib/ebau_web/components/layouts.ex:193
+#, elixir-autogen, elixir-format
+msgid "German"
+msgstr ""
+
+#: lib/ebau_web/components/layouts.ex:173
+#: lib/ebau_web/components/layouts.ex:195
+#, elixir-autogen, elixir-format
+msgid "Italian"
 msgstr ""
