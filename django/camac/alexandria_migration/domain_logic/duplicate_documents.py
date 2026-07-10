@@ -3,8 +3,8 @@ from copy import deepcopy
 from dataclasses import dataclass, field
 
 from alexandria.core.models import Document, File, make_uuid
-from alexandria.storages.backends.s3 import SsecGlobalS3Storage
-from django.conf import settings
+from django.conf import ImproperlyConfigured, settings
+from django.core.files.storage import storages
 from django.db import transaction
 from django.db.models import Prefetch
 
@@ -22,7 +22,25 @@ class DuplicateDocumentsMigrator(BaseMigrator):
     instance_documents: list[InstanceAlexandriaDocument] = field(default_factory=list)
     copy_paths: list[tuple[str, str]] = field(default_factory=list)
 
+    def _get_storage(self):
+        storage_backend = settings.ALEXANDRIA_FILE_STORAGE
+        storage = storages.create_storage({"BACKEND": storage_backend})
+        if hasattr(storage, "bucket"):
+            # Initialize the S3 client once in the main thread to avoid
+            # race conditions in the thread pool
+            _ = storage.bucket.meta.client
+
+        return storage
+
     def process(self) -> None:
+        if settings.ALEXANDRIA_ENABLE_AT_REST_ENCRYPTION:
+            # If this triggers, we'll need to fully implement SSEC support,
+            # but we expect this won't be needed
+            raise ImproperlyConfigured(
+                "DuplicateDocumentsMigrator does not support "
+                "ALEXANDRIA_ENABLE_AT_REST_ENCRYPTION=True"
+            )
+
         documents = Document.objects.filter(
             instance_document__instance_id__in=self.instance_ids,
             metainfo__has_key="duplicate-to",
@@ -46,9 +64,10 @@ class DuplicateDocumentsMigrator(BaseMigrator):
         )
 
         with transaction.atomic(), disable_auto_now(Document, File):
+            storage = self._get_storage()
             with ThreadPoolExecutor(max_workers=32) as executor:
-                for file, new_path in self.copy_paths:
-                    executor.submit(self._copy_task, file, new_path)
+                for source_key, new_path in self.copy_paths:
+                    executor.submit(self._copy_task, storage, source_key, new_path)
 
             Document.objects.bulk_create(self.documents)
             DocumentMark.objects.bulk_create(self.document_marks)
@@ -97,33 +116,23 @@ class DuplicateDocumentsMigrator(BaseMigrator):
             )
 
     @staticmethod
-    def _copy_task(file_to_copy, to_name):
+    def _copy_task(storage, source_key, to_name):
         """Copy file to new path."""
 
-        storage = file_to_copy.storage
         copy_args = {
             "CopySource": {
                 "Bucket": storage.bucket.name,
-                "Key": file_to_copy.name,
+                "Key": source_key,
             },
             "Bucket": storage.bucket.name,
             "Key": to_name,
         }
-        if isinstance(storage, SsecGlobalS3Storage):
-            copy_args["CopySourceSSECustomerKey"] = (
-                settings.ALEXANDRIA_S3_STORAGE_SSEC_SECRET
-            )
-            copy_args["CopySourceSSECustomerAlgorithm"] = (
-                settings.ALEXANDRIA_SSEC_ALGORITHM
-            )
-            copy_args["SSECustomerKey"] = settings.ALEXANDRIA_S3_STORAGE_SSEC_SECRET
-            copy_args["SSECustomerAlgorithm"] = settings.ALEXANDRIA_SSEC_ALGORITHM
 
         storage.bucket.meta.client.copy_object(**copy_args)
 
     def copy_files_of_document(self, document, new_document):
         for old_file in document._files:
-            old_filename = old_file.content
+            source_key = old_file.content.name
             new_file_pk = make_uuid()
             new_filename = f"{new_file_pk}_{old_file.name}"
 
@@ -133,4 +142,4 @@ class DuplicateDocumentsMigrator(BaseMigrator):
             new_file.content = new_filename
 
             self.files.append(new_file)
-            self.copy_paths.append((old_filename, new_filename))
+            self.copy_paths.append((source_key, new_filename))
