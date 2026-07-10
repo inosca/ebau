@@ -21,13 +21,12 @@ from rest_framework import status
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS, FakeRequest
 from camac.instance.models import HistoryEntry
 from camac.notification import serializers
+from camac.notification.models import NotificationTemplate
 from camac.notification.serializers import (
     InstanceMergeSerializer,
     PermissionlessNotificationTemplateSendmailSerializer,
 )
 from camac.tests.form_utils import FormUtils
-
-from ..models import NotificationTemplate
 
 
 @pytest.mark.parametrize(

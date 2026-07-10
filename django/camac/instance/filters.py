@@ -37,6 +37,7 @@ from rest_framework.filters import BaseFilterBackend, OrderingFilter
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import visible_inquiries_expression
 from camac.constants import kt_uri as uri_constants
+from camac.core import models as core_models
 from camac.core.utils import canton_aware
 from camac.filters import (
     CharMultiValueFilter,
@@ -45,12 +46,11 @@ from camac.filters import (
 )
 from camac.instance.export.filters import StringAggSubquery
 from camac.instance.master_data import MasterData
+from camac.responsible import models as responsible_models
 from camac.sanctions.models import Sanction
 from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
 
-from ..core import models as core_models
-from ..responsible import models as responsible_models
 from . import models
 
 

@@ -64,9 +64,8 @@ from camac.user.permissions import (
     PublicationPermission,
     permission_aware,
 )
-from camac.utils import DocxRenderer
+from camac.utils import DocxRenderer, get_paper_settings
 
-from ..utils import get_paper_settings
 from . import (
     document_merge_service,
     filters,

@@ -29,11 +29,11 @@ from camac.ech0211.constants import (
     ECH_JUDGEMENT_DECLINED,
     ECH_JUDGEMENT_WRITTEN_OFF,
 )
+from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.user.models import Service
 from camac.utils import build_url
 
-from ..instance.master_data import MasterData
 from .schema import (
     ech_0007_6_0,
     ech_0010_6_0 as ns_address,

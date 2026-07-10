@@ -7,6 +7,7 @@ from django.conf import settings
 from django.db import models
 from django.db.models import Q
 
+from camac.core import models as core_models
 from camac.core.models import HistoryActionConfig
 from camac.core.utils import canton_aware
 from camac.instance.master_data import MasterData
@@ -14,8 +15,6 @@ from camac.settings.utils import is_module_enabled
 from camac.user.models import Service, User
 from camac.user.permissions import get_role_name
 from camac.utils import build_url
-
-from ..core import models as core_models
 
 log = logging.getLogger(__name__)
 

@@ -1,6 +1,6 @@
 import pytest
 
-from ..jinja import dateformat, getwithdefault
+from camac.jinja import dateformat, getwithdefault
 
 
 @pytest.mark.parametrize("inp,expected", [("2019-12-31", "31.12.2019"), (None, "")])

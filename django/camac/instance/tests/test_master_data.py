@@ -9,9 +9,8 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 from syrupy.filters import paths
 
+from camac.instance.master_data import MasterData
 from camac.tests.form_utils import FormUtils
-
-from ..master_data import MasterData
 
 
 @pytest.mark.django_db

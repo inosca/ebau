@@ -3,12 +3,11 @@ import json
 import pytest
 from django.conf import settings
 
+from camac.gis_export.models import AGGISExport, InstanceProxyAG
+from camac.gis_export.utils import export_agis
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.permissions.api import PermissionManager
 from camac.tests.form_utils import FormUtils
-
-from ..models import AGGISExport, InstanceProxyAG
-from ..utils import export_agis
 
 
 @pytest.mark.freeze_time("2025-08-5 11:49:15+02:00")

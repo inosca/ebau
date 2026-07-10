@@ -5,11 +5,8 @@ from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.factories import QuestionFactory
 from django.core.cache import cache
 
-from camac.tests.data import so_personal_row_factory
-from camac.tests.form_utils import FormUtils
-
-from ..extensions.countries import COUNTRIES
-from ..extensions.data_sources import (
+from camac.caluma.extensions.countries import COUNTRIES
+from camac.caluma.extensions.data_sources import (
     Applicants,
     Attachments,
     Authorities,
@@ -24,6 +21,8 @@ from ..extensions.data_sources import (
     Services,
     ServicesForFinalReport,
 )
+from camac.tests.data import so_personal_row_factory
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(

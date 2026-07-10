@@ -1,7 +1,10 @@
 import pytest
 
-from .. import switcher
-from ..switcher import PERMISSION_MODE, is_permission_module_fully_enabled
+from camac.permissions import switcher
+from camac.permissions.switcher import (
+    PERMISSION_MODE,
+    is_permission_module_fully_enabled,
+)
 
 
 @pytest.fixture(

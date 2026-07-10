@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from ..core import models as core_models
+from camac.core import models as core_models
 
 
 class NotificationTemplate(core_models.MultilingualModel, models.Model):

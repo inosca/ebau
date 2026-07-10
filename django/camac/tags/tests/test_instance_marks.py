@@ -3,7 +3,7 @@ from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from ..models import InstanceMark
+from camac.tags.models import InstanceMark
 
 
 def test_instance_mark_list(admin_client, instance_mark_factory):

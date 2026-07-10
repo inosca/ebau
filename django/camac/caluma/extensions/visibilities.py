@@ -10,6 +10,7 @@ from django.conf import settings
 from django.db.models import Exists, ExpressionWrapper, F, OuterRef, Q, Value
 from django.db.models.fields import BooleanField
 
+from camac.caluma import ast_utils
 from camac.caluma.utils import CamacRequest, visible_inquiries_expression
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.instance.filters import CalumaInstanceFilterSet
@@ -17,8 +18,6 @@ from camac.instance.mixins import InstanceQuerysetMixin
 from camac.user.models import Role
 from camac.user.permissions import permission_aware
 from camac.utils import filters, order
-
-from .. import ast_utils
 
 
 def module_tasks(module_settings):

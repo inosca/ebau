@@ -10,12 +10,11 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_BEILAGEN_SB2,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
 )
+from camac.core.models import InstanceService
+from camac.ech0211 import event_handlers
+from camac.ech0211.models import Message
 from camac.ech0211.signals import file_subsequently, instance_submitted
 from camac.tests.form_utils import FormUtils
-
-from ...core.models import InstanceService
-from .. import event_handlers
-from ..models import Message
 
 
 @pytest.mark.freeze_time("2022-06-03")

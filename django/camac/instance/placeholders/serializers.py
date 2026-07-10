@@ -20,6 +20,7 @@ from camac.caluma.utils import get_answer_display_value
 from camac.constants import kt_gr as gr_constants, kt_uri as ur_constants
 from camac.core.translations import get_translations_canton_aware
 from camac.document.models import Attachment
+from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.instance.placeholders.utils import (
     format_gis_center_coordinates,
@@ -29,7 +30,6 @@ from camac.instance.validators import transform_coordinates
 from camac.user.models import Location, Service
 from camac.utils import build_url, clean_join
 
-from ..master_data import MasterData
 from . import fields
 from .utils import (
     compact_human_readable_date,

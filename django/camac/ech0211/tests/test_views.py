@@ -17,19 +17,25 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
 )
 from camac.document.tests.data import django_file
-from camac.ech0211.schema.ech_0211_2_0 import CreateFromDocument
-from camac.instance.document_merge_service import DMSHandler
-from camac.instance.factories import FormFieldFactory
-
-from ..constants import (
+from camac.ech0211.constants import (
     ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
     ECH_JUDGEMENT_DECLINED,
     ECH_JUDGEMENT_WRITTEN_OFF,
 )
-from ..event_handlers import EventHandlerException, StatusNotificationEventHandler
-from ..formatters import delivery
-from ..models import Message
-from ..send_handlers import KindOfProceedingsSendHandler, NoticeRulingSendHandler
+from camac.ech0211.event_handlers import (
+    EventHandlerException,
+    StatusNotificationEventHandler,
+)
+from camac.ech0211.formatters import delivery
+from camac.ech0211.models import Message
+from camac.ech0211.schema.ech_0211_2_0 import CreateFromDocument
+from camac.ech0211.send_handlers import (
+    KindOfProceedingsSendHandler,
+    NoticeRulingSendHandler,
+)
+from camac.instance.document_merge_service import DMSHandler
+from camac.instance.factories import FormFieldFactory
+
 from .utils import xml_data
 
 

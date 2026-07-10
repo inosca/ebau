@@ -82,9 +82,8 @@ from camac.user.relations import (
     ServiceResourceRelatedField,
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
-from camac.utils import get_unversioned_slug
+from camac.utils import clean_join, get_paper_settings, get_unversioned_slug
 
-from ..utils import clean_join, get_paper_settings
 from . import domain_logic, models, validators
 
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"

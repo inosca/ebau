@@ -12,12 +12,11 @@ from django.utils.module_loading import import_string
 
 from camac.instance.models import Instance
 from camac.notification import utils as notification_utils
+from camac.permissions.api import PermissionManager
+from camac.permissions.exceptions import MissingEventHandler
+from camac.permissions.models import InstanceACL
 from camac.settings.utils import is_module_enabled
 from camac.user.models import Group, Service
-
-from ..api import PermissionManager
-from ..exceptions import MissingEventHandler
-from ..models import InstanceACL
 
 log = getLogger(__name__)
 

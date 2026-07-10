@@ -19,20 +19,14 @@ from camac.constants.kt_bern import (
 )
 from camac.core.models import InstanceService
 from camac.document.tests.data import django_file
-from camac.ech0211.tests.utils import xml_data
-from camac.instance.document_merge_service import DMSHandler
-from camac.instance.models import Instance, InstanceState
-from camac.permissions import api as permissions_api
-from camac.timelines.models import FormTimeline
-
-from ..constants import (
+from camac.ech0211.constants import (
     ECH_JUDGEMENT_APPROVED,
     ECH_JUDGEMENT_DECLINED,
     ECH_JUDGEMENT_WRITTEN_OFF,
 )
-from ..models import Message
-from ..schema.ech_0211_2_0 import CreateFromDocument
-from ..send_handlers import (
+from camac.ech0211.models import Message
+from camac.ech0211.schema.ech_0211_2_0 import CreateFromDocument
+from camac.ech0211.send_handlers import (
     AccompanyingReportSendHandler,
     ChangeResponsibilitySendHandler,
     CloseArchiveDossierSendHandler,
@@ -43,6 +37,11 @@ from ..send_handlers import (
     TaskSendHandler,
     resolve_send_handler,
 )
+from camac.ech0211.tests.utils import xml_data
+from camac.instance.document_merge_service import DMSHandler
+from camac.instance.models import Instance, InstanceState
+from camac.permissions import api as permissions_api
+from camac.timelines.models import FormTimeline
 
 
 @pytest.fixture

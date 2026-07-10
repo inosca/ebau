@@ -15,9 +15,9 @@ from camac.dossier_import.utils import (
     get_similar_value,
     get_worksheet_headings_and_rows,
 )
+from camac.instance.models import Instance
+from camac.tags.models import Keyword
 
-from ..instance.models import Instance
-from ..tags.models import Keyword
 from .config.common import mimetypes
 from .loaders import XlsxFileDossierLoader
 from .messages import MessageCodes

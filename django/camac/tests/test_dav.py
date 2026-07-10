@@ -11,10 +11,9 @@ from manabi.token import Key, Token
 from manabi.util import from_string
 from pytest_lazy_fixtures import lf
 
+from camac.base import base36
+from camac.dav import get_dav
 from camac.document import models, permissions
-
-from ..base import base36
-from ..dav import get_dav
 
 environ = {
     "SERVER_PORT": "80",

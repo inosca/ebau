@@ -77,7 +77,7 @@ def test_responsible_user_writer(
 ):
     # Lazy import - the dossier writer reads config upon import, where it's
     # not ready yet when running tests
-    from ..writers import ResponsibleUserWriter
+    from camac.dossier_import.writers import ResponsibleUserWriter
 
     setup_dossier_writer("kt_bern")
     dossier = Dossier("2024-07-25", "blah")

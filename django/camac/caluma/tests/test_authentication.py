@@ -7,9 +7,7 @@ from django.core.signing import Signer
 from django.utils.timezone import make_aware
 from graphene_django.views import HttpError
 
-from camac.caluma.views import HttpResponseForbidden
-
-from ..views import CamacAuthenticatedGraphQLView
+from camac.caluma.views import CamacAuthenticatedGraphQLView, HttpResponseForbidden
 
 
 def test_authenticate_caluma(rf, settings, admin_user, group, mocker):

@@ -1,4 +1,4 @@
-from ..base import Base, base10
+from camac.base import Base, base10
 
 _base62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 

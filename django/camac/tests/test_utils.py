@@ -10,12 +10,11 @@ from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from sorl.thumbnail import get_thumbnail
 
+from camac import utils
 from camac.document.tests.data import django_file
 from camac.response import make_xlsx_response
 from camac.settings.ebau_schema import ModuleApplicationConfig
 from camac.settings.utils import is_module_config_enabled
-
-from .. import utils
 
 SOME_TEST_DICT = {"foo": {"bar": {"this": {"goes": {"even": {"deeper": "a value"}}}}}}
 

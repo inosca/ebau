@@ -6,8 +6,8 @@ from rest_framework import serializers
 
 from camac.caluma.api import CalumaApi
 from camac.document.models import Attachment, AttachmentDownloadHistory
+from camac.instance.master_data import MasterData
 
-from ..master_data import MasterData
 from . import fields
 
 

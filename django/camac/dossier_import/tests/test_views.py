@@ -8,11 +8,11 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 from rest_framework.reverse import reverse
 
+from camac.dossier_import.domain_logic import transmit_import
+from camac.dossier_import.models import DossierImport
+from camac.instance.serializers import CalumaInstanceSerializer
 from camac.utils import build_url
 
-from ...instance.serializers import CalumaInstanceSerializer
-from ..domain_logic import transmit_import
-from ..models import DossierImport
 from .test_dossier_import_case import TEST_IMPORT_FILE_NAME
 
 

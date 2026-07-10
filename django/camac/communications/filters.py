@@ -7,8 +7,8 @@ from django_filters.rest_framework import (
 )
 
 from camac.filters import CharMultiValueFilter
+from camac.responsible import models as responsible_models
 
-from ..responsible import models as responsible_models
 from . import models
 
 

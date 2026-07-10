@@ -3,7 +3,7 @@ import functools
 import pytest
 from pyjexl import JEXL
 
-from ..jexl import ExtractTransformSubjectAnalyzer
+from camac.jexl import ExtractTransformSubjectAnalyzer
 
 
 @pytest.mark.parametrize(

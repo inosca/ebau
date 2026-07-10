@@ -3,7 +3,7 @@ from datetime import date
 import pytest
 from caluma.caluma_form.exceptions import CustomFormatValidationError
 
-from ..extensions.format_validators import (
+from camac.caluma.extensions.format_validators import (
     DateAfterValidator,
     EvenProjectNumberFormatValidator,
     IntegerListFormatValidator,

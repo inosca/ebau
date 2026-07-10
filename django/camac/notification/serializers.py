@@ -36,6 +36,7 @@ from camac.caluma.models import Inquiry
 from camac.caluma.utils import find_answer, get_answer_display_value
 from camac.communications.models import CommunicationsMessage
 from camac.constants import kt_gr as gr_constants, kt_uri as uri_constants
+from camac.core import models as core_models
 from camac.core.models import (
     Activation,
     Circulation,
@@ -66,7 +67,6 @@ from camac.utils import (
     get_unversioned_slug,
 )
 
-from ..core import models as core_models
 from . import models
 
 logger = getLogger(__name__)

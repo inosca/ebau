@@ -23,6 +23,7 @@ from camac.core.utils import (
     generate_sort_key,
     generate_special_id,
 )
+from camac.instance import models
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance, InstanceGroup
 from camac.permissions.events.core import Trigger
@@ -30,8 +31,6 @@ from camac.settings.utils import is_module_enabled
 from camac.timelines.models import FormTimeline
 from camac.user.models import Service
 from camac.user.permissions import permission_aware
-
-from .. import models
 
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 
