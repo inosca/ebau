@@ -180,7 +180,7 @@ def test_annotate_without_content(mocker, failure_mode, expected_result):
     )
 
     results = annotate_documents.AnnotateDocumentsMigrator.annotate_file(
-        file, 123, True
+        file, 123, True, prefix="", nfile="1/1"
     )
 
     assert results == {

@@ -59,6 +59,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
     instance_documents: list[InstanceAlexandriaDocument] = field(default_factory=list)
     copy_paths: list[tuple[str, str]] = field(default_factory=list)
     no_parallel: bool = field(default=False)
+    workers: int = field(default=0)
 
     def process(self) -> None:
         documents = Document.objects.filter(
@@ -87,10 +88,10 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         )
 
         with transaction.atomic(), disable_auto_now(Document, File):
-            # We're mostly CPU-bound, but not 100%. Therefore, we're using 2x the
-            # number of CPUs as a worker count - To be fine-tuned.
-            nproc = os.cpu_count() or 1
-            workers = min(nproc * 2, 2)
+            # Default number of workers is number of CPU + 1.
+            # If commandline passes number of workers, use that
+            default_workers = (os.cpu_count() or 1) + 1
+            workers = self.workers or default_workers
             executor = (
                 SynchronousExecutor()
                 if self.no_parallel
