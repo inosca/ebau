@@ -331,7 +331,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         # SparseFieldsetsMixion of DRF-JSON-API but using a passed argument
         # instead of query params.
         if used_placeholders:
-            for field_name, _ in self.fields.fields.copy().items():
+            for field_name in self.fields.fields.copy():
                 if field_name not in used_placeholders:
                     self.fields.pop(field_name)
 
@@ -414,21 +414,17 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_publications(
         self, instance
     ):  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
-        publications = []
-
-        for publication in instance.publication_entries.filter(is_published=1).order_by(
-            "publication_date"
-        ):
-            publications.append(
-                {
-                    "date": self.format_date(publication.publication_date),
-                    "end_date": self.format_date(publication.publication_end_date),
-                    "calendar_week": publication.publication_journal_number
-                    or publication.publication_date.isocalendar()[1],
-                }
-            )
-
-        return publications
+        return [
+            {
+                "date": self.format_date(publication.publication_date),
+                "end_date": self.format_date(publication.publication_end_date),
+                "calendar_week": publication.publication_journal_number
+                or publication.publication_date.isocalendar()[1],
+            }
+            for publication in instance.publication_entries.filter(
+                is_published=1
+            ).order_by("publication_date")
+        ]
 
     def _get_leitbehoerde_name(self, instance, language):
         service = instance.responsible_service(filter_type="municipality")
@@ -2048,20 +2044,21 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             else:
                 body = body_prefix + validated_data["body"]
 
-            for recipient in [r for r in recipients if r.get("to")]:
-                emails.append(
-                    EmailMessage(
-                        subject=subject,
-                        body=body,
-                        connection=connection,
-                        # EmailMessage needs "to" and "cc" to be lists
-                        **{
-                            k: [e.strip() for e in email.split(",")]
-                            for (k, email) in recipient.items()
-                            if email
-                        },
-                    )
+            emails.extend(
+                EmailMessage(
+                    subject=subject,
+                    body=body,
+                    connection=connection,
+                    # EmailMessage needs "to" and "cc" to be lists
+                    **{
+                        key: [address.strip() for address in email.split(",")]
+                        for (key, email) in recipient.items()
+                        if email
+                    },
                 )
+                for recipient in recipients
+                if recipient.get("to")
+            )
 
             post_send.append(
                 getattr(self, f"_post_send_{recipient_type}", lambda instance: None)

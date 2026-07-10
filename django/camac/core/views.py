@@ -300,10 +300,10 @@ class PublicationEntryView(ModelViewSet):
             }
         ]
 
-        grundstuecknummern = []
-        for parcel in formFieldQuery.get(name="parzellen").value:
-            grundstuecknummern.append({"type": "KTN", "nummer": parcel["number"]})
-        payload["grundstuecknummern"] = grundstuecknummern
+        payload["grundstuecknummern"] = [
+            {"type": "KTN", "nummer": parcel["number"]}
+            for parcel in formFieldQuery.get(name="parzellen").value
+        ]
 
         standort_koordinaten = formFieldQuery.filter(name="standort-koordinaten")
         coordinates_override = []

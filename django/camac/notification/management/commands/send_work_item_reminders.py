@@ -174,20 +174,20 @@ class Command(BaseCommand):
             controlling_overdue = controlling.filter(is_overdue).count()
 
             if addressed_overdue + addressed_not_viewed + controlling_overdue > 0:
-                for to_email in service.email.split(","):
-                    emails.append(
-                        mail.EmailMessage(
-                            subject,
-                            render_service_template(
-                                addressed_overdue,
-                                addressed_not_viewed,
-                                controlling_overdue,
-                                service,
-                            ),
-                            settings.DEFAULT_FROM_EMAIL,
-                            [to_email.strip()],
-                        )
+                emails.extend(
+                    mail.EmailMessage(
+                        subject,
+                        render_service_template(
+                            addressed_overdue,
+                            addressed_not_viewed,
+                            controlling_overdue,
+                            service,
+                        ),
+                        settings.DEFAULT_FROM_EMAIL,
+                        [to_email.strip()],
                     )
+                    for to_email in service.email.split(",")
+                )
 
         print(f"sending {len(emails)} reminders")
 

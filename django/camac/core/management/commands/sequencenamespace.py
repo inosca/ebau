@@ -71,17 +71,17 @@ class Command(AppCommand):
                     # Only one AutoField is allowed per model, so don't bother
                     # continuing.
                     break
-            for f in model._meta.many_to_many:
-                if not f.remote_field.through:
-                    output.append(
-                        query_tpl
-                        % dict(
-                            table=style.SQL_TABLE(qn(model._meta.db_table)),
-                            field=style.SQL_FIELD("id"),
-                            field_q=style.SQL_FIELD(qn("id")),
-                            **common_args,
-                        )
-                    )
+            output.extend(
+                query_tpl
+                % dict(
+                    table=style.SQL_TABLE(qn(model._meta.db_table)),
+                    field=style.SQL_FIELD("id"),
+                    field_q=style.SQL_FIELD(qn("id")),
+                    **common_args,
+                )
+                for field in model._meta.many_to_many
+                if not field.remote_field.through
+            )
 
         return output
 

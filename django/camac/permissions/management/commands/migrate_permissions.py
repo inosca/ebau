@@ -176,7 +176,7 @@ class Command(BaseCommand):
 
     def _config_has_errors(self):
         errors = 0
-        for _, level_slug in settings.PERMISSIONS.get("MIGRATION", {}).items():
+        for level_slug in settings.PERMISSIONS.get("MIGRATION", {}).values():
             level_configured = level_slug in settings.PERMISSIONS["ACCESS_LEVELS"]
             level_in_db = permission_models.AccessLevel.objects.filter(
                 pk=level_slug

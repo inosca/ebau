@@ -43,8 +43,10 @@ class Command(BaseCommand):
             for keyword in keywords:
                 new_kw = Keyword(name=keyword.name, service=service)
                 new_keywords.append(new_kw)
-                for instance in keyword.instances.all():
-                    new_relations.append(through(keyword=new_kw, instance=instance))
+                new_relations.extend(
+                    through(keyword=new_kw, instance=instance)
+                    for instance in keyword.instances.all()
+                )
 
             tqdm.write(
                 f"prepared {len(new_keywords)} keywords, {len(new_relations)} relations"

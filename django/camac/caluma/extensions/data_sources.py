@@ -474,7 +474,7 @@ class ServicesForFinalReport(BaseDataSource):
                 question_id="inquiry-answer-invite-service",
                 value="inquiry-answer-invite-service-yes",
             ).exists():
-                pks_of_services_to_be_invited.append(*inquiry.addressed_groups)
+                pks_of_services_to_be_invited.extend(inquiry.addressed_groups)
 
         return (
             [

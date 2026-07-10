@@ -77,7 +77,7 @@ def test_conditional_types(try_get_fixture, any_application):
 
     access_levels = permissions_settings.get("ACCESS_LEVELS", {})
 
-    for _, permissions_settings in access_levels.items():
+    for permissions_settings in access_levels.values():
         for perm, check in permissions_settings:
             assert isinstance(check, Check), (
                 f"{perm} conditional {check} must be Check instance. "

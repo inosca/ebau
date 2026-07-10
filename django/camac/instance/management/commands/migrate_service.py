@@ -122,15 +122,15 @@ class Command(BaseCommand):
         sources = options["source"].split(",")
         queries = []
         if options["log_to_case_meta"]:
-            for source in sources:
-                queries.append(
-                    f"""UPDATE caluma_workflow_case
+            queries.extend(
+                f"""UPDATE caluma_workflow_case
     SET meta = jsonb_set(meta, \'{{migrated-from-service}}\', \'{source}\', true)
     FROM "INSTANCE"
         JOIN "INSTANCE_SERVICE" ON "INSTANCE_SERVICE"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"
     WHERE "INSTANCE".case_id = caluma_workflow_case.id
         AND "INSTANCE_SERVICE"."SERVICE_ID" = {source};"""
-                )
+                for source in sources
+            )
         for source in sources:
             queries.append(f"\n-- source: {source}, target: {options['target']}")
             for table, columns in self._filter(self._get_all_service_foreign_keys()):

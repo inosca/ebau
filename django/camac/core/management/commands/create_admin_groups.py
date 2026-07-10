@@ -76,24 +76,24 @@ class Command(BaseCommand):
 
             queries.append("\n")
 
-            # find all users which are member of the "lead" group of the service
-            for user in User.objects.filter(
-                groups__in=Group.objects.filter(
-                    service=service,
-                    role=Role.objects.get(
-                        trans__language="de",
-                        trans__name=LEAD_ROLE_MAPPING[
-                            service.service_group.trans.filter(language="de")
-                            .first()
-                            .name
-                        ],
-                    ),
-                )
-            ).distinct():
-                # add those users to the new admin group
-                queries.append(
-                    f'INSERT INTO "USER_GROUP" ("GROUP_ID", "DEFAULT_GROUP", "USER_ID") VALUES (({id}), 0, {user.pk});'
-                )
+            # add all users which are member of the "lead" group of the service
+            # to the new admin group
+            queries.extend(
+                f'INSERT INTO "USER_GROUP" ("GROUP_ID", "DEFAULT_GROUP", "USER_ID") VALUES (({id}), 0, {user.pk});'
+                for user in User.objects.filter(
+                    groups__in=Group.objects.filter(
+                        service=service,
+                        role=Role.objects.get(
+                            trans__language="de",
+                            trans__name=LEAD_ROLE_MAPPING[
+                                service.service_group.trans.filter(language="de")
+                                .first()
+                                .name
+                            ],
+                        ),
+                    )
+                ).distinct()
+            )
 
         if len(queries) and options["use_transaction"]:  # pragma: no cover
             queries = ["BEGIN;", *queries, "COMMIT;"]

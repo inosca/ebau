@@ -277,14 +277,11 @@ def get_function_kwargs(callback, possible_kwargs):
     # plain functions and objects with a __call__() method.
     code = getattr(callback, "__code__", None) or callback.__call__.__code__
 
-    new_kwargs = {}
-    for k, v in possible_kwargs.items():
-        # we use __call__ so callable objects work as well.
-        # A pure function also has __call__, so we can just always use that
-        if k in code.co_varnames:
-            new_kwargs[k] = v
-
-    return new_kwargs
+    # we use __call__ so callable objects work as well.
+    # A pure function also has __call__, so we can just always use that
+    return {
+        key: value for key, value in possible_kwargs.items() if key in code.co_varnames
+    }
 
 
 def call_with_accepted_kwargs(func, **kwargs):

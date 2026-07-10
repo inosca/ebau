@@ -128,21 +128,21 @@ def test_create_message(
             file.open("w").write(f"hello {x}")
             attachments.append(file.open("r"))
     if with_doc_attachments:
-        for x in range(2):
-            attachments.append(
-                json.dumps(
-                    {
-                        "id": str(
-                            attachment_factory(
-                                path=django_file("multiple-pages.pdf"),
-                                context={"displayName": "Doc"},
-                                name=f"file_{x}.pdf",
-                            ).pk
-                        ),
-                        "type": "attachments",
-                    }
-                )
+        attachments.extend(
+            json.dumps(
+                {
+                    "id": str(
+                        attachment_factory(
+                            path=django_file("multiple-pages.pdf"),
+                            context={"displayName": "Doc"},
+                            name=f"file_{x}.pdf",
+                        ).pk
+                    ),
+                    "type": "attachments",
+                }
             )
+            for x in range(2)
+        )
 
     resp = admin_client.post(
         reverse("communications-message-list"),
