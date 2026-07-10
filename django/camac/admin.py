@@ -45,13 +45,13 @@ class EbauAdminMixin:
 
 
 class MultilingualAdminMixin:
-    def _get_multilingual(self, property, default=None):
-        ml_key = f"{property}_ml"
+    def _get_multilingual(self, property_name, default=None):
+        ml_key = f"{property_name}_ml"
 
         if settings.APPLICATION.get("IS_MULTILINGUAL") and hasattr(self, ml_key):
             return getattr(self, ml_key)
 
-        return getattr(self, property, default)
+        return getattr(self, property_name, default)
 
     def get_queryset(self, *args, **kwargs):
         queryset = super().get_queryset(*args, **kwargs)

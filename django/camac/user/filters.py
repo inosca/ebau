@@ -190,13 +190,13 @@ class PublicServiceFilterSet(FilterSet):
                 continue
 
             for filter_type in ["include", "exclude"]:
-                for type, values in config_part.get(filter_type, []):
-                    if type == "services":
+                for config_type, values in config_part.get(filter_type, []):
+                    if config_type == "services":
                         filters[filter_type] |= Q(
                             service_parent__isnull=True,
                             slug__in=values,
                         )
-                    elif type == "service_groups":
+                    elif config_type == "service_groups":
                         filters[filter_type] |= Q(
                             service_parent__isnull=True,
                             service_group__name__in=values,
@@ -528,7 +528,7 @@ class AccessibleInstanceFilter(NumberFilter):
 
         return groups_with_access
 
-    @filter.register_old
+    @filter.register_old  # noqa: A003
     def filter_rbac(self, qs, value):
         if not value:
             return qs

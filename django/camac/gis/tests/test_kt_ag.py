@@ -262,12 +262,12 @@ def ag_data_sources(
 
     for config in gis_questions:
         slug = config[0]
-        type = config[1]
-        q = caluma_question_factory(slug=slug, type=type, label=slug)
+        question_type = config[1]
+        question = caluma_question_factory(slug=slug, type=question_type, label=slug)
         if len(config) == 3:
             for i, option in enumerate(reversed(config[2])):
                 caluma_question_option_factory(
-                    question=q,
+                    question=question,
                     option=caluma_option_factory(slug=f"{slug}-{option}", label=option),
                     sort=i,
                 )

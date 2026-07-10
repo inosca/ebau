@@ -118,15 +118,18 @@ def test_applicant_confirmation_round_start_for_document(
         with pytest.raises(error_cls, match=error_msg):
             start_fn()
     else:
-        round = start_fn()
+        confirmation_round = start_fn()
 
         assert permission_mock.call_count == 1
         assert permission_mock.call_args[0][1] == "applicant-confirmation-start"
 
         if form_scenario == "main_form":
-            assert round.step == ApplicantConfirmationRound.Step.SUBMIT
+            assert confirmation_round.step == ApplicantConfirmationRound.Step.SUBMIT
         else:
-            assert round.step == ApplicantConfirmationRound.Step.ADDITIONAL_DEMAND
+            assert (
+                confirmation_round.step
+                == ApplicantConfirmationRound.Step.ADDITIONAL_DEMAND
+            )
 
 
 @pytest.mark.freeze_time("2026-03-30 11:22")
@@ -166,7 +169,7 @@ def test_applicant_confirmation_confirm(
     permission_mock,
     user_factory,
 ):
-    round = applicant_confirmation_round_factory(
+    confirmation_round = applicant_confirmation_round_factory(
         status=(
             ApplicantConfirmationRound.Status.COMPLETED
             if error_scenario == "round_not_running"
@@ -183,7 +186,7 @@ def test_applicant_confirmation_confirm(
         applicant__invitee=(
             user_factory() if error_scenario == "not_user" else admin_user
         ),
-        round=round,
+        round=confirmation_round,
     )
     applicant_confirmation_factory(
         status=(
@@ -191,7 +194,7 @@ def test_applicant_confirmation_confirm(
             if is_last
             else ApplicantConfirmation.Status.PENDING
         ),
-        round=round,
+        round=confirmation_round,
     )
 
     if error_cls:
@@ -207,13 +210,17 @@ def test_applicant_confirmation_confirm(
         assert confirmation.closed_at.isoformat() == "2026-03-30T11:22:00+00:00"
 
         if is_last:
-            round.refresh_from_db()
+            confirmation_round.refresh_from_db()
 
-            assert round.status == ApplicantConfirmationRound.Status.COMPLETED
-            assert round.closed_at.isoformat() == "2026-03-30T11:22:00+00:00"
+            assert (
+                confirmation_round.status == ApplicantConfirmationRound.Status.COMPLETED
+            )
+            assert (
+                confirmation_round.closed_at.isoformat() == "2026-03-30T11:22:00+00:00"
+            )
 
             # Confirmation question is set
-            assert round.document.answers.filter(
+            assert confirmation_round.document.answers.filter(
                 question_id=applicants_settings.confirmation_question,
                 value=applicants_settings.confirmation_answer,
             ).exists()
@@ -244,36 +251,38 @@ def test_applicant_confirmation_round_invalidate(
     permission_mock,
     status,
 ):
-    round = applicant_confirmation_round_factory(
+    confirmation_round = applicant_confirmation_round_factory(
         status=status, document=caluma_document_factory(form=form_setup)
     )
     applicant_confirmation_factory.create_batch(
-        3, round=round, status=ApplicantConfirmation.Status.CONFIRMED
+        3, round=confirmation_round, status=ApplicantConfirmation.Status.CONFIRMED
     )
 
     if error_cls:
         with pytest.raises(error_cls, match=error_msg):
-            round.invalidate(fake_request)
+            confirmation_round.invalidate(fake_request)
     else:
-        round.invalidate(fake_request)
+        confirmation_round.invalidate(fake_request)
 
         assert permission_mock.call_count == 1
         assert permission_mock.call_args[0][1] == "applicant-confirmation-invalidate"
 
-        assert round.status == ApplicantConfirmationRound.Status.INVALIDATED
-        assert round.closed_at.isoformat() == "2026-03-30T11:23:00+00:00"
+        assert (
+            confirmation_round.status == ApplicantConfirmationRound.Status.INVALIDATED
+        )
+        assert confirmation_round.closed_at.isoformat() == "2026-03-30T11:23:00+00:00"
 
         # All confirmations are invalidated
-        assert round.confirmations.count() == 3
+        assert confirmation_round.confirmations.count() == 3
         assert (
-            round.confirmations.filter(
+            confirmation_round.confirmations.filter(
                 status=ApplicantConfirmation.Status.INVALIDATED
             ).count()
             == 3
         )
 
         # Confirmation question is reset
-        assert round.document.answers.filter(
+        assert confirmation_round.document.answers.filter(
             question_id=applicants_settings.confirmation_question,
             value=[],
         ).exists()
@@ -303,38 +312,38 @@ def test_applicant_confirmation_round_cancel(
     permission_mock,
     status,
 ):
-    round = applicant_confirmation_round_factory(
+    confirmation_round = applicant_confirmation_round_factory(
         status=status, document=caluma_document_factory(form=form_setup)
     )
     applicant_confirmation_factory.create_batch(
-        2, round=round, status=ApplicantConfirmation.Status.CONFIRMED
+        2, round=confirmation_round, status=ApplicantConfirmation.Status.CONFIRMED
     )
     applicant_confirmation_factory.create_batch(
-        3, round=round, status=ApplicantConfirmation.Status.PENDING
+        3, round=confirmation_round, status=ApplicantConfirmation.Status.PENDING
     )
 
     if error_cls:
         with pytest.raises(error_cls, match=error_msg):
-            round.cancel(fake_request)
+            confirmation_round.cancel(fake_request)
     else:
-        round.cancel(fake_request)
+        confirmation_round.cancel(fake_request)
 
         assert permission_mock.call_count == 1
         assert permission_mock.call_args[0][1] == "applicant-confirmation-cancel"
 
-        assert round.status == ApplicantConfirmationRound.Status.CANCELED
-        assert round.closed_at.isoformat() == "2026-03-30T11:24:00+00:00"
+        assert confirmation_round.status == ApplicantConfirmationRound.Status.CANCELED
+        assert confirmation_round.closed_at.isoformat() == "2026-03-30T11:24:00+00:00"
 
         # Confirmed confirmations are invalidated and pending confirmations are canceled
-        assert round.confirmations.count() == 5
+        assert confirmation_round.confirmations.count() == 5
         assert (
-            round.confirmations.filter(
+            confirmation_round.confirmations.filter(
                 status=ApplicantConfirmation.Status.INVALIDATED
             ).count()
             == 2
         )
         assert (
-            round.confirmations.filter(
+            confirmation_round.confirmations.filter(
                 status=ApplicantConfirmation.Status.CANCELED
             ).count()
             == 3

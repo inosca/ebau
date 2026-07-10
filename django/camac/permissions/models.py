@@ -153,7 +153,7 @@ class InstanceACL(models.Model):
         cls, user=None, service=None, token=None, area=None, role=None
     ):
         """Return a QS with all the ACLs of the given user."""
-        filter = cls.filter_for_current_user(
+        acl_filter = cls.filter_for_current_user(
             user=user,
             service=service,
             token=token,
@@ -161,7 +161,7 @@ class InstanceACL(models.Model):
             area=area,
             role=role,
         )
-        return cls.objects.filter(filter)
+        return cls.objects.filter(acl_filter)
 
     @classmethod
     def filter_for_current_user(

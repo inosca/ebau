@@ -174,11 +174,11 @@ def clean_and_add_full_name(entry):
     return {k: v if v is not None else "" for k, v in entry.items()}
 
 
-def _readable_date(value: datetime | date | None, format="long") -> str | None:
+def _readable_date(value: datetime | date | None, date_format="long") -> str | None:
     if not value:
         return None
 
-    return format_date(value, format, locale=get_language())
+    return format_date(value, date_format, locale=get_language())
 
 
 def human_readable_date(value: datetime | date | None) -> str | None:
@@ -196,7 +196,7 @@ def compact_human_readable_date(value: datetime | date | None) -> str | None:
     >>> human_readable_date(date(2021, 10, 4))
     "04.09.2021"
     """
-    return _readable_date(value, format="medium")
+    return _readable_date(value, date_format="medium")
 
 
 def datetime_timestamp(value: date | datetime | None) -> str:

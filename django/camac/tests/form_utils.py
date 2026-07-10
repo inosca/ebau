@@ -28,13 +28,13 @@ class FormUtils:
     def __init__(self):
         self._sort = 99999999
 
-    def _question(self, slug, type, label=None, options=None):
+    def _question(self, slug, question_type, label=None, options=None):
         question = Question.objects.filter(pk=slug).first()
         if question is None:
             question = QuestionFactory(
                 pk=slug,
                 is_required="false",
-                type=type,
+                type=question_type,
                 **({"label": label} if label else {}),
             )
         if options:

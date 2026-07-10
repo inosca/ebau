@@ -660,13 +660,15 @@ class PermissionManager:
         """
 
         acl_prefix = f"{instance_prefix}__acls" if instance_prefix else "acls"
-        filter = InstanceACL.filter_for_current_user(
+        acl_filter = InstanceACL.filter_for_current_user(
             **self.userinfo.to_kwargs(), acl_prefix=acl_prefix
         )
 
         if only_level:
-            filter = filter & Q(**{f"{acl_prefix}__access_level_id": only_level})
-        return filter
+            acl_filter = acl_filter & Q(
+                **{f"{acl_prefix}__access_level_id": only_level}
+            )
+        return acl_filter
 
     def current_access_levels(self, instance=None) -> list[str]:
         """Return a list of access level slugs relevant for the current user.

@@ -1020,7 +1020,7 @@ def test_publication_visibility_form_not_enabled(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "filter, variable, param",
+    "filter_value, variable, param",
     [
         ("{caseFamily: $case}", "case", "$case:ID!"),
         (
@@ -1044,7 +1044,7 @@ def test_visibility_performance_heuristic_workitems(
     form_utils: FormUtils,
     #
     param,
-    filter,
+    filter_value,
     variable,
 ):
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
@@ -1069,7 +1069,7 @@ def test_visibility_performance_heuristic_workitems(
     query = f"""
         query({param}) {{
             allWorkItems(filter: [
-                {filter}
+                {filter_value}
             ]) {{
                 edges {{
                     node {{
@@ -1102,7 +1102,7 @@ def test_visibility_performance_heuristic_workitems(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "filter, variable, param",
+    "filter_value, variable, param",
     [
         ("{rootCase: $case}", "case", "$case:ID!"),
         (
@@ -1130,7 +1130,7 @@ def test_visibility_performance_heuristic_cases(
     form_utils: FormUtils,
     #
     param,
-    filter,
+    filter_value,
     variable,
 ):
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
@@ -1155,7 +1155,7 @@ def test_visibility_performance_heuristic_cases(
     query = f"""
         query({param}) {{
             allCases(filter: [
-                {filter}
+                {filter_value}
             ]) {{
                 edges {{
                     node {{
@@ -1223,7 +1223,7 @@ def test_single_instance_mode(
 
 @pytest.mark.parametrize("role__name", ["Sekretariat der Gemeindebaubehörde"])
 @pytest.mark.parametrize(
-    "filter",
+    "filter_value",
     [
         '[{task: "check-additional-demand"}]',
         '[{tasks: ["check-additional-demand"]}]',
@@ -1239,7 +1239,7 @@ def test_work_item_filter_with_tasks(
     caluma_admin_user,
     caluma_admin_schema_executor,
     role,
-    filter,
+    filter_value,
     ur_additional_demand_settings,
     caluma_work_item_factory,
     application_settings,
@@ -1264,7 +1264,7 @@ def test_work_item_filter_with_tasks(
 
     query = f"""
         query WorkItemsForTasks {{
-            allWorkItems(filter: {filter}) {{
+            allWorkItems(filter: {filter_value}) {{
                 edges {{
                     node {{
                         task {{

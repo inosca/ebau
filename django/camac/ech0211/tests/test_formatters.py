@@ -248,15 +248,15 @@ def test_decision_formatter(
 
 
 @pytest.mark.parametrize(
-    "value,min,max,expected",
+    "value,min_length,max_length,expected",
     [
         (" foo ", 0, 2, "f…"),
         (" f", 3, 10, "f.."),
         (" foo  ", 1, 10, "foo"),
     ],
 )
-def test_assure_string_length(value, min, max, expected):
-    assert formatters.assure_string_length(value, min, max) == expected
+def test_assure_string_length(value, min_length, max_length, expected):
+    assert formatters.assure_string_length(value, min_length, max_length) == expected
 
 
 @pytest.mark.parametrize(

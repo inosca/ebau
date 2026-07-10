@@ -65,14 +65,14 @@ class ApplicantConfirmationRoundFactory(DjangoModelFactory):
     )
 
     @post_generation
-    def confirmations(round, create, extracted, **kwargs):
+    def confirmations(confirmation_round, create, extracted, **kwargs):
         count = kwargs.get("count")
 
         if not create or not count:
             return
 
-        round.confirmations.set(
-            ApplicantConfirmationFactory.create_batch(count, round=round)
+        confirmation_round.confirmations.set(
+            ApplicantConfirmationFactory.create_batch(count, round=confirmation_round)
         )
 
     class Params:

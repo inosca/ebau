@@ -28,10 +28,10 @@ Particularly, there are two useful things here as of now:
 def extract_tasks_from_filters(info):
     filter_data = extract_filter_data(info)
 
-    for filter in filter_data:
-        if arg := filter.get("task"):
+    for filter_item in filter_data:
+        if arg := filter_item.get("task"):
             return [arg]
-        elif arg := filter.get("tasks"):
+        elif arg := filter_item.get("tasks"):
             return arg
 
     return None
@@ -68,12 +68,12 @@ def extract_case_from_filters(info):
     ]
 
     filter_data = extract_filter_data(info)
-    for filter in filter_data:
+    for filter_item in filter_data:
         # meta filters are of structure:
         # filtername: {key: something, value: something_else} or
         # filtername: [{key: something, value: something_else}]
         for f_name in meta_filters:
-            arg = filter.get(f_name)
+            arg = filter_item.get(f_name)
             if not arg:
                 continue
 
@@ -88,7 +88,7 @@ def extract_case_from_filters(info):
         # case filters are of structure:
         # filtername: id_value
         for f_name in case_filters:
-            if arg := filter.get(f_name):
+            if arg := filter_item.get(f_name):
                 return ("case_id", extract_global_id(arg))
 
     # simplify call-site by always returning a 2-tuple

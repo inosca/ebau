@@ -1,6 +1,6 @@
 import csv
+import sys
 from collections import namedtuple
-from sys import exit
 
 from django.core.management.base import BaseCommand
 
@@ -44,7 +44,7 @@ class Command(BaseCommand):
             for username in missing:
                 print(f"  {username}")
             print("Please fix your CSV first.")
-            exit(1)
+            sys.exit(1)
 
         for user, row in zip(users, rows, strict=False):
             if row.email:

@@ -16,7 +16,7 @@ class WorkItemsField(serializers.ReadOnlyField):
         field="created_at",
         status=None,
         include_child_cases=True,
-        filter=None,
+        filter_function=None,
         order_by=None,
         limit=None,
         **kwargs,
@@ -29,7 +29,7 @@ class WorkItemsField(serializers.ReadOnlyField):
         self.task = task
         self.field = field
         self.status = status
-        self.filter = filter
+        self.filter_function = filter_function
         self.order_by = order_by
         self.limit = limit
         self.include_child_cases = include_child_cases
@@ -46,8 +46,8 @@ class WorkItemsField(serializers.ReadOnlyField):
             work_items.filter(status=self.status) if self.status else work_items
         )
 
-        if self.filter:
-            work_items = work_items.filter(self.filter(instance))
+        if self.filter_function:
+            work_items = work_items.filter(self.filter_function(instance))
 
         if self.order_by:
             work_items = work_items.order_by(self.order_by)

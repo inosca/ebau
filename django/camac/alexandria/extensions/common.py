@@ -58,7 +58,7 @@ def get_permission_key(group: Group | SimpleLazyObject) -> str:
 
 @lru_cache
 def get_service_parent_and_children(service_id: int | str) -> list[str]:
-    ids = set(
+    service_ids = set(
         chain(
             *Service.objects.filter(pk=service_id).values_list(
                 "pk",
@@ -71,7 +71,7 @@ def get_service_parent_and_children(service_id: int | str) -> list[str]:
         )
     )
 
-    return [str(id) for id in ids if id is not None]
+    return [str(service_id) for service_id in service_ids if service_id is not None]
 
 
 def get_user_and_group(request: HttpRequest) -> tuple[int, int]:

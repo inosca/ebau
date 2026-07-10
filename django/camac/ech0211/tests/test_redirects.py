@@ -2,7 +2,7 @@ import pytest
 
 
 @pytest.mark.parametrize(
-    "input,output",
+    "url,output",
     [
         (
             "/ech/v1/instance/123/",
@@ -18,11 +18,11 @@ def test_redirect(
     admin_client,
     set_application_be,
     be_ech0211_settings,
-    input,
+    url,
     output,
     reload_ech0211_urls,
 ):
-    response = admin_client.get(input)
+    response = admin_client.get(url)
 
     assert response.status_code == 302
     assert response.url == output

@@ -788,7 +788,7 @@ def test_assignable_filter_for_sz_service(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "filter, filtervalue, expect_results",
+    "filter_name, filter_value, expect_results",
     [
         ("user", "IMPLICIT", ["user"]),
         ("service", "IMPLICIT", ["sched", "inact", "service"]),
@@ -809,18 +809,18 @@ def test_list_acl_filters(
     instance_acl_factory,
     role,
     group_factory,
-    filter,
-    filtervalue,
+    filter_name,
+    filter_value,
     expect_results,
 ):
     url = reverse("instance-acls-list")
 
     level_1 = access_level_factory(slug="level1")
     level_2 = access_level_factory(slug="level2")
-    filter_dict = {filter: filtervalue}
-    if filter == "user":
+    filter_dict = {filter_name: filter_value}
+    if filter_name == "user":
         filter_dict["user"] = str(admin_client.user.pk)
-    if filter == "service":
+    if filter_name == "service":
         filter_dict["service"] = str(service.pk)
 
     permissions_settings["ACCESS_LEVELS"] = {
@@ -875,7 +875,7 @@ def test_list_acl_filters(
 
     acl_ids = [a["id"] for a in acls_data]
 
-    acl_names = [acl_to_name[id] for id in acl_ids]
+    acl_names = [acl_to_name[acl_id] for acl_id in acl_ids]
 
     # Note: we set the start times to slightly different values. We implicitly
     # test the result order as well, we want the latest starting ACL first

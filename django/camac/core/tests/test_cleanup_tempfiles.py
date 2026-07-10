@@ -57,7 +57,7 @@ def test_cleanup_tempfiles(mocker, tmp_path, settings):
 
     call_command("cleanup_tempfiles")
 
-    assert all(dir.exists() for dir in [subdir1, subdir2, subsubdir])
+    assert all(directory.exists() for directory in [subdir1, subdir2, subsubdir])
     assert file3.exists()
     assert file2_2.exists()
     assert not file1.exists()

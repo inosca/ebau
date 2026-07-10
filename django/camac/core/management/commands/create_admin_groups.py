@@ -57,7 +57,7 @@ class Command(BaseCommand):
             de = service.trans.filter(language="de").first()
             fr = service.trans.filter(language="fr").first()
 
-            id = "SELECT CURRVAL(pg_get_serial_sequence('\"GROUP\"', 'GROUP_ID'))"
+            group_id = "SELECT CURRVAL(pg_get_serial_sequence('\"GROUP\"', 'GROUP_ID'))"
 
             queries.append(f"-- {service.get_name()}")
             # create a new group
@@ -67,11 +67,11 @@ class Command(BaseCommand):
             # create translations for the new group
             if de:
                 queries.append(
-                    f'INSERT INTO "GROUP_T" ("GROUP_ID", "LANGUAGE", "CITY", "NAME") VALUES (({id}), \'de\', \'{escape(de.city)}\', \'Administration {escape(de.name)}\');'
+                    f'INSERT INTO "GROUP_T" ("GROUP_ID", "LANGUAGE", "CITY", "NAME") VALUES (({group_id}), \'de\', \'{escape(de.city)}\', \'Administration {escape(de.name)}\');'
                 )
             if fr:  # pragma: no cover
                 queries.append(
-                    f'INSERT INTO "GROUP_T" ("GROUP_ID", "LANGUAGE", "CITY", "NAME") VALUES (({id}), \'fr\', \'{escape(fr.city)}\', \'Administration: {escape(fr.name)}\');'
+                    f'INSERT INTO "GROUP_T" ("GROUP_ID", "LANGUAGE", "CITY", "NAME") VALUES (({group_id}), \'fr\', \'{escape(fr.city)}\', \'Administration: {escape(fr.name)}\');'
                 )
 
             queries.append("\n")
@@ -79,7 +79,7 @@ class Command(BaseCommand):
             # add all users which are member of the "lead" group of the service
             # to the new admin group
             queries.extend(
-                f'INSERT INTO "USER_GROUP" ("GROUP_ID", "DEFAULT_GROUP", "USER_ID") VALUES (({id}), 0, {user.pk});'
+                f'INSERT INTO "USER_GROUP" ("GROUP_ID", "DEFAULT_GROUP", "USER_ID") VALUES (({group_id}), 0, {user.pk});'
                 for user in User.objects.filter(
                     groups__in=Group.objects.filter(
                         service=service,

@@ -194,7 +194,7 @@ class PublicationEntryView(ModelViewSet):
     def has_destroy_permission_for_municipality(self):
         return True
 
-    def _clean_persons(self, persons, type=""):
+    def _clean_persons(self, persons, person_type=""):
         persons_data = []
         for person in persons:
             person_data = {
@@ -208,7 +208,7 @@ class PublicationEntryView(ModelViewSet):
 
             # We only use the title of grundeigentuemer because the external Amtsblatt API
             # only uses a title on grundeigentuemer
-            if type == "grundeigentuemer":
+            if person_type == "grundeigentuemer":
                 anrede_mapping = {
                     "Herr": "Grundeigentümer",
                     "Frau": "Grundeigentümerin",

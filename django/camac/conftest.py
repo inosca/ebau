@@ -1195,8 +1195,8 @@ def caluma_forms_ur(settings, add_general_questions):
         ("municipality", caluma_form_models.Question.TYPE_TEXT),
         ("leitbehoerde", caluma_form_models.Question.TYPE_TEXT),
     ]
-    for slug, type in simple_questions:
-        caluma_form_models.Question.objects.create(slug=slug, type=type)
+    for slug, question_type in simple_questions:
+        caluma_form_models.Question.objects.create(slug=slug, type=question_type)
 
     caluma_form_models.Question.objects.create(
         slug="leitbehoerde-internal-form",

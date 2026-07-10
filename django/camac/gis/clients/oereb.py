@@ -191,7 +191,7 @@ class OerebGisClient(GISBaseClient):
     def _extract_realestate_property(
         self,
         raw_data: dict[str, Any],
-        property: str,
+        property: str,  # noqa: A002 - argument name is defined in the config field
         cast: Literal["municipality_bfs_to_dynamic_option"] | None = None,
         **kwargs,
     ) -> Any:
