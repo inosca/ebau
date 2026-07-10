@@ -15,7 +15,7 @@ defmodule EbauWeb.Mounts.CheckRole do
         :admin,
         _params,
         _session,
-        %{assigns: %{actor: %{role: %{admin_role?: true}}}} = socket
+        %{assigns: %{actor: %{role: %{service_admin_role?: true}}}} = socket
       ) do
     {:cont, socket}
   end

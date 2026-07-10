@@ -9,6 +9,7 @@ defmodule Ebau.Core do
 
   authorization do
     authorize :by_default
+    require_actor? true
   end
 
   resources do

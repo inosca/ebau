@@ -68,10 +68,10 @@ defmodule Ebau.User.Role do
   end
 
   calculations do
-    calculate :admin_role?, :boolean, expr(contains(slug, "-admin"))
+    calculate :service_admin_role?, :boolean, expr(contains(slug, "-admin"))
   end
 
   preparations do
-    prepare build(load: :admin_role?)
+    prepare build(load: :service_admin_role?)
   end
 end

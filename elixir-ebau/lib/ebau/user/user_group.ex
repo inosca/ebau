@@ -15,7 +15,8 @@ defmodule Ebau.User.UserGroup do
   policies do
     policy action_type(:read) do
       forbid_unless actor_present()
-      authorize_if always()
+      authorize_if relates_to_actor_via(:user, field: :user)
+      authorize_if relates_to_actor_via(:group, field: :group)
     end
 
     policy action([:set_default_user_group, :clear_default_user_group]) do
