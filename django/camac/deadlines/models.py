@@ -1,5 +1,5 @@
 from datetime import date, datetime, timedelta
-from typing import Optional, TypeVar
+from typing import Optional, Self
 
 import uuid_extensions
 from caluma.caluma_workflow.models import WorkItem
@@ -21,10 +21,6 @@ from camac.instance.models import Instance
 from camac.user.models import Service
 from camac.utils import is_public_holiday, is_weekend_day
 
-TSuspension = TypeVar("TSuspension", bound="SuspensionQuerySet")
-TInstanceDeadline = TypeVar("TInstanceDeadline", bound="InstanceDeadlinesQuerySet")
-TDeadlineType = TypeVar("TDeadlineType", bound="DeadlineTypeQuerySet")
-
 
 def _fields_have_changed(old, new, fields) -> bool:
     """Check if any of the specified fields have changed between two model instances."""
@@ -34,7 +30,7 @@ def _fields_have_changed(old, new, fields) -> bool:
 
 
 class DeadlineTypeQuerySet(DeadlinePermissionMixin, models.QuerySet["DeadlineType"]):
-    def for_service(self: TDeadlineType, service: Service) -> TDeadlineType:
+    def for_service(self, service: Service) -> Self:
         return (
             self.filter(
                 (Q(services__isnull=True) | Q(services=service))
@@ -47,16 +43,14 @@ class DeadlineTypeQuerySet(DeadlinePermissionMixin, models.QuerySet["DeadlineTyp
             else self.none()
         )
 
-    def for_instance(self: TDeadlineType, instance: Instance) -> TDeadlineType:
+    def for_instance(self, instance: Instance) -> Self:
         return self.filter(
             Q(form_types__isnull=True)
             | Q(form_types=[])
             | Q(form_types__contains=[str(instance.case.family.document.form.pk)])
         )
 
-    def for_procedure_type(
-        self: TDeadlineType, instance: Instance, allow_empty: bool
-    ) -> TDeadlineType:
+    def for_procedure_type(self, instance: Instance, allow_empty: bool) -> Self:
         procedure_type = DeadlineType.ProcedureTypeChoices.PROCEDURE_TYPE_REGULAR.value
 
         if formal_exam := instance.case.family.work_items.filter(
@@ -83,7 +77,7 @@ class DeadlineTypeQuerySet(DeadlinePermissionMixin, models.QuerySet["DeadlineTyp
         )
 
     def get_default(
-        self: TDeadlineType, service: Service, instance: Instance
+        self, service: Service, instance: Instance
     ) -> Optional["DeadlineType"]:
         """Return the first default deadline type for the service.
 
@@ -114,26 +108,26 @@ class DeadlineTypeQuerySet(DeadlinePermissionMixin, models.QuerySet["DeadlineTyp
 
 
 class SuspensionQuerySet(DeadlinePermissionMixin, models.QuerySet["Suspension"]):
-    def for_service(self: TSuspension, service: Service) -> TSuspension:
+    def for_service(self, service: Service) -> Self:
         return (
             self.filter(deadline__service=service)
             if self.has_deadline_access(service)
             else self.none()
         )
 
-    def for_deadline(self: TSuspension, deadline: "InstanceDeadline") -> TSuspension:
+    def for_deadline(self, deadline: "InstanceDeadline") -> Self:
         return self.filter(deadline=deadline)
 
-    def for_workitem(self: TSuspension, work_item: WorkItem) -> TSuspension:
+    def for_workitem(self, work_item: WorkItem) -> Self:
         return self.filter(
             work_item=work_item,
         )
 
-    def only_open(self: TSuspension) -> TSuspension:
+    def only_open(self) -> Self:
         """Filter to only include suspensions that are currently open."""
         return self.filter(end_date__isnull=True)
 
-    def only_closed(self: TSuspension) -> TSuspension:
+    def only_closed(self) -> Self:
         """Filter to only include suspensions that are currently closed."""
         return self.filter(end_date__isnull=False)
 
@@ -141,19 +135,17 @@ class SuspensionQuerySet(DeadlinePermissionMixin, models.QuerySet["Suspension"])
 class InstanceDeadlinesQuerySet(
     DeadlinePermissionMixin, models.QuerySet["InstanceDeadline"]
 ):
-    def for_service(
-        self: TInstanceDeadline, service: Service | None
-    ) -> TInstanceDeadline:
+    def for_service(self, service: Service | None) -> Self:
         return (
             self.filter(service=service)
             if service and self.has_deadline_access(service)
             else self.none()
         )
 
-    def for_instance(self: TInstanceDeadline, instance: Instance) -> TInstanceDeadline:
+    def for_instance(self, instance: Instance) -> Self:
         return self.filter(instance=instance)
 
-    def only_running(self: TInstanceDeadline) -> TInstanceDeadline:
+    def only_running(self) -> Self:
         """Query deadlines that are still running."""
         return self.annotate(
             has_open_suspension=Exists(

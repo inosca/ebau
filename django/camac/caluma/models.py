@@ -1,5 +1,5 @@
 from itertools import chain
-from typing import TypeVar
+from typing import Self
 from uuid import UUID
 
 from caluma.caluma_workflow.models import Case, WorkItem
@@ -10,7 +10,8 @@ from camac.instance.models import Instance
 from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
 
-T = TypeVar("T", bound="InquiryQuerySet")
+type CaseType = Case | UUID | str | OuterRef | None
+type InstanceType = Instance | int | OuterRef | None
 type ServiceType = Service | int | str | None | list["ServiceType"]
 
 
@@ -60,44 +61,44 @@ class InquiryQuerySet(QuerySet["Inquiry"]):
     query the inquiries you need.
     """
 
-    def for_status(self: T, *status: list[str]) -> T:
+    def for_status(self, *status: list[str]) -> Self:
         """Return inquiries that match the given status."""
 
         return self.filter(status__in=status)
 
-    def only_pending(self: T) -> T:
+    def only_pending(self) -> Self:
         """Return only pending inquries (status READY)."""
 
         return self.for_status(WorkItem.STATUS_READY)
 
-    def only_answered(self: T) -> T:
+    def only_answered(self) -> Self:
         """Return only answered inquries (status COMPLETED)."""
 
         return self.for_status(WorkItem.STATUS_COMPLETED)
 
-    def only_drafts(self: T) -> T:
+    def only_drafts(self) -> Self:
         """Return only draft inquries (status DRAFT)."""
 
         return self.for_status(WorkItem.STATUS_SUSPENDED)
 
-    def only_skipped(self: T) -> T:
+    def only_skipped(self) -> Self:
         """Return only skipped inquries (status SKIPPED)."""
 
         return self.for_status(WorkItem.STATUS_SKIPPED)
 
-    def only_active(self: T) -> T:
+    def only_active(self) -> Self:
         """Return only inquries are active (status not SUSPENDED or CANCELED)."""
 
         return self.exclude(
             status__in=[WorkItem.STATUS_SUSPENDED, WorkItem.STATUS_CANCELED]
         )
 
-    def exclude_withdrawn(self: T) -> T:
+    def exclude_withdrawn(self) -> Self:
         """Return only inquries that were not withdrawn (status not CANCELED)."""
 
         return self.exclude(status=WorkItem.STATUS_CANCELED)
 
-    def for_root_case(self: T, case: Case | UUID | str | OuterRef | None) -> T:
+    def for_root_case(self, case: CaseType) -> Self:
         """Return all inquries for a given root case."""
 
         if isinstance(case, Case):
@@ -105,7 +106,7 @@ class InquiryQuerySet(QuerySet["Inquiry"]):
 
         return self.filter(case__family=case)
 
-    def for_distribution_case(self: T, case: Case | UUID | str | OuterRef | None) -> T:
+    def for_distribution_case(self, case: CaseType) -> Self:
         """Return all inquries for a given distribution case."""
 
         if isinstance(case, Case):
@@ -113,7 +114,7 @@ class InquiryQuerySet(QuerySet["Inquiry"]):
 
         return self.filter(case=case)
 
-    def for_instance(self: T, instance: Instance | int | OuterRef | None) -> T:
+    def for_instance(self, instance: InstanceType) -> Self:
         """Return all inquries for a given instance."""
 
         if isinstance(instance, Instance):
@@ -121,7 +122,7 @@ class InquiryQuerySet(QuerySet["Inquiry"]):
 
         return self.filter(case__family__instance__pk=instance)
 
-    def addressed_to(self: T, service: ServiceType) -> T:
+    def addressed_to(self, service: ServiceType) -> Self:
         """Return all inquiries addressed to a given service or a list of services.
 
         If multiple services are passed, it will return inquiries that are
@@ -130,7 +131,7 @@ class InquiryQuerySet(QuerySet["Inquiry"]):
 
         return self.filter(build_array_filter("addressed_groups", to_groups(service)))
 
-    def controlled_by(self: T, service: ServiceType) -> T:
+    def controlled_by(self, service: ServiceType) -> Self:
         """Return all inquiries controlled by a given service or a list of services.
 
         If multiple services are passed, it will return inquiries that are

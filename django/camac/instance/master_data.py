@@ -2,7 +2,7 @@ import re
 from dataclasses import dataclass, field
 from logging import getLogger
 from operator import attrgetter
-from typing import TypeVar
+from typing import Self
 from uuid import UUID
 
 from caluma.caluma_core.models import HistoricalRecords
@@ -22,8 +22,6 @@ from camac.user.models import Service
 from camac.utils import get_dict_item
 
 log = getLogger(__name__)
-
-T = TypeVar("T", bound="MasterData")
 
 
 @dataclass
@@ -55,7 +53,7 @@ class MasterData:
     @classmethod
     def from_case_id(
         cls, case_id: UUID, validation_context=None, _fastloader=None
-    ) -> T:
+    ) -> Self:
         """Return a MasterData instance for the given case ID.
 
         If you already have a fastloader or related validation context, you can
@@ -95,7 +93,7 @@ class MasterData:
     @classmethod
     def _build_masterdata(
         cls, case_id: UUID, validation_context=None, _fastloader=None
-    ) -> T:
+    ) -> Self:
         """
         Build MasterData object from given case ID.
 
