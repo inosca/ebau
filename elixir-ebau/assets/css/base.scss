@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @import "variables-theme";
 @import "mixins-theme";
 @import "uikit-theme";
@@ -9,6 +11,8 @@ $sidebar-width: 240px;
 $sidebar-padding: 48px;
 $main-navigation-background: $global-primary-background !default;
 $mandatory-asterisk-color: $text-danger-color !default;
+
+@import "components/main-navigation";
 
 .main-content {
   margin-top: $main-nav-height;
