@@ -32,7 +32,7 @@ def test_copy_task(
 
     to_name = "target-key"
 
-    DuplicateDocumentsMigrator._copy_task(file_to_copy, to_name)
+    DuplicateDocumentsMigrator._copy_task(storage, file_to_copy.name, to_name)
 
     expected_copy_args = {
         "CopySource": {
