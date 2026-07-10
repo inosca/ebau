@@ -3,8 +3,7 @@ from copy import deepcopy
 from dataclasses import dataclass, field
 
 from alexandria.core.models import Document, File, make_uuid
-from alexandria.storages.backends.s3 import SsecGlobalS3Storage
-from django.conf import settings
+from django.conf import ImproperlyConfigured, settings
 from django.core.files.storage import storages
 from django.db import transaction
 from django.db.models import Prefetch
@@ -21,28 +20,27 @@ class DuplicateDocumentsMigrator(BaseMigrator):
     document_marks: list[DocumentMark] = field(default_factory=list)
     files: list[File] = field(default_factory=list)
     instance_documents: list[InstanceAlexandriaDocument] = field(default_factory=list)
-    copy_paths: list[tuple[str, str, str]] = field(default_factory=list)
-    _storage_cache: dict = field(default_factory=dict, init=False)
+    copy_paths: list[tuple[str, str]] = field(default_factory=list)
 
-    def _get_storage(self, encryption_status: str):
-        if encryption_status not in self._storage_cache:
-            storage_backend = settings.ALEXANDRIA_FILE_STORAGE
-            if (
-                settings.ALEXANDRIA_ENABLE_AT_REST_ENCRYPTION
-                and encryption_status == File.EncryptionStatus.SSEC_GLOBAL_KEY
-            ):  # pragma: no cover
-                storage_backend = "alexandria.storages.backends.s3.SsecGlobalS3Storage"
+    def _get_storage(self):
+        storage_backend = settings.ALEXANDRIA_FILE_STORAGE
+        storage = storages.create_storage({"BACKEND": storage_backend})
+        if hasattr(storage, "bucket"):
+            # Initialize the S3 client once in the main thread to avoid
+            # race conditions in the thread pool
+            _ = storage.bucket.meta.client
 
-            storage = storages.create_storage({"BACKEND": storage_backend})
-            if hasattr(storage, "bucket"):
-                # Initialize the S3 client once in the main thread to avoid
-                # race conditions in the thread pool
-                _ = storage.bucket.meta.client
-
-            self._storage_cache[encryption_status] = storage
-        return self._storage_cache[encryption_status]
+        return storage
 
     def process(self) -> None:
+        if settings.ALEXANDRIA_ENABLE_AT_REST_ENCRYPTION:
+            # If this triggers, we'll need to fully implement SSEC support,
+            # but we expect this won't be needed
+            raise ImproperlyConfigured(
+                "DuplicateDocumentsMigrator does not support "
+                "ALEXANDRIA_ENABLE_AT_REST_ENCRYPTION=True"
+            )
+
         documents = Document.objects.filter(
             instance_document__instance_id__in=self.instance_ids,
             metainfo__has_key="duplicate-to",
@@ -66,9 +64,9 @@ class DuplicateDocumentsMigrator(BaseMigrator):
         )
 
         with transaction.atomic(), disable_auto_now(Document, File):
+            storage = self._get_storage()
             with ThreadPoolExecutor(max_workers=32) as executor:
-                for encryption_status, source_key, new_path in self.copy_paths:
-                    storage = self._get_storage(encryption_status)
+                for source_key, new_path in self.copy_paths:
                     executor.submit(self._copy_task, storage, source_key, new_path)
 
             Document.objects.bulk_create(self.documents)
@@ -129,15 +127,6 @@ class DuplicateDocumentsMigrator(BaseMigrator):
             "Bucket": storage.bucket.name,
             "Key": to_name,
         }
-        if isinstance(storage, SsecGlobalS3Storage):
-            copy_args["CopySourceSSECustomerKey"] = (
-                settings.ALEXANDRIA_S3_STORAGE_SSEC_SECRET
-            )
-            copy_args["CopySourceSSECustomerAlgorithm"] = (
-                settings.ALEXANDRIA_SSEC_ALGORITHM
-            )
-            copy_args["SSECustomerKey"] = settings.ALEXANDRIA_S3_STORAGE_SSEC_SECRET
-            copy_args["SSECustomerAlgorithm"] = settings.ALEXANDRIA_SSEC_ALGORITHM
 
         storage.bucket.meta.client.copy_object(**copy_args)
 
@@ -153,6 +142,4 @@ class DuplicateDocumentsMigrator(BaseMigrator):
             new_file.content = new_filename
 
             self.files.append(new_file)
-            self.copy_paths.append(
-                (old_file.encryption_status, source_key, new_filename)
-            )
+            self.copy_paths.append((source_key, new_filename))
