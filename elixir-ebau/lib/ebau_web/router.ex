@@ -55,6 +55,7 @@ defmodule EbauWeb.Router do
       pipe_through :actor
 
       post "/switch-group/:id", GroupController, :switch
+      post "/switch-language/:language", LocaleController, :set_locale
     end
   end
 

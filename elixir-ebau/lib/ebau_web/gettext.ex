@@ -22,4 +22,21 @@ defmodule EbauWeb.Gettext do
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
   use Gettext.Backend, otp_app: :ebau
+
+  def supported_languages do
+    canton = Application.get_env(:ebau, :canton)
+
+    languages = %{
+      ag: ["de"],
+      be: ["de", "fr"],
+      gr: ["de", "it"],
+      lu: ["de"],
+      sg: ["de"],
+      so: ["de"],
+      sz: ["de"],
+      ur: ["de"]
+    }
+
+    Map.get(languages, canton)
+  end
 end

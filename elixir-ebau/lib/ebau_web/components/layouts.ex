@@ -48,41 +48,10 @@ defmodule EbauWeb.Layouts do
       <:right>
         <.navbar_nav>
           <.navbar_item :if={@scope.actor}>
-            <a href="#">
-              <div>
-                <span class="uk-text-bold">
-                  {user_display_name(@scope.actor)}
-                </span>
-                <.navbar_subtitle>{@scope.actor.group.name}</.navbar_subtitle>
-              </div>
-              <.drop_parent_icon />
-            </a>
-            <.uk_dropdown
-              id="group-dropdown"
-              animation="uk-animation-slide-top-small"
-              duration={300}
-              mode="click"
-              pos="bottom-right"
-              offset={-10}
-            >
-              <ul class="uk-nav uk-dropdown-nav">
-                <li :for={group <- @scope.actor.user.groups}>
-                  <.form for={%{}} action={~p"/switch-group/#{group.id}"} method="post">
-                    <input type="hidden" name="return_to" value={@current_path} />
-                    <.uk_button
-                      type="submit"
-                      variant="link"
-                      class={[
-                        "uk-button uk-button-link",
-                        @scope.actor.group.id == group.id && "active-group"
-                      ]}
-                    >
-                      {group.name}
-                    </.uk_button>
-                  </.form>
-                </li>
-              </ul>
-            </.uk_dropdown>
+            <.group_dropdown scope={@scope} current_path={@current_path} />
+          </.navbar_item>
+          <.navbar_item>
+            <.language_switcher current_path={@current_path} />
           </.navbar_item>
           <.navbar_item>
             <a href={~p"/sign-out"} title={gettext("Sign out")}>
@@ -142,6 +111,94 @@ defmodule EbauWeb.Layouts do
         <.icon name="hero-arrow-path" class="ml-1 size-3 motion-safe:animate-spin" />
       </.flash>
     </div>
+    """
+  end
+
+  defp group_dropdown(assigns) do
+    ~H"""
+    <a href="#">
+      <div>
+        <span class="uk-text-bold">
+          {user_display_name(@scope.actor)}
+        </span>
+        <.navbar_subtitle>{@scope.actor.group.name}</.navbar_subtitle>
+      </div>
+      <.drop_parent_icon />
+    </a>
+    <.uk_dropdown
+      id="group-dropdown"
+      animation="uk-animation-slide-top-small"
+      duration={300}
+      mode="click"
+      pos="bottom-right"
+      offset={-10}
+    >
+      <ul class="uk-nav uk-dropdown-nav">
+        <li :for={group <- @scope.actor.user.groups}>
+          <.form for={%{}} action={~p"/switch-group/#{group.id}"} method="post">
+            <input type="hidden" name="return_to" value={@current_path} />
+            <.uk_button
+              type="submit"
+              variant="link"
+              class={[
+                "uk-button uk-button-link",
+                @scope.actor.group.id == group.id && "active-group"
+              ]}
+            >
+              {group.name}
+            </.uk_button>
+          </.form>
+        </li>
+      </ul>
+    </.uk_dropdown>
+    """
+  end
+
+  defp language_switcher(assigns) do
+    current_language = Gettext.get_locale(EbauWeb.Gettext)
+    supported_langauges = EbauWeb.Gettext.supported_languages()
+    dbg(Gettext.get_locale(EbauWeb.Gettext))
+
+    assigns =
+      assign(assigns,
+        current_language: current_language,
+        supported_languages: supported_langauges
+      )
+
+    ~H"""
+    <%= if Enum.count(@supported_languages) > 1 do %>
+      <a href="#" role="button">
+        <span :if={@current_language === "de"}>{gettext("German")}</span>
+        <span :if={@current_language === "fr"}>{gettext("French")}</span>
+        <span :if={@current_language === "it"}>{gettext("Italian")}</span>
+        <.drop_parent_icon />
+      </a>
+      <.uk_dropdown
+        id="locale-dropdown"
+        animation="uk-animation-slide-top-small"
+        duration={300}
+        mode="click"
+        pos="bottom-right"
+        offset={-10}
+      >
+        <ul class="uk-nav uk-dropdown-nav">
+          <li :for={language <- @supported_languages}>
+            <.form for={%{}} action={~p"/switch-language/#{language}"} method="post">
+              <input type="hidden" name="return_to" value={@current_path} />
+              <.uk_button
+                type="submit"
+                variant="link"
+                class="uk-button uk-button-link"
+              >
+                <span :if={language === "de"}>{gettext("German")}</span>
+                <span :if={language === "fr"}>{gettext("French")}</span>
+                <span :if={language === "it"}>{gettext("Italian")}</span>
+              </.uk_button>
+            </.form>
+          </li>
+        </ul>
+      </.uk_dropdown>
+    <% end %>
     """
   end
 end

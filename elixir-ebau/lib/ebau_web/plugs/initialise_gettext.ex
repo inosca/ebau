@@ -32,7 +32,21 @@ defmodule EbauWeb.Plugs.InitialiseGettext do
     Plug.Conn.put_session(conn, :locale, locale)
   end
 
+  def on_mount(_action, _params, session, %{assigns: %{current_user: current_user}} = socket)
+      when not is_nil(current_user) do
+    lang =
+      if current_user.language do
+        Atom.to_string(current_user.language)
+      else
+        session["locale"]
+      end
+
+    Gettext.put_locale(Ebau.Scope.pick_locale(lang)) |> dbg()
+    {:cont, socket}
+  end
+
   def on_mount(_action, _params, session, socket) do
+    dbg(socket)
     Gettext.put_locale(Ebau.Scope.pick_locale(session["locale"]))
     {:cont, socket}
   end

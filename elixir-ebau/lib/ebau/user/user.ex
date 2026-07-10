@@ -82,6 +82,10 @@ defmodule Ebau.User.User do
       prepare AshAuthentication.Strategy.OAuth2.SignInPreparation
       prepare Ebau.User.Preparations.SignInFilter
     end
+
+    update :set_default_language do
+      accept [:language]
+    end
   end
 
   policies do
@@ -89,7 +93,15 @@ defmodule Ebau.User.User do
       authorize_if always()
     end
 
-    policy action_type([:create, :update, :destroy]) do
+    policy action(:read) do
+      authorize_if expr(id == ^actor([:user, :id]))
+    end
+
+    policy action(:set_default_language) do
+      authorize_if expr(id == ^actor([:user, :id]))
+    end
+
+    policy action([:create, :update, :destroy]) do
       # We don't allow creating users. This is only for testing at the moment
       forbid_if always()
     end
@@ -120,10 +132,10 @@ defmodule Ebau.User.User do
       constraints: [max_length: 100],
       source: :SURNAME
 
-    attribute :language, :string,
+    attribute :language, :atom,
       public?: true,
       allow_nil?: false,
-      constraints: [max_length: 2],
+      constraints: [one_of: [:de, :fr, :it]],
       source: :LANGUAGE
   end
 
