@@ -91,7 +91,7 @@ class GISApplySerializer(serializers.Serializer):
         if not CustomPermission(self.context["request"]).has_camac_edit_permission(
             document, self.context["request"].caluma_info
         ):
-            raise PermissionDenied()
+            raise PermissionDenied
 
         for question_slug, value in data.items():
             success = self._write_answer(document, question_slug, value)

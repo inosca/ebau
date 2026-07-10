@@ -11,7 +11,7 @@ class InstanceSummaryFilterSet(FilterSet):
 
     def filter_submitted_in_period(self, queryset, name, value, prefix="case__"):
         if len(value) != 2:
-            raise ValidationError()
+            raise ValidationError
         start, end = value
         filters = Q()
         if start:

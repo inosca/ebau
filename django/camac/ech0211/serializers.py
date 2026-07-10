@@ -84,7 +84,7 @@ class ECHFileSerializer(Serializer):
             validated_data["instance"],
             validated_data["category"],
         ):
-            raise PermissionDenied()
+            raise PermissionDenied
 
         return validated_data
 
@@ -146,7 +146,7 @@ class ECHCamacFileSerializer(Serializer):
             ):
                 # This is actually a permission issues, so
                 # we should raise 403 not 400
-                raise PermissionDenied() from exc
+                raise PermissionDenied from exc
 
         return self_valid and att_valid
 
@@ -331,7 +331,7 @@ class ECH0211AlexandriaDocumentSerializer(serializers.ModelSerializer):
             ) or not has_alexandria_move_permission(
                 self.context["request"], instance, document, new_category
             ):
-                raise PermissionDenied()
+                raise PermissionDenied
 
         return new_category
 

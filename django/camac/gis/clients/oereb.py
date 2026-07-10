@@ -214,7 +214,7 @@ class OerebGisClient(GISBaseClient):
             case None:
                 return value
             case _:  # pragma: no cover
-                raise NotImplementedError()
+                raise NotImplementedError
 
     def _extract_restriction_collection(
         self,

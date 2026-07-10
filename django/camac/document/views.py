@@ -345,7 +345,7 @@ class AttachmentView(
             FileNotFoundError,
             EngineError,
         ) as e:
-            raise exceptions.NotFound() from e
+            raise exceptions.NotFound from e
 
     @action(methods=["post"], detail=True)
     @swagger_auto_schema(auto_schema=None, deprecated=True)
@@ -455,7 +455,7 @@ class AttachmentDownloadView(
         filtered_qs = fs.qs
 
         if not filtered_qs:
-            raise NotFound()
+            raise NotFound
 
         for attachment in filtered_qs:
             self._create_history_entry(request, attachment)
@@ -499,7 +499,7 @@ class AttachmentVersionDownloadView(AttachmentDownloadView):
 
     # In webdav context list makes no-sense, it's always a single file
     def list(self, request, **kwargs):  # pragma: no cover
-        raise NotImplementedError()
+        raise NotImplementedError
 
     def get_loosen_filter(self):
         return Q(pk=0)

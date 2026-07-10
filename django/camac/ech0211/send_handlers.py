@@ -250,7 +250,7 @@ class BaseSendHandler:
             ) from e
 
     def get_instance_id(self):  # pragma: no cover
-        raise NotImplementedError()
+        raise NotImplementedError
 
     def complete_work_item(self, task, filters=None, context=None):
         filters = filters or {}
@@ -280,7 +280,7 @@ class BaseSendHandler:
         return self.instance.responsible_service() == self.group.service, None
 
     def apply(self):  # pragma: no cover
-        raise NotImplementedError()
+        raise NotImplementedError
 
 
 class NoticeRulingSendHandler(

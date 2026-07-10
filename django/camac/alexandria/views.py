@@ -275,7 +275,7 @@ class AlexandriaPermissionsDebuggerView(APIView):
         if not settings.DEBUG:  # pragma: no cover
             # Make sure to never return anything if we're not in debug mode even
             # if the url should not be registered anyways.
-            raise NotFound()
+            raise NotFound
 
         categories = Category.objects.filter(parent__isnull=True).order_by("sort")
         access_levels = AccessLevel.objects.all().order_by("name")
@@ -357,7 +357,7 @@ class AlexandriaVisibilitiesDebuggerView(APIView):
         if not settings.DEBUG:  # pragma: no cover
             # Make sure to never return anything if we're not in debug mode even
             # if the url should not be registered anyways.
-            raise NotFound()
+            raise NotFound
 
         # TODO: support USE_ROLE_PERMISSIONS_MAPPING and SERVICE_GROUP_APPEND_ROLE.
         # this version doesn't yet support these settings yet.

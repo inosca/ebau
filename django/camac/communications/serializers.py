@@ -587,7 +587,7 @@ class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
             if not section_permissions.can_write(
                 section, None, request.group, instance.message.topic.instance
             ):
-                raise PermissionDenied()
+                raise PermissionDenied
 
             doc_attachment = document_models.Attachment.objects.create(
                 name=instance.filename,
@@ -610,7 +610,7 @@ class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
                 instance.message.topic.instance,
                 validated_data["category"],
             ):
-                raise PermissionDenied()
+                raise PermissionDenied
 
             document, file = create_alexandria_document_file(
                 user=self.context["request"].user.pk,

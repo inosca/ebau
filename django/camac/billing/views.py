@@ -141,7 +141,7 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
         # Check if all requested entries exist
         fetched_entry_ids = entries.values_list("id", flat=True)
         if len(set(entry_ids) - set(fetched_entry_ids)) != 0:
-            raise NotFound()
+            raise NotFound
 
         # Check if all requested entries belong to the same instance
         distinct_entry_instance_ids = set(entries.values_list("instance", flat=True))
@@ -166,7 +166,7 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
             )
 
         if not has_permission:
-            raise PermissionDenied()
+            raise PermissionDenied
 
         entries.update(date_charged=timezone.now().date())
 

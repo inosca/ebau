@@ -531,7 +531,7 @@ class UserGroupInvitationSerializer(serializers.ModelSerializer):
 
         if group.service != service and group.service.service_parent != service:
             # User does not have permission to add a user to this group
-            raise PermissionDenied()
+            raise PermissionDenied
 
         return validated_data
 
@@ -626,7 +626,7 @@ class UserGroupSerializer(serializers.ModelSerializer):
 
         # User does not have permission to add a user to this group
         if group.service != service and group.service.service_parent != service:
-            raise PermissionDenied()
+            raise PermissionDenied
 
         validated_data.update({"user": user, "default_group": 0})
 
