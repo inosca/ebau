@@ -229,6 +229,8 @@ SG_PERMISSIONS_SETTINGS = {
             ("documents-write", Always()),
             ("form-read", Always()),
             ("form-write", Always()),
+            ("permissions-read", Always()),
+            ("permissions-read-any", Always()),
         ],
     },
     "EVENT_HANDLER": "camac.permissions.config.kt_sg.PermissionEventHandlerSG",
