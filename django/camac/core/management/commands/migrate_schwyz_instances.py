@@ -30,7 +30,7 @@ class Command(BaseCommand):
             default=False,
         )
 
-    def create_work_item_from_task(  # noqa: C901
+    def create_work_item_from_task(
         self,
         case,
         task_slug,

@@ -34,7 +34,7 @@ from caluma.caluma_workflow import (
     models as caluma_workflow_models,
 )
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
-from celery.contrib.pytest import (  # noqa: F403, F401
+from celery.contrib.pytest import (
     # These are needed to make celery pytesting work
     # Check here for why that redundant rename is necesary
     # https://docs.astral.sh/ruff/rules/unused-import/
@@ -73,7 +73,7 @@ from camac.dossier_import import factories as dossier_import_factories
 from camac.ech0211 import factories as ech_factories
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.fixtures.generated import external_factories
-from camac.fixtures.generated.settings_fixtures import *  # noqa: F403, F401
+from camac.fixtures.generated.settings_fixtures import *  # noqa: F403
 from camac.gis import factories as gis_factories
 from camac.instance import factories as instance_factories
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
@@ -3462,7 +3462,7 @@ def mock_celery(mocker):
 
 
 @pytest.fixture
-def celery_fake_worker(celery_app, mocker):  # noqa: F811,C901
+def celery_fake_worker(celery_app, mocker):  # noqa: C901
     """
     Mock Celery task scheduling and allow running those tasks in tests.
 
