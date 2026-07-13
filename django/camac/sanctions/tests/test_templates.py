@@ -4,7 +4,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "has_service,expected_status",
+    ("has_service", "expected_status"),
     [
         (True, status.HTTP_201_CREATED),
         (False, status.HTTP_403_FORBIDDEN),

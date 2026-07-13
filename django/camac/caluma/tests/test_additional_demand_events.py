@@ -264,7 +264,8 @@ def test_post_create_check_additional_demand(
     # immediately completed
     if test_case == "ok":
         assert work_item_check.status == WorkItem.STATUS_COMPLETED
-        assert ech_answer and ech_answer.value == "true", (
+        assert ech_answer
+        assert ech_answer.value == "true", (
             "additional demand work item ech answer should be created"
         )
     elif test_case == "no_ech_meta":

@@ -5,14 +5,14 @@ from camac.user.models import User
 
 
 @pytest.mark.parametrize(
-    [
+    (
         "value",
         "previous_value",
         "expected_result",
         "has_responsible_service",
         "extra_user",
         "expected_message",
-    ],
+    ),
     [
         ("", None, None, True, False, None),
         ("admin@example.com", None, "admin@example.com", True, False, None),

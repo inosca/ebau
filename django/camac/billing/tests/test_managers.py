@@ -17,7 +17,7 @@ def test_billing_entry_manager(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,expected",
+    ("service_group__name", "expected"),
     [
         (
             "municipality",

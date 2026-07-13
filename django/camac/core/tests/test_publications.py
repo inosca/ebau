@@ -10,7 +10,7 @@ from camac.core.models import WorkflowEntry
 
 
 @pytest.mark.parametrize(
-    "role__name,size",
+    ("role__name", "size"),
     [
         ("Applicant", 0),
         ("Canton", 0),
@@ -34,7 +34,7 @@ def test_publication_list(admin_client, publication_entry, activation, size):
 
 @pytest.mark.parametrize("publication_entry__instance", [lf("sz_instance")])
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Municipality", status.HTTP_200_OK),
@@ -71,7 +71,7 @@ def test_publication_update(
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Municipality", status.HTTP_201_CREATED),
@@ -110,7 +110,7 @@ def test_publication_create(
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Municipality", status.HTTP_204_NO_CONTENT),

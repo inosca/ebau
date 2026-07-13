@@ -246,7 +246,7 @@ def test_dynamic_group_geometer_be(
 
 
 @pytest.mark.parametrize(
-    "given_slug,expected_group_pk",
+    ("given_slug", "expected_group_pk"),
     [
         ("geometer-ur", uri_constants.GEOMETER_SERVICE_ID),
         ("gebaeudeschaetzung-ur", uri_constants.FGS_SERVICE_ID),
@@ -309,7 +309,7 @@ def test_dynamic_group_service_bab(
 
 
 @pytest.mark.parametrize(
-    "bab_name,service_slug",
+    ("bab_name", "service_slug"),
     [
         ("ARE BaB Kreis 1", "bab-kreis-1"),
         ("ARE BaB Kreis 2", "bab-kreis-2"),

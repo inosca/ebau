@@ -31,7 +31,7 @@ def test_try_get_invalid_task(service_factory):
 
 
 @pytest.mark.parametrize(
-    "role__name,size",
+    ("role__name", "size"),
     [
         ("Applicant", 0),
         ("Service", 1),
@@ -57,7 +57,13 @@ def test_service_list(admin_client, service, size):
 
 
 @pytest.mark.parametrize(
-    "role__name,role_t__name,role__group_prefix,role_t__group_prefix,status_code",
+    (
+        "role__name",
+        "role_t__name",
+        "role__group_prefix",
+        "role_t__group_prefix",
+        "status_code",
+    ),
     [
         ("Applicant", "Applicant", None, None, status.HTTP_404_NOT_FOUND),
         (
@@ -84,13 +90,14 @@ def test_service_list(admin_client, service, size):
     ],
 )
 @pytest.mark.parametrize(
-    "service_t__name,service_t__description,service_t__city",
+    ("service_t__name", "service_t__description", "service_t__city"),
     [("service name", "service name", "city name")],
 )
 @pytest.mark.parametrize(
-    "service_t__language,role_t__language,group_t__language", [("de",) * 3, ("fr",) * 3]
+    ("service_t__language", "role_t__language", "group_t__language"),
+    [("de",) * 3, ("fr",) * 3],
 )
-@pytest.mark.parametrize("service__name,group__name", [(None, None)])
+@pytest.mark.parametrize(("service__name", "group__name"), [(None, None)])
 @pytest.mark.parametrize("multilang", [True, False])
 def test_service_update(
     admin_client,
@@ -153,7 +160,7 @@ def test_service_update(
 
 
 @pytest.mark.parametrize(
-    "role__name,allowed_roles,same_service,status_code",
+    ("role__name", "allowed_roles", "same_service", "status_code"),
     [
         ("Municipality", None, False, status.HTTP_403_FORBIDDEN),
         ("Municipality", ["Municipality"], True, status.HTTP_200_OK),
@@ -188,7 +195,7 @@ def test_service_update_permissions(
     ["Municipality"],
 )
 @pytest.mark.parametrize(
-    "email,success",
+    ("email", "success"),
     [
         ("not.an.email", False),
         (" VALID@eXample.COM", True),
@@ -222,7 +229,7 @@ def test_service_update_invalid_email(
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Municipality", status.HTTP_403_FORBIDDEN),
@@ -238,10 +245,10 @@ def test_service_delete(admin_client, service, status_code):
 
 
 @pytest.mark.parametrize(
-    "service_t__name,service_t__language", [("je ne sais pas", "fr")]
+    ("service_t__name", "service_t__language"), [("je ne sais pas", "fr")]
 )
 @pytest.mark.parametrize(
-    "role__name,size", [("Applicant", 0), ("Canton", 1), ("Service", 1)]
+    ("role__name", "size"), [("Applicant", 0), ("Canton", 1), ("Service", 1)]
 )
 def test_service_list_multilingual(admin_client, service_t, size, multilang):
     url = reverse("service-list")
@@ -256,7 +263,7 @@ def test_service_list_multilingual(admin_client, service_t, size, multilang):
 
 @pytest.mark.parametrize("is_multilang", [True, False])
 @pytest.mark.parametrize(
-    "name,expected_status",
+    ("name", "expected_status"),
     [
         ("Subservice 1", status.HTTP_201_CREATED),
         ("Existing", status.HTTP_400_BAD_REQUEST),
@@ -320,7 +327,7 @@ def test_service_create(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_status,task_already_exists",
+    ("role__name", "expected_status", "task_already_exists"),
     [
         ("Support", status.HTTP_200_OK, False),
         ("Support", status.HTTP_400_BAD_REQUEST, True),
@@ -464,7 +471,7 @@ def test_change_geometer_task(
 
 
 @pytest.mark.parametrize(
-    "lead_authority_situation,geometer_has_changed",
+    ("lead_authority_situation", "geometer_has_changed"),
     [
         ("only_active_municipality", [True, False]),
         ("only_involved_municipality", [True, False]),
@@ -612,13 +619,12 @@ def test_instance_selection_for_geometer_change(
 
 
 @pytest.mark.parametrize(
-    "role__name,task_exists,task_status,expected_status",
+    ("role__name", "task_exists", "task_status", "expected_status"),
     [
         ("Support", False, "", status.HTTP_200_OK),
         ("Support", True, "running", status.HTTP_202_ACCEPTED),
         ("Support", True, "failed", status.HTTP_200_OK),
         ("Support", True, "completed", status.HTTP_200_OK),
-        ("Support", False, "", status.HTTP_200_OK),
         ("Applicant", False, "", status.HTTP_400_BAD_REQUEST),
         ("Municipality", False, "", status.HTTP_400_BAD_REQUEST),
         ("Geometer", False, "", status.HTTP_400_BAD_REQUEST),
@@ -651,7 +657,7 @@ def test_check_change_geometer_status(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    ("role__name", "expected_status"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Municipality", status.HTTP_403_FORBIDDEN),
@@ -669,7 +675,7 @@ def test_service_merge_municipality_permission(admin_client, expected_status):
 
 @pytest.mark.parametrize("role__name", ["Support"])
 @pytest.mark.parametrize(
-    "expected_result,expected_status",
+    ("expected_result", "expected_status"),
     [
         ("municipality_not_found", status.HTTP_400_BAD_REQUEST),
         ("municipality_same", status.HTTP_400_BAD_REQUEST),

@@ -3,8 +3,8 @@ from datetime import timedelta
 import pytest
 from django.urls import reverse
 from django.utils import timezone
-from django.utils.translation import gettext
 from pytest_lazy_fixtures import lf
+from rest_framework.exceptions import PermissionDenied
 
 from camac.instance import models as instance_models
 from camac.permissions import api, conditions, exceptions, models
@@ -212,7 +212,7 @@ _some_user = lf("user")
 
 
 @pytest.mark.parametrize(
-    "grant_type, request_user, expect_result",
+    ("grant_type", "request_user", "expect_result"),
     [
         # Authenticated users can see stuff that's visible to anonymous users
         ("ANONYMOUS_PUBLIC", _some_user, 1),
@@ -246,7 +246,7 @@ def test_visible_instances_public_access(
 
 
 @pytest.mark.parametrize(
-    "end_time, expect_result",
+    ("end_time", "expect_result"),
     [
         # None in the end time means "still active"
         (lambda: None, 1),
@@ -293,7 +293,7 @@ def test_revoked_acl(freezer, user, access_level, instance, end_time, expect_res
 
 
 @pytest.mark.parametrize(
-    "start_time, expect_result",
+    ("start_time", "expect_result"),
     [
         # None means "immediate activation"
         (None, 1),
@@ -326,7 +326,7 @@ def test_future_acl(user, access_level, instance, start_time, expect_result):
 
 @pytest.mark.parametrize("instance_acl__grant_type", ["USER"])
 @pytest.mark.parametrize(
-    "instance_acl__end_time, end_time, expect_error",
+    ("instance_acl__end_time", "end_time", "expect_error"),
     [
         # Revoke without end time = immediately
         (None, None, False),
@@ -354,7 +354,7 @@ def test_extending_acl(instance_acl, end_time, expect_error):
 
 
 @pytest.mark.parametrize(
-    "method, require, check_only_required, expect_call_count, expect_result",
+    ("method", "require", "check_only_required", "expect_call_count", "expect_result"),
     [
         ("has_any", ["foo"], False, 1, True),
         ("has_any", ["foo"], True, 0, True),
@@ -422,7 +422,7 @@ def test_evaluation_permissions_check_only_required(
 
 
 @pytest.mark.parametrize(
-    "require_expr, check_only_required, expect_result",
+    ("require_expr", "check_only_required", "expect_result"),
     [
         (api.P("other"), False, None),
         (api.P("other") & api.P("some"), False, None),
@@ -681,7 +681,7 @@ MSG_GRANTTYPE = "Access level requires grant type USER"
 
 
 @pytest.mark.parametrize(
-    [
+    (
         "set_user",
         "set_service",
         "token",
@@ -689,7 +689,7 @@ MSG_GRANTTYPE = "Access level requires grant type USER"
         "end_time",
         "access_level__required_grant_type",
         "expect_error",
-    ],
+    ),
     [
         # First some "OK" validations
         (True, False, None, "USER", None, None, None),
@@ -801,7 +801,7 @@ def test_condition_objects(
 
 
 @pytest.mark.parametrize(
-    "method, require, expect_result, expect_error",
+    ("method", "require", "expect_result", "expect_error"),
     [
         # user has "foo" but not "bar"
         ("has_any", ["foo"], True, False),
@@ -851,17 +851,14 @@ def test_require_functions(  # params
     manager = api.PermissionManager.from_params(user=user)
 
     if expect_error:
-        with pytest.raises(Exception) as excinfo:
+        with pytest.raises(PermissionDenied):
             getattr(manager, method)(instance, require)
-        assert excinfo.match(
-            gettext("You do not have the required permission to do this")
-        )
     else:
         assert getattr(manager, method)(instance, require) == expect_result
 
 
 @pytest.mark.parametrize(
-    "method, require, expect_result",
+    ("method", "require", "expect_result"),
     [
         # user has "foo" but not "bar"
         ("has_any", [api.P("do-good")], True),

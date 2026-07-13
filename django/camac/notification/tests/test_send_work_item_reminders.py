@@ -11,7 +11,15 @@ from camac.notification.tasks import send_notification_for_overdue_workitems
 @pytest.mark.freeze_time("2020-08-10")
 @pytest.mark.parametrize("multilingual", [True, False])
 @pytest.mark.parametrize(
-    "is_overdue,is_not_viewed,is_assigned,has_controlling,multi_mail_service,is_applicant,outbox_count",
+    (
+        "is_overdue",
+        "is_not_viewed",
+        "is_assigned",
+        "has_controlling",
+        "multi_mail_service",
+        "is_applicant",
+        "outbox_count",
+    ),
     [
         (True, True, True, True, False, False, 3),
         (True, True, True, False, True, False, 3),

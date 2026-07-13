@@ -3,7 +3,13 @@ from django.core.management import call_command
 
 
 @pytest.mark.parametrize(
-    "user__email,two_users,service__email,user_group__default_group,expect_service_email",
+    (
+        "user__email",
+        "two_users",
+        "service__email",
+        "user_group__default_group",
+        "expect_service_email",
+    ),
     [
         ("", False, "", 1, ""),
         ("foo@example.com", False, "bar@example.com", 1, "foo@example.com"),

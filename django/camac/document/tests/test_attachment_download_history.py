@@ -64,11 +64,11 @@ def test_filter_only_involved_applicants(
 
 
 @pytest.mark.parametrize(
-    "instance__user,attachment__path,role__name",
+    ("instance__user", "attachment__path", "role__name"),
     [(lf("admin_user"), django_file("multiple-pages.pdf"), "Applicant")],
 )
 @pytest.mark.parametrize(
-    "is_decision,expected_workflow_entries", [(True, 1), (False, 0)]
+    ("is_decision", "expected_workflow_entries"), [(True, 1), (False, 0)]
 )
 def test_attachment_download_history_create(
     admin_client,

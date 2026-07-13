@@ -30,7 +30,7 @@ def test_generate_and_render():
 
 
 @pytest.mark.parametrize(
-    "correct_key,correct_challenge,expected_response",
+    ("correct_key", "correct_challenge", "expected_response"),
     [
         (False, False, status.HTTP_403_FORBIDDEN),
         (True, False, status.HTTP_403_FORBIDDEN),

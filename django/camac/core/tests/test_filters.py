@@ -7,7 +7,7 @@ from camac.permissions.conditions import Always
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user",
+    ("role__name", "instance__user"),
     [
         ("Applicant", lf("admin_user")),
     ],
@@ -52,7 +52,7 @@ def test_instance_form_name_filter(
 
 
 @pytest.mark.parametrize(
-    "has_permission, has_role_acl_a, has_role_acl_b, expect_results",
+    ("has_permission", "has_role_acl_a", "has_role_acl_b", "expect_results"),
     [
         # without instance acls, the IR acls "win"
         (False, False, False, []),
@@ -67,7 +67,7 @@ def test_instance_form_name_filter(
     ],
 )
 @pytest.mark.parametrize(
-    "role__name,instance__user",
+    ("role__name", "instance__user"),
     [
         ("Applicant", lf("admin_user")),
     ],

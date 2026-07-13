@@ -19,7 +19,7 @@ def test_responsible_service_list(admin_client, responsible_service):
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,status_code",
+    ("role__name", "instance__user", "status_code"),
     [
         ("Service", lf("admin_user"), status.HTTP_201_CREATED),
         ("Municipality", lf("admin_user"), status.HTTP_201_CREATED),
@@ -82,7 +82,7 @@ def test_responsible_service_create(
 
 
 @pytest.mark.parametrize(
-    "role__name,responsible_service__responsible_user,status_code",
+    ("role__name", "responsible_service__responsible_user", "status_code"),
     [
         ("Service", lf("admin_user"), status.HTTP_200_OK),
         ("Municipality", lf("admin_user"), status.HTTP_200_OK),

@@ -10,7 +10,7 @@ from camac.permissions import api as permissions_api
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name,expected_count",
+    ("access_level__slug", "role__name", "service_group__name", "expected_count"),
     [
         # services can not see any instance deadlines
         ("distribution-service", "service-lead", "service", 0),
@@ -88,7 +88,7 @@ def test_instance_deadlines_list_gr(
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name,expected_status",
+    ("access_level__slug", "role__name", "service_group__name", "expected_status"),
     [
         (
             "lead-authority",
@@ -178,7 +178,7 @@ def test_instance_deadlines_creation_gr(
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name,method,success",
+    ("access_level__slug", "role__name", "service_group__name", "method", "success"),
     [
         ("lead-authority", "municipality-lead", "municipality", "delete", False),
         (
@@ -278,7 +278,13 @@ def test_instance_deadlines_deletion_and_update_gr(
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name,process_deadline_date,expected_status",
+    (
+        "access_level__slug",
+        "role__name",
+        "service_group__name",
+        "process_deadline_date",
+        "expected_status",
+    ),
     [
         (
             "lead-authority",

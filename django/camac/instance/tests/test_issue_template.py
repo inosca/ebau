@@ -4,7 +4,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "role__name,size",
+    ("role__name", "size"),
     [("Applicant", 0), ("Canton", 1), ("Municipality", 1), ("Service", 1)],
 )
 def test_issue_template_template_list(admin_client, issue_template, activation, size):
@@ -20,7 +20,7 @@ def test_issue_template_template_list(admin_client, issue_template, activation, 
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_404_NOT_FOUND),
         ("Municipality", status.HTTP_200_OK),
@@ -35,7 +35,7 @@ def test_issue_template_update(admin_client, issue_template, activation, status_
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Canton", status.HTTP_201_CREATED),
@@ -65,7 +65,7 @@ def test_issue_template_create(admin_client, group, service, activation, status_
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_404_NOT_FOUND),
         ("Municipality", status.HTTP_204_NO_CONTENT),

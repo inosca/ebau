@@ -113,10 +113,10 @@ def template_setup(
 
 
 @pytest.mark.parametrize(
-    "role__name,service_group__name", [("Municipality", "municipality")]
+    ("role__name", "service_group__name"), [("Municipality", "municipality")]
 )
 @pytest.mark.parametrize(
-    "include_count,with_preset,expected",
+    ("include_count", "with_preset", "expected"),
     [
         (
             False,
@@ -182,7 +182,7 @@ def test_get_task_options_no_service(
 
 
 @pytest.mark.parametrize(
-    "include_templates,include_count,with_preset,expected",
+    ("include_templates", "include_count", "with_preset", "expected"),
     [
         (False, False, False, set()),
         (
@@ -242,7 +242,7 @@ def test_get_template_options(
 
 
 @pytest.mark.parametrize(
-    "role__name,service_group__name", [("Municipality", "municipality")]
+    ("role__name", "service_group__name"), [("Municipality", "municipality")]
 )
 @pytest.mark.django_db
 def test_work_item_list_task_option_list(

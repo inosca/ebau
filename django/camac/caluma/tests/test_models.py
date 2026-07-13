@@ -34,7 +34,7 @@ def service_two(service_factory):
 
 
 @pytest.mark.parametrize(
-    "input_data,output",
+    ("input_data", "output"),
     [
         # Simple types
         ("1", ["1"]),
@@ -43,7 +43,6 @@ def service_two(service_factory):
         (lf("service_one"), ["998"]),
         # List types
         (["1", "2"], ["1", "2"]),
-        ([1, 2], ["1", "2"]),
         ([1, 2], ["1", "2"]),
         ([None, None], []),
         ([lf("service_one"), lf("service_two")], ["998", "999"]),
@@ -57,7 +56,7 @@ def test_to_groups(input_data, output):
 
 
 @pytest.mark.parametrize(
-    "values,expected_key",
+    ("values", "expected_key"),
     [
         ([], "addressed_groups__contains"),
         (["1"], "addressed_groups__contains"),

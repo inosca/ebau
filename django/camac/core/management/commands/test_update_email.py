@@ -3,7 +3,7 @@ from django.core.management import call_command
 
 
 @pytest.mark.parametrize(
-    "user__username,new_mail,new_active_state,disabled",
+    ("user__username", "new_mail", "new_active_state", "disabled"),
     [
         ("testuser", "updatedmail@test.ch", "x", False),
         ("testuser", "updatedmail@test.ch", "X", False),

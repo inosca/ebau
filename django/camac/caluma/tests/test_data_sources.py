@@ -26,7 +26,7 @@ from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(
-    "role,expected_count", [("Portal User", 1), ("Some internal role", 2)]
+    ("role", "expected_count"), [("Portal User", 1), ("Some internal role", 2)]
 )
 @pytest.mark.django_db
 def test_locations(role, location_factory, expected_count):
@@ -41,7 +41,7 @@ def test_locations(role, location_factory, expected_count):
 
 
 @pytest.mark.parametrize(
-    "role,expected_count",
+    ("role", "expected_count"),
     [("Koordinationsstelle Baugesuche BG", 4), ("Something else", 0)],
 )
 @pytest.mark.django_db
@@ -57,7 +57,7 @@ def test_mitberichtsverfahren(role, location_factory, expected_count):
 
 
 @pytest.mark.parametrize(
-    "test_class,expected,is_rsta",
+    ("test_class", "expected", "is_rsta"),
     [
         (Authorities, [[1, "Baukommission Altdorf"]], False),
         (Municipalities, [[1, {"de": "Bern", "fr": "Berne", "it": "Bern"}]], False),
@@ -170,7 +170,7 @@ def test_data_sources(
 
 @pytest.mark.parametrize("document_backend", ["camac-ng", "alexandria"])
 @pytest.mark.parametrize(
-    "has_instance,has_attachment_section,expected_count",
+    ("has_instance", "has_attachment_section", "expected_count"),
     [(False, False, 0), (True, False, 0), (False, True, 0), (True, True, 3)],
 )
 @pytest.mark.django_db
@@ -430,7 +430,7 @@ def test_municipalities_so(service_factory, service_t_factory):
 
 
 @pytest.mark.parametrize(
-    "role__name,form_slug,expected",
+    ("role__name", "form_slug", "expected"),
     [
         ("applicant", None, ["Full"]),
         ("municipality", None, ["Full", "Light"]),
@@ -632,7 +632,7 @@ def test_services_for_final_report(
 
 
 @pytest.mark.parametrize(
-    "sanction_steps, question_step, expected_count",
+    ("sanction_steps", "question_step", "expected_count"),
     [
         # Test 'regular' sanction steps, with some already controlled:
         ([("b", True), ("b", False), ("b", False), ("e", False)], "b", 2),
@@ -681,7 +681,8 @@ def test_sanctions(
 
     data = Sanctions().get_data(instance.user, question, context)
     if expected_count == 0:
-        assert len(data) == 1 and data[0][0] is None
+        assert len(data) == 1
+        assert data[0][0] is None
     else:
         assert len(data) == expected_count
 

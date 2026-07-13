@@ -239,7 +239,7 @@ def gr_config(gis_data_source_factory, caluma_question_factory):
 
 
 @pytest.mark.parametrize(
-    "query,form",
+    ("query", "form"),
     [
         (
             {
@@ -357,7 +357,7 @@ def gr_config(gis_data_source_factory, caluma_question_factory):
         ),  # Grundwasserschutzzone S2 and S3
     ],
 )
-@pytest.mark.vcr()
+@pytest.mark.vcr
 @pytest.mark.django_db
 def test_gr_client(
     admin_client,

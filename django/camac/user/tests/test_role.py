@@ -17,7 +17,7 @@ def test_role_list(admin_client, role, role_factory):
 
 
 @pytest.mark.parametrize(
-    "role__name,permission", list(settings.APPLICATION["ROLE_PERMISSIONS"].items())
+    ("role__name", "permission"), list(settings.APPLICATION["ROLE_PERMISSIONS"].items())
 )
 def test_role_detail(admin_client, role, permission, multilang, application_settings):
     url = reverse("role-detail", args=[role.pk])

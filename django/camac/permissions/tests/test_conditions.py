@@ -31,7 +31,7 @@ def test_condition_is_paper(is_paper, so_instance, userinfo, form_utils: FormUti
 
 
 @pytest.mark.parametrize(
-    "has_work_item,status,expected_result",
+    ("has_work_item", "status", "expected_result"),
     [
         (True, None, True),
         (False, None, False),
@@ -106,7 +106,7 @@ def test_condition_require_work_item_addressed_to_current_service(
 
 
 @pytest.mark.parametrize(
-    "applicant_role,roles,expected_result",
+    ("applicant_role", "roles", "expected_result"),
     [
         (
             ROLE_CHOICES.ADMIN.value,
@@ -141,7 +141,7 @@ def test_has_applicant_role(
 
 
 @pytest.mark.parametrize(
-    "has_service,service_group__name,expected_result",
+    ("has_service", "service_group__name", "expected_result"),
     [
         (True, "foo", True),
         (True, "bar", True),
@@ -158,7 +158,7 @@ def test_is_service_group(expected_result, has_service, userinfo):
 
 
 @pytest.mark.parametrize(
-    "has_service,service__slug,expected_result",
+    ("has_service", "service__slug", "expected_result"),
     [
         (True, "foo", True),
         (True, "bar", True),
@@ -273,7 +273,7 @@ def test_condition_is_modification(
 
 
 @pytest.mark.parametrize(
-    "workflow,expected_result",
+    ("workflow", "expected_result"),
     [
         ("building-permit", True),
         ("preliminary-clarification", True),
@@ -314,7 +314,7 @@ def test_condition_is_created_by_service(
 
 
 @pytest.mark.parametrize(
-    "cond, params1, params2, expect_equal",
+    ("cond", "params1", "params2", "expect_equal"),
     [
         (
             RequireWorkItem,
@@ -394,7 +394,7 @@ def test_condition_equality(cond, params1, params2, expect_equal):
 
 
 @pytest.mark.parametrize(
-    "case_status,expected_result",
+    ("case_status", "expected_result"),
     [
         (Case.STATUS_RUNNING, True),
         (Case.STATUS_COMPLETED, False),

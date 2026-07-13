@@ -7,7 +7,7 @@ from camac.instance.models import Issue
 
 
 @pytest.mark.parametrize(
-    "role__name,size",
+    ("role__name", "size"),
     [("Applicant", 0), ("Canton", 1), ("Municipality", 1), ("Service", 1)],
 )
 def test_issue_list(admin_client, issue, activation, size):
@@ -23,7 +23,7 @@ def test_issue_list(admin_client, issue, activation, size):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_404_NOT_FOUND),
         ("Municipality", status.HTTP_200_OK),
@@ -38,7 +38,7 @@ def test_issue_update(admin_client, issue, activation, status_code):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Canton", status.HTTP_201_CREATED),
@@ -71,7 +71,7 @@ def test_issue_create(admin_client, instance, group, service, activation, status
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_404_NOT_FOUND),
         ("Municipality", status.HTTP_204_NO_CONTENT),
@@ -88,7 +88,7 @@ def test_issue_destroy(admin_client, issue, activation, status_code):
 
 @pytest.mark.parametrize("issue__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,size",
+    ("role__name", "size"),
     [
         ("Applicant", 0),
         ("Municipality", 1),

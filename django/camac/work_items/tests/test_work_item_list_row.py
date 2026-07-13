@@ -456,7 +456,7 @@ def test_work_item_list_row_list_ordering(
 
 
 @pytest.mark.parametrize(
-    "is_addressed,is_ready,expected_status",
+    ("is_addressed", "is_ready", "expected_status"),
     [
         (True, True, status.HTTP_200_OK),
         (False, True, status.HTTP_403_FORBIDDEN),
@@ -498,7 +498,7 @@ def test_work_item_list_row_toggle_read(
 
 
 @pytest.mark.parametrize(
-    "is_addressed,is_ready,is_not_assigned,expected_status",
+    ("is_addressed", "is_ready", "is_not_assigned", "expected_status"),
     [
         (True, True, True, status.HTTP_200_OK),
         (False, True, True, status.HTTP_403_FORBIDDEN),
@@ -538,7 +538,7 @@ def test_work_item_list_row_assign_to_me(
 
 
 @pytest.mark.parametrize(
-    "is_addressed,is_ready,is_manually_completable,expected_status",
+    ("is_addressed", "is_ready", "is_manually_completable", "expected_status"),
     [
         (True, True, True, status.HTTP_200_OK),
         (False, True, True, status.HTTP_403_FORBIDDEN),
@@ -577,7 +577,7 @@ def test_work_item_list_row_quick_complete(
 
 
 @pytest.mark.parametrize(
-    "annotation,expected_description",
+    ("annotation", "expected_description"),
     [
         ("beschreibung-bauvorhaben", "bauvorhaben"),
         ("beschreibung-projektaenderung", "projektaenderung"),

@@ -258,7 +258,7 @@ def check_annotate(attachments):
 
 @pytest.mark.order(1)  # Slow tests should run first
 @pytest.mark.parametrize(
-    "application, migration_settings",
+    ("application", "migration_settings"),
     [
         (lf("set_application_be"), lf("be_alexandria_migration_settings")),
         (lf("set_application_sz"), lf("sz_alexandria_migration_settings")),

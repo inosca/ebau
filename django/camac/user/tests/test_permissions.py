@@ -18,7 +18,7 @@ class FakeView:
 
 
 @pytest.mark.parametrize(
-    "role,expected",
+    ("role", "expected"),
     [
         ("Municipality", "municipality"),
         ("Service", "service"),

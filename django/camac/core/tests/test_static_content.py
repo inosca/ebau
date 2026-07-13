@@ -23,7 +23,7 @@ def test_static_content_list(admin_client, static_content_factory):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Service", status.HTTP_403_FORBIDDEN),
         ("Municipality", status.HTTP_403_FORBIDDEN),
@@ -52,7 +52,7 @@ def test_static_content_update(
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Service", status.HTTP_403_FORBIDDEN),
         ("Municipality", status.HTTP_403_FORBIDDEN),
@@ -79,7 +79,7 @@ def test_static_content_create(
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Service", status.HTTP_403_FORBIDDEN),
         ("Municipality", status.HTTP_403_FORBIDDEN),

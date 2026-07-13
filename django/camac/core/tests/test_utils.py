@@ -61,7 +61,7 @@ class FakeClass:
 
 
 @pytest.mark.parametrize(
-    "canton,expected",
+    ("canton", "expected"),
     [
         ("be", "BE"),
         ("gr", "fallback"),

@@ -12,7 +12,7 @@ from camac.permissions.switcher import PERMISSION_MODE
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "instance_state__name,has_create_permission", [("new", True), ("other", False)]
+    ("instance_state__name", "has_create_permission"), [("new", True), ("other", False)]
 )
 def test_category_permission_view(admin_client, instance, has_create_permission):
     category = CategoryFactory(
@@ -45,7 +45,7 @@ def test_category_permission_view(admin_client, instance, has_create_permission)
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "instance_state__name,has_create_permission", [("new", True), ("other", False)]
+    ("instance_state__name", "has_create_permission"), [("new", True), ("other", False)]
 )
 def test_category_permission_view_v2(
     admin_client,

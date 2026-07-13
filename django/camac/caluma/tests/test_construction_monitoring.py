@@ -494,17 +494,17 @@ def test_construction_monitoring_work_item_visibility_coordination(mocker):
 
 @pytest.mark.parametrize("role__name", ["service-lead"])
 @pytest.mark.parametrize(
-    "construction_task,service_slug,is_addressed,expected_visible",
+    ("construction_task", "service_slug", "is_addressed", "expected_visible"),
     [
-        [False, "other-service", True, True],
-        [False, "other-service", False, True],
-        [False, "gvg", True, True],
-        [False, "gvg", False, True],
-        [True, "other-service", True, False],
-        [True, "other-service", False, False],
-        [True, "gvg", False, False],
+        (False, "other-service", True, True),
+        (False, "other-service", False, True),
+        (False, "gvg", True, True),
+        (False, "gvg", False, True),
+        (True, "other-service", True, False),
+        (True, "other-service", False, False),
+        (True, "gvg", False, False),
         # gvg service can see construction monitoring when addressed.
-        [True, "gvg", True, True],
+        (True, "gvg", True, True),
     ],
 )
 @pytest.mark.django_db
@@ -587,7 +587,7 @@ def test_construction_monitoring_work_item_visibility_service_gvg_gr(
 
 
 @pytest.mark.parametrize(
-    "allow_forms_setting,should_be_allowed",
+    ("allow_forms_setting", "should_be_allowed"),
     [
         (None, True),
         (["building-permit-camac"], True),
@@ -621,7 +621,7 @@ def test_can_perform_construction_monitoring_allow_forms(
 
 
 @pytest.mark.parametrize(
-    "expected_value,decision_answer",
+    ("expected_value", "decision_answer"),
     [
         (True, "complete-check-baubewilligungspflichtig-baubewilligungspflichtig"),
         (

@@ -83,7 +83,13 @@ def test_create_inquiry(
 
 @pytest.mark.freeze_time("2022-01-01")
 @pytest.mark.parametrize(
-    "passed_deadline,passed_remark,has_deadline_rule,expected_deadline,expected_remark",
+    (
+        "passed_deadline",
+        "passed_remark",
+        "has_deadline_rule",
+        "expected_deadline",
+        "expected_remark",
+    ),
     [
         (None, None, False, "2022-01-31", None),
         ("2022-01-13", "Test", False, "2022-01-13", "Test"),
@@ -863,7 +869,7 @@ def test_reopen_inquiry(
 
 
 @pytest.mark.parametrize(
-    "is_subservice,inquiry_count,has_multiple_create_work_items",
+    ("is_subservice", "inquiry_count", "has_multiple_create_work_items"),
     [
         # Service has only one inquiry, create-inquiry should be canceled
         # immediately.
@@ -936,7 +942,7 @@ def test_cancel_inquiry(
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
-@pytest.mark.parametrize("deadline,success", [("2022-10-24", True), (None, False)])
+@pytest.mark.parametrize(("deadline", "success"), [("2022-10-24", True), (None, False)])
 @pytest.mark.django_db
 def test_sync_inquiry_deadline(
     be_distribution_settings,
@@ -1054,7 +1060,7 @@ def test_set_deadline_for_check_inquiries_work_item(
 
 @pytest.mark.freeze_time("2025-01-24")
 @pytest.mark.parametrize(
-    "is_afb,has_deadline,did_update_deadline",
+    ("is_afb", "has_deadline", "did_update_deadline"),
     [
         (False, False, False),
         (True, True, False),
@@ -1103,7 +1109,7 @@ def test_set_cantonal_exam_deadline(
 
 @pytest.mark.freeze_time("2025-01-24")
 @pytest.mark.parametrize(
-    "is_afb,has_sibling_inquiries,expected_status",
+    ("is_afb", "has_sibling_inquiries", "expected_status"),
     [
         (False, False, WorkItem.STATUS_CANCELED),
         (False, True, WorkItem.STATUS_CANCELED),
@@ -1147,7 +1153,7 @@ def test_set_document_supplement_deadline(
 
 @pytest.mark.freeze_time("2025-07-14")
 @pytest.mark.parametrize(
-    "is_afb,form_slug,expected_deadline",
+    ("is_afb", "form_slug", "expected_deadline"),
     [
         (True, "baugesuch", "2026-07-14"),
         (True, "anfrage", "2025-08-13"),

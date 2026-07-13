@@ -14,7 +14,7 @@ from camac.instance.models import HistoryActionConfig
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,is_authority,has_permission",
+    ("instance_state__name", "is_authority", "has_permission"),
     [
         ("rejected", True, True),
         ("circulation_init", True, True),
@@ -38,7 +38,7 @@ def test_has_permission(
 
 # TODO:  Update test after removing nfd work items
 @pytest.mark.parametrize(
-    "reason,module_settings,message",
+    ("reason", "module_settings", "message"),
     [
         (
             "inquiry",
@@ -177,7 +177,7 @@ def test_reject_instance(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance_state__name", [("Municipality", "rejected")]
+    ("role__name", "instance_state__name"), [("Municipality", "rejected")]
 )
 @pytest.mark.django_db
 def test_revert_instance_rejection(

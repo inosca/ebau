@@ -7,7 +7,7 @@ from camac.instance import models, serializers
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,size",
+    ("role__name", "instance__user", "size"),
     [
         ("Applicant", lf("admin_user"), 1),
         ("Unknown", lf("user"), 0),
@@ -35,7 +35,7 @@ def test_form_field_list(admin_client, form_field, size):
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,size",
+    ("role__name", "instance__user", "size"),
     [
         (
             "Applicant",
@@ -89,7 +89,7 @@ def test_form_field_visible_for(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user",
+    ("role__name", "instance__user"),
     [("Applicant", lf("admin_user")), ("Reader", lf("admin_user"))],
 )
 @pytest.mark.parametrize("form_field__value", [["Test1", "Test2"]])
@@ -104,7 +104,13 @@ def test_form_field_detail(admin_client, form_field, form_field__value):
 
 
 @pytest.mark.parametrize(
-    "role__name,instance_state__name,instance__user,form_field__name,status_code",
+    (
+        "role__name",
+        "instance_state__name",
+        "instance__user",
+        "form_field__name",
+        "status_code",
+    ),
     [
         (
             "Applicant",
@@ -175,7 +181,7 @@ def test_form_field_update(admin_client, form_field, status_code):
 
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
-    "role__name,instance__user,form_field_name,status_code",
+    ("role__name", "instance__user", "form_field_name", "status_code"),
     [
         (
             "Applicant",
@@ -232,7 +238,7 @@ def test_form_field_create(admin_client, instance, form_field_name, status_code)
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,role__name, instance__user",
+    ("instance_state__name", "role__name", "instance__user"),
     [
         (
             "new",
@@ -242,7 +248,7 @@ def test_form_field_create(admin_client, instance, form_field_name, status_code)
     ],
 )
 @pytest.mark.parametrize(
-    "form_field_value,status_code",
+    ("form_field_value", "status_code"),
     [
         (
             "undefined date",
@@ -285,7 +291,7 @@ def test_form_field_date_validation(
 
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
-    "role__name,instance__user,status_code",
+    ("role__name", "instance__user", "status_code"),
     [
         ("Applicant", lf("admin_user"), status.HTTP_403_FORBIDDEN),
         ("Canton", lf("user"), status.HTTP_403_FORBIDDEN),
@@ -300,7 +306,7 @@ def test_form_field_destroy(admin_client, form_field, status_code):
 
 
 @pytest.mark.parametrize(
-    "role__name,egrid_query,size,instance_ids",
+    ("role__name", "egrid_query", "size", "instance_ids"),
     [
         ("Applicant", ["CH892277844039"], 1, (2,)),
         ("Applicant", ["CH674077422224", "CH892277844039"], 2, (1, 2)),
@@ -350,11 +356,11 @@ def test_form_field_list_filtering(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance_state__name,instance__user",
+    ("role__name", "instance_state__name", "instance__user"),
     [("Applicant", "new", lf("admin_user"))],
 )
 @pytest.mark.parametrize(
-    "has_existing,old_value,new_value,has_history_entry",
+    ("has_existing", "old_value", "new_value", "has_history_entry"),
     [
         (False, None, "New", True),
         (False, None, "", False),

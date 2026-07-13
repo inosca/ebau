@@ -27,7 +27,7 @@ def test_billing_entry_charge(admin_client, billing_v2_entry_factory, instance):
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
 @pytest.mark.parametrize(
-    "error_reason,expected_status",
+    ("error_reason", "expected_status"),
     [
         ("wrong_payload", status.HTTP_400_BAD_REQUEST),
         ("nonexistent_entry", status.HTTP_404_NOT_FOUND),
@@ -85,7 +85,7 @@ def test_billing_entry_charge_validation(
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.parametrize(
-    "access_level__slug,service_group__name,role__name,expected_status",
+    ("access_level__slug", "service_group__name", "role__name", "expected_status"),
     [
         (
             "lead-authority",

@@ -43,7 +43,7 @@ def test_checkissuedeadlines(
 
 
 @pytest.mark.parametrize(
-    "notification_template__subject,issue__deadline_date",
+    ("notification_template__subject", "issue__deadline_date"),
     [("{{$invalid}}", "2018-01-01")],
 )
 @pytest.mark.django_db

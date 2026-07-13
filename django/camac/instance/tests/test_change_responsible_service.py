@@ -11,7 +11,7 @@ from camac.permissions.switcher import PERMISSION_MODE
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Support"])
 @pytest.mark.parametrize(
-    "service_type,expected_status",
+    ("service_type", "expected_status"),
     [
         ("municipality", status.HTTP_204_NO_CONTENT),
         ("construction_control", status.HTTP_204_NO_CONTENT),
@@ -164,7 +164,7 @@ def test_change_responsible_service(
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize(
-    "access_level_name,change_to_municipality,expected_status",
+    ("access_level_name", "change_to_municipality", "expected_status"),
     [
         ("lead-authority", True, status.HTTP_204_NO_CONTENT),
         ("lead-authority", False, status.HTTP_204_NO_CONTENT),

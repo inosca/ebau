@@ -66,7 +66,7 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
 
 
 @pytest.mark.parametrize(
-    "role__name,group_key,section_id,expected",
+    ("role__name", "group_key", "section_id", "expected"),
     [
         (
             "trusted_service",
@@ -270,7 +270,7 @@ def test_rebuild_app_permissions(
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize(
-    "is_involved,expected_permission", [(True, "admin"), (False, "read")]
+    ("is_involved", "expected_permission"), [(True, "admin"), (False, "read")]
 )
 @pytest.mark.django_db
 def test_attachment_section_permissions_kt_bern(
@@ -382,7 +382,7 @@ def test_attachment_section_permissions_with_accesslevel(
 
 
 @pytest.mark.parametrize(
-    "return_value_callback_fn, single_instance_mode, expected_permissions",
+    ("return_value_callback_fn", "single_instance_mode", "expected_permissions"),
     [
         (True, True, [permissions.ReadPermission]),
         (True, False, [permissions.ReadPermission]),
@@ -425,7 +425,7 @@ def test_get_accesslevel_permissions(
 
 
 @pytest.mark.parametrize(
-    "single_instance_mode, expected_result", [(True, True), (False, True)]
+    ("single_instance_mode", "expected_result"), [(True, True), (False, True)]
 )
 @pytest.mark.django_db
 def test_allow_always_callback(
@@ -445,7 +445,7 @@ def test_allow_always_callback(
 
 
 @pytest.mark.parametrize(
-    "single_instance_mode, has_permission, expected_result",
+    ("single_instance_mode", "has_permission", "expected_result"),
     [
         (True, True, True),
         (False, True, False),
@@ -577,23 +577,28 @@ _other_service = lfc("service_factory")
 
 
 @pytest.mark.parametrize(
-    "instance_state__name, attachment__service, expect_can_write, expect_can_destroy",
+    (
+        "instance_state__name",
+        "attachment__service",
+        "expect_can_write",
+        "expect_can_destroy",
+    ),
     [
         # before decision: nothing allowed at all
-        ["new", _admin_service, False, False],
-        ["done", _admin_service, False, False],
-        ["old", _admin_service, False, False],
+        ("new", _admin_service, False, False),
+        ("done", _admin_service, False, False),
+        ("old", _admin_service, False, False),
         # after decision: destroy own (but not others)
-        ["rejected", _admin_service, False, False],
-        ["rejected", _other_service, False, False],
-        ["correction", _admin_service, False, False],
-        ["sb1", _admin_service, True, True],
-        ["sb1", _other_service, True, False],
-        ["sb2", _admin_service, False, False],
-        ["conclusion", _admin_service, False, False],
-        ["finished", _admin_service, False, False],
-        ["finished_internal", _admin_service, False, False],
-        ["evaluated", _admin_service, False, False],
+        ("rejected", _admin_service, False, False),
+        ("rejected", _other_service, False, False),
+        ("correction", _admin_service, False, False),
+        ("sb1", _admin_service, True, True),
+        ("sb1", _other_service, True, False),
+        ("sb2", _admin_service, False, False),
+        ("conclusion", _admin_service, False, False),
+        ("finished", _admin_service, False, False),
+        ("finished_internal", _admin_service, False, False),
+        ("evaluated", _admin_service, False, False),
     ],
 )
 @pytest.mark.django_db

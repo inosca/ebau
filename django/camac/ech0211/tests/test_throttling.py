@@ -6,7 +6,7 @@ from camac.user.models import Group, UserGroup
 
 
 @pytest.mark.parametrize(
-    "params,status_first,status_second",
+    ("params", "status_first", "status_second"),
     [
         # last param
         (

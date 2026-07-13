@@ -182,7 +182,7 @@ def data_for_bab_statistics_export(
 
 
 @pytest.mark.parametrize(
-    "role__name,method,has_access,expected_count",
+    ("role__name", "method", "has_access", "expected_count"),
     [
         ("Municipality", "get_queryset_for_municipality", True, 1),
         ("Service", "get_queryset_for_service", True, 1),
@@ -223,7 +223,7 @@ def test_caluma_export_visibilities(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_status,expected_count,expected_num_queries",
+    ("role__name", "expected_status", "expected_count", "expected_num_queries"),
     [
         ("Municipality", status.HTTP_200_OK, 1, 3),
         ("Service", status.HTTP_200_OK, 1, 3),
@@ -346,7 +346,13 @@ def test_caluma_export_be(
 
 
 @pytest.mark.parametrize(
-    "service__name,role__name,expected_status,expected_count,expected_num_queries",
+    (
+        "service__name",
+        "role__name",
+        "expected_status",
+        "expected_count",
+        "expected_num_queries",
+    ),
     [
         ("Gemeinde Schwyz", "Municipality", status.HTTP_200_OK, 1, 3),
         ("Gemeinde Schwyz", "Service", status.HTTP_200_OK, 1, 3),
@@ -681,13 +687,10 @@ def test_bab_statistics_request(
 
 
 @pytest.mark.parametrize(
-    "role__name,method,has_access,expected_count",
+    ("role__name", "method", "has_access", "expected_count"),
     [
         ("Municipality", "get_queryset_for_municipality", False, 0),
         ("Service", "get_queryset_for_service", True, 1),
-        ("Applicant", "_get_queryset_for_applicant", False, 0),
-        ("Public", "get_queryset_for_public", False, 0),
-        ("Municipality", "get_queryset_for_municipality", False, 0),
         ("Applicant", "_get_queryset_for_applicant", False, 0),
         ("Public", "get_queryset_for_public", False, 0),
     ],

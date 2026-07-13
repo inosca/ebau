@@ -4,7 +4,7 @@ from camac.gis import utils
 
 
 @pytest.mark.parametrize(
-    "value,cast,result",
+    ("value", "cast", "result"),
     [
         ("1234", "integer", 1234),
         ("test", "integer", None),
@@ -29,10 +29,8 @@ def test_get_bbox():
     assert utils.get_bbox(100.123, 200.234, 50) == "75.123,175.234,125.123,225.234"
     assert utils.get_bbox("1.1", "2.2") == "1.1,2.2,1.1,2.2"
 
-    with pytest.raises(ValueError) as e:
+    with pytest.raises(ValueError, match="Koordinaten müssen Gleitkommazahlen sein"):
         utils.get_bbox("abc", "def")
-
-    assert str(e.value) == "Koordinaten müssen Gleitkommazahlen sein"
 
 
 def test_concat_values():

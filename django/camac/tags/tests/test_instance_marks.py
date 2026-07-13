@@ -17,7 +17,7 @@ def test_instance_mark_list(admin_client, instance_mark_factory):
 
 @pytest.mark.parametrize("service_group__name", ["coordination"])
 @pytest.mark.parametrize(
-    "role__name,access_level_id,status_code",
+    ("role__name", "access_level_id", "status_code"),
     [
         ("Municipality", "lead-authority", status.HTTP_200_OK),
         ("Service", "distribution-service", status.HTTP_200_OK),
@@ -69,7 +69,7 @@ def test_instance_mark_link_to_instance(
 
 
 @pytest.mark.parametrize(
-    "app,service_group__name,expected",
+    ("app", "service_group__name", "expected"),
     [
         (lf("set_application_sg"), "test-service", 3),
         (lf("set_application_ag"), "service-afb", 3),

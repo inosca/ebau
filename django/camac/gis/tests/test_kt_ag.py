@@ -289,7 +289,7 @@ def ag_config(gis_data_source_factory, caluma_question_factory):
     "scenario",
     TEST_SCENARIOS,
 )
-@pytest.mark.vcr()
+@pytest.mark.vcr
 @pytest.mark.django_db
 def test_ag_client(
     admin_client,

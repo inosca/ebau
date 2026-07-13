@@ -15,7 +15,7 @@ from camac.stats.views import ClaimSummaryView, InstanceSummaryView
 
 
 @pytest.mark.parametrize(
-    "filter_params,expected",
+    ("filter_params", "expected"),
     [
         (("", "1989-12-31"), ["first-with-paper"]),
         (
@@ -156,7 +156,7 @@ def test_summary_instances(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected", [("Support", 2), ("Municipality", 1), ("Service", 0)]
+    ("role__name", "expected"), [("Support", 2), ("Municipality", 1), ("Service", 0)]
 )
 def test_summary_claims(
     service_factory,
@@ -199,7 +199,12 @@ def test_summary_claims(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_proc_time_avg,expected_deadline_quota,expected_num_queries",
+    (
+        "role__name",
+        "expected_proc_time_avg",
+        "expected_deadline_quota",
+        "expected_num_queries",
+    ),
     [
         ("Support", 7 * 60 * 60 * 24, round(2 / 3 * 100, 2), 2),
         ("Service", 9 * 60 * 60 * 24, 50.0, 2),
@@ -261,7 +266,7 @@ def test_inquiries_summary(
 
 @pytest.mark.freeze_time("2022-07-09")
 @pytest.mark.parametrize(
-    "role__name,has_access",
+    ("role__name", "has_access"),
     [
         ("Support", True),
         ("Municipality", True),

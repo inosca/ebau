@@ -4,7 +4,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "role__name,localized,group_visibility,count",
+    ("role__name", "localized", "group_visibility", "count"),
     [
         ("Applicant", False, False, 0),
         ("Service", False, True, 2),
@@ -147,7 +147,7 @@ def test_ur_municipality_coordination_suggestions(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,is_authority,expected_services",
+    ("service_group__name", "is_authority", "expected_services"),
     [
         ("service", False, {"subservice-1", "service-1"}),
         ("municipality", True, {"subservice-1", "service-2", "service-3"}),

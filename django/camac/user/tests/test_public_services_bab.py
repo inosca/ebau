@@ -50,7 +50,7 @@ def so_services(service_factory, service):
 
 
 @pytest.mark.parametrize(
-    "service_group__name,conditions,expected_count",
+    ("service_group__name", "conditions", "expected_count"),
     [
         pytest.param("municipality", ["authority"], 14, id="authority_bib"),
         pytest.param("municipality", ["authority", "bab"], 4, id="authority_bab"),

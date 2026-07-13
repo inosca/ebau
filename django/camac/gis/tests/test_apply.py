@@ -126,7 +126,7 @@ def gis_apply_data(
 
 
 @pytest.mark.parametrize(
-    "has_permission,has_cache,expected_status",
+    ("has_permission", "has_cache", "expected_status"),
     [
         (True, True, status.HTTP_201_CREATED),
         (True, False, status.HTTP_400_BAD_REQUEST),

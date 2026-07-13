@@ -4,7 +4,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "use_filter, expect_result",
+    ("use_filter", "expect_result"),
     [
         ("instance", 1),
         ("none", 1),

@@ -17,7 +17,7 @@ def test_public_service_list(admin_client, service, service_factory):
 
 
 @pytest.mark.parametrize(
-    "service_t__name,service_t__language", [("je ne sais pas", "fr")]
+    ("service_t__name", "service_t__language"), [("je ne sais pas", "fr")]
 )
 def test_public_service_list_multilingual(admin_client, service_t, multilang):
     url = reverse("publicservice-list")
@@ -28,7 +28,7 @@ def test_public_service_list_multilingual(admin_client, service_t, multilang):
 
 
 @pytest.mark.parametrize(
-    "exclude_own_service,expected_count", [(True, 1), (False, 2), ("", 2)]
+    ("exclude_own_service", "expected_count"), [(True, 1), (False, 2), ("", 2)]
 )
 def test_public_service_filter_exclude_own_service(
     admin_client, service_factory, service, exclude_own_service, expected_count
@@ -50,7 +50,7 @@ def test_public_service_filter_exclude_own_service(
 
 
 @pytest.mark.parametrize(
-    "service_name,expected_count", [("ABC", 1), ("DEF", 1), ("", 3)]
+    ("service_name", "expected_count"), [("ABC", 1), ("DEF", 1), ("", 3)]
 )
 def test_public_service_filter_service_name(
     admin_client, service_factory, service_name, expected_count
@@ -70,7 +70,7 @@ def test_public_service_filter_service_name(
 
 
 @pytest.mark.parametrize(
-    "service_name,language, expected_count",
+    ("service_name", "language", "expected_count"),
     [("ABC", "de", 1), ("DEF", "de", 1), ("", "de", 3)],
 )
 def test_public_service_filter_service_name_multlang(
@@ -94,7 +94,7 @@ def test_public_service_filter_service_name_multlang(
 
 @pytest.mark.parametrize("service__name", [""])
 @pytest.mark.parametrize(
-    "language,search,expected",
+    ("language", "search", "expected"),
     [
         ("de", "fr", 0),
         ("de", "de", 1),
@@ -125,7 +125,7 @@ def test_public_service_multilingual_search(
 
 
 @pytest.mark.parametrize(
-    "function,use_other_service, expect_result",
+    ("function", "use_other_service", "expect_result"),
     [
         ("geometer", False, 1),
         ("geometer", True, 0),
@@ -159,7 +159,7 @@ def test_public_service_filter_provider_for(
 
 
 @pytest.mark.parametrize(
-    "function, use_other_instance, expect_result",
+    ("function", "use_other_instance", "expect_result"),
     [
         ("geometer", False, 1),
         ("geometer", True, 0),
@@ -205,7 +205,7 @@ def test_public_service_filter_provider_for_instance_municipality(
 
 
 @pytest.mark.parametrize(
-    "role__name,has_billing_entries,expected_count",
+    ("role__name", "has_billing_entries", "expected_count"),
     [("Municipality", True, 1), ("Muncipality", False, 3), ("Municipality", "", 3)],
 )
 def test_public_service_filter_has_billing_entries(
@@ -247,7 +247,7 @@ def test_public_service_filter_has_billing_entries(
 
 
 @pytest.mark.parametrize(
-    "has_active_instance_service,expected_count", [(True, 1), (False, 0)]
+    ("has_active_instance_service", "expected_count"), [(True, 1), (False, 0)]
 )
 def test_public_service_filter_is_active_service_for_instance(
     admin_client,
@@ -278,7 +278,7 @@ def test_public_service_filter_is_active_service_for_instance(
 
 @pytest.mark.parametrize("service__name", ["my-service"])
 @pytest.mark.parametrize(
-    "value,expected",
+    ("value", "expected"),
     [
         (True, {"my-service", "other-service", "my-subservice"}),
         (False, {"my-service", "other-service", "my-subservice", "other-subservice"}),
@@ -325,7 +325,12 @@ def test_public_service_filter_municipalities_for_rulesets(
 
 
 @pytest.mark.parametrize(
-    "has_rulesets_config,service_group_allowed,expected_count,expected_services",
+    (
+        "has_rulesets_config",
+        "service_group_allowed",
+        "expected_count",
+        "expected_services",
+    ),
     [
         (
             False,
@@ -386,7 +391,7 @@ def test_public_service_filter_available_in_ruleset_for_service(
 
 
 @pytest.mark.parametrize(
-    "filter_value,expected_count",
+    ("filter_value", "expected_count"),
     [
         (True, 2),  # When filter is applied
         (False, 4),  # When filter is False - should return all
@@ -430,7 +435,7 @@ def test_public_service_filter_available_in_ruleset_for_service_value_handling(
 
 
 @pytest.mark.parametrize(
-    "filter_value,expected_count,expected_services",
+    ("filter_value", "expected_count", "expected_services"),
     [
         (True, 2, ["active-1", "active-2"]),  # Explicitly excluding disabled
         (

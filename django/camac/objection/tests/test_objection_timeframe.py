@@ -8,7 +8,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "role__name,size", [("Applicant", 0), ("Service", 1), ("Municipality", 1)]
+    ("role__name", "size"), [("Applicant", 0), ("Service", 1), ("Municipality", 1)]
 )
 def test_objection_timeframe_list(admin_client, objection_timeframe, size):
     url = reverse("objectiontimeframe-list")
@@ -23,7 +23,7 @@ def test_objection_timeframe_list(admin_client, objection_timeframe, size):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Service", status.HTTP_403_FORBIDDEN),
@@ -60,7 +60,7 @@ def test_objection_timeframe_create(admin_client, group, instance, status_code):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Municipality", status.HTTP_200_OK),
         ("Service", status.HTTP_403_FORBIDDEN),
@@ -69,7 +69,7 @@ def test_objection_timeframe_create(admin_client, group, instance, status_code):
 )
 @pytest.mark.parametrize(
     "objection_timeframe__timeframe",
-    (DateTimeTZRange(datetime.now(UTC), None),),
+    [DateTimeTZRange(datetime.now(UTC), None)],
 )
 def test_objection_timeframe_update(admin_client, objection_timeframe, status_code):
     url = reverse("objectiontimeframe-detail", args=[objection_timeframe.pk])
@@ -94,7 +94,7 @@ def test_objection_timeframe_update(admin_client, objection_timeframe, status_co
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Municipality", status.HTTP_204_NO_CONTENT),
         ("Service", status.HTTP_403_FORBIDDEN),
@@ -112,7 +112,7 @@ def test_objection_timeframe_destroy(admin_client, objection_timeframe, status_c
 
 
 @pytest.mark.parametrize(
-    "role__name,objection_timeframe__timeframe",
+    ("role__name", "objection_timeframe__timeframe"),
     [
         (
             "Municipality",

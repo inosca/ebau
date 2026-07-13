@@ -7,7 +7,7 @@ from rest_framework import status
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "marks,expected_status",
+    ("marks", "expected_status"),
     [
         (["exclusive"], status.HTTP_200_OK),
         (["mark-1", "mark-2"], status.HTTP_200_OK),
@@ -70,7 +70,7 @@ def test_mark_exclusive_validation(
 
 @pytest.mark.parametrize("role__name", ["service"])
 @pytest.mark.parametrize(
-    "existing_marks,new_marks,expected_status",
+    ("existing_marks", "new_marks", "expected_status"),
     [
         ([], ["publication"], status.HTTP_200_OK),
         ([], ["sensitive"], status.HTTP_200_OK),

@@ -13,7 +13,7 @@ from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(
-    "service_group__name,role__name",
+    ("service_group__name", "role__name"),
     [
         ("service", "service-lead"),
         ("applicant", "applicant"),
@@ -38,14 +38,14 @@ def test_update_deadline_no_access(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,role__name",
+    ("service_group__name", "role__name"),
     [
         ("municipality", "municipality-lead"),
         (ARE_SERVICE_GROUP, "service-lead"),
     ],
 )
 @pytest.mark.parametrize(
-    "form_slug,expected_count",
+    ("form_slug", "expected_count"),
     [
         ("baugesuch", 1),
         ("baugesuch-v1", 1),
@@ -92,7 +92,7 @@ def test_create_deadline_form_type_gr(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,role__name",
+    ("service_group__name", "role__name"),
     [
         ("municipality", "municipality-lead"),
         (ARE_SERVICE_GROUP, "service-lead"),
@@ -226,11 +226,20 @@ def test_update_deadline_instance_meta(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,role__name", [("municipality", "municipality-lead")]
+    ("service_group__name", "role__name"), [("municipality", "municipality-lead")]
 )
 @pytest.mark.parametrize("has_start_date", [True, False])
 @pytest.mark.parametrize(
-    "form_id,responsible,has_publication,publication_date,inquiry_date,simplified,formal_completed,expected_date",
+    (
+        "form_id",
+        "responsible",
+        "has_publication",
+        "publication_date",
+        "inquiry_date",
+        "simplified",
+        "formal_completed",
+        "expected_date",
+    ),
     [
         # responsible, formal exam not completed, no date
         ("baugesuch", True, True, "2025-05-01", None, False, False, None),
@@ -356,11 +365,11 @@ def test_update_deadline_startdate_gr(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,role__name", [("municipality", "municipality-lead")]
+    ("service_group__name", "role__name"), [("municipality", "municipality-lead")]
 )
 @pytest.mark.parametrize("has_start_date", [True, False])
 @pytest.mark.parametrize(
-    "responsible,submit_date,inquiry_date,expected_date",
+    ("responsible", "submit_date", "inquiry_date", "expected_date"),
     [
         # responsible, date set to publication date
         (True, "2025-05-01", None, "2025-05-01"),
@@ -441,10 +450,17 @@ def test_update_deadline_startdate_ag(
 
 @pytest.mark.freeze_time("2025-05-28")
 @pytest.mark.parametrize(
-    "service_group__name,role__name", [("municipality", "municipality-lead")]
+    ("service_group__name", "role__name"), [("municipality", "municipality-lead")]
 )
 @pytest.mark.parametrize(
-    "workingdays,deadline_start_date,lead_time,suspensions,expected_suspension,expected_target_date",
+    (
+        "workingdays",
+        "deadline_start_date",
+        "lead_time",
+        "suspensions",
+        "expected_suspension",
+        "expected_target_date",
+    ),
     [
         (
             False,
@@ -614,10 +630,10 @@ def test_update_deadline_progression_responsible_gr(
 
 @pytest.mark.freeze_time("2025-05-28")
 @pytest.mark.parametrize(
-    "service_group__name,role__name", [(ARE_SERVICE_GROUP, "service-lead")]
+    ("service_group__name", "role__name"), [(ARE_SERVICE_GROUP, "service-lead")]
 )
 @pytest.mark.parametrize(
-    "inquiry_close_date,deadline_start_date,expected_end_date",
+    ("inquiry_close_date", "deadline_start_date", "expected_end_date"),
     [
         (None, None, None),
         (None, "2025-02-14", None),
@@ -699,10 +715,16 @@ def test_update_deadline_progression_service_gr(
 
 @pytest.mark.freeze_time("2025-05-29")
 @pytest.mark.parametrize(
-    "service_group__name,role__name", [("municipality", "municipality-lead")]
+    ("service_group__name", "role__name"), [("municipality", "municipality-lead")]
 )
 @pytest.mark.parametrize(
-    "deadline_start_date,workdays,suspensions,expected_process_days,expected_total_days_of_suspension",
+    (
+        "deadline_start_date",
+        "workdays",
+        "suspensions",
+        "expected_process_days",
+        "expected_total_days_of_suspension",
+    ),
     [
         # no start date, no processed days
         (None, False, [], None, 0),
@@ -794,7 +816,7 @@ def test_update_deadline_progression_days_gr(
 
 @pytest.mark.freeze_time("2025-05-29")
 @pytest.mark.parametrize(
-    "service_group__name,role__name,has_open_suspension,is_rejected",
+    ("service_group__name", "role__name", "has_open_suspension", "is_rejected"),
     [
         ("municipality", "municipality-lead", False, False),
         ("municipality", "municipality-lead", False, True),
@@ -910,7 +932,7 @@ def test_update_deadline_enddate_ag(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,role__name", [("municipality", "municipality-lead")]
+    ("service_group__name", "role__name"), [("municipality", "municipality-lead")]
 )
 @pytest.mark.django_db
 def test_deadlines_deadline_type_manager(

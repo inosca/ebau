@@ -34,7 +34,9 @@ def test_get_target_category(
         assert get_target_category(section1, "bar") == category
         assert get_target_category(section1, None) == category
 
-        with pytest.raises(ValueError):
+        with pytest.raises(
+            ValueError, match="Could not find category for attachment section"
+        ):
             get_target_category(section2, None)
 
 
@@ -60,7 +62,7 @@ def test_category_mapping(canton, request, snapshot):
 
 
 @pytest.mark.parametrize(
-    "delta, expect_results",
+    ("delta", "expect_results"),
     [
         (timedelta(seconds=3600), "1h"),
         (timedelta(hours=2, minutes=5), "2h 5m"),

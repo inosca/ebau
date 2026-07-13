@@ -30,7 +30,13 @@ from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(
-    "role__name,num_queries,size,notification_template__type,notification_template__service",
+    (
+        "role__name",
+        "num_queries",
+        "size",
+        "notification_template__type",
+        "notification_template__service",
+    ),
     [
         ("Applicant", 1, 0, "email", lf("service")),
         ("Service", 2, 1, "email", lf("service")),
@@ -54,7 +60,7 @@ def test_notification_template_list(
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_404_NOT_FOUND),
         ("Municipality", status.HTTP_200_OK),
@@ -71,7 +77,7 @@ def test_notification_template_update(admin_client, notification_template, statu
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Canton", status.HTTP_201_CREATED),
@@ -106,7 +112,7 @@ def test_notification_template_create(admin_client, notification_template, statu
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_404_NOT_FOUND),
         ("Municipality", status.HTTP_204_NO_CONTENT),
@@ -126,7 +132,12 @@ def test_notification_template_destroy(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__identifier,notification_template__subject,status_code",
+    (
+        "role__name",
+        "instance__identifier",
+        "notification_template__subject",
+        "status_code",
+    ),
     [
         ("Canton", "identifier", "{{identifier}}", status.HTTP_200_OK),
         ("Canton", "identifier", "{{$invalid}}", status.HTTP_400_BAD_REQUEST),
@@ -324,16 +335,16 @@ def test_notification_template_sendmail_exception_handling(
 
 
 @pytest.mark.parametrize(
-    "user__email,service__email",
+    ("user__email", "service__email"),
     [("user@example.com", "service@example.com, service2@example.com")],
 )
 @pytest.mark.parametrize(
-    "notification_template__subject,instance__identifier",
+    ("notification_template__subject", "instance__identifier"),
     [("{{identifier}}", "identifer")],
 )
 @pytest.mark.parametrize("new_responsible_model", [True, False])
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Canton", status.HTTP_204_NO_CONTENT),
         ("Municipality", status.HTTP_204_NO_CONTENT),
@@ -427,11 +438,11 @@ def test_notification_template_sendmail(
 
 
 @pytest.mark.parametrize(
-    "notification_template__subject,instance__identifier",
+    ("notification_template__subject", "instance__identifier"),
     [("{{identifier}}", "identifer")],
 )
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Municipality", status.HTTP_204_NO_CONTENT),
     ],
@@ -472,13 +483,13 @@ def test_notification_template_gvg(
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Municipality", status.HTTP_204_NO_CONTENT),
     ],
 )
 @pytest.mark.parametrize(
-    "recipient_types,is_bab,expected_recipients",
+    ("recipient_types", "is_bab", "expected_recipients"),
     [
         (["are"], False, ["are@test.gr.ch"]),
         (["are"], True, ["are@test.gr.ch"]),
@@ -748,7 +759,7 @@ def test_recipient_amtsblatt_uri(ur_instance, service_factory, notification_temp
 
 
 @pytest.mark.parametrize(
-    "user__email,service__email",
+    ("user__email", "service__email"),
     [("user@example.com", "service@example.com, service2@example.com")],
 )
 @pytest.mark.parametrize(
@@ -756,7 +767,7 @@ def test_recipient_amtsblatt_uri(ur_instance, service_factory, notification_temp
     ["Service"],
 )
 @pytest.mark.parametrize(
-    "form_slug,workflow",
+    ("form_slug", "workflow"),
     [
         ("baupolizeiliches-verfahren", "internal"),
         ("baupolizeiliches-verfahren-v2", "internal"),
@@ -821,7 +832,7 @@ def test_notification_template_sendmail_rsta_forms(
 
 
 @pytest.mark.parametrize(
-    "use_forbidden_state,status_code",
+    ("use_forbidden_state", "status_code"),
     [(True, status.HTTP_400_BAD_REQUEST), (False, status.HTTP_204_NO_CONTENT)],
 )
 @pytest.mark.parametrize("role__name", [("Coordination")])
@@ -875,7 +886,7 @@ def test_notification_template_sendmail_koor(
 
 
 @pytest.mark.parametrize(
-    "user__email,role__name,notification_template__body",
+    ("user__email", "role__name", "notification_template__body"),
     [
         (
             "user@example.com",
@@ -1011,9 +1022,9 @@ def test_notification_placeholders(
 
 
 @pytest.mark.parametrize(
-    "user__email,role__name", [("user@example.com", "Municipality")]
+    ("user__email", "role__name"), [("user@example.com", "Municipality")]
 )
-@pytest.mark.parametrize("total_inquiries,done_inquiries", [(2, 2), (2, 1)])
+@pytest.mark.parametrize(("total_inquiries", "done_inquiries"), [(2, 2), (2, 1)])
 @pytest.mark.parametrize("with_inquiry", [True, False])
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_notification_caluma_placeholders(
@@ -1167,7 +1178,7 @@ def test_notification_caluma_placeholders(
 
 
 @pytest.mark.parametrize(
-    "user__email,role__name", [("user@example.com", "Municipality")]
+    ("user__email", "role__name"), [("user@example.com", "Municipality")]
 )
 @pytest.mark.parametrize(
     "work_item_task",
@@ -1534,7 +1545,7 @@ def test_recipient_type_lisag(instance, group):
 
 
 @pytest.mark.parametrize(
-    "service_group__name,expected",
+    ("service_group__name", "expected"),
     [("district", [{"to": "bauen@example.ch"}]), ("municipality", [])],
 )
 @pytest.mark.django_db
@@ -1556,7 +1567,7 @@ def test_recipient_inactive_municipality(
 
 
 @pytest.mark.parametrize(
-    "has_geometer,expected",
+    ("has_geometer", "expected"),
     [(True, [{"to": "geometer@example.ch"}]), (False, [])],
 )
 @pytest.mark.django_db
@@ -1584,7 +1595,7 @@ def test_recipient_geometer_acl_services(
 
 
 @pytest.mark.parametrize(
-    "has_heat_generator_service,expected",
+    ("has_heat_generator_service", "expected"),
     [(True, [{"to": "feuerungskontrolle@example.ch"}]), (False, [])],
 )
 @pytest.mark.django_db
@@ -1784,7 +1795,7 @@ def test_notification_template_delete_by_purpose_applicant(
 
 
 @pytest.mark.parametrize(
-    "service__email,service__notification,role__name",
+    ("service__email", "service__notification", "role__name"),
     [("test@example.com", 0, "support")],
 )
 @pytest.mark.django_db
@@ -1866,7 +1877,7 @@ def test_unnotified_services(
 
 
 @pytest.mark.parametrize(
-    "user__email,role__name,notification_template__body",
+    ("user__email", "role__name", "notification_template__body"),
     [
         (
             "user@example.com",
@@ -1951,7 +1962,7 @@ def test_notification_bauverwaltung_placeholders(
 
 @pytest.mark.parametrize("use_multilang", [True, False])
 @pytest.mark.parametrize(
-    "role__name,notification_template__subject,notification_template__body",
+    ("role__name", "notification_template__subject", "notification_template__body"),
     [("Support", "Subject", "Body")],
 )
 @pytest.mark.django_db

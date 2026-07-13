@@ -31,7 +31,13 @@ from camac.billing.models import BillingV2Entry
     ],
 )
 @pytest.mark.parametrize(
-    "role__name,billing_params,entries_count, expected_count, filter_date_added",
+    (
+        "role__name",
+        "billing_params",
+        "entries_count",
+        "expected_count",
+        "filter_date_added",
+    ),
     [
         (
             "Municipality",
@@ -176,7 +182,7 @@ def instance_with_document_for_billing(
 
 
 @pytest.mark.parametrize(
-    "role__name,method,has_access,expected_count",
+    ("role__name", "method", "has_access", "expected_count"),
     [
         ("Municipality", "get_queryset_for_municipality", True, 1),
         ("Service", "get_queryset_for_service", True, 1),

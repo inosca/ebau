@@ -23,7 +23,7 @@ def public_urls(
     return mixin_urls
 
 
-@pytest.fixture()
+@pytest.fixture
 def public_data(
     create_caluma_publication,
     be_instance,

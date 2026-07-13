@@ -6,10 +6,10 @@ from camac.notification.serializers import (
 
 
 @pytest.mark.parametrize(
-    "role__name,service__email", [("support", "geometer@example.com")]
+    ("role__name", "service__email"), [("support", "geometer@example.com")]
 )
 @pytest.mark.parametrize(
-    "has_geometer,has_configured_geometer,expected",
+    ("has_geometer", "has_configured_geometer", "expected"),
     [
         (True, True, [{"to": "geometer@example.com"}]),
         (True, False, []),
@@ -87,7 +87,7 @@ def test_recipient_tax_administration(
 
 @pytest.mark.parametrize("role__name", ["support"])
 @pytest.mark.parametrize(
-    "require_involvement,has_inquiry,should_receive_email",
+    ("require_involvement", "has_inquiry", "should_receive_email"),
     [
         (False, False, True),
         (False, True, True),

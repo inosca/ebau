@@ -6,7 +6,7 @@ from rest_framework import status
 
 @pytest.mark.parametrize("history_entry__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,size",
+    ("role__name", "size"),
     [("Applicant", 0), ("Canton", 1), ("Municipality", 1), ("Service", 1)],
 )
 def test_history_entry_list(admin_client, history_entry, activation, size):
@@ -22,7 +22,7 @@ def test_history_entry_list(admin_client, history_entry, activation, size):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Canton", status.HTTP_403_FORBIDDEN),
@@ -59,7 +59,7 @@ def test_history_entry_create(
 
 @pytest.mark.parametrize("history_entry__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_404_NOT_FOUND),
         ("Municipality", status.HTTP_403_FORBIDDEN),
@@ -106,7 +106,7 @@ def test_history_entry_update(admin_client, history_entry, activation, status_co
 
 @pytest.mark.parametrize("history_entry__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_404_NOT_FOUND),
         ("Municipality", status.HTTP_403_FORBIDDEN),

@@ -49,7 +49,7 @@ def _configure_geometer_access(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,num_queries",
+    ("role__name", "instance__user", "num_queries"),
     [
         ("Applicant", lf("admin_user"), 23),
         ("Reader", lf("user"), 23),
@@ -60,7 +60,7 @@ def _configure_geometer_access(
     ],
 )
 @pytest.mark.parametrize(
-    "attachment__path,is_docx",
+    ("attachment__path", "is_docx"),
     [
         ("attachments/files/852/example.jpg", False),
         ("attachments/files/852/important.docx", True),
@@ -139,9 +139,11 @@ def test_attachment_list(
     assert (data[0]["attributes"]["webdav-link"] is not None) == (can_write and is_docx)
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
-    "context_filter,attachment__context,expect_count",
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
+@pytest.mark.parametrize(
+    ("context_filter", "attachment__context", "expect_count"),
     [
         ({"key": "isDecision", "value": True}, {"isDecision": True}, 1),
         ({"key": "isDecision", "value": True}, {}, 0),
@@ -200,7 +202,19 @@ def test_attachment_context_filter(
 
 @pytest.mark.parametrize("instance_state__name", ["nfd"])
 @pytest.mark.parametrize(
-    "filename,mime_type,role__name,instance__user,instance__location,activation__service,instance__group,instance__instance_state,case_status,acl_mode,status_code",
+    (
+        "filename",
+        "mime_type",
+        "role__name",
+        "instance__user",
+        "instance__location",
+        "activation__service",
+        "instance__group",
+        "instance__instance_state",
+        "case_status",
+        "acl_mode",
+        "status_code",
+    ),
     [
         # applicant creates valid pdf attachment on a instance of its own in a
         # attachment section with admin permissions
@@ -589,7 +603,7 @@ def test_attachment_create(
 
 
 @pytest.mark.parametrize(
-    "has_permission, expectation",
+    ("has_permission", "expectation"),
     [
         (False, pytest.raises(exceptions.PermissionDenied)),
         (True, no_exception()),
@@ -621,7 +635,7 @@ def test_accesslevel_based_attachment_create_permission(
 
 
 @pytest.mark.parametrize(
-    "has_permission, expectation",
+    ("has_permission", "expectation"),
     [
         (False, pytest.raises(exceptions.PermissionDenied)),
         (True, no_exception()),
@@ -661,7 +675,7 @@ def test_attachment_download_404(admin_client, attachment):
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,instance_state__name,acl_mode",
+    ("role__name", "instance__user", "instance_state__name", "acl_mode"),
     [("Applicant", lf("admin_user"), "new", permissions.AdminPermission)],
 )
 @pytest.mark.parametrize("multi", [False, True])
@@ -723,7 +737,7 @@ def test_attachment_download(
 
 
 @pytest.mark.parametrize(
-    "query_string,status_code",
+    ("query_string", "status_code"),
     [
         ("?attachments=", status.HTTP_400_BAD_REQUEST),
         ("?attachments=,", status.HTTP_400_BAD_REQUEST),
@@ -739,9 +753,11 @@ def test_invalid_attachment_download(admin_client, query_string, status_code):
 
 
 @pytest.mark.parametrize("thumbnail_size", [("x300"), ("x500")])
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
-    "attachment__path,status_code",
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
+@pytest.mark.parametrize(
+    ("attachment__path", "status_code"),
     [
         (django_file("multiple-pages.pdf"), status.HTTP_200_OK),
         (django_file("test-thumbnail.jpg"), status.HTTP_200_OK),
@@ -786,11 +802,11 @@ def test_attachment_thumbnail(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,attachment_section__allowed_mime_types",
+    ("role__name", "instance__user", "attachment_section__allowed_mime_types"),
     [("Canton", lf("admin_user"), [])],
 )
 @pytest.mark.parametrize(
-    "send_path,status_code",
+    ("send_path", "status_code"),
     [(True, status.HTTP_400_BAD_REQUEST), (False, status.HTTP_200_OK)],
 )
 def test_attachment_update(
@@ -843,7 +859,15 @@ def test_attachment_update(
 
 @pytest.mark.parametrize("instance_state__name", [("finished")])
 @pytest.mark.parametrize(
-    "attachment__context,new_context,permission,status_code,is_active_service,role__name,attachment_section__allowed_mime_types",
+    (
+        "attachment__context",
+        "new_context",
+        "permission",
+        "status_code",
+        "is_active_service",
+        "role__name",
+        "attachment_section__allowed_mime_types",
+    ),
     [
         # attachment is in no writable section: ok
         (
@@ -1000,7 +1024,16 @@ def test_attachment_update_context(
 
 
 @pytest.mark.parametrize(
-    "attachment__context,new_context,attachment__mime_type,permission,status_code,is_active_service,role__name,attachment_section__allowed_mime_types",
+    (
+        "attachment__context",
+        "new_context",
+        "attachment__mime_type",
+        "permission",
+        "status_code",
+        "is_active_service",
+        "role__name",
+        "attachment_section__allowed_mime_types",
+    ),
     [
         # change of isDecision to True with allowed mime_type
         (
@@ -1110,7 +1143,7 @@ def test_attachment_update_context_be(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user",
+    ("role__name", "instance__user"),
     [("Applicant", lf("admin_user")), ("Reader", lf("admin_user"))],
 )
 def test_attachment_detail(
@@ -1140,7 +1173,9 @@ def test_attachment_detail(
     assert response.status_code == status.HTTP_200_OK
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_attachment_loosen_filter(
     admin_client, role, mocker, instance, attachment_section, attachment
 ):
@@ -1173,7 +1208,15 @@ def test_attachment_loosen_filter(
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,role__name,instance__user,instance__location,activation__service,instance__group,acl_mode",
+    (
+        "instance_state__name",
+        "role__name",
+        "instance__user",
+        "instance__location",
+        "activation__service",
+        "instance__group",
+        "acl_mode",
+    ),
     [
         (
             "nfd",
@@ -1187,7 +1230,7 @@ def test_attachment_loosen_filter(
     ],
 )
 @pytest.mark.parametrize(
-    "attachment_section__allowed_mime_types,filename,status_code",
+    ("attachment_section__allowed_mime_types", "filename", "status_code"),
     [
         ([], "invalid-attachment.gif", status.HTTP_201_CREATED),
         (["application/pdf"], "invalid-attachment.gif", status.HTTP_400_BAD_REQUEST),
@@ -1233,7 +1276,9 @@ def test_attachment_mime_type(
     assert response.status_code == status_code
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_attachment_section_filters(
     admin_client, role, mocker, instance, attachment_section_factory, attachment_factory
 ):
@@ -1413,7 +1458,14 @@ def test_attachment_public_access(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "instance_state__name,attachment__path,attachment__service,acl_mode,has_running_inquiry,status_code",
+    (
+        "instance_state__name",
+        "attachment__path",
+        "attachment__service",
+        "acl_mode",
+        "has_running_inquiry",
+        "status_code",
+    ),
     [
         (
             "circulation",
@@ -1435,14 +1487,6 @@ def test_attachment_public_access(
             "finished",
             django_file("no-thumbnail.txt"),
             lfc("service_factory"),
-            permissions.AdminServiceBeforeDecisionPermission,
-            False,
-            status.HTTP_403_FORBIDDEN,
-        ),
-        (
-            "finished",
-            django_file("no-thumbnail.txt"),
-            lf("service"),
             permissions.AdminServiceBeforeDecisionPermission,
             False,
             status.HTTP_403_FORBIDDEN,
@@ -1515,7 +1559,13 @@ def test_attachment_delete_custom_admin_modes(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "instance_state__name,attachment__service,status_code,error,mime_type",
+    (
+        "instance_state__name",
+        "attachment__service",
+        "status_code",
+        "error",
+        "mime_type",
+    ),
     [
         (
             "circulation",
@@ -1637,7 +1687,7 @@ def test_attachment_delete_multiple_sections(
 
 @pytest.mark.parametrize("role__name", ["Service"])
 @pytest.mark.parametrize(
-    "inquiry_status,status_code",
+    ("inquiry_status", "status_code"),
     [
         (WorkItem.STATUS_READY, status.HTTP_200_OK),
         (WorkItem.STATUS_COMPLETED, status.HTTP_400_BAD_REQUEST),
@@ -1703,7 +1753,7 @@ def test_attachment_update_custom_permissions(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,instance_state__name,acl_mode",
+    ("role__name", "instance__user", "instance_state__name", "acl_mode"),
     [("Applicant", lf("admin_user"), "new", permissions.AdminPermission)],
 )
 def test_convert_docx_to_pdf(
@@ -1956,7 +2006,7 @@ def test_accesslevel_based_permission(
 
 @pytest.mark.parametrize("role__name", ["Legal-Authority"])
 @pytest.mark.parametrize(
-    "has_instance_acl, expected_response",
+    ("has_instance_acl", "expected_response"),
     [
         (True, status.HTTP_201_CREATED),
         (False, status.HTTP_400_BAD_REQUEST),

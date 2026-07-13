@@ -198,7 +198,7 @@ def test_get_alexandria_documents(
 
 @pytest.mark.freeze_time("2022-01-01")
 @pytest.mark.parametrize(
-    "skip,task_id,work_item_action,expected_decision,expected_state",
+    ("skip", "task_id", "work_item_action", "expected_decision", "expected_state"),
     [
         (
             ["submit", "complete-check", "distribution"],
@@ -248,7 +248,7 @@ def test_decision_formatter(
 
 
 @pytest.mark.parametrize(
-    "value,min_length,max_length,expected",
+    ("value", "min_length", "max_length", "expected"),
     [
         (" foo ", 0, 2, "f…"),
         (" f", 3, 10, "f.."),
@@ -260,7 +260,7 @@ def test_assure_string_length(value, min_length, max_length, expected):
 
 
 @pytest.mark.parametrize(
-    "text,expected_result",
+    ("text", "expected_result"),
     [
         # Replacement of illegal characters
         ("test\x0b.pdf", "test.pdf"),

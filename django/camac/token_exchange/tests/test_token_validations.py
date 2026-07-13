@@ -13,7 +13,7 @@ fake = Faker()
 
 
 @pytest.mark.parametrize(
-    "reason,exception,message",
+    ("reason", "exception", "message"),
     [
         ("not_encrypted", TypeError, "Expected JWE, got JWS"),
         ("jwe_secret", JWException, "InvalidSignature"),

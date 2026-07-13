@@ -63,7 +63,7 @@ def test_group_detail_include(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,count",
+    ("role__name", "instance__user", "count"),
     [
         ("Municipality", lf("admin_user"), 1),
         ("Applicant", lf("admin_user"), 2),

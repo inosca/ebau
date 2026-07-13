@@ -10,9 +10,18 @@ from camac.document import models, permissions
 from .data import django_file
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
-    "instance_state__name,attachment__path,attachment__service,case_status,acl_mode,status_code",
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
+@pytest.mark.parametrize(
+    (
+        "instance_state__name",
+        "attachment__path",
+        "attachment__service",
+        "case_status",
+        "acl_mode",
+        "status_code",
+    ),
     [
         (
             "new",
@@ -56,14 +65,6 @@ from .data import django_file
         ),
         (
             "new",
-            django_file("test-thumbnail.jpg"),
-            lfc("service_factory"),
-            None,
-            permissions.WritePermission,
-            status.HTTP_403_FORBIDDEN,
-        ),
-        (
-            "subm",
             django_file("test-thumbnail.jpg"),
             lfc("service_factory"),
             None,
@@ -193,7 +194,13 @@ def test_attachment_delete(
 
 
 @pytest.mark.parametrize(
-    "instance_state__name, attachment__path, attachment__service, role__name, instance__user",
+    (
+        "instance_state__name",
+        "attachment__path",
+        "attachment__service",
+        "role__name",
+        "instance__user",
+    ),
     [
         (
             "new",
@@ -205,7 +212,12 @@ def test_attachment_delete(
     ],
 )
 @pytest.mark.parametrize(
-    "communications_attachment__document_attachment, file_attachment_is_null, expect_success, expect_file_on_disk",
+    (
+        "communications_attachment__document_attachment",
+        "file_attachment_is_null",
+        "expect_success",
+        "expect_file_on_disk",
+    ),
     [
         (lf("attachment"), True, False, True),
         (None, False, True, False),

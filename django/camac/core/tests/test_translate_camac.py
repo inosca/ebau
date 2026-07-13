@@ -86,8 +86,7 @@ def test_translate(translation_ok, translation_not_ok):
     )
 
     assert translations_ok.get(language="fr").name == "Ouvrage"
-    with pytest.raises(Exception) as e:
+    with pytest.raises(InstanceResourceT.DoesNotExist):
         assert translations_not_ok.get(language="fr").name
-    assert str(e.value) == "InstanceResourceT matching query does not exist."
     call_command("translate_camac")
     assert translations_ok.get(language="fr").name == "Ouvrage"

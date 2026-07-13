@@ -14,7 +14,7 @@ from camac.stats.cycle_time import _compute_total_idle_days, compute_cycle_time
 @pytest.mark.parametrize(
     # The parameter additional_demands expects List[Tuple[additional_demand_duration, offset_decision_date]]
     # such that additional_demand durations can be created and positioned relatively to each other.
-    "additional_demands,expected_net_cycle_time",
+    ("additional_demands", "expected_net_cycle_time"),
     [
         ([(None, 5)], 45),  # no duration: discarded
         ([(5, 5)], 40),  # simple additional_demand
@@ -63,7 +63,7 @@ def test_overlapping_additional_demand_durations(
 
 
 @pytest.mark.parametrize(
-    "sorted_durations,expected",
+    ("sorted_durations", "expected"),
     [
         (
             [
@@ -82,7 +82,7 @@ def test_compute_total_idle_days(sorted_durations, expected):
 
 
 @pytest.mark.parametrize(
-    "case_cycle_time,previous_instances,expected_total_cycle_time",
+    ("case_cycle_time", "previous_instances", "expected_total_cycle_time"),
     [
         (
             15,
@@ -192,7 +192,14 @@ def test_handles_incomplete_case(be_instance):
 
 
 @pytest.mark.parametrize(
-    "submit_date,decision_date,additional_demand_start,additional_demand_end,exp_total,exp_net",
+    (
+        "submit_date",
+        "decision_date",
+        "additional_demand_start",
+        "additional_demand_end",
+        "exp_total",
+        "exp_net",
+    ),
     [
         (  # standard case
             datetime.date(2000, 1, 1),

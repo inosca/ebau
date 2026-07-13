@@ -529,7 +529,7 @@ def test_number_separator(
 
 
 @pytest.mark.parametrize(
-    "instance_id,form_name,template,for_additional_demand,expected",
+    ("instance_id", "form_name", "template", "for_additional_demand", "expected"),
     [
         (1, "Baugesuch", "form", None, "1-baugesuch-formularexport.pdf"),
         (2, "Baugesuch", "test", None, "2-baugesuch.pdf"),
@@ -670,7 +670,7 @@ def test_print_meta_attributes(
 
 
 @pytest.mark.parametrize(
-    "check_validity_for_draft,is_valid,is_post_submit,expected_draft_output",
+    ("check_validity_for_draft", "is_valid", "is_post_submit", "expected_draft_output"),
     [
         # no validity check and form was submitted
         (False, False, True, ""),

@@ -374,7 +374,7 @@ def test_send_400_no_data(admin_client, set_application_be, be_ech0211_settings)
 
 
 @pytest.mark.parametrize(
-    "is_vorabklaerung,judgement",
+    ("is_vorabklaerung", "judgement"),
     [
         (False, ECH_JUDGEMENT_APPROVED_WITH_RESERVATION),
         (True, ECH_JUDGEMENT_WRITTEN_OFF),
@@ -537,7 +537,7 @@ def test_send_404_attachment_missing(
 
 
 @pytest.mark.parametrize(
-    "match,replace", [("eventNotice", "blablabla"), ("xmlns:ns2=", "xmlns:ns4=")]
+    ("match", "replace"), [("eventNotice", "blablabla"), ("xmlns:ns2=", "xmlns:ns4=")]
 )
 def test_send_unparseable_message(
     admin_client,
@@ -575,7 +575,7 @@ def test_send_unknown_instance(
 
 
 @pytest.mark.parametrize(
-    "plot_data,coordinates,decision,site_address",
+    ("plot_data", "coordinates", "decision", "site_address"),
     [
         (None, None, None, None),
         (

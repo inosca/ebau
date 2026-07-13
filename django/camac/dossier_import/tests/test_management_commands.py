@@ -41,7 +41,7 @@ def test_import_dossiers_exceptions(
 
 @pytest.mark.freeze_time("2021-12-02")
 @pytest.mark.parametrize(
-    "config,use_location,camac_instance",
+    ("config", "use_location", "camac_instance"),
     [
         ("kt_schwyz", True, lf("sz_instance")),
         ("kt_bern", False, lf("be_instance")),

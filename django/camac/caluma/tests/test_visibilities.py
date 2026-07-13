@@ -22,7 +22,7 @@ from camac.user.models import User
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_count",
+    ("role__name", "expected_count"),
     [("Support", 3), ("Service", 1), ("TrustedService", 3), ("Applicant", 0)],
 )
 @pytest.mark.django_db
@@ -80,7 +80,7 @@ def test_document_visibility(
 
 
 @pytest.mark.parametrize(
-    "is_public_user,expected_count",
+    ("is_public_user", "expected_count"),
     [(True, 1), (False, 0)],
 )
 @pytest.mark.django_db
@@ -488,7 +488,7 @@ def test_work_item_additional_demand_visibility(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,service",
+    ("role__name", "instance__user", "service"),
     [
         ("Applicant", lf("user"), None),
         ("Municipality", lf("admin_user"), None),
@@ -594,7 +594,12 @@ def test_public_visibility(
 
 
 @pytest.mark.parametrize(
-    "role__name,service__name,expected_form_count_public,expected_form_count_sz",
+    (
+        "role__name",
+        "service__name",
+        "expected_form_count_public",
+        "expected_form_count_sz",
+    ),
     [
         # Kt. SZ specific roles
         ("Admin", "Service 0", 6, 5),
@@ -761,7 +766,7 @@ def test_form_visibility_sz(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_count",
+    ("role__name", "expected_count"),
     [
         ("Support", 1),
         ("Service", 1),
@@ -812,7 +817,7 @@ def test_case_visibility_sz(
 
 
 @pytest.mark.parametrize(
-    "role__name,search_value,expected_count",
+    ("role__name", "search_value", "expected_count"),
     [
         ("Municipality", "hello world", 1),
         ("Municipality", "world", 1),
@@ -893,7 +898,9 @@ def test_case_keyword_filter_sz(
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
-@pytest.mark.parametrize("is_public_user,expected_answers", [(False, 5), (True, 2)])
+@pytest.mark.parametrize(
+    ("is_public_user", "expected_answers"), [(False, 5), (True, 2)]
+)
 @pytest.mark.django_db
 def test_public_document_visibility(
     admin_user,
@@ -1020,7 +1027,7 @@ def test_publication_visibility_form_not_enabled(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "filter_value, variable, param",
+    ("filter_value", "variable", "param"),
     [
         ("{caseFamily: $case}", "case", "$case:ID!"),
         (
@@ -1102,7 +1109,7 @@ def test_visibility_performance_heuristic_workitems(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "filter_value, variable, param",
+    ("filter_value", "variable", "param"),
     [
         ("{rootCase: $case}", "case", "$case:ID!"),
         (
@@ -1294,7 +1301,7 @@ def test_visible_construction_step_work_items_expression_for_trusted_service():
     )
 
 
-@pytest.mark.parametrize("role__name", ("Geometer",))
+@pytest.mark.parametrize("role__name", ["Geometer"])
 @pytest.mark.django_db
 def test_visible_construction_step_work_items_expression_for_geometer(
     caluma_work_item_factory,

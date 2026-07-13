@@ -17,7 +17,7 @@ from camac.alexandria_migration.domain_logic import annotate_documents
 
 
 @pytest.mark.parametrize(
-    "checksum_enabled, already_has_checksum, expect_checksum",
+    ("checksum_enabled", "already_has_checksum", "expect_checksum"),
     [
         (False, False, False),
         (False, True, True),
@@ -58,14 +58,14 @@ def test_set_checksum(
 
 
 @pytest.mark.parametrize(
-    [
+    (
         "search_enabled",
         "is_original",
         "has_content_vector",
         "has_content",
         "expected_did_work",
         "expected_vector",
-    ],
+    ),
     [
         # en    orig  cvec   cont  expw  expv
         (True, False, True, True, False, True),
@@ -158,7 +158,7 @@ def test_set_content_vector(
 
 
 @pytest.mark.parametrize(
-    "failure_mode, expected_result",
+    ("failure_mode", "expected_result"),
     [
         (FileNotFoundError("Missing"), "Missing"),
         (lambda _: None, "could not get content for file {} (name:data.txt)"),

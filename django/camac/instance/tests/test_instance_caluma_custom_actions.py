@@ -15,7 +15,7 @@ from camac.timelines.models import FormTimeline
 @pytest.mark.freeze_time("2020-12-03")
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "ebau_number,expected_ebau_number,expected_error",
+    ("ebau_number", "expected_ebau_number", "expected_error"),
     [
         ("2020-2", "2020-2", None),
         ("", "2020-3", None),
@@ -101,7 +101,14 @@ def test_set_ebau_number(
 @pytest.mark.freeze_time("2020-12-03")
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,expected_status,caluma_workflow,instance_state__name,expected_instance_state,expect_completed_work_item",
+    (
+        "role__name",
+        "expected_status",
+        "caluma_workflow",
+        "instance_state__name",
+        "expected_instance_state",
+        "expect_completed_work_item",
+    ),
     [
         (
             "Municipality",
@@ -227,7 +234,7 @@ def test_set_ebau_number_workflow(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    ("role__name", "expected_status"),
     [
         ("Support", status.HTTP_204_NO_CONTENT),
         ("Municipality", status.HTTP_204_NO_CONTENT),
@@ -258,7 +265,7 @@ def test_archive(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "service_type,expected_status",
+    ("service_type", "expected_status"),
     [
         ("municipality", status.HTTP_204_NO_CONTENT),
     ],
@@ -409,7 +416,7 @@ def test_change_responsible_service_audit_validation(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,expected_status,is_appeal",
+    ("role__name", "expected_status", "is_appeal"),
     [
         ("Municipality", status.HTTP_200_OK, False),
         ("Municipality", status.HTTP_403_FORBIDDEN, True),
@@ -476,7 +483,7 @@ def test_instance_convert_modification(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,has_inquiry,expected_status",
+    ("role__name", "has_inquiry", "expected_status"),
     [
         ("Support", False, status.HTTP_200_OK),
         ("municipality-lead", False, status.HTTP_200_OK),
@@ -544,7 +551,7 @@ def test_correction(
 
 @pytest.mark.freeze_time("2024-06-06 08:00")
 @pytest.mark.parametrize(
-    "role__name,instance_state__name,expected_status",
+    ("role__name", "instance_state__name", "expected_status"),
     [
         ("Applicant", "new", status.HTTP_204_NO_CONTENT),
         ("Municipality", "new", status.HTTP_403_FORBIDDEN),
@@ -660,7 +667,7 @@ def test_additional_demand_changes(
 
 
 @pytest.mark.parametrize(
-    "role__name,has_permission,expected_status",
+    ("role__name", "has_permission", "expected_status"),
     [
         # Permissions module: Submitting SB1 requires
         # form-sb1-submit permission
@@ -713,7 +720,7 @@ def test_instance_report_permission_acl_be(
 
 
 @pytest.mark.parametrize(
-    "role__name,has_permission,expected_status",
+    ("role__name", "has_permission", "expected_status"),
     [
         # RBAC: Applicants can submit SB1 in instance state "sb1".
         # Muncipality can submit SB1 as instance service on paper instances.
@@ -778,7 +785,7 @@ def test_instance_report_permission_rbac_be(
 
 
 @pytest.mark.parametrize(
-    "role__name,has_permission,expected_status",
+    ("role__name", "has_permission", "expected_status"),
     [
         # Permissions module: Submitting SB2 requires
         # form-sb2-submit permission
@@ -831,7 +838,7 @@ def test_instance_finalize_permission_acl_be(
 
 
 @pytest.mark.parametrize(
-    "role__name,has_permission,expected_status",
+    ("role__name", "has_permission", "expected_status"),
     [
         # RBAC: Applicants can submit SB2 in instance state "sb2".
         # Muncipality can submit SB2 as instance service on paper instances.

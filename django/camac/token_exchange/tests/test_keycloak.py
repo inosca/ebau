@@ -4,7 +4,7 @@ import pytest
 from camac.token_exchange.keycloak import KeycloakClient
 
 
-@pytest.mark.vcr()
+@pytest.mark.vcr
 def test_keycloak_client(snapshot, settings):
     client = KeycloakClient()
 

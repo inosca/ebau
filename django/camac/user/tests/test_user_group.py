@@ -31,7 +31,7 @@ def test_user_group_list(admin_client, user_group_factory, service, service_fact
 
 @pytest.mark.freeze_time("2023-05-22")
 @pytest.mark.parametrize(
-    "error_type,expected_status",
+    ("error_type", "expected_status"),
     [
         (None, status.HTTP_201_CREATED),
         ("user_does_not_exist", status.HTTP_400_BAD_REQUEST),

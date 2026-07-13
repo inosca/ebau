@@ -27,7 +27,7 @@ def ag_rpg2_service():
 
 
 @pytest.mark.parametrize(
-    "allowed_forms,case_form,expected",
+    ("allowed_forms", "case_form", "expected"),
     [
         (["baugesuch"], "baugesuch", True),
         (["baugesuch"], "reklame", False),
@@ -49,7 +49,7 @@ def test_is_rpg2_relevant_form(
 
 
 @pytest.mark.parametrize(
-    "service_slugs,addressed_slug,expected",
+    ("service_slugs", "addressed_slug", "expected"),
     [
         (["rpg2-service-slug"], "rpg2-service-slug", True),
         (["rpg2-service-slug"], "other-service-slug", False),

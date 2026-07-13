@@ -8,7 +8,7 @@ from camac.permissions.switcher import PERMISSION_MODE
 
 
 @pytest.mark.parametrize(
-    "role__name,is_active,expected_result",
+    ("role__name", "is_active", "expected_result"),
     [
         ("municipality-lead", 0, status.HTTP_204_NO_CONTENT),
         ("municipality-lead", 1, status.HTTP_403_FORBIDDEN),
@@ -80,7 +80,7 @@ def test_unsubscribe_responsible_service(
 
 
 @pytest.mark.parametrize(
-    "role__name,service_type,instance_services_count_after",
+    ("role__name", "service_type", "instance_services_count_after"),
     [
         ("Municipality", "municipality", 4),
         ("Municipality", "construction-control", 4),
@@ -141,7 +141,7 @@ def test_unsubscribe_responsible_service_removes_correct_services(
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize(
-    "access_level_name,expected_status",
+    ("access_level_name", "expected_status"),
     [
         ("lead-authority", status.HTTP_403_FORBIDDEN),
         ("involved-authority", status.HTTP_204_NO_CONTENT),

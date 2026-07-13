@@ -24,7 +24,7 @@ def test_service_available_in_sanctions_filter(admin_client, service_factory):
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "set_available_service_groups,should_contain_unavailable",
+    ("set_available_service_groups", "should_contain_unavailable"),
     [
         (True, False),
         (False, True),
@@ -68,7 +68,7 @@ def test_configured_service_available_in_sanctions_filter(
 
 
 @pytest.mark.parametrize(
-    "has_pending_sanctions,expected_count", [("1", 6), ("0", 9), ("", 15)]
+    ("has_pending_sanctions", "expected_count"), [("1", 6), ("0", 9), ("", 15)]
 )
 @pytest.mark.django_db
 def test_has_pending_sanctions_filter(
@@ -106,7 +106,7 @@ def test_has_pending_sanctions_filter(
 
 
 @pytest.mark.parametrize(
-    "matching_service,controlled,expected_count",
+    ("matching_service", "controlled", "expected_count"),
     [(False, False, 0), (False, True, 0), (True, False, 1), (True, True, 0)],
 )
 @pytest.mark.django_db

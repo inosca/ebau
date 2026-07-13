@@ -41,7 +41,7 @@ def invalid_user(user_factory):
 
 
 @pytest.mark.parametrize(
-    "application_type,municipality,expected_user",
+    ("application_type", "municipality", "expected_user"),
     [
         ("form1", "municipality1", "user1"),
         ("form2", "municipality1", "user2"),
@@ -121,7 +121,7 @@ def test_responsible_user_for_instance(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_count",
+    ("role__name", "expected_count"),
     [
         ("municipality-clerk", 0),
         ("municipality-admin", 3),
@@ -151,7 +151,13 @@ def test_responsible_user_rule_list(
 
 
 @pytest.mark.parametrize(
-    "role__name,municipalities,application_types,responsible_user,expected_status",
+    (
+        "role__name",
+        "municipalities",
+        "application_types",
+        "responsible_user",
+        "expected_status",
+    ),
     [
         (
             "municipality-admin",
@@ -267,7 +273,7 @@ def test_responsible_user_rule_create(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    ("role__name", "expected_status"),
     [
         ("municipality-admin", status.HTTP_200_OK),
         ("municipality-clerk", status.HTTP_404_NOT_FOUND),
@@ -324,7 +330,7 @@ def test_responsible_user_rule_update(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    ("role__name", "expected_status"),
     [
         ("municipality-admin", status.HTTP_204_NO_CONTENT),
         ("municipality-clerk", status.HTTP_404_NOT_FOUND),
@@ -361,7 +367,7 @@ def test_responsible_user_rule_destroy(
 
 
 @pytest.mark.parametrize(
-    "role__name,new_order,expected_status",
+    ("role__name", "new_order", "expected_status"),
     [
         ("municipality-admin", [2, 0, 1], status.HTTP_204_NO_CONTENT),
         ("municipality-admin", [1, 2, 0], status.HTTP_204_NO_CONTENT),

@@ -73,7 +73,7 @@ def _get_all_urls(instance_id: int) -> tuple[str, str, GenericAPIView]:
 
 
 @pytest.mark.freeze_time("2020-10-16")
-@pytest.mark.parametrize("canton,external_client", CANTONS)
+@pytest.mark.parametrize(("canton", "external_client"), CANTONS)
 @pytest.mark.parametrize("role__name", [("support")])
 def test_external_client_access(
     admin_user, snapshot, canton, external_client, request, settings, mocker

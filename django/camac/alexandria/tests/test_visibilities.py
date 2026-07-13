@@ -142,7 +142,7 @@ def alexandria_setup(
 
 @pytest.mark.parametrize("model", ["document", "file"])
 @pytest.mark.parametrize(
-    "role__name,expected",
+    ("role__name", "expected"),
     [
         ("applicant", ["applicant", "applicant nested", "decision"]),
         ("municipality", ["decision", "geometer"]),
@@ -195,7 +195,7 @@ def test_document_and_file_visibility(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected",
+    ("role__name", "expected"),
     [
         ("applicant", ["common"]),
         ("municipality", ["common", "municipality", "municipality-parent", "service"]),
@@ -238,7 +238,7 @@ def test_category_visibility(admin_client, role, expected):
 
 
 @pytest.mark.parametrize(
-    "role__name,service_group__name,inquired_by_are,expected",
+    ("role__name", "service_group__name", "inquired_by_are", "expected"),
     [
         # babfiltered never visible for applicant
         ("applicant", "applicant", False, ["common"]),
@@ -334,7 +334,7 @@ def test_category_visibility_camac_instance_gr(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_count",
+    ("role__name", "expected_count"),
     [
         ("applicant", 0),
         ("municipality", 2),
@@ -361,7 +361,7 @@ def test_tag_visibility(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_count",
+    ("role__name", "expected_count"),
     [
         ("service", 2),
         ("subservice", 2),
@@ -398,7 +398,7 @@ def test_tag_visibility_service_subservice(
 
 
 @pytest.mark.parametrize(
-    "role__name,visible_marks",
+    ("role__name", "visible_marks"),
     [
         ("public", {"publication", "void"}),
         ("municipality", {"decision", "publication", "void"}),

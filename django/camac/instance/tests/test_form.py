@@ -4,7 +4,9 @@ from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
 
-@pytest.mark.parametrize("role__name,amount", [("Applicant", 1), ("Municipality", 2)])
+@pytest.mark.parametrize(
+    ("role__name", "amount"), [("Applicant", 1), ("Municipality", 2)]
+)
 def test_form_list(admin_client, form, form_factory, form_state_factory, amount):
     form_factory(form_state=form_state_factory(name="Internal"))
 
@@ -19,7 +21,7 @@ def test_form_list(admin_client, form, form_factory, form_state_factory, amount)
 
 
 @pytest.mark.parametrize(
-    "role__name,forms_all_versions,amount",
+    ("role__name", "forms_all_versions", "amount"),
     [
         ("Applicant", True, 3),
         ("Applicant", False, 1),
@@ -48,7 +50,7 @@ def test_form_versioned_filter(
 
 
 @pytest.mark.parametrize(
-    "form__form_state,amount",
+    ("form__form_state", "amount"),
     [
         (lf("form_state"), 1),
         (lfc("form_state_factory"), 0),

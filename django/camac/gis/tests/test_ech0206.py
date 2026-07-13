@@ -222,7 +222,7 @@ def ech0206__config(gis_data_source_factory, caluma_question_factory):
 
 
 @pytest.mark.parametrize(
-    "query_x,query_y",
+    ("query_x", "query_y"),
     [
         (
             2759664.9038492967,
@@ -254,7 +254,7 @@ def ech0206__config(gis_data_source_factory, caluma_question_factory):
         ),  # Ist ein Warmwasseranschluss geplant? --> Nein
     ],
 )
-@pytest.mark.vcr()
+@pytest.mark.vcr
 @pytest.mark.django_db
 def test_ech0206_client(
     admin_client,

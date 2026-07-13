@@ -3,7 +3,7 @@ import pytest
 from camac.conftest import reload_urlconf
 
 
-@pytest.fixture(autouse=True, scope="function")
+@pytest.fixture(autouse=True)
 def enable_public_caluma_with_captcha(application_settings):
     """Autouse fixture to set the required settings.
 
@@ -17,4 +17,4 @@ def enable_public_caluma_with_captcha(application_settings):
     application_settings["ENABLE_PUBLIC_CALUMA"] = True
     application_settings["ENABLE_PUBLIC_CALUMA_CAPTCHA"] = True
 
-    yield reload_urlconf("camac.captcha.urls")
+    return reload_urlconf("camac.captcha.urls")

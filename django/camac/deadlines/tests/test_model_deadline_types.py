@@ -10,7 +10,7 @@ from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name,expected_count",
+    ("access_level__slug", "role__name", "service_group__name", "expected_count"),
     [
         # services can not see any deadline types
         ("distribution-service", "service-lead", "service", 0),
@@ -80,13 +80,13 @@ def test_deadline_types_list_gr(
 
 
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name",
+    ("access_level__slug", "role__name", "service_group__name"),
     [
         ("lead-authority", "municipality-lead", "municipality"),
     ],
 )
 @pytest.mark.parametrize(
-    "form_slug,procedure_type,expected_count",
+    ("form_slug", "procedure_type", "expected_count"),
     [
         ("baugesuch", None, 6),
         ("baugesuch-v2", None, 6),
@@ -189,11 +189,11 @@ def test_deadline_types_list_instance_gr(
 
 
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name",
+    ("access_level__slug", "role__name", "service_group__name"),
     [("lead-authority", "municipality-lead", "municipality")],
 )
 @pytest.mark.parametrize(
-    "search_name,expected_count",
+    ("search_name", "expected_count"),
     [
         # No search term, expect all deadline types
         (None, 3),

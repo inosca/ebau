@@ -19,7 +19,7 @@ from camac.permissions.switcher import PERMISSION_MODE
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "involved_type,input_data,has_error",
+    ("involved_type", "input_data", "has_error"),
     [
         (
             "creator",
@@ -122,7 +122,7 @@ def test_save_work_item_permission(
 
 
 @pytest.mark.parametrize(
-    "role__name,mutation,task,status,is_permitted,expected_status",
+    ("role__name", "mutation", "task", "status", "is_permitted", "expected_status"),
     [
         (
             "municipality-lead",
@@ -310,7 +310,15 @@ def test_distribution_permission_for_task(
 
 @pytest.mark.parametrize("is_permitted", [True, False])
 @pytest.mark.parametrize(
-    "role__name,mutation,distribution_form,question,value,_instance,_distribution_settings",
+    (
+        "role__name",
+        "mutation",
+        "distribution_form",
+        "question",
+        "value",
+        "_instance",
+        "_distribution_settings",
+    ),
     [
         (
             "municipality-lead",
@@ -491,7 +499,7 @@ def test_distribution_permission_for_answer(
 
 
 @pytest.mark.parametrize(
-    "role__name,status,is_addressed,success",
+    ("role__name", "status", "is_addressed", "success"),
     [
         ("Applicant", WorkItem.STATUS_READY, True, False),
         ("Municipality", WorkItem.STATUS_READY, False, False),
@@ -546,7 +554,7 @@ def test_simple_caluma_form_permissions(
 
 
 @pytest.mark.parametrize(
-    "is_main_form,form_permissions,success",
+    ("is_main_form", "form_permissions", "success"),
     [
         (True, {"read", "write"}, True),
         (True, {"read"}, False),
@@ -611,7 +619,7 @@ def test_specific_form_permissions(
     assert bool(result.errors) != success
 
 
-@pytest.mark.parametrize("instance_state__name,should_be_allowed", [("new", True)])
+@pytest.mark.parametrize(("instance_state__name", "should_be_allowed"), [("new", True)])
 @pytest.mark.django_db
 def test_form_permissions_ur(
     caluma_admin_schema_executor,
@@ -695,7 +703,7 @@ def test_coordination_services(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "involved_type,task_id,can_create",
+    ("involved_type", "task_id", "can_create"),
     [
         ("addressed", "create-manual-workitems", True),
         (None, "create-manual-workitems", True),
@@ -777,7 +785,7 @@ def test_simpe_form_permission_with_child_case_document(
 
 
 @pytest.mark.parametrize(
-    "form,granted_permissions,success",
+    ("form", "granted_permissions", "success"),
     [
         ("main", ["form-write"], True),
         ("main", ["form-read"], False),

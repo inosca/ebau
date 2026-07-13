@@ -72,7 +72,7 @@ def prepare_file():
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Municipality", lf("admin_user"))]
+    ("role__name", "instance__user"), [("Municipality", lf("admin_user"))]
 )
 @pytest.mark.parametrize("threshold_enabled", [True, False])
 @pytest.mark.django_db

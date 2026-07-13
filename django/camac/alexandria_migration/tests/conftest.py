@@ -35,7 +35,7 @@ def be_category_setup(db, settings, clear_category_cache):
     return AttachmentSection.objects.order_by("sort"), buckets
 
 
-@pytest.fixture(scope="function", autouse=True)
+@pytest.fixture(autouse=True)
 def clear_all_functools_caches():
     """Clear all caches that use functools.lru_cache.
 

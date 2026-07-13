@@ -6,7 +6,7 @@ from camac.work_items import serializers
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_presets",
+    ("role__name", "expected_presets"),
     [
         ("Applicant", set()),
         ("Support", set()),
@@ -63,7 +63,7 @@ def test_work_item_filter_preset_list(
 
 
 @pytest.mark.parametrize(
-    "role__name,prefilter,is_included,expected_names",
+    ("role__name", "prefilter", "is_included", "expected_names"),
     [
         ("Municipality", True, True, {"template-1"}),
         ("Municipality", True, False, set()),

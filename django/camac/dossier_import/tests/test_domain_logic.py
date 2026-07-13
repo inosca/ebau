@@ -66,7 +66,7 @@ def test_undo_import(
 
 @pytest.mark.freeze_time("2023-4-1")
 @pytest.mark.parametrize(
-    "first_import_file,reimport_file",
+    ("first_import_file", "reimport_file"),
     [
         ("import-example-no-errors.zip", "import-example-no-errors.zip"),
         ("import-example-no-errors.zip", "import-example-no-errors-reimport.zip"),
@@ -283,7 +283,7 @@ def test_perform_reimport(  # noqa: C901
 
 
 @pytest.mark.parametrize(
-    "dossier_import__status,task_result,did_delete_import,expected_status",
+    ("dossier_import__status", "task_result", "did_delete_import", "expected_status"),
     [
         (
             DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,

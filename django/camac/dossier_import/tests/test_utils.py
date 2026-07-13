@@ -17,7 +17,7 @@ existing_status = [e.value for e in TargetStatus]
 
 
 @pytest.mark.parametrize(
-    "value,existing,output",
+    ("value", "existing", "output"),
     [
         ("THIS_REALLY_DOESNT_EXIST", existing_columns, None),
         ("PUBLICATIONDATE", existing_columns, "PUBLICATION-DATE"),

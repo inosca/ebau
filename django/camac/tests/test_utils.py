@@ -47,16 +47,16 @@ def test_get_dict_item_default():
 
 
 @pytest.mark.parametrize(
-    "input_date,expected",
+    ("input_date", "expected"),
     [
-        [date(2025, 2, 28), False],  # Friday
-        [date(2025, 3, 1), True],  # Saturday
-        [date(2025, 3, 2), True],  # Sunday
-        [date(2025, 3, 3), False],  # Monday
-        [date(2025, 3, 4), False],  # Tuesday
-        [date(2025, 3, 5), False],  # Wednesday
-        [date(2025, 3, 6), False],  # Thursday
-        [date(2025, 3, 7), False],  # Friday
+        (date(2025, 2, 28), False),  # Friday
+        (date(2025, 3, 1), True),  # Saturday
+        (date(2025, 3, 2), True),  # Sunday
+        (date(2025, 3, 3), False),  # Monday
+        (date(2025, 3, 4), False),  # Tuesday
+        (date(2025, 3, 5), False),  # Wednesday
+        (date(2025, 3, 6), False),  # Thursday
+        (date(2025, 3, 7), False),  # Friday
     ],
 )
 def test_is_weekend(input_date, expected):
@@ -76,28 +76,28 @@ def test_is_public_holiday_not_implemented(settings, input_date, set_application
 
 
 @pytest.mark.parametrize(
-    "input_date,expected",
+    ("input_date", "expected"),
     [
-        [date(2025, 1, 1), True],  # New Year's Day
-        [date(2025, 1, 2), False],  # Berchtold's Day not in GR
-        [date(2025, 1, 3), False],
-        [date(2025, 4, 17), False],
-        [date(2025, 4, 18), False],  # Good Friday not in GR
-        [date(2025, 4, 19), False],
-        [date(2025, 4, 20), False],
-        [date(2025, 4, 21), True],  # Easter Monday
-        [date(2025, 4, 22), False],
-        [date(2025, 5, 28), False],
-        [date(2025, 5, 29), True],  # Ascension Day
-        [date(2025, 5, 30), False],
-        [date(2025, 6, 8), False],
-        [date(2025, 6, 9), True],  # Whit Monday
-        [date(2025, 8, 1), True],  # Swiss National Day
-        [date(2025, 8, 2), False],
-        [date(2025, 12, 24), False],
-        [date(2025, 12, 25), True],  # Christmas Day
-        [date(2025, 12, 26), True],  # St. Stephen's Day
-        [date(2025, 12, 27), False],
+        (date(2025, 1, 1), True),  # New Year's Day
+        (date(2025, 1, 2), False),  # Berchtold's Day not in GR
+        (date(2025, 1, 3), False),
+        (date(2025, 4, 17), False),
+        (date(2025, 4, 18), False),  # Good Friday not in GR
+        (date(2025, 4, 19), False),
+        (date(2025, 4, 20), False),
+        (date(2025, 4, 21), True),  # Easter Monday
+        (date(2025, 4, 22), False),
+        (date(2025, 5, 28), False),
+        (date(2025, 5, 29), True),  # Ascension Day
+        (date(2025, 5, 30), False),
+        (date(2025, 6, 8), False),
+        (date(2025, 6, 9), True),  # Whit Monday
+        (date(2025, 8, 1), True),  # Swiss National Day
+        (date(2025, 8, 2), False),
+        (date(2025, 12, 24), False),
+        (date(2025, 12, 25), True),  # Christmas Day
+        (date(2025, 12, 26), True),  # St. Stephen's Day
+        (date(2025, 12, 27), False),
     ],
 )
 def test_is_public_holiday_gr(
@@ -109,16 +109,16 @@ def test_is_public_holiday_gr(
 
 
 @pytest.mark.parametrize(
-    "input_date,expected",
+    ("input_date", "expected"),
     [
-        [date(2025, 1, 1), True],  # New Year's Day
-        [date(2025, 12, 25), True],  # Weihnachten
-        [date(2025, 12, 26), True],  # Stephanstag
-        [date(2025, 12, 27), True],  # Betriebsferien
-        [date(2025, 12, 28), True],  # Betriebsferien
-        [date(2025, 12, 29), True],  # Betriebsferien
-        [date(2025, 12, 30), True],  # Betriebsferien
-        [date(2025, 12, 31), True],  # Betriebsferien
+        (date(2025, 1, 1), True),  # New Year's Day
+        (date(2025, 12, 25), True),  # Weihnachten
+        (date(2025, 12, 26), True),  # Stephanstag
+        (date(2025, 12, 27), True),  # Betriebsferien
+        (date(2025, 12, 28), True),  # Betriebsferien
+        (date(2025, 12, 29), True),  # Betriebsferien
+        (date(2025, 12, 30), True),  # Betriebsferien
+        (date(2025, 12, 31), True),  # Betriebsferien
     ],
 )
 def test_is_public_holiday_ag(
@@ -131,20 +131,20 @@ def test_is_public_holiday_ag(
 
 @pytest.mark.parametrize("enable_delay", [True, False])
 @pytest.mark.parametrize(
-    "input_date,expected",
+    ("input_date", "expected"),
     [
         # No-holiday Friday
-        [date(2025, 2, 28), date(2025, 2, 28)],
+        (date(2025, 2, 28), date(2025, 2, 28)),
         # No holiday Monday
-        [date(2025, 3, 2), date(2025, 3, 3)],
+        (date(2025, 3, 2), date(2025, 3, 3)),
         # Weekend gap Saturday
-        [date(2025, 3, 1), date(2025, 3, 3)],
+        (date(2025, 3, 1), date(2025, 3, 3)),
         # Weekend gap Sunday
-        [date(2025, 3, 3), date(2025, 3, 3)],
+        (date(2025, 3, 3), date(2025, 3, 3)),
         # New Year's Day -> Skip new_years_day for GR,
-        [date(2025, 1, 1), date(2025, 1, 2)],
+        (date(2025, 1, 1), date(2025, 1, 2)),
         # # Saturday -> Skip weekend + easter_monday for GR
-        [date(2025, 4, 19), date(2025, 4, 22)],
+        (date(2025, 4, 19), date(2025, 4, 22)),
     ],
 )
 def test_delay_next_workingday(
@@ -170,7 +170,7 @@ def test_delay_next_workingday(
 
 
 @pytest.mark.parametrize(
-    "fail_forever, expectation",
+    ("fail_forever", "expectation"),
     [
         (True, pytest.raises(RuntimeError)),
         (False, no_exception()),
@@ -261,7 +261,7 @@ def test_get_uversioned_slug():
 
 
 @pytest.mark.parametrize(
-    "has_group, expected_return_value",
+    ("has_group", "expected_return_value"),
     [
         (True, True),
         (False, False),
@@ -292,7 +292,7 @@ def base_table():
 
 
 @pytest.mark.parametrize(
-    "value, expected_output",
+    ("value", "expected_output"),
     [
         (None, ""),
         ("multiple\fpages", "multiplepages"),
@@ -337,7 +337,7 @@ def reset_sorl_config():
 
 
 @pytest.mark.parametrize(
-    "storage, expect_result",
+    ("storage", "expect_result"),
     [
         (None, lambda thumb: thumb.storage.file_permissions_mode == 420),
         (lf("django_s3_mock"), lambda thumb: thumb.storage.url("asdf")),

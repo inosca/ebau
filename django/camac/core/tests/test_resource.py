@@ -6,11 +6,15 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "resource__class_field,r_ember_list__instance_states",
+    ("resource__class_field", "r_ember_list__instance_states"),
     [("hasPendingBillingEntry displaySearch", "1,2,3")],
 )
 @pytest.mark.parametrize(
-    "available_resource__available_resource_id,resource__template,expected_link",
+    (
+        "available_resource__available_resource_id",
+        "resource__template",
+        "expected_link",
+    ),
     [
         # Dashboard takes the static slug from the template
         ("page", "/dashboard/foo.phtml", "/static-content/foo"),
@@ -54,7 +58,7 @@ def test_resource_links(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,expect_gwr_global",
+    ("service_group__name", "expect_gwr_global"),
     [
         ("municipality", True),
         ("municipality-light", False),

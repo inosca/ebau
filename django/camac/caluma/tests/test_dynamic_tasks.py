@@ -13,7 +13,13 @@ from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(
-    "workflow_id,decision,decision_type,involve_geometer,expected_case_status",
+    (
+        "workflow_id",
+        "decision",
+        "decision_type",
+        "involve_geometer",
+        "expected_case_status",
+    ),
     [
         (
             "building-permit",
@@ -180,7 +186,12 @@ def test_dynamic_task_after_decision(
 
 @pytest.mark.freeze_time("2025-11-06 15:15:15+02:00")
 @pytest.mark.parametrize(
-    "is_deactivated,should_continue_after_decision,involve_geometer,expected_tasks",
+    (
+        "is_deactivated",
+        "should_continue_after_decision",
+        "involve_geometer",
+        "expected_tasks",
+    ),
     [
         (
             False,
@@ -255,7 +266,14 @@ def test_dynamic_task_after_decision_with_check_prevent_submit(
 
 
 @pytest.mark.parametrize(
-    "cm_enabled,cm_created,cm_started,positive_decision,form_id,expected_tasks",
+    (
+        "cm_enabled",
+        "cm_created",
+        "cm_started",
+        "positive_decision",
+        "form_id",
+        "expected_tasks",
+    ),
     [
         # CONSTRUCTION-MONITORING:
         # create init after positive decision, it was not created before
@@ -329,7 +347,7 @@ def test_after_decision_gr(
 
 
 @pytest.mark.parametrize(
-    "afb_answered,afb_skipped,should_continue,expected_tasks",
+    ("afb_answered", "afb_skipped", "should_continue", "expected_tasks"),
     [
         (True, False, True, {"check-pa", "init-construction-monitoring"}),
         (False, True, True, {"check-pa", "init-construction-monitoring"}),
@@ -464,7 +482,7 @@ def test_dynamic_task_after_inquiries_completed(
 
 
 @pytest.mark.parametrize(
-    "is_appeal,expected_tasks",
+    ("is_appeal", "expected_tasks"),
     [
         (
             False,
@@ -510,7 +528,7 @@ def test_dynamic_task_after_ebau_number(
 
 
 @pytest.mark.parametrize(
-    "is_appeal,is_bab,form_slug,expected_tasks",
+    ("is_appeal", "is_bab", "form_slug", "expected_tasks"),
     [
         (
             False,
@@ -596,7 +614,7 @@ def test_dynamic_task_after_submit(
 
 
 @pytest.mark.parametrize(
-    "decision,expected_tasks",
+    ("decision", "expected_tasks"),
     [
         ("ACCEPTED", set()),
         ("REJECTED", {"fill-additional-demand"}),
@@ -627,7 +645,7 @@ def test_dynamic_task_after_check_additional_demand(
 
 
 @pytest.mark.parametrize(
-    "decision_slug,work_item_status",
+    ("decision_slug", "work_item_status"),
     [
         ("foobar", WorkItem.STATUS_SUSPENDED),
         (
@@ -671,7 +689,7 @@ def test_dynamic_task_resume_check_gwr_relevancy_work_item(
 
 
 @pytest.mark.parametrize(
-    "passed_addressed_groups,groups_with_existing,create_additional_demand",
+    ("passed_addressed_groups", "groups_with_existing", "create_additional_demand"),
     [
         (["1"], ["1"], False),
         (["1", "2"], ["1", "2"], False),
@@ -714,7 +732,13 @@ def test_dynamic_task_after_create_inquiry(
 
 
 @pytest.mark.parametrize(
-    "root_form,task_id,has_rejection_answer,geometer_required,expected_tasks",
+    (
+        "root_form",
+        "task_id",
+        "has_rejection_answer",
+        "geometer_required",
+        "expected_tasks",
+    ),
     [
         ("main-form", "formal-exam", True, True, ["reject"]),
         ("main-form", "formal-exam", True, False, ["reject"]),
@@ -773,7 +797,7 @@ def test_dynamic_task_after_exam(
 
 
 @pytest.mark.parametrize(
-    "perform_cadastral_survey,expected_tasks",
+    ("perform_cadastral_survey", "expected_tasks"),
     [
         (True, ["cadastral-survey"]),
         (False, []),
@@ -813,7 +837,7 @@ def test_dynamic_task_after_check_sb2(
 
 
 @pytest.mark.parametrize(
-    "decision_answer,gwr_answer,expected_tasks",
+    ("decision_answer", "gwr_answer", "expected_tasks"),
     [
         (
             "entscheid-beurteilung-bewilligt",
@@ -868,7 +892,7 @@ def test_dynamic_task_gwr_relevancy_after_decision_ur(
 
 
 @pytest.mark.parametrize(
-    "answer,expected_tasks",
+    ("answer", "expected_tasks"),
     [
         (
             "decision-task-nachfuehrungsgeometer-ja",
@@ -908,7 +932,7 @@ def test_dynamic_task_geometer_after_decision_ur(
 
 
 @pytest.mark.parametrize(
-    "involve_geometer,involve_gebaeudeschaetzung,expected_tasks",
+    ("involve_geometer", "involve_gebaeudeschaetzung", "expected_tasks"),
     [
         (
             "decision-task-nachfuehrungsgeometer-ja",
@@ -958,7 +982,14 @@ def test_after_complete_construction_monitoring_ur(
 
 
 @pytest.mark.parametrize(
-    "main_form_slug,complete_check_answer,should_generate_additional_demand_task,should_generate_reject_task,should_generate_bk_task, should_generate_rpg_task",
+    (
+        "main_form_slug",
+        "complete_check_answer",
+        "should_generate_additional_demand_task",
+        "should_generate_reject_task",
+        "should_generate_bk_task",
+        "should_generate_rpg_task",
+    ),
     [
         (
             "building-permit",
@@ -1064,7 +1095,13 @@ def test_dynamic_task_after_complete_check_ur(
 
 
 @pytest.mark.parametrize(
-    "needs_approval,is_approved,previous_task,selected_steps,expected_tasks",
+    (
+        "needs_approval",
+        "is_approved",
+        "previous_task",
+        "selected_steps",
+        "expected_tasks",
+    ),
     [
         (
             True,
@@ -1173,7 +1210,7 @@ def test_dynamic_task_after_construction_step(
 
 @pytest.mark.parametrize("construction_monitoring_enabled", [True, False])
 @pytest.mark.parametrize(
-    "form_slug,expected_tasks",
+    ("form_slug", "expected_tasks"),
     [
         ("bauanzeige", ["distribution"]),
         ("solaranlage", ["distribution"]),
@@ -1219,7 +1256,7 @@ def test_dynamic_task_after_formal_exam(
 
 
 @pytest.mark.parametrize(
-    "expected_value,answer",
+    ("expected_value", "answer"),
     [
         (
             ["construction-control"],
@@ -1249,7 +1286,7 @@ def test_after_complete_instance(
 
 
 @pytest.mark.parametrize(
-    "expected_value,answer",
+    ("expected_value", "answer"),
     [
         (
             ["construction-control"],
@@ -1281,7 +1318,7 @@ def test_construction_control(
 
 
 @pytest.mark.parametrize(
-    "expected_value,massnahmen_answer,schutzraum_answer",
+    ("expected_value", "massnahmen_answer", "schutzraum_answer"),
     [
         (
             ["zs-ersatzbeitrag-pruefen"],
@@ -1326,7 +1363,7 @@ def test_after_schnurgeruestabnahme_kontrollieren_uri(
 
 
 @pytest.mark.parametrize(
-    "work_item_exists,gwr_answer,expected_value",
+    ("work_item_exists", "gwr_answer", "expected_value"),
     [
         (True, "fuer-gwr-relevant-ja", ["construction-step-gwr-state-demolition"]),
         (True, "fuer-gwr-relevant-nein", []),
@@ -1368,7 +1405,7 @@ def test_after_gebaeudeabbruch_melden(
 
 
 @pytest.mark.parametrize(
-    "work_item_exists,gwr_answer,expected_value",
+    ("work_item_exists", "gwr_answer", "expected_value"),
     [
         (
             True,
@@ -1414,7 +1451,7 @@ def test_after_baubeginn_melden(
 
 
 @pytest.mark.parametrize(
-    "work_item_exists,gwr_answer,expected_value",
+    ("work_item_exists", "gwr_answer", "expected_value"),
     [
         (True, "fuer-gwr-relevant-ja", ["construction-step-gwr-state-building"]),
         (True, "fuer-gwr-relevant-nein", []),
@@ -1456,7 +1493,7 @@ def test_after_schlussabnahme_gebaeude(
 
 
 @pytest.mark.parametrize(
-    "work_item_exists,gwr_answer,expected_value",
+    ("work_item_exists", "gwr_answer", "expected_value"),
     [
         (True, "fuer-gwr-relevant-ja", ["open-gwr-construction-project"]),
         (True, "fuer-gwr-relevant-nein", []),
@@ -1498,7 +1535,7 @@ def test_after_check_gwr_relevancy(
 
 
 @pytest.mark.parametrize(
-    "publication_required,information_of_neighbors_required,expected_tasks",
+    ("publication_required", "information_of_neighbors_required", "expected_tasks"),
     [
         (False, False, ["create-publication", "create-information-of-neighbors"]),
         (
@@ -1563,7 +1600,7 @@ def test_dynamic_task_maybe_publication(
 
 
 @pytest.mark.parametrize(
-    "form_slug,expected_tasks",
+    ("form_slug", "expected_tasks"),
     [
         (
             "main-form",
@@ -1638,7 +1675,12 @@ def test_dynamic_task_after_submit_ag(
 
 
 @pytest.mark.parametrize(
-    "inquiry_answer, afb_in_addressed_groups, existing_work_item, should_create_work_item",
+    (
+        "inquiry_answer",
+        "afb_in_addressed_groups",
+        "existing_work_item",
+        "should_create_work_item",
+    ),
     [
         ("inquiry-answer-status-not-involved", True, False, False),
         ("inquiry-answer-status-positive", True, False, True),
@@ -1709,7 +1751,7 @@ def test_resolve_maybe_trigger_billing(
             assert not trigger_billing_items.exists()
 
 
-@pytest.mark.parametrize("can_continue, expected_index", [(True, 2), (False, 0)])
+@pytest.mark.parametrize(("can_continue", "expected_index"), [(True, 2), (False, 0)])
 @pytest.mark.django_db
 def test_resolve_after_construction_step_item(
     caluma_task_factory,

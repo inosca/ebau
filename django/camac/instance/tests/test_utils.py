@@ -9,7 +9,13 @@ from camac.instance.utils import (
 
 
 @pytest.mark.parametrize(
-    "current_service_name,is_rsta,involved_municipality_name,caluma_form_municipality_name,expected_service_name",
+    (
+        "current_service_name",
+        "is_rsta",
+        "involved_municipality_name",
+        "caluma_form_municipality_name",
+        "expected_service_name",
+    ),
     [
         ("Leitbehörde Bern", False, None, None, "Baukontrolle Bern"),
         (
@@ -95,7 +101,7 @@ def test_set_construction_control(
 
 @pytest.mark.freeze_time("2025-11-05 15:15:15+02:00")
 @pytest.mark.parametrize(
-    "service_group_name,meta_config,expected_result",
+    ("service_group_name", "meta_config", "expected_result"),
     [
         # No configuration (not deactivated)
         ("municipality", {}, False),

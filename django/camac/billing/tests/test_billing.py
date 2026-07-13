@@ -45,7 +45,7 @@ def test_calculate_final_rate() -> None:
 
 
 @pytest.mark.parametrize(
-    "construction_costs,expected_final_rate",
+    ("construction_costs", "expected_final_rate"),
     [
         # Minimum of 400
         (0, 400),
@@ -149,7 +149,7 @@ def test_get_totals() -> None:
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_status,expected_count",
+    ("role__name", "expected_status", "expected_count"),
     [
         ("Applicant", status.HTTP_200_OK, 0),
         ("Municipality", status.HTTP_200_OK, 5),
@@ -217,7 +217,7 @@ def test_billing_entry_create_rbac(
 # Permissions module: Creating billing entries requires
 # billing-write permission
 @pytest.mark.parametrize(
-    "role__name,has_permission,expected_status",
+    ("role__name", "has_permission", "expected_status"),
     [
         ("Municipality", True, status.HTTP_201_CREATED),
         ("Municipality", False, status.HTTP_403_FORBIDDEN),
@@ -271,7 +271,7 @@ def test_billing_entry_create_acl(
 
 
 @pytest.mark.parametrize(
-    "role__name,method,has_access,expected_count",
+    ("role__name", "method", "has_access", "expected_count"),
     [
         ("Municipality", "get_queryset_for_municipality", True, 1),
         ("Service", "get_queryset_for_service", True, 1),
@@ -342,12 +342,11 @@ def test_billing_entry_release_for_clearing_rbac(
 # Permissions module: Requires specific service group and permission "billing-write"
 @pytest.mark.freeze_time("2023-11-06")
 @pytest.mark.parametrize(
-    "role__name,has_service_group,has_permission,expected_status",
+    ("role__name", "has_service_group", "has_permission", "expected_status"),
     [
         ("Municipality", True, True, status.HTTP_204_NO_CONTENT),
         ("Municipality", False, True, status.HTTP_403_FORBIDDEN),
         ("Municipality", True, False, status.HTTP_403_FORBIDDEN),
-        ("Municipality", True, True, status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_billing_entry_release_for_clearing_acl(
@@ -391,7 +390,7 @@ def test_billing_entry_release_for_clearing_acl(
 # RBAC: Can only delete own uncharged billing entries
 @pytest.mark.freeze_time("2023-11-06")
 @pytest.mark.parametrize(
-    "role__name,is_charged,is_other_group,expect_forbidden",
+    ("role__name", "is_charged", "is_other_group", "expect_forbidden"),
     [
         ("Municipality", True, False, True),
         ("Municipality", False, False, False),
@@ -434,7 +433,13 @@ def test_billing_entry_delete_rbac(
 # requires permission "billing-write"
 @pytest.mark.freeze_time("2023-11-06")
 @pytest.mark.parametrize(
-    "role__name,is_charged,is_other_group,has_permission,expect_forbidden",
+    (
+        "role__name",
+        "is_charged",
+        "is_other_group",
+        "has_permission",
+        "expect_forbidden",
+    ),
     [
         ("Municipality", True, False, True, True),
         ("Municipality", False, False, True, False),
@@ -547,7 +552,7 @@ def test_billing_entry_create_with_ag_processing_fee(
 
 
 @pytest.mark.parametrize(
-    "product_number_config,product_number,response_http_code",
+    ("product_number_config", "product_number", "response_http_code"),
     [
         (
             [

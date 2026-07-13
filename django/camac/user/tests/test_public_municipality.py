@@ -19,7 +19,7 @@ def test_public_municipality(
 
 
 @pytest.mark.parametrize(
-    "application_name,short_name",
+    ("application_name", "short_name"),
     [("kt_bern", "be"), ("kt_ag", "ag")],
 )
 def test_public_municipality_canton_aware(
@@ -55,7 +55,7 @@ def test_public_municipality_canton_aware(
 
 
 @pytest.mark.parametrize(
-    "service_t__name,service_t__language",
+    ("service_t__name", "service_t__language"),
     [("je ne sais pas", "fr")],
 )
 def test_public_municipality_multilingual_be(

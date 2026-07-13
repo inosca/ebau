@@ -51,7 +51,7 @@ def ag_services(service_factory, service):
 
 @pytest.mark.parametrize("is_authority", [True, False])
 @pytest.mark.parametrize(
-    "service_group__name,service_slug",
+    ("service_group__name", "service_slug"),
     [
         ("municipality", None),
         ("municipality-light", None),

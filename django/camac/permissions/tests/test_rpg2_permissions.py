@@ -4,7 +4,7 @@ from camac.permissions.api import PermissionManager
 
 
 @pytest.mark.parametrize(
-    "service__slug,role__name,has_acl,has_work_item,expected_result",
+    ("service__slug", "role__name", "has_acl", "has_work_item", "expected_result"),
     [
         # ROLES_INTERNAL_NO_READONLY: read & write
         (
@@ -64,7 +64,7 @@ def test_form_rpg2_permissions_be(
 
 
 @pytest.mark.parametrize(
-    "service__slug,role__name,instance_state_name,expected_result",
+    ("service__slug", "role__name", "instance_state_name", "expected_result"),
     [
         # ROLES_INTERNAL_NO_READONLY: read & write, allowed instance state
         (
@@ -113,7 +113,14 @@ def test_form_rpg2_permissions_state_be(
 
 
 @pytest.mark.parametrize(
-    "service__slug,role__name,access_level,has_acl,has_work_item,expected_result",
+    (
+        "service__slug",
+        "role__name",
+        "access_level",
+        "has_acl",
+        "has_work_item",
+        "expected_result",
+    ),
     [
         # ROLES_NO_READONLY: read & write
         (
