@@ -79,14 +79,14 @@ loadconfig-camac: ## Load the camac configuration
 .PHONY: loadconfig-dms
 loadconfig-dms: ## Load the DMS configuration
 	@if docker compose config|grep -q document-merge-service; then \
-		docker compose exec document-merge-service python manage.py loaddata /tmp/document-merge-service/dump.json; \
+		docker compose exec document-merge-service python manage.py loaddata /data/document-merge-service/dump.json; \
 		make update-templatefiles; \
 	fi
 
 .PHONY: dumpconfig-dms
 dumpconfig-dms: ## Dump the DMS configuration
 	@if docker compose config|grep -q document-merge-service; then \
-		docker compose exec -u root document-merge-service bash -c "python manage.py dumpdata api.Template > /tmp/document-merge-service/dump.json" ; \
+		docker compose exec -u root document-merge-service bash -c "python manage.py dumpdata api.Template > /data/document-merge-service/dump.json" ; \
 		npx --yes prettier@3.0.3 --log-level silent --write "document-merge-service/${APPLICATION}/dump.json"; \
 	fi
 
@@ -332,8 +332,8 @@ watch-templatefiles: # Upload DMS templates to the local S3
 
 .PHONY: update-templatefiles
 update-templatefiles: # Upload DMS templates to the local S3
-	@docker compose exec document-merge-service python manage.py upload_local_templates -s '/tmp/document-merge-service/templatefiles/*.docx'
-	@docker compose exec document-merge-service python manage.py upload_local_templates -s '/tmp/document-merge-service/templatefiles/*.xlsx'
+	@docker compose exec document-merge-service python manage.py upload_local_templates -s '/data/document-merge-service/templatefiles/*.docx'
+	@docker compose exec document-merge-service python manage.py upload_local_templates -s '/data/document-merge-service/templatefiles/*.xlsx'
 
 .PHONY: prettier-check
 prettier-check: # Check formatting of yml and config files with prettier
