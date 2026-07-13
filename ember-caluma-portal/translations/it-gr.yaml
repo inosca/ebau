@@ -7,6 +7,7 @@ index:
 
 instances:
   rejectionText: "Tenere conto del riscontro dell'autorità direttiva (vedi testo «Motivazione del respingimento»). Se desidera rielaborare il dossier e trasmetterlo nuovamente può farlo qui. Si prega di osservare che sarà creata una copia del presente dossier."
+  withdrawalRequestCommunicationText: "«{communications}»."
   new:
     building-permit:
       title: "Procedura per il rilascio della licenza edilizia"
