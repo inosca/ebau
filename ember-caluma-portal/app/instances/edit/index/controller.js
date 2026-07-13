@@ -180,6 +180,13 @@ export default class InstancesEditIndexController extends Controller {
     );
   }
 
+  get withdrawalRequestDisabled() {
+    return (
+      hasFeature("withdrawal.light") &&
+      this.editController.instance?.get("activeService.usesEchApi")
+    );
+  }
+
   @dropTask
   *withdrawInstance() {
     if (!(yield confirm(this.intl.t("instances.withdrawInstanceModal")))) {

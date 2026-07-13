@@ -370,13 +370,19 @@
           <p class="uk-alert-primary" uk-alert>
             {{t "instances.withdrawalRequestedText"}}
             <LinkTo @route="instances.edit.communications">
-              {{t "instances.withdrawalRequestCommunicationText"}}
+              {{t
+                "instances.withdrawalRequestCommunicationText"
+                communications=(t "nav.communications")
+              }}
             </LinkTo>
           </p>
         {{else}}
           <UkButton
             @onClick={{perform this.withdrawInstance}}
-            @disabled={{this.withdrawInstance.isRunning}}
+            @disabled={{or
+              this.withdrawInstance.isRunning
+              this.withdrawalRequestDisabled
+            }}
             @loading={{this.withdrawInstance.isRunning}}
           >
             {{#if (has-feature "withdrawal.light")}}
@@ -385,6 +391,11 @@
               {{t "instances.withdrawInstance"}}
             {{/if}}
           </UkButton>
+          {{#if this.withdrawalRequestDisabled}}
+            <p class="uk-alert-primary" uk-alert>
+              {{t "instances.withdrawalRequestDisabledText"}}
+            </p>
+          {{/if}}
         {{/if}}
       {{/if}}
 

@@ -54,6 +54,9 @@ export default {
     v2: true,
     targetDeadlineDate: true,
   },
+  withdrawal: {
+    light: true,
+  },
   changeGeometer: {
     enabled: false,
   },
