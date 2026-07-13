@@ -8,7 +8,9 @@ export default class ServicePermissionsIndexRoute extends Route {
   @service ebauModules;
 
   get defaultRoute() {
-    return mainConfig.servicePermissions?.includeSubRoutes[0] || "permissions";
+    return (
+      mainConfig.servicePermissions?.includeSubRoutes[0]?.route || "permissions"
+    );
   }
 
   redirect() {
