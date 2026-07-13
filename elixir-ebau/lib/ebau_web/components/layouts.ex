@@ -54,7 +54,7 @@ defmodule EbauWeb.Layouts do
             <.language_switcher current_path={@current_path} />
           </.navbar_item>
           <.navbar_item>
-            <a href={~p"/sign-out"} title={gettext("Sign out")}>
+            <a href={~p"/elixir/sign-out"} title={gettext("Sign out")}>
               <span uk-icon="icon: sign-out"></span>
               <span class="uk-hidden">{gettext("Sign out")}</span>
             </a>
@@ -133,7 +133,7 @@ defmodule EbauWeb.Layouts do
     >
       <ul class="uk-nav uk-dropdown-nav">
         <li :for={group <- @scope.actor.user.groups}>
-          <.form for={%{}} action={~p"/switch-group/#{group.id}"} method="post">
+          <.form for={%{}} action={~p"/elixir/switch-group/#{group.id}"} method="post">
             <input type="hidden" name="return_to" value={@current_path} />
             <.uk_button
               type="submit"
@@ -180,7 +180,7 @@ defmodule EbauWeb.Layouts do
       >
         <ul class="uk-nav uk-dropdown-nav">
           <li :for={language <- @supported_languages}>
-            <.form for={%{}} action={~p"/switch-language/#{language}"} method="post">
+            <.form for={%{}} action={~p"/elixir/switch-language/#{language}"} method="post">
               <input type="hidden" name="return_to" value={@current_path} />
               <.uk_button
                 type="submit"

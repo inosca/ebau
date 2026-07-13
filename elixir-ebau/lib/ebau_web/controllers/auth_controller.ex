@@ -21,7 +21,7 @@ defmodule EbauWeb.AuthController do
   end
 
   def sign_in(conn, _params) do
-    redirect(conn, external: ~p"/auth/user/ebau")
+    redirect(conn, external: ~p"/elixir/auth/user/ebau")
   end
 
   def failure(conn, activity, reason) do
@@ -44,7 +44,7 @@ defmodule EbauWeb.AuthController do
 
     conn
     |> put_flash(:error, message)
-    |> redirect(to: ~p"/sign-in")
+    |> redirect(to: ~p"/elixir/sign-in")
   end
 
   def sign_out(conn, _params) do

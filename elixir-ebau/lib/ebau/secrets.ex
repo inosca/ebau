@@ -53,7 +53,7 @@ defmodule Ebau.Secrets do
         path -> String.trim_trailing(path, "/")
       end
 
-    Endpoint.url() <> url_path <> "/auth"
+    Endpoint.url() <> url_path <> "/elixir/auth"
   end
 
   def keycloak_config, do: Application.fetch_env!(:ebau, :keycloak)

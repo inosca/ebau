@@ -11,6 +11,7 @@ defmodule EbauWeb.Router do
     plug :put_secure_browser_headers
     plug :load_from_session
     plug EbauWeb.Plugs.InitialiseGettext
+    plug EbauWeb.Plugs.StoreReturnTo
   end
 
   # LiveViews build their actor in `EbauWeb.LoadLiveContext`; only
@@ -46,16 +47,15 @@ defmodule EbauWeb.Router do
       live "/service-permissions/gis-links", Live.ServicePermissions.GisLinks
     end
 
-    auth_routes AuthController, Ebau.User.User, path: "/auth"
-    sign_out_route AuthController
-
-    get "/sign-in", AuthController, :sign_in
+    auth_routes AuthController, Ebau.User.User, path: "/elixir/auth"
+    sign_out_route AuthController, "/elixir/sign-out"
+    get "/elixir/sign-in", AuthController, :sign_in
 
     scope "/" do
       pipe_through :actor
 
-      post "/switch-group/:id", GroupController, :switch
-      post "/switch-language/:language", LocaleController, :set_locale
+      post "/elixir/switch-group/:id", GroupController, :switch
+      post "/elixir/switch-language/:language", LocaleController, :set_locale
     end
   end
 

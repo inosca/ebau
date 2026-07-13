@@ -26,7 +26,7 @@ defmodule EbauWeb.GroupControllerTest do
       second_group: second_group
     } do
       conn =
-        post(conn, ~p"/switch-group/#{second_group.id}", %{
+        post(conn, ~p"/elixir/switch-group/#{second_group.id}", %{
           "return_to" => "/service-permissions/gis-links"
         })
 
@@ -41,13 +41,14 @@ defmodule EbauWeb.GroupControllerTest do
       conn: conn,
       second_group: second_group
     } do
-      conn = post(conn, ~p"/switch-group/#{second_group.id}", %{})
+      conn = post(conn, ~p"/elixir/switch-group/#{second_group.id}", %{})
 
       assert redirected_to(conn) == "/"
     end
 
     test "rejects open-redirect return_to values", %{conn: conn, second_group: second_group} do
-      conn = post(conn, ~p"/switch-group/#{second_group.id}", %{"return_to" => "//evil.com"})
+      conn =
+        post(conn, ~p"/elixir/switch-group/#{second_group.id}", %{"return_to" => "//evil.com"})
 
       assert redirected_to(conn) == "/"
     end
@@ -55,7 +56,8 @@ defmodule EbauWeb.GroupControllerTest do
     test "refuses to switch to a group the user does not belong to", %{conn: conn} do
       other_actor = UserHelper.create_actor!(%{role: %{slug: "municipality-admin"}})
 
-      conn = post(conn, ~p"/switch-group/#{other_actor.group.id}", %{"return_to" => "/foo"})
+      conn =
+        post(conn, ~p"/elixir/switch-group/#{other_actor.group.id}", %{"return_to" => "/foo"})
 
       assert redirected_to(conn) == "/foo"
       refute Map.has_key?(conn.resp_cookies, "camac_group")
