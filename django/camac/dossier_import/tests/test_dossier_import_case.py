@@ -1,4 +1,3 @@
-import weakref
 from collections import OrderedDict
 from pathlib import Path
 
@@ -847,36 +846,6 @@ def test_reimport_delete_values(
             continue
         if orig_values[target]:
             assert getattr(md, target) in [[], None]
-
-
-@pytest.mark.django_db
-def test_delete_case_meta_field(
-    be_instance,
-    user,
-    group,
-    location,
-    dossier_import_settings,
-):
-    # using be_instance here. TODO: create (or use) an instance-fixture with a
-    # generic case.
-
-    # global import fails because of the modular settings that are unset at
-    # time if no config is selected..
-    from camac.dossier_import.writers import CaseMetaWriter, DossierWriter
-
-    target = "case-meta-field"
-
-    class Writer(DossierWriter):
-        case_meta_field = CaseMetaWriter(target=target)
-
-    writer = Writer(user_id=user.pk, group_id=group.pk)
-    writer.case_meta_field.owner = weakref.proxy(writer)
-    writer.case_meta_field.write(be_instance, "the-meta")
-    be_instance.refresh_from_db()
-    assert be_instance.case.meta.get(target) is not None
-    writer.case_meta_field.write(be_instance, writer.delete_keyword)
-    be_instance.refresh_from_db()
-    assert be_instance.case.meta.get(target) is None
 
 
 @pytest.mark.parametrize(

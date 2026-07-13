@@ -15,8 +15,8 @@ from camac.dossier_import.writers import (
     CalumaCombinedStreetAndNumberWriter,
     CalumaListAnswerWriter,
     CalumaPlotDataWriter,
-    CaseMetaWriter,
     DossierWriter,
+    SubmitDateWriter,
 )
 from camac.instance.models import Instance, InstanceState
 from camac.settings.utils import is_module_enabled
@@ -62,9 +62,7 @@ class KtGraubundenDossierWriter(DossierWriter):
     )
     usage = CalumaAnswerWriter(target="nutzungsplanung-grundnutzung")
     application_type = CalumaAnswerWriter(target="geschaeftstyp")
-    submit_date = CaseMetaWriter(
-        target="submit-date", formatter="datetime-to-string", protected=True
-    )
+    submit_date = SubmitDateWriter()
     decision_date = CalumaAnswerWriter(target="decision-date", task="decision")
     publication_date = CalumaAnswerWriter(target="datum-publikation")
     construction_start_date = CalumaAnswerWriter(target="datum-baubeginn")
