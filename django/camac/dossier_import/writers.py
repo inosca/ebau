@@ -618,29 +618,35 @@ class CalumaPlotDataWriter(CalumaListAnswerWriter):
         super().write(instance, compiled)
 
 
-class CaseMetaWriter(FieldWriter):
-    def __init__(self, formatter: str = None, *args, **kwargs):
-        self.formatter = formatter
-        super().__init__(*args, **kwargs)
+class SubmitDateWriter(FieldWriter):
+    """Write the submit date into the case's meta field.
 
-    def write(self, instance, value):
+    The value is stored under the `submit-date` key of `case.meta` as a string
+    formatted with `SUBMIT_DATE_FORMAT`. Naive datetimes are assumed to be in
+    UTC and made timezone-aware before formatting.
+
+    The field is always protected and can't be cleared on a reimport.
+    """
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs, target="submit-date", protected=True)
+
+    def write(self, instance: Instance, value: datetime | str | None):
         if not value:
             return
 
         if value == self.owner.delete_keyword:
-            if self.can_delete and instance.case.meta.get(self.target):
-                del instance.case.meta[self.target]
-                instance.case.save()
+            # The error message for the user is generated as a side-effect of
+            # the property `can_delete`. Since we need the error message, even
+            # though we know that deleting is not allowed, we trigger it here.
+            _ = self.can_delete
             return
 
-        formatted_value = value
-        if self.formatter == "datetime-to-string":
-            if not timezone.is_aware(value):
-                value = timezone.make_aware(value, UTC)
+        if not timezone.is_aware(value):
+            value = timezone.make_aware(value, UTC)
 
-            formatted_value = datetime.strftime(value, SUBMIT_DATE_FORMAT)
-        instance.case.meta[self.target] = formatted_value
-        instance.case.save()
+        instance.case.meta[self.target] = datetime.strftime(value, SUBMIT_DATE_FORMAT)
+        instance.case.save(update_fields=["meta"])
 
 
 class EbauNumberWriter(FieldWriter):

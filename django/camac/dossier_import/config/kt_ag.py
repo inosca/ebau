@@ -24,10 +24,10 @@ from camac.dossier_import.writers import (
     CalumaAnswerWriter,
     CalumaCombinedStreetAndNumberWriter,
     CalumaListAnswerWriter,
-    CaseMetaWriter,
     DossierWriter,
     FieldWriter,
     ResponsibleUserWriter,
+    SubmitDateWriter,
 )
 from camac.instance.models import Instance, JournalEntry
 from camac.tags.models import Keyword
@@ -297,9 +297,7 @@ class KtAargauDossierWriter(DossierWriter):
         writer=CalumaAnswerWriter(target="geschaeftstyp-import"),
     )
 
-    submit_date = CaseMetaWriter(
-        target="submit-date", formatter="datetime-to-string", protected=True
-    )
+    submit_date = SubmitDateWriter()
 
     publication_date = JournalWriter(
         lambda v: TextWithDate(text=f"Publikationsdatum: {v}") if v else None,

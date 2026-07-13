@@ -19,10 +19,10 @@ from camac.dossier_import.writers import (
     CalumaAnswerWriter,
     CalumaListAnswerWriter,
     CalumaPlotDataWriter,
-    CaseMetaWriter,
     DossierWriter,
     EbauNumberWriter,
     ResponsibleUserWriter,
+    SubmitDateWriter,
 )
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
 from camac.instance.domain_logic.decision import DecisionLogic
@@ -99,9 +99,7 @@ class KtBernDossierWriter(DossierWriter):
     )
     usage = CalumaAnswerWriter(target="nutzungszone")
     application_type = CalumaAnswerWriter(target="geschaeftstyp-import")
-    submit_date = CaseMetaWriter(
-        target="submit-date", formatter="datetime-to-string", protected=True
-    )
+    submit_date = SubmitDateWriter()
     decision_date = CalumaAnswerWriter(target="decision-date", task="decision")
     publication_date = CalumaAnswerWriter(target="datum-publikation")
     construction_start_date = CalumaAnswerWriter(target="datum-baubeginn")
