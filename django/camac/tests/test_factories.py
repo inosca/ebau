@@ -2,7 +2,7 @@ import pytest
 
 
 @pytest.mark.parametrize(
-    "factory_name, attr",
+    ("factory_name", "attr"),
     [
         ("work_item_list_filter_preset_factory", "query_params"),
         ("instance_acl_factory", "metainfo"),

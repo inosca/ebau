@@ -10,7 +10,7 @@ from camac.ech0211 import formatters
 
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize(
-    "config,appconf,camac_instance,_master_data_settings",
+    ("config", "appconf", "camac_instance", "_master_data_settings"),
     [
         (
             "kt_gr",
@@ -80,7 +80,7 @@ def test_generate_delivery(
 
 
 @pytest.mark.parametrize(
-    "value,expected",
+    ("value", "expected"),
     [
         ("Testweg 12a", ("Testweg", "12a")),
         ("Teststrasse", ("Teststrasse", None)),

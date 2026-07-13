@@ -29,7 +29,7 @@ EXPECTED_WORK_ITEM_COLUMNS = 15
 
 
 @pytest.mark.parametrize(
-    "role__name,setup_instance,expected_status,expected_rows",
+    ("role__name", "setup_instance", "expected_status", "expected_rows"),
     [
         ("Municipality", lf("statistics_ag_instance"), status.HTTP_200_OK, 2),
         (
@@ -199,7 +199,7 @@ def test_copy_template_sheets(
 
 
 @pytest.mark.parametrize(
-    "export_type,expected_base",
+    ("export_type", "expected_base"),
     [
         ("dossiers", "dossiers"),
         ("work_items", "work-items"),
@@ -209,7 +209,7 @@ def test_copy_template_sheets(
     ],
 )
 @pytest.mark.parametrize(
-    "available,expected_suffix",
+    ("available", "expected_suffix"),
     [
         ({"sg", "role", "default"}, "sg"),
         ({"role", "default"}, "role"),

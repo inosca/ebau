@@ -871,7 +871,7 @@ def test_dms_placeholders_be(
 
 @pytest.mark.freeze_time("2021-08-30")
 @pytest.mark.parametrize(
-    "role__name,app_instance,any_application",
+    ("role__name", "app_instance", "any_application"),
     [
         pytest.param(
             "municipality-admin",
@@ -907,7 +907,7 @@ def test_dms_placeholders_empty(
 
 @pytest.mark.freeze_time("2023-01-24")
 @pytest.mark.parametrize(
-    "language,expected",
+    ("language", "expected"),
     [("de", "24. Januar 2023"), ("fr", "24 janvier 2023"), ("en", "January 24, 2023")],
 )
 def test_human_readable_date(language, expected):
@@ -1053,7 +1053,7 @@ def test_dms_placeholders_ur(
 
 @pytest.mark.freeze_time("2016-06-06 13:37", tick=True)
 @pytest.mark.parametrize(
-    "role__name,service_group__name", [("municipality-lead", "municipality")]
+    ("role__name", "service_group__name"), [("municipality-lead", "municipality")]
 )
 @pytest.mark.django_db(
     transaction=True, reset_sequences=True
@@ -1174,12 +1174,12 @@ def test_dms_placeholders_ag(
 
 
 @pytest.mark.parametrize(
-    "publication_entry__publication_date,publication_entry__is_published",
+    ("publication_entry__publication_date", "publication_entry__is_published"),
     [(datetime(2026, 1, 30, tzinfo=timezone.timezone.utc), True)],
 )
 @pytest.mark.parametrize("role__name", ["Canton"])
 @pytest.mark.parametrize(
-    "publication_entry__publication_journal_number, expected_output",
+    ("publication_entry__publication_journal_number", "expected_output"),
     [
         (3, 3),
         (None, 5),
@@ -1199,7 +1199,7 @@ def test_publication_journal_number_override_sz(
     assert serializer.data["PUBLICATIONS"][0]["JOURNAL_NUMBER"] == expected_output
 
 
-@pytest.mark.parametrize("has_representative", (True, False))
+@pytest.mark.parametrize("has_representative", [True, False])
 @pytest.mark.django_db
 def test_objections_prefer_representative_participants_sz(
     sz_instance,
@@ -1478,7 +1478,7 @@ def test_dms_placeholders_sz(
 
 
 @pytest.mark.parametrize(
-    "options,expected",
+    ("options", "expected"),
     [
         ([False, True], "Ja"),
         ([False, False], "Nein"),
@@ -1491,7 +1491,7 @@ def test_yes_no(options, expected):
 
 
 @pytest.mark.parametrize(
-    "available_data,expected",
+    ("available_data", "expected"),
     [
         # ignore empty/invalid date
         (None, None),
@@ -1526,7 +1526,7 @@ def test_format_gis_center_coordinates(
 
 
 @pytest.mark.parametrize(
-    "coord_east,coord_north,expected",
+    ("coord_east", "coord_north", "expected"),
     [
         # no rounding
         (2760558.123, 1170288.456, "2’760’558 / 1’170’288"),
@@ -1554,7 +1554,7 @@ def test_get_koordinaten(coord_east, coord_north, expected, mocker):
 
 
 @pytest.mark.parametrize(
-    "field_name,is_collection,is_complex,expected_placeholders",
+    ("field_name", "is_collection", "is_complex", "expected_placeholders"),
     [
         ("literal_field", False, False, ["BATEAU", "BAT_DE", "CAT_DE", "CHAT"]),
         (
@@ -1816,7 +1816,7 @@ def test_aliased_placeholder_field(
 
 
 @pytest.mark.parametrize(
-    "props,expected_placeholders,expected_raises",
+    ("props", "expected_placeholders", "expected_raises"),
     [
         (
             [("notices", "MELDUNGEN")],

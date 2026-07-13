@@ -84,7 +84,7 @@ def be_data_sources(
         "CH643546955207,CH851446093521,CH673533354667",
     ],
 )
-@pytest.mark.vcr()
+@pytest.mark.vcr
 @pytest.mark.django_db
 def test_be_client(
     admin_client,
@@ -132,7 +132,7 @@ def test_be_client(
 )
 @pytest.mark.vcr(allow_playback_repeats=True)
 @pytest.mark.parametrize(
-    "run_task, expected_result",
+    ("run_task", "expected_result"),
     [
         (True, status.HTTP_400_BAD_REQUEST),
         (False, status.HTTP_202_ACCEPTED),

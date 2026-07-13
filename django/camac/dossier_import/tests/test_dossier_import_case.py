@@ -61,7 +61,7 @@ def test_bad_file_format_dossier_xlsx(
 @pytest.mark.parametrize("location__communal_federal_number", ["1312"])
 @pytest.mark.parametrize("service__external_identifier", ["2601"])
 @pytest.mark.parametrize(
-    "config,camac_instance,perm_settings,expected_warnings",
+    ("config", "camac_instance", "perm_settings", "expected_warnings"),
     [
         ("kt_schwyz", lf("sz_instance_with_form"), None, 0),
         # expected_warnings: BE has an invalid email in the repsonsible column.
@@ -169,7 +169,7 @@ def test_create_instance_dossier_import_case(
 # TODO: Check instance state skipping for dossier-import
 @pytest.mark.parametrize("can_perform_construction_monitoring", [True, False])
 @pytest.mark.parametrize(
-    "target_state,expected_work_items_states,expected_case_status",
+    ("target_state", "expected_work_items_states", "expected_case_status"),
     [
         (
             "SUBMITTED",
@@ -276,14 +276,14 @@ def test_set_workflow_state_sz(
 
 
 @pytest.mark.parametrize(
-    "config,camac_instance",
+    ("config", "camac_instance"),
     [
         ("kt_schwyz", lf("sz_instance")),
         ("kt_bern", lf("be_instance")),
     ],
 )
 @pytest.mark.parametrize(
-    "target_state,expected_work_items_states",
+    ("target_state", "expected_work_items_states"),
     [
         (
             "SUBMITTED",
@@ -767,7 +767,7 @@ def test_record_loading_invalid_coordinates(
 
 
 @pytest.mark.parametrize(
-    "config,camac_instance",
+    ("config", "camac_instance"),
     [
         ("kt_schwyz", lf("sz_instance")),
         ("kt_bern", lf("be_instance")),
@@ -793,7 +793,7 @@ def test_record_loading_all_empty(
 
 
 @pytest.mark.parametrize(
-    "config,camac_instance,import_rows",
+    ("config", "camac_instance", "import_rows"),
     [
         ("kt_schwyz", lf("sz_instance"), IMPORT_ROWS_SZ),
         ("kt_bern", lf("be_instance"), IMPORT_ROWS_BE),
@@ -880,7 +880,7 @@ def test_delete_case_meta_field(
 
 
 @pytest.mark.parametrize(
-    "config,camac_instance",
+    ("config", "camac_instance"),
     [
         ("kt_schwyz", lf("sz_instance")),
         ("kt_bern", lf("be_instance")),
@@ -934,9 +934,11 @@ def test_reimport_ignores_empty(
             continue
 
 
-@pytest.mark.parametrize("config,camac_instance", [("kt_schwyz", lf("sz_instance"))])
 @pytest.mark.parametrize(
-    "dossier_row_patch,expected",
+    ("config", "camac_instance"), [("kt_schwyz", lf("sz_instance"))]
+)
+@pytest.mark.parametrize(
+    ("dossier_row_patch", "expected"),
     [
         (
             {
@@ -975,7 +977,7 @@ def test_record_loading_exceptions(
 
 @pytest.mark.parametrize("dossier_exists", [False, lf("instance")])
 @pytest.mark.parametrize(
-    "loader,input_file,expected_exception,expected_existing",
+    ("loader", "input_file", "expected_exception", "expected_existing"),
     [
         (
             "zip-archive-xlsx",
@@ -1033,7 +1035,13 @@ def test_validation(
 
 
 @pytest.mark.parametrize(
-    "target_state,workflow_type,ebau_number,expected_work_items_states,expected_case_status",
+    (
+        "target_state",
+        "workflow_type",
+        "ebau_number",
+        "expected_work_items_states",
+        "expected_case_status",
+    ),
     [
         (
             "SUBMITTED",
@@ -1228,7 +1236,7 @@ def test_set_workflow_state_be(
 
 
 @pytest.mark.parametrize(
-    "target_state,expected_work_items_states,expected_case_status",
+    ("target_state", "expected_work_items_states", "expected_case_status"),
     [
         (
             "SUBMITTED",
@@ -1327,7 +1335,12 @@ def test_set_workflow_state_so(
 
 
 @pytest.mark.parametrize(
-    "construction_monitoring_enabled,target_state,expected_work_items_states,expected_case_status",
+    (
+        "construction_monitoring_enabled",
+        "target_state",
+        "expected_work_items_states",
+        "expected_case_status",
+    ),
     [
         (
             False,
@@ -1503,7 +1516,7 @@ def test_set_workflow_state_gr(
 
 
 @pytest.mark.parametrize(
-    "target_state,expected_work_items_states,expected_case_status",
+    ("target_state", "expected_work_items_states", "expected_case_status"),
     [
         (
             "SUBMITTED",
@@ -1612,7 +1625,7 @@ def test_set_workflow_state_ag(
 
 
 @pytest.mark.parametrize(
-    "config,camac_instance",
+    ("config", "camac_instance"),
     [
         ("kt_bern", lf("be_instance")),
         ("kt_schwyz", lf("sz_instance")),

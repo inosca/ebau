@@ -8,7 +8,7 @@ from camac.conftest import reload_urlconf
 
 
 @pytest.mark.parametrize(
-    "appconfig,_ech0211_settings",
+    ("appconfig", "_ech0211_settings"),
     [
         (
             lf("set_application_be"),

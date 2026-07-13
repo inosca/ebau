@@ -636,7 +636,7 @@ def category_setup(db, application_settings, attachment_section_factory, mocker)
     return run
 
 
-@pytest.fixture()
+@pytest.fixture
 def disable_alexandria_features(settings):
     """Disable Alexandria's additional features.
 

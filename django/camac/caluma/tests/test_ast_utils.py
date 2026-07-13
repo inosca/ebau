@@ -26,7 +26,7 @@ class FakeInfo:
 
 
 @pytest.mark.parametrize(
-    "input_data, expected_output",
+    ("input_data", "expected_output"),
     [
         (IntValueNode(value=3), 3),
         (FloatValueNode(value=9.1), 9.10),
@@ -99,7 +99,7 @@ def test_extract_filter_data():
 
 
 @pytest.mark.parametrize(
-    "filter_name, filter_value, expected_output",
+    ("filter_name", "filter_value", "expected_output"),
     [
         ("task", "some-task", {"some-task"}),
         ("tasks", ["some-task"], {"some-task"}),

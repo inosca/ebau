@@ -21,7 +21,7 @@ def app_settings_with_notif_templates(application_settings, notification_templat
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,expected_applicants",
+    ("role__name", "instance__user", "expected_applicants"),
     [
         ("Applicant", lf("admin_user"), 1),
         ("Public", lf("user"), 0),
@@ -86,7 +86,7 @@ def _sync_applicants(instance):
 @pytest.mark.parametrize("use_permission_mod", [True, False])
 @pytest.mark.parametrize("project_owner", [True, False])
 @pytest.mark.parametrize(
-    "role__name,instance__user,extra_applicants,expected_status",
+    ("role__name", "instance__user", "extra_applicants", "expected_status"),
     [
         (
             "Applicant",
@@ -171,7 +171,13 @@ def test_applicant_delete(
 @pytest.mark.parametrize("use_permission_mod", [True, False])
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,applicant_role,passed_email,existing_user,expected_status",
+    (
+        "role__name",
+        "applicant_role",
+        "passed_email",
+        "existing_user",
+        "expected_status",
+    ),
     [
         (
             "Applicant",
@@ -432,7 +438,9 @@ def test_applicant_create_token_exchange(
     )
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_applicant_delete_validation(
     admin_client,
     instance,

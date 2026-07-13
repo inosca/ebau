@@ -19,7 +19,7 @@ be moved to someplace else.
 
 
 @pytest.mark.parametrize(
-    "role__name, expect_results",
+    ("role__name", "expect_results"),
     [
         ("Geometer", 1),
         ("Service", 1),

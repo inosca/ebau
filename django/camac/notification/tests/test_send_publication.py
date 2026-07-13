@@ -154,16 +154,24 @@ def test_notify_publication_start(
 
 @pytest.mark.freeze_time("2024-05-13")
 @pytest.mark.parametrize(
-    "date_match,is_published,is_bab,has_publication_end_config,is_inquired,has_submissions,expected_outbox",
+    (
+        "date_match",
+        "is_published",
+        "is_bab",
+        "has_publication_end_config",
+        "is_inquired",
+        "has_submissions",
+        "expected_outbox",
+    ),
     [
-        [False, False, False, False, False, False, 0],
-        [True, False, False, False, False, False, 0],
-        [True, True, False, False, False, False, 0],
-        [True, True, True, False, False, False, 0],
-        [True, True, True, True, False, False, 0],
-        [True, True, True, True, True, False, 0],
+        (False, False, False, False, False, False, 0),
+        (True, False, False, False, False, False, 0),
+        (True, True, False, False, False, False, 0),
+        (True, True, True, False, False, False, 0),
+        (True, True, True, True, False, False, 0),
+        (True, True, True, True, True, False, 0),
         # only when all conditions are met, the notification is sent
-        [True, True, True, True, True, True, 1],
+        (True, True, True, True, True, True, 1),
     ],
 )
 @pytest.mark.django_db

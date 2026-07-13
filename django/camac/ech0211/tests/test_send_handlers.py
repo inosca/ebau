@@ -55,7 +55,7 @@ def mock_request_get(mocker):
 
 
 @pytest.mark.parametrize(
-    "xml_file,expected_send_handler",
+    ("xml_file", "expected_send_handler"),
     [
         ("accompanying_report", AccompanyingReportSendHandler),
         ("change_responsibility", ChangeResponsibilitySendHandler),
@@ -83,7 +83,16 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize(
-    "judgement,instance_state_name,has_permission,is_vorabklaerung,active,expected_state_name,document_backend,has_alexandria_move_permission",
+    (
+        "judgement",
+        "instance_state_name",
+        "has_permission",
+        "is_vorabklaerung",
+        "active",
+        "expected_state_name",
+        "document_backend",
+        "has_alexandria_move_permission",
+    ),
     [
         (
             ECH_JUDGEMENT_DECLINED,
@@ -534,7 +543,7 @@ def test_notice_ruling_send_handler_ag_declined(
 
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize(
-    "service_exists,instance_state_name,has_permission,success",
+    ("service_exists", "instance_state_name", "has_permission", "success"),
     [
         (True, "circulation_init", True, True),
         (True, "sb1", False, False),
@@ -629,7 +638,7 @@ def test_change_responsibility_send_handler(
 
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize(
-    "requesting_service,instance_state_name,success",
+    ("requesting_service", "instance_state_name", "success"),
     [
         ("leitbehoerde", "sb1", False),
         ("baukontrolle", "conclusion", True),
@@ -733,7 +742,7 @@ def test_close_dossier_send_handler(
 
 @pytest.mark.freeze_time("2020-02-23")
 @pytest.mark.parametrize(
-    "test_case,success",
+    ("test_case", "success"),
     [
         (None, True),
         ("no_deadline", True),
@@ -963,7 +972,7 @@ def test_task_send_handler_no_permission(
 
 
 @pytest.mark.parametrize(
-    "test_case,success",
+    ("test_case", "success"),
     [
         ("claim_not_enabled", False),
         ("wrong_state", False),
@@ -1119,7 +1128,8 @@ def test_task_send_claim_handler(
         ech_answer = fill_work_item.document.answers.filter(
             question_id="additional-demand-ech0211"
         ).first()
-        assert ech_answer and ech_answer.value == "true", (
+        assert ech_answer
+        assert ech_answer.value == "true", (
             "additional demand work item ech answer should be created"
         )
 
@@ -1141,7 +1151,7 @@ def test_task_send_claim_handler(
 
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize(
-    "has_permission,document_backend",
+    ("has_permission", "document_backend"),
     [(True, "alexandria"), (True, "camac-ng"), (False, "camac-ng")],
 )
 @pytest.mark.django_db
@@ -1253,14 +1263,14 @@ def test_kind_of_proceedings_send_handler(
 
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize(
-    "has_inquiry,has_attachment,document_backend,documents_available",
-    (
+    ("has_inquiry", "has_attachment", "document_backend", "documents_available"),
+    [
         (True, False, "camac-ng", True),
         (True, True, "camac-ng", True),
         (False, False, "camac-ng", True),
         (True, True, "alexandria", True),
         (True, True, "alexandria", False),
-    ),
+    ],
 )
 @pytest.mark.django_db
 def test_accompanying_report_send_handler(
@@ -1474,7 +1484,7 @@ def test_get_instance_id_error(admin_user, group, caluma_admin_user):
 
 @pytest.mark.freeze_time("2024-04-24")
 @pytest.mark.parametrize(
-    "role__name,has_create_permission,pass_permission,test_case,success",
+    ("role__name", "has_create_permission", "pass_permission", "test_case", "success"),
     [
         ("municipality-lead", True, True, "submit", True),
         ("municipality-lead", True, True, "file subsequently", False),

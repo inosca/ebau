@@ -147,7 +147,13 @@ def test_complete_decision_gr(
 
 
 @pytest.mark.parametrize(
-    "workflow,decision,decision_type,expected_instance_state,expected_text",
+    (
+        "workflow",
+        "decision",
+        "decision_type",
+        "expected_instance_state",
+        "expected_text",
+    ),
     [
         (
             "building-permit",
@@ -294,7 +300,13 @@ def test_complete_decision_be(
 
 @pytest.mark.freeze_time("2025-11-06 15:15:15+02:00")
 @pytest.mark.parametrize(
-    "is_deactivated,workflow,decision,decision_type,expected_instance_state",
+    (
+        "is_deactivated",
+        "workflow",
+        "decision",
+        "decision_type",
+        "expected_instance_state",
+    ),
     [
         (
             True,
@@ -393,7 +405,7 @@ def test_complete_decision_for_instance_from_moutier(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "previous_instance_state,expected_instance_state,decision,expect_copy",
+    ("previous_instance_state", "expected_instance_state", "decision", "expect_copy"),
     [
         ("sb1", "sb1", "CONFIRMED", False),
         ("sb1", "finished", "CHANGED", False),
@@ -492,7 +504,7 @@ def test_complete_decision_appeal(
 
 
 @pytest.mark.parametrize(
-    "form_slug,instance_state__name,decision,bauabschlag,expected",
+    ("form_slug", "instance_state__name", "decision", "bauabschlag", "expected"),
     [
         ("baugesuch", "decision", "APPROVED", None, True),
         ("baugesuch", "decision", "PARTIALLY_APPROVED", "MIT_WIEDERHERSTELLUNG", True),
@@ -549,7 +561,7 @@ def test_should_continue_after_decision_so(
 
 
 @pytest.mark.parametrize(
-    "decision,expected",
+    ("decision", "expected"),
     [
         # negative states
         ("REJECTED", False),
@@ -660,7 +672,12 @@ def test_complete_decision_withdrawal_light(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,expected_status,expected_work_items,complete_afterwards",
+    (
+        "service_group__name",
+        "expected_status",
+        "expected_work_items",
+        "complete_afterwards",
+    ),
     [
         (
             "municipality",
@@ -745,7 +762,13 @@ def test_complete_decision_ag(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "previous_decision,appeal_decision,expected_work_items,expect_copy,expected_copy_instance_state",
+    (
+        "previous_decision",
+        "appeal_decision",
+        "expected_work_items",
+        "expect_copy",
+        "expected_copy_instance_state",
+    ),
     [
         (
             "APPROVED",
@@ -910,7 +933,7 @@ def test_complete_decision_simplified_workflow_so(
 
 
 @pytest.mark.parametrize(
-    "is_appeal,form_slug,expected_work_item_name",
+    ("is_appeal", "form_slug", "expected_work_item_name"),
     [
         (False, "voranfrage", "Voranfrage beurteilen"),
         (False, "meldung", "Meldung (Anzeige) beurteilen"),
@@ -962,7 +985,13 @@ def test_decision_work_item_name(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,instance_state__name,decision,demolition,expected",
+    (
+        "service_group__name",
+        "instance_state__name",
+        "decision",
+        "demolition",
+        "expected",
+    ),
     [
         ("municipality", "decision", "APPROVED", None, True),
         ("municipality", "decision", "PARTIALLY_APPROVED", None, True),
@@ -1004,7 +1033,12 @@ def test_should_continue_after_decision_ag(
 
 
 @pytest.mark.parametrize(
-    "is_preliminary_clarification,is_other_decision,is_appeal,expected_notification_slug",
+    (
+        "is_preliminary_clarification",
+        "is_other_decision",
+        "is_appeal",
+        "expected_notification_slug",
+    ),
     [
         (True, True, False, "decision-other"),
         (True, False, False, "decision-preliminary-clarification"),
@@ -1082,7 +1116,7 @@ def test_get_notification_config_be(
 
 
 @pytest.mark.parametrize(
-    "non_building_permit_decision,expected_notification_slug",
+    ("non_building_permit_decision", "expected_notification_slug"),
     [
         (True, "decision-non-building-permit"),
         (False, "decision"),
@@ -1127,7 +1161,7 @@ def test_get_notification_config_gr(
 
 
 @pytest.mark.parametrize(
-    "is_appeal,non_building_permit_decision,expected_notification_slug",
+    ("is_appeal", "non_building_permit_decision", "expected_notification_slug"),
     [
         (False, True, "decision-non-building-permit"),
         (True, False, "decision-appeal"),
@@ -1193,7 +1227,7 @@ def test_get_notification_config_so(
 
 
 @pytest.mark.parametrize(
-    "is_appeal,expected_notification_slug",
+    ("is_appeal", "expected_notification_slug"),
     [(False, "decision"), (True, "decision-appeal")],
 )
 @pytest.mark.django_db

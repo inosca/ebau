@@ -7,7 +7,7 @@ from camac.jexl import ExtractTransformSubjectAnalyzer
 
 
 @pytest.mark.parametrize(
-    "expression,expected_value",
+    ("expression", "expected_value"),
     [
         ('63 > 62 ? "test"|transform1 : "test2"|transform2', {"test"}),
         ('63 > 62 ? "test"|transform1 : "test2"|transform1', {"test", "test2"}),

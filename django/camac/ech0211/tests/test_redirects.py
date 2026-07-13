@@ -2,7 +2,7 @@ import pytest
 
 
 @pytest.mark.parametrize(
-    "url,output",
+    ("url", "output"),
     [
         (
             "/ech/v1/instance/123/",

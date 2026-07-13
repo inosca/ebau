@@ -186,7 +186,7 @@ def test_master_data_is_form_resolver(
 
 
 @pytest.mark.parametrize(
-    "canton_master_data_settings,language,case,num_queries",
+    ("canton_master_data_settings", "language", "case", "num_queries"),
     [
         pytest.param(
             lf("be_master_data_settings"),
@@ -280,7 +280,7 @@ def test_master_data(
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
 @pytest.mark.parametrize(
-    "query,expected_status",
+    ("query", "expected_status"),
     [
         ({}, status.HTTP_200_OK),
         ({"fields": "some_property"}, status.HTTP_200_OK),
@@ -310,7 +310,7 @@ def test_master_data_api(
 
 
 @pytest.mark.parametrize(
-    "property_name,expected",
+    ("property_name", "expected"),
     [
         ("caluma_question", "caluma-question"),
         ("caluma_table", "caluma-table"),
@@ -362,7 +362,7 @@ def test_masterdata_from_request_cache(
 
 
 @pytest.mark.parametrize(
-    "has_municipality_answer,expected",
+    ("has_municipality_answer", "expected"),
     [
         (
             True,

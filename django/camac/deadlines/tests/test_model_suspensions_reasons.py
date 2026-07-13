@@ -7,7 +7,7 @@ from camac.constants.kt_gr import ARE_SERVICE_GROUP
 
 
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name,allowed_reasons",
+    ("access_level__slug", "role__name", "service_group__name", "allowed_reasons"),
     [
         # each service should be able to see the suspension reasons.
         ("distribution-service", "service-lead", "service", None),

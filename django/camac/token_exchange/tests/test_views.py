@@ -18,7 +18,7 @@ class FakeResponse:
 
 @pytest.mark.freeze_time("2024-07-23 12:00:00")
 @pytest.mark.parametrize(
-    "token,keycloak_error,expected_status,error_message",
+    ("token", "keycloak_error", "expected_status", "error_message"),
     [
         (None, False, status.HTTP_403_FORBIDDEN, None),
         (

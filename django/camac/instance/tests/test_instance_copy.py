@@ -97,7 +97,13 @@ def test_instance_copy_404(instance, admin_client):
 
 
 @pytest.mark.parametrize(
-    "role__name,access_level,grant_type,instance_state_name,expected_status",
+    (
+        "role__name",
+        "access_level",
+        "grant_type",
+        "instance_state_name",
+        "expected_status",
+    ),
     [
         # Forbidden: wrong access level,
         (

@@ -57,7 +57,7 @@ def test_user_group_invitation_list(
 
 @pytest.mark.freeze_time("2023-05-22")
 @pytest.mark.parametrize(
-    "error_type,expected_status",
+    ("error_type", "expected_status"),
     [
         (None, status.HTTP_201_CREATED),
         ("already_invited", status.HTTP_400_BAD_REQUEST),

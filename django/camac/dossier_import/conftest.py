@@ -102,13 +102,13 @@ def dossier_row_full(dossier_row_sparse):
     return dossier_row_sparse | OrderedDict(data)
 
 
-@pytest.fixture()
+@pytest.fixture
 def dossier(dossier_row_full, dossier_import_settings):
     loader = XlsxFileDossierLoader()
     return loader._load_dossier(dossier_row_full)
 
 
-@pytest.fixture()
+@pytest.fixture
 def dossier_loader():
     return XlsxFileDossierLoader()
 
@@ -146,7 +146,7 @@ def load_fixtures_so(
         allowed_mime_types=["application/pdf"]
     ).pk
 
-    yield service, extra_fixtures
+    return service, extra_fixtures
 
 
 @pytest.fixture
@@ -190,7 +190,7 @@ def load_fixtures_gr(
         allowed_mime_types=["application/pdf", "text/plain"]
     ).pk
 
-    yield service, extra_fixtures
+    return service, extra_fixtures
 
 
 @pytest.fixture
@@ -226,7 +226,7 @@ def load_fixtures_ag(
 
     User.objects.create_user("aduncan", "aduncan@example.org", "pwd")
 
-    yield service, extra_fixtures
+    return service, extra_fixtures
 
 
 @pytest.fixture
@@ -243,10 +243,10 @@ def load_fixtures_sz(
 
     for pk in [10, 15]:
         workflow_item_factory(pk=pk)
-    yield None, django_fixture_paths
+    return None, django_fixture_paths
 
 
-@pytest.fixture()
+@pytest.fixture
 def load_fixtures_be(
     db,
     settings,
@@ -277,10 +277,10 @@ def load_fixtures_be(
     caluma_dynamic_option_factory(
         slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
     )
-    yield service, django_fixture_paths
+    return service, django_fixture_paths
 
 
-@pytest.fixture()
+@pytest.fixture
 def setup_dossier_writer(
     request,
     db,
@@ -354,7 +354,7 @@ def setup_dossier_writer(
     return wrapper
 
 
-@pytest.fixture()
+@pytest.fixture
 def setup_dossier_import_ag(
     request,
     settings,

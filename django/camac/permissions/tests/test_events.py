@@ -98,7 +98,7 @@ def test_instance_submit(instance, access_level, permissions_settings):
 
 
 @pytest.mark.parametrize(
-    "involve_feuerungskontrolle,expected_result",
+    ("involve_feuerungskontrolle", "expected_result"),
     [(True, {"read", "lead-authority"}), (False, {"lead-authority"})],
 )
 @pytest.mark.django_db
@@ -156,7 +156,12 @@ def test_permission_event_handler_be(
 
 @pytest.mark.freeze_time("2025-11-06 15:15:15+02:00")
 @pytest.mark.parametrize(
-    "involve_geometer,geometer_relation_exists,expected_count,deactivated_municipality",
+    (
+        "involve_geometer",
+        "geometer_relation_exists",
+        "expected_count",
+        "deactivated_municipality",
+    ),
     [
         (True, True, 2, False),
         (True, False, 1, False),
@@ -269,7 +274,7 @@ def test_decision_event_handler_be(
 
 
 @pytest.mark.parametrize(
-    "checkbox_checked,expected_count",
+    ("checkbox_checked", "expected_count"),
     [(True, 1), (False, 0)],
 )
 @pytest.mark.django_db
@@ -852,7 +857,7 @@ def test_submitted_so(so_access_levels, so_instance, instance_acl_factory):
 
 
 @pytest.mark.parametrize(
-    "form_slug, have_demolition_premium_acl",
+    ("form_slug", "have_demolition_premium_acl"),
     [
         ("baugesuch-reklamegesuch-v12", False),
         ("abbruchpraemie", True),
@@ -1080,7 +1085,7 @@ def test_involve_gvg_aib_gr(
 
 @pytest.mark.parametrize("role__name", ["Service"])
 @pytest.mark.parametrize(
-    "caluma_form_slug, should_create_are_acls",
+    ("caluma_form_slug", "should_create_are_acls"),
     [
         ("are-geschaeft", True),
         ("voranfrage", False),
@@ -1162,7 +1167,9 @@ def test_internal_are_geschaeft_acls_sz(
         assert are_acls.count() == 0
 
 
-@pytest.mark.parametrize("have_geometer,expect_acl", [(True, True), (False, False)])
+@pytest.mark.parametrize(
+    ("have_geometer", "expect_acl"), [(True, True), (False, False)]
+)
 @pytest.mark.django_db
 def test_decided_involve_geometer_sz(
     application_settings,

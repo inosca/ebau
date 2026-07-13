@@ -6,9 +6,11 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
-    "canton_name,master_data_case,shared_secret,scope,expected_status",
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
+@pytest.mark.parametrize(
+    ("canton_name", "master_data_case", "shared_secret", "scope", "expected_status"),
     [
         (
             "kt_gr",

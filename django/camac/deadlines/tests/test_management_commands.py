@@ -8,9 +8,9 @@ from camac.deadlines import models as deadlines_models
 
 @pytest.mark.freeze_time("2025-05-28")
 @pytest.mark.parametrize(
-    "service_group__name,role__name", [("municipality", "municipality-lead")]
+    ("service_group__name", "role__name"), [("municipality", "municipality-lead")]
 )
-@pytest.mark.parametrize("verbosity,has_stdout", [(1, False), (2, True)])
+@pytest.mark.parametrize(("verbosity", "has_stdout"), [(1, False), (2, True)])
 @pytest.mark.django_db
 def test_management_command_deadline_progression(
     service,

@@ -4,7 +4,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "alert_message_list,expected_count",
+    ("alert_message_list", "expected_count"),
     [
         ([], 0),
         (

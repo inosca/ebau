@@ -144,7 +144,7 @@ def test_import_geometer(
 
 
 @pytest.mark.parametrize(
-    "example_address, expected",
+    ("example_address", "expected"),
     [
         ("foo@example.org", "foo@example.org"),
         ("foo@example.org (with comment)", None),

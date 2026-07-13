@@ -6,7 +6,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "role__name,size", [("Applicant", 0), ("Service", 1), ("Municipality", 1)]
+    ("role__name", "size"), [("Applicant", 0), ("Service", 1), ("Municipality", 1)]
 )
 def test_objection_participant_list(admin_client, objection_participant, size):
     url = reverse("objectionparticipant-list")
@@ -21,7 +21,7 @@ def test_objection_participant_list(admin_client, objection_participant, size):
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,status_code",
+    ("role__name", "instance__user", "status_code"),
     [
         ("Municipality", lf("admin_user"), status.HTTP_201_CREATED),
         ("Service", lf("admin_user"), status.HTTP_201_CREATED),
@@ -56,14 +56,14 @@ def test_objection_participant_create(admin_client, status_code, objection):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Municipality", status.HTTP_200_OK),
         ("Service", status.HTTP_200_OK),
         ("Applicant", status.HTTP_403_FORBIDDEN),
     ],
 )
-@pytest.mark.parametrize("objection_participant__name", ("Example",))
+@pytest.mark.parametrize("objection_participant__name", ["Example"])
 def test_objection_participant_update(admin_client, objection_participant, status_code):
     url = reverse("objectionparticipant-detail", args=[objection_participant.pk])
 
@@ -90,7 +90,7 @@ def test_objection_participant_update(admin_client, objection_participant, statu
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Municipality", status.HTTP_204_NO_CONTENT),
         ("Service", status.HTTP_204_NO_CONTENT),

@@ -351,7 +351,7 @@ def test_copy_responsible_person_lead_authority(
 
 
 @pytest.mark.parametrize(
-    "bewilligungspflichtig_hidden,expect_copy", [("true", True), ("false", False)]
+    ("bewilligungspflichtig_hidden", "expect_copy"), [("true", True), ("false", False)]
 )
 @pytest.mark.django_db
 def test_copy_tank_installation(
@@ -739,7 +739,7 @@ def test_so_set_is_published_creates_history_entry(
 
 
 @pytest.mark.parametrize(
-    "task_slug,existing_meta,context,expected_meta",
+    ("task_slug", "existing_meta", "context", "expected_meta"),
     [
         (
             "some-slug",
@@ -792,7 +792,13 @@ def user2(user_factory):
 
 
 @pytest.mark.parametrize(
-    "addressed_service,assigned_user,responsible_user,bypass_responsible_user,expected_user",
+    (
+        "addressed_service",
+        "assigned_user",
+        "responsible_user",
+        "bypass_responsible_user",
+        "expected_user",
+    ),
     [
         (None, None, lf("user1"), False, None),
         (lf("service"), lf("user1"), lf("user2"), False, lf("user1")),
@@ -846,7 +852,7 @@ def test_set_assigned_user(
 
 
 @pytest.mark.parametrize(
-    "process_type,expected_text",
+    ("process_type", "expected_text"),
     [
         ("complete", "Dossierprüfung abgeschlossen"),
         ("skip", "Dossierprüfung übersprungen"),
@@ -898,7 +904,7 @@ def test_audit_history(
 
 
 @pytest.mark.parametrize(
-    "task,expected_instance_state,expected_history_text",
+    ("task", "expected_instance_state", "expected_history_text"),
     [("complete", "finished", "Baugesuchsverfahren abgeschlossen")],
 )
 @pytest.mark.django_db
@@ -995,7 +1001,7 @@ def test_reopen_redo_unread(
 
 @pytest.mark.freeze_time("2023-01-01")
 @pytest.mark.parametrize(
-    "service_group_name,expected_deadline",
+    ("service_group_name", "expected_deadline"),
     [
         ("service-with-no-custom-deadline", date(2023, 1, 31)),
         ("municipality", date(2023, 1, 11)),
@@ -1050,7 +1056,7 @@ def test_role_dependent_default_leadtime_service_groups(
 
 @pytest.mark.freeze_time("2023-01-01")
 @pytest.mark.parametrize(
-    "service_slug,expected_deadline",
+    ("service_slug", "expected_deadline"),
     [
         ("afb", date(2023, 1, 31)),
         ("aew", date(2023, 1, 11)),
@@ -1131,7 +1137,7 @@ def test_post_create_reject_work_item(
 
 
 @pytest.mark.parametrize(
-    "question_slug,value,is_solaranlage,is_reklame,is_gebaeudetechnik",
+    ("question_slug", "value", "is_solaranlage", "is_reklame", "is_gebaeudetechnik"),
     [
         (
             "solaranlage-art-des-gesuchs",
@@ -1247,7 +1253,7 @@ def test_convert_special_form_to_construction_permit_ur(
 
 
 @pytest.mark.parametrize(
-    "answer,expected_status",
+    ("answer", "expected_status"),
     [
         (
             "complete-check-vollstaendigkeitspruefung-complete",
@@ -1817,7 +1823,12 @@ def test_post_resume_inquiry_ur(
 
 @pytest.mark.freeze_time("2026-01-01")
 @pytest.mark.parametrize(
-    "service_slug,expected_deadline_before,expected_deadline_after,has_override",
+    (
+        "service_slug",
+        "expected_deadline_before",
+        "expected_deadline_after",
+        "has_override",
+    ),
     [
         (
             "service-afb",

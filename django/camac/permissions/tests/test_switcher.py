@@ -55,7 +55,7 @@ def test_permission_method(permissions_settings, permission_mode):
 
 
 @pytest.mark.parametrize(
-    "mode, expect_error, expect_log, expect_result",
+    ("mode", "expect_error", "expect_log", "expect_result"),
     [
         (None, False, False, "oldvalue"),
         (PERMISSION_MODE.OFF, False, False, "oldvalue"),
@@ -99,7 +99,7 @@ def test_permission_mismatch(
 
 @pytest.mark.parametrize("as_string", [True, False])
 @pytest.mark.parametrize(
-    "env, mode, expected_out",
+    ("env", "mode", "expected_out"),
     [
         ("development", PERMISSION_MODE.FULL, PERMISSION_MODE.FULL),
         ("development", PERMISSION_MODE.CHECKING, PERMISSION_MODE.CHECKING),
@@ -126,7 +126,7 @@ def test_get_permission_mode(
 
 
 @pytest.mark.parametrize(
-    "use_permissions_module, expect_result",
+    ("use_permissions_module", "expect_result"),
     [
         (False, "oldvalue"),
         (True, "newvalue"),
@@ -156,7 +156,7 @@ def test_permissions_switcher_call_new_variant(
 
 
 @pytest.mark.parametrize(
-    "role__name, config, expect_result",
+    ("role__name", "config", "expect_result"),
     [
         (None, [], "oldvalue"),
         ("Applicant", [], "oldvalue"),
@@ -193,7 +193,7 @@ def test_permissions_switcher_role_based(
 
 
 @pytest.mark.parametrize(
-    "role__name, mode, config, expected_result",
+    ("role__name", "mode", "config", "expected_result"),
     [
         ("Applicant", PERMISSION_MODE.FULL, [], True),
         ("Applicant", PERMISSION_MODE.OFF, [], False),

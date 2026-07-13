@@ -152,7 +152,7 @@ def parashift_mock(request, requests_mock):
     )
 
 
-@pytest.fixture()
+@pytest.fixture
 def parashift_data(
     db,
     admin_user,

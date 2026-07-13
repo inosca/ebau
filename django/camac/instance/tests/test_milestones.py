@@ -24,7 +24,7 @@ from camac.tests.form_utils import FormUtils
     ],
 )
 @pytest.mark.parametrize(
-    "is_paper,complete_check_outcome,open_additional_demands",
+    ("is_paper", "complete_check_outcome", "open_additional_demands"),
     [
         (False, "complete-check-vollstaendigkeitspruefung-complete", False),
         (True, "complete-check-vollstaendigkeitspruefung-complete", False),

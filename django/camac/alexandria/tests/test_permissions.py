@@ -49,7 +49,7 @@ def document_post_data(category_id, instance_id, metainfo=None):
 
 
 @pytest.mark.parametrize(
-    "role__name,method,status_code,access",
+    ("role__name", "method", "status_code", "access"),
     [
         (
             "applicant",
@@ -289,7 +289,7 @@ def test_document_permission(
 
 
 @pytest.mark.parametrize(
-    "role__name,method,status_code,access",
+    ("role__name", "method", "status_code", "access"),
     [
         (
             "applicant",
@@ -414,7 +414,7 @@ def test_file_permission(
 
 @pytest.mark.parametrize("role__name", ["municipality"])
 @pytest.mark.parametrize(
-    "update_permission,other_service,status_code",
+    ("update_permission", "other_service", "status_code"),
     [
         (
             {
@@ -522,7 +522,7 @@ def test_file_replace_permission(
 
 
 @pytest.mark.parametrize(
-    "role__name,method,status_code",
+    ("role__name", "method", "status_code"),
     [
         ("applicant", "post", HTTP_403_FORBIDDEN),
         ("applicant", "delete", HTTP_403_FORBIDDEN),
@@ -565,7 +565,7 @@ def test_tag_permission(
 
 
 @pytest.mark.parametrize(
-    "role__name,method,result",
+    ("role__name", "method", "result"),
     [
         ("support", "patch", HTTP_405_METHOD_NOT_ALLOWED),
         ("support", "delete", HTTP_405_METHOD_NOT_ALLOWED),
@@ -762,7 +762,7 @@ def test_patch_fields(
 
 @pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize(
-    "status_code,access,include_fields",
+    ("status_code", "access", "include_fields"),
     [
         (
             HTTP_200_OK,
@@ -913,7 +913,7 @@ def test_marks(
 
 @pytest.mark.parametrize("role__name", ["service"])
 @pytest.mark.parametrize(
-    "method,created_by,status_code",
+    ("method", "created_by", "status_code"),
     [
         ("patch", "own_service", HTTP_200_OK),
         ("delete", "own_service", HTTP_204_NO_CONTENT),
@@ -988,7 +988,7 @@ def test_scope_service(
 
 @pytest.mark.parametrize("role__name", ["service", "subservice"])
 @pytest.mark.parametrize(
-    "method,created_by,status_code",
+    ("method", "created_by", "status_code"),
     [
         ("patch", "own_service", HTTP_200_OK),
         ("patch", "subservice_or_parent", HTTP_200_OK),
@@ -1090,7 +1090,7 @@ def test_scope_service_and_subservice(
 
 @pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize(
-    "method,created_by,status_code",
+    ("method", "created_by", "status_code"),
     [
         ("patch", "applicant-admin", HTTP_200_OK),
         ("delete", "applicant-admin", HTTP_204_NO_CONTENT),
@@ -1172,7 +1172,7 @@ def test_scope_applicant(
 
 @pytest.mark.parametrize("role__name", ["service"])
 @pytest.mark.parametrize(
-    "work_item_status,status_code",
+    ("work_item_status", "status_code"),
     [
         (WorkItem.STATUS_READY, HTTP_204_NO_CONTENT),
         (WorkItem.STATUS_COMPLETED, HTTP_403_FORBIDDEN),
@@ -1229,7 +1229,7 @@ def test_condition_ready_work_item(
 
 @pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize(
-    "method,work_item_status,has_document_id,status_code",
+    ("method", "work_item_status", "has_document_id", "status_code"),
     [
         ("delete", WorkItem.STATUS_READY, True, HTTP_204_NO_CONTENT),
         ("delete", WorkItem.STATUS_READY, False, HTTP_403_FORBIDDEN),
@@ -1307,7 +1307,7 @@ def test_condition_ready_work_item_additional_demand(
 
 @pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize(
-    "method,document_marks,marks_condition,status_code",
+    ("method", "document_marks", "marks_condition", "status_code"),
     [
         ("post", [], "decision", HTTP_201_CREATED),
         ("post", [], "", HTTP_201_CREATED),
@@ -1431,7 +1431,7 @@ def test_condition_is_external_client(
 
 
 @pytest.mark.parametrize(
-    "role__name,method,status_code,access",
+    ("role__name", "method", "status_code", "access"),
     [
         (
             "service",
@@ -1639,7 +1639,7 @@ def test_condition_instance_state(
 
 
 @pytest.mark.parametrize(
-    "role__name,method,status_code,access",
+    ("role__name", "method", "status_code", "access"),
     [
         (
             "service",
@@ -1810,7 +1810,7 @@ def test_condition_paper_instance(
 
 @pytest.mark.parametrize("role__name", ["municipality"])
 @pytest.mark.parametrize(
-    "has_marks,source_category,target_category,status_code",
+    ("has_marks", "source_category", "target_category", "status_code"),
     [
         (False, "source-category-1", "target-category-1", HTTP_200_OK),
         (False, "source-category-2", "target-category-1", HTTP_403_FORBIDDEN),
@@ -1976,8 +1976,14 @@ def test_move_document(
 
 @pytest.mark.parametrize("role__name", ["municipality"])
 @pytest.mark.parametrize(
-    "document_created_by_group,source_category_visibility,target_category_visibility,"
-    "source_category_permissions,target_category_permissions,status_code",
+    (
+        "document_created_by_group",
+        "source_category_visibility",
+        "target_category_visibility",
+        "source_category_permissions",
+        "target_category_permissions",
+        "status_code",
+    ),
     [
         (
             "admin",
@@ -2084,7 +2090,7 @@ def test_copy_document(
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code,access",
+    ("role__name", "status_code", "access"),
     [
         (
             "municipality",
@@ -2150,7 +2156,7 @@ def test_document_convert(
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code,access",
+    ("role__name", "status_code", "access"),
     [
         (
             "municipality",
@@ -2211,7 +2217,7 @@ def test_document_webdav_url(
 
 @pytest.mark.parametrize("role__name", ["service"])
 @pytest.mark.parametrize(
-    "is_migrated,status_code",
+    ("is_migrated", "status_code"),
     [
         (True, HTTP_200_OK),
         (False, HTTP_403_FORBIDDEN),
@@ -2274,7 +2280,7 @@ def test_condition_migrated_instance(
 
 @pytest.mark.parametrize("role__name", ["service"])
 @pytest.mark.parametrize(
-    "is_bab,status_code",
+    ("is_bab", "status_code"),
     [
         (True, HTTP_200_OK),
         (False, HTTP_403_FORBIDDEN),
@@ -2337,7 +2343,7 @@ def test_condition_bab_instance(
 
 @pytest.mark.parametrize("role__name", ["service"])
 @pytest.mark.parametrize(
-    "is_bab_service,status_code",
+    ("is_bab_service", "status_code"),
     [
         (True, HTTP_200_OK),
         (False, HTTP_403_FORBIDDEN),
@@ -2400,7 +2406,7 @@ def test_condition_bab_service(
 
 @pytest.mark.parametrize("role__name", ["service"])
 @pytest.mark.parametrize(
-    "marks,status_code",
+    ("marks", "status_code"),
     [
         ([], HTTP_403_FORBIDDEN),
         (["existing", "not-allowed"], HTTP_403_FORBIDDEN),
@@ -2464,7 +2470,7 @@ def test_specific_mark_permissions(
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.parametrize(
-    "role__name,canton,expected_status",
+    ("role__name", "canton", "expected_status"),
     [
         ("service-lead", "gr", HTTP_403_FORBIDDEN),  # Mode OFF, read only permission
         ("service-lead", "so", HTTP_403_FORBIDDEN),  # Mode FULL, read only permission
@@ -2535,7 +2541,7 @@ def test_base_permission(
 
 @pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize(
-    "has_additional_demand,action,status_code",
+    ("has_additional_demand", "action", "status_code"),
     [
         (True, "upload", HTTP_201_CREATED),
         (False, "upload", HTTP_403_FORBIDDEN),

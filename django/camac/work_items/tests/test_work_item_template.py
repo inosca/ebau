@@ -4,7 +4,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_names",
+    ("role__name", "expected_names"),
     [
         ("Applicant", set()),
         ("Support", set()),

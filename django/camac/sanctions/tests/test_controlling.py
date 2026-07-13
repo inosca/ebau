@@ -7,7 +7,7 @@ from rest_framework import status
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize("action", ["annotate", "control"])
 @pytest.mark.parametrize(
-    "is_controlled,is_assigned,expected_status",
+    ("is_controlled", "is_assigned", "expected_status"),
     [
         (False, True, status.HTTP_204_NO_CONTENT),
         (True, True, status.HTTP_403_FORBIDDEN),
@@ -58,7 +58,7 @@ def test_sanction_controlling(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "is_controlled,expected_status",
+    ("is_controlled", "expected_status"),
     [
         (False, status.HTTP_200_OK),
         (True, status.HTTP_403_FORBIDDEN),

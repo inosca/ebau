@@ -11,7 +11,7 @@ import camac.middleware
 
 
 @pytest.mark.parametrize(
-    "cookie,header,target,expect_res_lang",
+    ("cookie", "header", "target", "expect_res_lang"),
     [
         # Admin: cookie > header > default
         # Any requested language that's not explicitly enabled will cause a fallback

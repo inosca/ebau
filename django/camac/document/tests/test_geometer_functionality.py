@@ -20,7 +20,12 @@ def document_permissions():
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize(
-    "is_active, is_involved, expect_success, only_in_internal_attachment_section",
+    (
+        "is_active",
+        "is_involved",
+        "expect_success",
+        "only_in_internal_attachment_section",
+    ),
     # Not all of the combinations make sense, but we
     # wanna test exhaustively nonetheless
     [
@@ -33,7 +38,6 @@ def document_permissions():
         (True, True, True, False),
         # Succeeds / fails depending on attachment section
         (True, True, False, True),
-        (True, True, True, False),
     ],
 )
 @pytest.mark.django_db

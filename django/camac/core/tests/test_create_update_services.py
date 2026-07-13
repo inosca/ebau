@@ -75,9 +75,8 @@ def test_translate(translation_ok, translation_not_ok, tmpdir):
     )
 
     assert translation_ok.name == "Leitung"
-    with pytest.raises(Exception) as e:
+    with pytest.raises(AttributeError):
         assert translations_not_ok.name
-    assert str(e.value) == "'QuerySet' object has no attribute 'name'"
     call_command("create_update_services", create_test_file(tmpdir))
     assert translations_ok.get(language="fr").name == "Leitung"
     assert os.path.getsize(create_test_file(tmpdir)) > 0

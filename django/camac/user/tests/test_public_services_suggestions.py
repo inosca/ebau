@@ -22,7 +22,14 @@ def mock_cache(mocker):
 
 
 @pytest.mark.parametrize(
-    "num_queries,num_queries_cached,suggestions,suggestion_answer,default_suggestions,expected_services",
+    (
+        "num_queries",
+        "num_queries_cached",
+        "suggestions",
+        "suggestion_answer",
+        "default_suggestions",
+        "expected_services",
+    ),
     [
         (2, 2, {}, [], [], []),
         (
@@ -151,7 +158,14 @@ def test_suggestion_for_instance_filter_caluma(
 
 
 @pytest.mark.parametrize(
-    "num_queries,num_queries_cached,suggestions,suggestion_answer,default_suggestions,expected_services",
+    (
+        "num_queries",
+        "num_queries_cached",
+        "suggestions",
+        "suggestion_answer",
+        "default_suggestions",
+        "expected_services",
+    ),
     [
         (
             4,
@@ -377,7 +391,7 @@ def test_suggestion_for_instance_filter_camac_ng(
 
 
 @pytest.mark.parametrize(
-    "is_bab,is_responsible,expected_services",
+    ("is_bab", "is_responsible", "expected_services"),
     [
         (
             False,
@@ -427,7 +441,7 @@ def test_suggestion_for_instance_filter_camac_ng(
     ],
 )
 @pytest.mark.parametrize(
-    "role__name,service_group__name", [("municipality-lead", "municipality")]
+    ("role__name", "service_group__name"), [("municipality-lead", "municipality")]
 )
 def test_suggestion_for_instance_filter_caluma_gr(
     admin_client,

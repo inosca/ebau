@@ -20,7 +20,7 @@ def test_rejection_feedback(instance_factory):
 
 
 @pytest.mark.parametrize(
-    "form_slug,expected_authority_pk",
+    ("form_slug", "expected_authority_pk"),
     [
         ("pgv-gemeindestrasse", str(uri_constants.BAUDIREKTION_AUTHORITY_ID)),
         ("konzession-waermeentnahme", str(uri_constants.AMT_FUER_ENERGIE_AUTHORITY_ID)),
@@ -58,7 +58,7 @@ def test_get_authority(
 
 
 @pytest.mark.parametrize(
-    "form_slug,service_name,veranstaltungs_art",
+    ("form_slug", "service_name", "veranstaltungs_art"),
     [
         (
             "cantonal-territory-usage",
@@ -115,7 +115,7 @@ def test_ur_get_responsible_service(
 
 
 @pytest.mark.parametrize(
-    "form_slug,expected_notifications",
+    ("form_slug", "expected_notifications"),
     [
         (
             "baugesuch",

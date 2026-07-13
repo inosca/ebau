@@ -4,7 +4,7 @@ from camac.rulesets.utils import assign_responsible_user
 
 
 @pytest.mark.parametrize(
-    "use_case,expected_username",
+    ("use_case", "expected_username"),
     [
         ("existing", "existing_user"),
         ("no_responsible_user", None),

@@ -4,7 +4,7 @@ from django.http import HttpRequest
 from camac.ech0211.middleware import GeofenceMiddleware
 
 
-@pytest.mark.vcr()
+@pytest.mark.vcr
 def test_geofencing(vcr, gr_ech0211_settings):
     request = HttpRequest()
     request.META["REMOTE_ADDR"] = "2a02:168:a856:0:618:9d26:5d4c:cc0c"  # Switzerland
@@ -15,7 +15,7 @@ def test_geofencing(vcr, gr_ech0211_settings):
     assert response is None
 
 
-@pytest.mark.vcr()
+@pytest.mark.vcr
 def test_geofencing_disabled(vcr, gr_ech0211_settings):
     gr_ech0211_settings["GEOFENCE"]["ENABLE"] = False
     request = HttpRequest()
@@ -36,7 +36,7 @@ def test_geofencing_no_ip(mocker, gr_ech0211_settings):
     assert "Unable to get the client's IP address" in response.content.decode()
 
 
-@pytest.mark.vcr()
+@pytest.mark.vcr
 def test_geofencing_wrong_region(vcr, gr_ech0211_settings):
     request = HttpRequest()
     request.META["REMOTE_ADDR"] = "85.214.132.117"  # Germany
@@ -46,7 +46,7 @@ def test_geofencing_wrong_region(vcr, gr_ech0211_settings):
     assert vcr.play_count == 1
 
 
-@pytest.mark.vcr()
+@pytest.mark.vcr
 def test_geofencing_no_api(vcr, caplog, gr_ech0211_settings):
     request = HttpRequest()
     request.META["REMOTE_ADDR"] = "85.195.233.243"

@@ -10,7 +10,7 @@ from camac.timelines.models import FormTimeline
 
 
 @pytest.mark.parametrize(
-    "args,expected_copies",
+    ("args", "expected_copies"),
     [
         (
             {"skip_exported_form_attachment": False, "copy_attachments_from": [99]},
@@ -97,7 +97,7 @@ def test_copy_attachments_camac_ng(
 
 
 @pytest.mark.parametrize(
-    "application_short_name,caluma_workflow_config,args,expected_copies",
+    ("application_short_name", "caluma_workflow_config", "args", "expected_copies"),
     [
         # default/SO with alexandria attachments
         (
@@ -256,7 +256,7 @@ def test_copy_applicants(
 
 @pytest.mark.parametrize("service__external_identifier", ["2601"])
 @pytest.mark.parametrize(
-    "existing_dossier_numbers,expected_dossier_number",
+    ("existing_dossier_numbers", "expected_dossier_number"),
     [
         (None, "2601-2024-1"),
         (["2601-2024-1", "2602-2024-2"], "2601-2024-2"),
@@ -324,7 +324,7 @@ def test_instance_generate_identifier_so_exceptions(
 
 
 @pytest.mark.parametrize(
-    "has_source,was_rejected,expected_count,expected_type",
+    ("has_source", "was_rejected", "expected_count", "expected_type"),
     [
         (False, False, 0, None),
         (False, True, 0, None),

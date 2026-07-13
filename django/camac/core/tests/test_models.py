@@ -25,7 +25,7 @@ def test_resource_defaults(resource):
 
 
 @pytest.mark.parametrize(
-    "is_multilingual,current_language,translations,expected_name",
+    ("is_multilingual", "current_language", "translations", "expected_name"),
     [
         # multilingual
         # translation for current language exists

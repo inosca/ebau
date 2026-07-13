@@ -4,7 +4,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_count",
+    ("role__name", "expected_count"),
     [("Applicant", 0), ("Municipality", 1), ("Service", 1), ("Support", 3)],
 )
 def test_keyword_list(admin_client, keyword_factory, service, expected_count):
@@ -18,7 +18,7 @@ def test_keyword_list(admin_client, keyword_factory, service, expected_count):
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_count,subservice",
+    ("role__name", "expected_count", "subservice"),
     [
         ("Applicant", 0, False),
         ("Municipality", 1, False),
@@ -52,7 +52,7 @@ def test_static_keyword_list(
 
 @pytest.mark.parametrize("role__name", ["Support"])
 @pytest.mark.parametrize(
-    "exclude_instance,expected_count",
+    ("exclude_instance", "expected_count"),
     [(False, 3), (True, 2)],
 )
 def test_keyword_list_exclude_instance(
@@ -82,7 +82,7 @@ def test_keyword_list_exclude_instance(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_count",
+    ("role__name", "expected_count"),
     [("Municipality", 1), ("Service", 1)],
 )
 def test_keyword_visibility(

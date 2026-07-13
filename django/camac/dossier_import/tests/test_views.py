@@ -17,7 +17,7 @@ from .test_dossier_import_case import TEST_IMPORT_FILE_NAME
 
 
 @pytest.mark.parametrize(
-    "config,host,role__name,result_count",
+    ("config", "host", "role__name", "result_count"),
     [
         ("kt_bern", "test.ebau.ch", "municipality-lead", 1),
         ("kt_bern", "ebau.apps.be.ch", "municipality-lead", 0),
@@ -77,7 +77,7 @@ def test_imported_instance_be_get_name(
 @pytest.mark.freeze_time("2021-12-12")
 @pytest.mark.parametrize("role__name", ["Gemeinde", "municipality-lead"])
 @pytest.mark.parametrize(
-    "import_file,config,location_id,expected_status",
+    ("import_file", "config", "location_id", "expected_status"),
     [
         (
             "import-example-validation-errors.zip",
@@ -146,7 +146,7 @@ def test_validation_errors(
 @pytest.mark.parametrize(
     # expected_status expands for `dossier_exists`
     # results: union of messages for import and reimport
-    "import_file,expected_status,expected_result",
+    ("import_file", "expected_status", "expected_result"),
     [
         (
             "import-example-no-errors-reimport.zip",
@@ -493,7 +493,7 @@ def test_failing_transmission(requests_mock, dossier_import, dossier_import_sett
 
 @pytest.mark.parametrize("role__name", ["Support"])
 @pytest.mark.parametrize(
-    "storage_backend,expected_response",
+    ("storage_backend", "expected_response"),
     [
         ("storages.backends.s3.S3Storage", FileResponse),
         ("django.core.files.storage.FileSystemStorage", FileResponse),
@@ -539,7 +539,7 @@ def test_clean_import(admin_client, archive_file, dossier_import_factory):
 
 
 @pytest.mark.parametrize(
-    "has_case,expected_status",
+    ("has_case", "expected_status"),
     [(False, status.HTTP_204_NO_CONTENT), (True, status.HTTP_400_BAD_REQUEST)],
 )
 @pytest.mark.parametrize("role__name", ["Support"])
@@ -563,7 +563,7 @@ def test_delete_import(
 
 @pytest.mark.parametrize("role__name", ["Support"])
 @pytest.mark.parametrize(
-    "import_status_before, celery_task_state, expected_status",
+    ("import_status_before", "celery_task_state", "expected_status"),
     [
         (
             DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
@@ -583,11 +583,6 @@ def test_delete_import(
         (
             DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
             celery_states.RECEIVED,
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
-        ),
-        (
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
-            celery_states.STARTED,
             DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
         ),
         (

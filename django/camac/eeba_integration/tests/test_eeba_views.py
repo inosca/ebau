@@ -10,7 +10,9 @@ from camac.eeba_integration.exceptions import (
 from camac.eeba_integration.views import CustomPermission
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_eeba_check_integration_view_success(
     admin_client,
     mocker,
@@ -34,7 +36,9 @@ def test_eeba_check_integration_view_success(
     assert response.data == dummy_result
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_eeba_check_integration_view_permission_denied(
     admin_client, mocker, gr_instance, set_application_gr
 ):
@@ -47,7 +51,9 @@ def test_eeba_check_integration_view_permission_denied(
     assert response.status_code == status.HTTP_403_FORBIDDEN
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_eeba_check_integration_view_instance_not_found(
     admin_client, mocker, gr_instance, set_application_gr
 ):
@@ -63,7 +69,9 @@ def test_eeba_check_integration_view_instance_not_found(
     assert response.data == {"error": "No Instance matches the given query."}
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_eeba_check_integration_view_instance_server_error(
     admin_client, mocker, gr_instance, set_application_gr
 ):
@@ -79,7 +87,9 @@ def test_eeba_check_integration_view_instance_server_error(
     assert response.data == {"error": "An unexpected error occurred."}
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_eeba_patch_integration_view_missing_new_instance_id(
     admin_client,
     gr_instance,
@@ -92,7 +102,9 @@ def test_eeba_patch_integration_view_missing_new_instance_id(
     assert response.data == {"error": "new_instance_id is required."}
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_eeba_patch_integration_view_success(
     admin_client, mocker, gr_instance, set_application_gr
 ):
@@ -110,7 +122,9 @@ def test_eeba_patch_integration_view_success(
     assert response.data == {"success": "Integration patched successfully."}
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_eeba_patch_integration_view_failure(
     admin_client, mocker, gr_instance, set_application_gr
 ):

@@ -8,7 +8,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "role__name,size", [("Applicant", 0), ("Service", 1), ("Municipality", 1)]
+    ("role__name", "size"), [("Applicant", 0), ("Service", 1), ("Municipality", 1)]
 )
 def test_objection_list(admin_client, objection, size):
     url = reverse("objection-list")
@@ -23,7 +23,7 @@ def test_objection_list(admin_client, objection, size):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code,instance__group",
+    ("role__name", "status_code", "instance__group"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN, lf("group")),
         (
@@ -60,14 +60,14 @@ def test_objection_create(admin_client, group, instance, status_code):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Municipality", status.HTTP_200_OK),
         ("Service", status.HTTP_200_OK),
         ("Applicant", status.HTTP_403_FORBIDDEN),
     ],
 )
-@pytest.mark.parametrize("objection__creation_date", (date.today(),))
+@pytest.mark.parametrize("objection__creation_date", [date.today()])
 def test_objection_update(admin_client, objection, status_code):
     url = reverse("objection-detail", args=[objection.pk])
 
@@ -87,7 +87,7 @@ def test_objection_update(admin_client, objection, status_code):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Municipality", status.HTTP_204_NO_CONTENT),
         ("Service", status.HTTP_204_NO_CONTENT),

@@ -55,7 +55,7 @@ def test_journal_entry_visibility(
 
 @pytest.mark.parametrize("journal_entry__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,size",
+    ("role__name", "size"),
     [
         ("Applicant", 0),
         ("Canton", 1),
@@ -87,7 +87,7 @@ def test_journal_entry_list(
 
 @pytest.mark.parametrize("journal_entry__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,size",
+    ("role__name", "size"),
     [
         ("Applicant", 0),
         ("Municipality", 1),
@@ -117,7 +117,7 @@ def test_journal_entry_visible_for(
 
 @pytest.mark.parametrize("journal_entry__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_404_NOT_FOUND),
         ("Municipality", status.HTTP_200_OK),
@@ -152,7 +152,7 @@ def test_journal_entry_update_rbac(
 
 
 @pytest.mark.parametrize(
-    "has_permission,status_code",
+    ("has_permission", "status_code"),
     [
         (False, status.HTTP_403_FORBIDDEN),
         (True, status.HTTP_200_OK),
@@ -194,10 +194,9 @@ def test_journal_entry_update(
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
-        ("Canton", status.HTTP_201_CREATED),
         ("Canton", status.HTTP_201_CREATED),
         ("Service", status.HTTP_201_CREATED),
         ("Municipality", status.HTTP_201_CREATED),
@@ -241,7 +240,7 @@ def test_journal_entry_create_rbac(
 
 
 @pytest.mark.parametrize(
-    "has_permission,status_code",
+    ("has_permission", "status_code"),
     [
         (False, status.HTTP_403_FORBIDDEN),
         (True, status.HTTP_201_CREATED),
@@ -295,7 +294,7 @@ def test_journal_entry_create(
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
 @pytest.mark.parametrize(
-    "journal_entry_duration,response_duration",
+    ("journal_entry_duration", "response_duration"),
     [
         (None, None),
         ("00:00:00", None),
@@ -340,7 +339,7 @@ def test_journal_entry_duration(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    ("role__name", "expected_status"),
     [
         ("Municipality", status.HTTP_403_FORBIDDEN),
         ("Service", status.HTTP_403_FORBIDDEN),

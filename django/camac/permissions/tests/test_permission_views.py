@@ -162,7 +162,7 @@ def test_no_include_instance(
 
 
 @pytest.mark.parametrize(
-    "mode,expected",
+    ("mode", "expected"),
     [
         (
             PERMISSION_MODE.OFF.value,

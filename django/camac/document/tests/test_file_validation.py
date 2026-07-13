@@ -6,7 +6,7 @@ from camac.document import models, permissions
 
 
 @pytest.mark.parametrize(
-    "role__name,attachment_section__allowed_mime_types", [("Municipality", [])]
+    ("role__name", "attachment_section__allowed_mime_types"), [("Municipality", [])]
 )
 def test_validate_file_name(
     admin_client,

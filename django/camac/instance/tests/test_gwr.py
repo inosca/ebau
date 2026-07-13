@@ -6,7 +6,7 @@ from rest_framework import status
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "canton_name,master_data_case",
+    ("canton_name", "master_data_case"),
     [
         (
             "kt_uri",

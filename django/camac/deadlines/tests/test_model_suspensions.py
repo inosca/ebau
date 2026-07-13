@@ -10,7 +10,7 @@ from camac.user.factories import GroupFactory, UserFactory
 
 
 @pytest.mark.parametrize(
-    "reason_type,expected_reason,expected_formatted_reason",
+    ("reason_type", "expected_reason", "expected_formatted_reason"),
     [
         (
             models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_MANUAL.value,
@@ -53,7 +53,7 @@ def test_suspensions_reason_formatted(
 
 
 @pytest.mark.parametrize(
-    "author_type,expected_author",
+    ("author_type", "expected_author"),
     [
         ("user", ("Test", "User")),
         ("group", "Test Group"),
@@ -89,7 +89,7 @@ def test_suspensions_author_formatted(
 
 
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name,expected_count",
+    ("access_level__slug", "role__name", "service_group__name", "expected_count"),
     [
         ("distribution-service", "service-lead", "service", 0),
         ("lead-authority", "municipality-lead", "municipality", 2),
@@ -163,7 +163,7 @@ def test_suspension_list_default(
 
 
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name,expected_count",
+    ("access_level__slug", "role__name", "service_group__name", "expected_count"),
     [
         ("lead-authority", "municipality-lead", "municipality", 2),
         ("distribution-service", "service-lead", "service", 0),
@@ -237,7 +237,13 @@ def test_suspension_list_gr(
 
 
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name,create_for_service,expected_count",
+    (
+        "access_level__slug",
+        "role__name",
+        "service_group__name",
+        "create_for_service",
+        "expected_count",
+    ),
     [
         ("lead-authority", "municipality-lead", "municipality", "self", 2),
         ("distribution-service", "service-lead", "service", "self", 0),
@@ -327,7 +333,7 @@ def test_suspension_list_ag(
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name,expected_status",
+    ("access_level__slug", "role__name", "service_group__name", "expected_status"),
     [
         # municipality can create suspensions
         (
@@ -411,7 +417,14 @@ def test_suspension_creation_gr(
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name,method,reason,success",
+    (
+        "access_level__slug",
+        "role__name",
+        "service_group__name",
+        "method",
+        "reason",
+        "success",
+    ),
     [
         # municipality can delete suspensions in GR
         (
@@ -571,13 +584,13 @@ def test_suspension_deletion_and_update_gr(
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name",
+    ("access_level__slug", "role__name", "service_group__name"),
     [
         ("lead-authority", "municipality-lead", "municipality"),
     ],
 )
 @pytest.mark.parametrize(
-    "test_case,error",
+    ("test_case", "error"),
     [
         ("ok", False),
         ("date_order", _("End date can not be before start date.")),

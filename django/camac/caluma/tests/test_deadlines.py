@@ -19,7 +19,7 @@ from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(
-    "service_group__name,role__name,expected_count",
+    ("service_group__name", "role__name", "expected_count"),
     [
         ("municipality", "municipality-lead", 1),
         (ARE_SERVICE_GROUP, "service-lead", 1),
@@ -129,7 +129,7 @@ def test_events_deadlines_additional_demand_suspensions_gr(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,role__name,test_case,expected_date",
+    ("service_group__name", "role__name", "test_case", "expected_date"),
     [
         # No formal exam, set to submit date
         ("municipality", "municipality-lead", "responsible", "2025-01-01"),
@@ -349,10 +349,10 @@ def test_events_deadlines_formal_exam_procedure_type_update_type_gr(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,role__name", [("municipality", "municipality-lead")]
+    ("service_group__name", "role__name"), [("municipality", "municipality-lead")]
 )
 @pytest.mark.parametrize(
-    "current_enddate,current_enddate_override,expected_date",
+    ("current_enddate", "current_enddate_override", "expected_date"),
     [
         # if decision is made and deadline enddate is not overridden, update it
         ("2025-03-03", False, "2025-02-02"),
@@ -437,7 +437,7 @@ def test_events_deadlines_decision_gr(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,role__name", [("municipality", "municipality-lead")]
+    ("service_group__name", "role__name"), [("municipality", "municipality-lead")]
 )
 @pytest.mark.django_db
 def test_post_create_inquiry_ag_creates_deadline(
@@ -503,7 +503,7 @@ def test_post_create_inquiry_ag_creates_deadline(
 
 @pytest.mark.parametrize("has_open_suspension", [False, True])
 @pytest.mark.parametrize(
-    "trigger_action,has_previous_inquiry,inquiry_answer_claim",
+    ("trigger_action", "has_previous_inquiry", "inquiry_answer_claim"),
     [
         ("redo", False, False),
         ("redo", False, True),
@@ -514,7 +514,7 @@ def test_post_create_inquiry_ag_creates_deadline(
     ],
 )
 @pytest.mark.parametrize(
-    "service_group__name,role__name", [("service-afb", "service-lead")]
+    ("service_group__name", "role__name"), [("service-afb", "service-lead")]
 )
 @pytest.mark.django_db
 def test_post_create_or_redo_inquiry_ag_claim_suspensions(
@@ -675,10 +675,10 @@ def test_post_create_or_redo_inquiry_ag_claim_suspensions(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,role__name", [("municipality", "municipality-lead")]
+    ("service_group__name", "role__name"), [("municipality", "municipality-lead")]
 )
 @pytest.mark.parametrize(
-    "action,has_suspension",
+    ("action", "has_suspension"),
     [
         ("no_answer", False),
         ("no_deadline", False),
@@ -758,7 +758,7 @@ def test_post_complete_inquiry_fill_ag_creates_deadline(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,role__name",
+    ("service_group__name", "role__name"),
     [
         ("municipality", "municipality-lead"),
         ("service-afb", "service-lead"),

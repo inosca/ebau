@@ -104,7 +104,7 @@ def oereb_config(
 
 @pytest.fixture(autouse=True)
 def no_concurrency(mocker):
-    yield mocker.patch(
+    return mocker.patch(
         "camac.gis.clients.oereb.OerebGisClient.max_concurrent_extracts", 1
     )
 

@@ -5,7 +5,7 @@ from django.core.management import call_command
 
 
 @pytest.mark.parametrize(
-    "service_name,service_group_name,admin_role_name,lead_role_name",
+    ("service_name", "service_group_name", "admin_role_name", "lead_role_name"),
     [
         (
             "Swisscom AG",

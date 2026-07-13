@@ -19,7 +19,7 @@ _other = lf("some_other_user")
 
 
 @pytest.mark.parametrize(
-    "role__name, expect_status",
+    ("role__name", "expect_status"),
     [
         ("Municipality", status.HTTP_201_CREATED),
         ("Applicant", status.HTTP_201_CREATED),
@@ -88,7 +88,7 @@ _attachment = lf("communications_attachment")
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
 @pytest.mark.parametrize(
-    "obj, url",
+    ("obj", "url"),
     [
         (_topic, "communications-topic-detail"),
         (_message, "communications-message-detail"),
@@ -255,12 +255,12 @@ def some_other_user(user_factory):
 
 
 @pytest.mark.parametrize(
-    [
+    (
         "communications_topic__initiated_by",
         "communications_topic__allow_replies",
         "has_other_messages",
         "expect_status",
-    ],
+    ),
     [
         (_other, True, False, status.HTTP_201_CREATED),
         (_other, True, True, status.HTTP_201_CREATED),
@@ -330,7 +330,7 @@ def test_adding_message_with_allow_replies(
 @pytest.mark.parametrize("communications_attachment__document_attachment", [None])
 @pytest.mark.parametrize("communications_attachment__file_type", ["text/plain"])
 @pytest.mark.parametrize(
-    "role__name,has_acl_permission,has_section_permission,expect_result",
+    ("role__name", "has_acl_permission", "has_section_permission", "expect_result"),
     [
         # Permissions module: Document conversion requires
         # "communications-convert-to-document" permission and
@@ -439,7 +439,7 @@ def test_permission_convert_attachment_to_document_acl(
 @pytest.mark.parametrize("communications_attachment__document_attachment", [None])
 @pytest.mark.parametrize("communications_attachment__file_type", ["text/plain"])
 @pytest.mark.parametrize(
-    "role__name,has_section_permission,expect_result",
+    ("role__name", "has_section_permission", "expect_result"),
     [
         # RBAC: Internal roles except for support can convert to document,
         # as long as they are involved and have the section write permission
@@ -523,7 +523,7 @@ def test_permission_convert_attachment_to_document_rbac(
 
 
 @pytest.mark.parametrize(
-    "role__name,has_permission, expect_status",
+    ("role__name", "has_permission", "expect_status"),
     [
         # Permissions module: Topic creation requires
         # communications-write permission
@@ -591,7 +591,7 @@ def test_permission_create_topic_acl(
 
 
 @pytest.mark.parametrize(
-    "role__name,expect_status",
+    ("role__name", "expect_status"),
     [
         # RBAC: Everybody can create topic, except for the support
         ("Municipality", status.HTTP_201_CREATED),
@@ -639,7 +639,7 @@ def test_permission_create_topic_rbac(
 
 @pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
 @pytest.mark.parametrize(
-    "role__name,has_permission,expected_status",
+    ("role__name", "has_permission", "expected_status"),
     [
         # Permissions module: Marking as read requires
         # "communications-write" permission
@@ -696,7 +696,7 @@ def test_permission_mark_as_read_acl(
 
 @pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    ("role__name", "expected_status"),
     [
         # RBAC: Everybody can mark as read, except for support
         ("municipality-lead", status.HTTP_200_OK),
@@ -729,7 +729,7 @@ def test_permission_mark_as_read_rbac(
 
 @pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
 @pytest.mark.parametrize(
-    "role__name,has_permission,expected_status",
+    ("role__name", "has_permission", "expected_status"),
     [
         # Permissions module: Marking as unread requires
         # "communications-write" permission
@@ -791,7 +791,7 @@ def test_permission_mark_as_unread_acl(
 
 @pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    ("role__name", "expected_status"),
     [
         # RBAC: Everbody can mark as unread, except for support
         ("municipality-lead", status.HTTP_200_OK),
@@ -831,7 +831,7 @@ def test_permission_mark_as_unread_rbac(
 
 
 @pytest.mark.parametrize(
-    "role__name,has_permission,expected_status",
+    ("role__name", "has_permission", "expected_status"),
     [
         # Permissions module: Creating message requires
         # "communications-write" permission
@@ -905,7 +905,7 @@ def test_permission_create_message_acl(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    ("role__name", "expected_status"),
     [
         # RBAC: Everybody except for support can create message
         ("Municipality", status.HTTP_201_CREATED),
@@ -957,7 +957,7 @@ def test_permission_create_message_rbac(
 
 
 @pytest.mark.parametrize(
-    "role__name,has_permission,expected_status",
+    ("role__name", "has_permission", "expected_status"),
     [
         # Permissions module: Deleting attachment requires
         # "communications-delete-attachment" permission
@@ -1018,7 +1018,7 @@ def test_permission_delete_attachment_acl(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    ("role__name", "expected_status"),
     [
         # RBAC: Only support can delete attachments
         ("Support", status.HTTP_204_NO_CONTENT),

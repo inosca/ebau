@@ -14,7 +14,7 @@ def validator(db, instance):
 
 
 @pytest.mark.parametrize(
-    "question,value",
+    ("question", "value"),
     [
         ("anlagen-mit-erheblichen-schadstoffemissionen", "invalid"),
         ("kategorie-des-vorhabens", "invalid"),
@@ -173,7 +173,15 @@ DEFAULT_FORM_CONFIG = {
 
 
 @pytest.mark.parametrize(
-    "questions,form_questions,form_fields,is_required,is_active,instance_state_name,raises_validation_error",
+    (
+        "questions",
+        "form_questions",
+        "form_fields",
+        "is_required",
+        "is_active",
+        "instance_state_name",
+        "raises_validation_error",
+    ),
     [
         (
             {

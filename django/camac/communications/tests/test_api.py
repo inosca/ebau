@@ -30,7 +30,7 @@ MS_OFFICE_MIME_TYPES = [
 
 
 @pytest.mark.parametrize(
-    "role__name, expect_status",
+    ("role__name", "expect_status"),
     [
         ("Municipality", status.HTTP_201_CREATED),
         ("Applicant", status.HTTP_201_CREATED),
@@ -91,7 +91,7 @@ def test_create_topic(be_instance, admin_client, expect_status, role):
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    ("role__name", "expected_status"),
     [
         ("Municipality", status.HTTP_201_CREATED),
         ("Support", status.HTTP_403_FORBIDDEN),
@@ -175,12 +175,12 @@ def test_create_message(
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
 @pytest.mark.parametrize(
-    "has_document, has_file, expect_status",
+    ("has_document", "has_file", "expect_status"),
     [
-        [False, False, status.HTTP_404_NOT_FOUND],
-        [False, True, status.HTTP_200_OK],
-        [True, False, status.HTTP_200_OK],
-        [True, True, status.HTTP_200_OK],
+        (False, False, status.HTTP_404_NOT_FOUND),
+        (False, True, status.HTTP_200_OK),
+        (True, False, status.HTTP_200_OK),
+        (True, True, status.HTTP_200_OK),
     ],
 )
 @pytest.mark.django_db
@@ -371,7 +371,7 @@ def test_mime_type_validation(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_status,expected_count",
+    ("role__name", "expected_status", "expected_count"),
     [
         ("Support", status.HTTP_204_NO_CONTENT, 0),
         ("Municipality", status.HTTP_403_FORBIDDEN, 1),
@@ -464,7 +464,7 @@ def test_entity_for_current_user(admin_user, be_instance, has_group, rf):
     ["Municipality"],
 )
 @pytest.mark.parametrize(
-    "display_name,corrected_display_name",
+    ("display_name", "corrected_display_name"),
     [
         ("foo/bar", "foobar.pdf"),
         ("test", "test.pdf"),
@@ -526,7 +526,7 @@ def test_validation_of_display_name_by_message_creation(
 
 
 @pytest.mark.parametrize(
-    "content_type, expectation",
+    ("content_type", "expectation"),
     [
         ("application/x-zip-compressed", no_exception()),
         ("application/zip-compressed", no_exception()),

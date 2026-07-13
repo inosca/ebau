@@ -13,7 +13,7 @@ def instance_qs(statistics_ag_instance_afb):
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "query_params,expected_count",
+    ("query_params", "expected_count"),
     [
         ({}, 1),
         ({"submit_date_after": "2025-01-01"}, 1),
@@ -81,7 +81,7 @@ def test_instance_filter_backend_queryset(rf, group, instance_qs):
 
 @pytest.mark.parametrize("role__name", ["Service"])
 @pytest.mark.parametrize(
-    "query_params,expected_count",
+    ("query_params", "expected_count"),
     [
         ({}, 1),
         ({"task": "nonexistent-task"}, 0),

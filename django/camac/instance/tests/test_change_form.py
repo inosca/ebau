@@ -13,7 +13,13 @@ from camac.permissions import api as permissions_api
 
 @pytest.mark.parametrize("instance__user", [(lf("admin_user"))])
 @pytest.mark.parametrize(
-    "role__name,current_form_slug,new_form_slug,starting_instance_state,expected_status",
+    (
+        "role__name",
+        "current_form_slug",
+        "new_form_slug",
+        "starting_instance_state",
+        "expected_status",
+    ),
     [
         (
             "Municipality",
@@ -128,7 +134,7 @@ def test_change_form_legacy(
 
 
 @pytest.mark.parametrize(
-    "role__name,current_form_slug,new_form_slug,expected_status",
+    ("role__name", "current_form_slug", "new_form_slug", "expected_status"),
     [
         ("Municipality", "baugesuch", "baugesuch-mit-uvp", status.HTTP_204_NO_CONTENT),
         ("Support", "baugesuch", "baugesuch-mit-uvp", status.HTTP_204_NO_CONTENT),
@@ -185,7 +191,7 @@ def test_change_form(
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,expected_status",
+    ("instance_state__name", "expected_status"),
     [
         ("subm", status.HTTP_200_OK),
         ("decision", status.HTTP_403_FORBIDDEN),

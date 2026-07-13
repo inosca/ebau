@@ -17,7 +17,7 @@ from camac.permissions.switcher import PERMISSION_MODE
 
 @pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
 @pytest.mark.parametrize(
-    "role__name,role_t__name,expected_status",
+    ("role__name", "role_t__name", "expected_status"),
     [
         (
             "Administration Leitbehörde",
@@ -83,7 +83,7 @@ def test_mark_as_read(
 
 @pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
 @pytest.mark.parametrize(
-    "role__name,role_t__name,expected_status",
+    ("role__name", "role_t__name", "expected_status"),
     [
         (
             "Administration Leitbehörde",
@@ -122,7 +122,13 @@ def test_mark_as_unread(
 
 
 @pytest.mark.parametrize(
-    "access,entities,roles_with_applicant_contact,has_applicants,expect_status",
+    (
+        "access",
+        "entities",
+        "roles_with_applicant_contact",
+        "has_applicants",
+        "expect_status",
+    ),
     [
         (
             "lead",
@@ -163,7 +169,7 @@ def test_mark_as_unread(
         ),
     ],
 )
-@pytest.mark.parametrize("role__name", ("Municipality",))
+@pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.django_db
 def test_validate_entities(
     role,
@@ -231,14 +237,15 @@ def test_validate_entities(
 
 
 @pytest.mark.parametrize(
-    "entities, has_involved_service, expect_status",
+    ("entities", "has_involved_service", "expect_status"),
     [
         (["APPLICANT"], False, HTTP_201_CREATED),
         (["APPLICANT"], True, HTTP_201_CREATED),
     ],
 )
 @pytest.mark.parametrize(
-    "role__name,can_add_applicant", [("Municipality", True), ("Municipality", False)]
+    ("role__name", "can_add_applicant"),
+    [("Municipality", True), ("Municipality", False)],
 )
 @pytest.mark.django_db
 def test_validate_entities_can_add_applicant(
@@ -337,7 +344,7 @@ def test_set_initial_entity(be_instance, admin_client, role):
 
 
 @pytest.mark.parametrize(
-    "send_entities, expect_entities,expect_status",
+    ("send_entities", "expect_entities", "expect_status"),
     [
         # No entities - expect to add applicant itself
         ([], ["APPLICANT"], HTTP_201_CREATED),
@@ -408,7 +415,7 @@ def test_validate_topic_entities_for_applicant(
 @pytest.mark.parametrize("communications_attachment__document_attachment", [None])
 @pytest.mark.parametrize("communications_attachment__file_type", ["text/plain"])
 @pytest.mark.parametrize(
-    "role__name, expect_result",
+    ("role__name", "expect_result"),
     [("municipality-lead", HTTP_200_OK), ("Applicant", HTTP_403_FORBIDDEN)],
 )
 @pytest.mark.django_db

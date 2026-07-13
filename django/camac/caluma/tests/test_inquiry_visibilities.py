@@ -66,7 +66,7 @@ def test_inquiry_visibility_be(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_count",
+    ("role__name", "expected_count"),
     [("service", 0), ("subservice", 3)],
 )
 @pytest.mark.django_db
@@ -163,7 +163,7 @@ def so_inquiries(
 
 
 @pytest.mark.parametrize(
-    "service_name,expected_services",
+    ("service_name", "expected_services"),
     [
         (
             "service_1",

@@ -86,7 +86,7 @@ def test_import_validation_error(requests_mock, capsys):
 
 @pytest.mark.xfail(reason="form is not properly configured")
 @pytest.mark.parametrize(
-    "bfs_nr,run_again",
+    ("bfs_nr", "run_again"),
     [
         ("1214", True),
         ("KOOR_BG", False),

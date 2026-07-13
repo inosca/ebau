@@ -4,7 +4,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "is_authority,has_inquiry,expected_status",
+    ("is_authority", "has_inquiry", "expected_status"),
     [
         (True, False, status.HTTP_201_CREATED),
         (False, True, status.HTTP_201_CREATED),
@@ -56,7 +56,13 @@ def test_sanction_creation(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "method,is_controlled,is_created_by_service,is_authority,expected_status",
+    (
+        "method",
+        "is_controlled",
+        "is_created_by_service",
+        "is_authority",
+        "expected_status",
+    ),
     [
         ("delete", False, True, False, status.HTTP_204_NO_CONTENT),
         ("delete", False, False, True, status.HTTP_204_NO_CONTENT),

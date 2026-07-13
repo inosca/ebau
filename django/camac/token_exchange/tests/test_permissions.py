@@ -9,7 +9,7 @@ from camac.token_exchange.permissions import get_lot
 
 
 @pytest.mark.parametrize(
-    "has_token,has_lot,expected_value",
+    ("has_token", "has_lot", "expected_value"),
     [
         (True, True, 1),
         (False, True, None),
@@ -32,7 +32,7 @@ def test_get_lot(rf, has_token, has_lot, expected_value, mocker):
 
 
 @pytest.mark.parametrize(
-    "role_name,lot,expected_status",
+    ("role_name", "lot", "expected_status"),
     [
         ("public", 1, status.HTTP_200_OK),
         ("public", 2, status.HTTP_200_OK),
@@ -59,7 +59,7 @@ def test_require_lot_permission(admin_client, expected_status, lot, mocker, role
 
 
 @pytest.mark.parametrize(
-    "role_name,lot,expect_error",
+    ("role_name", "lot", "expect_error"),
     [
         ("public", 1, False),
         ("public", 2, False),

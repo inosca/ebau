@@ -20,7 +20,7 @@ from .data import django_file
 
 
 @pytest.mark.parametrize(
-    "role__name,size",
+    ("role__name", "size"),
     [("Applicant", 0), ("Canton", 1), ("Service", 1), ("Municipality", 1)],
 )
 def test_template_list(admin_client, template, size):
@@ -44,7 +44,7 @@ def test_template_detail(admin_client, template):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code,template_path",
+    ("role__name", "status_code", "template_path"),
     [
         ("Canton", status.HTTP_201_CREATED, "template.docx"),
         ("Canton", status.HTTP_400_BAD_REQUEST, "multiple-pages.pdf"),
@@ -63,7 +63,7 @@ def test_template_create(admin_client, status_code, group, template_path):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Canton", status.HTTP_200_OK),
         ("Municipality", status.HTTP_200_OK),
@@ -80,7 +80,7 @@ def test_template_update(admin_client, template, status_code):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Canton", status.HTTP_204_NO_CONTENT),
         ("Municipality", status.HTTP_204_NO_CONTENT),
@@ -100,7 +100,12 @@ def test_template_destroy(admin_client, template, status_code):
     "publication_entry__publication_date", [make_aware(datetime(2018, 5, 28))]
 )
 @pytest.mark.parametrize(
-    "billing_entry__created,billing_entry__amount,billing_account__department,billing_account__name",
+    (
+        "billing_entry__created",
+        "billing_entry__amount",
+        "billing_account__department",
+        "billing_account__name",
+    ),
     [(make_aware(datetime(2018, 5, 28)), "99.66", "Allgemein", "Gebuehren")],
 )
 @pytest.mark.parametrize("service__name", ["Amt"])
@@ -108,11 +113,11 @@ def test_template_destroy(admin_client, template, status_code):
 @pytest.mark.parametrize("form_field__name", ["testname"])
 @pytest.mark.parametrize("location__name", ["Schwyz"])
 @pytest.mark.parametrize(
-    "instance__identifier,instance__group,instance__user",
+    ("instance__identifier", "instance__group", "instance__user"),
     [("11-18-011", lfc("group_factory"), lf("user"))],
 )
 @pytest.mark.parametrize(
-    "role__name,status_code,to_type",
+    ("role__name", "status_code", "to_type"),
     [
         ("Canton", status.HTTP_200_OK, "docx"),
         ("Canton", status.HTTP_200_OK, "pdf"),
@@ -265,7 +270,7 @@ def test_template_merge(
 
 
 @pytest.mark.parametrize(
-    "role__name,template__path",
+    ("role__name", "template__path"),
     [
         (
             "Municipality",

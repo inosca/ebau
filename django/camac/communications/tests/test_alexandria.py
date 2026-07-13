@@ -8,11 +8,11 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "role__name,communications_message__topic",
+    ("role__name", "communications_message__topic"),
     [("Municipality", lf("topic_with_admin_involved"))],
 )
 @pytest.mark.parametrize(
-    "communications_attachment__file_type,content_disposition",
+    ("communications_attachment__file_type", "content_disposition"),
     [
         ("application/pdf", "inline"),
         ("text/plain", "attachment"),
@@ -45,7 +45,7 @@ def test_s3_attachment_download_url(
 
 
 @pytest.mark.parametrize(
-    "role__name,communications_message__topic",
+    ("role__name", "communications_message__topic"),
     [("Municipality", lf("topic_with_admin_involved"))],
 )
 def test_alexandria_attachment_download_url(
@@ -128,7 +128,7 @@ def test_create_message_with_alexandria_attachment(
 
 
 @pytest.mark.parametrize(
-    "role__name,has_permission,is_converted,has_key,expected_status",
+    ("role__name", "has_permission", "is_converted", "has_key", "expected_status"),
     [
         ("Municipality", True, False, True, status.HTTP_200_OK),
         (

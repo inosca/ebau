@@ -6,6 +6,7 @@ from datetime import date
 import pytest
 from caluma.caluma_core.permissions import AllowAny
 from caluma.caluma_core.visibilities import Any
+from caluma.caluma_form.exceptions import CustomValidationError
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.api import CalumaApi
@@ -191,7 +192,7 @@ def test_appeal_work_item_update(
 
 
 @pytest.mark.parametrize(
-    "q_type, value, skip_on_error, expect_error",
+    ("q_type", "value", "skip_on_error", "expect_error"),
     [
         ("choice", "foo", True, False),
         ("choice", "foo", False, True),
@@ -213,7 +214,7 @@ def test_update_or_create_answer(
     ).question
 
     if expect_error:
-        expectation = pytest.raises(Exception)
+        expectation = pytest.raises(CustomValidationError)
     else:
         # expect no raise
         expectation = nullcontext()
@@ -229,7 +230,7 @@ def test_update_or_create_answer(
 
 
 @pytest.mark.parametrize(
-    "meta_before, meta_after, expect_error",
+    ("meta_before", "meta_after", "expect_error"),
     [
         # some generic checks
         ({}, {}, False),
@@ -288,7 +289,7 @@ def test_case_metainfo_data_loss(
 
 
 @pytest.mark.parametrize(
-    "meta_before, meta_after, expect_error",
+    ("meta_before", "meta_after", "expect_error"),
     [
         # some generic checks
         ({}, {}, False),
@@ -376,7 +377,7 @@ def test_workitem_metainfo_data_loss(
 
 
 @pytest.mark.parametrize(
-    "meta_after, expect_error",
+    ("meta_after", "expect_error"),
     [
         ({"submit-date": "2026-03-09", "paper-submit-date": "2026-03-09"}, False),
         ({"submit-date": "2026-03-09", "paper-submit-date": "09.03.2026"}, True),

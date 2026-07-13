@@ -4,7 +4,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_count",
+    ("role__name", "expected_count"),
     [("Applicant", 0), ("Service", 3)],
 )
 @pytest.mark.django_db

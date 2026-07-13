@@ -5,11 +5,11 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "instance__user,instance_responsibility__user",
+    ("instance__user", "instance_responsibility__user"),
     [(lf("admin_user"), lf("admin_user"))],
 )
 @pytest.mark.parametrize(
-    "role__name,size",
+    ("role__name", "size"),
     [("Applicant", 0), ("Canton", 1), ("Municipality", 1), ("Service", 1)],
 )
 def test_instance_responsibility_list(
@@ -27,11 +27,11 @@ def test_instance_responsibility_list(
 
 
 @pytest.mark.parametrize(
-    "instance__user,instance_responsibility__user",
+    ("instance__user", "instance_responsibility__user"),
     [(lf("admin_user"), lf("admin_user"))],
 )
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Municipality", status.HTTP_200_OK),
@@ -49,7 +49,7 @@ def test_instance_responsibility_update(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,status_code",
+    ("role__name", "instance__user", "status_code"),
     [
         ("Applicant", lf("admin_user"), status.HTTP_403_FORBIDDEN),
         ("Canton", lf("admin_user"), status.HTTP_201_CREATED),
@@ -84,11 +84,11 @@ def test_instance_responsibility_create(
 
 
 @pytest.mark.parametrize(
-    "instance__user,instance_responsibility__user",
+    ("instance__user", "instance_responsibility__user"),
     [(lf("admin_user"), lf("admin_user"))],
 )
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    ("role__name", "status_code"),
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Municipality", status.HTTP_204_NO_CONTENT),

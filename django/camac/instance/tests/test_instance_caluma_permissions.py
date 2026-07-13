@@ -50,7 +50,7 @@ def sort_permissions(permissions):
     ],
 )
 @pytest.mark.parametrize(
-    "role__name,service_group__name",
+    ("role__name", "service_group__name"),
     [
         ("applicant", None),
         ("municipality-lead", "municipality"),
@@ -154,7 +154,7 @@ def test_instance_permissions_ur(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,instance_state__name,expected_status",
+    ("role__name", "instance_state__name", "expected_status"),
     [
         ("Gemeinde", "new", status.HTTP_200_OK),
         ("Gemeinde", "circ", status.HTTP_200_OK),
@@ -201,7 +201,7 @@ def test_instance_permissions_sz(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "instance_state__name,group_name,form_slug,expected_permissions",
+    ("instance_state__name", "group_name", "form_slug", "expected_permissions"),
     [
         ("new", "municipality", "main", RW),
         ("new", "construction-control", "main", []),
@@ -234,7 +234,7 @@ def test_instance_paper_permissions(
     application_settings,
     instance_service_factory,
 ):
-    mocker.patch("camac.caluma.api.CalumaApi.is_paper", lambda s, i: True)
+    mocker.patch("camac.caluma.api.CalumaApi.is_paper", return_value=True)
 
     groups = {
         "municipality": group_factory(role=role),

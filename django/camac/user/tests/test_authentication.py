@@ -44,7 +44,7 @@ def test_authenticate_disabled_user(rf, admin_user, mocker, settings):
 
 @pytest.mark.parametrize("demo_mode", [True, False])
 @pytest.mark.parametrize(
-    "token_value,username",
+    ("token_value", "username"),
     [
         (
             {
@@ -105,7 +105,7 @@ def test_authenticate_new_user(
 
 
 @pytest.mark.parametrize(
-    "token_value, expected",
+    ("token_value", "expected"),
     [
         (
             {
@@ -172,7 +172,7 @@ def test_authenticate_ok(rf, admin_user, mocker, settings):
 
 @pytest.mark.parametrize("is_id_token", [True, False])
 @pytest.mark.parametrize(
-    "authentication_header,authenticated,error",
+    ("authentication_header", "authenticated", "error"),
     [
         ("", False, False),
         ("Bearer", False, True),
@@ -297,7 +297,7 @@ def test_authenticate_applicants(
 
 
 @pytest.mark.parametrize(
-    "user__username,expect_invitee", [("test", False), ("egov:123", True)]
+    ("user__username", "expect_invitee"), [("test", False), ("egov:123", True)]
 )
 @pytest.mark.django_db
 def test_update_applicants_token_exchange(
@@ -359,7 +359,7 @@ def test_authenticate_token_exchange_company_name(rf, mocker, settings):
 
 
 @pytest.mark.parametrize(
-    "days_offset,should_be_applied",
+    ("days_offset", "should_be_applied"),
     [
         (-1, False),  # Expired 1 day ago
         (1, True),  # Expires in 1 day
@@ -388,7 +388,13 @@ def test_user_group_invitations_expiration(
     [["language", "email", "username", "name", "surname", "phone"]],
 )
 @pytest.mark.parametrize(
-    "existing_values,new_values,expected_update,expected_insert,expected_lock",
+    (
+        "existing_values",
+        "new_values",
+        "expected_update",
+        "expected_insert",
+        "expected_lock",
+    ),
     [
         # no changes, no update
         (
@@ -481,7 +487,7 @@ def test_authenticate_only_update_user_if_changed(
     [["language", "email", "username", "name", "surname", "phone"]],
 )
 @pytest.mark.parametrize(
-    "values,use_fallback,expected_fallback",
+    ("values", "use_fallback", "expected_fallback"),
     [
         # Sync by username, no fallback
         (

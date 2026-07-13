@@ -45,7 +45,7 @@ def test_me_group(admin_client, admin_user, service):
 
 
 @pytest.mark.parametrize(
-    "service_t__name,service_group__name",
+    ("service_t__name", "service_group__name"),
     [("Baukontrolle Test", "construction-control")],
 )
 def test_me_service_municipality(
@@ -70,7 +70,7 @@ def test_me_service_municipality(
 
 
 @pytest.mark.parametrize(
-    "service_t__name,service_group__name",
+    ("service_t__name", "service_group__name"),
     [("Baukontrolle Test", "construction-control")],
 )
 def test_me_service_municipality_exception(admin_client, admin_user, service, mocker):
@@ -94,7 +94,7 @@ def test_me_service_municipality_exception(admin_client, admin_user, service, mo
 
 
 @pytest.mark.parametrize(
-    "role__name,size",
+    ("role__name", "size"),
     [
         ("Applicant", 0),
         ("Service", 1),
@@ -115,7 +115,7 @@ def test_user_list(admin_client, size):
     assert len(json["data"]) == size
 
 
-@pytest.mark.parametrize("role__name,size", [("Service", 2), ("Municipality", 0)])
+@pytest.mark.parametrize(("role__name", "size"), [("Service", 2), ("Municipality", 0)])
 def test_user_role_filter(
     admin_client,
     admin_user,
@@ -141,7 +141,7 @@ def test_user_role_filter(
 
 @pytest.mark.parametrize("role__name", ["Service"])
 @pytest.mark.parametrize(
-    "responsible_for_instances,expected_count", [(True, 3), (False, 6)]
+    ("responsible_for_instances", "expected_count"), [(True, 3), (False, 6)]
 )
 def test_user_responsible_in_service_filter(
     admin_client,
@@ -165,7 +165,7 @@ def test_user_responsible_in_service_filter(
 
 
 @pytest.mark.parametrize(
-    "has_permission,expected_status",
+    ("has_permission", "expected_status"),
     [
         (True, status.HTTP_201_CREATED),
         (False, status.HTTP_403_FORBIDDEN),

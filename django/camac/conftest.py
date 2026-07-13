@@ -544,7 +544,7 @@ def mock_clamd(mocker):
     )
 
 
-@pytest.fixture(autouse=True, scope="function")
+@pytest.fixture(autouse=True)
 def clear_cache():
     cache.clear()
 
@@ -3542,7 +3542,7 @@ def celery_fake_worker(celery_app, mocker):  # noqa: C901
             """
             by_id[the_task.id] = the_task
 
-    yield FakeWorker()
+    return FakeWorker()
 
 
 @pytest.fixture
@@ -3753,7 +3753,7 @@ def normalize_leak_check(value):
     return value
 
 
-@pytest.fixture(autouse=True, scope="function")
+@pytest.fixture(autouse=True)
 def ensure_no_leaks(request):
     """Ensure tests do not leak data via settings.
 
@@ -3905,7 +3905,7 @@ def django_s3_mock(settings, s3_server):
 _ensure_no_user_after_test_test_logger_log = []
 
 
-@pytest.fixture(autouse=True, scope="function")
+@pytest.fixture(autouse=True)
 def ensure_no_user_after_test_test_logger(request):
     _ensure_no_user_after_test_test_logger_log.append(request.node.nodeid)
 

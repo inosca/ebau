@@ -16,7 +16,7 @@ from camac.settings.modules.ech0211 import DocumentAPIFeature
 
 
 @pytest.mark.parametrize(
-    "file, expected_status",
+    ("file", "expected_status"),
     [
         ("visible_file", status.HTTP_200_OK),
         ("invisible_file_category", status.HTTP_404_NOT_FOUND),
@@ -250,7 +250,7 @@ def test_delete(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "has_attachment, has_other_category, expected_status",
+    ("has_attachment", "has_other_category", "expected_status"),
     [
         (False, False, status.HTTP_204_NO_CONTENT),
         (True, False, status.HTTP_403_FORBIDDEN),

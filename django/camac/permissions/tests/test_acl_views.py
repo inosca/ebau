@@ -16,7 +16,7 @@ from camac.utils import get_dict_item
 
 
 @pytest.mark.parametrize(
-    "role__name, expect_data",
+    ("role__name", "expect_data"),
     [
         ("Municipality", True),
         ("Something-else", False),
@@ -92,7 +92,7 @@ def test_list_acl_view(
 
 @pytest.mark.parametrize("role__name", ["Service"])
 @pytest.mark.parametrize(
-    "application, acls_count, is_lead_authority, visible_acls_count",
+    ("application", "acls_count", "is_lead_authority", "visible_acls_count"),
     [
         # Check that ACLs are visible for SZ lead authority services:
         ("kt_schwyz", 4, False, 0),
@@ -202,7 +202,7 @@ def test_list_acl_view_for_ur(
 @pytest.mark.parametrize("set_end_time", [True, False])
 @pytest.mark.parametrize("set_start_time", [True, False])
 @pytest.mark.parametrize(
-    "role__name, responsible_for_instance, access_level_slug,expect_success",
+    ("role__name", "responsible_for_instance", "access_level_slug", "expect_success"),
     [
         # municipality in "own" instance can assign
         ("Municipality", True, "geometer", True),
@@ -301,7 +301,7 @@ def test_create_acl(
 
 @pytest.mark.parametrize("role__name", ["Service"])
 @pytest.mark.parametrize(
-    "is_are, is_lead, can_assign",
+    ("is_are", "is_lead", "can_assign"),
     [
         (False, False, False),
         (True, False, False),
@@ -360,7 +360,7 @@ def test_create_are_acl_sz(
 
 
 @pytest.mark.parametrize(
-    "role__name,access_level_slug",
+    ("role__name", "access_level_slug"),
     [
         ("TrustedService", "read"),
         ("Coordination", "read"),
@@ -412,7 +412,13 @@ def test_create_acl_ur(
 
 
 @pytest.mark.parametrize(
-    "role__name, end_time, is_responsible_service, access_level_slug, expect_success",
+    (
+        "role__name",
+        "end_time",
+        "is_responsible_service",
+        "access_level_slug",
+        "expect_success",
+    ),
     [
         # responsible service can revoke
         ("Municipality", None, True, "geometer", True),
@@ -561,7 +567,7 @@ def test_deny_delete_acl(
 
 
 @pytest.mark.parametrize(
-    "role__name, expect_results",
+    ("role__name", "expect_results"),
     [
         ("Service", False),
         ("Municipality", True),
@@ -646,7 +652,7 @@ def test_get_access_levels_sz(
 
 
 @pytest.mark.parametrize(
-    "canton, do_filter,grant,permission_mode, role__name, expect_results",
+    ("canton", "do_filter", "grant", "permission_mode", "role__name", "expect_results"),
     [
         # Permission mode is FULL: User can only see access levels that are
         # explicitly allowed to be assigned *on the given instance*
@@ -746,7 +752,7 @@ def test_assignable_filter(
 
 @pytest.mark.parametrize("role__name", ["Service"])
 @pytest.mark.parametrize(
-    "is_are, expect_are_service_permission_level",
+    ("is_are", "expect_are_service_permission_level"),
     [
         (False, False),
         (True, True),
@@ -788,7 +794,7 @@ def test_assignable_filter_for_sz_service(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "filter_name, filter_value, expect_results",
+    ("filter_name", "filter_value", "expect_results"),
     [
         ("user", "IMPLICIT", ["user"]),
         ("service", "IMPLICIT", ["sched", "inact", "service"]),
@@ -884,7 +890,7 @@ def test_list_acl_filters(
 
 @pytest.mark.parametrize("access_level__slug", ["foo"])
 @pytest.mark.parametrize(
-    "have_permission, expect_success",
+    ("have_permission", "expect_success"),
     [
         ("permissions-grant-foo", True),
         ("permissions-grant-any", True),
@@ -945,7 +951,7 @@ def test_create_with_permissions(  # params
 
 @pytest.mark.parametrize("access_level__slug", ["foo"])
 @pytest.mark.parametrize(
-    "have_permission, expect_success",
+    ("have_permission", "expect_success"),
     [
         ("permissions-revoke-foo", True),
         ("permissions-revoke-any", True),
@@ -1004,7 +1010,7 @@ def test_revoke_with_permissions(  # params
 
 @pytest.mark.parametrize("access_level__slug", ["foo"])
 @pytest.mark.parametrize(
-    "query_instance, have_permission, expected_count",
+    ("query_instance", "have_permission", "expected_count"),
     [
         (True, "permissions-revoke-foo", 0),
         (True, "permissions-revoke-any", 0),

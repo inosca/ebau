@@ -38,7 +38,7 @@ def test_authenticate_caluma(rf, settings, admin_user, group, mocker):
 
 
 @pytest.mark.parametrize(
-    "has_token,enable_public_caluma,username",
+    ("has_token", "enable_public_caluma", "username"),
     [(False, False, None), (False, True, None), (True, False, "nonexistent-username")],
 )
 def test_unauthorized_caluma(

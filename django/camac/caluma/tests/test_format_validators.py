@@ -11,7 +11,7 @@ from camac.caluma.extensions.format_validators import (
 
 
 @pytest.mark.parametrize(
-    "test_class,user_input,result",
+    ("test_class", "user_input", "result"),
     [
         (IntegerListFormatValidator, "1234, asdf", False),
         (IntegerListFormatValidator, "456456, 95174", True),

@@ -10,7 +10,7 @@ from camac.captcha.utils import validate_captcha_token
 @pytest.mark.freeze_time("2023-05-22")
 @pytest.mark.parametrize("captcha_disabled", [False, True])
 @pytest.mark.parametrize(
-    "action,expected",
+    ("action", "expected"),
     [
         ("bad_challenge_format", False),
         ("expired_token", False),

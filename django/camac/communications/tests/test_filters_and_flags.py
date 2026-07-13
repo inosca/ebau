@@ -85,7 +85,7 @@ def test_topic_filter_has_unread(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "filter_value, expect_set", [(True, "read"), (False, "unread"), (None, "all")]
+    ("filter_value", "expect_set"), [(True, "read"), (False, "unread"), (None, "all")]
 )
 @pytest.mark.django_db
 def test_message_read_flags_and_filter(

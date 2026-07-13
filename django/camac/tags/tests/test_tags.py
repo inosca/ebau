@@ -4,7 +4,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_count",
+    ("role__name", "expected_count"),
     [("Applicant", 0), ("Municipality", 1), ("Service", 1), ("Support", 2)],
 )
 def test_tag_list(admin_client, tag_factory, service, expected_count):

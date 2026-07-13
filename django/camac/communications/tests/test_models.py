@@ -55,7 +55,7 @@ def alexandria_attachment(
 
 
 @pytest.mark.parametrize(
-    "model,expected",
+    ("model", "expected"),
     [
         (lf("file_attachment"), "myfile.txt"),
         (lf("document_attachment"), "myotherfile.pdf"),
@@ -68,7 +68,7 @@ def test_attachment_filename(model, expected):
 
 
 @pytest.mark.parametrize(
-    "model,has_display_name,expected",
+    ("model", "has_display_name", "expected"),
     [
         (lf("file_attachment"), None, "myfile.txt"),
         (lf("document_attachment"), True, "My Attachment"),
@@ -86,7 +86,7 @@ def test_attachment_display_name(model, has_display_name, expected, attachment):
 
 
 @pytest.mark.parametrize(
-    "model,has_is_replaced,expected",
+    ("model", "has_is_replaced", "expected"),
     [
         (lf("file_attachment"), None, False),
         (lf("document_attachment"), True, True),
@@ -113,7 +113,7 @@ def test_attachment_is_replaced(
 
 
 @pytest.mark.parametrize(
-    "model,expected",
+    ("model", "expected"),
     [
         (lf("file_attachment"), "text/plain"),
         (lf("document_attachment"), "application/pdf"),

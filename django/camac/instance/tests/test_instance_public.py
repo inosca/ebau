@@ -31,7 +31,7 @@ def test_public_caluma_instance_disabled(settings, admin_client):
 
 
 @pytest.mark.parametrize(
-    "is_authenticated,has_public_header,expected_status",
+    ("is_authenticated", "has_public_header", "expected_status"),
     [
         (False, False, status.HTTP_401_UNAUTHORIZED),
         (True, False, status.HTTP_403_FORBIDDEN),
@@ -63,7 +63,7 @@ def test_public_caluma_instance_enabled_empty_qs(
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
-    "headers,num_queries,num_instances,form_type,expected",
+    ("headers", "num_queries", "num_instances", "form_type", "expected"),
     [
         ({}, 1, 0, "form-type-building-permit", "test"),
         (
@@ -168,7 +168,7 @@ def test_public_caluma_instance_ur(
 
 @pytest.mark.parametrize("role__name", ["Oereb Api"])
 @pytest.mark.parametrize(
-    "is_oereb_form,instance_state__name,num_queries,is_visible",
+    ("is_oereb_form", "instance_state__name", "num_queries", "is_visible"),
     [
         (True, "comm", 21, True),
         (False, "comm", 1, False),
@@ -273,7 +273,7 @@ def test_public_caluma_instance_oereb_ur(
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
-    "headers,is_applicant,num_documents",
+    ("headers", "is_applicant", "num_documents"),
     [
         ({}, True, 2),
         ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, True, 1),
@@ -392,7 +392,7 @@ def test_public_caluma_instance_sz(
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
-    "headers,is_applicant,num_documents",
+    ("headers", "is_applicant", "num_documents"),
     [
         ({}, True, 2),
         ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, True, 1),
@@ -676,7 +676,14 @@ def test_information_of_neighbors_instance_be(
 
 @pytest.mark.freeze_time("2023-09-13")
 @pytest.mark.parametrize(
-    "publish_answer_slug,start_date_municipality,start_date_canton,end_date_municipality,end_date_canton,expected_instances",
+    (
+        "publish_answer_slug",
+        "start_date_municipality",
+        "start_date_canton",
+        "end_date_municipality",
+        "end_date_canton",
+        "expected_instances",
+    ),
     [
         (
             # start date municipality until end date municipality
@@ -909,7 +916,7 @@ def test_increment_publication_views(
 
 @pytest.mark.freeze_time("2024-06-15")
 @pytest.mark.parametrize(
-    "publication_backend,expected_start,expected_end",
+    ("publication_backend", "expected_start", "expected_end"),
     [
         # camac-ng uses the first active publication entry start- and end-date in the
         # current date range.

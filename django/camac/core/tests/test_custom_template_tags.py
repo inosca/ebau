@@ -17,7 +17,7 @@ def test_custom_template_tag_settings_value(settings, application_settings):
 
 
 @pytest.mark.parametrize(
-    "use_tagged_releases,env,expected",
+    ("use_tagged_releases", "env", "expected"),
     [
         (True, "production", "1.2.3"),
         (True, "development", "development"),

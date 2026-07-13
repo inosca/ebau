@@ -45,7 +45,7 @@ def test_get_default_deadline_for_inquiry(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,lead_time,today,expected_deadline",
+    ("service_group__name", "lead_time", "today", "expected_deadline"),
     [
         # Test for the whole year
         ("municipality", 365, date(2025, 1, 1), date(2026, 5, 27)),
@@ -78,7 +78,7 @@ def test_get_deadline(
 
 @pytest.mark.freeze_time("2025-01-01")
 @pytest.mark.parametrize(
-    "role__name,expected_count",
+    ("role__name", "expected_count"),
     [
         ("Municipality", 2),
         ("Applicant", 0),
@@ -118,7 +118,13 @@ def test_distribution_deadline_rule_list(
 
 @pytest.mark.freeze_time("2025-07-30")
 @pytest.mark.parametrize(
-    "role__name,service_group__name,has_existing,lead_time,expected_status",
+    (
+        "role__name",
+        "service_group__name",
+        "has_existing",
+        "lead_time",
+        "expected_status",
+    ),
     [
         ("municipality-admin", "municipality", False, 10, status.HTTP_201_CREATED),
         ("municipality-lead", "municipality", False, 10, status.HTTP_403_FORBIDDEN),
@@ -185,7 +191,7 @@ def test_distribution_deadline_rule_create(
 
 @pytest.mark.freeze_time("2025-07-30")
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    ("role__name", "expected_status"),
     [
         ("municipality-admin", status.HTTP_200_OK),
         ("municipality-lead", status.HTTP_403_FORBIDDEN),
@@ -230,7 +236,7 @@ def test_distribution_deadline_rule_update(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    ("role__name", "expected_status"),
     [
         ("municipality-admin", status.HTTP_204_NO_CONTENT),
         ("municipality-lead", status.HTTP_403_FORBIDDEN),

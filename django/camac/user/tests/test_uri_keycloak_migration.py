@@ -12,7 +12,7 @@ from camac.user.authentication import JSONWebTokenKeycloakAuthentication
 
 
 @pytest.mark.parametrize(
-    "token_value, user__username, user__email, should_update",
+    ("token_value", "user__username", "user__email", "should_update"),
     [
         # Ensure that username lookup is still first priority
         (

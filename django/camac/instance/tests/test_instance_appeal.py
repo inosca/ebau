@@ -198,7 +198,14 @@ def test_instance_appeal_404(instance, admin_client):
 
 
 @pytest.mark.parametrize(
-    "role__name,previous_instance_state_name,instance_state_name,meta,expected_instance_state,expected_status",
+    (
+        "role__name",
+        "previous_instance_state_name",
+        "instance_state_name",
+        "meta",
+        "expected_instance_state",
+        "expected_status",
+    ),
     [
         # Wrong role
         ("Service", "coordination", "sb1", {}, "sb1", status.HTTP_403_FORBIDDEN),
@@ -317,7 +324,13 @@ def test_instance_appeal(
 
 
 @pytest.mark.parametrize(
-    "role__name,previous_instance_state_name,instance_state_name,expected_instance_state,expected_status",
+    (
+        "role__name",
+        "previous_instance_state_name",
+        "instance_state_name",
+        "expected_instance_state",
+        "expected_status",
+    ),
     [
         # Wrong role
         (

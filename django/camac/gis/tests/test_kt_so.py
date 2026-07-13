@@ -158,7 +158,7 @@ def so_data_sources(
     # snapshots to be in the same order as the scenario definitions above.
     ids=lambda val: f"scenario_{str(TEST_SCENARIOS.index(val) + 1).zfill(2)}",
 )
-@pytest.mark.vcr()
+@pytest.mark.vcr
 @pytest.mark.django_db
 def test_sogis_client(
     admin_client,
@@ -232,14 +232,14 @@ def so_unknown_question_data_source(so_fake_data_source):
 
 
 @pytest.mark.parametrize(
-    "data_source,expected_status",
+    ("data_source", "expected_status"),
     [
         (lf("so_unknown_layer_data_source"), status.HTTP_200_OK),
         (lf("so_unknown_property_data_source"), status.HTTP_200_OK),
         (lf("so_unknown_question_data_source"), status.HTTP_200_OK),
     ],
 )
-@pytest.mark.vcr()
+@pytest.mark.vcr
 @pytest.mark.django_db
 def test_sogis_client_errors(
     admin_client,

@@ -156,7 +156,7 @@ expect_exc = pytest.raises(Exception, match="Unexpected Error")
 
 
 @pytest.mark.parametrize(
-    "event, expect_exc, resulting_status",
+    ("event", "expect_exc", "resulting_status"),
     [
         (Exception("Unexpected Error"), expect_exc, MigrationRun.Status.FAILED),
         (KeyboardInterrupt(), no_exception(), MigrationRun.Status.CANCELED),

@@ -33,7 +33,7 @@ from camac.tests.form_utils import FormUtils
     ["new"],
 )
 @pytest.mark.parametrize(
-    "role__name,instance__user,num_queries,num_instances,editable",
+    ("role__name", "instance__user", "num_queries", "num_instances", "editable"),
     [
         (
             "Applicant",
@@ -99,14 +99,14 @@ def test_instance_list(
 
 @pytest.mark.freeze_time("2023-12-01")
 @pytest.mark.parametrize(
-    "deadline_date,workitem_status,expected_count",
+    ("deadline_date", "workitem_status", "expected_count"),
     [
         ("2023-12-02 00:00:00+00", "completed", 1),
         ("2023-11-30 00:00:00+00", "completed", 1),
         ("2023-11-30 00:00:00+00", "ready", 0),
     ],
 )
-@pytest.mark.parametrize("role__name,instance__user", [("uso", lf("user"))])
+@pytest.mark.parametrize(("role__name", "instance__user"), [("uso", lf("user"))])
 def test_instance_list_for_uso_gr(
     admin_client,
     gr_instance,
@@ -139,7 +139,9 @@ def test_instance_list_for_uso_gr(
     assert len(response.json()["data"]) == expected_count
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_instance_detail(admin_client, instance):
     url = reverse("instance-detail", args=[instance.pk])
 
@@ -149,9 +151,11 @@ def test_instance_detail(admin_client, instance):
 
 @pytest.mark.parametrize("instance__identifier", ["00-00-000"])
 @pytest.mark.parametrize("form_field__name", ["name"])
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
-    "form_field__value,search",
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
+@pytest.mark.parametrize(
+    ("form_field__value", "search"),
     [
         ("simpletext", "simple"),
         (["list", "value"], "list"),
@@ -204,7 +208,9 @@ def test_instance_search_sanctions(
         assert json["data"][0]["id"] == str(ur_instance.pk)
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_instance_filter_fields(admin_client, instance, form_field_factory):
     filters = {}
 
@@ -222,7 +228,14 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,form_filter,form_filter_name,exclude,expected_count",
+    (
+        "role__name",
+        "instance__user",
+        "form_filter",
+        "form_filter_name",
+        "exclude",
+        "expected_count",
+    ),
     [
         ("Applicant", lf("admin_user"), False, None, False, 1),
         ("Applicant", lf("admin_user"), True, None, False, 1),
@@ -257,7 +270,7 @@ def test_instance_form_name_filter(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "field,submit_date,expected_count",
+    ("field", "submit_date", "expected_count"),
     [
         ("submit_date_after_sz", "2020-03-02", 1),
         ("submit_date_before_sz", "2022-03-02", 1),
@@ -297,7 +310,7 @@ def test_instance_submit_date_filter(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "address,expected_count",
+    ("address", "expected_count"),
     [
         ("ous", 1),
         ("Large House", 1),
@@ -339,7 +352,7 @@ def test_instance_address_filter(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "intent,expected_count",
+    ("intent", "expected_count"),
     [
         ("a", [1, 1, 0]),
         ("aa", [0, 0, 0]),
@@ -352,7 +365,7 @@ def test_instance_address_filter(
     ],
 )
 @pytest.mark.parametrize(
-    "index,form_field__name,form_field__value,form_field__instance",
+    ("index", "form_field__name", "form_field__value", "form_field__instance"),
     [
         (0, "intent1", "Large house", lf("instance")),
         (1, "intent2", "Small garden", lf("instance")),
@@ -380,7 +393,7 @@ def test_instance_intent_filter(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "plot,expected_count",
+    ("plot", "expected_count"),
     [
         ("CH9", 2),
         ("4", 1),
@@ -426,7 +439,7 @@ def test_instance_plot_egrid_filter(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "plot,expected_count",
+    ("plot", "expected_count"),
     [
         ("CH9", 0),
         ("4", 0),
@@ -471,7 +484,7 @@ def test_instance_plot_number_filter(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user",
+    ("role__name", "instance__user"),
     [
         ("Municipality", lf("admin_user")),
         ("Service", lf("admin_user")),
@@ -479,7 +492,7 @@ def test_instance_plot_number_filter(
     ],
 )
 @pytest.mark.parametrize(
-    "value,expected_count",
+    ("value", "expected_count"),
     [
         ("strasse", {"Municipality": 1, "Service": 1, "Applicant": 1}),
         ("beispie", {"Municipality": 1, "Service": 0, "Applicant": 0}),
@@ -657,9 +670,11 @@ def test_keyword_search_filter_sz(
     assert len(response.json()["data"]) == expected_count[role.name]
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
-    "with_cantonal_participation,expected_count", [(True, 1), (False, 0)]
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
+@pytest.mark.parametrize(
+    ("with_cantonal_participation", "expected_count"), [(True, 1), (False, 0)]
 )
 def test_with_cantonal_participation_filter(
     admin_client,
@@ -689,7 +704,7 @@ def test_with_cantonal_participation_filter(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "form_field_name,filter_name",
+    ("form_field_name", "filter_name"),
     [
         ("bauherrschaft", "builder_sz"),
         ("grundeigentumerschaft", "landowner_sz"),
@@ -697,7 +712,7 @@ def test_with_cantonal_participation_filter(
     ],
 )
 @pytest.mark.parametrize(
-    "search,expected_count",
+    ("search", "expected_count"),
     [
         (
             "a",
@@ -860,7 +875,7 @@ def test_instance_form_name_versioned_filter(
 
 
 @pytest.mark.parametrize(
-    "instance__user,instance__identifier,identifier,expected_count",
+    ("instance__user", "instance__identifier", "identifier", "expected_count"),
     [
         (lf("admin_user"), "001", "1", 1),
         (lf("admin_user"), "001", "2", 0),
@@ -883,7 +898,7 @@ def test_instance_identifier_filter(
 
 
 @pytest.mark.parametrize(
-    "instance__user,expected_count",
+    ("instance__user", "expected_count"),
     [
         (lf("admin_user"), 1),
     ],
@@ -921,7 +936,7 @@ def test_instance_service_filter_sz(
 
 
 @pytest.mark.parametrize(
-    "instance__user,expected_count",
+    ("instance__user", "expected_count"),
     [
         (lf("admin_user"), 1),
     ],
@@ -948,7 +963,7 @@ def test_instance_service_filter_ur(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Municipality", lf("admin_user"))]
+    ("role__name", "instance__user"), [("Municipality", lf("admin_user"))]
 )
 def test_linked_instances(
     admin_client, instance, instance_group_factory, instance_factory
@@ -969,7 +984,7 @@ def test_linked_instances(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Municipality", lf("admin_user"))]
+    ("role__name", "instance__user"), [("Municipality", lf("admin_user"))]
 )
 def test_involved_services(
     admin_client, group, be_instance, active_inquiry_factory, service_factory
@@ -999,7 +1014,7 @@ def test_involved_services(
 @pytest.mark.parametrize("main_instance_has_group", [False, True])
 @pytest.mark.parametrize("other_instance_has_group", [False, True])
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    ("role__name", "expected_status"),
     [
         ("Municipality", status.HTTP_200_OK),
         ("Coordination", status.HTTP_200_OK),
@@ -1144,7 +1159,7 @@ def test_instance_group_unlink(
 
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
-    "role__name,instance__user,status_code",
+    ("role__name", "instance__user", "status_code"),
     [
         # applicant/reader can't update their own Instance,
         # but might update FormField etc.
@@ -1193,7 +1208,7 @@ def test_instance_update(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,instance_state__name,status_code",
+    ("role__name", "instance__user", "instance_state__name", "status_code"),
     [
         ("Applicant", lf("admin_user"), "new", status.HTTP_204_NO_CONTENT),
         ("Applicant", lf("admin_user"), "subm", status.HTTP_403_FORBIDDEN),
@@ -1229,7 +1244,13 @@ def test_instance_destroy(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,instance__user,instance_state__name,is_paper,status_code",
+    (
+        "service_group__name",
+        "instance__user",
+        "instance_state__name",
+        "is_paper",
+        "status_code",
+    ),
     [
         ("applicant", lf("admin_user"), "new", False, status.HTTP_204_NO_CONTENT),
         ("applicant", lf("admin_user"), "subm", False, status.HTTP_403_FORBIDDEN),
@@ -1259,7 +1280,7 @@ def test_instance_destroy_ag(
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,instance__location",
+    ("instance_state__name", "instance__location"),
     [("new", None), ("new", lf("location"))],
 )
 def test_instance_create(
@@ -1358,13 +1379,13 @@ def test_instance_create_internal_sz(
 
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize(
-    "instance__user,location__communal_federal_number,instance_state__name",
+    ("instance__user", "location__communal_federal_number", "instance_state__name"),
     [(lf("admin_user"), "1311", "new")],
 )
 @pytest.mark.parametrize("attachment__question", ["dokument-parzellen"])
 @pytest.mark.parametrize("short_dossier_number", [True, False])
 @pytest.mark.parametrize(
-    "role__name,instance__location,form__name,status_code",
+    ("role__name", "instance__location", "form__name", "status_code"),
     [
         ("Applicant", lf("location"), "baugesuch", status.HTTP_200_OK),
         ("Applicant", lf("location"), "", status.HTTP_400_BAD_REQUEST),
@@ -1381,7 +1402,6 @@ def test_instance_create_internal_sz(
             "geschaeftskontrolle",
             status.HTTP_200_OK,
         ),
-        ("Applicant", lf("location"), "baugesuch", status.HTTP_200_OK),
     ],
 )
 def test_instance_submit_sz(
@@ -1600,7 +1620,7 @@ def test_instance_export_list(
 
 @pytest.mark.parametrize("attachment__question", ["dokument-parzellen"])
 @pytest.mark.parametrize(
-    "role__name,instance__user,form__name,status_code,to_type",
+    ("role__name", "instance__user", "form__name", "status_code", "to_type"),
     [
         (
             "Applicant",
@@ -1671,17 +1691,25 @@ def test_instance_export_detail(
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize("separator", ["-"])
 @pytest.mark.parametrize(
-    "short_dossier_number,use_caluma,prefix,padding,form_abbreviation,caluma_instance_forms,expected",
     (
-        [True, False, None, None, None, False, "11-17-011"],
-        [False, False, None, None, None, False, "1311-17-011"],
-        [False, True, None, None, None, False, "1311-17-011"],
-        [True, True, None, None, None, False, "11-17-011"],
-        [True, False, None, None, "abbr", False, "AB-17-001"],
-        [True, False, "IM", 4, "abbr", False, "AB-17-0001"],
-        [True, False, "IM", 4, None, False, "IM-11-17-0011"],
-        [True, False, None, None, "abbr", True, "AB-17-011"],
+        "short_dossier_number",
+        "use_caluma",
+        "prefix",
+        "padding",
+        "form_abbreviation",
+        "caluma_instance_forms",
+        "expected",
     ),
+    [
+        (True, False, None, None, None, False, "11-17-011"),
+        (False, False, None, None, None, False, "1311-17-011"),
+        (False, True, None, None, None, False, "1311-17-011"),
+        (True, True, None, None, None, False, "11-17-011"),
+        (True, False, None, None, "abbr", False, "AB-17-001"),
+        (True, False, "IM", 4, "abbr", False, "AB-17-0001"),
+        (True, False, "IM", 4, None, False, "IM-11-17-0011"),
+        (True, False, None, None, "abbr", True, "AB-17-011"),
+    ],
 )
 @pytest.mark.parametrize("location__communal_federal_number", ["1311"])
 @pytest.mark.django_db
@@ -1750,18 +1778,27 @@ def test_instance_generate_identifier(
 @pytest.mark.freeze_time("2023-9-20")
 @pytest.mark.parametrize("separator", ["-"])
 @pytest.mark.parametrize(
-    "short_dossier_number,use_caluma,prefix,padding,form_abbreviation,caluma_instance_forms,internal_instance_forms,expected",
     (
-        [True, False, None, None, None, False, False, "11-23-011"],
-        [False, False, None, None, None, False, False, "1311-23-011"],
-        [False, True, None, None, None, False, False, "1311-23-011"],
-        [True, True, None, None, None, False, False, "11-23-011"],
-        [True, False, None, None, "abbr", False, False, "AB-23-001"],
-        [True, False, "IM", 4, "abbr", False, False, "AB-23-0001"],
-        [True, False, "IM", 4, None, False, False, "IM-11-23-0011"],
-        [True, False, None, None, "abbr", True, False, "AB-23-011"],
-        [True, True, None, None, "abbr", True, True, "AB-4010-23-0001"],
+        "short_dossier_number",
+        "use_caluma",
+        "prefix",
+        "padding",
+        "form_abbreviation",
+        "caluma_instance_forms",
+        "internal_instance_forms",
+        "expected",
     ),
+    [
+        (True, False, None, None, None, False, False, "11-23-011"),
+        (False, False, None, None, None, False, False, "1311-23-011"),
+        (False, True, None, None, None, False, False, "1311-23-011"),
+        (True, True, None, None, None, False, False, "11-23-011"),
+        (True, False, None, None, "abbr", False, False, "AB-23-001"),
+        (True, False, "IM", 4, "abbr", False, False, "AB-23-0001"),
+        (True, False, "IM", 4, None, False, False, "IM-11-23-0011"),
+        (True, False, None, None, "abbr", True, False, "AB-23-011"),
+        (True, True, None, None, "abbr", True, True, "AB-4010-23-0001"),
+    ],
 )
 @pytest.mark.parametrize("location__communal_federal_number", ["1311"])
 @pytest.mark.django_db
@@ -1834,7 +1871,7 @@ def test_instance_generate_identifier_sz(
 
 
 @pytest.mark.parametrize(
-    "existing_dossier_numbers,expected_dossier_number",
+    ("existing_dossier_numbers", "expected_dossier_number"),
     [
         (None, "2023-1"),
         (["2023-1"], "2023-2"),
@@ -1864,7 +1901,14 @@ def test_instance_generate_identifier_gr(
 
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize(
-    "role__name,instance__user,publication_entry__publication_date,publication_entry__publication_end_date,publication_entry__is_published,status_code",
+    (
+        "role__name",
+        "instance__user",
+        "publication_entry__publication_date",
+        "publication_entry__publication_end_date",
+        "publication_entry__is_published",
+        "status_code",
+    ),
     [
         (
             "Municipality",
@@ -1925,7 +1969,9 @@ def test_instance_detail_publication(
     assert response.status_code == status_code
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_circulation_state_filter(
     application_settings,
     admin_client,
@@ -1981,7 +2027,13 @@ def test_tags_filter(admin_client, admin_user, instance_factory):
 
 
 @pytest.mark.parametrize(
-    "role__name,instance_state__name,responsible_service__responsible_user,responsible_service__service, instance_service__active",
+    (
+        "role__name",
+        "instance_state__name",
+        "responsible_service__responsible_user",
+        "responsible_service__service",
+        "instance_service__active",
+    ),
     [("Service", "new", lf("user"), lf("service"), 1)],
 )
 def test_responsible_service_filters(
@@ -2080,7 +2132,9 @@ def test_responsible_service_filters(
     assert len(data) == 0
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
 def test_instance_filter_is_applicant(admin_client, instance):
     url = reverse("instance-list")
 
@@ -2095,8 +2149,10 @@ def test_instance_filter_is_applicant(admin_client, instance):
     assert len(json["data"]) == 0
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
-@pytest.mark.parametrize("is_finished,expected", [(True, 0), (False, 1)])
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
+@pytest.mark.parametrize(("is_finished", "expected"), [(True, 0), (False, 1)])
 def test_instance_filter_pending_sanctions_control_instance(
     admin_client, admin_user, instance, sanction_factory, is_finished, expected
 ):
@@ -2288,7 +2344,7 @@ def test_has_inquiry(
 
 
 @pytest.mark.parametrize(
-    "inquiry_state,has_open_work_item,expected",
+    ("inquiry_state", "has_open_work_item", "expected"),
     [
         ("pending", True, 1),
         ("pending", False, 0),
@@ -2363,7 +2419,7 @@ def test_inquiry_state_filter(
     assert len(response.json()["data"]) == expected
 
 
-@pytest.mark.django_db()
+@pytest.mark.django_db
 def test_responsible_building_commission(
     mocker, ur_instance, group_factory, location_factory, service_factory
 ):
@@ -2386,7 +2442,7 @@ def test_responsible_building_commission(
 
 
 @pytest.mark.parametrize(
-    "suspended_for,search,expected",
+    ("suspended_for", "search", "expected"),
     [
         ("none", None, 1),
         ("none", "0", 1),
@@ -2441,7 +2497,7 @@ def test_case_suspended_filter_gr(
 
 
 @pytest.mark.parametrize(
-    "search,expected",
+    ("search", "expected"),
     [
         ("bib", 2),
         ("bab", 1),
@@ -2494,7 +2550,7 @@ def test_case_bab_filter(
 
 
 @pytest.mark.parametrize(
-    "search,formslug,expected",
+    ("search", "formslug", "expected"),
     [
         ("bib", "example", 0),
         ("bab", "example", 0),
@@ -2546,7 +2602,7 @@ def test_case_bab_filter_gr(
 
 
 @pytest.mark.parametrize(
-    "service_group_name,suspended_for,search,expected",
+    ("service_group_name", "suspended_for", "search", "expected"),
     [
         # filter logic for municipality, or parent service
         ("municipality", "none", "0", 1),
@@ -2623,7 +2679,7 @@ def test_case_suspended_filter_ag(
 
 
 @pytest.mark.parametrize(
-    "codes,expected",
+    ("codes", "expected"),
     [
         ([], 3),
         ("", 3),
@@ -2691,7 +2747,7 @@ def test_application_codes_filter_ag(
 
 
 @pytest.mark.parametrize(
-    "filter_value,expected",
+    ("filter_value", "expected"),
     [
         (1, 1),
         (0, 0),
