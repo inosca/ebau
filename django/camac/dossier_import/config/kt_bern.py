@@ -17,8 +17,8 @@ from camac.dossier_import.messages import (
 from camac.dossier_import.validation import TargetStatus
 from camac.dossier_import.writers import (
     CalumaAnswerWriter,
-    CalumaListAnswerWriter,
     CalumaPlotDataWriter,
+    CalumaTableAnswerWriter,
     DossierWriter,
     EbauNumberWriter,
     ResponsibleUserWriter,
@@ -112,7 +112,7 @@ class KtBernDossierWriter(DossierWriter):
     street = CalumaAnswerWriter(target="strasse-flurname")
     street_number = CalumaAnswerWriter(target="nr", formatter="to-string")
     city = CalumaAnswerWriter(target="ort-grundstueck")
-    applicant = CalumaListAnswerWriter(
+    applicant = CalumaTableAnswerWriter(
         target="personalien-gesuchstellerin",
         column_mapping=APPLICANT_MAPPING,
         value_mapping={
@@ -122,7 +122,7 @@ class KtBernDossierWriter(DossierWriter):
             }
         },
     )
-    landowner = CalumaListAnswerWriter(
+    landowner = CalumaTableAnswerWriter(
         target="personalien-grundeigentumerin",
         column_mapping=LANDOWNER_MAPPING,
         value_mapping={
@@ -132,7 +132,7 @@ class KtBernDossierWriter(DossierWriter):
             }
         },
     )
-    project_author = CalumaListAnswerWriter(
+    project_author = CalumaTableAnswerWriter(
         target="personalien-projektverfasserin",
         column_mapping=PROJECTAUTHOR_MAPPING,
         value_mapping={

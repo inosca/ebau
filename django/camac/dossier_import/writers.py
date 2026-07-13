@@ -5,7 +5,7 @@ import traceback
 import weakref
 from abc import ABC, abstractmethod
 from collections.abc import Callable, Mapping
-from dataclasses import asdict, fields, is_dataclass
+from dataclasses import asdict, fields
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -26,7 +26,7 @@ from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.files import File
-from django.db import IntegrityError, transaction
+from django.db import transaction
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from future.moves import itertools
@@ -36,7 +36,12 @@ from rest_framework.exceptions import ValidationError
 from camac.core.models import InstanceService, WorkflowEntry
 from camac.core.utils import generate_sort_key
 from camac.dossier_import.domain_logic import get_or_create_ebau_nr
-from camac.dossier_import.dossier_classes import CalumaPlotData, Dossier
+from camac.dossier_import.dossier_classes import (
+    CalumaPlotData,
+    Dossier,
+    Person,
+    PlotData,
+)
 from camac.dossier_import.loaders import safe_join
 from camac.dossier_import.messages import (
     DOSSIER_IMPORT_STATUS_ERROR,
@@ -89,6 +94,8 @@ class FieldWriter(ABC):
         self.name = name or target
         self.protected = protected
 
+        self._question_cache = {}
+
     @property
     def can_delete(self):  # pragma: todo cover
         if not self.protected:
@@ -110,6 +117,12 @@ class FieldWriter(ABC):
     @abstractmethod
     def write(self, instance, values):  # pragma: no cover
         ...
+
+    def get_question(self, slug: str) -> Question:
+        if slug not in self._question_cache:
+            self._question_cache[slug] = Question.objects.get(pk=slug)
+
+        return self._question_cache[slug]
 
 
 class CamacNgAnswerWriter(FieldWriter):
@@ -377,9 +390,7 @@ class CalumaAnswerWriter(FieldWriter):
                     question=question,
                     document=document,
                     value=value,
-                    user=BaseUser(
-                        username=self.owner._user.username, group=self.owner._group.pk
-                    ),
+                    user=self.owner._caluma_user,
                 )
             except ValidationError as v:  # pragma: no cover
                 dossier._meta.errors.append(
@@ -447,9 +458,7 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
                 question=question,
                 document=row_document,
                 value=value,
-                user=BaseUser(
-                    username=self.owner._user.username, group=self.owner._group.pk
-                ),
+                user=self.owner._caluma_user,
             )
         except ValidationError as e:  # pragma: no cover
             dossier._meta.errors.append(
@@ -470,130 +479,118 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
             return
 
 
-class CalumaListAnswerWriter(FieldWriter):
-    def _iter_fields(self, obj):  # Ist ein Generator
-        if is_dataclass(obj):
-            return ((f.name, getattr(obj, f.name)) for f in fields(obj))
-        elif isinstance(obj, Mapping):  # pragma: no cover
-            return obj.items()
+class CalumaTableAnswerWriter(FieldWriter):
+    """Write a list of dataclass items into a Caluma table question.
 
-    def _values(self, obj):
-        if is_dataclass(obj):
-            return asdict(obj).values()
-        elif isinstance(obj, Mapping):  # pragma: no cover
-            return obj.values()
+    Each item in the list becomes one row document of the table question
+    referenced by `self.target`. The dataclass fields are mapped to column
+    questions via `self.column_mapping` (falling back to the field name) and
+    their values may be remapped via `self.value_mapping`.
+    """
 
-    def write(self, instance, values):  # noqa: C901
+    def write(self, instance: Instance, values: list[PlotData] | list[Person]):
+        """Write the given list items as rows of the target table question."""
         if not values:
+            # If we don't have any values, return
             return
 
-        # avoid creating entries with the e. g. <delete> value if the
-        # answer does not exist
-        if (
-            values == self.owner.delete_keyword
-            or any(val == self.owner.delete_keyword for val in values)
-        ) and (
-            answer := instance.case.document.answers.filter(
+        if self.owner.delete_keyword in values:
+            # If the field is marked to be deleted, we delete all existing row
+            # documents and return
+            answer = instance.case.document.answers.filter(
                 question__slug=self.target
             ).first()
-        ):
-            return answer.documents.all().delete()
-        if not any(any(self._values(obj)) for obj in values):  # pragma: no cover
+
+            if answer:
+                answer.documents.all().delete()
+
             return
-        try:
-            table_question = Question.objects.get(slug=self.target)
-        except (ObjectDoesNotExist, IntegrityError) as e:  # pragma: no cover
-            raise RuntimeError(
-                f"Failed to create table question {self.target} on {instance}"
-            ) from e
 
-        row_documents = []
-        for obj in values:
-            if not any(self._values(obj)):  # pragma: no cover
-                continue
-            try:
-                row_document = form_api.save_document(form=table_question.row_form)
-                row_documents.append(row_document)
-                for field_name, value in self._iter_fields(obj):
-                    if value is None:
-                        continue
-                    try:
-                        question = Question.objects.get(
-                            slug=self.column_mapping[field_name]
-                            if self.column_mapping
-                            else field_name
-                        )
+        row_documents = [self.write_row(instance, obj) for obj in values]
 
-                        # Some fields are parsed as integer but are not written
-                        # into an integer field in every canton
-                        if question.type in [
-                            Question.TYPE_TEXT,
-                            Question.TYPE_TEXTAREA,
-                        ]:
-                            value = str(value)
-
-                        if self.value_mapping and field_name in self.value_mapping:
-                            value = self.value_mapping[field_name].get(value, value)
-
-                        form_api.save_answer(
-                            question=question,
-                            value=value,
-                            document=row_document,
-                            user=BaseUser(
-                                username=self.owner._user.username,
-                                group=self.owner._group.pk,
-                            ),
-                        )
-                    except (ValidationError, GraphQLError):  # pragma: no cover
-                        self.context.get("dossier")._meta.errors.append(
-                            Message(
-                                level=Severity.WARNING.value,
-                                code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                                detail=_(
-                                    "Failed to write %(value)s for field %(field)s to %(target)s for dossier %(dossier)s."
-                                )
-                                % {
-                                    "value": value,
-                                    "field": field_name,
-                                    "target": self.target,
-                                    "dossier": instance,
-                                },
-                            )
-                        )
-                        continue
-                    except Exception:  # pragma: no cover
-                        self.context.get("dossier")._meta.errors.append(
-                            Message(
-                                level=Severity.WARNING.value,
-                                code=MessageCodes.UNHANDLED_EXCEPTION.value,
-                                detail=_(
-                                    "Failed to write %(value)s for field %(field)s to %(target)s for dossier %(dossier)s."
-                                )
-                                % {
-                                    "value": value,
-                                    "field": field_name,
-                                    "target": self.target,
-                                    "dossier": instance,
-                                },
-                            )
-                        )
-                        continue
-
-            except (ObjectDoesNotExist, IntegrityError) as e:  # pragma: no cover
-                raise RuntimeError(
-                    f"Failed to create row_document for table answer {self.target} on {instance}: field: {field_name}, value: {value}"
-                ) from e
         form_api.save_answer(
             document=instance.case.document,
-            question=table_question,
-            value=[doc.pk for doc in row_documents],
-            user=BaseUser(
-                username=self.owner._user.username, group=self.owner._group.pk
-            ),
+            question=self.get_question(self.target),
+            value=[doc.pk for doc in row_documents if doc],
+            user=self.owner._caluma_user,
         )
 
+    def write_row(self, instance: Instance, obj: Person | PlotData) -> Document | None:
+        """Create and populate a single row document for one list item."""
+        data = asdict(obj)
 
-class CalumaPlotDataWriter(CalumaListAnswerWriter):
+        if not any(data.values()):  # pragma: no cover
+            # If all properties of this list item are empty, we don't write
+            # anything for this row
+            return None
+
+        table_question = self.get_question(self.target)
+        row_document = form_api.save_document(form=table_question.row_form)
+
+        for field_name, value in data.items():
+            if value is None:
+                continue
+            try:
+                slug = (
+                    self.column_mapping[field_name]
+                    if self.column_mapping
+                    else field_name
+                )
+                question = self.get_question(slug)
+
+                if question.type in [Question.TYPE_TEXT, Question.TYPE_TEXTAREA]:
+                    # Some fields are parsed as integer but are not written into
+                    # an integer field in every canton, cast them to strings
+                    value = str(value)
+
+                if self.value_mapping and field_name in self.value_mapping:
+                    value = self.value_mapping[field_name].get(value, value)
+
+                form_api.save_answer(
+                    question=question,
+                    value=value,
+                    document=row_document,
+                    user=self.owner._caluma_user,
+                )
+            except (ValidationError, GraphQLError):  # pragma: no cover
+                self.context.get("dossier")._meta.errors.append(
+                    Message(
+                        level=Severity.WARNING.value,
+                        code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                        detail=_(
+                            "Failed to write %(value)s for field %(field)s to %(target)s for dossier %(dossier)s."
+                        )
+                        % {
+                            "value": value,
+                            "field": field_name,
+                            "target": self.target,
+                            "dossier": instance,
+                        },
+                    )
+                )
+                continue
+            except Exception:  # pragma: no cover
+                self.context.get("dossier")._meta.errors.append(
+                    Message(
+                        level=Severity.WARNING.value,
+                        code=MessageCodes.UNHANDLED_EXCEPTION.value,
+                        detail=_(
+                            "Failed to write %(value)s for field %(field)s to %(target)s for dossier %(dossier)s."
+                        )
+                        % {
+                            "value": value,
+                            "field": field_name,
+                            "target": self.target,
+                            "dossier": instance,
+                        },
+                    )
+                )
+                continue
+
+        return row_document
+
+
+class CalumaPlotDataWriter(CalumaTableAnswerWriter):
     def write(self, instance, values):
         if not values:
             return
