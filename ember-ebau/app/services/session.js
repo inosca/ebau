@@ -44,14 +44,21 @@ export default class CustomSession extends Session {
 
     // we have to know which is the current group
     const defaultGroup = user.defaultGroup?.id;
-    const availableGroups = user.groups?.map(({ id }) => id);
+    const availableGroups = user.groups?.map(({ id }) => id) ?? [];
+    const storedGroup = this.group;
 
-    let groupId = this.group;
-    if (!groupId || !availableGroups.includes(groupId)) {
-      groupId = defaultGroup ?? availableGroups[0];
+    // A defaultGroup persisted on the user in the backend always wins and
+    // overwrites whatever is stored in localStorage. Otherwise fall back to
+    // the stored group (if still valid) or the first available group.
+    let groupId;
+    if (defaultGroup && availableGroups.includes(defaultGroup)) {
+      groupId = defaultGroup;
+    } else if (storedGroup && availableGroups.includes(storedGroup)) {
+      groupId = storedGroup;
+    } else {
+      groupId = availableGroups[0];
     }
-    this._group = defaultGroup ?? availableGroups[0];
-    this.data.group = this._group;
+    this.group = groupId;
 
     const group = groupId ? this.store.peekRecord("group", groupId) : null;
     const service = await group?.service;
@@ -104,6 +111,17 @@ export default class CustomSession extends Session {
 
   get service() {
     return this._data.value?.service;
+  }
+
+  @cached
+  get group() {
+    return this._group;
+  }
+
+  set group(value) {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
+    this.set("data.group", value);
+    this._group = value;
   }
 
   get isInternal() {
