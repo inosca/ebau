@@ -66,8 +66,6 @@ defmodule EbauWeb.Layouts do
     <main class="main-content">
       {render_slot(@inner_block)}
     </main>
-
-    <.flash_group flash={@flash} />
     """
   end
 
