@@ -28,7 +28,7 @@ export default class CustomSession extends Session {
   @tracked currentInstanceId;
 
   @localCopy("data.language") _language;
-  @tracked group;
+  @localCopy("data.group") _group;
 
   _data = trackedFunction(this, async () => {
     await Promise.resolve();
@@ -50,7 +50,8 @@ export default class CustomSession extends Session {
     if (!groupId || !availableGroups.includes(groupId)) {
       groupId = defaultGroup ?? availableGroups[0];
     }
-    this.group = defaultGroup ?? availableGroups[0];
+    this._group = defaultGroup ?? availableGroups[0];
+    this.data.group = this._group;
 
     const group = groupId ? this.store.peekRecord("group", groupId) : null;
     const service = await group?.service;
