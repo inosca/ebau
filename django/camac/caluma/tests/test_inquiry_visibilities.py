@@ -243,8 +243,8 @@ def test_inquiry_visibility_so(
         chain(
             *[
                 [
-                    Service.objects.get(pk=int(id)).name
-                    for id in inquiry["addressedGroups"]
+                    Service.objects.get(pk=int(service_id)).name
+                    for service_id in inquiry["addressedGroups"]
                 ]
                 for inquiry in inquiries
             ]

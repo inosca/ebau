@@ -354,8 +354,8 @@ def add_result(previous_value, value_to_add):
     return sorted(set(previous_value + [value_to_add]))
 
 
-def find(element, property, fallback=None):
+def find(element, property_path, fallback=None):
     try:
-        return element.find(property).text
+        return element.find(property_path).text
     except AttributeError:  # pragma: no cover
         return fallback

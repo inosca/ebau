@@ -80,12 +80,12 @@ def test_generate_delivery(
 
 
 @pytest.mark.parametrize(
-    "input,expected",
+    "value,expected",
     [
         ("Testweg 12a", ("Testweg", "12a")),
         ("Teststrasse", ("Teststrasse", None)),
         ("Test 12a, Beispiel 2b", ("Test 12a, Beispiel 2b", None)),
     ],
 )
-def test_split_street_and_housenumber(input, expected):
-    assert formatters.split_street_and_housenumber(input) == expected
+def test_split_street_and_housenumber(value, expected):
+    assert formatters.split_street_and_housenumber(value) == expected

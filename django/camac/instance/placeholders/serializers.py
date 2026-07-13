@@ -1483,7 +1483,7 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         description=_("Inventory"),
     )
     lastenausgleichsbegehren = fields.LegalSubmissionField(
-        type="legal-submission-type-load-compensation-request",
+        type_value="legal-submission-type-load-compensation-request",
         aliases=[_("LOAD_COMPENSATION_REQUESTS")],
         description=_('All legal submissions of the type "load compensation request"'),
     )
@@ -1495,27 +1495,27 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     modification_date = fields.DeprecatedField()
     modification_time = fields.DeprecatedField()
     neighbors = fields.InformationOfNeighborsField(
-        type="neighbors",
+        field_type="neighbors",
         aliases=[_("NEIGHBORS")],
         description=_("Name and address of all the neighbors"),
     )
     objections = fields.LegalSubmissionField(
-        type="legal-submission-type-objection",
+        type_value="legal-submission-type-objection",
         aliases=[_("OBJECTIONS")],
         description=_('All legal submissions of the type "objection"'),
     )
     opposing = fields.LegalClaimantsField(
-        type="legal-submission-type-objection",
+        type_value="legal-submission-type-objection",
         aliases=[_("OPPOSING")],
         description=_("Opposing with address"),
     )
     legal_custodians = fields.LegalClaimantsField(
-        type="legal-submission-type-legal-custody",
+        type_value="legal-submission-type-legal-custody",
         aliases=[_("LEGAL_CUSTODIANS")],
         description=_("Legal custodians with address"),
     )
     load_compensation_requesting = fields.LegalClaimantsField(
-        type="legal-submission-type-load-compensation-request",
+        type_value="legal-submission-type-load-compensation-request",
         aliases=[_("LOAD_COMPENSATION_REQUESTING")],
         description=_("Load compensation requesting with address"),
     )
@@ -1528,11 +1528,11 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         description=_("All outside seating"),
     )
     information_of_neighbors_link = fields.InformationOfNeighborsField(
-        type="link",
+        field_type="link",
         aliases=[_("INFORMATION_OF_NEIGHBORS_LINK")],
     )
     information_of_neighbors_qr_code = fields.InformationOfNeighborsField(
-        type="qr_code",
+        field_type="qr_code",
         aliases=[_("INFORMATION_OF_NEIGHBORS_QR_CODE")],
     )
     nutzung = fields.MasterDataField(
@@ -1617,7 +1617,7 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         description=_("Start date of the publication of the instance"),
     )
     rechtsverwahrungen = fields.LegalSubmissionField(
-        type="legal-submission-type-legal-custody",
+        type_value="legal-submission-type-legal-custody",
         aliases=[_("LEGAL_CUSTODIES")],
         description=_('All legal submissions of the type "legal custody"'),
     )
@@ -3050,17 +3050,17 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         description=_("Feedback of the invited services"),
     )
     auswaertige_anstoesser = fields.InformationOfNeighborsField(
-        type="neighbors",
+        field_type="neighbors",
         aliases=[_("FOREIGN_NEIGHBORS")],
         description=_("Foreign neighbors"),
     )
     information_auswaertige_anstoesser_link = fields.InformationOfNeighborsField(
-        type="link",
+        field_type="link",
         aliases=[_("INFORMATION_OF_FOREIGN_NEIGHBORS_LINK")],
         description=_("Link to access the dossier as foreign neighbor"),
     )
     information_auswaertige_anstoesser_qr_code = fields.InformationOfNeighborsField(
-        type="qr_code",
+        field_type="qr_code",
         aliases=[_("INFORMATION_OF_FOREIGN_NEIGHBORS_QR_CODE")],
         description=_("QR code to access the dossier as foreign neighbor"),
     )

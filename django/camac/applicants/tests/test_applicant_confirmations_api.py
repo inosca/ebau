@@ -143,15 +143,15 @@ def test_applicant_confirmation_round_list(
 def test_applicant_confirmation_round_detail(
     admin_client, applicant_confirmation_round_factory
 ):
-    round = applicant_confirmation_round_factory()
+    confirmation_round = applicant_confirmation_round_factory()
 
-    url = reverse("applicant-confirmation-rounds-detail", args=[round.pk])
+    url = reverse("applicant-confirmation-rounds-detail", args=[confirmation_round.pk])
     response = admin_client.get(url)
 
     assert response.status_code == status.HTTP_200_OK
 
     result = response.json()["data"]
-    assert result["id"] == str(round.pk)
+    assert result["id"] == str(confirmation_round.pk)
     assert result["type"] == "applicant-confirmation-rounds"
     assert set(result["attributes"].keys()) == {
         "closed-at",
@@ -228,15 +228,17 @@ def test_applicant_confirmation_confirm(
 def test_applicant_confirmation_round_actions(
     action, admin_client, applicant_confirmation_round_factory, mocker
 ):
-    round = applicant_confirmation_round_factory()
+    confirmation_round = applicant_confirmation_round_factory()
     action_mock = mocker.patch(
         f"camac.applicants.models.ApplicantConfirmationRound.{action}",
-        return_value=round,
+        return_value=confirmation_round,
     )
 
-    url = reverse(f"applicant-confirmation-rounds-{action}", args=[round.pk])
+    url = reverse(
+        f"applicant-confirmation-rounds-{action}", args=[confirmation_round.pk]
+    )
     response = admin_client.post(url)
 
     assert response.status_code == status.HTTP_200_OK
     assert action_mock.call_count == 1
-    assert response.json()["data"]["id"] == str(round.pk)
+    assert response.json()["data"]["id"] == str(confirmation_round.pk)

@@ -189,16 +189,16 @@ class ApplicantConfirmationRoundViewSet(
 
     @action(methods=["POST"], detail=True)
     def invalidate(self, request, pk):
-        round = self.get_object().invalidate(request)
-        round.refresh_from_db()
-        serializer = self.get_serializer(round)
+        confirmation_round = self.get_object().invalidate(request)
+        confirmation_round.refresh_from_db()
+        serializer = self.get_serializer(confirmation_round)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     @action(methods=["POST"], detail=True)
     def cancel(self, request, pk):
-        round = self.get_object().cancel(request)
-        round.refresh_from_db()
-        serializer = self.get_serializer(round)
+        confirmation_round = self.get_object().cancel(request)
+        confirmation_round.refresh_from_db()
+        serializer = self.get_serializer(confirmation_round)
 
         return Response(serializer.data, status=status.HTTP_200_OK)

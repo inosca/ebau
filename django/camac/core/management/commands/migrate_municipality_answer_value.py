@@ -11,8 +11,8 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument("--dry", dest="dry", action="store_true", default=False)
 
-    def get_location(self, id):
-        return Location.objects.filter(pk=int(id)).first()
+    def get_location(self, location_id):
+        return Location.objects.filter(pk=int(location_id)).first()
 
     @transaction.atomic
     def handle(self, *args, **options):

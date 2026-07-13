@@ -177,7 +177,7 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         slug="start-circulation-new",
                         label=_("Start circulation"),
                         task="init-distribution",
-                        filter=lambda instance: (
+                        filter_function=lambda instance: (
                             _is_addressed_to_the_responsible_service(instance)
                         ),
                         status=WorkItem.STATUS_COMPLETED,
@@ -188,7 +188,7 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         label=_("Forwarding to KOOR"),
                         order_by="created_at",
                         limit=1,
-                        filter=lambda instance: (
+                        filter_function=lambda instance: (
                             _is_addressed_to_a_coordination_service()
                         ),
                     ),
@@ -198,7 +198,7 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         task="distribution",
                         field="closed_at",
                         status=WorkItem.STATUS_COMPLETED,
-                        filter=lambda instance: Q(
+                        filter_function=lambda instance: Q(
                             _is_addressed_to_the_responsible_service(instance)
                         ),
                     ),

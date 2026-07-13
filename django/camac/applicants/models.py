@@ -379,7 +379,7 @@ class ApplicantConfirmationRoundManager(models.Manager["ApplicantConfirmationRou
                 "Can't create an applicant confirmation round without any individual confirmations."
             )
 
-        round = ApplicantConfirmationRound.objects.create(
+        confirmation_round = ApplicantConfirmationRound.objects.create(
             document=document,
             instance=instance,
             step=step,
@@ -387,12 +387,12 @@ class ApplicantConfirmationRoundManager(models.Manager["ApplicantConfirmationRou
 
         for applicant, questions in applicants:
             confirmation = ApplicantConfirmation.objects.create(
-                round=round,
+                round=confirmation_round,
                 applicant=applicant,
             )
             confirmation.source_questions.set(questions)
 
-        return round
+        return confirmation_round
 
 
 class ApplicantConfirmationRound(models.Model):

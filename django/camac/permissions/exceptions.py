@@ -2,11 +2,11 @@ from django.core import exceptions
 from rest_framework.exceptions import ValidationError
 
 
-class PermissionError(Exception):
+class BasePermissionError(Exception):
     pass
 
 
-class GrantRejected(PermissionError):
+class GrantRejected(BasePermissionError):
     pass
 
 
@@ -14,7 +14,7 @@ class GrantValidationError(GrantRejected, ValidationError):
     pass
 
 
-class RevocationRejected(PermissionError, ValidationError):
+class RevocationRejected(BasePermissionError, ValidationError):
     pass
 
 

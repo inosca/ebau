@@ -91,8 +91,8 @@ class BaseEventHandler:
     def get_xml(self, **kwargs):  # pragma: no cover
         raise NotImplementedError
 
-    def create_message(self, xml, receiver=None, id=None):
-        message_id = id or self.message_id
+    def create_message(self, xml, receiver=None, message_id=None):
+        message_id = message_id or self.message_id
         message_receiver = receiver or self.message_receiver
 
         if not message_receiver:
@@ -228,7 +228,7 @@ class StatusNotificationEventHandler(BaseEventHandler):
                 .addressed_to(service_are)
                 .exists()
             ):
-                self.create_message(xml, receiver=service_are, id=uuid4())
+                self.create_message(xml, receiver=service_are, message_id=uuid4())
 
         return self.create_message(xml)
 

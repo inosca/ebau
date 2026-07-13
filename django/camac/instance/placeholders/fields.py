@@ -864,11 +864,15 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
 
         return sorted(available_placeholders)
 
-    def get_service(self, inquiry, type):
-        return Service.objects.get(pk=int(getattr(inquiry, type)[0])).get_name()
+    def get_service(self, inquiry, property_name):
+        return Service.objects.get(
+            pk=int(getattr(inquiry, property_name)[0])
+        ).get_name()
 
-    def get_service_description(self, inquiry, type):
-        return Service.objects.get(pk=int(getattr(inquiry, type)[0])).get_description()
+    def get_service_description(self, inquiry, property_name):
+        return Service.objects.get(
+            pk=int(getattr(inquiry, property_name)[0])
+        ).get_description()
 
     def get_prop_key(self, prop):
         return prop[1] if isinstance(prop, tuple) else prop
@@ -1045,10 +1049,10 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
 
 
 class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
-    def __init__(self, type=None, *args, **kwargs):
+    def __init__(self, type_value=None, *args, **kwargs):
         super().__init__(*args, is_collection=True, **kwargs)
 
-        self.type = type
+        self.type_value = type_value
 
     @property
     def nested_aliases(self):
@@ -1072,7 +1076,7 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
             "TITEL": [_("TITLE")],
         }
 
-        if self.type == "legal-submission-type-objection":
+        if self.type_value == "legal-submission-type-objection":
             nested_aliases["RUEGEPUNKTE"] = [_("REPRIMANDS")]
         else:
             nested_aliases["ANLIEGEN"] = [_("REQUEST"), _("CONCERN")]
@@ -1132,15 +1136,15 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
                     ],
                 }
 
-            if self.type == "legal-submission-type-objection":
+            if self.type_value == "legal-submission-type-objection":
                 legal_submission["RUEGEPUNKTE"] = find_answer(
                     document, "legal-submission-reprimands"
                 )
-            elif self.type == "legal-submission-type-load-compensation-request":
+            elif self.type_value == "legal-submission-type-load-compensation-request":
                 legal_submission["ANLIEGEN"] = find_answer(
                     document, "legal-submission-request-load-compensation-request"
                 )
-            elif self.type == "legal-submission-type-legal-custody":
+            elif self.type_value == "legal-submission-type-legal-custody":
                 legal_submission["ANLIEGEN"] = find_answer(
                     document, "legal-submission-request-legal-custody"
                 )
@@ -1155,12 +1159,12 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
             family__work_item__case__instance=instance,
         )
 
-        if self.type:
+        if self.type_value:
             queryset = queryset.filter(
                 Exists(
                     Answer.objects.filter(
                         question_id="legal-submission-type",
-                        value__contains=self.type,
+                        value__contains=self.type_value,
                         document_id=OuterRef("pk"),
                     )
                 )
@@ -1170,7 +1174,7 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
 
 
 class LegalClaimantsField(AliasedMixin, serializers.ReadOnlyField):
-    def __init__(self, type=None, *args, **kwargs):
+    def __init__(self, type_value=None, *args, **kwargs):
         super().__init__(
             *args,
             nested_aliases={"ADDRESS": [_("ADDRESS")], "NAME": [_("NAME")]},
@@ -1178,7 +1182,7 @@ class LegalClaimantsField(AliasedMixin, serializers.ReadOnlyField):
             **kwargs,
         )
 
-        self.type = type
+        self.type_value = type_value
 
     def to_representation(self, value):
         data = []
@@ -1201,12 +1205,12 @@ class LegalClaimantsField(AliasedMixin, serializers.ReadOnlyField):
             family__work_item__case__instance=instance,
         )
 
-        if self.type:
+        if self.type_value:
             legal_submissions = legal_submissions.filter(
                 Exists(
                     Answer.objects.filter(
                         question_id="legal-submission-type",
-                        value__contains=self.type,
+                        value__contains=self.type_value,
                         document_id=OuterRef("pk"),
                     )
                 )
@@ -1463,7 +1467,7 @@ class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):
 
     def __init__(
         self,
-        type: TypeChoices,
+        field_type: TypeChoices,
         **kwargs,
     ):
         nested_aliases = (
@@ -1472,17 +1476,17 @@ class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):
                 "ADDRESS_2": [_("ADDRESS_2")],
                 "NAME": [_("NAME")],
             }
-            if type == self.TypeChoices.NEIGHBORS
+            if field_type == self.TypeChoices.NEIGHBORS
             else {}
         )
 
         super().__init__(
-            is_collection=type == self.TypeChoices.NEIGHBORS,
+            is_collection=field_type == self.TypeChoices.NEIGHBORS,
             nested_aliases=nested_aliases,
             **kwargs,
         )
 
-        self.type = type
+        self.field_type = field_type
 
     def get_work_item(self, instance):
         return (
@@ -1502,12 +1506,12 @@ class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):
         if not work_item:
             return None
 
-        if self.type in [self.TypeChoices.LINK, self.TypeChoices.QR_CODE]:
+        if self.field_type in [self.TypeChoices.LINK, self.TypeChoices.QR_CODE]:
             return build_url(
                 settings.PUBLIC_BASE_URL,
                 f"/public-instances/{instance.pk}/form?key={str(work_item.document.pk)[:7]}",
             )
-        elif self.type == self.TypeChoices.NEIGHBORS:
+        elif self.field_type == self.TypeChoices.NEIGHBORS:
             table = work_item.document.answers.filter(
                 question_id=settings.PUBLICATION["NEIGHBORS_TABLE_QUESTION"]
             ).first()
@@ -1524,14 +1528,14 @@ class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):
         return None  # pragma: no cover
 
     def to_representation(self, value):
-        if value and self.type == self.TypeChoices.QR_CODE:
+        if value and self.field_type == self.TypeChoices.QR_CODE:
             data = BytesIO()
             img = qrcode.make(value)
             img.save(data, "PNG")
             data_b64 = base64.b64encode(data.getvalue())
             return f"data:image/png;base64,{data_b64.decode('utf-8')}"
 
-        elif self.type == self.TypeChoices.NEIGHBORS:
+        elif self.field_type == self.TypeChoices.NEIGHBORS:
             return [
                 {
                     "NAME": get_person_name(person),
@@ -1622,12 +1626,12 @@ class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
             queryset = queryset.filter(marks__pk__contains=self.mark)
 
         if self.category:
-            filter = Q(category_id=self.category)
+            category_filter = Q(category_id=self.category)
 
             if self.include_child_categories:
-                filter |= Q(category__parent_id=self.category)
+                category_filter |= Q(category__parent_id=self.category)
 
-            queryset = queryset.filter(filter)
+            queryset = queryset.filter(category_filter)
 
         return CustomAlexandriaVisibility().filter_queryset_for_document(
             queryset, self.context["request"]

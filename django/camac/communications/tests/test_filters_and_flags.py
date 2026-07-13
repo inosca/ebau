@@ -62,20 +62,20 @@ def test_topic_flag_has_unread(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize("filter", [True, False])
+@pytest.mark.parametrize("filter_value", [True, False])
 @pytest.mark.django_db
 def test_topic_filter_has_unread(
-    be_instance, admin_client, some_read_and_some_unread_topics, filter
+    be_instance, admin_client, some_read_and_some_unread_topics, filter_value
 ):
     topics_with_all_read, topics_with_unread = some_read_and_some_unread_topics
 
     resp = admin_client.get(
-        reverse("communications-topic-list"), {"has_unread": str(filter).lower()}
+        reverse("communications-topic-list"), {"has_unread": str(filter_value).lower()}
     )
     assert resp.status_code == status.HTTP_200_OK
     received_ids = [rec["id"] for rec in resp.json()["data"]]
 
-    if filter:
+    if filter_value:
         expected_ids = [str(topic.pk) for topic in topics_with_unread]
     else:
         expected_ids = [str(topic.pk) for topic in topics_with_all_read]
@@ -85,11 +85,11 @@ def test_topic_filter_has_unread(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "filter, expect_set", [(True, "read"), (False, "unread"), (None, "all")]
+    "filter_value, expect_set", [(True, "read"), (False, "unread"), (None, "all")]
 )
 @pytest.mark.django_db
 def test_message_read_flags_and_filter(
-    admin_client, communications_message_factory, be_instance, filter, expect_set
+    admin_client, communications_message_factory, be_instance, filter_value, expect_set
 ):
     my_entity = admin_client.user.groups.first().service_id
     unread_messages = communications_message_factory.create_batch(
@@ -112,7 +112,7 @@ def test_message_read_flags_and_filter(
 
     expected_ids = set(expected_sets[expect_set])
 
-    filter_params = {"is_read": filter} if filter is not None else {}
+    filter_params = {"is_read": filter_value} if filter_value is not None else {}
 
     resp = admin_client.get(reverse("communications-message-list"), data=filter_params)
     received_ids = {rec["id"] for rec in resp.json()["data"]}

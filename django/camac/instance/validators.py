@@ -266,7 +266,7 @@ class FormDataValidator:
                     if self._check_question_active(question_name, question):
                         value = self.fields.get(question_name)
                         label = question["label"]
-                        type = question["type"]
+                        question_type = question["type"]
 
                         if (
                             question_name
@@ -275,13 +275,13 @@ class FormDataValidator:
                         ):
                             value = transform_coordinates(value)
                             label = "Koordinaten"
-                            type = "coordinates"
+                            question_type = "coordinates"
 
                         active_questions.append(
                             {
                                 "slug": question_name,
                                 "label": label,
-                                "type": type,
+                                "type": question_type,
                                 "value": value,
                                 "config": question["config"],
                             }

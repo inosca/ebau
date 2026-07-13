@@ -315,12 +315,12 @@ class GwrSerializer(serializers.Serializer):
 
     @catch_and_log()
     def get_buildingEntrance(self, instance):
-        zip = None
+        zip_code = None
 
         if len(self.master_data.plot_data):
-            zip = self.master_data.plot_data[0].get("zip")
+            zip_code = self.master_data.plot_data[0].get("zip")
 
-        return {"locality": {"swissZipCode": zip}}
+        return {"locality": {"swissZipCode": zip_code}}
 
     @catch_and_log()
     def get_typeOfPermit(self, instance):

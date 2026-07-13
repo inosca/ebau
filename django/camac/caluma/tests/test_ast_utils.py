@@ -26,7 +26,7 @@ class FakeInfo:
 
 
 @pytest.mark.parametrize(
-    "input, expected_output",
+    "input_data, expected_output",
     [
         (IntValueNode(value=3), 3),
         (FloatValueNode(value=9.1), 9.10),
@@ -56,9 +56,9 @@ class FakeInfo:
         ),
     ],
 )
-def test_extract_node(input, expected_output):
+def test_extract_node(input_data, expected_output):
     info = FakeInfo(variable_values={"foo": "bar"})
-    out = ast_utils.extract_node(input, info)
+    out = ast_utils.extract_node(input_data, info)
     assert out == expected_output
 
 

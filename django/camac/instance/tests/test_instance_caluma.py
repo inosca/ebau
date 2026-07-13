@@ -2215,7 +2215,7 @@ def test_objection_received_filter(
 
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
-    "filter,expected",
+    "filter_value,expected",
     [
         ("typ-des-verfahrens-anpassung", 2),
         ("typ-des-verfahrens-festsetzung", 1),
@@ -2232,7 +2232,7 @@ def test_oereb_legal_state_filter_ur(
     caluma_question_factory,
     caluma_answer_factory,
     instance_factory,
-    filter,
+    filter_value,
     expected,
 ):
     instance_1 = ur_instance
@@ -2260,7 +2260,7 @@ def test_oereb_legal_state_filter_ur(
     )
 
     url = reverse("instance-list")
-    response = admin_client.get(url, data={"oereb_legal_state": filter})
+    response = admin_client.get(url, data={"oereb_legal_state": filter_value})
 
     assert response.status_code == status.HTTP_200_OK
 

@@ -50,16 +50,16 @@ def to_query(query_params: dict) -> str:
     )
 
 
-def cast(value: Any, type: str) -> Any:
+def cast(value: Any, to_type: str) -> Any:
     if value is None:
         return None
 
     try:
-        if type == "float":
+        if to_type == "float":
             return float(value)
-        elif type == "integer":
+        elif to_type == "integer":
             return int(value)
-        elif type == "string":
+        elif to_type == "string":
             return str(value)
     except ValueError:
         return None

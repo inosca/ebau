@@ -34,7 +34,7 @@ def service_two(service_factory):
 
 
 @pytest.mark.parametrize(
-    "input,output",
+    "input_data,output",
     [
         # Simple types
         ("1", ["1"]),
@@ -52,8 +52,8 @@ def service_two(service_factory):
     ],
 )
 @pytest.mark.django_db
-def test_to_groups(input, output):
-    assert to_groups(input) == output
+def test_to_groups(input_data, output):
+    assert to_groups(input_data) == output
 
 
 @pytest.mark.parametrize(

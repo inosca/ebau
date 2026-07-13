@@ -141,7 +141,7 @@ def test_attachment_list(
 
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
-    "filter,attachment__context,expect_count",
+    "context_filter,attachment__context,expect_count",
     [
         ({"key": "isDecision", "value": True}, {"isDecision": True}, 1),
         ({"key": "isDecision", "value": True}, {}, 0),
@@ -174,7 +174,7 @@ def test_attachment_list(
     ],
 )
 def test_attachment_context_filter(
-    admin_client, attachment_attachment_sections, filter, expect_count, mocker
+    admin_client, attachment_attachment_sections, context_filter, expect_count, mocker
 ):
     # fix permissions
     mocker.patch(
@@ -191,7 +191,7 @@ def test_attachment_context_filter(
     )
 
     url = reverse("attachment-list")
-    response = admin_client.get(url, data={"context": json.dumps(filter)})
+    response = admin_client.get(url, data={"context": json.dumps(context_filter)})
     assert response.status_code == status.HTTP_200_OK
 
     data = response.json()
@@ -711,9 +711,9 @@ def test_attachment_download(
 
     attachment_section.attachments.set(attachments)
 
-    filter = ",".join([str(a.pk) for a in attachments])
+    attachment_ids = ",".join([str(a.pk) for a in attachments])
 
-    url = f"{reverse('multi-attachment-download')}?attachments={filter}"
+    url = f"{reverse('multi-attachment-download')}?attachments={attachment_ids}"
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
     assert (
@@ -723,7 +723,7 @@ def test_attachment_download(
 
 
 @pytest.mark.parametrize(
-    "filter,status_code",
+    "query_string,status_code",
     [
         ("?attachments=", status.HTTP_400_BAD_REQUEST),
         ("?attachments=,", status.HTTP_400_BAD_REQUEST),
@@ -732,8 +732,8 @@ def test_attachment_download(
         ("", status.HTTP_400_BAD_REQUEST),
     ],
 )
-def test_invalid_attachment_download(admin_client, filter, status_code):
-    url = f"{reverse('multi-attachment-download')}{filter}"
+def test_invalid_attachment_download(admin_client, query_string, status_code):
+    url = f"{reverse('multi-attachment-download')}{query_string}"
     response = admin_client.get(url)
     assert response.status_code == status_code
 
@@ -819,7 +819,7 @@ def test_attachment_update(
         },
     )
 
-    format = ""
+    request_format = ""
     data = {
         "data": {
             "type": "attachments",
@@ -834,10 +834,10 @@ def test_attachment_update(
         }
     }
     if send_path:
-        format = "multipart"
+        request_format = "multipart"
         data = {"path": aasa.path}
 
-    response = admin_client.patch(url, data=data, format=format)
+    response = admin_client.patch(url, data=data, format=request_format)
     assert response.status_code == status_code
 
 

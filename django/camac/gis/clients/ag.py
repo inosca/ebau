@@ -61,10 +61,12 @@ class AgGisClient(GISBaseClient):
             "gebaeude": self.get_building_data(agis_info_from_point),
         }
 
-    def get_result_for_properties_mapper(self, current_result, property, layer_info):
-        property_name = property["propertyName"]
-        question = property["question"]
-        template = property.get("template", None)
+    def get_result_for_properties_mapper(
+        self, current_result, property_config, layer_info
+    ):
+        property_name = property_config["propertyName"]
+        question = property_config["question"]
+        template = property_config.get("template", None)
         prop_val = layer_info["attributes"].get(property_name, "")
         new_value = template.replace("{{property}}", prop_val) if template else prop_val
         if new_value in current_result.get(question, ""):

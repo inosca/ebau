@@ -4,12 +4,12 @@ from django.conf import settings
 from jinja2.sandbox import SandboxedEnvironment
 
 
-def dateformat(value, format="medium"):
+def dateformat(value, date_format="medium"):
     if value is None:
         return ""
 
     parsed_value = parse(value)
-    return format_date(parsed_value, format, locale=settings.LANGUAGE_CODE)
+    return format_date(parsed_value, date_format, locale=settings.LANGUAGE_CODE)
 
 
 def getwithdefault(value, default=""):

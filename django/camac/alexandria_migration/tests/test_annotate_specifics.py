@@ -36,13 +36,13 @@ def test_set_checksum(
     settings.ALEXANDRIA_ENABLE_CHECKSUM = checksum_enabled
 
     content = b"asdf"
-    hash = f"sha256:{hashlib.sha256(content).hexdigest()}"
+    checksum = f"sha256:{hashlib.sha256(content).hexdigest()}"
 
     # Note: we don't save the file - the annotator modifies the models but does
     # not save them, so we don't have to either
     file = alexandria_models.File(
         content=ContentFile(content, name="somedata.txt"),
-        checksum=(hash if already_has_checksum else None),
+        checksum=(checksum if already_has_checksum else None),
     )
 
     did_checksum = annotate_documents.AnnotateDocumentsMigrator._set_checksum(
@@ -51,7 +51,7 @@ def test_set_checksum(
 
     if expect_checksum:
         assert did_checksum != already_has_checksum
-        assert file.checksum == hash
+        assert file.checksum == checksum
     else:
         assert not did_checksum
         assert file.checksum is None

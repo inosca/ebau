@@ -24,10 +24,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         verbosity = int(options["verbosity"])
-        all = int(options["all"])
 
         updates = deadlines_models.InstanceDeadline.objects.recalculate_deadlines(
-            process_all=all
+            process_all=int(options["all"])
         )
         if verbosity >= 2:
             log = getLogger(__name__)

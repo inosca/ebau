@@ -17,7 +17,7 @@ existing_status = [e.value for e in TargetStatus]
 
 
 @pytest.mark.parametrize(
-    "input,existing,output",
+    "value,existing,output",
     [
         ("THIS_REALLY_DOESNT_EXIST", existing_columns, None),
         ("PUBLICATIONDATE", existing_columns, "PUBLICATION-DATE"),
@@ -27,8 +27,8 @@ existing_status = [e.value for e in TargetStatus]
         ("SUBIMTTED", existing_status, "SUBMITTED"),
     ],
 )
-def test_similar_value(input, existing, output):
-    assert get_similar_value(input, existing) == output
+def test_similar_value(value, existing, output):
+    assert get_similar_value(value, existing) == output
 
 
 def test_validate_extra_columns(snapshot):

@@ -174,8 +174,10 @@ def parashift_data(
     FormState.objects.create(form_state_id=1, name="Published")
     Form.objects.create(form_id=293, name="Archivdossier", form_state_id=1)
 
-    for id in list(set(uri_constants.PARASHIFT_ATTACHMENT_SECTION_MAPPING.values())):
-        attachment_section_factory(pk=id)
+    for attachment_section_id in list(
+        set(uri_constants.PARASHIFT_ATTACHMENT_SECTION_MAPPING.values())
+    ):
+        attachment_section_factory(pk=attachment_section_id)
 
     archiv_option = form_models.Option.objects.create(
         slug="form-type-archiv", label="Archivdossier"

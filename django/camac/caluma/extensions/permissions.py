@@ -243,9 +243,9 @@ class CustomPermission(BasePermission):
         # In addition, only allow creation if there is a ready multiple-instance work-item
         # addressed to the service of the request. In case of manual work-items, it checks
         # for the dummy work-item with no addressed groups.
-        input = mutation.get_params(info).get("input", {})
-        task_id = input.get("multiple_instance_task")
-        case = input.get("case")
+        mutation_input = mutation.get_params(info).get("input", {})
+        task_id = mutation_input.get("multiple_instance_task")
+        case = mutation_input.get("case")
         case_id = extract_global_id(case)
         manual_workitem_task = settings.APPLICATION["CALUMA"].get(
             "MANUAL_WORK_ITEM_TASK", None

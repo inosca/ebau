@@ -19,7 +19,7 @@ from camac.permissions.switcher import PERMISSION_MODE
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "involved_type,input,has_error",
+    "involved_type,input_data,has_error",
     [
         (
             "creator",
@@ -69,7 +69,7 @@ from camac.permissions.switcher import PERMISSION_MODE
 def test_save_work_item_permission(
     caluma_admin_schema_executor,
     involved_type,
-    input,
+    input_data,
     has_error,
     snapshot,
     caluma_work_item_factory,
@@ -105,14 +105,14 @@ def test_save_work_item_permission(
     """
 
     result = caluma_admin_schema_executor(
-        mutation, variables={"input": {**input, "workItem": str(work_item.pk)}}
+        mutation, variables={"input": {**input_data, "workItem": str(work_item.pk)}}
     )
 
     assert bool(result.errors) == has_error
     if not has_error:
         work_item.refresh_from_db()
 
-        for key, value in input.items():
+        for key, value in input_data.items():
             if key == "deadline":
                 value = parse_datetime(value)
             elif key == "meta":

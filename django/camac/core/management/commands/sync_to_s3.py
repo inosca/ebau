@@ -209,12 +209,12 @@ class S3CMD:
         num_missing_in_fs = 0
         num_equal = equal.fetchone()[0]
         num_hash_mismatches = 0
-        for _id, path, hash in missing_in_s3:
+        for _id, path, checksum in missing_in_s3:
             num_missing_in_s3 += 1
-            print(f"Warn: FS entry missing in S3: {path} (md5: {hash})")
-        for _id, path, hash in missing_in_fs:
+            print(f"Warn: FS entry missing in S3: {path} (md5: {checksum})")
+        for _id, path, checksum in missing_in_fs:
             num_missing_in_fs += 1
-            print(f"Warn: S3 entry missing in FS: {path} (md5: {hash})")
+            print(f"Warn: S3 entry missing in FS: {path} (md5: {checksum})")
         for _id, fspath, fshash, s3hash in hash_mismatch:
             num_hash_mismatches += 1
             print(f"Warn: Hash mismatch: FS:{fshash} S3:{s3hash} - {fspath}")
@@ -223,11 +223,11 @@ class S3CMD:
 
     def _load_validation_logs(self, logfile, parser, db, to_table):
         for line in logfile:
-            path, hash = parser(line)
+            path, checksum = parser(line)
             if not path:
                 continue
             db.execute(
-                f"insert into {to_table} (path, hash) values (?, ?)", [path, hash]
+                f"insert into {to_table} (path, hash) values (?, ?)", [path, checksum]
             )
 
 

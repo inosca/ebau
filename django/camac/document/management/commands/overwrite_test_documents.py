@@ -50,13 +50,15 @@ class Command(BaseCommand):
 
     def _instances(self):
         assert self._options["instances"], "No instances given"
-        range = re.split(r"\.\.|-", self._options["instances"])
-        assert len(range) in [1, 2], "Instances given does not reflect a proper range"
+        instance_range = re.split(r"\.\.|-", self._options["instances"])
+        assert len(instance_range) in [1, 2], (
+            "Instances given does not reflect a proper range"
+        )
 
-        begin = range[0]
+        begin = instance_range[0]
 
         try:
-            end = range[1]
+            end = instance_range[1]
         except IndexError:  # pragma: no cover
             end = begin
 

@@ -2691,7 +2691,7 @@ def test_application_codes_filter_ag(
 
 
 @pytest.mark.parametrize(
-    "filter,expected",
+    "filter_value,expected",
     [
         (1, 1),
         (0, 0),
@@ -2705,7 +2705,7 @@ def test_retroactive_building_permit_filter_ag(
     group,
     mocker,
     ag_instance,
-    filter,
+    filter_value,
     expected,
     caluma_work_item_factory,
     caluma_answer_factory,
@@ -2735,7 +2735,7 @@ def test_retroactive_building_permit_filter_ag(
     caluma_yes_no_filter.parent = parent_mock
 
     queryset = caluma_yes_no_filter.filter(
-        queryset=Instance.objects.all(), value=filter
+        queryset=Instance.objects.all(), value=filter_value
     )
 
     cases_result = queryset.all()

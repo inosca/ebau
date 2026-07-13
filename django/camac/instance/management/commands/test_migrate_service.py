@@ -4,11 +4,11 @@ import pytest
 from django.core.management import call_command
 
 
-@pytest.mark.parametrize("exec", [True, False])
+@pytest.mark.parametrize("execute", [True, False])
 @pytest.mark.parametrize("disable", [True, False])
 @pytest.mark.django_db
 def test_migrate_service(
-    exec,
+    execute,
     disable,
     service_factory,
     instance_service_factory,
@@ -65,7 +65,7 @@ def test_migrate_service(
         target.pk,
         "--form-answer",
     ]
-    if exec:
+    if execute:
         args.append("--exec")
     if disable:
         args.append("--disable")
@@ -79,7 +79,7 @@ def test_migrate_service(
     addressed_groups = [int(i) for i in work_item.addressed_groups]
     controlling_groups = [int(i) for i in controlling_work_item.controlling_groups]
 
-    if exec:
+    if execute:
         assert ag_instance.responsible_service() == target
         assert addressed_groups == [target.pk]
         assert work_item.assigned_users == []

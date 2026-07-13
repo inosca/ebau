@@ -657,7 +657,7 @@ class InstanceView(
 
         return make_xlsx_response(content, "list.xlsx")
 
-    def get_export_detail_data(self, instance, type):
+    def get_export_detail_data(self, instance, to_type):
         validator = validators.FormDataValidator(instance)
 
         data = {
@@ -667,7 +667,7 @@ class InstanceView(
         }
 
         renderer = DocxRenderer("camac/instance/templates/form-export.docx", data)
-        return renderer.convert(type)
+        return renderer.convert(to_type)
 
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["get"], detail=True)
@@ -1349,21 +1349,21 @@ class HistoryEntryView(
         return True
 
     @permission_aware
-    def has_object_update_permission(self, object):  # pragma: no cover
+    def has_object_update_permission(self, obj):  # pragma: no cover
         # only needed as entry for permission aware decorator
         # but actually never executed as applicant may actually
         # not read any history entries
         return False
 
-    def has_object_update_permission_for_support(self, object):
+    def has_object_update_permission_for_support(self, obj):
         return True
 
     @permission_aware
-    def has_object_destroy_permission(self, object):  # pragma: no cover
+    def has_object_destroy_permission(self, obj):  # pragma: no cover
         # see comment has_object_update_permission
         return False
 
-    def has_object_destroy_permission_for_support(self, object):
+    def has_object_destroy_permission_for_support(self, obj):
         return True
 
 

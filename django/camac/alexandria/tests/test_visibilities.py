@@ -140,7 +140,7 @@ def alexandria_setup(
         FileFactory(document=document, modified_by_group=document.modified_by_group)
 
 
-@pytest.mark.parametrize("type", ["document", "file"])
+@pytest.mark.parametrize("model", ["document", "file"])
 @pytest.mark.parametrize(
     "role__name,expected",
     [
@@ -170,13 +170,13 @@ def test_document_and_file_visibility(
     alexandria_settings,
     expected,
     role,
-    type,
+    model,
 ):
-    url = reverse(f"{type}-list")
+    url = reverse(f"{model}-list")
 
     alexandria_settings["MARK_VISIBILITY"]["GEOMETER"] = ["geometer"]
 
-    if type == "file":
+    if model == "file":
         data = {"include": "document"}
     else:
         data = {}
@@ -190,7 +190,7 @@ def test_document_and_file_visibility(
     json = response.json()
     assert {
         obj["attributes"]["title"]
-        for obj in json["included" if type == "file" else "data"]
+        for obj in json["included" if model == "file" else "data"]
     } == set(expected)
 
 

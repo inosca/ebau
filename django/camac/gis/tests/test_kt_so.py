@@ -137,8 +137,8 @@ def so_data_sources(
         ("bundesinventare", Question.TYPE_TEXTAREA),
     ]
 
-    for slug, type in gis_questions:
-        caluma_question_factory(slug=slug, type=type)
+    for slug, question_type in gis_questions:
+        caluma_question_factory(slug=slug, type=question_type)
 
     Question.objects.filter(slug="gemeinde").update(data_source="Municipalities")
     caluma_question_option_factory(
