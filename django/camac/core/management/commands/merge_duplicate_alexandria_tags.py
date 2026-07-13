@@ -52,12 +52,13 @@ class Command(BaseCommand):
             name = duplicate_tag_group["name"]
             created_by_group = duplicate_tag_group["created_by_group"]
 
-            [tag_to_keep, *duplicate_tags] = Tag.objects.filter(
+            tags = Tag.objects.filter(
                 name=name,
                 created_by_group=created_by_group,
-            ).order_by("pk")
+            )
 
-            duplicate_tag_ids = [tag.pk for tag in duplicate_tags]
+            tag_to_keep = tags[0]
+            duplicate_tags = tags.exclude(pk=tag_to_keep.pk)
 
             tqdm.write(
                 f'Merging tag "{name}" for created_by_group "{created_by_group}"'
@@ -65,7 +66,7 @@ class Command(BaseCommand):
             tqdm.write(f"Keeping tag {tag_to_keep.pk}")
 
             affected_documents = Document.objects.filter(
-                tags__pk__in=duplicate_tag_ids
+                tags__in=duplicate_tags
             ).distinct()
 
             transferred_documents = 0
@@ -89,15 +90,15 @@ class Command(BaseCommand):
                     transferred_documents += 1
 
             assert not (
-                Tag.objects.filter(pk__in=duplicate_tag_ids)
-                .annotate(document_count=Count("documents", distinct=True))
+                duplicate_tags.annotate(
+                    document_count=Count("documents", distinct=True)
+                )
                 .filter(document_count__gt=0)
                 .exists()
             )
 
-            Tag.objects.filter(pk__in=duplicate_tag_ids).delete()
-
-            total_duplicate_tags += len(duplicate_tags)
+            total_duplicate_tags += duplicate_tags.count()
+            duplicate_tags.delete()
             total_transferred_documents += transferred_documents
             total_documents_already_linked += documents_already_linked
 
