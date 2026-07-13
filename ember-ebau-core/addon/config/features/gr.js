@@ -69,6 +69,7 @@ export default {
   },
   gis: {
     v3: true,
+    links: true,
   },
   distribution: {
     showAllServices: true,

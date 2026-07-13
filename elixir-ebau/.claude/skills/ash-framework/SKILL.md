@@ -22,8 +22,20 @@ metadata:
 - [querying_data](references/querying_data.md)
 - [relationships](references/relationships.md)
 - [testing](references/testing.md)
-- [advanced_features](references/advanced_features.md)
 - [best_practices](references/best_practices.md)
+- [debugging_and_error_handling](references/debugging_and_error_handling.md)
+- [defining_triggers](references/defining_triggers.md)
+- [multi_tenancy_support](references/multi_tenancy_support.md)
+- [scheduled_actions](references/scheduled_actions.md)
+- [setting_up_ash_oban](references/setting_up_ash_oban.md)
+- [triggering_jobs_programmatically](references/triggering_jobs_programmatically.md)
+- [working_with_actors](references/working_with_actors.md)
+- [debugging_form_submissions](references/debugging_form_submissions.md)
+- [error_handling](references/error_handling.md)
+- [form_integration](references/form_integration.md)
+- [nested_forms](references/nested_forms.md)
+- [union_forms](references/union_forms.md)
+- [advanced_features](references/advanced_features.md)
 - [check_constraints](references/check_constraints.md)
 - [configuration](references/configuration.md)
 - [custom_indexes](references/custom_indexes.md)
@@ -31,9 +43,7 @@ metadata:
 - [foreign_keys](references/foreign_keys.md)
 - [multitenancy](references/multitenancy.md)
 - [ash](references/ash.md)
-- [ash_admin](references/ash_admin.md)
 - [ash_authentication](references/ash_authentication.md)
-- [ash_authentication_phoenix](references/ash_authentication_phoenix.md)
 - [ash_json_api](references/ash_json_api.md)
 - [ash_oban](references/ash_oban.md)
 - [ash_phoenix](references/ash_phoenix.md)
@@ -64,6 +74,7 @@ mix usage_rules.search_docs "search term" -p ash -p ash_admin -p ash_authenticat
 - `mix ash.generate_resource_diagrams` - Generates Mermaid Resource Diagrams for each Ash domain
 - `mix ash.gettext.extract` - Extracts Ash error messages into a .pot file
 - `mix ash.install` - Installs Ash into a project. Should be called with `mix igniter.install ash`
+- `mix ash.manifest.dump` - Dump the Ash app manifest as JSON
 - `mix ash.migrate` - Runs all migration tasks for any extension on any resource/domain in your application.
 - `mix ash.patch.extend` - Adds an extension or extensions to the given domain/resource
 - `mix ash.reset` - Runs all tear down & setup tasks for any extension on any resource/domain in your application.

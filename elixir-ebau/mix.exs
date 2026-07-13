@@ -19,7 +19,8 @@ defmodule Ebau.MixProject do
         extras: [
           "README.md",
           "guides/ash-domains.md",
-          "guides/ash-policies.md"
+          "guides/ash-policies.md",
+          "guides/translations.md"
         ],
         groups_for_extras: [
           Guides: ~r/guides\/.*/
@@ -81,7 +82,7 @@ defmodule Ebau.MixProject do
       {:dart_sass, "~> 0.7", only: [:dev]},
       {:dns_cluster, "~> 0.2.0"},
       {:ecto_sql, "~> 3.13"},
-      {:elixir_uikit, "~> 0.7.2"},
+      {:elixir_uikit, "~> 0.8.0"},
       {:esbuild, "~> 0.10", runtime: Mix.env() == :dev},
       {:ex_doc, "~> 0.38", only: :dev, runtime: false},
       {:gettext, "~> 1.0"},
@@ -189,6 +190,11 @@ defmodule Ebau.MixProject do
             description:
               "Use this skill working with Phoenix Framework. Consult this when working with the web layer, controllers, views, liveviews etc.",
             usage_rules: [:phoenix, ~r/^phoenix_/]
+          ],
+          "elixir-uikit": [
+            description:
+              "Use this skill when you have to do frontend work and have to use uikit.",
+            usage_rules: [:elixir_uikit]
           ]
         ]
       ]

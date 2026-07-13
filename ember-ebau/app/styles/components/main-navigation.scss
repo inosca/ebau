@@ -9,6 +9,13 @@
   background-color: $main-navigation-background;
   box-shadow: $global-small-box-shadow;
 
+  // The preloaded navbar from index.html must cover the real navbar until
+  // the real one has loaded its data (it comes earlier in the DOM, so it
+  // would otherwise be painted below).
+  #navbar-preload & {
+    z-index: $global-z-index + 6;
+  }
+
   .uk-navbar-nav {
     > li > a {
       color: white;

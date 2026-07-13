@@ -30,6 +30,7 @@ if config_env() == :dev do
     version: "1.77.8",
     default: [
       args: [
+        "--load-path=../deps/elixir_uikit/priv/vendor/uikit/scss",
         "css/app-#{System.fetch_env!("APPLICATION")}.scss",
         "../priv/static/assets/css/app.css"
       ],
@@ -48,9 +49,16 @@ if config_env() != :test do
     pool_size: String.to_integer(System.get_env("POOL_SIZE", "10")),
     pool_count: String.to_integer(System.get_env("POOL_COUNT", "1"))
 
+  # The URL_* variables describe the public-facing URL (the nginx proxy),
+  # which also determines the OIDC redirect URI. The app itself listens on
+  # PORT behind the proxy.
   config :ebau, EbauWeb.Endpoint,
     http: [port: String.to_integer(System.get_env("PORT", "4000"))],
-    url: [path: System.get_env("URL_PREFIX", "/")]
+    url: [
+      host: System.get_env("URL_HOST", "ember-ebau.localhost"),
+      port: String.to_integer(System.get_env("URL_PORT", "80")),
+      path: System.get_env("URL_PREFIX", "/")
+    ]
 end
 
 if config_env() != :test do
@@ -59,7 +67,8 @@ if config_env() != :test do
     realm: System.get_env("KEYCLOAK_REALM", "ebau"),
     client_id: System.get_env("KEYCLOAK_CLIENT", "camac"),
     scopes: System.get_env("KEYCLOAK_SCOPES", "openid email"),
-    email_claim: System.get_env("DJANGO_OIDC_EMAIL_CLAIM", "email")
+    email_claim: System.get_env("DJANGO_OIDC_EMAIL_CLAIM", "email"),
+    client_secret: System.get_env("KEYCLOAK_CLIENT_SECRET", "NOTNEEDED")
 end
 
 if config_env() == :dev do

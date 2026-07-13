@@ -3,7 +3,7 @@ defmodule EbauWeb.AuthController do
   use AshAuthentication.Phoenix.Controller
 
   def success(conn, activity, user, _token) do
-    return_to = get_session(conn, :return_to)
+    return_to = get_session(conn, :return_to) || "/"
 
     message =
       case activity do
@@ -15,14 +15,13 @@ defmodule EbauWeb.AuthController do
     conn
     |> delete_session(:return_to)
     |> store_in_session(user)
-    # If your resource has a different name, update the assign name here (i.e :current_admin)
     |> assign(:current_user, user)
     |> put_flash(:info, message)
     |> redirect(to: return_to)
   end
 
   def sign_in(conn, _params) do
-    redirect(conn, external: ~p"/auth/user/ebau")
+    redirect(conn, external: ~p"/elixir/auth/user/ebau")
   end
 
   def failure(conn, activity, reason) do
@@ -45,12 +44,11 @@ defmodule EbauWeb.AuthController do
 
     conn
     |> put_flash(:error, message)
-    |> redirect(to: ~p"/sign-in")
+    |> redirect(to: ~p"/elixir/sign-in")
   end
 
   def sign_out(conn, _params) do
-    # redirect to the return_to path stored in the session
-    return_to = get_session(conn, :return_to)
+    return_to = get_session(conn, :return_to) || "/"
 
     conn
     |> clear_session(:ebau)

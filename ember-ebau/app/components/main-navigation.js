@@ -90,7 +90,19 @@ export default class MainNavigationComponent extends Component {
   }
 
   @action
+  removePreload() {
+    // Preloaded navbar from index.html (see public/assets/navbar-preload.js),
+    // replaced by this component as soon as it renders.
+    document.getElementById("navbar-preload")?.remove();
+  }
+
+  @action
   logout() {
+    try {
+      localStorage.removeItem("ebau-navbar");
+    } catch {
+      // ignore
+    }
     this.session.singleLogout();
   }
 

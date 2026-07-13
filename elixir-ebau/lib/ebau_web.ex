@@ -79,10 +79,14 @@ defmodule EbauWeb do
 
   defp html_helpers do
     quote do
+      import Uikit.Components
+      import Uikit.FormComponents
+
       # Translation
       use Gettext, backend: EbauWeb.Gettext
 
       import EbauWeb.CoreComponents
+      import EbauWeb.Components.Navbar
 
       # HTML escaping functionality
       import Phoenix.HTML

@@ -11,7 +11,7 @@ defmodule Ebau.Instances do
 
   use Ash.Domain,
     otp_app: :ebau,
-    extensions: [AshJsonApi.Domain]
+    extensions: [AshJsonApi.Domain, AshPhoenix]
 
   authorization do
     authorize :by_default
@@ -27,6 +27,8 @@ defmodule Ebau.Instances do
     resource Ebau.Instances.GisLink do
       define :create_gis_link
       define :read_gis_links, args: [:instance_id]
+      define :search_gis_link, args: [:search]
+      define :destroy_gis_link
     end
   end
 

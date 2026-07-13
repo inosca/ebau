@@ -2,20 +2,22 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
   @moduledoc """
   Renders a GIS link URL for a concrete instance.
 
-  Sets the `c` query parameter on the configured placeholder URL to the
-  truncated east/north coordinates of the instance's first plot. Returns nil
-  when no instance_id is supplied; uses empty coordinates when the instance
-  has no plot data.
+  Sets the provider-specific query parameters (see
+  `Ebau.Instances.GisLink.supported_providers/0`) on the configured placeholder
+  URL to the truncated east/north coordinates of the instance's first plot.
+  Returns nil when no instance_id is supplied; returns the untouched placeholder
+  when the instance has no plot data or the placeholder host is not a supported
+  provider.
   """
 
   use Ash.Resource.Calculation
 
   @impl true
   def calculate(records, _opts, %{arguments: %{instance_id: nil}}) do
-    Enum.map(records, fn _ -> nil end)
+    # If we didn't pass an instance the gis link is nil
+    Enum.map(records, fn _r -> nil end)
   end
 
-  @impl true
   def calculate(records, _opts, context) do
     case Ebau.Instances.get_instance_by_id(
            context.arguments.instance_id,
@@ -24,8 +26,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
            )
          ) do
       {:ok, instance} ->
-        coords = first_plot_coords(List.first(instance.plot_data))
-        Enum.map(records, &set_coordinate_param(&1.placeholder, coords))
+        Enum.map(records, fn gis_link -> replace_placeholder(gis_link, instance) end)
 
       {:error, %Ash.Error.Query.NotFound{}} ->
         {:error,
@@ -36,38 +37,43 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
     end
   end
 
-  defp first_plot_coords(nil), do: {:error}
+  defp replace_placeholder(gis_link, %{plot_data: []}), do: gis_link.placeholder
 
-  defp first_plot_coords(plot) do
-    case {coord_int(plot.coord_east), coord_int(plot.coord_north)} do
-      {{:ok, coord_east}, {:ok, coord_north}} -> {:ok, "#{coord_east},#{coord_north}"}
-      _ -> {:error}
+  defp replace_placeholder(gis_link, %{plot_data: [first_plot_data | _]}) do
+    supported_providers = Ebau.Instances.GisLink.supported_providers()
+    uri = URI.parse(gis_link.placeholder)
+    chosen_provider = Map.get(supported_providers, uri.host)
+
+    if chosen_provider do
+      # Some providers carry their query in the fragment (e.g. hash-routed maps).
+      original_query = URI.decode_query(uri.query || uri.fragment || "")
+
+      east_str = coord_to_string(first_plot_data.coord_east)
+      north_str = coord_to_string(first_plot_data.coord_north)
+
+      provider_query =
+        Map.new(chosen_provider, fn {param, coordinate_function} ->
+          {param, coordinate_function.(east_str, north_str)}
+        end)
+
+      query = original_query |> Map.merge(provider_query) |> URI.encode_query()
+
+      URI.to_string(%{uri | query: query})
+    else
+      gis_link.placeholder
     end
   end
 
-  defp coord_int(value) when is_integer(value), do: {:ok, Integer.to_string(value)}
-  defp coord_int(value) when is_float(value), do: {:ok, Float.to_string(trunc(value))}
+  defp coord_to_string(value) when is_integer(value), do: Integer.to_string(value)
+  defp coord_to_string(value) when is_float(value), do: Integer.to_string(trunc(value))
 
-  defp coord_int(value) when is_binary(value) do
+  defp coord_to_string(value) when is_binary(value) do
     case Float.parse(value) do
-      {float, _rest} -> {:ok, Integer.to_string(trunc(float))}
-      :error -> {:error}
+      {float, _rest} ->
+        Integer.to_string(trunc(float))
+
+      :error ->
+        raise ArgumentError, "invalid coordinate value: #{inspect(value)}"
     end
-  end
-
-  defp coord_int(_), do: {:error}
-
-  defp set_coordinate_param(url, {:error}), do: url
-
-  defp set_coordinate_param(url, {:ok, coords}) do
-    uri = URI.parse(url)
-
-    query =
-      (uri.query || "")
-      |> URI.decode_query()
-      |> Map.put("c", coords)
-      |> URI.encode_query()
-
-    URI.to_string(%{uri | query: query})
   end
 end

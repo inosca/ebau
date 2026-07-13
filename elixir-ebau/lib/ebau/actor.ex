@@ -54,4 +54,57 @@ defmodule Ebau.Actor do
 
   @enforce_keys [:user, :group, :service, :role]
   defstruct [:user, :group, :service, :role]
+
+  @group_load [:name, :role, service: [:service_group]]
+
+  @doc """
+  Builds an `%Ebau.Actor{}` from a user and its active group. The group
+  must have `:service` and `:role` loaded.
+  """
+  @spec new(Ebau.User.User.t(), Ebau.User.Group.t()) :: t()
+  def new(user, group) do
+    %__MODULE__{
+      user: user,
+      group: group,
+      service: group.service,
+      role: group.role
+    }
+  end
+
+  @doc """
+  Assembles an `%Ebau.Actor{}` from the authenticated user, using the
+  user's persisted default group as the active group. Users without a
+  default group fall back to their first group, so they can still act
+  (and persist a default via the group switcher).
+
+  `locale` is passed as Ash context so localised calculations (group
+  names shown in the navbar) resolve in the user's language.
+
+  Returns `{:error, reason}` when:
+
+    * `user` is nil (unauthenticated)
+    * the user belongs to no groups at all
+    * the load fails (forbidden / not found)
+
+  Kept minimal on purpose — only loads what the actor itself needs
+  (`group.service`, `group.role`) and the user's groups (used by the
+  navbar group switcher).
+  """
+  @spec build(Ebau.User.User.t() | nil, String.t() | nil) :: {:ok, t()} | {:error, term()}
+  def build(user, locale \\ nil)
+
+  def build(nil, _locale), do: {:error, "user is nil"}
+
+  def build(user, locale) do
+    opts = [actor: %{user: user}, context: %{locale: locale}]
+
+    with {:ok, user} <- Ash.load(user, [groups: [:name], default_group: @group_load], opts),
+         {:ok, group} <- active_group(user, opts) do
+      {:ok, new(user, group)}
+    end
+  end
+
+  defp active_group(%{default_group: %Ebau.User.Group{} = group}, _opts), do: {:ok, group}
+  defp active_group(%{groups: [group | _]}, opts), do: Ash.load(group, @group_load, opts)
+  defp active_group(_user, _opts), do: {:error, "user has no groups"}
 end

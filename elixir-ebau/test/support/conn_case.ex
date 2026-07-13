@@ -23,6 +23,7 @@ defmodule EbauWeb.ConnCase do
 
       import EbauWeb.ConnCase
       import Phoenix.ConnTest
+      import PhoenixTest
       import Plug.Conn
       # The default endpoint for testing
       @endpoint EbauWeb.Endpoint
@@ -41,6 +42,23 @@ defmodule EbauWeb.ConnCase do
         |> put_req_header("authorization", "Bearer #{actor.user.id}")
         |> put_req_header("x-camac-group", Integer.to_string(actor.group.id))
         |> put_req_header("content-type", "application/vnd.api+json")
+      end
+
+      @doc """
+      Builds a browser-style conn with an authenticated session for the given
+      actor. Use this for LiveView and controller tests that go through the
+      `:browser` pipeline (where `load_from_session` picks up the user).
+      """
+      @spec log_in_actor(Plug.Conn.t(), Ebau.Actor.t()) :: Plug.Conn.t()
+      def log_in_actor(conn, actor) do
+        # `session_identifier :jti` requires a token in the user metadata so
+        # its jti can be stored in (and later verified against) the session.
+        {:ok, token, _claims} = AshAuthentication.Jwt.token_for_user(actor.user)
+        user = Ash.Resource.put_metadata(actor.user, :token, token)
+
+        conn
+        |> Phoenix.ConnTest.init_test_session(%{})
+        |> AshAuthentication.Plug.Helpers.store_in_session(user)
       end
     end
   end

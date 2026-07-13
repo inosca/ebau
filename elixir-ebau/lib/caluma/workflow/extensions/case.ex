@@ -127,8 +127,6 @@ defmodule Caluma.Workflow.Extensions.Case.Transformer do
 
   use Spark.Dsl.Transformer
 
-  require Ash.Expr
-
   alias Caluma.Form.Extensions.Document
   alias Caluma.Workflow.Extensions.Case
   alias Document.AnswerTransformer

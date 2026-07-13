@@ -1,0 +1,69 @@
+## "msgid"s in this file come from POT (.pot) files.
+###
+### Do not add, change, or remove "msgid"s manually here as
+### they're tied to the ones in the corresponding POT file
+### (with the same domain).
+###
+### Use "mix gettext.extract --merge" or "mix gettext.merge"
+### to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:103
+#, elixir-autogen, elixir-format
+msgid "Delete"
+msgstr "Löschen"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:85
+#, elixir-autogen, elixir-format
+msgid "Description"
+msgstr "Beschreibung"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:34
+#, elixir-autogen, elixir-format
+msgid "GIS links"
+msgstr "GIS Links"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:24
+#, elixir-autogen, elixir-format
+msgid "Invitations"
+msgstr "Einladungen"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:57
+#: lib/ebau_web/live/service_permissions/gis_links.ex:86
+#, elixir-autogen, elixir-format
+msgid "Link"
+msgstr "Link"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:27
+#, elixir-autogen, elixir-format
+msgid "Master data"
+msgstr "Stammdaten"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:49
+#, elixir-autogen, elixir-format
+msgid "Name"
+msgstr "Name"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:21
+#, elixir-autogen, elixir-format
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:63
+#, elixir-autogen, elixir-format
+msgid "Save"
+msgstr "Speichern"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:68
+#: lib/ebau_web/live/service_permissions/gis_links.ex:75
+#, elixir-autogen, elixir-format
+msgid "Search"
+msgstr "Suchen"
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex:30
+#, elixir-autogen, elixir-format
+msgid "Sub-services"
+msgstr "Unterfachstellen"

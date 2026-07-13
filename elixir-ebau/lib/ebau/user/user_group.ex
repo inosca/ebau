@@ -2,8 +2,9 @@ defmodule Ebau.User.UserGroup do
   @moduledoc """
   Join table between users and groups from the legacy `USER_GROUP` table.
 
-  Read-only reference data. Reads are always allowed; writes are
-  forbidden and only used in tests with `authorize?: false`.
+  Reads are allowed for any authenticated actor. The only writes permitted in real code are
+  `:set_default_user_group` and `:clear_default_user_group`.
+  Everything else is test-only and must use `authorize?: false` in tests.
   """
 
   use Ash.Resource,
@@ -13,12 +14,13 @@ defmodule Ebau.User.UserGroup do
 
   policies do
     policy action_type(:read) do
-      authorize_if never()
+      forbid_unless actor_present()
+      authorize_if relates_to_actor_via(:user, field: :user)
+      authorize_if relates_to_actor_via(:group, field: :group)
     end
 
-    policy action_type([:create, :update, :destroy]) do
-      # Write actions are only used in tests with authorize?: false
-      forbid_if always()
+    policy action([:set_default_user_group, :clear_default_user_group]) do
+      authorize_if relates_to_actor_via(:user, field: :user)
     end
   end
 
@@ -30,6 +32,21 @@ defmodule Ebau.User.UserGroup do
 
   actions do
     defaults [:read, :destroy, create: :*, update: :*]
+
+    read :read_for_actor do
+      description "Lists all UserGroup rows belonging to the acting user."
+      filter expr(user_id == ^actor([:user, :id]))
+    end
+
+    update :set_default_user_group do
+      change Ebau.User.Changes.UnsetDefaultOnAllUserGroupsOfActor
+      change set_attribute(:default_group, 1)
+      require_atomic? false
+    end
+
+    update :clear_default_user_group do
+      change atomic_update(:default_group, 0)
+    end
   end
 
   attributes do

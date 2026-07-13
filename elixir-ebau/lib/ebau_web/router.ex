@@ -10,7 +10,14 @@ defmodule EbauWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug :load_from_session
-    plug :store_language_header_in_session
+    plug EbauWeb.Plugs.InitialiseGettext
+    plug EbauWeb.Plugs.StoreReturnTo
+  end
+
+  # LiveViews build their actor in `EbauWeb.LoadLiveContext`; only
+  # plain controller routes need it on the conn.
+  pipeline :actor do
+    plug EbauWeb.Plugs.PutActorInSession
   end
 
   pipeline :api do
@@ -33,16 +40,23 @@ defmodule EbauWeb.Router do
 
     ash_authentication_live_session :authentication_required,
       on_mount: [
-        EbauWeb.InitialiseScope,
-        EbauWeb.InitialiseLocale,
-        {EbauWeb.LiveUserAuth, :live_user_required}
+        {EbauWeb.LiveUserAuth, :live_user_required},
+        EbauWeb.Plugs.InitialiseGettext,
+        EbauWeb.LoadLiveContext
       ] do
+      live "/service-permissions/gis-links", Live.ServicePermissions.GisLinks
     end
 
-    auth_routes AuthController, Ebau.User.User, path: "/auth"
-    sign_out_route AuthController
+    auth_routes AuthController, Ebau.User.User, path: "/elixir/auth"
+    sign_out_route AuthController, "/elixir/sign-out"
+    get "/elixir/sign-in", AuthController, :sign_in
 
-    get "/sign-in", AuthController, :sign_in
+    scope "/" do
+      pipe_through :actor
+
+      post "/elixir/switch-group/:id", GroupController, :switch
+      post "/elixir/switch-language/:language", LocaleController, :set_locale
+    end
   end
 
   # Other scopes may use custom stacks.
@@ -64,22 +78,6 @@ defmodule EbauWeb.Router do
 
       live_dashboard "/dashboard", metrics: EbauWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
-    end
-  end
-
-  def store_language_header_in_session(conn, _opts) do
-    language_header = Plug.Conn.get_req_header(conn, "accept-language")
-
-    if language_header == [] do
-      conn
-    else
-      language_header
-      |> List.first()
-      |> String.split("-")
-      |> List.first()
-      |> then(fn locale ->
-        Plug.Conn.put_session(conn, :locale, locale)
-      end)
     end
   end
 end

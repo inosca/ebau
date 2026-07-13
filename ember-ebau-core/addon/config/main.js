@@ -26,6 +26,14 @@ const sharedConfig = {
   attachments: {
     allowedMimetypes: ["image/png", "image/jpeg", "application/pdf"],
   },
+  servicePermissions: {
+    includeSubRoutes: [
+      { route: "permissions" },
+      { route: "invitations" },
+      { route: "organisation" },
+      { route: "sub-services" },
+    ],
+  },
 };
 
 export default { ...sharedConfig, ...config.default };

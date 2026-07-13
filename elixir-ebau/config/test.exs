@@ -44,3 +44,5 @@ config :phoenix,
 # Enable helpful, but potentially expensive runtime checks
 config :phoenix_live_view,
   enable_expensive_runtime_checks: true
+
+config :phoenix_test, :endpoint, EbauWeb.Endpoint

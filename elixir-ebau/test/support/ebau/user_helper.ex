@@ -87,9 +87,11 @@ defmodule Ebau.Test.UserHelper do
           role: %{slug: get_in(args, [:role, :slug]) || "municipality-admin"}
         },
         authorize?: false,
-        actor: nil,
-        load: [:role]
+        actor: %{user: user},
+        load: [:role, :user_group_for_user]
       )
+
+    Ebau.User.set_default_user_group!(group.user_group_for_user, actor: %{user: user})
 
     service_group_slug = get_in(args, [:service_group, :slug]) || "municipality"
 

@@ -2,11 +2,38 @@ defmodule Ebau.Instances.GisLink do
   @moduledoc """
   Configurable GIS link templates scoped to a service.
 
-  A GIS link stores a human-readable name and a base URL such as
-  `https://example.com?c=0,0`. For a concrete instance, the
-  `gis_link_for_instance` calculation overwrites the `c` query parameter
-  with the first available plot's east/north coordinates.
+  A GIS link stores a human-readable name and a base URL of a supported GIS
+  provider such as `https://geo.so.ch?c=0,0`. The placeholder is validated
+  against `supported_providers/0`, so only known providers are accepted.
+
+  For a concrete instance, the `gis_link_for_instance` calculation overwrites
+  the provider-specific query parameters (see `supported_providers/0`) with the
+  first available plot's east/north coordinates. When the instance has no plot
+  data the untouched placeholder is returned.
   """
+
+  @doc """
+  This function defines which providers are supported and how they map the x and y coordinate
+  from the parzellen table to the currently saved placeholder URL.
+
+  If a URL is used that is not configured it will just fallthrough and return the same URL again.
+  """
+  alias Ebau.Instances.Validations.ValidGisLinkProvider
+
+  def supported_providers do
+    %{
+      "geo.so.ch" => %{
+        "c" => fn x, y -> "#{x},#{y}" end
+      },
+      "map.geo.gr.ch" => %{
+        "map_x" => fn x, _y -> x end,
+        "map_y" => fn _x, y -> y end
+      },
+      "map.geo.admin.ch" => %{
+        "center" => fn x, y -> "#{x},#{y}" end
+      }
+    }
+  end
 
   use Ash.Resource,
     otp_app: :ebau,
@@ -72,6 +99,18 @@ defmodule Ebau.Instances.GisLink do
       prepare build(load: [gis_link_for_instance: %{instance_id: arg(:instance_id)}])
     end
 
+    read :search_gis_link do
+      description "Lists GIS link templates whose name contains the search term."
+
+      argument :search, :ci_string do
+        allow_nil? false
+      end
+
+      prepare build(sort: :name)
+
+      filter expr(contains(name, ^arg(:search)))
+    end
+
     create :create_gis_link do
       description """
       Creates a new GIS link template for the actor's service.
@@ -96,6 +135,11 @@ defmodule Ebau.Instances.GisLink do
   postgres do
     table "gis_links"
     repo Ebau.Repo
+  end
+
+  validations do
+    validate present([:placeholder, :name])
+    validate ValidGisLinkProvider
   end
 
   calculations do

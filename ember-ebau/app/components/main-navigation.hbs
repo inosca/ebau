@@ -1,4 +1,9 @@
 <nav class="main-navigation uk-navbar-container">
+  {{! The preloaded navbar (see index.html) overlays this one until the
+      resource links have loaded, so the empty navbar never shows. }}
+  {{#if this.resources.hasRan}}
+    <span hidden {{did-insert this.removePreload}}></span>
+  {{/if}}
   <Watermark />
   <div class="uk-padding-small uk-padding-remove-vertical">
     <div class="uk-navbar">

@@ -176,11 +176,12 @@ const config = {
   },
   servicePermissions: {
     includeSubRoutes: [
-      "permissions",
-      "invitations",
-      "organisation",
-      "sub-services",
-      { route: "gis-links" },
+      { route: "permissions" },
+      { route: "invitations" },
+      { route: "organisation" },
+      { route: "sub-services" },
+      // served by the Phoenix app, needs a full page load
+      { route: "gis-links", external: true },
       { route: "static-keywords", forServiceSlugs: ["afu"] },
     ],
   },
