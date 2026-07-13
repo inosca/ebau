@@ -46,5 +46,8 @@ defmodule Ebau.Core.Calculations.Link do
   defp ember_ebau_link(%{available_resources: "emberlist", class_field: "displaySearch"}),
     do: "/cases"
 
+  defp ember_ebau_link(%{template: "/dashboard/faq.phtml"}), do: "/static-content/faq"
+  defp ember_ebau_link(%{template: "/dashboard/help.phtml"}), do: "/static-content/help"
+
   defp ember_ebau_link(_), do: "/"
 end
