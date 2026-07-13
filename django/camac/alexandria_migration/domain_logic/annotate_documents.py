@@ -1,10 +1,12 @@
 import hashlib
+import os
 from concurrent.futures import Executor, Future, ProcessPoolExecutor
 from dataclasses import dataclass, field
 from mimetypes import guess_extension
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 
+import setproctitle
 from alexandria.core.models import Document, File
 from alexandria.core.tika import TikaClient
 from alexandria.storages.backends.s3 import S3Storage
@@ -57,6 +59,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
     instance_documents: list[InstanceAlexandriaDocument] = field(default_factory=list)
     copy_paths: list[tuple[str, str]] = field(default_factory=list)
     no_parallel: bool = field(default=False)
+    workers: int = field(default=0)
 
     def process(self) -> None:
         documents = Document.objects.filter(
@@ -85,19 +88,26 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         )
 
         with transaction.atomic(), disable_auto_now(Document, File):
-            # We use a process pool executor here. Also not passing max_workers
-            # as we're CPU-bound here and it doesn't make sense to use more than
-            # we have
-
+            # Default number of workers is number of CPU + 1.
+            # If commandline passes number of workers, use that
+            default_workers = (os.cpu_count() or 1) + 1
+            workers = self.workers or default_workers
             executor = (
-                SynchronousExecutor() if self.no_parallel else ProcessPoolExecutor()
+                SynchronousExecutor()
+                if self.no_parallel
+                else ProcessPoolExecutor(max_workers=workers)
+            )
+            setproctitle.setproctitle(
+                f"Annotating Documents: {type(executor).__name__} with {workers} workers"
             )
 
             with executor as executor:
-                for document in documents:
+                total = len(documents)
+                for i, document in enumerate(documents, start=1):
                     future = executor.submit(
                         AnnotateDocumentsMigrator.annotate_document,
                         document,
+                        (i, total),
                     )
                     # Process Pool executor can't update `self`, as it's in a
                     # subprocess, so we do it via return values instead
@@ -114,11 +124,18 @@ class AnnotateDocumentsMigrator(BaseMigrator):
                 ]
             )
 
+            setproctitle.setproctitle(
+                "Annotating Documents: Creating Thumbnail DB entries"
+            )
             File.objects.bulk_create(self.create_files)
+            setproctitle.setproctitle(
+                "Annotating Documents: Updating vector, checksum, language"
+            )
             File.objects.bulk_update(
                 self.update_files,
                 fields=["content_vector", "content_text", "checksum", "language"],
             )
+            setproctitle.setproctitle("Annotating Documents: Storing logs")
             MigrationLog.objects.bulk_create(self.logs)
 
     def _record_task_result(self, future):
@@ -156,7 +173,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             return fh.read()
 
     @classmethod
-    def annotate_document(cls, document):
+    def annotate_document(cls, document, progressinfo):
         """Annotate the given document.
 
         Return a list of dicts, each with their file-specific result data:
@@ -164,6 +181,9 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         - file_updated: None or the updated file object
         - file_created: None or the created thumbnail
         """
+        i, t = progressinfo
+        prefix = f"Annotating Documents: doc {i}/{t}"
+        setproctitle.setproctitle(prefix)
 
         # We only make thumbnails for the most recent files. Those
         # are the ones being used, the rest is not really needed by anyone
@@ -192,14 +212,16 @@ class AnnotateDocumentsMigrator(BaseMigrator):
                 # done, and only do it (and pull the file from storage!)
                 # if it's not done yet
                 is_most_recent=most_recent and (file.pk == most_recent.pk),
+                nfile=f"file {fi}/{len(document._originals)}",
+                prefix=prefix,
             )
-            for file in document._originals
+            for fi, file in enumerate(document._originals, start=1)
         ]
 
         return res
 
     @classmethod
-    def annotate_file(cls, file, instance_id, is_most_recent):
+    def annotate_file(cls, file, instance_id, is_most_recent, prefix, nfile):
         """Annotate the given file.
 
         This includes setting the checksum, fulltext index, and, for
@@ -216,6 +238,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         # and only have to update each file's DB entry once as well.
 
         try:
+            setproctitle.setproctitle(f"{prefix} - {nfile}: Fetching contents")
             content = cls._get_file_content(file)
         except FileNotFoundError as exc:
             print(f"Err: Migrated original file not found in S3: {exc}")
@@ -236,6 +259,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             "file_created": None,
         }
 
+        setproctitle.setproctitle(f"{prefix} - {nfile}: Checksumming")
         did_checksum = cls._set_checksum(file, content)
         if did_checksum:
             results["logs"].append(
@@ -248,6 +272,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
                 )
             )
 
+        setproctitle.setproctitle(f"{prefix} - {nfile}: Content Vector")
         did_content_vector = cls._set_content_vector(file, content)
         if did_content_vector:
             results["logs"].append(
@@ -260,6 +285,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
                 )
             )
 
+        setproctitle.setproctitle(f"{prefix} - {nfile}: Thumbnailing")
         thumbnail = cls._make_thumbnail(file, instance_id, content)
         if thumbnail:
             results["logs"].append(

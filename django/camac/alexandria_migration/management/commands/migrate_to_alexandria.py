@@ -33,6 +33,13 @@ class Command(BaseCommand):
             action="store_true",
             default=False,
         )
+        parser.add_argument(
+            "--workers",
+            dest="workers",
+            type=int,
+            default=0,
+            help="Number of workers. Defaults to number of CPUs+1",
+        )
 
         subparsers = parser.add_subparsers(title="sub-commands", required=True)
 
@@ -345,7 +352,10 @@ class Command(BaseCommand):
         with tqdm(total=len(instances)) as bar:
             for batch in itertools.batched(instances, batch_size):
                 AnnotateDocumentsMigrator(
-                    batch, self.run, no_parallel=options["no_parallel"]
+                    batch,
+                    self.run,
+                    workers=options["workers"],
+                    no_parallel=options["no_parallel"],
                 ).process()
                 bar.update(len(batch))
 
