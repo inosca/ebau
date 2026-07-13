@@ -14,56 +14,56 @@ msgstr ""
 #: lib/ebau_web/live/service_permissions/gis_links.ex:103
 #, elixir-autogen, elixir-format
 msgid "Delete"
-msgstr ""
+msgstr "Elimina"
 
 #: lib/ebau_web/live/service_permissions/gis_links.ex:85
 #, elixir-autogen, elixir-format
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #: lib/ebau_web/live/service_permissions/gis_links.ex:34
 #, elixir-autogen, elixir-format
 msgid "GIS links"
-msgstr ""
+msgstr "Link GIS"
 
 #: lib/ebau_web/live/service_permissions/gis_links.ex:24
 #, elixir-autogen, elixir-format
 msgid "Invitations"
-msgstr ""
+msgstr "Inviti"
 
 #: lib/ebau_web/live/service_permissions/gis_links.ex:57
 #: lib/ebau_web/live/service_permissions/gis_links.ex:86
 #, elixir-autogen, elixir-format
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #: lib/ebau_web/live/service_permissions/gis_links.ex:27
 #, elixir-autogen, elixir-format
 msgid "Master data"
-msgstr ""
+msgstr "Dati di base"
 
 #: lib/ebau_web/live/service_permissions/gis_links.ex:49
 #, elixir-autogen, elixir-format
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: lib/ebau_web/live/service_permissions/gis_links.ex:21
 #, elixir-autogen, elixir-format
 msgid "Permissions"
-msgstr ""
+msgstr "Autorizzazioni"
 
 #: lib/ebau_web/live/service_permissions/gis_links.ex:63
 #, elixir-autogen, elixir-format
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 
 #: lib/ebau_web/live/service_permissions/gis_links.ex:68
 #: lib/ebau_web/live/service_permissions/gis_links.ex:75
 #, elixir-autogen, elixir-format
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #: lib/ebau_web/live/service_permissions/gis_links.ex:30
 #, elixir-autogen, elixir-format
 msgid "Sub-services"
-msgstr ""
+msgstr "Sotto-servizi"
