@@ -206,10 +206,10 @@ export default {
   },
   servicePermissions: {
     includeSubRoutes: [
-      "permissions",
-      "invitations",
-      "organisation",
-      "sub-services",
+      { route: "permissions" },
+      { route: "invitations" },
+      { route: "organisation" },
+      { route: "sub-services" },
       // served by the Phoenix app, needs a full page load
       { route: "gis-links", external: true },
     ],

@@ -9,8 +9,8 @@
           </a>
         </li>
       {{else}}
-        <Tab.item @href={{concat "/service-permissions/" subRoute}}>
-          {{t (concat "service-permissions." subRoute)}}
+        <Tab.item @href={{concat "/service-permissions/" subRoute.route}}>
+          {{t (concat "service-permissions." subRoute.route)}}
         </Tab.item>
       {{/if}}
     {{/each}}

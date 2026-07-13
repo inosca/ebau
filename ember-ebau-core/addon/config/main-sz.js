@@ -26,7 +26,7 @@ export default {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
   },
   servicePermissions: {
-    includeSubRoutes: ["organisation"],
+    includeSubRoutes: [{ route: "organisation" }],
   },
   attachmentSections: {
     internal: 7,

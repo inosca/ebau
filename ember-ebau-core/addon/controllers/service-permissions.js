@@ -11,26 +11,14 @@ export default class ServicePermissionsController extends Controller {
   }
 
   get includeSubRoutes() {
-    const configuredRoutes = mainConfig.servicePermissions?.includeSubRoutes
-      ?.filter((route) => {
-        if (typeof route !== "string") {
-          if (Array.isArray(route.forServiceSlugs)) {
-            return route.forServiceSlugs?.includes(
-              this.ebauModules.serviceSlug,
-            );
-          }
+    const configuredRoutes =
+      mainConfig.servicePermissions?.includeSubRoutes?.filter((route) => {
+        if (Array.isArray(route.forServiceSlugs)) {
+          return route.forServiceSlugs?.includes(this.ebauModules.serviceSlug);
         }
         return true;
-      })
-      .map((route) => route.route ? route : route);
+      });
 
-    return (
-      configuredRoutes || [
-        "permissions",
-        "invitations",
-        "organisation",
-        "sub-services",
-      ]
-    );
+    return configuredRoutes;
   }
 }
