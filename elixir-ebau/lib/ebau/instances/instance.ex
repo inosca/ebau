@@ -34,7 +34,8 @@ defmodule Ebau.Instances.Instance do
     caluma_document do
       # Tables
       table :plot_data, Ebau.MasterData.PlotDataRow,
-        question_id: {Ebau.Caluma.CantonResolver, %{default: "parzelle", so: "parzellen"}}
+        question_id:
+          {Ebau.Caluma.CantonResolver, %{default: "parzelle", so: "parzellen", sg: "parzellen"}}
 
       table :applicants, Ebau.MasterData.Applicant,
         question_id: {Ebau.Caluma.CantonResolver, %{default: "bauherrin"}}

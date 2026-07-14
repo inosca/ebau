@@ -31,7 +31,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
   } do
     instance = instance_with(plots: [%{east: "456.0", north: "123.0"}])
 
-    assert link_for(gis_link, instance, actor) == "https://map.geo.admin.ch?center=456%2C123"
+    assert link_for(gis_link, instance, actor) == "https://map.geo.admin.ch?center=456.0%2C123.0"
   end
 
   test "uses coordinates from the first plot when multiple exist", %{
@@ -41,7 +41,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
     instance =
       instance_with(plots: [%{east: "456.0", north: "123.0"}, %{east: "888.0", north: "999.0"}])
 
-    assert link_for(gis_link, instance, actor) == "https://map.geo.admin.ch?center=456%2C123"
+    assert link_for(gis_link, instance, actor) == "https://map.geo.admin.ch?center=456.0%2C123.0"
   end
 
   test "prefers the drawn geometry over the plot's coordinates", %{
@@ -52,7 +52,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
       instance_with(geometry: @geometry, plots: [%{east: "456.0", north: "123.0"}])
 
     assert link_for(gis_link, instance, actor) ==
-             "https://map.geo.admin.ch?center=2760907%2C1191927"
+             "https://map.geo.admin.ch?center=2760907.75%2C1191927.88"
   end
 
   test "returns the placeholder if instance has no coordinates", %{

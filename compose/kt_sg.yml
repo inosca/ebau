@@ -1,3 +1,6 @@
+include:
+  - path: services/elixir.yml
+
 services:
   django:
     image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-main}

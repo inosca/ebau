@@ -97,7 +97,11 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinks do
             </tr>
             <tr :for={{dom_id, gis_link} <- @streams.gis_links} id={dom_id}>
               <td>{gis_link.name}</td>
-              <td>{gis_link.placeholder}</td>
+              <td>
+                <a href={gis_link.placeholder} target="_blank" rel="noopener noreferrer">
+                  {gis_link.placeholder}
+                </a>
+              </td>
               <td class="uk-text-right">
                 <.uk_button
                   :if={Ebau.Instances.can_destroy_gis_link?(@actor, gis_link, reuse_values?: true)}

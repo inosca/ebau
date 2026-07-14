@@ -6,6 +6,8 @@ test-all:
 	@APPLICATION=kt_so mix test.so
 	mix clean
 	@APPLICATION=kt_gr mix test.gr
+	mix clean
+	@APPLICATION=kt_sg mix test.sg
 
 .PHONY: setup-test
 setup-test:

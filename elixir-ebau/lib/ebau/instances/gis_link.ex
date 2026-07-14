@@ -23,40 +23,57 @@ defmodule Ebau.Instances.GisLink do
   @canton Application.compile_env(:ebau, :canton)
 
   def supported_providers do
+    fn_x = fn x, _y -> x end
+    fn_y = fn _x, y -> y end
+    fn_xy = fn x, y -> "#{x},#{y}" end
+
     Map.merge(
       %{
-        "map.geo.admin.ch" => %{
-          "center" => fn x, y -> "#{x},#{y}" end
-        }
+        "map.geo.admin.ch" => %{"center" => fn_xy}
       },
       case @canton do
         :so ->
           %{
-            "geo.so.ch" => %{
-              "c" => fn x, y -> "#{x},#{y}" end
-            }
+            "geo.so.ch" => %{"c" => fn_xy}
           }
 
         :gr ->
           %{
-            "map.geo.gr.ch" => %{
-              "map_x" => fn x, _y -> x end,
-              "map_y" => fn _x, y -> y end
-            },
-            "poschiavo.mapplus.ch" => %{
-              "x" => fn x, _y -> x end,
-              "y" => fn _x, y -> y end
-            },
-            "www.geo-surselva.ch" => %{
-              "x" => fn x, _y -> x end,
-              "y" => fn _x, y -> y end
-            }
+            "map.geo.gr.ch" => %{"map_x" => fn_x, "map_y" => fn_y},
+            "poschiavo.mapplus.ch" => %{"x" => fn_x, "y" => fn_y},
+            "geo-surselva.ch" => %{"x" => fn_x, "y" => fn_y}
+          }
+
+        :sg ->
+          %{
+            # For some reason, the SG providers switched x and y - in the
+            # future, we'll rename the coordinates to east / north internally to
+            # avoid further confusion
+            "geoportal.ch" => %{"x" => fn_y, "y" => fn_x},
+            "oereb.geo.sg.ch" => %{"x" => fn_y, "y" => fn_x}
           }
 
         _ ->
           %{}
       end
     )
+  end
+
+  @doc """
+  Looks up the provider for a host, ignoring casing and a `www.` prefix.
+
+  Returns nil for an unknown host, and for a URI that carries no host at all.
+  """
+  def provider_for_host(host) when is_binary(host),
+    do: Map.get(supported_providers(), normalize_host(host))
+
+  def provider_for_host(_host), do: nil
+
+  defp normalize_host(host) do
+    case String.downcase(host) do
+      "www." <> rest -> rest
+      host -> host
+    end
   end
 
   use Ash.Resource,

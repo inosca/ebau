@@ -60,7 +60,8 @@ defmodule Ebau.MixProject do
         test: :test,
         "test.setup": :test,
         "test.so": :test,
-        "test.gr": :test
+        "test.gr": :test,
+        "test.sg": :test
       ]
     ]
   end
@@ -143,6 +144,10 @@ defmodule Ebau.MixProject do
       "test.gr": [
         "test.setup",
         "test --only canton:gr"
+      ],
+      "test.sg": [
+        "test.setup",
+        "test --only canton:sg"
       ],
       test: [
         "test.setup",

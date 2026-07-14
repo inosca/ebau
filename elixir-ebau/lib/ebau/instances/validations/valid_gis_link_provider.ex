@@ -7,7 +7,7 @@ defmodule Ebau.Instances.Validations.ValidGisLinkProvider do
   def validate(changeset, _opts, _context) do
     uri = URI.parse(Ash.Changeset.get_argument_or_attribute(changeset, :placeholder) || "")
 
-    if uri.host && Map.has_key?(GisLink.supported_providers(), uri.host) do
+    if GisLink.provider_for_host(uri.host) do
       :ok
     else
       supported_providers_str = GisLink.supported_providers() |> Map.keys() |> Enum.join(", ")
