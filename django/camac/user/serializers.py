@@ -451,7 +451,7 @@ class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
     )
 
     def get_users(self, obj):
-        return obj.users.filter(disabled=False)
+        return obj.users.only_active()
 
     class Meta:
         model = models.Group
@@ -582,21 +582,9 @@ class UserGroupSerializer(serializers.ModelSerializer):
         "created_by": UserSerializer,
     }
 
-    def _invitable_users_qs(self):
-        queryset = models.User.objects.filter(disabled=0)
-
-        if settings.ENABLE_TOKEN_EXCHANGE:
-            # If token exchange is enabled, we need to make sure that only
-            # users **not** using that login method can be granted access to
-            # a group.
-            queryset = queryset.exclude(
-                username__startswith=settings.TOKEN_EXCHANGE_USERNAME_PREFIX
-            )
-        return queryset
-
     def validate_email(self, value):
         try:
-            self._invitable_users_qs().get(email=value)
+            models.User.objects.internal_users().get(email=value)
         except models.User.DoesNotExist as e:
             raise ValidationError(
                 _(
@@ -619,7 +607,9 @@ class UserGroupSerializer(serializers.ModelSerializer):
             else None
         )
 
-        user = self._invitable_users_qs().get(email=validated_data.pop("email"))
+        user = models.User.objects.internal_users().get(
+            email=validated_data.pop("email")
+        )
 
         if models.UserGroup.objects.filter(group=group, user=user).exists():
             raise ValidationError(_("User is already in group"))

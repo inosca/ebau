@@ -1,6 +1,9 @@
+from __future__ import annotations
+
 import hashlib
 from datetime import timedelta
 from functools import cached_property
+from typing import TYPE_CHECKING
 
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
@@ -12,8 +15,73 @@ from django.utils.translation import gettext_lazy as _
 from camac.core import models as core_models
 from camac.models import dynamic_default_value
 
+if TYPE_CHECKING:
+    from typing import Self
 
-class UserManager(BaseUserManager):
+
+class UserQuerySet(models.QuerySet):
+    def portal_users(self) -> Self:
+        """Return all users with a token-exchange prefix in their username.
+
+        Only users with `settings.TOKEN_EXCHANGE_USERNAME_PREFIX` as username
+        prefix are returned.
+
+        This will only return a different queryset than a normal query if
+        `settings.ENABLE_TOKEN_EXCHANGE` is True.
+        """
+        if (
+            not settings.ENABLE_TOKEN_EXCHANGE
+            or not settings.TOKEN_EXCHANGE_USERNAME_PREFIX
+        ):
+            return self
+
+        return self.filter(username__startswith=settings.TOKEN_EXCHANGE_USERNAME_PREFIX)
+
+    def only_active(self) -> Self:
+        """Return all users which are not disabled."""
+        return self.filter(disabled=False)
+
+    def internal_users(self) -> Self:
+        """Return all users without a token-exchange prefix in their username.
+
+        Excludes any user with `settings.TOKEN_EXCHANGE_USERNAME_PREFIX` as
+        username prefix.
+
+        This will only return a different queryset than a normal query if
+        `settings.ENABLE_TOKEN_EXCHANGE` is True.
+        """
+        if (
+            not settings.ENABLE_TOKEN_EXCHANGE
+            or not settings.TOKEN_EXCHANGE_USERNAME_PREFIX
+        ):
+            return self
+
+        return self.exclude(
+            username__startswith=settings.TOKEN_EXCHANGE_USERNAME_PREFIX
+        )
+
+    def get_by_username(self, username: str) -> User | None:
+        """Return first user with matching username.
+
+        Helper function for common pattern `User.objects.filter(username=...).first()`.
+
+        Returns `None` if no user matches.
+        """
+        return self.filter(username=username).first()
+
+    def get_by_email(self, email: str) -> User | None:
+        """Return first user with matching email.
+
+        Helper function for common pattern `User.objects.filter(email=...).first()`.
+
+        Returns `None` if no user matches.
+        """
+        return self.filter(email=email).first()
+
+
+class UserManager(BaseUserManager.from_queryset(UserQuerySet)):
+    # `use_in_migrations` needs an importable manager class, which a dynamically
+    # generated `UserManager.from_queryset(...)` is not.
     use_in_migrations = True
 
     def create_user(self, username, email=None, password=None, **extra_fields):

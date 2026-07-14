@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Document, Question
 from django.conf import settings
-from django.contrib.auth import get_user_model
 from django.core.exceptions import ImproperlyConfigured
 from django.db import models, transaction
 from django.utils.timezone import now
@@ -14,12 +13,14 @@ from uuid_extensions import uuid7
 
 from camac.applicants.utils import get_applicants_requiring_confirmation
 from camac.permissions.api import PermissionManager
+from camac.user.models import User
 
 if TYPE_CHECKING:
+    from typing import Any
+
     from rest_framework.request import Request
 
     from camac.instance.models import Instance
-    from camac.user.models import User
 
 
 class ApplicantManager(models.Manager):
@@ -54,14 +55,16 @@ class ApplicantManager(models.Manager):
                     existing.role = ROLE_CHOICES.PROJECT_OWNER
                     existing.save()
             else:
-                User = get_user_model()
+                portal_user = (
+                    User.objects.only_active().portal_users().get_by_email(email)
+                )
                 system_user = User.objects.get(
                     username=settings.APPLICATION.get("SYSTEM_USER")
                 )
                 applicant = self.create(
                     role=ROLE_CHOICES.PROJECT_OWNER,
                     email=email.lower(),
-                    invitee=User.objects.filter(email=email, disabled=False).first(),
+                    invitee=portal_user,
                     instance=instance,
                     user=system_user,
                 )

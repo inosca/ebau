@@ -68,7 +68,7 @@ def so_post_save_publication_create_history_entry(
     ):
         return
 
-    user = get_user_model().objects.filter(username=instance.modified_by_user).first()
+    user = get_user_model().objects.get_by_username(instance.modified_by_user)
 
     publication_start = find_answer(instance.document, "publikation-start")
     publication_ende = find_answer(instance.document, "publikation-ende")
