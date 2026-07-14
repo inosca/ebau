@@ -29,6 +29,7 @@ import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components
 import PublicationFillEndDateComponent from "ember-ebau-core/components/publication-fill-end-date";
 import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
 import QrCodeComponent from "ember-ebau-core/components/qr-code";
+import Rpg2ImportButtonComponent from "ember-ebau-core/components/rpg2-import-button";
 import SgGisComponent from "ember-ebau-core/components/sg-gis";
 import ShowIfInquiryQuestionHasValue from "ember-ebau-core/components/show-if-inquiry-question-has-value";
 import SoCorrectionBauherrinWarningComponent from "ember-ebau-core/components/so-correction-bauherrin-warning";
@@ -229,6 +230,11 @@ export default class ApplicationRoute extends Route {
       component: "applicant-confirmations/widget",
       componentClass: ApplicantConfirmationsWidgetComponent,
       type: "MultipleChoiceQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "RPG2 Import",
+      component: "rpg2-import-button",
+      componentClass: Rpg2ImportButtonComponent,
     });
   }
 }
