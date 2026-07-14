@@ -38,11 +38,10 @@ RUN mkdir config
 COPY config/config.exs config/${MIX_ENV}.exs config/
 RUN mix deps.compile
 
-# When the LiveView frontend ships to production, uncomment the asset steps
-# below (and the `COPY assets` + `mix assets.deploy` further down) and drop the
-# standalone `mix phx.digest` — `assets.deploy` already digests. The build then
-# needs `ARG APPLICATION` set, since `app-$APPLICATION.scss` is canton-specific.
-# RUN mix assets.setup
+# Install the asset toolchain (esbuild + dart_sass binaries). The actual asset build
+# (`mix assets.deploy`, further down) runs after `ARG APPLICATION` is set, since
+# `app-$APPLICATION.scss` is canton-specific.
+RUN mix assets.setup
 
 COPY priv priv
 
@@ -62,14 +61,10 @@ COPY lib lib
 # Compile the release
 RUN mix compile
 
-# Digest the few static files we ship (robots.txt, ...) so the endpoint's
-# cache_static_manifest is satisfied. No esbuild/sass: the LiveView frontend
-# is not shipped to production yet.
-RUN mix phx.digest
-
-# LiveView assets (uncomment together with `mix assets.setup` above):
-# COPY assets assets
-# RUN mix assets.deploy
+# Build and digest the LiveView assets. `assets.deploy` runs esbuild + sass and
+# then digests everything (incl. robots.txt), so no separate `mix phx.digest`.
+COPY assets assets
+RUN mix assets.deploy
 
 # Changes to config/runtime.exs don't require recompiling the code
 COPY config/runtime.exs config/
