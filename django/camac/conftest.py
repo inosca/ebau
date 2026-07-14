@@ -3925,6 +3925,17 @@ def ensure_no_user_after_test(django_db_setup, django_db_blocker, request):
     *after* all of the fixtures should have done their cleanup part.
     """
 
+    # Modules without any DB-using tests must not touch the database at all.
+    # Otherwise this check would hit the DB and report leftovers from a previous
+    # module as a false positive against a module that never used it.
+    if not any(
+        item.get_closest_marker("django_db")
+        for item in request.session.items
+        if item.module == request.module
+    ):
+        yield
+        return
+
     with django_db_blocker.unblock():
         last_test = (
             _ensure_no_user_after_test_test_logger_log[-1]
