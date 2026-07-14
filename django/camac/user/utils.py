@@ -7,6 +7,7 @@ from django.contrib.auth.models import AnonymousUser
 from django.core.cache import cache
 from django.db.models import Q
 
+from camac.instance.models import Instance
 from camac.instance.validators import FormDataValidator
 from camac.user.models import Group, Role, Service
 
@@ -104,7 +105,13 @@ def _get_group_for_portal(request):
     )
 
 
-def get_service_suggestions(instance):
+def get_service_suggestions(instance: Instance) -> list[int] | list[str]:
+    """Get suggested services to invite in the distribution for an instance.
+
+    Since older cantons use service IDs and newer cantons use slugs to define
+    the suggested services, we enable this function to work with both and return
+    a list of either service IDs or slugs.
+    """
     service_suggestions_cache_key = f"distribution__service_suggestions__{instance.pk}"
     cached_service_suggestions = cache.get(service_suggestions_cache_key)
 

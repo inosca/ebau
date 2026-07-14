@@ -4,53 +4,33 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
+from camac.tests.form_utils import FormUtils
 from camac.user.models import Service
-
-
-@pytest.fixture
-def mock_cache(mocker):
-    cached_result = {}
-
-    def cache_set(key, value, timeout):
-        cached_result[key] = value
-
-    def cache_get(key):
-        return cached_result.get(key)
-
-    mocker.patch("django.core.cache.cache.set", side_effect=cache_set)
-    mocker.patch("django.core.cache.cache.get", side_effect=cache_get)
+from camac.user.utils import get_service_suggestions
 
 
 @pytest.mark.parametrize(
     (
-        "num_queries",
-        "num_queries_cached",
         "suggestions",
         "suggestion_answer",
         "default_suggestions",
         "expected_services",
     ),
     [
-        (2, 2, {}, [], [], []),
+        ({}, [], [], []),
         (
-            6,
-            3,
             {"QUESTIONS": {("non-existing-question", "foo"): [0]}},
             [("baubeschrieb", ["baubeschrieb-erweiterung-anbau"])],
             [1111],
             [1111],
         ),
         (
-            5,
-            2,
             {"QUESTIONS": {("baubeschrieb", "baubeschrieb-erweiterung-anbau"): [1234]}},
             [("baubeschrieb", ["baubeschrieb-um-ausbau"])],
             [],
             [],
         ),
         (
-            6,
-            3,
             {
                 "QUESTIONS": {
                     ("baubeschrieb", "baubeschrieb-erweiterung-anbau"): [1234],
@@ -63,8 +43,6 @@ def mock_cache(mocker):
             [1234, 1111],
         ),
         (
-            6,
-            3,
             {
                 "QUESTIONS": {
                     ("baubeschrieb", "baubeschrieb-erweiterung-anbau"): [1234],
@@ -79,8 +57,6 @@ def mock_cache(mocker):
             [1234, 5678],
         ),
         (
-            6,
-            3,
             {
                 "QUESTIONS": {
                     ("baubeschrieb", "baubeschrieb-erweiterung-anbau"): [1234, 5678],
@@ -99,8 +75,6 @@ def mock_cache(mocker):
             [1234, 5678, 999],
         ),
         (
-            5,
-            3,
             {"FORM": {"main-form": [20046]}},
             [],
             [],
@@ -108,59 +82,36 @@ def mock_cache(mocker):
         ),
     ],
 )
+@pytest.mark.django_db
 def test_suggestion_for_instance_filter_caluma(
-    admin_client,
     be_instance,
-    service_factory,
-    distribution_settings,
-    django_assert_num_queries,
-    suggestions,
-    suggestion_answer,
     default_suggestions,
+    distribution_settings,
     expected_services,
-    num_queries,
-    num_queries_cached,
-    mock_cache,
+    form_utils: FormUtils,
+    suggestion_answer,
+    suggestions,
+    django_assert_num_queries,
 ):
     if default_suggestions:
         distribution_settings["DEFAULT_SUGGESTIONS"] = default_suggestions
-        for service_id in default_suggestions:
-            service_factory(pk=service_id)
 
     if suggestions:
         distribution_settings["SUGGESTIONS"] = suggestions
-        for service_id in set(
-            chain(*[chain(*config.values()) for config in suggestions.values()])
-        ):
-            service_factory(pk=service_id)
 
-        for ans in suggestion_answer:
-            be_instance.case.document.answers.create(question_id=ans[0], value=ans[1])
+        for question, value in suggestion_answer:
+            form_utils.add_answer(be_instance.case.document, question, value)
 
-    with django_assert_num_queries(num_queries):
-        response = admin_client.get(
-            reverse("publicservice-list"),
-            {"suggestion_for_instance": be_instance.pk},
-        )
+    expected_queries = 1 if default_suggestions or suggestions.get("QUESTIONS") else 0
+    with django_assert_num_queries(expected_queries):
+        assert get_service_suggestions(be_instance) == set(expected_services)
 
-    assert response.status_code == status.HTTP_200_OK
-
-    assert {int(entry["id"]) for entry in response.json()["data"]} == set(
-        expected_services
-    )
-
-    # Cached service suggestions
-    with django_assert_num_queries(num_queries_cached):
-        response = admin_client.get(
-            reverse("publicservice-list"),
-            {"suggestion_for_instance": be_instance.pk},
-        )
+    with django_assert_num_queries(0):
+        assert get_service_suggestions(be_instance) == set(expected_services)
 
 
 @pytest.mark.parametrize(
     (
-        "num_queries",
-        "num_queries_cached",
         "suggestions",
         "suggestion_answer",
         "default_suggestions",
@@ -168,16 +119,12 @@ def test_suggestion_for_instance_filter_caluma(
     ),
     [
         (
-            4,
-            2,
             {"SUBMODULES": [], "QUESTIONS": []},
             [],
             [],
             [],
         ),
         (
-            5,
-            3,
             {
                 # active (wald-forstlich and wald-auswirkung active)
                 "SUBMODULES": [
@@ -200,8 +147,6 @@ def test_suggestion_for_instance_filter_caluma(
             [1234],
         ),
         (
-            5,
-            3,
             {
                 "SUBMODULES": [],
                 # not active (wald-auswirkungen not active)
@@ -224,8 +169,6 @@ def test_suggestion_for_instance_filter_caluma(
             [4444],
         ),
         (
-            5,
-            3,
             {
                 # active (wald-forstlich active)
                 "SUBMODULES": [("fachthemen.wald", [1234])],
@@ -249,8 +192,6 @@ def test_suggestion_for_instance_filter_caluma(
             [1234, 4444],
         ),
         (
-            5,
-            3,
             {
                 # active (wald-auswirkungen active)
                 "SUBMODULES": [("fachthemen.wald", [1234])],
@@ -271,8 +212,6 @@ def test_suggestion_for_instance_filter_caluma(
             [1234, 5678],
         ),
         (
-            5,
-            3,
             {
                 # not active (wald-auswirkungen and wald-forstlich not active)
                 "SUBMODULES": [("fachthemen.wald", [1234])],
@@ -291,21 +230,17 @@ def test_suggestion_for_instance_filter_caluma(
         ),
     ],
 )
+@pytest.mark.django_db
 def test_suggestion_for_instance_filter_camac_ng(
-    admin_client,
-    sz_instance,
-    service_factory,
-    form_field_factory,
-    distribution_settings,
-    django_assert_num_queries,
-    form_factory,
-    mock_cache,
-    suggestions,
-    suggestion_answer,
     default_suggestions,
+    distribution_settings,
     expected_services,
-    num_queries,
-    num_queries_cached,
+    form_factory,
+    form_field_factory,
+    suggestion_answer,
+    suggestions,
+    sz_instance,
+    django_assert_num_queries,
 ):
     """Test service suggestions for camac-ng form backends.
 
@@ -352,8 +287,6 @@ def test_suggestion_for_instance_filter_camac_ng(
 
     if default_suggestions:
         distribution_settings["DEFAULT_SUGGESTIONS"] = default_suggestions
-        for service_id in default_suggestions:
-            service_factory(pk=service_id)
 
     if suggestions:
         distribution_settings["SUGGESTIONS"] = suggestions
@@ -363,31 +296,51 @@ def test_suggestion_for_instance_filter_camac_ng(
         sz_instance.form.save()
         sz_instance.save()
 
-        for config in [*suggestions["SUBMODULES"], *suggestions["QUESTIONS"]]:
-            for service_id in config[1]:
-                service_factory(pk=service_id)
+        for question, value in suggestion_answer:
+            form_field_factory(name=question, value=value, instance=sz_instance)
 
-        for ans in suggestion_answer:
-            form_field_factory(name=ans[0], value=ans[1], instance=sz_instance)
+    with django_assert_num_queries(2):
+        assert get_service_suggestions(sz_instance) == set(expected_services)
 
-    with django_assert_num_queries(num_queries):
-        response = admin_client.get(
-            reverse("publicservice-list"),
-            {"suggestion_for_instance": sz_instance.pk},
-        )
+    with django_assert_num_queries(0):
+        assert get_service_suggestions(sz_instance) == set(expected_services)
+
+
+@pytest.mark.parametrize(("form_backend"), ["caluma", "camac-ng"])
+@pytest.mark.parametrize(("use_slugs"), [True, False])
+@pytest.mark.django_db
+def test_suggestion_for_instance_filter_api(
+    admin_client,
+    application_settings,
+    distribution_settings,
+    form_backend,
+    instance,
+    service_factory,
+    use_slugs,
+):
+    expected_services = [
+        service_factory(slug="foo"),
+        service_factory(slug="bar"),
+        service_factory(slug="baz"),
+    ]
+
+    application_settings["FORM_BACKEND"] = form_backend
+    distribution_settings["DEFAULT_SUGGESTIONS"] = [
+        service.slug if use_slugs else service.pk for service in expected_services
+    ]
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        {"suggestion_for_instance": instance.pk},
+    )
 
     assert response.status_code == status.HTTP_200_OK
 
-    assert {int(entry["id"]) for entry in response.json()["data"]} == set(
-        expected_services
-    )
+    ids = {int(row["id"]) for row in response.json()["data"]}
+    slugs = set(Service.objects.filter(pk__in=ids).values_list("slug", flat=True))
 
-    # Cached service suggestions
-    with django_assert_num_queries(num_queries_cached):
-        response = admin_client.get(
-            reverse("publicservice-list"),
-            {"suggestion_for_instance": sz_instance.pk},
-        )
+    assert ids == {service.pk for service in expected_services}
+    assert slugs == {"foo", "bar", "baz"}
 
 
 @pytest.mark.parametrize(
@@ -413,65 +366,30 @@ def test_suggestion_for_instance_filter_camac_ng(
     ],
 )
 @pytest.mark.parametrize(
-    "answers",
-    [
-        [
-            # are
-            ("ausserhalb-bauzone", ["ausserhalb-bauzone-ja"]),
-            # awn
-            ("waldareal", "waldareal-ja"),
-            # amz
-            ("wohnnutzung", "wohnnutzung-ja"),
-            # pro-infirmis
-            (
-                "mehr-als-vier-wohneinheiten",
-                "mehr-als-vier-wohneinheiten-ja",
-            ),
-            # anu
-            (
-                "beschreibung-der-nutzung",
-                "beschreibung-der-nutzung-abfallanlage",
-            ),
-            # gvg-brandschutz
-            (
-                "haustechnische-anlagen-brandschutz",
-                "haustechnische-anlagen-brandschutz-ja",
-            ),
-        ],
-    ],
-)
-@pytest.mark.parametrize(
     ("role__name", "service_group__name"), [("municipality-lead", "municipality")]
 )
+@pytest.mark.django_db
 def test_suggestion_for_instance_filter_caluma_gr(
     admin_client,
-    gr_instance,
-    service_factory,
-    caluma_question_factory,
-    gr_distribution_settings,
-    responsible_service_factory,
-    instance_service_factory,
-    service,
-    is_bab,
     expected_services,
-    answers,
+    form_utils: FormUtils,
+    gr_distribution_settings,
+    gr_instance,
+    instance_service_factory,
+    is_bab,
     is_responsible,
-    service_group,
-    role,
-    mock_cache,
+    service_factory,
+    service,
     set_application_gr,
 ):
     gr_instance.case.meta["is-bab"] = is_bab
     gr_instance.case.save()
 
     if is_responsible:
-        responsible_service_factory(
-            instance=gr_instance, service=service, responsible_user=admin_client.user
-        )
         instance_service_factory(instance=gr_instance, service=service, active=1)
 
     # create all necessary services
-    for service_id in set(
+    for slug in set(
         chain(
             *[
                 chain(*config.values())
@@ -479,12 +397,33 @@ def test_suggestion_for_instance_filter_caluma_gr(
             ]
         )
     ):
-        service_factory(slug=service_id)
+        service_factory(slug=slug)
 
     # create questions/answers to trigger suggestions.
-    for ans in answers:
-        caluma_question_factory(slug=ans[0])
-        gr_instance.case.document.answers.create(question_id=ans[0], value=ans[1])
+    for question, value in [
+        # are
+        ("ausserhalb-bauzone", ["ausserhalb-bauzone-ja"]),
+        # awn
+        ("waldareal", "waldareal-ja"),
+        # amz
+        ("wohnnutzung", "wohnnutzung-ja"),
+        # pro-infirmis
+        (
+            "mehr-als-vier-wohneinheiten",
+            "mehr-als-vier-wohneinheiten-ja",
+        ),
+        # anu
+        (
+            "beschreibung-der-nutzung",
+            "beschreibung-der-nutzung-abfallanlage",
+        ),
+        # gvg-brandschutz
+        (
+            "haustechnische-anlagen-brandschutz",
+            "haustechnische-anlagen-brandschutz-ja",
+        ),
+    ]:
+        form_utils.add_answer(gr_instance.case.document, question, value)
 
     response = admin_client.get(
         reverse("publicservice-list"),
