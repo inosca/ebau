@@ -7,6 +7,7 @@ cases:
     applicants: "Gesuchsteller"
     builder: "Bauherrschaft"
     caseDocumentFormName: "Formulartyp"
+    groupName: "Ersteller"
     caseStatus: "Status"
     circulationInitializerServices: "Absender"
     coordinationShort: "Kurzname Koordinationsstelle"
@@ -17,6 +18,7 @@ cases:
     decisionDate: "Entscheiddatum"
     dossierCreated: "Dossier angenommen / erfasst"
     dossierNumber: "Dossier-Nr."
+    creationDate: "Erstellungsdatum"
     form: "Verfahren"
     inquiryCreated: "Eingangsdatum"
     instanceFormDescription: "Verfahren"
@@ -228,7 +230,7 @@ cases:
   copy:
     title: "Link in Zwischenablage kopieren"
     success: "Der Link wurde in die Zwischenablage kopiert"
-  
+
   instanceMarks:
     save:
       success: "Das Dossier wurde erfolgreich markiert."
