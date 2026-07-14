@@ -13,6 +13,21 @@ config :ash_json_api,
   show_public_calculations_when_loaded?: true,
   authorize_update_destroy_with_error?: true
 
+# Configure dart_sass. Canton-specific: compiles app-<canton>.scss into app.css.
+# Lives here (compile-time) rather than runtime.exs because the production Docker
+# image builds the stylesheet at image-build via `mix assets.deploy` (`sass
+# default`), before runtime.exs is present.
+config :dart_sass,
+  version: "1.77.8",
+  default: [
+    args: [
+      "--load-path=../deps/elixir_uikit/priv/vendor/uikit/scss",
+      "css/app-#{canton_string}.scss",
+      "../priv/static/assets/css/app.css"
+    ],
+    cd: Path.expand("../assets", __DIR__)
+  ]
+
 config :ebau, Ebau.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure the endpoint

@@ -79,7 +79,7 @@ defmodule Ebau.MixProject do
       {:ash_phoenix, "~> 2.0"},
       {:ash_postgres, "~> 2.0"},
       {:bandit, "~> 1.5"},
-      {:dart_sass, "~> 0.7", only: [:dev]},
+      {:dart_sass, "~> 0.7", runtime: false},
       {:dns_cluster, "~> 0.2.0"},
       {:ecto_sql, "~> 3.13"},
       {:elixir_uikit, "~> 0.8.0"},
@@ -144,7 +144,7 @@ defmodule Ebau.MixProject do
         "test.setup",
         "test --exclude canton"
       ],
-      "assets.setup": ["esbuild.install --if-missing"],
+      "assets.setup": ["esbuild.install --if-missing", "sass.install --if-missing"],
       "assets.build": ["compile", "esbuild ebau"],
       "assets.deploy": [
         "esbuild ebau --minify",

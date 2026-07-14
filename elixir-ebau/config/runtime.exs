@@ -22,22 +22,6 @@ end
 
 Nvir.dotenv!(["../.env", ".env", ".env.#{config_env()}"])
 
-# We only build scss in dev; production ships the precompiled release without a
-# LiveView frontend, so it neither needs dart_sass nor APPLICATION at runtime.
-if config_env() == :dev do
-  # We dynamically need to build different cantonal scss files here
-  config :dart_sass,
-    version: "1.77.8",
-    default: [
-      args: [
-        "--load-path=../deps/elixir_uikit/priv/vendor/uikit/scss",
-        "css/app-#{System.fetch_env!("APPLICATION")}.scss",
-        "../priv/static/assets/css/app.css"
-      ],
-      cd: Path.expand("../assets", __DIR__)
-    ]
-end
-
 if config_env() != :test do
   config :ebau, Ebau.Repo,
     username: System.get_env("DATABASE_USER", "camac"),
@@ -45,7 +29,7 @@ if config_env() != :test do
     hostname: System.get_env("DATABASE_HOST", "localhost"),
     port: String.to_integer(System.get_env("DATABASE_PORT", "5432")),
     database: System.get_env("DATABASE_NAME") || Application.get_env(:ebau, :canton_string),
-    ssl: System.get_env("DATABASE_ENABLE_SSL") == "true",
+    ssl: System.get_env("DATABASE_ENABLE_SSL") == "true" && [verify: :verify_none],
     pool_size: String.to_integer(System.get_env("POOL_SIZE", "10")),
     pool_count: String.to_integer(System.get_env("POOL_COUNT", "1"))
 
