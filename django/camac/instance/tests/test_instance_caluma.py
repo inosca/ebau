@@ -42,6 +42,10 @@ from camac.permissions.conditions import (
     HasApplicantRole,
 )
 from camac.permissions.switcher import PERMISSION_MODE
+from camac.settings.modules.caluma_simple_workflow_schema import (
+    CalumaSimpleWorkflowConfig,
+    NotificationConfig,
+)
 from camac.tests.form_utils import FormUtils
 from camac.user.models import Location, Service
 from camac.utils import flatten
@@ -1880,20 +1884,21 @@ def test_instance_finalize(
     permissions_settings,
     geometer_is_unnecessary,
     expected_emails,
+    be_caluma_simple_workflow_settings: CalumaSimpleWorkflowConfig,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
-    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"][
-        "create-manual-workitems"
-    ] = [
-        {
-            "event": "created",
-            "notification": {
-                "template_slug": notification_template.slug,
-                "recipient_types": ["work_item_addressed"],
-            },
-        }
-    ]
+
+    be_caluma_simple_workflow_settings.replace_notifications(
+        "create-manual-workitems",
+        "created",
+        [
+            NotificationConfig(
+                template_slug=notification_template.slug,
+                recipient_types=["work_item_addressed"],
+            )
+        ],
+    )
     instance_state_factory(name="coordination")
     instance_state_factory(name="sb1")
     instance_state_factory(name="conclusion")

@@ -18,10 +18,6 @@ from django.utils.translation import gettext as _
 from pytest_lazy_fixtures import lf
 
 from camac.caluma.extensions.events import bab, distribution
-from camac.caluma.extensions.events.caluma_workflow_notifications import (
-    post_complete_caluma_workflow_notifications,
-    post_create_caluma_workflow_notifications,
-)
 from camac.caluma.extensions.events.check_gwr_relevancy import (
     suspend_task_for_additional_demand,
 )
@@ -30,8 +26,18 @@ from camac.caluma.extensions.events.complete_check import (
     send_notification_after_complete_check,
 )
 from camac.caluma.extensions.events.general import post_decision_ur
+from camac.caluma.extensions.events.simple_workflow import (
+    post_complete_simple_workflow,
+    post_create_simple_workflow,
+    post_skip_simple_workflow,
+)
 from camac.caluma.utils import save_answer
 from camac.instance.models import HistoryActionConfig, HistoryEntry, HistoryEntryT
+from camac.settings.modules.caluma_simple_workflow_schema import (
+    CalumaSimpleWorkflowConfig,
+    EventConfig,
+    NotificationConfig,
+)
 from camac.tests.form_utils import FormUtils
 from camac.utils import (
     send_only_for_einfache_anfrage,
@@ -495,28 +501,40 @@ def test_notify_manual_work_item(
     application_settings,
     notification_template_factory,
     caluma_task_factory,
+    caluma_simple_workflow_settings: CalumaSimpleWorkflowConfig,
 ):
     notification_template_created = notification_template_factory()
     notification_template_completed = notification_template_factory()
-    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"][
-        "create-manual-workitems"
-    ] = [
-        {
-            "event": "created",
-            "notification": {
-                "template_slug": notification_template_created.slug,
-                "recipient_types": ["work_item_addressed"],
-            },
-        },
-        {
-            "event": "completed",
-            "notification": {
-                "template_slug": notification_template_completed.slug,
-                "recipient_types": ["work_item_controlling"],
-            },
-            "condition": lambda work_item: work_item.meta["notify-completed"],
-        },
-    ]
+
+    caluma_simple_workflow_settings.replace_events(
+        "create-manual-workitems",
+        "created",
+        [
+            EventConfig(
+                notifications=[
+                    NotificationConfig(
+                        template_slug=notification_template_created.slug,
+                        recipient_types=["work_item_addressed"],
+                    ),
+                ]
+            ),
+        ],
+    )
+    caluma_simple_workflow_settings.replace_events(
+        "create-manual-workitems",
+        "completed",
+        [
+            EventConfig(
+                condition=lambda work_item: work_item.meta["notify-completed"],
+                notifications=[
+                    NotificationConfig(
+                        template_slug=notification_template_completed.slug,
+                        recipient_types=["work_item_controlling"],
+                    )
+                ],
+            )
+        ],
+    )
 
     controlling_service = service_factory()
     addressed_service = service_factory()
@@ -927,16 +945,20 @@ def test_complete_simple_workflow(
     expected_instance_state,
     expected_history_text,
     be_ech0211_settings,
+    be_caluma_simple_workflow_settings: CalumaSimpleWorkflowConfig,
 ):
     work_item = caluma_work_item_factory(task_id=task, case=be_instance.case)
     instance_state = instance_state_factory(name=expected_instance_state)
 
-    notification = {
-        "template_slug": notification_template.slug,
-        "recipient_types": ["applicant"],
-    }
-    application_settings["CALUMA"]["SIMPLE_WORKFLOW"][task]["notification"] = (
-        notification
+    be_caluma_simple_workflow_settings.replace_notifications(
+        task,
+        "completed",
+        [
+            NotificationConfig(
+                template_slug=notification_template.slug,
+                recipient_types=["applicant"],
+            ),
+        ],
     )
 
     send_event(
@@ -956,8 +978,6 @@ def test_complete_simple_workflow(
         language="de",
     ).exists()
     assert len(mailoutbox) == 1
-
-    del application_settings["CALUMA"]["SIMPLE_WORKFLOW"][task]["notification"]
 
 
 @pytest.mark.django_db
@@ -1317,7 +1337,6 @@ def test_post_create_review_building_commission(
     application_settings,
 ):
     caluma_case = caluma_case_factory()
-    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {}
     release_work_item = caluma_work_item_factory(
         task__slug="release-for-bk",
         case=caluma_case,
@@ -1420,36 +1439,35 @@ def test_complete_check_ur(
 
 
 @pytest.mark.django_db
-def test_post_create_caluma_workflow_notifications(
+def test_post_create_simple_workflow(
     application_settings,
     ur_instance,
     caluma_document_factory,
     caluma_work_item_factory,
     mocker,
+    ur_caluma_simple_workflow_settings: CalumaSimpleWorkflowConfig,
 ):
-    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {
-        "send-additional-demand": [
-            {
-                "event": "created",
-                "notification": {
-                    "template_slug": "2-1-nachforderung-eingegangen",
-                    "recipient_types": ["applicant"],
-                },
-            }
-        ]
-    }
+    ur_caluma_simple_workflow_settings.replace_notifications(
+        "send-additional-demand",
+        "created",
+        [
+            NotificationConfig(
+                template_slug="2-1-nachforderung-eingegangen",
+                recipient_types=["applicant"],
+            )
+        ],
+    )
+
     work_item = caluma_work_item_factory(
         task_id="send-additional-demand",
         document=caluma_document_factory(),
         case=ur_instance.case,
     )
     send_notification_mock = mocker.patch(
-        "camac.caluma.extensions.events.caluma_workflow_notifications.send_notification"
+        "camac.caluma.extensions.events.simple_workflow.send_notification"
     )
 
-    post_create_caluma_workflow_notifications(
-        sender=None, work_item=work_item, user=None, context={}
-    )
+    post_create_simple_workflow(sender=None, work_item=work_item, user=None, context={})
     send_notification_mock.assert_called()
     assert (
         send_notification_mock.call_args[0][0]["template_slug"]
@@ -1459,36 +1477,52 @@ def test_post_create_caluma_workflow_notifications(
 
 
 @pytest.mark.django_db
-def test_post_complete_caluma_workflow_notifications(
+@pytest.mark.parametrize("event_type", ["created", "completed", "skipped"])
+def test_post_simple_workflow(
     application_settings,
+    event_type,
     ur_instance,
     caluma_document_factory,
     caluma_work_item_factory,
     mocker,
+    ur_caluma_simple_workflow_settings: CalumaSimpleWorkflowConfig,
 ):
-    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {
-        "complete-distribution": [
-            {
-                "event": "completed",
-                "notification": {
-                    "template_slug": "4-3-zirkulation-abgeschlossen",
-                    "recipient_types": ["applicant"],
-                },
-            }
-        ]
-    }
+    ur_caluma_simple_workflow_settings.replace_events(
+        "complete-distribution",
+        event_type,
+        [
+            EventConfig(
+                notifications=[
+                    NotificationConfig(
+                        template_slug="4-3-zirkulation-abgeschlossen",
+                        recipient_types=["applicant"],
+                    )
+                ]
+            )
+        ],
+    )
     work_item = caluma_work_item_factory(
         task_id="complete-distribution",
         document=caluma_document_factory(),
         case=ur_instance.case,
     )
     send_notification_mock = mocker.patch(
-        "camac.caluma.extensions.events.caluma_workflow_notifications.send_notification"
+        "camac.caluma.extensions.events.simple_workflow.send_notification"
     )
 
-    post_complete_caluma_workflow_notifications(
-        sender=None, work_item=work_item, user=None, context={}
-    )
+    if event_type == "created":
+        post_create_simple_workflow(
+            sender=None, work_item=work_item, user=None, context={}
+        )
+    elif event_type == "completed":
+        post_complete_simple_workflow(
+            sender=None, work_item=work_item, user=None, context={}
+        )
+    elif event_type == "skipped":
+        post_skip_simple_workflow(
+            sender=None, work_item=work_item, user=None, context={}
+        )
+
     send_notification_mock.assert_called()
     assert (
         send_notification_mock.call_args[0][0]["template_slug"]
@@ -1498,43 +1532,44 @@ def test_post_complete_caluma_workflow_notifications(
 
 
 @pytest.mark.django_db
-def test_post_complete_caluma_workflow_notifications_for_einfache_anfrage(
+def test_post_complete_simple_workflow_for_einfache_anfrage(
     application_settings,
     ur_instance,
     caluma_document_factory,
     caluma_work_item_factory,
     mocker,
+    ur_caluma_simple_workflow_settings: CalumaSimpleWorkflowConfig,
 ):
     ur_instance.case.document.form = caluma_form_models.Form.objects.get(
         slug="einfache-anfrage"
     )
     ur_instance.case.document.save()
-    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {
-        "decision": [
-            {
-                "event": "completed",
-                "notification": {
-                    "template_slug": "5-eroeffnung-stellungnahme-vorentscheid",
-                    "recipient_types": [
-                        "municipality_users",
-                    ],
-                },
-                "condition": lambda work_item: send_only_for_einfache_anfrage(
-                    work_item
-                ),
-            }
-        ]
-    }
+
+    ur_caluma_simple_workflow_settings.replace_events(
+        "decision",
+        "completed",
+        [
+            EventConfig(
+                condition=lambda work_item: send_only_for_einfache_anfrage(work_item),
+                notifications=[
+                    NotificationConfig(
+                        template_slug="5-eroeffnung-stellungnahme-vorentscheid",
+                        recipient_types=["municipality_users"],
+                    )
+                ],
+            )
+        ],
+    )
     work_item = caluma_work_item_factory(
         task_id="decision",
         document=caluma_document_factory(),
         case=ur_instance.case,
     )
     send_notification_mock = mocker.patch(
-        "camac.caluma.extensions.events.caluma_workflow_notifications.send_notification"
+        "camac.caluma.extensions.events.simple_workflow.send_notification"
     )
 
-    post_complete_caluma_workflow_notifications(
+    post_complete_simple_workflow(
         sender=None, work_item=work_item, user=None, context={}
     )
     send_notification_mock.assert_called()
@@ -1730,23 +1765,28 @@ def test_notify_manual_work_item_ignore_addressed_self(
     notification_template_factory,
     ignore_addressed_self,
     expected,
+    gr_caluma_simple_workflow_settings: CalumaSimpleWorkflowConfig,
 ):
     notification_template = notification_template_factory()
-    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"][
-        "create-manual-workitems"
-    ] = [
-        {
-            "event": "created",
-            "notification": {
-                "template_slug": notification_template.slug,
-                "recipient_types": ["work_item_addressed"],
-            },
-            "condition": lambda work_item: should_notify_on_manual_workitems(
-                work_item,
-                ignore_addressed_self=ignore_addressed_self,
-            ),
-        },
-    ]
+
+    gr_caluma_simple_workflow_settings.replace_events(
+        "create-manual-workitems",
+        "created",
+        [
+            EventConfig(
+                condition=lambda work_item: should_notify_on_manual_workitems(
+                    work_item,
+                    ignore_addressed_self=ignore_addressed_self,
+                ),
+                notifications=[
+                    NotificationConfig(
+                        template_slug=notification_template.slug,
+                        recipient_types=["work_item_addressed"],
+                    )
+                ],
+            )
+        ],
+    )
 
     controlling_service = service_factory()
     addressed_service = service_factory()

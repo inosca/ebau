@@ -1977,38 +1977,6 @@ msgid "Sanction '%(sanction_name)s' has been controlled."
 msgstr ""
 
 #: camac/settings/django.py
-msgid "Circulation started"
-msgstr "Circolazione avviata"
-
-#: camac/settings/django.py
-msgid "Additional demand sent"
-msgstr "Richiesta di precisazioni avviata"
-
-#: camac/settings/django.py
-msgid "Additional demand was answered"
-msgstr "Risposta alla richiesta di precisazioni pervenuta"
-
-#: camac/settings/django.py
-msgid "Procedure completed"
-msgstr "Procedura relativa alla domanda di costruzione conclusa"
-
-#: camac/settings/django.py
-msgid "Preliminary exam performed"
-msgstr "Esame preliminare concluso"
-
-#: camac/settings/django.py
-msgid "Construction monitoring performed"
-msgstr "Accompagnamento dei lavori svolto"
-
-#: camac/settings/django.py
-msgid "Formal exam performed"
-msgstr "Esame preliminare formale svolto"
-
-#: camac/settings/django.py
-msgid "Material exam performed"
-msgstr "Esame materiale svolto"
-
-#: camac/settings/django.py
 msgid "German"
 msgstr "Tedesco"
 
@@ -2027,6 +1995,53 @@ msgstr "Richiesta di precisazioni conclusa"
 #: camac/settings/modules/additional_demand.py
 msgid "Additional demand rejected"
 msgstr "Richiesta di precisazioni svolta"
+
+#: camac/settings/modules/caluma_simple_workflow/kt_ag.py
+#: camac/settings/modules/caluma_simple_workflow/kt_gr.py
+msgid "Preliminary exam performed"
+msgstr "Esame preliminare concluso"
+
+#: camac/settings/modules/caluma_simple_workflow/kt_ag.py
+#: camac/settings/modules/caluma_simple_workflow/kt_bern.py
+#: camac/settings/modules/caluma_simple_workflow/kt_gr.py
+#: camac/settings/modules/caluma_simple_workflow/kt_sg.py
+#: camac/settings/modules/caluma_simple_workflow/kt_so.py
+msgid "Circulation started"
+msgstr "Circolazione avviata"
+
+#: camac/settings/modules/caluma_simple_workflow/kt_ag.py
+#: camac/settings/modules/caluma_simple_workflow/kt_bern.py
+#: camac/settings/modules/caluma_simple_workflow/kt_gr.py
+msgid "Additional demand sent"
+msgstr "Richiesta di precisazioni avviata"
+
+#: camac/settings/modules/caluma_simple_workflow/kt_ag.py
+#: camac/settings/modules/caluma_simple_workflow/kt_bern.py
+#: camac/settings/modules/caluma_simple_workflow/kt_gr.py
+msgid "Additional demand was answered"
+msgstr "Risposta alla richiesta di precisazioni pervenuta"
+
+#: camac/settings/modules/caluma_simple_workflow/kt_ag.py
+#: camac/settings/modules/caluma_simple_workflow/kt_bern.py
+#: camac/settings/modules/caluma_simple_workflow/kt_gr.py
+#: camac/settings/modules/caluma_simple_workflow/kt_sg.py
+#: camac/settings/modules/caluma_simple_workflow/kt_so.py
+msgid "Procedure completed"
+msgstr "Procedura relativa alla domanda di costruzione conclusa"
+
+#: camac/settings/modules/caluma_simple_workflow/kt_gr.py
+msgid "Construction monitoring performed"
+msgstr "Accompagnamento dei lavori svolto"
+
+#: camac/settings/modules/caluma_simple_workflow/kt_sg.py
+#: camac/settings/modules/caluma_simple_workflow/kt_so.py
+msgid "Material exam performed"
+msgstr "Esame materiale svolto"
+
+#: camac/settings/modules/caluma_simple_workflow/kt_sg.py
+#: camac/settings/modules/caluma_simple_workflow/kt_so.py
+msgid "Formal exam performed"
+msgstr "Esame preliminare formale svolto"
 
 #: camac/settings/modules/correction.py
 msgid "Dossier corrected"

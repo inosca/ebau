@@ -168,7 +168,6 @@ def test_post_complete_check_additional_demand_with_changes_gr(
             }
         ],
     }
-    application_settings["CALUMA_WORKFLOW_NOTIFICATIONS"] = {}
 
     work_item_send = caluma_work_item_factory(
         case=gr_instance.case,

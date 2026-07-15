@@ -1959,38 +1959,6 @@ msgid "Sanction '%(sanction_name)s' has been controlled."
 msgstr ""
 
 #: camac/settings/django.py
-msgid "Circulation started"
-msgstr "Procédure de circulation lancée"
-
-#: camac/settings/django.py
-msgid "Additional demand sent"
-msgstr "Demande de complément lancée"
-
-#: camac/settings/django.py
-msgid "Additional demand was answered"
-msgstr "Demande de complément répondue"
-
-#: camac/settings/django.py
-msgid "Procedure completed"
-msgstr "Procédure de demande de permis de construire complétée"
-
-#: camac/settings/django.py
-msgid "Preliminary exam performed"
-msgstr ""
-
-#: camac/settings/django.py
-msgid "Construction monitoring performed"
-msgstr ""
-
-#: camac/settings/django.py
-msgid "Formal exam performed"
-msgstr ""
-
-#: camac/settings/django.py
-msgid "Material exam performed"
-msgstr ""
-
-#: camac/settings/django.py
 msgid "German"
 msgstr "Allemand"
 
@@ -2009,6 +1977,53 @@ msgstr "Demande de complément terminée"
 #: camac/settings/modules/additional_demand.py
 msgid "Additional demand rejected"
 msgstr "Demande de complément incomplète"
+
+#: camac/settings/modules/caluma_simple_workflow/kt_ag.py
+#: camac/settings/modules/caluma_simple_workflow/kt_gr.py
+msgid "Preliminary exam performed"
+msgstr ""
+
+#: camac/settings/modules/caluma_simple_workflow/kt_ag.py
+#: camac/settings/modules/caluma_simple_workflow/kt_bern.py
+#: camac/settings/modules/caluma_simple_workflow/kt_gr.py
+#: camac/settings/modules/caluma_simple_workflow/kt_sg.py
+#: camac/settings/modules/caluma_simple_workflow/kt_so.py
+msgid "Circulation started"
+msgstr "Procédure de circulation lancée"
+
+#: camac/settings/modules/caluma_simple_workflow/kt_ag.py
+#: camac/settings/modules/caluma_simple_workflow/kt_bern.py
+#: camac/settings/modules/caluma_simple_workflow/kt_gr.py
+msgid "Additional demand sent"
+msgstr "Demande de complément lancée"
+
+#: camac/settings/modules/caluma_simple_workflow/kt_ag.py
+#: camac/settings/modules/caluma_simple_workflow/kt_bern.py
+#: camac/settings/modules/caluma_simple_workflow/kt_gr.py
+msgid "Additional demand was answered"
+msgstr "Demande de complément répondue"
+
+#: camac/settings/modules/caluma_simple_workflow/kt_ag.py
+#: camac/settings/modules/caluma_simple_workflow/kt_bern.py
+#: camac/settings/modules/caluma_simple_workflow/kt_gr.py
+#: camac/settings/modules/caluma_simple_workflow/kt_sg.py
+#: camac/settings/modules/caluma_simple_workflow/kt_so.py
+msgid "Procedure completed"
+msgstr "Procédure de demande de permis de construire complétée"
+
+#: camac/settings/modules/caluma_simple_workflow/kt_gr.py
+msgid "Construction monitoring performed"
+msgstr ""
+
+#: camac/settings/modules/caluma_simple_workflow/kt_sg.py
+#: camac/settings/modules/caluma_simple_workflow/kt_so.py
+msgid "Material exam performed"
+msgstr ""
+
+#: camac/settings/modules/caluma_simple_workflow/kt_sg.py
+#: camac/settings/modules/caluma_simple_workflow/kt_so.py
+msgid "Formal exam performed"
+msgstr ""
 
 #: camac/settings/modules/correction.py
 msgid "Dossier corrected"

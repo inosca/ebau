@@ -87,6 +87,9 @@ from camac.permissions.models import AccessLevel
 from camac.responsible import factories as responsible_factories
 from camac.rulesets import factories as rulesets_factories
 from camac.sanctions import factories as sanction_factories
+from camac.settings.modules.caluma_simple_workflow_schema import (
+    CalumaSimpleWorkflowConfig,
+)
 from camac.tags import factories as tags_factories
 from camac.tests.data import (
     ag_personal_row_factory,
@@ -572,6 +575,7 @@ def _caluma_config_factory(settings, application_settings, request, use_caluma_f
     def fn(application_name):
         short_name = settings.APPLICATIONS[application_name]["SHORT_NAME"]
         request.getfixturevalue(f"{short_name}_master_data_settings")
+        request.getfixturevalue(f"{short_name}_caluma_simple_workflow_settings")
 
         application_settings["CALUMA"] = deepcopy(
             settings.APPLICATIONS[application_name]["CALUMA"]
@@ -3261,11 +3265,9 @@ def construction_monitoring_initialized_case_sz(
     sz_instance,
     sz_construction_monitoring_settings,
     caluma_admin_user,
+    sz_caluma_simple_workflow_settings: CalumaSimpleWorkflowConfig,
 ):
-    # Prevent creation of construction monitoring work item to fail because of
-    # missing notification templates in the test:
-    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {}
-
+    sz_caluma_simple_workflow_settings.disable_notifications()
     case = sz_instance.case
     complete_work_item(
         work_item=case.work_items.get(
