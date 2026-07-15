@@ -1,6 +1,5 @@
 import pytest
-from caluma.caluma_form.models import Document, Form, Question
-from caluma.caluma_workflow.models import Task, Workflow, WorkItem
+from caluma.caluma_workflow.models import Task, WorkItem
 from django.core.management import call_command
 from django.urls import reverse
 from rest_framework import status
@@ -181,25 +180,6 @@ def _add_rpg2_work_item(instance, caluma_work_item_factory, settings):
         status=WorkItem.STATUS_READY,
         document__form_id=rpg2_task.form,
     )
-
-
-def _rpg2_instance_with_work_item(
-    instance, instance_with_case, caluma_work_item_factory, form_slug
-):
-    workflow = Workflow.objects.get(pk="building-permit")
-    workflow.allow_forms.add(Form.objects.get(pk=form_slug))
-
-    instance = instance_with_case(instance, form=form_slug)
-
-    rpg2_task = Task.objects.get(slug="rpg2")
-
-    caluma_work_item_factory(
-        task=rpg2_task,
-        case=instance.case,
-        status=WorkItem.STATUS_READY,
-        document=Document.objects.create(form=rpg2_task.form),
-    )
-    return instance
 
 
 @pytest.fixture
@@ -434,3 +414,125 @@ def test_has_rpg2_edit_permission_ag(
     )
     assert get_resp.status_code == expected_status
     assert apply_resp.status_code == expected_status
+
+
+@pytest.fixture
+def rpg2_be_instance(
+    be_instance,
+    be_rpg2_settings,
+    be_access_levels,
+    admin_client,
+    caluma_work_item_factory,
+    settings,
+):
+    call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_rpg2_form.json"))
+    _add_rpg2_work_item(be_instance, caluma_work_item_factory, settings)
+    # for visibility
+    permissions_api.grant(
+        be_instance,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level="distribution-service",
+        service=admin_client.user.groups.first().service,
+    )
+
+    return be_instance
+
+
+@pytest.fixture
+def rpg2_be_instance_with_answers(rpg2_be_instance, form_utils):
+    document = rpg2_be_instance.case.document
+    form_utils.add_answer(
+        document,
+        question="versiegelt-oder-entsiegelt-v7",
+        value="versiegelt-oder-entsiegelt-v7-ja",
+        options=["versiegelt-oder-entsiegelt-v7-ja"],
+    )
+    form_utils.add_table_answer(
+        document,
+        question="versiegelte-entsiegelte-flaechen-v7",
+        rows=[
+            {
+                "art-versiegelung-entsiegelung-v7": {
+                    "value": "art-versiegelung-entsiegelung-v7-neue-versiegelte-flaechen",
+                    "options": [
+                        "art-versiegelung-entsiegelung-v7-neue-versiegelte-flaechen"
+                    ],
+                },
+                "flaeche-quadrat-meter-v7": 250.0,
+            },
+            {
+                "art-versiegelung-entsiegelung-v7": {
+                    "value": "art-versiegelung-entsiegelung-v7-entsiegelte-flaechen",
+                    "options": [
+                        "art-versiegelung-entsiegelung-v7-entsiegelte-flaechen"
+                    ],
+                },
+                "flaeche-quadrat-meter-v7": 100.0,
+            },
+        ],
+    )
+    return rpg2_be_instance
+
+
+@pytest.mark.django_db
+def test_rpg2_import_success_be(
+    admin_client,
+    rpg2_be_instance_with_answers,
+    rpg2_edit_permission,
+):
+    instance = rpg2_be_instance_with_answers
+
+    # check get data response
+    resp = admin_client.get(reverse("instance-rpg2-data", args=[instance.pk]))
+    assert resp.status_code == status.HTTP_200_OK
+    data = resp.json()["data"]
+
+    assert set(data) == {
+        "rpg2-versiegelt-oder-entsiegelt",
+        "rpg2-versiegelte-entsiegelte-flaechen",
+    }
+    assert (
+        data["rpg2-versiegelt-oder-entsiegelt"]["value"]
+        == "rpg2-versiegelt-oder-entsiegelt-ja"
+    )
+
+    table = data["rpg2-versiegelte-entsiegelte-flaechen"]
+    assert table["form"] == "rpg2-versiegelte-entsiegelte-flaechen"
+    table_rows = table["value"]
+    assert len(table_rows) == 2
+    for row in table_rows:
+        assert set(row) == {
+            "rpg2-art-versiegelung-entsiegelung",
+            "rpg2-flaeche-quadrat-meter",
+        }
+
+    first_row, second_row = table_rows
+    assert first_row["rpg2-art-versiegelung-entsiegelung"]["value"] == (
+        "rpg2-art-versiegelung-entsiegelung-neue-versiegelte-flaechen"
+    )
+    assert first_row["rpg2-flaeche-quadrat-meter"]["value"] == 250.0
+    assert second_row["rpg2-art-versiegelung-entsiegelung"]["value"] == (
+        "rpg2-art-versiegelung-entsiegelung-entsiegelte-flaechen"
+    )
+    assert second_row["rpg2-flaeche-quadrat-meter"]["value"] == 100.0
+
+    # check apply data response
+    apply_resp = admin_client.post(reverse("instance-rpg2-apply", args=[instance.pk]))
+    assert apply_resp.status_code == status.HTTP_200_OK
+    assert set(apply_resp.json()["questions"]) == set(data)
+
+    # check written answers
+    rpg2_document = instance.case.work_items.get(task_id="rpg2").document
+    assert (
+        rpg2_document.answers.get(question_id="rpg2-versiegelt-oder-entsiegelt").value
+        == "rpg2-versiegelt-oder-entsiegelt-ja"
+    )
+    rows = rpg2_document.answers.get(
+        question_id="rpg2-versiegelte-entsiegelte-flaechen"
+    ).documents.all()
+    assert rows.count() == 2
+    for row in rows:
+        assert row.answers.filter(
+            question_id="rpg2-art-versiegelung-entsiegelung"
+        ).exists()
+        assert row.answers.filter(question_id="rpg2-flaeche-quadrat-meter").exists()

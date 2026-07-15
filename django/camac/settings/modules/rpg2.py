@@ -13,6 +13,24 @@ RPG2 = ModuleConfig[RPG2Config](
             "verlaengerung-geltungsdauer",
             "vorabklaerung-vollstaendig",
         ],
+        import_mapping={
+            "rpg2-versiegelt-oder-entsiegelt": ImportMappingEntry(
+                source_slugs=["versiegelt-oder-entsiegelt-v7"],
+                is_option_target=True,
+            ),
+            "rpg2-versiegelte-entsiegelte-flaechen": ImportMappingEntry(
+                source_slugs=["versiegelte-entsiegelte-flaechen-v7"],
+                row_mapping={
+                    "rpg2-art-versiegelung-entsiegelung": ImportMappingEntry(
+                        source_slugs=["art-versiegelung-entsiegelung-v7"],
+                        is_option_target=True,
+                    ),
+                    "rpg2-flaeche-quadrat-meter": ImportMappingEntry(
+                        source_slugs=["flaeche-quadrat-meter-v7"],
+                    ),
+                },
+            ),
+        },
     ),
     kt_ag=RPG2Config(
         enabled=True,

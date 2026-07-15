@@ -17,6 +17,7 @@ import MilestoneValuesComponent from "ember-ebau-core/components/milestone-value
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
 import PublicationPreviewComponent from "ember-ebau-core/components/publication-preview";
 import QrCodeComponent from "ember-ebau-core/components/qr-code";
+import Rpg2ImportButtonComponent from "ember-ebau-core/components/rpg2-import-button";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 import mainConfig from "ember-ebau-core/config/main";
 import UIkit from "uikit";
@@ -197,6 +198,12 @@ export default class ApplicationRoute extends Route {
       label: "Publikationsbeginn Kanton",
       component: "publication-date-kantonsamtsblatt",
       componentClass: PublicationDateKantonsamtsblattComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "RPG2 Import",
+      component: "rpg2-import-button",
+      componentClass: Rpg2ImportButtonComponent,
     });
   }
 }

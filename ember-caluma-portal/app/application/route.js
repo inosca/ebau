@@ -38,6 +38,7 @@ import PublicationFillEndDateComponent from "ember-ebau-core/components/publicat
 import PublicationPreviewComponent from "ember-ebau-core/components/publication-preview";
 import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
 import QrCodeComponent from "ember-ebau-core/components/qr-code";
+import Rpg2ImportButtonComponent from "ember-ebau-core/components/rpg2-import-button";
 import ServiceContentComponent from "ember-ebau-core/components/service-content";
 import SgGisComponent from "ember-ebau-core/components/sg-gis";
 import ShowIfInquiryQuestionHasValue from "ember-ebau-core/components/show-if-inquiry-question-has-value";
@@ -388,6 +389,11 @@ export default class ApplicationRoute extends Route {
       label: "Vorschau für Publikationstext (Kt. UR)",
       component: "publication-preview",
       componentClass: PublicationPreviewComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "RPG2 Import",
+      component: "rpg2-import-button",
+      componentClass: Rpg2ImportButtonComponent,
     });
   }
 }
