@@ -3380,6 +3380,21 @@ MASTER_DATA = {
                 "zustaendige-behoerde",
                 {"value_parser": "option", "prop": "label"},
             ),
+            "demolition_payment_requested": (
+                "answer",
+                "wollen-sie-eine-abbruchpraemie-beantragen",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "wollen-sie-eine-abbruchpraemie-beantragen-ja": True,
+                                "wollen-sie-eine-abbruchpraemie-beantragen-nein": False,
+                            }
+                        },
+                    )
+                },
+            ),
             # BaB
             "is_bab": ("case_meta", "is-bab"),
             "is_bab_location": (

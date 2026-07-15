@@ -671,6 +671,7 @@ def caluma_workflow_config_be(
     additional_demand_workflow.allow_all_forms = False
     additional_demand_workflow.save()
 
+    # TODO: drop the delete call, see caluma_workflow_config_sg
     caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
     yield workflows
 
@@ -750,6 +751,7 @@ def caluma_workflow_config_ur(
     workflow.allow_forms.add(main_form)
     workflow.save()
 
+    # TODO: drop the delete call, see caluma_workflow_config_sg
     caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
 
     yield workflow
@@ -786,6 +788,7 @@ def caluma_workflow_config_gr(
     workflow.allow_forms.add(main_form)
     workflow.save()
 
+    # TODO: drop the delete call, see caluma_workflow_config_sg
     caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
 
     yield workflow
@@ -820,6 +823,7 @@ def caluma_workflow_config_so(
     workflow.allow_forms.add(main_form)
     workflow.save()
 
+    # TODO: drop the delete call, see caluma_workflow_config_sg
     caluma_form_models.Form.objects.filter(
         pk__in=CALUMA_VERSIONED_FORM_TYPES_SLUGS_SO
     ).delete()

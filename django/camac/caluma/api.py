@@ -58,9 +58,12 @@ class CalumaApi:
         source = caluma_form_models.Document.objects.get(pk=document_id).source
         return getattr(source, field, None) if source else None
 
+    # TODO should be called "get_special_id" and have a canton-specific implementation
+    # (i.e. ebau-number for BE, dossier-number for all other cantons)
     def get_ebau_number(self, instance):
         return instance.case.meta.get("ebau-number", "-")
 
+    # see above
     def get_dossier_number(self, instance):
         return instance.case.meta.get("dossier-number", "-")
 
@@ -151,6 +154,11 @@ class CalumaApi:
             question_id="projektaenderung",
             value="projektaenderung-ja",
         ).exists()
+
+    def is_extend_validity(self, instance):
+        if config := settings.INSTANCE_COPY.extend_validity:
+            return instance.case.document.form.slug == config.form_slug
+        return False
 
     def is_migrated(self, instance):
         """Return true if instance was part of RSTA migration."""

@@ -122,6 +122,8 @@ def set_construction_control(instance: Instance) -> Service:
     return construction_control
 
 
+# This is a hack, when you want to use this anywhere consider moving the serializer logic
+# into domain logic instead
 def copy_instance(
     instance: Instance,
     group: Group,
@@ -153,6 +155,7 @@ def copy_instance(
     serializer = CalumaInstanceSerializer(
         data={
             "copy_source": instance.pk,
+            "copy_type": "full",
             "is_modification": False,
             "is_appeal": new_meta.get("is-appeal", False),
             "is_rejected_appeal": new_meta.get("is-rejected-appeal", False),

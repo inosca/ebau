@@ -236,7 +236,7 @@ def test_copy_applicants(
         instance=source_instance, invitee=None, email="2@test.test", role="READ_ONLY"
     )
 
-    CreateInstanceLogic.copy_applicants(source_instance, target_instance)
+    CreateInstanceLogic.copy_all_applicants(source_instance, target_instance)
 
     assert (
         target_instance.involved_applicants.count()
@@ -345,6 +345,7 @@ def test_instance_create_source_timeline(
     timelines_settings,
     rejection_settings,
     set_application_gr,
+    admin_user,
 ):
     assert FormTimeline.objects.count() == 0
     source_instance = (
@@ -359,12 +360,11 @@ def test_instance_create_source_timeline(
     CreateInstanceLogic.initialize_camac(
         gr_instance,
         source_instance=source_instance,
+        copy_type="full",
+        camac_user=admin_user,
+        group=admin_user.groups.first(),
         is_modification=not was_rejected,
         is_paper=False,
-        extend_validity_for=None,
-        case=None,
-        user=None,
-        group=None,
         skip_exported_form_attachment=False,
         copy_attachments_from=[],
     )

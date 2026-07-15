@@ -133,6 +133,8 @@ instances:
   Hierfür verwenden Sie bitte die jeweiligen Funktionen von eBau (Beantwortung
   Nachforderung resp. Dossier neu einreichen).'<br'>'<br'>'<strong'>Wollen Sie
   mit der Erfassung einer Projektänderung fortfahren?'</strong'>"
+  demolitionPaymentTitle: "Auszahlung der Abbruchprämie beantragen"
+  demolitionPaymentText: "Nach erfolgtem Abbruch können Sie hier den Antrag auf Auszahlung der Abbruchprämie stellen."
   rejectionTitle: "Dossier neu einreichen"
   rejectionTitleSuffix: "(Rückweisung)"
   rejectionText: "Sie können das ursprünglich eingereichte Dossier entsprechend

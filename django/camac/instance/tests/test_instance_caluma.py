@@ -68,7 +68,7 @@ def mock_public_status(mocker):
     [(False, False, True), (True, False, False), (True, True, False)],
 )
 @pytest.mark.parametrize("convert_to_building_permit", [False, True])
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.django_db
 def test_create_instance_caluma_be(
     admin_client,
@@ -87,6 +87,8 @@ def test_create_instance_caluma_be(
     instance_service_factory,
     convert_to_building_permit,
     project_modification_settings,
+    be_instance_copy_settings,
+    set_application_be,
 ):
     headers = {}
 
@@ -102,14 +104,15 @@ def test_create_instance_caluma_be(
     project_modification_settings["ALLOW_FORMS"] = ["main-form"]
 
     location = Location.objects.first()
-    body = {
-        "attributes": {"caluma-form": "main-form"},
-        "relationships": {
-            "location": {"data": {"type": "locations", "id": location.pk}}
+    data = {
+        "data": {
+            "type": "instances",
+            "attributes": {"caluma-form": "main-form"},
+            "relationships": {
+                "location": {"data": {"type": "locations", "id": location.pk}}
+            },
         },
     }
-
-    data = {"data": {"type": "instances", **body}, "extend_validity_for": 1}
 
     create_resp = admin_client.post(reverse("instance-list"), data, **headers)
 
@@ -137,7 +140,14 @@ def test_create_instance_caluma_be(
     Chapter.objects.create(pk=be_constants.INSTANCE_STATE_EBAU_NUMMER_VERGEBEN)
 
     if extend_validity:
-        data["data"]["attributes"].update({"extend-validity-for": str(instance_id)})
+        caluma_form_models.Form.objects.create(slug="verlaengerung-geltungsdauer")
+        data["data"]["attributes"].update(
+            {
+                "caluma-form": "verlaengerung-geltungsdauer",
+                "copy-source": str(instance_id),
+                "copy-type": "extend_validity",
+            }
+        )
         resp = admin_client.post(reverse("instance-list"), data, **headers)
 
         assert resp.status_code == status.HTTP_201_CREATED, resp.content
@@ -181,7 +191,11 @@ def test_create_instance_caluma_be(
         old_instance.save()
 
         data["data"]["attributes"].update(
-            {"copy-source": str(instance_id), "is-modification": modification}
+            {
+                "copy-source": str(instance_id),
+                "copy-type": "full",
+                "is-modification": modification,
+            }
         )
 
         copy_resp = admin_client.post(reverse("instance-list"), data, **headers)
@@ -229,6 +243,7 @@ def test_extend_validity_permission_acl_be(
     permissions_settings,
     granted_permissions,
     expected_status,
+    be_instance_copy_settings,
 ):
     permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
     instance_state_factory(name="new")
@@ -243,50 +258,16 @@ def test_extend_validity_permission_acl_be(
         return_value=be_instance,
     )
 
-    body = {
-        "attributes": {
-            "caluma-form": "main-form",
-            "extend-validity-for": be_instance.pk,
-        },
-    }
-
-    data = {"data": {"type": "instances", **body}}
-
-    response = admin_client.post(reverse("instance-list"), data)
-
-    assert response.status_code == expected_status
-
-
-@pytest.mark.parametrize(
-    ("role__name", "expected_status"),
-    [
-        # RBAC: Anybody can create extend validity instance
-        ("Municipality", status.HTTP_201_CREATED),
-        ("Applicant", status.HTTP_201_CREATED),
-    ],
-)
-@pytest.mark.django_db
-def test_extend_validity_permission_rbac_be(
-    admin_client,
-    role,
-    be_instance,
-    instance_state_factory,
-    mocker,
-    permissions_settings,
-    expected_status,
-):
-    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
-    instance_state_factory(name="new")
-
     mocker.patch(
-        "camac.instance.domain_logic.CreateInstanceLogic.create",
-        return_value=be_instance,
+        "camac.instance.mixins.InstanceQuerysetMixin.get_base_queryset_acl",
+        return_value=Instance.objects.filter(pk=be_instance.pk),
     )
 
     body = {
         "attributes": {
-            "caluma-form": "main-form",
-            "extend-validity-for": be_instance.pk,
+            "caluma-form": "verlaengerung-geltungsdauer",
+            "copy-source": be_instance.pk,
+            "copy-type": "extend_validity",
         },
     }
 
@@ -416,6 +397,7 @@ def test_create_instance_caluma_ur(
         data["data"]["attributes"].update(
             {
                 "copy-source": str(instance_id),
+                "copy-type": "full",
                 "is-modification": modification,
                 "generate_identifier": generate_identifier,
             }
@@ -495,6 +477,7 @@ def test_copy_without_permission(
             "type": "instances",
             "attributes": {
                 "copy-source": str(instance.instance_id),
+                "copy-type": "full",
                 "caluma-form": "main-form",
             },
         }
@@ -519,6 +502,7 @@ def test_create_identifier_without_permisssion(
             "type": "instances",
             "attributes": {
                 "copy-source": str(instance.instance_id),
+                "copy-type": "full",
                 "generate-identifier": True,
             },
         }
@@ -615,6 +599,7 @@ def test_instance_submit_be(
     application_settings,
     mock_generate_and_store_pdf,
     caluma_workflow_config_be,
+    be_instance_copy_settings,
     has_personalien_sb1,
     caluma_admin_user,
     disable_ech0211_settings,
@@ -1626,6 +1611,7 @@ def test_instance_submit_state_change_be(
     application_settings,
     mock_generate_and_store_pdf,
     caluma_workflow_config_be,
+    be_instance_copy_settings,
     notification_template,
     is_building_police_procedure,
     is_extend_validity,
@@ -2599,6 +2585,7 @@ def test_rejection(
     caluma_admin_user,
     disable_ech0211_settings,
     form_utils: FormUtils,
+    be_instance_copy_settings,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
     project_modification_settings["ALLOW_FORMS"] = ["main-form"]
@@ -2638,6 +2625,7 @@ def test_rejection(
                 "type": "instances",
                 "attributes": {
                     "copy-source": str(source_instance_id),
+                    "copy-type": "full",
                     "is-modification": copy_modification,
                 },
             }
@@ -2684,6 +2672,7 @@ def test_be_copy_responsible_user_on_submit(
     user_factory,
     disable_ech0211_settings,
     form_utils: FormUtils,
+    be_instance_copy_settings,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
     application_settings["COPY_RESPONSIBLE_PERSON_ON_SUBMIT"] = True
@@ -2726,6 +2715,7 @@ def test_be_copy_responsible_user_on_submit(
                 "type": "instances",
                 "attributes": {
                     "copy-source": str(source_instance_id),
+                    "copy-type": "full",
                     "is-modification": False,
                 },
             }
@@ -2952,6 +2942,7 @@ def test_create_instance_caluma_modification(
                 "type": "instances",
                 "attributes": {
                     "copy-source": str(instance_id),
+                    "copy-type": "full",
                     "is-modification": True,
                 },
             }
@@ -3001,6 +2992,7 @@ def test_create_instance_from_modification(
     instance_state_factory,
     role,
     project_modification_settings,
+    be_instance_copy_settings,
 ):
     instance_state_factory(name="new")
 
@@ -3017,9 +3009,7 @@ def test_create_instance_from_modification(
         {
             "data": {
                 "type": "instances",
-                "attributes": {
-                    "copy-source": str(be_instance.pk),
-                },
+                "attributes": {"copy-source": str(be_instance.pk), "copy-type": "full"},
             }
         },
     )
@@ -3479,6 +3469,7 @@ def test_copy_rejected_instance(
                 "type": "instances",
                 "attributes": {
                     "copy-source": str(so_instance.pk),
+                    "copy-type": "full",
                 },
             }
         },
@@ -3579,6 +3570,7 @@ def test_copy_rejected_extend_validity_instance(
     role_factory,
     be_access_levels,
     be_instance,
+    be_instance_copy_settings,
 ):
     be_instance.case.document.form = caluma_form_factories.FormFactory(
         slug="verlaengerung-geltungsdauer"
@@ -3609,6 +3601,7 @@ def test_copy_rejected_extend_validity_instance(
                 "type": "instances",
                 "attributes": {
                     "copy-source": str(be_instance.pk),
+                    "copy-type": "full",
                 },
             }
         },
@@ -3676,6 +3669,7 @@ def test_copy_instance_modification(
                 "type": "instances",
                 "attributes": {
                     "copy-source": str(gr_instance.pk),
+                    "copy-type": "full",
                     "is-modification": True,
                 },
             }
@@ -3734,6 +3728,7 @@ def test_convert_building_permit(
                 "attributes": {
                     "caluma-form": "baugesuch-v6",
                     "copy-source": str(be_instance.pk),
+                    "copy-type": "full",
                 },
             }
         },
@@ -3743,6 +3738,96 @@ def test_convert_building_permit(
     if response.status_code == status.HTTP_201_CREATED:
         new_instance = Instance.objects.get(pk=response.json()["data"]["id"])
         assert new_instance.copy_source == be_instance
+
+
+@pytest.mark.parametrize(
+    ("is_admin", "is_correct_form", "requested_payment", "expected_status"),
+    [
+        (True, True, True, status.HTTP_201_CREATED),
+        (False, True, True, status.HTTP_403_FORBIDDEN),
+        (True, False, True, status.HTTP_400_BAD_REQUEST),
+        (True, True, False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+@pytest.mark.django_db
+def test_request_demolition_payment(
+    admin_client,
+    admin_user,
+    applicant_factory,
+    application_settings,
+    expected_status,
+    is_admin,
+    is_correct_form,
+    requested_payment,
+    instance_state_factory,
+    caluma_work_item_factory,
+    caluma_form_question_factory,
+    caluma_form_factory,
+    set_application_ag,
+    ag_access_levels,
+    ag_instance,
+    ag_permissions_settings,
+    ag_instance_copy_settings,
+    caluma_question_option_factory,
+    caluma_option_factory,
+):
+    """Make sure the permission 'instance-request-demolition-payment' is checked."""
+
+    instance_state_factory(name="new")
+    if is_correct_form:
+        form = caluma_form_models.Form.objects.get(pk="auszahlung-abbruchpraemie")
+    else:
+        form = caluma_form_factory()
+    caluma_form_question_factory(
+        question__slug=ag_instance_copy_settings.demolition_payment.special_id_slug,
+        question__type="text",
+        form=form,
+    )
+    slug = "wollen-sie-eine-abbruchpraemie-beantragen"
+    main_form = caluma_form_models.Form.objects.get(pk="main-form")
+    fq = caluma_form_question_factory(
+        question__pk=slug,
+        question__type=caluma_form_models.Question.TYPE_CHOICE,
+        form=main_form,
+    )
+    caluma_question_option_factory(question=fq.question, option__slug=f"{slug}-ja")
+    caluma_question_option_factory(question=fq.question, option__slug=f"{slug}-nein")
+    save_answer(
+        question=fq.question,
+        document=ag_instance.case.document,
+        value=f"{slug}-ja" if requested_payment else f"{slug}-nein",
+    )
+    ag_instance.case.workflow.allow_forms.add(form)
+    ag_instance.involved_applicants.all().delete()
+    role = ROLE_CHOICES.ADMIN.value if is_admin else ROLE_CHOICES.READ_ONLY.value
+    applicant_factory(instance=ag_instance, invitee=admin_user, role=role)
+    caluma_work_item_factory(case=ag_instance.case, task_id="complete-instance")
+
+    permissions_api.grant(
+        ag_instance,
+        grant_type=permissions_api.GRANT_CHOICES.USER.value,
+        access_level="applicant",
+        user=admin_user,
+    )
+
+    response = admin_client.post(
+        reverse("instance-list"),
+        {
+            "data": {
+                "type": "instances",
+                "attributes": {
+                    "caluma-form": form.slug,
+                    "copy-source": str(ag_instance.pk),
+                    "copy-type": "demolition_payment",
+                },
+            }
+        },
+    )
+
+    assert response.status_code == expected_status
+    if response.status_code == status.HTTP_201_CREATED:
+        new_instance = Instance.objects.get(pk=response.json()["data"]["id"])
+        assert new_instance.copy_source == ag_instance
 
 
 @pytest.mark.parametrize("allow_notification", [True, False])
