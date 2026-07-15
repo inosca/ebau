@@ -18,8 +18,6 @@ TEST_IMPORT_FILE_PATH = str(
     Path(settings.ROOT_DIR) / "camac/dossier_import/tests/data/"
 )
 
-JSON_INPUT_DIR: Path = Path(__file__).parent / "tests/data/kt_ag_json"
-
 
 @pytest.fixture
 def archive_file(settings):
@@ -352,42 +350,3 @@ def setup_dossier_writer(
         return dossier_writer
 
     return wrapper
-
-
-@pytest.fixture
-def setup_dossier_import_ag(
-    request,
-    settings,
-    set_application_ag,
-    ag_distribution_settings,
-    disable_ech0211_settings,
-    role_factory,
-    mocker,
-):  # pragma: no cover
-    config = "kt_ag"
-    # Needed for permissions module `instance_created` trigger
-    role_factory(name="Support")
-
-    common_fixtures_paths = [
-        # list of fixtures common to all configs. e. g.:
-        settings.ROOT_DIR(f"{config}/config/instance.json"),
-        settings.ROOT_DIR(f"{config}/config/alexandria_core.json"),
-    ]
-
-    settings.APPLICATION_NAME = config
-    short_name = settings.APPLICATIONS[config]["SHORT_NAME"]
-    service, config_fixtures = request.getfixturevalue(f"load_fixtures_{short_name}")
-
-    fixture_paths = common_fixtures_paths + config_fixtures
-    if len(fixture_paths):
-        call_command("loaddata", *fixture_paths)
-
-    # settings.MEDIA_ROOT = JSON_INPUT_DIR
-    settings.DOSSIER_IMPORT["SAP_ACCESS"]["json_target_dir"] = JSON_INPUT_DIR
-    settings.DOSSIER_IMPORT["MIGRATION_REPORTS_DIR"] = JSON_INPUT_DIR / ".." / "tmp"
-    settings.DOSSIER_IMPORT["DOCS_MIGRATION_ENABLED"] = False
-    settings.DOSSIER_IMPORT["EBAU_DOCUMENT_CLIENT"][
-        "check_replication_interval_seconds"
-    ] = 1
-
-    mocker.patch("camac.notification.utils.send_mail")
