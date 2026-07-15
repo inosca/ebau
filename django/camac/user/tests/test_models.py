@@ -28,7 +28,7 @@ def users(user_factory):
 
 
 @pytest.mark.parametrize(
-    "enable_token_exchange,username_prefix,expect_filtered",
+    ("enable_token_exchange", "username_prefix", "expect_filtered"),
     [
         (True, "egov:", True),
         (False, "egov:", False),
