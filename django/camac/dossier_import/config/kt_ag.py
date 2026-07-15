@@ -23,7 +23,7 @@ from camac.dossier_import.validation import TargetStatus
 from camac.dossier_import.writers import (
     CalumaAnswerWriter,
     CalumaCombinedStreetAndNumberWriter,
-    CalumaListAnswerWriter,
+    CalumaTableAnswerWriter,
     DossierWriter,
     FieldWriter,
     ResponsibleUserWriter,
@@ -257,7 +257,7 @@ class MultipleTargetsWriter(FieldWriter):
 class KtAargauDossierWriter(DossierWriter):
     cantonal_id = KeywordWriter()
 
-    plot_data = CalumaListAnswerWriter(
+    plot_data = CalumaTableAnswerWriter(
         target="parzelle", column_mapping=PLOT_DATA_MAPPING
     )
 
@@ -357,19 +357,19 @@ class KtAargauDossierWriter(DossierWriter):
         identify_by_text_only=True,
     )
 
-    applicant = CalumaListAnswerWriter(
+    applicant = CalumaTableAnswerWriter(
         target="personalien-gesuchstellerin",
         column_mapping=PERSON_MAPPING,
         value_mapping=PERSON_VALUE_MAPPING,
     )
 
-    landowner = CalumaListAnswerWriter(
+    landowner = CalumaTableAnswerWriter(
         target="personalien-grundeigentumerin",
         column_mapping=PERSON_MAPPING,
         value_mapping=PERSON_VALUE_MAPPING,
     )
 
-    project_author = CalumaListAnswerWriter(
+    project_author = CalumaTableAnswerWriter(
         target="personalien-projektverfasserin",
         column_mapping=PERSON_MAPPING,
         value_mapping=PERSON_VALUE_MAPPING,

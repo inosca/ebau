@@ -8,8 +8,8 @@ from camac.dossier_import.utils import mark_work_items_as_imported
 from camac.dossier_import.validation import TargetStatus
 from camac.dossier_import.writers import (
     CalumaAnswerWriter,
-    CalumaListAnswerWriter,
     CalumaPlotDataWriter,
+    CalumaTableAnswerWriter,
     DossierWriter,
     SubmitDateWriter,
 )
@@ -70,17 +70,17 @@ class KtSolothurnDossierWriter(DossierWriter):
     street = CalumaAnswerWriter(target="strasse-flurname")
     street_number = CalumaAnswerWriter(target="strasse-nummer", formatter="to-string")
     city = CalumaAnswerWriter(target="ort")
-    applicant = CalumaListAnswerWriter(
+    applicant = CalumaTableAnswerWriter(
         target="bauherrin",
         column_mapping=PERSON_MAPPING,
         value_mapping=PERSON_VALUE_MAPPING,
     )
-    landowner = CalumaListAnswerWriter(
+    landowner = CalumaTableAnswerWriter(
         target="grundeigentuemerin",
         column_mapping=PERSON_MAPPING,
         value_mapping=PERSON_VALUE_MAPPING,
     )
-    project_author = CalumaListAnswerWriter(
+    project_author = CalumaTableAnswerWriter(
         target="projektverfasserin",
         column_mapping=PERSON_MAPPING,
         value_mapping=PERSON_VALUE_MAPPING,
