@@ -6,6 +6,9 @@ from caluma.caluma_workflow.events import post_complete_case, post_create_work_i
 from caluma.caluma_workflow.models import Case, Task, WorkItem
 
 from camac.instance.models import HistoryActionConfig
+from camac.settings.modules.caluma_simple_workflow_schema import (
+    CalumaSimpleWorkflowConfig,
+)
 
 
 @pytest.mark.django_db
@@ -137,21 +140,22 @@ def test_additional_demand_fill_notification_be(
     notification_template_factory,
     caluma_work_item_factory,
     mocker,
+    be_caluma_simple_workflow_settings: CalumaSimpleWorkflowConfig,
 ):
     mock_file_subsequently = mocker.patch(
         "camac.ech0211.signals.file_subsequently.send"
     )
     caluma_fill_notification = notification_template_factory()
 
-    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["fill-additional-demand"][
-        "notification"
-    ]["template_slug"] = caluma_fill_notification.slug
+    fill_task = be_additional_demand_settings["FILL_TASK"]
+    be_caluma_simple_workflow_settings.override_notifications(
+        fill_task,
+        "completed",
+        {"template_slug": caluma_fill_notification.slug},
+    )
 
-    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["fill-additional-demand"][
-        "history_text"
-    ] = "Test additional demand was answered"
     work_item = caluma_work_item_factory(
-        task=Task.objects.get(slug=be_additional_demand_settings["FILL_TASK"]),
+        task=Task.objects.get(slug=fill_task),
         child_case=None,
         case=be_instance.case,
     )
@@ -170,5 +174,5 @@ def test_additional_demand_fill_notification_be(
 
     assert len(mailoutbox) == 1
     assert caluma_fill_notification.subject in mailoutbox[0].subject
-    assert history_entry == "Test additional demand was answered"
+    assert history_entry == "Nachforderung wurde beantwortet"
     assert mock_file_subsequently.call_count == 1

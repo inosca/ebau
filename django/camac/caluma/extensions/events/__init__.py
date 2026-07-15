@@ -7,7 +7,6 @@ from . import (  # noqa: F401
     address_assignment,
     audit,
     bab,
-    caluma_workflow_notifications,
     check_gwr_relevancy,
     complete_check,
     construction_monitoring,

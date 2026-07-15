@@ -41,6 +41,11 @@ from camac.ech0211.tests.utils import xml_data
 from camac.instance.document_merge_service import DMSHandler
 from camac.instance.models import Instance, InstanceState
 from camac.permissions import api as permissions_api
+from camac.settings.modules.caluma_simple_workflow_schema import (
+    CalumaSimpleWorkflowConfig,
+    EventConfig,
+    NotificationConfig,
+)
 from camac.timelines.models import FormTimeline
 
 
@@ -1004,6 +1009,7 @@ def test_task_send_claim_handler(
     success,
     access_level,
     mock_request_get,
+    gr_caluma_simple_workflow_settings: CalumaSimpleWorkflowConfig,
 ):
     mocker.patch(
         "camac.ech0211.send_handlers.has_alexandria_create_permission",
@@ -1013,28 +1019,35 @@ def test_task_send_claim_handler(
     # workflow notification templates
     caluma_send_notification = notification_template_factory()
     caluma_fill_notification = notification_template_factory()
-    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"][
-        "send-additional-demand"
-    ] = [
-        {
-            "event": "completed",
-            "notification": {
-                "template_slug": caluma_send_notification.slug,
-                "recipient_types": ["applicant"],
-            },
-        },
-        {
-            "event": "completed",
-            "notification": {
-                "template_slug": caluma_send_notification.slug,
-                "recipient_types": ["additional_demand_inviter"],
-            },
-        },
-    ]
-    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["fill-additional-demand"][
-        "notification"
-    ]["template_slug"] = caluma_fill_notification.slug
 
+    gr_caluma_simple_workflow_settings.replace_events(
+        gr_additional_demand_settings["SEND_TASK"],
+        "completed",
+        [
+            EventConfig(
+                notifications=[
+                    NotificationConfig(
+                        template_slug=caluma_send_notification.slug,
+                        recipient_types=["applicant"],
+                    ),
+                    NotificationConfig(
+                        template_slug=caluma_send_notification.slug,
+                        recipient_types=["additional_demand_inviter"],
+                    ),
+                ]
+            )
+        ],
+    )
+    gr_caluma_simple_workflow_settings.replace_notifications(
+        gr_additional_demand_settings["FILL_TASK"],
+        "completed",
+        [
+            NotificationConfig(
+                template_slug=caluma_fill_notification.slug,
+                recipient_types=["applicant"],
+            )
+        ],
+    )
     # enable/disable claim settings based on the test case
     gr_ech0211_settings["CLAIM"]["ENABLED"] = test_case != "claim_not_enabled"
 

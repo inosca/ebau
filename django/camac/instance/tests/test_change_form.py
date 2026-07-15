@@ -9,6 +9,10 @@ from rest_framework import status
 from camac.instance.models import HistoryEntryT
 from camac.instance.utils import get_changeable_forms
 from camac.permissions import api as permissions_api
+from camac.settings.modules.caluma_simple_workflow_schema import (
+    CalumaSimpleWorkflowConfig,
+    NotificationConfig,
+)
 
 
 @pytest.mark.parametrize("instance__user", [(lf("admin_user"))])
@@ -87,13 +91,17 @@ def test_change_form_legacy(
     starting_instance_state,
     sz_change_form_settings,
     sz_instance,
+    sz_caluma_simple_workflow_settings: CalumaSimpleWorkflowConfig,
 ):
-    notification = {
-        "template_slug": notification_template.slug,
-        "recipient_types": ["applicant"],
-    }
-    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["reject-form"]["notification"] = (
-        notification
+    sz_caluma_simple_workflow_settings.replace_notifications(
+        "reject-form",
+        "completed",
+        [
+            NotificationConfig(
+                template_slug=notification_template.slug,
+                recipient_types=["applicant"],
+            )
+        ],
     )
 
     complete_work_item(

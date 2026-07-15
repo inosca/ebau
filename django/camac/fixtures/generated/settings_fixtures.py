@@ -755,6 +755,167 @@ def sg_billing_settings(
 
 
 @pytest.fixture
+def caluma_simple_workflow_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for caluma simple workflow (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        settings_name="CALUMA_SIMPLE_WORKFLOW",
+        import_path="camac.settings.modules.caluma_simple_workflow.CALUMA_SIMPLE_WORKFLOW",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_caluma_simple_workflow_settings(
+    request,
+    settings,
+    caluma_simple_workflow_settings,
+):
+    """Disable the caluma simple workflow module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=caluma_simple_workflow_settings,
+        settings_name="CALUMA_SIMPLE_WORKFLOW",
+        import_path="camac.settings.modules.caluma_simple_workflow.CALUMA_SIMPLE_WORKFLOW",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def sz_caluma_simple_workflow_settings(
+    request,
+    settings,
+    caluma_simple_workflow_settings,
+):
+    """Module-specific settings for caluma simple workflow (canton SZ)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=caluma_simple_workflow_settings,
+        settings_name="CALUMA_SIMPLE_WORKFLOW",
+        import_path="camac.settings.modules.caluma_simple_workflow.CALUMA_SIMPLE_WORKFLOW",
+        canton="kt_schwyz",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def be_caluma_simple_workflow_settings(
+    request,
+    settings,
+    caluma_simple_workflow_settings,
+):
+    """Module-specific settings for caluma simple workflow (canton BE)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=caluma_simple_workflow_settings,
+        settings_name="CALUMA_SIMPLE_WORKFLOW",
+        import_path="camac.settings.modules.caluma_simple_workflow.CALUMA_SIMPLE_WORKFLOW",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def so_caluma_simple_workflow_settings(
+    request,
+    settings,
+    caluma_simple_workflow_settings,
+):
+    """Module-specific settings for caluma simple workflow (canton SO)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=caluma_simple_workflow_settings,
+        settings_name="CALUMA_SIMPLE_WORKFLOW",
+        import_path="camac.settings.modules.caluma_simple_workflow.CALUMA_SIMPLE_WORKFLOW",
+        canton="kt_so",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ur_caluma_simple_workflow_settings(
+    request,
+    settings,
+    caluma_simple_workflow_settings,
+):
+    """Module-specific settings for caluma simple workflow (canton UR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=caluma_simple_workflow_settings,
+        settings_name="CALUMA_SIMPLE_WORKFLOW",
+        import_path="camac.settings.modules.caluma_simple_workflow.CALUMA_SIMPLE_WORKFLOW",
+        canton="kt_uri",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def gr_caluma_simple_workflow_settings(
+    request,
+    settings,
+    caluma_simple_workflow_settings,
+):
+    """Module-specific settings for caluma simple workflow (canton GR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=caluma_simple_workflow_settings,
+        settings_name="CALUMA_SIMPLE_WORKFLOW",
+        import_path="camac.settings.modules.caluma_simple_workflow.CALUMA_SIMPLE_WORKFLOW",
+        canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ag_caluma_simple_workflow_settings(
+    request,
+    settings,
+    caluma_simple_workflow_settings,
+):
+    """Module-specific settings for caluma simple workflow (canton AG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=caluma_simple_workflow_settings,
+        settings_name="CALUMA_SIMPLE_WORKFLOW",
+        import_path="camac.settings.modules.caluma_simple_workflow.CALUMA_SIMPLE_WORKFLOW",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def sg_caluma_simple_workflow_settings(
+    request,
+    settings,
+    caluma_simple_workflow_settings,
+):
+    """Module-specific settings for caluma simple workflow (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=caluma_simple_workflow_settings,
+        settings_name="CALUMA_SIMPLE_WORKFLOW",
+        import_path="camac.settings.modules.caluma_simple_workflow.CALUMA_SIMPLE_WORKFLOW",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def change_form_settings(
     request,
     settings,
