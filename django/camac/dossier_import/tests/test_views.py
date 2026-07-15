@@ -8,10 +8,8 @@ from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from camac.dossier_import.domain_logic import transmit_import
 from camac.dossier_import.models import DossierImport
 from camac.instance.serializers import CalumaInstanceSerializer
-from camac.utils import build_url
 
 from .test_dossier_import_case import TEST_IMPORT_FILE_NAME
 
@@ -418,75 +416,6 @@ def test_state_transitions(
         assert dossier_import.status == status_after
     if action == "confirm" and dossier_import.status == DossierImport.Status.CONFIRMED:
         assert len(mailoutbox) == 1
-
-
-@pytest.mark.parametrize("location_required", [True, False])
-@pytest.mark.django_db
-def test_transmitting_logic(
-    dossier_import_factory,
-    archive_file,
-    group,
-    settings,
-    requests_mock,
-    location_required,
-    dossier_import_settings,
-):
-    dossier_import_settings["PROD_URL"] = "http://ebau.localhost"
-    dossier_import_settings["LOCATION_REQUIRED"] = location_required
-    dossier_import_settings["PROD_AUTH_URL"] = settings.KEYCLOAK_OIDC_TOKEN_URL
-    dossier_import_settings["PROD_SUPPORT_GROUP_ID"] = 99
-
-    # set a real group ID - useful for testing without the mock
-    group.pk = 22507  # Administration Leitbehörde Burgdorf
-    group.save()
-
-    # disabling the mocks will upload the file to the local dev env - useful for more realistic resting!
-    requests_mock.register_uri(
-        "POST",
-        dossier_import_settings["PROD_AUTH_URL"],
-        json={"access_token": "hello123"},
-        complete_qs=True,
-    )
-
-    def matcher(request):
-        assert bool(request.body.fields.get("location_id", False)) == location_required
-        return True
-
-    requests_mock.register_uri(
-        "POST",
-        build_url(dossier_import_settings["PROD_URL"], reverse("dossier-import-list")),
-        json={
-            "data": {
-                "type": "dossier-imports",
-                "id": "031562b0-aec8-4372-b1e6-c7ac909a6287",
-                "attributes": {},
-                "relationships": {},
-            }
-        },
-        additional_matcher=matcher,
-    )
-
-    # Call domain logic directly, this can be removed once sync calls in Q cluster work
-    dossier_import = dossier_import_factory(
-        status=DossierImport.Status.CONFIRMED,
-        source_file=archive_file("import-example-no-errors.zip"),
-        group=group,
-    )
-    transmit_import(dossier_import)
-
-
-@pytest.mark.django_db
-def test_failing_transmission(requests_mock, dossier_import, dossier_import_settings):
-    PROD_URL = "http://this-could-be-your-production-url.example.com"
-    PROD_AUTH_URL = PROD_URL + "/auth/token"
-    dossier_import_settings["PROD_URL"] = PROD_URL
-    dossier_import_settings["PROD_AUTH_URL"] = PROD_AUTH_URL
-    requests_mock.register_uri("POST", PROD_AUTH_URL, status_code=401)
-    requests_mock.register_uri(
-        "POST", PROD_URL + "/api/v1/dossier-imports", status_code=401
-    )
-    transmit_import(dossier_import)
-    assert dossier_import.status == DossierImport.Status.TRANSMISSION_FAILED
 
 
 @pytest.mark.parametrize("role__name", ["Support"])

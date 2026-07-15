@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-13 10:07+0200\n"
+"POT-Creation-Date: 2026-07-16 15:03+0200\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -907,6 +907,20 @@ msgstr "Konnte %(value)s nicht schreiben: %(error)s"
 msgid "Failed to write %(value)s to %(target)s for dossier %(dossier)s"
 msgstr "Konnte %(value)s nicht in %(target)s für Dossier %(dossier)s schreiben"
 
+#: camac/dossier_import/domain_logic.py
+#, python-format
+msgid "A dossier import for %(group)s has been approved"
+msgstr "Ein Dossierimport für %(group)s wurde genehmigt"
+
+#: camac/dossier_import/domain_logic.py
+#, python-format
+msgid ""
+"The approved dossiers can be viewed here:\n"
+"%(import_url)s"
+msgstr ""
+"Die genehmigten Dossiers können hier eingesehen werden:\n"
+"%(import_url)s"
+
 #: camac/dossier_import/loaders.py
 #, python-format
 msgid "%(value)s is not valid for field %(field)s. Allowed format: %(format)s"
@@ -1104,20 +1118,6 @@ msgid ""
 msgstr ""
 "Der Importvorgang kann nicht gelöscht werden, solange Cases und Instances "
 "darauf verweisen. Diesemüssen zuerst rückgängig gemacht werden."
-
-#: camac/dossier_import/views.py
-#, python-format
-msgid "A dossier import for %(group)s has been approved"
-msgstr "Ein Dossierimport für %(group)s wurde genehmigt"
-
-#: camac/dossier_import/views.py
-#, python-format
-msgid ""
-"The approved dossiers can be viewed here:\n"
-"%(import_url)s"
-msgstr ""
-"Die genehmigten Dossiers können hier eingesehen werden:\n"
-"%(import_url)s"
 
 #: camac/dossier_import/writers.py
 #, python-format

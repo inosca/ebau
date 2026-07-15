@@ -1,8 +1,6 @@
 import os
 import sys
-import time
 import traceback
-from collections.abc import Callable
 from dataclasses import asdict
 from logging import getLogger
 from typing import TYPE_CHECKING
@@ -10,16 +8,20 @@ from typing import TYPE_CHECKING
 import requests
 from alexandria.core.models import Document
 from caluma.caluma_workflow.models import Case
-from celery import chain, shared_task
+from celery import shared_task
+from celery.contrib.django.task import DjangoTask
+from celery.utils import uuid
 from django.conf import settings
+from django.core.mail import mail_admins, send_mail
 from django.db.models import Count
 from django.db.models.fields.json import KeyTextTransform
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.module_loading import import_string
+from django.utils.translation import gettext as _
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
-from camac.dossier_import.dossier_classes import Dossier
+from camac.dossier_import.loaders import XlsxFileDossierLoader
 from camac.dossier_import.messages import (
     DOSSIER_IMPORT_STATUS_ERROR,
     DossierSummary,
@@ -36,119 +38,129 @@ from camac.user.models import User
 from camac.utils import build_url
 
 if TYPE_CHECKING:
-    from camac.dossier_import.loaders import DossierLoader
+    from camac.dossier_import.writers import DossierWriter
 
 log = getLogger(__name__)
 
 
-def perform_import(
-    dossier_import: DossierImport,
-    skip_existing=False,
-    notify_dossier_imported: Callable[[Dossier, DossierSummary], None] = lambda d, m: (
-        None
-    ),
-):
-    return _do_perform_import(dossier_import, skip_existing, notify_dossier_imported)
+def dispatch_task(task: DjangoTask, dossier_import: DossierImport) -> str:
+    """Dispatch a task for the given import once the transaction commits.
 
+    Deferring the dispatch matters because every request runs in an implicit
+    transaction thanks to `reversion.middleware.RevisionMiddleware`, even if the
+    view itself doesn't use transactions. Dispatching right away would let a
+    fast worker load the import before the caller's in-progress status is
+    committed and act on stale data.
 
-def schedule_import(dossier_import: DossierImport):
-    """Schedule the execution of the given dossier import.
+    The task ID is generated up front because `apply_async_on_commit` only
+    dispatches later and therefore can't return an `AsyncResult` to take it
+    from.
 
-    Note that we do this in two steps, so that setting the status
-    is separeted from the transactional import.
+    The task is routed to the queue configured in
+    `DOSSIER_IMPORT["CELERY_QUEUE"]`, a dedicated queue with its own worker, so
+    that the long running imports don't occupy the workers of the default queue.
+    Cantons that don't configure a queue fall back to celery's default one.
+
+    Args:
+        task: The task to dispatch.
+        dossier_import: The import to pass to the task.
+
+    Returns:
+        The celery task ID of the dispatched task.
     """
+    task_id = uuid()
 
-    dossier_import.status = DossierImport.Status.IMPORT_IN_PROGRESS
-
-    queue = settings.DOSSIER_IMPORT.get("CELERY_QUEUE")
-    chained_tasks = chain(
-        perform_import_celery.s(dossier_import_id=str(dossier_import.pk)).set(
-            queue=queue
-        ),
-        set_status_callback_celery.s(dossier_import_id=str(dossier_import.pk)).set(
-            queue=queue
-        ),
+    task.apply_async_on_commit(
+        kwargs={"dossier_import_id": str(dossier_import.pk)},
+        task_id=task_id,
+        queue=settings.DOSSIER_IMPORT.get("CELERY_QUEUE"),
     )
-    async_result = chained_tasks.apply_async()
-    task_id = async_result.id
 
-    dossier_import.task_id = task_id
-    dossier_import.save()
     return task_id
 
 
-def schedule_undo_import(dossier_import: DossierImport):
-    """Schedule the removal of dossiers from given import.
+def schedule_import(dossier_import: DossierImport) -> str:
+    """Schedule the asynchronous execution of the given dossier import.
 
-    This is run when the dossier import had failures in the data
-    rather than the procedure, and can be run by the user after
-    the import was already run.
+    Returns:
+        The celery task ID of the scheduled task.
     """
-    queue = settings.DOSSIER_IMPORT.get("CELERY_QUEUE")
-    chained_tasks = chain(
-        undo_import_celery.s(dossier_import_id=str(dossier_import.pk)).set(queue=queue),
-        set_status_callback_celery.s(dossier_import_id=str(dossier_import.pk)).set(
-            queue=queue
-        ),
-    )
-    async_result = chained_tasks.apply_async()
-    task_id = async_result.id
+    task_id = dispatch_task(perform_import, dossier_import)
 
+    dossier_import.status = DossierImport.Status.IMPORT_IN_PROGRESS
     dossier_import.task_id = task_id
     dossier_import.save()
 
+    return task_id
 
-def schedule_transmission(dossier_import):
-    """Schedule transmission of the import to the production system."""
+
+def schedule_undo_import(dossier_import: DossierImport) -> str:
+    """Schedule the asynchronous removal of dossiers from the given import.
+
+    This is run when the dossier import had failures in the data rather than the
+    procedure, and can be run by the user after the import was already run.
+
+    Returns:
+        The celery task ID of the scheduled task.
+    """
+    task_id = dispatch_task(undo_import, dossier_import)
+
+    dossier_import.status = DossierImport.Status.UNDO_IN_PROGRESS
+    dossier_import.task_id = task_id
+    dossier_import.save()
+
+    return task_id
+
+
+def schedule_transmission(dossier_import: DossierImport) -> str:
+    """Schedule the asynchronous transmission of the import to production.
+
+    Returns:
+        The celery task ID of the scheduled task.
+    """
+    task_id = dispatch_task(transmit_import, dossier_import)
+
     dossier_import.status = DossierImport.Status.TRANSMITTING
-
-    async_result = transmit_import_celery.apply_async((str(dossier_import.pk),))
-    task_id = async_result.id
-
     dossier_import.task_id = task_id
     dossier_import.save()
+
     return task_id
 
 
 @shared_task()
-def perform_import_celery(
-    dossier_import_id: str, skip_existing=False
-):  # pragma: no cover
-    return _do_perform_import(
-        DossierImport.objects.get(pk=dossier_import_id), skip_existing
-    )
+def perform_import(dossier_import_id: str) -> DossierImport.Status:
+    """Import every dossier contained in the uploaded archive.
 
+    Each dossier is imported individually: a failure on a single dossier is
+    recorded as an error message and does not abort the run. An unhandled error
+    outside the per-dossier loop aborts the whole import instead.
 
-def _do_perform_import(
-    dossier_import: DossierImport,
-    skip_existing=False,
-    notify_dossier_imported: Callable[[Dossier, DossierSummary], None] = lambda d, m: (
-        None
-    ),
-):
+    Args:
+        dossier_import_id: ID of the import to process.
+
+    Returns:
+        The resulting status, `DossierImport.Status.IMPORTED` or
+        `DossierImport.Status.IMPORT_FAILED`.
+    """
+
+    dossier_import = DossierImport.objects.get(pk=dossier_import_id)
+
     try:
-        configured_writer_cls = import_string(settings.DOSSIER_IMPORT["WRITER_CLASS"])
-        configured_loader_cls = import_string(
-            settings.DOSSIER_IMPORT.get(
-                "LOADER_CLASS", "camac.dossier_import.loaders.XlsxFileDossierLoader"
-            )
+        ConfiguredWriter: type[DossierWriter] = import_string(
+            settings.DOSSIER_IMPORT["WRITER_CLASS"]
         )
-        loader: DossierLoader = configured_loader_cls()
 
-        writer = configured_writer_cls(
+        writer = ConfiguredWriter(
             user_id=User.objects.get(username=settings.DOSSIER_IMPORT["USER"]).pk,
             group_id=dossier_import.group.pk,
             location_id=dossier_import.location and dossier_import.location.pk,
         )
+        loader = XlsxFileDossierLoader()
+
         dossier_import.messages["import"] = {"details": []}
         for dossier in loader.load_dossiers(dossier_import):
-            dossier: Dossier
             try:
-                message = writer.import_dossier(
-                    dossier,
-                    str(dossier_import.id),
-                    skip_existing,
-                )
+                message = writer.import_dossier(dossier, str(dossier_import.id))
             except Exception as e:  # pragma: no cover  # noqa: B902
                 # We need to catch unhandled exeptions in single dossier imports
                 # and keep it going.
@@ -169,9 +181,10 @@ def _do_perform_import(
                     status=DOSSIER_IMPORT_STATUS_ERROR,
                     details=[msg, debug],
                 )
+
             dossier_import.messages["import"]["details"].append(asdict(message))
             dossier_import.save()
-            notify_dossier_imported(dossier, message)
+
         update_summary(dossier_import)
         dossier_import.messages["import"]["completed"] = timezone.localtime().strftime(
             "%Y-%m-%dT%H:%M:%S%z"
@@ -191,16 +204,28 @@ def _do_perform_import(
     return dossier_import.status
 
 
-def transmit_import(dossier_import):
-    return _do_transmit_import(dossier_import)
-
-
 @shared_task()
-def transmit_import_celery(dossier_import_id: str):  # pragma: no cover
-    return _do_transmit_import(DossierImport.objects.get(pk=dossier_import_id))
+def transmit_import(dossier_import_id: str) -> DossierImport.Status:
+    """Upload the import archive to the production system over HTTP.
 
+    This requires a keycloak service account on the production service. The
+    associated user must be a member of the target group.
 
-def _do_transmit_import(dossier_import):
+    WARNING: Currently, this relies on **the group IDs of both the source and
+    target system to be identical**. If this is not the case, transmitting will
+    not work. This needs to be fixed in the future, e.g. by using service slugs
+    instead of IDs.
+
+    Args:
+        dossier_import_id: ID of the import to transmit.
+
+    Returns:
+        The resulting status, `DossierImport.Status.TRANSMITTED` or
+        `DossierImport.Status.TRANSMISSION_FAILED`.
+    """
+
+    dossier_import = DossierImport.objects.get(pk=dossier_import_id)
+
     try:
         token = f"Bearer {get_token_for_transmission()}"
 
@@ -216,19 +241,19 @@ def _do_transmit_import(dossier_import):
         if settings.DOSSIER_IMPORT.get("LOCATION_REQUIRED", False):
             fields["location_id"] = str(dossier_import.location.pk)
 
-        m = MultipartEncoder(fields=fields)
-        r = requests.post(
+        data = MultipartEncoder(fields=fields)
+        request = requests.post(
             build_url(
                 settings.DOSSIER_IMPORT["PROD_URL"], reverse("dossier-import-list")
             ),
-            data=m,
+            data=data,
             headers={
-                "Content-Type": m.content_type,
+                "Content-Type": data.content_type,
                 "Authorization": token,
                 "x-camac-group": str(settings.DOSSIER_IMPORT["PROD_SUPPORT_GROUP_ID"]),
             },
         )
-        r.raise_for_status()
+        request.raise_for_status()
         dossier_import.status = DossierImport.Status.TRANSMITTED
 
     except Exception as e:  # pragma: no cover  # noqa: B902
@@ -241,20 +266,24 @@ def _do_transmit_import(dossier_import):
     return dossier_import.status
 
 
-def undo_import(dossier_import):
-    return _do_undo_import(dossier_import)
-
-
 @shared_task()
-def undo_import_celery(dossier_import_id: str):  # pragma: no cover
-    return _do_undo_import(DossierImport.objects.get(pk=dossier_import_id))
+def undo_import(dossier_import_id: str) -> DossierImport.Status:
+    """Remove every instance, document and case created by an import.
 
+    Used when the imported data (rather than the procedure) turned out to be
+    faulty. On success the import object itself is deleted as well.
 
-def _do_undo_import(dossier_import):
+    Args:
+        dossier_import_id: ID of the import to undo.
+
+    Returns:
+        The resulting status, `DossierImport.Status.UNDONE` or
+        `DossierImport.Status.UNDO_FAILED`.
+    """
+
+    dossier_import = DossierImport.objects.get(pk=dossier_import_id)
+
     try:
-        # wait shortly to avoid race condition when "in progress" status is saved for
-        # very quick "undo" operations
-        time.sleep(0.1)
         instances = Instance.objects.filter(
             **{"case__meta__import-id": str(dossier_import.pk)}
         )
@@ -263,18 +292,24 @@ def _do_undo_import(dossier_import):
                 instance_count=1, instances=instance
             ).delete()
 
-            try:
-                documents = Document.objects.annotate(
-                    camac_id_text=KeyTextTransform("camac-instance-id", "metainfo")
-                ).filter(camac_id_text=str(instance.pk))
-                # We split this up as deleting a file will also delete the minio object
-                # which is very slow.
-                while documents.count() > 0:
-                    Document.objects.filter(
-                        pk__in=documents[:100].values("pk")
-                    ).delete()
-            except Exception as e:  # pragma: no cover
-                log.exception(e)
+            if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+                # For cantons using the legacy document backend we don't have to
+                # do anything as the attachments are being cascaded from
+                # deleting the instance.
+                try:
+                    documents = Document.objects.annotate(
+                        camac_id_text=KeyTextTransform("camac-instance-id", "metainfo")
+                    ).filter(camac_id_text=str(instance.pk))
+
+                    # We split this up in batches of 100 documents as deleting
+                    # the associated files will also delete the S3 objects over
+                    # the API which is very slow.
+                    while documents.count() > 0:
+                        Document.objects.filter(
+                            pk__in=documents[:100].values("pk")
+                        ).delete()
+                except Exception as e:  # pragma: no cover
+                    log.exception(e)
 
         instances.delete()
         Case.objects.filter(**{"meta__import-id": str(dossier_import.pk)}).delete()
@@ -287,7 +322,20 @@ def _do_undo_import(dossier_import):
         return dossier_import.status
 
 
-def clean_import(dossier_import):
+def clean_import(dossier_import: DossierImport) -> DossierImport.Status:
+    """Delete the import file to free up storage space.
+
+    This only cleans up the ZIP-archive of the dossier while keeping all of the
+    other data about the import.
+
+    Args:
+        dossier_import: The import whose archive should be removed.
+
+    Returns:
+        The resulting status, `DossierImport.Status.CLEANED` or
+        `DossierImport.Status.CLEAN_FAILED`.
+    """
+
     try:
         dossier_import.delete_file()
         dossier_import.status = DossierImport.Status.CLEANED
@@ -297,42 +345,47 @@ def clean_import(dossier_import):
         dossier_import.status = DossierImport.Status.CLEAN_FAILED
     finally:
         dossier_import.save()
+
     return dossier_import.status
 
 
-def set_status_callback(task):
-    dossier_import = task.args[0]
-    try:
-        dossier_import.refresh_from_db()
-    except DossierImport.DoesNotExist:
-        # the undo task deletes the instance on success
-        return
+def confirm_import(dossier_import: DossierImport) -> DossierImport.Status:
+    """Confirm the correctness of the import.
 
-    return _do_set_status_callback(dossier_import=dossier_import, result=task.result)
+    This feature is thought for municipality power users to confirm that the
+    data is correct and the import can be transferred to the production system.
 
+    This sends emails to the application admins and the support users to notify
+    them of the confirmed import.
 
-@shared_task()
-def set_status_callback_celery(result, **kwargs):  # pragma: no cover
-    try:
-        dossier_import = DossierImport.objects.get(pk=kwargs.get("dossier_import_id"))
-    except DossierImport.DoesNotExist:
-        # the undo task deletes the instance on success
-        return
+    Args:
+        dossier_import: The import to be confirmed.
 
-    return _do_set_status_callback(dossier_import, result)
+    Returns:
+        The resulting status, `DossierImport.Status.CONFIRMED`
+    """
+    subject = _("A dossier import for %(group)s has been approved") % {
+        "group": dossier_import.group.get_name()
+    }
+    body = _("The approved dossiers can be viewed here:\n%(import_url)s") % {
+        "import_url": build_url(
+            settings.INTERNAL_BASE_URL,
+            # resource_id for dossier_import tab
+            settings.DOSSIER_IMPORT["RESOURCE_ID_PATH"],
+            str(dossier_import.pk),
+        )
+    }
 
+    mail_admins(subject, message=body)
+    if settings.SUPPORT_EMAIL_ADDRESS:
+        send_mail(
+            subject,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            message=body,
+            recipient_list=[settings.SUPPORT_EMAIL_ADDRESS],
+        )
 
-def _do_set_status_callback(dossier_import, result):
-    if result == dossier_import.Status.UNDONE:
-        # fallback to cover race condition when deleting the import on undo
-        return
-
-    if result in DossierImport.Status.values:
-        status = result
-    else:
-        status = dossier_import.set_progressing_to_failed()
-
-    dossier_import.status = status
+    dossier_import.status = DossierImport.Status.CONFIRMED
     dossier_import.save()
 
     return dossier_import.status

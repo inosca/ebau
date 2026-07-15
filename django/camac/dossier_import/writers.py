@@ -862,7 +862,7 @@ class DossierWriter:
 
     @transaction.atomic
     def import_dossier(
-        self, dossier: Dossier, import_session_id: str, skip_existing=False
+        self, dossier: Dossier, import_session_id: str
     ) -> DossierSummary:
         """Handle importing of a single dossier.
 
@@ -899,16 +899,6 @@ class DossierWriter:
         instance = None
         created = True
         if instance := self.find_existing_instance(dossier, self._caluma_user):
-            if skip_existing:  # pragma: no cover
-                dossier_summary.instance_id = instance.pk
-                dossier_summary.details.append(
-                    Message(
-                        level=Severity.WARNING.value,
-                        code="skipped",
-                        detail="",
-                    )
-                )
-                return dossier_summary
             created = False
             instance.case.meta["updated-with-import"] = import_session_id
             instance.case.save()

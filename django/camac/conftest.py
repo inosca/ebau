@@ -1,4 +1,5 @@
 import copy  # noqa: I001
+from celery.utils import uuid
 import moto.server
 import boto3
 import inspect
@@ -12,7 +13,6 @@ from datetime import date, timedelta
 from importlib import import_module, reload
 from pathlib import Path
 from typing import Literal
-from uuid import uuid4
 from django.utils import translation
 
 import django.db
@@ -3500,8 +3500,8 @@ def celery_fake_worker(celery_app, mocker):  # noqa: C901
         def __init__(self, func, args, kwargs):
             self.func = func
             self.args = args
+            self.id = kwargs.pop("task_id", uuid())
             self.kwargs = kwargs
-            self.id = str(uuid4())
             by_id[self.id] = self
             self.status = "PENDING"
 

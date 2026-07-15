@@ -1,6 +1,5 @@
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
-from django.core.mail import mail_admins, send_mail
 from django.http import FileResponse
 from django.utils.translation import gettext as _
 from rest_framework import status
@@ -11,6 +10,7 @@ from rest_framework_json_api.views import ModelViewSet
 
 from camac.dossier_import.domain_logic import (
     clean_import,
+    confirm_import,
     schedule_import,
     schedule_transmission,
     schedule_undo_import,
@@ -19,7 +19,6 @@ from camac.dossier_import.models import DossierImport
 from camac.dossier_import.serializers import DossierImportSerializer
 from camac.instance.models import Instance
 from camac.user.permissions import permission_aware
-from camac.utils import build_url
 
 
 def is_prod():
@@ -99,26 +98,7 @@ class DossierImportView(ModelViewSet):
             raise ValidationError(
                 "Confirming an import is only possible after it has been imported.",
             )
-        subject = _("A dossier import for %(group)s has been approved") % {
-            "group": dossier_import.group.get_name()
-        }
-        body = _("The approved dossiers can be viewed here:\n%(import_url)s") % {
-            "import_url": build_url(
-                settings.INTERNAL_BASE_URL,
-                settings.DOSSIER_IMPORT["RESOURCE_ID_PATH"],
-                str(dossier_import.pk),
-            )
-        }  # resource_id for dossier_import tab
-        mail_admins(subject, message=body)
-        if settings.SUPPORT_EMAIL_ADDRESS:
-            send_mail(
-                subject,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                message=body,
-                recipient_list=[settings.SUPPORT_EMAIL_ADDRESS],
-            )
-        dossier_import.status = DossierImport.Status.CONFIRMED
-        dossier_import.save()
+        confirm_import(dossier_import)
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     @permission_aware
@@ -180,7 +160,6 @@ class DossierImportView(ModelViewSet):
         # removes all instances and cases that came with the import
         # - removes the dossier-import instance on success
         instance = self.get_object()
-        instance.status = DossierImport.Status.UNDO_IN_PROGRESS
 
         task_id = schedule_undo_import(instance)
         return Response({"task_id": task_id})
