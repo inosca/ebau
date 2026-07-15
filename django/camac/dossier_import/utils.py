@@ -1,10 +1,17 @@
 import re
+from datetime import date
 from typing import Any
 
 import pyexcel_xlsx
+import requests
 from caluma.caluma_workflow.models import WorkItem
+from django.conf import settings
 from django.utils.translation import gettext
 from rapidfuzz import fuzz
+
+from camac.core.models import InstanceService
+from camac.core.utils import generate_ebau_nr
+from camac.user.models import Service
 
 from .exceptions import InvalidImportDataError
 
@@ -86,3 +93,43 @@ def mark_work_items_as_imported(work_items: list[WorkItem]) -> None:
     for work_item in work_items:
         work_item.meta = {**work_item.meta, "imported": True}
         work_item.save()
+
+
+def get_token_for_transmission() -> str:
+    """Fetch a bearer token for the transmission to the production system."""
+
+    request = requests.post(
+        settings.DOSSIER_IMPORT["PROD_AUTH_URL"],
+        {
+            "grant_type": "client_credentials",
+            "client_id": settings.DOSSIER_IMPORT_CLIENT_ID,
+            "client_secret": settings.DOSSIER_IMPORT_CLIENT_SECRET,
+            "scope": "openid",
+        },
+    )
+    request.raise_for_status()
+    return request.json()["access_token"]
+
+
+def get_or_create_ebau_nr(
+    ebau_number: str | None,
+    service: Service,
+    submit_date: date,
+) -> str:
+    """Validate a proposed eBau number to match its service domain or generate a new one.
+
+    In order to actually assign an eBau number, we need to verify that it's
+    owned by the service - if not, we need to generate a new one.
+    """
+    if ebau_number and (result := re.search(r"[0-9]{4}-[1-9][0-9]*", ebau_number)):
+        match = result.group()
+
+        if InstanceService.objects.filter(
+            **{
+                "instance__case__meta__ebau-number": match,
+                "service": service,
+            }
+        ).exists():
+            return match
+
+    return generate_ebau_nr(None, submit_date.year)

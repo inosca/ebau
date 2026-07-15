@@ -1,5 +1,4 @@
 import os
-import re
 import sys
 import time
 import traceback
@@ -15,14 +14,12 @@ from celery import chain, shared_task
 from django.conf import settings
 from django.db.models import Count
 from django.db.models.fields.json import KeyTextTransform
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.module_loading import import_string
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
-from camac.core.utils import generate_ebau_nr
-from camac.dossier_import.dossier_classes import (
-    Dossier,
-)
+from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
     DOSSIER_IMPORT_STATUS_ERROR,
     DossierSummary,
@@ -32,6 +29,7 @@ from camac.dossier_import.messages import (
     update_summary,
 )
 from camac.dossier_import.models import DossierImport
+from camac.dossier_import.utils import get_token_for_transmission
 from camac.instance.models import Instance
 from camac.tags.models import Keyword
 from camac.user.models import User
@@ -193,21 +191,6 @@ def _do_perform_import(
     return dossier_import.status
 
 
-def get_token():
-    DOSSIER_IMPORT = settings.DOSSIER_IMPORT
-    r = requests.post(
-        DOSSIER_IMPORT.get("PROD_AUTH_URL"),
-        {
-            "grant_type": "client_credentials",
-            "client_id": settings.DOSSIER_IMPORT_CLIENT_ID,
-            "client_secret": settings.DOSSIER_IMPORT_CLIENT_SECRET,
-            "scope": "openid",
-        },
-    )
-    r.raise_for_status()
-    return r.json()["access_token"]
-
-
 def transmit_import(dossier_import):
     return _do_transmit_import(dossier_import)
 
@@ -219,9 +202,8 @@ def transmit_import_celery(dossier_import_id: str):  # pragma: no cover
 
 def _do_transmit_import(dossier_import):
     try:
-        token = f"Bearer {get_token()}"
+        token = f"Bearer {get_token_for_transmission()}"
 
-        DOSSIER_IMPORT = settings.DOSSIER_IMPORT
         dossier_import.source_file.seek(0)
         fields = {
             "group": str(dossier_import.group.pk),
@@ -231,17 +213,19 @@ def _do_transmit_import(dossier_import):
                 "application/zip",
             ),
         }
-        if DOSSIER_IMPORT.get("LOCATION_REQUIRED", False):
+        if settings.DOSSIER_IMPORT.get("LOCATION_REQUIRED", False):
             fields["location_id"] = str(dossier_import.location.pk)
 
         m = MultipartEncoder(fields=fields)
         r = requests.post(
-            build_url(DOSSIER_IMPORT.get("PROD_URL"), "/api/v1/dossier-imports"),
+            build_url(
+                settings.DOSSIER_IMPORT["PROD_URL"], reverse("dossier-import-list")
+            ),
             data=m,
             headers={
                 "Content-Type": m.content_type,
                 "Authorization": token,
-                "x-camac-group": str(DOSSIER_IMPORT.get("PROD_SUPPORT_GROUP_ID")),
+                "x-camac-group": str(settings.DOSSIER_IMPORT["PROD_SUPPORT_GROUP_ID"]),
             },
         )
         r.raise_for_status()
@@ -314,22 +298,6 @@ def clean_import(dossier_import):
     finally:
         dossier_import.save()
     return dossier_import.status
-
-
-def get_or_create_ebau_nr(ebau_number, service, submit_date=None):
-    """Validate a proposed ebau-number to match its service domain or get a new one."""
-    pattern = re.compile("([0-9]{4}-[1-9][0-9]*)")
-    result = pattern.search(str(ebau_number))
-    if result:
-        try:
-            match = result.groups()[0]
-            case = Case.objects.filter(**{"meta__ebau-number": match}).first()
-            if case.instance.services.filter(service_id=service.pk).exists():
-                return match
-        except AttributeError:
-            pass
-
-    return generate_ebau_nr(None, submit_date.year) if submit_date else None
 
 
 def set_status_callback(task):

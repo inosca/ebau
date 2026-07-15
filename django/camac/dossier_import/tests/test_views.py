@@ -4,9 +4,9 @@ from types import SimpleNamespace
 import pytest
 from celery import states as celery_states
 from django.http import FileResponse
+from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
-from rest_framework.reverse import reverse
 
 from camac.dossier_import.domain_logic import transmit_import
 from camac.dossier_import.models import DossierImport
@@ -437,6 +437,7 @@ def test_transmitting_logic(
     dossier_import_settings["PROD_URL"] = "http://ebau.localhost"
     dossier_import_settings["LOCATION_REQUIRED"] = location_required
     dossier_import_settings["PROD_AUTH_URL"] = settings.KEYCLOAK_OIDC_TOKEN_URL
+    dossier_import_settings["PROD_SUPPORT_GROUP_ID"] = 99
 
     # set a real group ID - useful for testing without the mock
     group.pk = 22507  # Administration Leitbehörde Burgdorf
