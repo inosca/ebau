@@ -13,7 +13,7 @@ class DossierImportFactory(DjangoModelFactory):
     user = SubFactory(UserFactory)
     group = SubFactory(GroupFactory)
     location = SubFactory(LocationFactory)
-    status = fuzzy.FuzzyChoice(dict(models.DossierImport.IMPORT_STATUS_CHOICES).keys())
+    status = fuzzy.FuzzyChoice(models.DossierImport.Status.values)
     source_file = FileField()
     mime_type = Faker("mime_type")
 

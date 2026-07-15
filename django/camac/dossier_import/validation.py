@@ -438,9 +438,9 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     )
     dossier_import.save()
 
-    dossier_import.status = dossier_import.IMPORT_STATUS_VALIDATION_SUCCESSFUL
+    dossier_import.status = dossier_import.Status.VALIDATION_SUCCESSFUL
     if dossier_import.messages["validation"]["summary"]["error"]:
-        dossier_import.status = dossier_import.IMPORT_STATUS_VALIDATION_FAILED
+        dossier_import.status = dossier_import.Status.VALIDATION_FAILED
         if clean_on_fail:
             dossier_import.source_file.delete()
     dossier_import.save()

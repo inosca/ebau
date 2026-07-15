@@ -279,15 +279,15 @@ def test_file_validation(
             "start",
             "test",
             "Municipality",
-            DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
+            DossierImport.Status.VALIDATION_SUCCESSFUL,
             status.HTTP_200_OK,
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
         ),
         (
             "start",
             "prod",
             "Municipality",
-            DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
+            DossierImport.Status.VALIDATION_SUCCESSFUL,
             status.HTTP_404_NOT_FOUND,
             None,
         ),
@@ -295,7 +295,7 @@ def test_file_validation(
             "start",
             "test",
             "Municipality",
-            DossierImport.IMPORT_STATUS_VALIDATION_FAILED,
+            DossierImport.Status.VALIDATION_FAILED,
             status.HTTP_400_BAD_REQUEST,
             None,
         ),
@@ -303,15 +303,15 @@ def test_file_validation(
             "confirm",
             "test",
             "Municipality",
-            DossierImport.IMPORT_STATUS_IMPORTED,
+            DossierImport.Status.IMPORTED,
             status.HTTP_204_NO_CONTENT,
-            DossierImport.IMPORT_STATUS_CONFIRMED,
+            DossierImport.Status.CONFIRMED,
         ),
         (
             "confirm",
             "test",
             "Municipality",
-            DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
+            DossierImport.Status.VALIDATION_SUCCESSFUL,
             status.HTTP_400_BAD_REQUEST,
             None,
         ),
@@ -319,15 +319,15 @@ def test_file_validation(
             "transmit",
             "test",
             "Support",
-            DossierImport.IMPORT_STATUS_CONFIRMED,
+            DossierImport.Status.CONFIRMED,
             status.HTTP_200_OK,
-            DossierImport.IMPORT_STATUS_TRANSMITTING,
+            DossierImport.Status.TRANSMITTING,
         ),
         (
             "transmit",
             "prod",
             "Support",
-            DossierImport.IMPORT_STATUS_CONFIRMED,
+            DossierImport.Status.CONFIRMED,
             status.HTTP_403_FORBIDDEN,
             None,
         ),
@@ -335,7 +335,7 @@ def test_file_validation(
             "transmit",
             "test",
             "Municipality",
-            DossierImport.IMPORT_STATUS_CONFIRMED,
+            DossierImport.Status.CONFIRMED,
             status.HTTP_403_FORBIDDEN,
             None,
         ),
@@ -343,7 +343,7 @@ def test_file_validation(
             "transmit",
             "test",
             "Support",
-            DossierImport.IMPORT_STATUS_IMPORTED,
+            DossierImport.Status.IMPORTED,
             status.HTTP_400_BAD_REQUEST,
             None,
         ),
@@ -351,31 +351,31 @@ def test_file_validation(
             "undo",
             "test",
             "Support",
-            DossierImport.IMPORT_STATUS_IMPORTED,
+            DossierImport.Status.IMPORTED,
             status.HTTP_200_OK,
-            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
+            DossierImport.Status.UNDO_IN_PROGRESS,
         ),
         (
             "undo",
             "test",
             "Municipality",
-            DossierImport.IMPORT_STATUS_IMPORTED,
+            DossierImport.Status.IMPORTED,
             status.HTTP_200_OK,
-            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
+            DossierImport.Status.UNDO_IN_PROGRESS,
         ),
         (
             "undo",
             "prod",
             "Support",
-            DossierImport.IMPORT_STATUS_IMPORTED,
+            DossierImport.Status.IMPORTED,
             status.HTTP_200_OK,
-            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
+            DossierImport.Status.UNDO_IN_PROGRESS,
         ),
         (
             "undo",
             "prod",
             "Municipality",
-            DossierImport.IMPORT_STATUS_IMPORTED,
+            DossierImport.Status.IMPORTED,
             status.HTTP_404_NOT_FOUND,
             None,
         ),
@@ -416,10 +416,7 @@ def test_state_transitions(
     dossier_import.refresh_from_db()
     if expected_response_code == status.HTTP_200_OK:
         assert dossier_import.status == status_after
-    if (
-        action == "confirm"
-        and dossier_import.status == DossierImport.IMPORT_STATUS_CONFIRMED
-    ):
+    if action == "confirm" and dossier_import.status == DossierImport.Status.CONFIRMED:
         assert len(mailoutbox) == 1
 
 
@@ -471,7 +468,7 @@ def test_transmitting_logic(
 
     # Call domain logic directly, this can be removed once sync calls in Q cluster work
     dossier_import = dossier_import_factory(
-        status=DossierImport.IMPORT_STATUS_CONFIRMED,
+        status=DossierImport.Status.CONFIRMED,
         source_file=archive_file("import-example-no-errors.zip"),
         group=group,
     )
@@ -489,7 +486,7 @@ def test_failing_transmission(requests_mock, dossier_import, dossier_import_sett
         "POST", PROD_URL + "/api/v1/dossier-imports", status_code=401
     )
     transmit_import(dossier_import)
-    assert dossier_import.status == DossierImport.IMPORT_STATUS_TRANSMISSION_FAILED
+    assert dossier_import.status == DossierImport.Status.TRANSMISSION_FAILED
 
 
 @pytest.mark.parametrize("role__name", ["Support"])
@@ -567,54 +564,54 @@ def test_delete_import(
     ("import_status_before", "celery_task_state", "expected_status"),
     [
         (
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
             None,
-            DossierImport.IMPORT_STATUS_IMPORT_FAILED,
+            DossierImport.Status.IMPORT_FAILED,
         ),
         (
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
             celery_states.STARTED,
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
         ),
         (
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
             celery_states.PENDING,
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
         ),
         (
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
             celery_states.RECEIVED,
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
         ),
         (
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
             celery_states.SUCCESS,
-            DossierImport.IMPORT_STATUS_IMPORTED,
+            DossierImport.Status.IMPORTED,
         ),
         (
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
             celery_states.FAILURE,
-            DossierImport.IMPORT_STATUS_IMPORT_FAILED,
+            DossierImport.Status.IMPORT_FAILED,
         ),
         (
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
             celery_states.RETRY,
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
         ),
         (
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
             celery_states.REVOKED,
-            DossierImport.IMPORT_STATUS_IMPORT_FAILED,
+            DossierImport.Status.IMPORT_FAILED,
         ),
         (
-            DossierImport.IMPORT_STATUS_NEW,
+            DossierImport.Status.NEW,
             celery_states.FAILURE,
-            DossierImport.IMPORT_STATUS_NEW,
+            DossierImport.Status.NEW,
         ),
         (
-            DossierImport.IMPORT_STATUS_IMPORTED,
+            DossierImport.Status.IMPORTED,
             celery_states.SUCCESS,
-            DossierImport.IMPORT_STATUS_IMPORTED,
+            DossierImport.Status.IMPORTED,
         ),
     ],
 )

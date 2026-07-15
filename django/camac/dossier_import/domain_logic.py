@@ -58,7 +58,7 @@ def schedule_import(dossier_import: DossierImport):
     is separeted from the transactional import.
     """
 
-    dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS
+    dossier_import.status = DossierImport.Status.IMPORT_IN_PROGRESS
 
     queue = settings.DOSSIER_IMPORT.get("CELERY_QUEUE")
     chained_tasks = chain(
@@ -100,7 +100,7 @@ def schedule_undo_import(dossier_import: DossierImport):
 
 def schedule_transmission(dossier_import):
     """Schedule transmission of the import to the production system."""
-    dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMITTING
+    dossier_import.status = DossierImport.Status.TRANSMITTING
 
     async_result = transmit_import_celery.apply_async((str(dossier_import.pk),))
     task_id = async_result.id
@@ -176,14 +176,14 @@ def _do_perform_import(
         dossier_import.messages["import"]["completed"] = timezone.localtime().strftime(
             "%Y-%m-%dT%H:%M:%S%z"
         )
-        dossier_import.status = DossierImport.IMPORT_STATUS_IMPORTED
+        dossier_import.status = DossierImport.Status.IMPORTED
 
     except Exception as e:  # pragma: no cover  # noqa: B902
         # This is just the last straw. An exception caught here
         # aborts the import session.
         log.exception(e, exc_info=True)
         dossier_import.messages["import"]["exception"] = str(e)
-        dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_FAILED
+        dossier_import.status = DossierImport.Status.IMPORT_FAILED
 
     finally:
         dossier_import.save()
@@ -229,12 +229,12 @@ def _do_transmit_import(dossier_import):
             },
         )
         r.raise_for_status()
-        dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMITTED
+        dossier_import.status = DossierImport.Status.TRANSMITTED
 
     except Exception as e:  # pragma: no cover  # noqa: B902
         log.exception(e)
         dossier_import.messages["import"]["exception"] = str(e)
-        dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMISSION_FAILED
+        dossier_import.status = DossierImport.Status.TRANSMISSION_FAILED
 
     finally:
         dossier_import.save()
@@ -279,10 +279,10 @@ def _do_undo_import(dossier_import):
         instances.delete()
         Case.objects.filter(**{"meta__import-id": str(dossier_import.pk)}).delete()
         dossier_import.delete()
-        return DossierImport.IMPORT_STATUS_UNDONE
+        return DossierImport.Status.UNDONE
     except Exception as e:  # pragma: no cover  # noqa: B902
         log.exception(e)
-        dossier_import.status = DossierImport.IMPORT_STATUS_UNDO_FAILED
+        dossier_import.status = DossierImport.Status.UNDO_FAILED
         dossier_import.save()
         return dossier_import.status
 
@@ -290,11 +290,11 @@ def _do_undo_import(dossier_import):
 def clean_import(dossier_import):
     try:
         dossier_import.delete_file()
-        dossier_import.status = DossierImport.IMPORT_STATUS_CLEANED
+        dossier_import.status = DossierImport.Status.CLEANED
     except Exception as e:  # pragma: no cover  # noqa: B902
         log.exception(e, exc_info=True)
         dossier_import.messages["import"]["exception"] = str(sys.exc_info())
-        dossier_import.status = DossierImport.IMPORT_STATUS_CLEAN_FAILED
+        dossier_import.status = DossierImport.Status.CLEAN_FAILED
     finally:
         dossier_import.save()
     return dossier_import.status
@@ -323,11 +323,11 @@ def set_status_callback_celery(result, **kwargs):  # pragma: no cover
 
 
 def _do_set_status_callback(dossier_import, result):
-    if result == dossier_import.IMPORT_STATUS_UNDONE:
+    if result == dossier_import.Status.UNDONE:
         # fallback to cover race condition when deleting the import on undo
         return
 
-    if result in [status[0] for status in DossierImport.IMPORT_STATUS_CHOICES]:
+    if result in DossierImport.Status.values:
         status = result
     else:
         status = dossier_import.set_progressing_to_failed()
