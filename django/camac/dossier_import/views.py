@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.http import FileResponse
@@ -17,11 +21,19 @@ from camac.dossier_import.domain_logic import (
 )
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.serializers import DossierImportSerializer
-from camac.instance.models import Instance
 from camac.user.permissions import permission_aware
 
+if TYPE_CHECKING:
+    from django.db.models import QuerySet
 
-def is_prod():
+
+def is_prod() -> bool:
+    """Return `True` if we're on a production system.
+
+    This considers every system that does not contain "local", "test", "-int" or
+    "-t" in its URL a production system.
+    """
+
     return (
         "local" not in settings.INTERNAL_BASE_URL
         and "test" not in settings.INTERNAL_BASE_URL
@@ -34,87 +46,102 @@ class DossierImportView(ModelViewSet):
     """View class for uploading a ZIP archive with dossier metadata and documents for import."""
 
     serializer_class = DossierImportSerializer
-    queryset = DossierImport.objects.all().order_by("-created_at")
+    queryset = DossierImport.objects.order_by("-created_at")
 
-    instance_field = None
+    def has_municipality_base_permission(self) -> bool:
+        """Check base permission for municipalities.
+
+        Municipalities can't do anything in production per default. In Kt. SO
+        only the support role is allowed to deal with dossier imports.
+        """
+
+        return not is_prod() and settings.APPLICATION_NAME != "kt_so"
 
     @permission_aware
-    def get_queryset(self):
+    def get_queryset(self) -> QuerySet[DossierImport]:
         return self.queryset.none()
 
-    def get_queryset_for_municipality(self):
-        if is_prod():
+    def get_queryset_for_municipality(self) -> QuerySet[DossierImport]:
+        if not self.has_municipality_base_permission():
             return self.queryset.none()
 
         groups = self.request.group.service.groups.all()
         return self.queryset.filter(group_id__in=groups)
 
-    def get_queryset_for_support(self):
+    def get_queryset_for_support(self) -> QuerySet[DossierImport]:
         return self.queryset.all()
 
-    def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
-        if any(
-            [
-                Instance.objects.filter(
-                    **{"case__meta__import-id": str(instance.pk)}
-                ).exists(),
-                Case.objects.filter(**{"meta__import-id": str(instance.pk)}).exists(),
-            ]
-        ):
-            raise ValidationError(
-                _(
-                    "Cannot delete this import. There are still cases and instances "
-                    "referring to this import. Revert the import before deletion."
-                )
-            )
-        return super().destroy(request, *args, **kwargs)
-
-    @action(methods=["POST"], url_path="start", detail=True)
-    def start(self, request, pk=None):
-        dossier_import = self.get_object()
-        if dossier_import.status != DossierImport.Status.VALIDATION_SUCCESSFUL:
-            raise ValidationError(
-                "Make sure the uploaded archive validates successfully.",
-            )
-        task_id = schedule_import(dossier_import)
-        return Response({"task_id": task_id})
-
-    @action(methods=["POST"], url_path="confirm", detail=True)
-    def confirm(self, request, pk=None):
-        dossier_import = self.get_object()
-        if dossier_import.status != DossierImport.Status.IMPORTED:
-            raise ValidationError(
-                "Confirming an import is only possible after it has been imported.",
-            )
-        confirm_import(dossier_import)
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
     @permission_aware
-    def has_object_create_permission(self, instance):  # pragma: no cover
-        return not is_prod()
+    def has_create_permission(self) -> bool:
+        return self.has_municipality_base_permission()
 
-    def has_object_create_permission_for_support(self, instance):  # pragma: no cover
+    def has_create_permission_for_support(self) -> bool:
         return True
 
     @permission_aware
-    def has_object_transmit_permission(self, instance):
+    def has_object_destroy_permission(self, obj: DossierImport) -> bool:
+        return self.has_municipality_base_permission() and obj.status in [
+            DossierImport.Status.VALIDATION_SUCCESSFUL,
+            DossierImport.Status.VALIDATION_FAILED,
+            DossierImport.Status.UNDONE,
+        ]
+
+    def has_object_destroy_permission_for_support(self, obj: DossierImport) -> bool:
+        return obj.status in [
+            DossierImport.Status.VALIDATION_SUCCESSFUL,
+            DossierImport.Status.VALIDATION_FAILED,
+            DossierImport.Status.UNDONE,
+        ]
+
+    def destroy(self, request, *args, **kwargs):
+        obj = self.get_object()
+
+        if Case.objects.filter(**{"meta__import-id": str(obj.pk)}).exists():
+            raise ValidationError(
+                _(
+                    "Cannot delete this import as there are still dossiers "
+                    "referring to it. Revert the import before deletion."
+                )
+            )
+
+        return super().destroy(request, *args, **kwargs)
+
+    @permission_aware
+    def has_object_start_permission(self, obj: DossierImport) -> bool:
+        return (
+            self.has_municipality_base_permission()
+            and obj.status == DossierImport.Status.VALIDATION_SUCCESSFUL
+        )
+
+    def has_object_start_permission_for_support(self, obj: DossierImport) -> bool:
+        return obj.status == DossierImport.Status.VALIDATION_SUCCESSFUL
+
+    @action(methods=["POST"], detail=True)
+    def start(self, request, pk=None):
+        schedule_import(self.get_object())
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def has_object_confirm_permission(self, instance):
+        return not is_prod() and instance.status == DossierImport.Status.IMPORTED
+
+    @action(methods=["POST"], detail=True)
+    def confirm(self, request, pk=None):
+        confirm_import(self.get_object())
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    @permission_aware
+    def has_object_transmit_permission(self, obj: DossierImport) -> bool:
         return False
 
-    def has_object_transmit_permission_for_support(self, instance):
-        return not is_prod()
+    def has_object_transmit_permission_for_support(self, obj: DossierImport) -> bool:
+        return not is_prod() and obj.status == DossierImport.Status.CONFIRMED
 
-    @action(methods=["POST"], url_path="transmit", detail=True)
+    @action(methods=["POST"], detail=True)
     def transmit(self, request, pk=None):
-        dossier_import = self.get_object()
-        if dossier_import.status != DossierImport.Status.CONFIRMED:
-            raise ValidationError(
-                "Transmitting an import is only possible after it has been confirmed.",
-            )
-        task_id = schedule_transmission(dossier_import)
-        return Response({"task_id": task_id})
+        schedule_transmission(self.get_object())
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
-    @action(methods=["GET"], url_path="download", detail=True)
+    @action(methods=["GET"], detail=True)
     def download(self, request, pk=None):
         dossier_import = self.get_object()
 
@@ -126,46 +153,45 @@ class DossierImportView(ModelViewSet):
         )
 
     @permission_aware
-    def has_object_undo_permission(self, instance):  # pragma: no cover
-        return False
+    def has_object_undo_permission(self, obj: DossierImport) -> bool:
+        return self.has_municipality_base_permission() and obj.status in [
+            DossierImport.Status.IMPORTED,
+            DossierImport.Status.IMPORT_FAILED,
+            DossierImport.Status.UNDO_FAILED,
+        ]
+
+    def has_object_undo_permission_for_support(self, obj: DossierImport) -> bool:
+        has_correct_status = obj.status in [
+            DossierImport.Status.IMPORTED,
+            DossierImport.Status.IMPORT_FAILED,
+            DossierImport.Status.CONFIRMED,
+            DossierImport.Status.UNDO_FAILED,
+        ]
+
+        if settings.APPLICATION_NAME == "kt_so":
+            # In Kt. SO we allow undo of an import in production. In all other
+            # cantons this is strictly forbidden.
+            return has_correct_status
+
+        return not is_prod() and has_correct_status
+
+    @action(methods=["POST"], detail=True)
+    def undo(self, request, pk=None):
+        schedule_undo_import(self.get_object())
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
     @permission_aware
-    def has_object_undo_permission_for_municipality(self, instance):
-        return instance.status in [
+    def has_object_clean_permission(self, obj: DossierImport) -> bool:
+        return False
+
+    def has_object_clean_permission_for_support(self, obj: DossierImport) -> bool:
+        return is_prod() and obj.status in [
             DossierImport.Status.IMPORTED,
+            DossierImport.Status.CONFIRMED,
             DossierImport.Status.IMPORT_FAILED,
         ]
 
-    @permission_aware
-    def has_object_undo_permission_for_support(self, instance):
-        return instance.status not in [
-            DossierImport.Status.NEW,
-            DossierImport.Status.VALIDATION_SUCCESSFUL,
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-        ]
-
-    @action(methods=["POST"], url_path="undo", detail=True)
-    def undo(self, request, pk=None):
-        # removes all instances and cases that came with the import
-        # - removes the dossier-import instance on success
-        instance = self.get_object()
-
-        task_id = schedule_undo_import(instance)
-        return Response({"task_id": task_id})
-
-    @permission_aware
-    def has_object_clean_permission(self, instance):  # pragma: no cover
-        return False
-
-    @permission_aware
-    def has_object_clean_permission_for_support(self, instance):
-        return True
-
-    @action(methods=["POST"], url_path="clean", detail=True)
+    @action(methods=["POST"], detail=True)
     def clean(self, request, pk=None):
-        # removes the source archive from the file system
-        # to clean up space.
-        #  - does not remove any database entries.
-        #  - does not remove the import instance
         clean_import(self.get_object())
         return Response(status=status.HTTP_204_NO_CONTENT)

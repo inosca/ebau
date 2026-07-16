@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-30 13:28+0200\n"
+"POT-Creation-Date: 2026-07-31 08:30+0200\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1103,11 +1103,12 @@ msgstr ""
 
 #: camac/dossier_import/views.py
 msgid ""
-"Cannot delete this import. There are still cases and instances referring to "
-"this import. Revert the import before deletion."
+"Cannot delete this import as there are still dossiers referring to it. "
+"Revert the import before deletion."
 msgstr ""
-"Non è possibile eliminare l'importazione fino a quando casi e dossier vi "
-"faranno riferimento. Annulla l'importazione prima di eliminare."
+"Non è possibile eliminare l'importazione perché vi sono ancora dei dossier "
+"che vi fanno riferimento. Annullare l'importazione prima di procedere "
+"all'eliminazione."
 
 #: camac/dossier_import/writers.py
 #, python-format
