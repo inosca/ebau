@@ -43,10 +43,6 @@ class DossierImportSerializer(serializers.ModelSerializer):
         "location": "camac.user.serializers.LocationSerializer",
     }
 
-    def __init__(self, *args, **kwargs):
-        self._warnings = []
-        super().__init__(*args, **kwargs)
-
     def validate_source_file(self, source_file):
         return verify_source_file(source_file)
 
