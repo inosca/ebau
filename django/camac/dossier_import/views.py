@@ -73,9 +73,9 @@ class DossierImportView(ModelViewSet):
     def retrieve(self, request, *args, **kwargs):
         obj = self.get_object()
         if obj.status not in [
-            obj.IMPORT_STATUS_NEW,
-            obj.IMPORT_STATUS_IMPORT_IN_PROGRESS,
-            obj.IMPORT_STATUS_UNDO_IN_PROGRESS,
+            obj.Status.NEW,
+            obj.Status.IMPORT_IN_PROGRESS,
+            obj.Status.UNDO_IN_PROGRESS,
         ]:
             return super().retrieve(request, *args, **kwargs)
         # update the import's status only if a change is expected from a queued task
@@ -85,10 +85,7 @@ class DossierImportView(ModelViewSet):
     @action(methods=["POST"], url_path="start", detail=True)
     def start(self, request, pk=None):
         dossier_import = self.get_object()
-        if (
-            not dossier_import.status
-            == DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL
-        ):
+        if dossier_import.status != DossierImport.Status.VALIDATION_SUCCESSFUL:
             raise ValidationError(
                 "Make sure the uploaded archive validates successfully.",
             )
@@ -98,7 +95,7 @@ class DossierImportView(ModelViewSet):
     @action(methods=["POST"], url_path="confirm", detail=True)
     def confirm(self, request, pk=None):
         dossier_import = self.get_object()
-        if not dossier_import.status == DossierImport.IMPORT_STATUS_IMPORTED:
+        if dossier_import.status != DossierImport.Status.IMPORTED:
             raise ValidationError(
                 "Confirming an import is only possible after it has been imported.",
             )
@@ -120,7 +117,7 @@ class DossierImportView(ModelViewSet):
                 message=body,
                 recipient_list=[settings.SUPPORT_EMAIL_ADDRESS],
             )
-        dossier_import.status = DossierImport.IMPORT_STATUS_CONFIRMED
+        dossier_import.status = DossierImport.Status.CONFIRMED
         dossier_import.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -141,7 +138,7 @@ class DossierImportView(ModelViewSet):
     @action(methods=["POST"], url_path="transmit", detail=True)
     def transmit(self, request, pk=None):
         dossier_import = self.get_object()
-        if not dossier_import.status == DossierImport.IMPORT_STATUS_CONFIRMED:
+        if dossier_import.status != DossierImport.Status.CONFIRMED:
             raise ValidationError(
                 "Transmitting an import is only possible after it has been confirmed.",
             )
@@ -166,16 +163,16 @@ class DossierImportView(ModelViewSet):
     @permission_aware
     def has_object_undo_permission_for_municipality(self, instance):
         return instance.status in [
-            DossierImport.IMPORT_STATUS_IMPORTED,
-            DossierImport.IMPORT_STATUS_IMPORT_FAILED,
+            DossierImport.Status.IMPORTED,
+            DossierImport.Status.IMPORT_FAILED,
         ]
 
     @permission_aware
     def has_object_undo_permission_for_support(self, instance):
         return instance.status not in [
-            DossierImport.IMPORT_STATUS_NEW,
-            DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.Status.NEW,
+            DossierImport.Status.VALIDATION_SUCCESSFUL,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
         ]
 
     @action(methods=["POST"], url_path="undo", detail=True)
@@ -183,7 +180,7 @@ class DossierImportView(ModelViewSet):
         # removes all instances and cases that came with the import
         # - removes the dossier-import instance on success
         instance = self.get_object()
-        instance.status = DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS
+        instance.status = DossierImport.Status.UNDO_IN_PROGRESS
 
         task_id = schedule_undo_import(instance)
         return Response({"task_id": task_id})

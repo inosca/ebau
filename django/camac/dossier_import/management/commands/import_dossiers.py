@@ -100,7 +100,7 @@ class Command(BaseCommand):
             pprint.pformat(dossier_import.messages["validation"]["summary"])
         )
         if (
-            dossier_import.status != DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL
+            dossier_import.status != DossierImport.Status.VALIDATION_SUCCESSFUL
             and not options.get("no_input")
             and input(
                 "The archive has errors. Do you still want to import (enter y) or abort and remove the file (enter n)"

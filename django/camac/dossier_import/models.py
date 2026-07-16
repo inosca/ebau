@@ -28,38 +28,22 @@ class DossierImport(models.Model):
 
     """
 
-    IMPORT_STATUS_NEW = "new"
-    IMPORT_STATUS_VALIDATION_SUCCESSFUL = "verified"
-    IMPORT_STATUS_VALIDATION_FAILED = "failed"
-    IMPORT_STATUS_IMPORT_IN_PROGRESS = "in-progress"
-    IMPORT_STATUS_IMPORTED = "imported"
-    IMPORT_STATUS_IMPORT_FAILED = "import-failed"
-    IMPORT_STATUS_CONFIRMED = "confirmed"
-    IMPORT_STATUS_CLEANED = "cleaned"
-    IMPORT_STATUS_CLEAN_FAILED = "clean-failed"
-    IMPORT_STATUS_UNDO_IN_PROGRESS = "undo-in-progress"
-    IMPORT_STATUS_UNDO_FAILED = "undo-failed"
-    IMPORT_STATUS_UNDONE = "undone"
-    IMPORT_STATUS_TRANSMITTING = "transmitting"
-    IMPORT_STATUS_TRANSMITTED = "transmitted"
-    IMPORT_STATUS_TRANSMISSION_FAILED = "transmission-failed"
-
-    IMPORT_STATUS_CHOICES = (
-        (IMPORT_STATUS_NEW, IMPORT_STATUS_NEW),
-        (IMPORT_STATUS_VALIDATION_SUCCESSFUL, IMPORT_STATUS_VALIDATION_SUCCESSFUL),
-        (IMPORT_STATUS_VALIDATION_FAILED, IMPORT_STATUS_VALIDATION_FAILED),
-        (IMPORT_STATUS_IMPORT_IN_PROGRESS, IMPORT_STATUS_IMPORT_IN_PROGRESS),
-        (IMPORT_STATUS_IMPORTED, IMPORT_STATUS_IMPORTED),
-        (IMPORT_STATUS_IMPORT_FAILED, IMPORT_STATUS_IMPORT_FAILED),
-        (IMPORT_STATUS_CONFIRMED, IMPORT_STATUS_CONFIRMED),
-        (IMPORT_STATUS_CLEANED, IMPORT_STATUS_CLEANED),
-        (IMPORT_STATUS_CLEAN_FAILED, IMPORT_STATUS_CLEAN_FAILED),
-        (IMPORT_STATUS_UNDO_IN_PROGRESS, IMPORT_STATUS_UNDO_IN_PROGRESS),
-        (IMPORT_STATUS_UNDO_FAILED, IMPORT_STATUS_UNDO_FAILED),
-        (IMPORT_STATUS_UNDONE, IMPORT_STATUS_UNDONE),
-        (IMPORT_STATUS_TRANSMITTING, IMPORT_STATUS_TRANSMITTING),
-        (IMPORT_STATUS_TRANSMITTED, IMPORT_STATUS_TRANSMITTED),
-    )
+    class Status(models.TextChoices):
+        NEW = "new"
+        VALIDATION_SUCCESSFUL = "verified"
+        VALIDATION_FAILED = "failed"
+        IMPORT_IN_PROGRESS = "in-progress"
+        IMPORTED = "imported"
+        IMPORT_FAILED = "import-failed"
+        CONFIRMED = "confirmed"
+        CLEANED = "cleaned"
+        CLEAN_FAILED = "clean-failed"
+        UNDO_IN_PROGRESS = "undo-in-progress"
+        UNDO_FAILED = "undo-failed"
+        UNDONE = "undone"
+        TRANSMITTING = "transmitting"
+        TRANSMITTED = "transmitted"
+        TRANSMISSION_FAILED = "transmission-failed"
 
     DOSSIER_LOADER_ZIP_ARCHIVE_XLSX = "zip-archive-xlsx"
     DOSSIER_LOADER_CHOICES = (
@@ -78,9 +62,7 @@ class DossierImport(models.Model):
         default=DOSSIER_LOADER_ZIP_ARCHIVE_XLSX,
     )
 
-    status = models.CharField(
-        max_length=32, choices=IMPORT_STATUS_CHOICES, default=IMPORT_STATUS_NEW
-    )
+    status = models.CharField(max_length=32, choices=Status.choices, default=Status.NEW)
 
     user = models.ForeignKey(
         "user.User",
@@ -143,7 +125,7 @@ class DossierImport(models.Model):
 
         result = celery.result.AsyncResult(self.task_id)
         if result.state in ["PENDING", "STARTED"]:
-            return "in-progress"
+            return self.Status.IMPORT_IN_PROGRESS
         elif result.state in ["FAILED", "REVOKED", "FAILURE"]:
             try:
                 self.status = self.set_progressing_to_failed()
@@ -160,17 +142,17 @@ class DossierImport(models.Model):
     def set_progressing_to_failed(self):
         # the import has a failed status for every async progressing status
         return {
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS: DossierImport.IMPORT_STATUS_IMPORT_FAILED,
-            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS: DossierImport.IMPORT_STATUS_UNDO_FAILED,
-            DossierImport.IMPORT_STATUS_TRANSMITTING: DossierImport.IMPORT_STATUS_TRANSMISSION_FAILED,
+            self.Status.IMPORT_IN_PROGRESS: self.Status.IMPORT_FAILED,
+            self.Status.UNDO_IN_PROGRESS: self.Status.UNDO_FAILED,
+            self.Status.TRANSMITTING: self.Status.TRANSMISSION_FAILED,
         }.get(self.status, self.status)
 
     def set_progressing_to_success(self):
-        # the import has a failed status for every async progressing status
+        # the import has a succeeded status for every async progressing status
         return {
-            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS: DossierImport.IMPORT_STATUS_IMPORTED,
-            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS: DossierImport.IMPORT_STATUS_UNDONE,
-            DossierImport.IMPORT_STATUS_TRANSMITTING: DossierImport.IMPORT_STATUS_TRANSMITTED,
+            self.Status.IMPORT_IN_PROGRESS: self.Status.IMPORTED,
+            self.Status.UNDO_IN_PROGRESS: self.Status.UNDONE,
+            self.Status.TRANSMITTING: self.Status.TRANSMITTED,
         }.get(self.status, self.status)
 
     def get_archive(self):
