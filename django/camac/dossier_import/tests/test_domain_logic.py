@@ -1,17 +1,17 @@
 import dataclasses
 import datetime
 import mimetypes
-from collections import namedtuple
 
 import pytest
 from alexandria.core.models import Document
 from caluma.caluma_workflow.models import Case
+from django.urls import reverse
 from django.utils import timezone
 from pytest_lazy_fixtures import lf
 
 from camac.dossier_import.domain_logic import (
     perform_import,
-    set_status_callback,
+    transmit_import,
     undo_import,
 )
 from camac.dossier_import.dossier_classes import Dossier
@@ -21,6 +21,7 @@ from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.settings.modules.master_data import MASTER_DATA
 from camac.tags.models import Keyword
+from camac.utils import build_url
 
 
 @pytest.mark.django_db
@@ -30,7 +31,10 @@ def test_undo_import(
     instance_factory,
     keyword_factory,
     alexandria_document_factory,
+    application_settings,
 ):
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+
     cases = caluma_case_factory.create_batch(
         2, meta={"import-id": str(dossier_import.pk)}
     )
@@ -50,7 +54,7 @@ def test_undo_import(
         metainfo={"camac-instance-id": unrelated_instance.pk},
     )
 
-    undo_import(dossier_import)
+    undo_import(dossier_import.pk)
     assert not Case.objects.filter(
         **{"meta__import-id": str(dossier_import.pk)}
     ).exists()
@@ -112,9 +116,12 @@ def test_perform_reimport(  # noqa: C901
         user=writer._user,
         source_file=archive_file(first_import_file),
         mime_type=mimetypes.types_map[".zip"],
+        # Since we don't use `schedule_import` we manually set the status to
+        # in-progress
+        status=DossierImport.Status.IMPORT_IN_PROGRESS,
     )
 
-    perform_import(first_import)
+    perform_import(first_import.pk)
 
     imported_dossier = writer.find_existing_instance(
         Dossier(id=dossier_id, proposal=""), writer._caluma_user
@@ -147,8 +154,12 @@ def test_perform_reimport(  # noqa: C901
         user=writer._user,
         source_file=archive_file(reimport_file),
         mime_type=mimetypes.types_map[".zip"],
+        # Since we don't use `schedule_import` we manually set the status to
+        # in-progress
+        status=DossierImport.Status.IMPORT_IN_PROGRESS,
     )
-    perform_import(reimport)
+    perform_import(reimport.pk)
+    reimport.refresh_from_db()
     imported_dossier.refresh_from_db()
     md = MasterData(imported_dossier.case)
     # get an abstracted dataset for the dossier that we can work with
@@ -281,56 +292,71 @@ def test_perform_reimport(  # noqa: C901
         assert modified_at == now.date()
 
 
-@pytest.mark.parametrize(
-    ("dossier_import__status", "task_result", "did_delete_import", "expected_status"),
-    [
-        (
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-            DossierImport.Status.IMPORTED,
-            False,
-            DossierImport.Status.IMPORTED,
-        ),
-        (
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-            "some error",
-            False,
-            DossierImport.Status.IMPORT_FAILED,
-        ),
-        (
-            DossierImport.Status.UNDO_IN_PROGRESS,
-            "some error",
-            False,
-            DossierImport.Status.UNDO_FAILED,
-        ),
-        (
-            DossierImport.Status.UNDO_IN_PROGRESS,
-            DossierImport.Status.UNDONE,
-            False,
-            DossierImport.Status.UNDO_IN_PROGRESS,
-        ),
-        (
-            DossierImport.Status.UNDO_IN_PROGRESS,
-            DossierImport.Status.UNDONE,
-            True,
-            None,
-        ),
-    ],
-)
+@pytest.mark.parametrize("location_required", [True, False])
 @pytest.mark.django_db
-def test_set_status_callback(
-    dossier_import, task_result, did_delete_import, expected_status
+def test_transmitting_logic(
+    dossier_import_factory,
+    archive_file,
+    group,
+    settings,
+    requests_mock,
+    location_required,
+    dossier_import_settings,
 ):
-    Task = namedtuple("Task", ["result", "args"])
-    task = Task(result=task_result, args=[dossier_import])
+    dossier_import_settings["PROD_URL"] = "http://ebau.localhost"
+    dossier_import_settings["LOCATION_REQUIRED"] = location_required
+    dossier_import_settings["PROD_AUTH_URL"] = settings.KEYCLOAK_OIDC_TOKEN_URL
+    dossier_import_settings["PROD_SUPPORT_GROUP_ID"] = 99
 
-    if did_delete_import:
-        dossier_import.delete()
+    # set a real group ID - useful for testing without the mock
+    group.pk = 22507  # Administration Leitbehörde Burgdorf
+    group.save()
 
-    set_status_callback(task)
+    # disabling the mocks will upload the file to the local dev env - useful for more realistic testing!
+    requests_mock.register_uri(
+        "POST",
+        dossier_import_settings["PROD_AUTH_URL"],
+        json={"access_token": "hello123"},
+        complete_qs=True,
+    )
 
-    if not did_delete_import:
-        dossier_import.refresh_from_db()
-        assert dossier_import.status == expected_status
-    else:
-        with pytest.raises(DossierImport.DoesNotExist):
-            dossier_import.refresh_from_db()
+    def matcher(request):
+        assert bool(request.body.fields.get("location_id", False)) == location_required
+        return True
+
+    requests_mock.register_uri(
+        "POST",
+        build_url(dossier_import_settings["PROD_URL"], reverse("dossier-import-list")),
+        json={
+            "data": {
+                "type": "dossier-imports",
+                "id": "031562b0-aec8-4372-b1e6-c7ac909a6287",
+                "attributes": {},
+                "relationships": {},
+            }
+        },
+        additional_matcher=matcher,
+    )
+
+    # Call domain logic directly, this can be removed once sync calls in Q cluster work
+    dossier_import = dossier_import_factory(
+        status=DossierImport.Status.CONFIRMED,
+        source_file=archive_file("import-example-no-errors.zip"),
+        group=group,
+    )
+    assert transmit_import(dossier_import.pk) == DossierImport.Status.TRANSMITTED
+
+
+@pytest.mark.django_db
+def test_failing_transmission(requests_mock, dossier_import, dossier_import_settings):
+    PROD_URL = "http://this-could-be-your-production-url.example.com"
+    PROD_AUTH_URL = PROD_URL + "/auth/token"
+    dossier_import_settings["PROD_URL"] = PROD_URL
+    dossier_import_settings["PROD_AUTH_URL"] = PROD_AUTH_URL
+    requests_mock.register_uri("POST", PROD_AUTH_URL, status_code=401)
+    requests_mock.register_uri(
+        "POST", PROD_URL + "/api/v1/dossier-imports", status_code=401
+    )
+    assert (
+        transmit_import(dossier_import.pk) == DossierImport.Status.TRANSMISSION_FAILED
+    )

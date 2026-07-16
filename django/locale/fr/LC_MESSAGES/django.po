@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-13 10:07+0200\n"
+"POT-Creation-Date: 2026-07-16 15:03+0200\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -882,6 +882,20 @@ msgstr ""
 msgid "Failed to write %(value)s to %(target)s for dossier %(dossier)s"
 msgstr ""
 
+#: camac/dossier_import/domain_logic.py
+#, python-format
+msgid "A dossier import for %(group)s has been approved"
+msgstr "Un dossier d'importation pour %(group)s a été approuvé"
+
+#: camac/dossier_import/domain_logic.py
+#, python-format
+msgid ""
+"The approved dossiers can be viewed here:\n"
+"%(import_url)s"
+msgstr ""
+"Les dossiers approuvés peuvent être consultés ici :\n"
+"%(import_url)s"
+
 #: camac/dossier_import/loaders.py
 #, python-format
 msgid "%(value)s is not valid for field %(field)s. Allowed format: %(format)s"
@@ -1074,20 +1088,6 @@ msgid ""
 msgstr ""
 "Impossible de supprimer cette importation. Il y à encore des case et "
 "instance qui la reference.Besoin de revertir l'importation en avence."
-
-#: camac/dossier_import/views.py
-#, python-format
-msgid "A dossier import for %(group)s has been approved"
-msgstr "Un dossier d'importation pour %(group)s a été approuvé"
-
-#: camac/dossier_import/views.py
-#, python-format
-msgid ""
-"The approved dossiers can be viewed here:\n"
-"%(import_url)s"
-msgstr ""
-"Les dossiers approuvés peuvent être consultés ici :\n"
-"%(import_url)s"
 
 #: camac/dossier_import/writers.py
 #, python-format

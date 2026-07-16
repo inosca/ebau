@@ -108,7 +108,10 @@ class Command(BaseCommand):
             != "y"
         ):  # pragma: no cover
             return
-        perform_import(dossier_import)
+        dossier_import.status = DossierImport.Status.IMPORT_IN_PROGRESS
+        dossier_import.save()
+        perform_import(dossier_import.pk)
+        dossier_import.refresh_from_db()
         self.stdout.write("========= Dossier import =========")
         if options["verbosity"] > 1:
             self.stdout.write(
