@@ -2,13 +2,14 @@ import os
 import sys
 import traceback
 from dataclasses import asdict
+from datetime import timedelta
 from logging import getLogger
 from typing import TYPE_CHECKING
 
 import requests
 from alexandria.core.models import Document
 from caluma.caluma_workflow.models import Case
-from celery import shared_task
+from celery import current_app, shared_task
 from celery.contrib.django.task import DjangoTask
 from celery.utils import uuid
 from django.conf import settings
@@ -18,6 +19,7 @@ from django.db.models.fields.json import KeyTextTransform
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.module_loading import import_string
+from django.utils.timezone import now
 from django.utils.translation import gettext as _
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
@@ -304,12 +306,19 @@ def undo_import(dossier_import_id: str) -> DossierImport.Status:
                     # We split this up in batches of 100 documents as deleting
                     # the associated files will also delete the S3 objects over
                     # the API which is very slow.
-                    while documents.count() > 0:
-                        Document.objects.filter(
-                            pk__in=documents[:100].values("pk")
-                        ).delete()
+                    while batch := list(documents.values_list("pk", flat=True)[:100]):
+                        Document.objects.filter(pk__in=batch).delete()
+                        # Update the DB value of the import `modified_at`
+                        # property after each batch of documents in order to be
+                        # excluded from `update_orphaned_imports` while running
+                        dossier_import.save(update_fields=["modified_at"])
                 except Exception as e:  # pragma: no cover
                     log.exception(e)
+
+            # Update the DB value of the import `modified_at` property after
+            # each handled dossier in order to be excluded from
+            # `update_orphaned_imports` while running
+            dossier_import.save(update_fields=["modified_at"])
 
         instances.delete()
         Case.objects.filter(**{"meta__import-id": str(dossier_import.pk)}).delete()
@@ -389,3 +398,53 @@ def confirm_import(dossier_import: DossierImport) -> DossierImport.Status:
     dossier_import.save()
 
     return dossier_import.status
+
+
+@shared_task()
+def update_orphaned_imports() -> None:
+    """Fail imports whose background run died without reporting back.
+
+    Every task persists its own final status, so an import that is still in a
+    running status but hasn't been written to for a while is orphaned: the run
+    died (worker killed, out of memory, restart, ...) before it could report
+    anything back, and the import would otherwise sit in its running status
+    forever.
+
+    The tasks write to the import as they progress, so an hour without a single
+    write is what gives a dead run away. Asking the workers which tasks they are
+    currently executing is only a last safety net on top of that.
+
+    This is meant to be run periodically as a `django_celery_beat` periodic
+    task.
+    """
+
+    active_tasks = current_app.control.inspect().active()
+    active_task_ids = (
+        {task["id"] for tasks in active_tasks.values() for task in tasks}
+        if active_tasks
+        else set()
+    )
+
+    cutoff = now() - timedelta(hours=1)
+
+    for dossier_import in DossierImport.objects.filter(
+        status__in=[
+            DossierImport.Status.IMPORT_IN_PROGRESS,
+            DossierImport.Status.UNDO_IN_PROGRESS,
+            DossierImport.Status.TRANSMITTING,
+        ],
+        modified_at__lt=cutoff,
+    ):
+        if dossier_import.task_id in active_task_ids:
+            # If we find the task ID in the active tasks it's not orphaned. This
+            # will most likely never happen as we update the dossier import DB
+            # record often in order to not match the query above. However, we
+            # still keep it as a last safety net.
+            continue
+
+        dossier_import.set_progressing_to_failed()
+
+        log.warning(
+            f"Marked orphaned dossier import {dossier_import.pk} "
+            f"as {dossier_import.status}"
+        )

@@ -1,8 +1,6 @@
 import mimetypes
-from types import SimpleNamespace
 
 import pytest
-from celery import states as celery_states
 from django.http import FileResponse
 from django.urls import reverse
 from pytest_lazy_fixtures import lf
@@ -486,98 +484,3 @@ def test_delete_import(
         reverse("dossier-import-detail", args=(str(dossier_import.pk),))
     )
     assert resp.status_code == expected_status
-
-
-@pytest.mark.parametrize("role__name", ["Support"])
-@pytest.mark.parametrize(
-    ("import_status_before", "celery_task_state", "expected_status"),
-    [
-        (
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-            None,
-            DossierImport.Status.IMPORT_FAILED,
-        ),
-        (
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-            celery_states.STARTED,
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-        ),
-        (
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-            celery_states.PENDING,
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-        ),
-        (
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-            celery_states.RECEIVED,
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-        ),
-        (
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-            celery_states.SUCCESS,
-            DossierImport.Status.IMPORTED,
-        ),
-        (
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-            celery_states.FAILURE,
-            DossierImport.Status.IMPORT_FAILED,
-        ),
-        (
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-            celery_states.RETRY,
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-        ),
-        (
-            DossierImport.Status.IMPORT_IN_PROGRESS,
-            celery_states.REVOKED,
-            DossierImport.Status.IMPORT_FAILED,
-        ),
-        (
-            DossierImport.Status.NEW,
-            celery_states.FAILURE,
-            DossierImport.Status.NEW,
-        ),
-        (
-            DossierImport.Status.IMPORTED,
-            celery_states.SUCCESS,
-            DossierImport.Status.IMPORTED,
-        ),
-    ],
-)
-@pytest.mark.django_db
-def test_import_status(
-    admin_client,
-    dossier_import,
-    import_status_before,
-    celery_task_state,
-    expected_status,
-    settings,
-    celery_fake_worker,
-):
-    dossier_import.status = import_status_before
-    dossier_import.save()
-
-    if not celery_task_state:
-        # verify that an in-progres status and no task-id results in failed status
-        # Note: could be different "failed" strings, thus the `in` check
-        assert "failed" in dossier_import.update_async_status()
-        return
-
-    task = SimpleNamespace(
-        id="abba1221acab1312",
-        name="one-task",
-        func="some-func",
-        state=celery_task_state,
-        result=None,
-        args={},
-    )
-
-    celery_fake_worker.inject_task(task)
-
-    dossier_import.task_id = task.id
-    dossier_import.save()
-
-    resp = admin_client.get(reverse("dossier-import-detail", args=(dossier_import.pk,)))
-    assert resp.status_code == status.HTTP_200_OK
-    # status is only changed by the update_async_status method if import times out
-    assert resp.json()["data"]["attributes"]["status"] == expected_status

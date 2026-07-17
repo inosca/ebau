@@ -5,6 +5,7 @@ import mimetypes
 import pytest
 from alexandria.core.models import Document
 from caluma.caluma_workflow.models import Case
+from celery.utils import uuid
 from django.urls import reverse
 from django.utils import timezone
 from pytest_lazy_fixtures import lf
@@ -13,6 +14,7 @@ from camac.dossier_import.domain_logic import (
     perform_import,
     transmit_import,
     undo_import,
+    update_orphaned_imports,
 )
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import MessageCodes
@@ -360,3 +362,79 @@ def test_failing_transmission(requests_mock, dossier_import, dossier_import_sett
     assert (
         transmit_import(dossier_import.pk) == DossierImport.Status.TRANSMISSION_FAILED
     )
+
+
+@pytest.mark.freeze_time("2026-07-17 12:00:00")
+@pytest.mark.django_db
+def test_update_orphaned_imports(dossier_import_factory, mocker, freezer):
+    ACTIVE_TASK_ID = "e4b3d1f0-1234-5678-9abc-def012345678"
+
+    orphaned_import = dossier_import_factory(
+        status=DossierImport.Status.IMPORT_IN_PROGRESS,
+        task_id=uuid(),
+    )
+    orphaned_undo = dossier_import_factory(
+        status=DossierImport.Status.UNDO_IN_PROGRESS,
+        task_id=uuid(),
+    )
+    orphaned_transmission = dossier_import_factory(
+        status=DossierImport.Status.TRANSMITTING,
+        task_id=uuid(),
+    )
+
+    # Started via the management command, so there is no task to look for
+    without_task_id = dossier_import_factory(
+        status=DossierImport.Status.IMPORT_IN_PROGRESS,
+        task_id=None,
+    )
+
+    # A worker is still executing the task, so the run is only slow
+    still_running = dossier_import_factory(
+        status=DossierImport.Status.UNDO_IN_PROGRESS,
+        task_id=ACTIVE_TASK_ID,
+    )
+
+    # Not running in the background at all
+    not_running = dossier_import_factory(
+        status=DossierImport.Status.IMPORTED,
+        task_id=uuid(),
+    )
+
+    freezer.move_to("2026-07-17 13:00:00")
+
+    # Written to later, should not be touched by the function
+    recently_modified = dossier_import_factory(
+        status=DossierImport.Status.IMPORT_IN_PROGRESS,
+        task_id=uuid(),
+    )
+
+    # Everything above has been quiet for 90 minutes now, the last one for 30
+    freezer.move_to("2026-07-17 13:30:00")
+
+    mocker.patch(
+        "camac.dossier_import.domain_logic.current_app.control.inspect",
+        return_value=mocker.Mock(
+            active=mocker.Mock(return_value={"celery@worker": [{"id": ACTIVE_TASK_ID}]})
+        ),
+    )
+
+    update_orphaned_imports()
+
+    for dossier_import in [
+        orphaned_import,
+        orphaned_undo,
+        orphaned_transmission,
+        without_task_id,
+        still_running,
+        recently_modified,
+        not_running,
+    ]:
+        dossier_import.refresh_from_db()
+
+    assert orphaned_import.status == DossierImport.Status.IMPORT_FAILED
+    assert orphaned_undo.status == DossierImport.Status.UNDO_FAILED
+    assert orphaned_transmission.status == DossierImport.Status.TRANSMISSION_FAILED
+    assert without_task_id.status == DossierImport.Status.IMPORT_FAILED
+    assert still_running.status == DossierImport.Status.UNDO_IN_PROGRESS
+    assert recently_modified.status == DossierImport.Status.IMPORT_IN_PROGRESS
+    assert not_running.status == DossierImport.Status.IMPORTED
