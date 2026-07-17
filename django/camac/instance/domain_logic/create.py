@@ -344,7 +344,9 @@ class CreateInstanceLogic:
                 answer.question,
                 target_document,
                 user,
-                answer.value,
+                answer.date
+                if answer.question.type == form_models.Question.TYPE_DATE
+                else answer.value,
             )
 
         for slug in config.table_questions:

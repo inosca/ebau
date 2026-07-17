@@ -283,12 +283,23 @@ def test_copy_caluma_data_ag(
     instance_factory,
     ag_instance_copy_settings,
     caluma_question_factory,
+    form_utils: FormUtils,
 ):
     target_instance = instance_with_case(instance_factory())
     question_slug = ag_instance_copy_settings.demolition_payment.special_id_slug
+    date_question_slug = "allowlisted-date-question"
+    date_value = date(2026, 7, 17)
     caluma_question_factory(
         slug=question_slug,
         type="text",
+    )
+    ag_instance_copy_settings.demolition_payment.simple_questions.append(
+        date_question_slug
+    )
+    form_utils.add_answer(
+        ag_instance.case.document,
+        date_question_slug,
+        date_value,
     )
     ag_instance.case.meta["dossier-number"] = "2026-123"
     ag_instance.case.save()
@@ -307,6 +318,10 @@ def test_copy_caluma_data_ag(
         .first()
         .value
         == "2026-123"
+    )
+    assert (
+        target_instance.case.document.answers.get(question_id=date_question_slug).date
+        == date_value
     )
 
 
