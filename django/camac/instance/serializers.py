@@ -1,9 +1,11 @@
+from __future__ import annotations
+
 import itertools
 import json
 import re
 from functools import singledispatchmethod
 from logging import getLogger
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from alexandria.core import models as alexandria_models
 from caluma.caluma_form import models as form_models
@@ -44,7 +46,6 @@ from camac.core.utils import (
     generate_sort_key,
 )
 from camac.deadlines import models as deadlines_models
-from camac.document.models import Attachment
 from camac.ech0211.signals import (
     change_responsibility,
     instance_submitted,
@@ -85,6 +86,10 @@ from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 from camac.utils import clean_join, get_paper_settings, get_unversioned_slug
 
 from . import domain_logic, models, validators
+
+if TYPE_CHECKING:
+    from camac.document.models import Attachment
+    from camac.settings.modules.instance_copy import InstanceCopyConfig
 
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE = [
@@ -1138,6 +1143,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         )
 
     def create(self, validated_data):  # noqa: C901
+        instance_copy_settings: InstanceCopyConfig = settings.INSTANCE_COPY
         group = self.context.get("request").group
         visible_instances = super().get_queryset(group)
 
@@ -1161,22 +1167,24 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             if copy_type == "full":
                 caluma_form = caluma_api.get_form_slug(source_instance)
 
-            if copy_type in settings.INSTANCE_COPY.special_copy_types():
-                allowed_form_slug = getattr(settings.INSTANCE_COPY, copy_type).form_slug
-                if allowed_form_slug and caluma_form != allowed_form_slug:
-                    raise exceptions.ValidationError(
-                        "'{copy_type}' copy is only allowed for '{allowed_form_slug}' form"
-                    )
-            elif copy_type == "full":
-                pass
-            else:
+            try:
+                copy_config = instance_copy_settings.get_copy_config(copy_type)
+            except ValueError as exc:  # pragma: no cover
+                raise exceptions.ValidationError(str(exc)) from exc
+
+            allowed_form_slug = copy_config.form_slug
+            if allowed_form_slug and caluma_form != allowed_form_slug:
                 raise exceptions.ValidationError(
-                    "Invalid copy type."
-                )  # pragma: no cover
+                    f"'{copy_type}' copy is only allowed for '{allowed_form_slug}' form"
+                )
 
             validated_data["copy_type"] = copy_type
 
-            if (
+            if copy_type == "ebbw_next_phase":
+                # Conversion to ebbw next phase form.
+                current_form = source_instance.case.document.form
+                caluma_form = current_form.meta.get("next-phase-form")
+            elif (
                 caluma_form in COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE
                 and self.initial_data.get("caluma_form")
             ):
@@ -1226,6 +1234,10 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
                 if copy_type == "demolition_payment":
                     permissions.require_all(
                         source_instance, "instance-request-demolition-payment"
+                    )
+                if copy_type == "ebbw_next_phase":
+                    permissions.require_all(
+                        source_instance, "instance-request-ebbw-next-phase"
                     )
 
             # If the source instance is a project modification, the new

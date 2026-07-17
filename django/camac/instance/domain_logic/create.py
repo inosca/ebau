@@ -1,4 +1,7 @@
+from __future__ import annotations
+
 import json
+from typing import TYPE_CHECKING
 from uuid import uuid4
 
 from alexandria.core.models import Document
@@ -27,10 +30,19 @@ from camac.instance import models
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance, InstanceGroup
 from camac.permissions.events.core import Trigger
+from camac.settings.modules.instance_copy import (
+    AllowListedCopyFormConfig,
+    DenyListedCopyFormConfig,
+)
 from camac.settings.utils import is_module_enabled
 from camac.timelines.models import FormTimeline
 from camac.user.models import Service
 from camac.user.permissions import permission_aware
+
+if TYPE_CHECKING:
+    from caluma.caluma_user.models import BaseUser
+
+    from camac.settings.modules.instance_copy import InstanceCopyConfig
 
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 
@@ -317,102 +329,134 @@ class CreateInstanceLogic:
         )
 
     @staticmethod
-    def full_copy_document(source_instance, exclude_confirmation_answers):
-        if settings.APPLICATION["SHORT_NAME"] == "be":
-            return caluma_api.copy_document(
-                source_instance.case.document.pk,
-                exclude_form_slugs=(
-                    [
-                        "7-bestaetigung",
-                        "7-bestaetigung-vorabklaerung-v4",
-                        "8-freigabequittung",
-                        "bestaetigung-v5",
-                        "bestaetigung-v7",
-                    ]
-                    if exclude_confirmation_answers
-                    else ["8-freigabequittung"]
-                ),
+    def copy_caluma_data_allowlisted(
+        config: AllowListedCopyFormConfig,
+        source_document: form_models.Document,
+        target_instance: models.Instance,
+        user: BaseUser | None,
+    ) -> form_models.Document:
+        target_document = target_instance.case.document
+
+        for answer in source_document.answers.filter(
+            question_id__in=config.simple_questions
+        ):
+            form_api.save_answer(
+                answer.question,
+                target_document,
+                user,
+                answer.value,
             )
-        return caluma_api.copy_document(source_instance.case.document.pk)
+
+        for slug in config.table_questions:
+            caluma_api.copy_table_answer(
+                slug,
+                slug,
+                source_document,
+                target_document,
+            )
+
+        return target_document
+
+    @staticmethod
+    def copy_caluma_data_denylisted(
+        config: DenyListedCopyFormConfig,
+        source_document: form_models.Document,
+        target_instance: models.Instance,
+    ) -> form_models.Document:
+        current_document = target_instance.case.document
+        target_document = caluma_api.copy_document(
+            source_document.pk,
+            exclude_form_slugs=config.exclude_forms,
+        )
+
+        for answer in target_document.answers.filter(
+            question_id__in=config.exclude_questions
+        ):
+            if answer.question.type == form_models.Question.TYPE_TABLE:
+                for row_document in answer.documents.all():
+                    row_document.delete()
+            answer.delete()
+
+        target_document.form = current_document.form
+        target_document.save()
+
+        target_instance.case.document = target_document
+        target_instance.case.save()
+        current_document.delete()
+
+        return target_document
 
     @staticmethod
     def copy_caluma_data(
-        instance,
-        source_instance,
-        copy_type,
-        is_modification,
-        user,
-        is_appeal,
-        is_rejected_appeal,
-        is_copy,
-    ):
-        case = instance.case
-        if copy_type == "full":
-            old_document = case.document
-            # Only exclude confirmation answers on regular project modifications.
-            # Copies of project modifications should include the confirmation answers
-            # (appeal, rejected appeal and support copy).
-            exclude_confirmation_answers = (
-                is_modification
-                and not is_appeal
-                and not is_rejected_appeal
-                and not is_copy
+        instance: models.Instance,
+        source_instance: models.Instance,
+        copy_type: str,
+        is_modification: bool,
+        user: BaseUser | None,
+        is_appeal: bool,
+        is_rejected_appeal: bool,
+        is_copy: bool,
+    ) -> None:
+        target_instance = instance
+        exclude_confirmation_answers = (
+            is_modification and not is_appeal and not is_rejected_appeal and not is_copy
+        )
+
+        instance_copy_settings: InstanceCopyConfig = settings.INSTANCE_COPY
+        # todo: we want to get rid of `copy_instance` hack first, after that it will
+        # be easier to refactor the call sites and correctly specify the copy type.
+        # For now we use the `exclude_confirmation_answers` argument.
+        if (
+            copy_type == "full"
+            and exclude_confirmation_answers
+            and instance_copy_settings.has_copy_config("full_without_confirmation")
+        ):
+            copy_type = "full_without_confirmation"
+
+        config = instance_copy_settings.get_copy_config(copy_type)
+        source_document = source_instance.case.document
+
+        if isinstance(config, AllowListedCopyFormConfig):
+            target_document = CreateInstanceLogic.copy_caluma_data_allowlisted(
+                config,
+                source_document,
+                target_instance,
+                user,
             )
-            new_document = CreateInstanceLogic.full_copy_document(
-                source_instance, exclude_confirmation_answers
+
+        elif isinstance(config, DenyListedCopyFormConfig):
+            target_document = CreateInstanceLogic.copy_caluma_data_denylisted(
+                config,
+                source_document,
+                target_instance,
             )
-            new_document.form = old_document.form
-            new_document.save()
-
-            case.document = new_document
-            case.save()
-            old_document.delete()
-
-            # Kt. BE: If a full copy of an extend validity instance is created, copy
-            # the ebau number of the source instance as well.
-            if caluma_api.is_extend_validity(source_instance):
-                CreateInstanceLogic.copy_ebau_number(source_instance, instance)
-
-        elif copy_type in settings.INSTANCE_COPY.special_copy_types():
-            old_document = source_instance.case.document
-            new_document = case.document
-
-            config = getattr(settings.INSTANCE_COPY, copy_type)
-
-            for answer in old_document.answers.filter(
-                question_id__in=config.simple_questions
-            ):
-                form_api.save_answer(
-                    answer.question,
-                    new_document,
-                    user,
-                    answer.value,
-                )
-
-            for slug in config.table_questions:
-                caluma_api.copy_table_answer(slug, slug, old_document, new_document)
-
-            if instance_id_slug := config.instance_id_slug:
-                form_api.save_answer(
-                    form_models.Question.objects.get(pk=instance_id_slug),
-                    new_document,
-                    user,
-                    int(source_instance.pk),
-                )
-            if special_id_slug := config.special_id_slug:
-                dossier_number = caluma_api.get_dossier_number(source_instance)
-                form_api.save_answer(
-                    form_models.Question.objects.get(pk=special_id_slug),
-                    new_document,
-                    user,
-                    dossier_number,
-                )
-
-            # BE-specific: assign same eBau number
-            if copy_type == "extend_validity":
-                CreateInstanceLogic.copy_ebau_number(source_instance, instance)
         else:  # pragma: no cover
-            raise ValidationError("Invalid copy type")
+            raise ValidationError(f"Invalid copy config type {type(config)}")
+
+        if instance_id_slug := config.instance_id_slug:
+            form_api.save_answer(
+                form_models.Question.objects.get(pk=instance_id_slug),
+                target_document,
+                user,
+                int(source_instance.pk),
+            )
+
+        if special_id_slug := config.special_id_slug:
+            dossier_number = caluma_api.get_dossier_number(source_instance)
+            form_api.save_answer(
+                form_models.Question.objects.get(pk=special_id_slug),
+                target_document,
+                user,
+                dossier_number,
+            )
+
+        # BE-specific: assign same eBau number for extend validity,
+        # either when doing a full copy of an extend validity instance or
+        # when doing an extend validity copy type.
+        if (
+            copy_type == "full" and caluma_api.is_extend_validity(source_instance)
+        ) or copy_type == "extend_validity":
+            CreateInstanceLogic.copy_ebau_number(source_instance, instance)
 
     @staticmethod
     def initialize_caluma(

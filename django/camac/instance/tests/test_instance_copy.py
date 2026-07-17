@@ -1,3 +1,5 @@
+from datetime import date
+
 import pytest
 from django.core.management import call_command
 from django.urls import reverse
@@ -7,6 +9,7 @@ from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Instance, InstanceState
 from camac.permissions.models import AccessLevel, InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.fixture
@@ -305,3 +308,137 @@ def test_copy_caluma_data_ag(
         .value
         == "2026-123"
     )
+
+
+@pytest.mark.django_db
+def test_copy_caluma_data_denylisted_gr(
+    gr_instance,
+    instance_with_case,
+    instance_factory,
+    gr_instance_copy_settings,
+    caluma_question_factory,
+    form_utils: FormUtils,
+):
+    target_instance = instance_with_case(instance_factory())
+
+    non_excluded_slug = "non-excluded-question"
+    non_excluded_date_slug = "non-excluded-date-question"
+    non_excluded_table_slug = "non-excluded-table-question"
+    excluded_slug = "excluded-question"
+    excluded_table_slug = "excluded-table-question"
+
+    gr_instance_copy_settings.ebbw_next_phase.exclude_questions.append(excluded_slug)
+    gr_instance_copy_settings.ebbw_next_phase.exclude_questions.append(
+        excluded_table_slug
+    )
+
+    form_utils.add_answer(
+        gr_instance.case.document, non_excluded_slug, "non-excluded-value"
+    )
+    form_utils.add_answer(
+        gr_instance.case.document, non_excluded_date_slug, date(2026, 7, 17)
+    )
+    form_utils.add_table_answer(
+        gr_instance.case.document,
+        non_excluded_table_slug,
+        [{"col1": "a", "col2": "b"}],
+    )
+    form_utils.add_answer(gr_instance.case.document, excluded_slug, "excluded-value")
+    form_utils.add_table_answer(
+        gr_instance.case.document,
+        excluded_table_slug,
+        [{"col1": "c", "col2": "d"}],
+    )
+    gr_instance.case.document.meta["copied-meta"] = True
+    gr_instance.case.document.save(update_fields=["meta"])
+
+    target_form = target_instance.case.document.form
+
+    CreateInstanceLogic.copy_caluma_data(
+        target_instance,
+        gr_instance,
+        copy_type="ebbw_next_phase",
+        is_modification=False,
+        user=None,
+        is_appeal=False,
+        is_rejected_appeal=False,
+        is_copy=False,
+    )
+
+    source_answers = gr_instance.case.document.flat_answer_map()
+    target_answers = target_instance.case.document.flat_answer_map()
+
+    # non-excluded answers should be equal for simple and table questions.
+    assert source_answers[non_excluded_slug] == target_answers[non_excluded_slug]
+    assert (
+        source_answers[non_excluded_date_slug] == target_answers[non_excluded_date_slug]
+    )
+    assert (
+        source_answers[non_excluded_table_slug]
+        == target_answers[non_excluded_table_slug]
+    )
+    # excluded answers should not be copied to the target instance
+    # for both simple and table questions.
+    assert excluded_slug not in target_answers
+    assert excluded_table_slug not in target_answers
+    assert target_instance.case.document.form == target_form
+    assert target_instance.case.document.source == gr_instance.case.document
+    assert target_instance.case.document.meta["copied-meta"] is True
+
+
+@pytest.mark.parametrize(
+    ("is_modification", "expect_confirmation_copied"),
+    [(True, False), (False, True)],
+)
+@pytest.mark.django_db
+def test_copy_caluma_data_excludes_confirmation_answers_be(
+    be_instance,
+    be_instance_copy_settings,
+    caluma_form_factory,
+    caluma_form_question_factory,
+    form_utils: FormUtils,
+    instance_factory,
+    instance_with_case,
+    is_modification,
+    expect_confirmation_copied,
+    set_application_be,
+):
+    target_instance = instance_with_case(instance_factory())
+
+    confirmation_answer = form_utils.add_answer(
+        be_instance.case.document,
+        "confirmation-answer",
+        "confirmation-value",
+    )
+    caluma_form_question_factory(
+        form=caluma_form_factory(slug="7-bestaetigung"),
+        question=confirmation_answer.question,
+    )
+
+    receipt_answer = form_utils.add_answer(
+        be_instance.case.document,
+        "receipt-answer",
+        "receipt-value",
+    )
+    caluma_form_question_factory(
+        form=caluma_form_factory(slug="8-freigabequittung"),
+        question=receipt_answer.question,
+    )
+
+    CreateInstanceLogic.copy_caluma_data(
+        target_instance,
+        be_instance,
+        copy_type="full",
+        is_modification=is_modification,
+        user=None,
+        is_appeal=False,
+        is_rejected_appeal=False,
+        is_copy=False,
+    )
+
+    copied_answers = target_instance.case.document.answers
+    assert (
+        copied_answers.filter(question_id="confirmation-answer").exists()
+        is expect_confirmation_copied
+    )
+    assert not copied_answers.filter(question_id="receipt-answer").exists()

@@ -3020,6 +3020,90 @@ def test_create_instance_from_modification(
     assert new_instance.copy_source == be_instance
 
 
+@pytest.mark.parametrize(
+    ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
+)
+@pytest.mark.parametrize(
+    ("has_permission", "expected_response"),
+    [
+        (True, status.HTTP_201_CREATED),
+        (False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+@pytest.mark.django_db
+def test_create_instance_for_ebbw_next_phase_gr(
+    admin_client,
+    admin_user,
+    gr_instance,
+    role,
+    instance_state_factory,
+    has_permission,
+    expected_response,
+    gr_permissions_settings,
+    gr_access_levels,
+    gr_dms_settings,
+    gr_instance_copy_settings,
+    mock_generate_and_store_pdf,
+    mocker,
+    set_application_gr,
+):
+    instance_state_factory(name="new")
+    permissions_api.grant(
+        gr_instance,
+        grant_type=permissions_api.GRANT_CHOICES.USER.value,
+        access_level="applicant",
+        user=admin_user,
+    )
+
+    # mock services
+    mocker.patch(
+        "camac.permissions.api.PermissionManager.has_all"
+    ).return_value = has_permission
+    client = mocker.patch(
+        "camac.instance.document_merge_service.DMSClient"
+    ).return_value
+    client.merge.return_value = b"some binary data"
+
+    # prepare test case for next phase form creation.
+    next_form_clone = caluma_form_models.Form.objects.get(
+        pk=gr_instance.case.document.form.pk
+    )
+    next_form_clone.pk = "main-form-next-step"
+    next_form_clone._state.adding = True
+    next_form_clone.save(force_insert=True)
+    gr_instance.case.document.form.meta["next-phase-form"] = next_form_clone.pk
+    gr_instance.case.document.form.save(update_fields=["meta"])
+    gr_dms_settings["FORM"]["baubeitragswesen"] = {
+        "forms": [next_form_clone.pk],
+        "template": "form",
+        "personalien": "personalien",
+        "exclude_slugs": [],
+    }
+
+    # perform next phase creation request.
+    response = admin_client.post(
+        reverse("instance-list"),
+        {
+            "data": {
+                "type": "instances",
+                "attributes": {
+                    "copy-source": str(gr_instance.pk),
+                    "copy-type": "ebbw_next_phase",
+                },
+            }
+        },
+    )
+    assert response.status_code == expected_response
+
+    if expected_response == status.HTTP_201_CREATED:
+        new_instance = Instance.objects.get(pk=response.json()["data"]["id"])
+
+        assert new_instance.copy_source == gr_instance
+
+        assert gr_instance.case.document.form_id == "main-form"
+        assert new_instance.case.document.form_id == "main-form-next-step"
+
+
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.django_db
 def test_filter_decision_date(
@@ -3825,6 +3909,11 @@ def test_request_demolition_payment(
     )
 
     assert response.status_code == expected_status
+    if not is_correct_form:
+        assert response.json()["errors"][0]["detail"] == (
+            "'demolition_payment' copy is only allowed for "
+            "'auszahlung-abbruchpraemie' form"
+        )
     if response.status_code == status.HTTP_201_CREATED:
         new_instance = Instance.objects.get(pk=response.json()["data"]["id"])
         assert new_instance.copy_source == ag_instance
