@@ -78,7 +78,6 @@ services:
       DJANGO_EMAIL_HOST: mailpit
       DJANGO_EMAIL_PORT: 1025
       DJANGO_MEDIA_ROOT: /var/lib/camac/media
-      DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
       ENABLE_HISTORICAL_API: "true"
       ENV: development
