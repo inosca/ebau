@@ -3540,7 +3540,7 @@ def celery_fake_worker(celery_app, mocker):  # noqa: C901
                 task = task_queue.pop()
                 task.run(raise_errors=raise_errors)
 
-        def inject_task(self, the_task):
+        def inject_task(self, the_task):  # pragma: no cover
             """Allow test code to inject fake task objects.
 
             The task objects *should* resemble a Celery AsyncResult object,

@@ -69,18 +69,6 @@ class DossierImportView(ModelViewSet):
             )
         return super().destroy(request, *args, **kwargs)
 
-    def retrieve(self, request, *args, **kwargs):
-        obj = self.get_object()
-        if obj.status not in [
-            obj.Status.NEW,
-            obj.Status.IMPORT_IN_PROGRESS,
-            obj.Status.UNDO_IN_PROGRESS,
-        ]:
-            return super().retrieve(request, *args, **kwargs)
-        # update the import's status only if a change is expected from a queued task
-        obj.update_async_status()
-        return super().retrieve(request, *args, **kwargs)
-
     @action(methods=["POST"], url_path="start", detail=True)
     def start(self, request, pk=None):
         dossier_import = self.get_object()

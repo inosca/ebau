@@ -4,7 +4,6 @@ import shutil
 import zipfile
 from pathlib import Path
 
-import celery.result
 import uuid_extensions
 from django.db import models
 
@@ -115,45 +114,25 @@ class DossierImport(models.Model):
         self.delete_file()
         return super().delete(*args, **kwargs)
 
-    def update_async_status(self):
-        # check whether task is finished or queued
-        if not self.task_id:
-            # if the status is progressing but no task id available assume failure:
-            self.status = self.set_progressing_to_failed()
-            self.save()
-            return self.status
+    def set_progressing_to_failed(self) -> None:
+        """Set the status to the failed one matching the currently running one.
 
-        result = celery.result.AsyncResult(self.task_id)
-        if result.state in ["PENDING", "STARTED"]:
-            return self.Status.IMPORT_IN_PROGRESS
-        elif result.state in ["FAILED", "REVOKED", "FAILURE"]:
-            try:
-                self.status = self.set_progressing_to_failed()
-                self.messages["import"]["summary"]["error"].append(str(result.result))
-            finally:
-                self.save()
-        elif result.state == "SUCCESS":
-            # celery task is completed
-            self.status = self.set_progressing_to_success()
-            self.save()
-
-        return self.status
-
-    def set_progressing_to_failed(self):
-        # the import has a failed status for every async progressing status
-        return {
+        Every status that runs in the background has a failed counterpart to
+        fall back to when that run turns out to have died. An import that isn't
+        running in the background is left untouched, as there is nothing to fall
+        back from.
+        """
+        failed_status = {
             self.Status.IMPORT_IN_PROGRESS: self.Status.IMPORT_FAILED,
             self.Status.UNDO_IN_PROGRESS: self.Status.UNDO_FAILED,
             self.Status.TRANSMITTING: self.Status.TRANSMISSION_FAILED,
-        }.get(self.status, self.status)
+        }
 
-    def set_progressing_to_success(self):
-        # the import has a succeeded status for every async progressing status
-        return {
-            self.Status.IMPORT_IN_PROGRESS: self.Status.IMPORTED,
-            self.Status.UNDO_IN_PROGRESS: self.Status.UNDONE,
-            self.Status.TRANSMITTING: self.Status.TRANSMITTED,
-        }.get(self.status, self.status)
+        if self.status not in failed_status:
+            return
+
+        self.status = failed_status[self.status]
+        self.save()
 
     def get_archive(self):
         # Read into an in-memory buffer so the returned ZipFile owns a seekable
