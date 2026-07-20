@@ -58,10 +58,9 @@ def dispatch_task(task: DjangoTask, dossier_import: DossierImport) -> str:
     dispatches later and therefore can't return an `AsyncResult` to take it
     from.
 
-    The task is routed to the queue configured in
-    `DOSSIER_IMPORT["CELERY_QUEUE"]`, a dedicated queue with its own worker, so
-    that the long running imports don't occupy the workers of the default queue.
-    Cantons that don't configure a queue fall back to celery's default one.
+    The import tasks are routed to a dedicated `import` queue with its own
+    worker via `CELERY_TASK_ROUTES` (see the celery settings), so that the long
+    running imports don't occupy the workers of the default queue.
 
     Args:
         task: The task to dispatch.
@@ -75,7 +74,6 @@ def dispatch_task(task: DjangoTask, dossier_import: DossierImport) -> str:
     task.apply_async_on_commit(
         kwargs={"dossier_import_id": str(dossier_import.pk)},
         task_id=task_id,
-        queue=settings.DOSSIER_IMPORT.get("CELERY_QUEUE"),
     )
 
     return task_id

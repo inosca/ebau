@@ -3143,6 +3143,30 @@ CELERY_TASK_SOFT_TIME_LIMIT = env.int("CELERY_TASK_SOFT_TIME_LIMIT", default=60)
 # if unspecified, celery starts one worker process per CPU.
 CELERY_WORKER_CONCURRENCY = env.int("CELERY_WORKER_CONCURRENCY", default=None)
 
+# Celery task routing. Specialized tasks get their own queue so a deployment can
+# run dedicated workers for them (with their own concurrency and time limits)
+# instead of occupying the default queue's workers.
+# By default one worker listens to all queues (see `CELERY_QUEUE` in
+# `entrypoint.sh`), so tasks are never stranded. Deployments that want isolation
+# start extra workers each pinned to a single queue (see `compose/kt_so-dev.yml`
+# for example).
+#
+# Explicitly route `update_orphaned_imports` to the default queue: it detects
+# imports whose worker died, so it must not sit behind an in-progress import on
+# the single-worker `import` queue. Exact task names take precedence over glob
+# patterns (celery's MapRoute), so it stays on the default queue despite the
+# glob below.
+#
+# WARNING: If you add a new queue in here, make sure to adjust the fallback
+# queues in the entrypoint. Also, deployments using isolated workers need to
+# either spawn a new worker or configure an existing worker to also handle the
+# new queue.
+CELERY_TASK_ROUTES = {
+    "camac.dossier_import.domain_logic.update_orphaned_imports": {"queue": "celery"},
+    "camac.dossier_import.domain_logic.*": {"queue": "import"},
+    "alexandria.core.tasks.set_content_vector": {"queue": "tika"},
+}
+
 # Factories from external apps
 EXTERNAL_FACTORY_MODULES = [
     # Path to the factory module, alias for that module used in the generated file, factory class prefix

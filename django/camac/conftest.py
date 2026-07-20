@@ -3455,15 +3455,15 @@ def mock_celery(mocker):
     mocker.patch("django.db.transaction.on_commit", side_effect=lambda f: f())
     mocker.patch(
         "alexandria.core.tasks.set_checksum.apply_async",
-        side_effect=lambda args, queue: alexandria_tasks.set_checksum(*args),
+        side_effect=lambda args, **kwargs: alexandria_tasks.set_checksum(*args),
     )
     mocker.patch(
         "alexandria.core.tasks.set_content_vector.apply_async",
-        side_effect=lambda args, queue: alexandria_tasks.set_content_vector(*args),
+        side_effect=lambda args, **kwargs: alexandria_tasks.set_content_vector(*args),
     )
     mocker.patch(
         "alexandria.core.tasks.create_thumbnail.apply_async",
-        side_effect=lambda args, queue: alexandria_tasks.create_thumbnail(*args),
+        side_effect=lambda args, **kwargs: alexandria_tasks.create_thumbnail(*args),
     )
 
 
