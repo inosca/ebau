@@ -180,13 +180,13 @@
     "pk": "entscheid-entscheid-plangenehmigung-erteilt",
     "fields": {
       "created_at": "2025-05-02T08:47:56.301Z",
-      "modified_at": "2025-05-02T08:49:55.768Z",
+      "modified_at": "2026-07-16T08:08:31.705Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Plangenehmigung erteilt\", \"fr\": null, \"it\": null}",
-      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\"  in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
