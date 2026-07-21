@@ -30,10 +30,10 @@
                         </div>
                         <form id="kc-form-login" class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                             <h1>Anmeldung</h1>
-                            <div class="${properties.kcFormGroupClass!}">
+                            <div class="${properties.kcFormGroupClass!} uk-flex-column">
                                 <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
 
-                                <div class="uk-form-controls">
+                                <div>
                                     <#if usernameEditDisabled??>
                                         <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
                                     <#else>
@@ -42,14 +42,14 @@
                                 </div>
                             </div>
 
-                            <div class="${properties.kcFormGroupClass!}">
+                            <div class="${properties.kcFormGroupClass!} uk-flex-column">
                                 <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
-                                <div class="uk-form-controls">
+                                <div>
                                     <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off" />
                                 </div>
                             </div>
 
-                            <div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
+                            <div class="${properties.kcFormGroupClass!} uk-flex uk-flex-column uk-flex-between uk-flex-left">
                                 <div id="kc-form-options">
                                     <#if realm.rememberMe && !usernameEditDisabled??>
                                         <div class="checkbox">
@@ -72,7 +72,7 @@
 
                                 <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
                                     <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
-                                    <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                                    <input tabindex="4" class="${properties.kcButtonClass!} uk-button-primary ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
                                 </div>
                             </div>
                             <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
