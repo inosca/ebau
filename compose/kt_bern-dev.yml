@@ -102,7 +102,6 @@ services:
       ALEXANDRIA_MANABI_DAV_URL_PATH: /webdav
       TIKA_SERVER_ENDPOINT: "http://tika:9998"
       CELERY_RDB_HOST: redis
-      CELERY_WORKER_CONCURRENCY: 1
       DJANGO_DEFAULT_FILE_STORAGE: django.core.files.storage.FileSystemStorage
     env_file:
       - ../garage/compose-env/dev-ebau.conf

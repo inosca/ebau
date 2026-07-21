@@ -76,7 +76,6 @@ services:
       ALEXANDRIA_MANABI_DAV_URL_PATH: /webdav
       TIKA_SERVER_ENDPOINT: http://tika:9998
       CELERY_RDB_HOST: valkey
-      CELERY_WORKER_CONCURRENCY: 2
       REDIS_HOST: valkey
       REDIS_USER: default
       REDIS_PASSWORD: valkey
