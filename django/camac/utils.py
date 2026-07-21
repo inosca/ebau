@@ -391,6 +391,11 @@ def send_only_for_einfache_anfrage(work_item) -> bool:
     return work_item.case.document.form.slug == "einfache-anfrage"
 
 
+def not_send_for_migrated_publications(work_item) -> bool:
+    # UR: Check if the work-item was not created in the publication migration.
+    return not work_item.case.meta.get("migrated-publication", False)
+
+
 def retry(fn, number_of_tries=2, sleep_between_tries=0):
     """Retry the given function a given amount of times.
 

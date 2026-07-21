@@ -40,6 +40,7 @@ from camac.settings.modules.caluma_simple_workflow_schema import (
 )
 from camac.tests.form_utils import FormUtils
 from camac.utils import (
+    not_send_for_migrated_publications,
     send_only_for_einfache_anfrage,
     should_notify_on_manual_workitems,
 )
@@ -1583,6 +1584,43 @@ def test_post_complete_simple_workflow_for_einfache_anfrage(
 
 
 @pytest.mark.django_db
+def test_no_notifications_for_migrated_publications(
+    application_settings,
+    ur_instance,
+    caluma_document_factory,
+    caluma_work_item_factory,
+    mocker,
+):
+    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {
+        "fill-publication": [
+            {
+                "event": "completed",
+                "notification": {
+                    "template_slug": "9-nachricht-an-amtsblatt",
+                    "recipient_types": ["amtsblatt_uri"],
+                },
+                "condition": lambda work_item: not_send_for_migrated_publications(
+                    work_item
+                ),
+            },
+        ],
+    }
+    ur_instance.case.meta["migrated-publication"] = True
+    work_item = caluma_work_item_factory(
+        task_id="fill-publication",
+        document=caluma_document_factory(),
+        case=ur_instance.case,
+    )
+    send_notification_mock = mocker.patch(
+        "camac.caluma.extensions.events.simple_workflow.send_notification"
+    )
+
+    post_complete_simple_workflow(
+        sender=None, work_item=work_item, user=None, context={}
+    )
+    send_notification_mock.assert_not_called()
+
+
 def test_complete_rejection_work_item(
     caluma_admin_user,
     set_application_ur,

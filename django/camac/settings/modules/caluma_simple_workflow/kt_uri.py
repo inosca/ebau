@@ -4,6 +4,7 @@ from camac.settings.modules.caluma_simple_workflow_schema import (
     NotificationConfig,
 )
 from camac.utils import (
+    not_send_for_migrated_publications,
     send_only_for_einfache_anfrage,
 )
 
@@ -425,6 +426,9 @@ UR_CALUMA_SIMPLE_WORKFLOW_SETTINGS = CalumaSimpleWorkflowConfig(
         "fill-publication": {
             "completed": [
                 EventConfig(
+                    condition=lambda work_item: not_send_for_migrated_publications(
+                        work_item
+                    ),
                     notifications=[
                         NotificationConfig(
                             template_slug="9-nachricht-an-amtsblatt",
