@@ -16,26 +16,10 @@
       "request": "attach",
       "connect": {
         "host": "localhost",
-        "port": 5678
+        "port": "${input:djangoDebugPort}"
       },
       "justMyCode": false,
       "django": true,
-      "pathMappings": [
-        {
-          "localRoot": "${workspaceFolder}/django",
-          "remoteRoot": "."
-        }
-      ]
-    },
-    {
-      "name": "Celery",
-      "type": "debugpy",
-      "request": "attach",
-      "connect": {
-        "host": "localhost",
-        "port": 5679
-      },
-      "justMyCode": false,
       "pathMappings": [
         {
           "localRoot": "${workspaceFolder}/django",
@@ -62,6 +46,20 @@
       "sourceMapPathOverrides": {
         "camac-ng/*": "${workspaceFolder}/ember-camac-ng/app/*"
       }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "djangoDebugPort",
+      "type": "pickString",
+      "description": "Which process to attach to?",
+      "default": "5678",
+      "options": [
+        { "label": "API", "value": "5678" },
+        { "label": "Celery (default queue)", "value": "5679" },
+        { "label": "Celery (import queue)", "value": "5680" },
+        { "label": "Celery (tika queue)", "value": "5681" }
+      ]
     }
   ]
 }

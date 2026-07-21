@@ -147,7 +147,9 @@ services:
       <<: *django_env
       CELERY_QUEUE: import
       CELERY_WORKER_CONCURRENCY: 1
-    ports: []
+      CELERY_DEBUGPY_PORT: 5680
+    ports:
+      - "5680:5680" # debugpy
     command: celerydev
 
   celery-tika:
@@ -163,7 +165,9 @@ services:
       <<: *django_env
       CELERY_QUEUE: tika
       CELERY_WORKER_CONCURRENCY: 1
-    ports: []
+      CELERY_DEBUGPY_PORT: 5681
+    ports:
+      - "5681:5681" # debugpy
     command: celerydev
 
   celery-beat:

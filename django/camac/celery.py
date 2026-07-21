@@ -1,3 +1,4 @@
+import contextlib
 import os
 
 from celery import Celery
@@ -16,10 +17,16 @@ def _start_debugpy(**_):  # pragma: no cover
     if not os.environ.get("ENABLE_PTVSD_DEBUGGER") or not settings.DEBUG:
         return
 
+    # Silence pydevd's "frozen modules" warning emitted on every worker process.
+    os.environ.setdefault("PYDEVD_DISABLE_FILE_VALIDATION", "1")
+
     import debugpy
 
-    debugpy.listen(("0.0.0.0", 5679))
-    print("Attached remote debugger for VSCode (celery) on port 5679")
+    port = int(os.environ.get("CELERY_DEBUGPY_PORT", 5679))
+
+    with contextlib.suppress(OSError, RuntimeError):
+        debugpy.listen(("0.0.0.0", port))
+        print(f"Attached remote debugger for VSCode (celery) on port {port}")
 
 
 # Using a string here means the worker doesn't have to serialize
