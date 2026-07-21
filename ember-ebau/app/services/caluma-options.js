@@ -461,10 +461,9 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       const customServiceGroupDeadline =
         mainConfig.customDeadlineServiceGroupDefaultDeadline ?? null;
 
-      // if there is a config to override the default deadline for specific service groups,
-      // check if any of the selected groups is included and return the corresponding deadline.
-      // when multiple groups are selected, we ignore this behavior.
-      if (customServiceGroupDeadline && selectedGroups.length === 1) {
+      // If custom deadlines are configured for specific service groups, apply
+      // the override only when all selected services belong to the same group.
+      if (customServiceGroupDeadline) {
         const customServiceGroupSlugs =
           mainConfig.customDeadlineServiceGroupSlugs ?? [];
 
@@ -487,22 +486,26 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         )
           .filter(Boolean)
           .map((serviceGroup) => serviceGroup.slug);
+        const uniqueSelectedServiceGroups = new Set(selectedServiceGroups);
 
-        // find any selected group included in the deadline overrides.
-        const includedSpecialServiceGroup = selectedServiceGroups.find((slug) =>
-          customServiceGroupSlugs.includes(slug),
-        );
+        if (uniqueSelectedServiceGroups.size === 1) {
+          const [selectedServiceGroup] = uniqueSelectedServiceGroups;
+          const includedSpecialServiceGroup = customServiceGroupSlugs.includes(
+            selectedServiceGroup,
+          )
+            ? selectedServiceGroup
+            : null;
 
-        // when found, recalculate the deadline with the override.
-        if (
-          includedSpecialServiceGroup &&
-          customServiceGroupDeadline[includedSpecialServiceGroup]
-        ) {
-          return DateTime.now()
-            .plus({
-              days: customServiceGroupDeadline[includedSpecialServiceGroup],
-            })
-            .toISODate();
+          if (
+            includedSpecialServiceGroup &&
+            customServiceGroupDeadline[includedSpecialServiceGroup]
+          ) {
+            return DateTime.now()
+              .plus({
+                days: customServiceGroupDeadline[includedSpecialServiceGroup],
+              })
+              .toISODate();
+          }
         }
       }
 
