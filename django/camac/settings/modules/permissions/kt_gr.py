@@ -1,4 +1,12 @@
-from camac.constants.kt_gr import ARE_SERVICE_GROUP, BAUGESUCH_FORMS, SOLARANLAGE_FORMS
+from camac.constants.kt_gr import (
+    ARE_SERVICE_GROUP,
+    BAUBEITRAGSWESEN_FORM_INVESTITIONSANMELDUNG,
+    BAUBEITRAGSWESEN_FORM_PHASE_1,
+    BAUBEITRAGSWESEN_FORM_PHASE_2,
+    BAUBEITRAGSWESEN_FORM_TEILZAHLUNGEN,
+    BAUGESUCH_FORMS,
+    SOLARANLAGE_FORMS,
+)
 from camac.permissions.conditions import (
     Always,
     HasAdditionalDemandWithFormEdit,
@@ -36,6 +44,14 @@ STATES_POST_DECISION = RequireInstanceState(
 
 # Form rules
 FORMS_ONLY_BUILDING_PERMIT = IsForm([*BAUGESUCH_FORMS, *SOLARANLAGE_FORMS])
+FORMS_ONLY_BAUBEITRAGSWESEN_UNTIL_LAST_PHASE = IsForm(
+    [
+        BAUBEITRAGSWESEN_FORM_INVESTITIONSANMELDUNG,
+        BAUBEITRAGSWESEN_FORM_PHASE_1,
+        BAUBEITRAGSWESEN_FORM_PHASE_2,
+        BAUBEITRAGSWESEN_FORM_TEILZAHLUNGEN,
+    ]
+)
 
 # Role rules
 ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
@@ -169,6 +185,12 @@ ACTION_INSTANCE_CREATE_MODIFICATION = (
         | RequireWorkItem("init-construction-monitoring")
     )
 ) | (ROLES_MUNICIPALITY & IsPaper())
+ACTION_INSTANCE_CREATE_NEXT_PHASE = (
+    HasApplicantRole(["ADMIN"])
+    & STATES_POST_DECISION
+    & FORMS_ONLY_BAUBEITRAGSWESEN_UNTIL_LAST_PHASE
+) | (ROLES_MUNICIPALITY & IsPaper())
+
 ACTION_INSTANCE_CREATE_ADDITIONAL_DEMAND = (
     MODULE_ADDITIONAL_DEMANDS
     & RequireInstanceState(["subm", "init-distribution", "circulation", "decision"])
@@ -229,6 +251,7 @@ GR_PERMISSIONS_SETTINGS = {
                 MODULE_PORTAL_FORM_WRITE | MODULE_PORTAL_ADDITIONAL_DEMAND_CHANGES,
             ),
             ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
+            ("instance-request-ebbw-next-phase", ACTION_INSTANCE_CREATE_NEXT_PHASE),
             ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             (
@@ -319,6 +342,7 @@ GR_PERMISSIONS_SETTINGS = {
             ),
             ("history-read", MODULE_HISTORY),
             ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
+            ("instance-request-ebbw-next-phase", ACTION_INSTANCE_CREATE_NEXT_PHASE),
             ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             (
