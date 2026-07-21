@@ -77,7 +77,6 @@ services:
       DEADLINES_ENABLED: true
       # Alexandria
       TIKA_SERVER_ENDPOINT: http://tika:9998
-      ALEXANDRIA_CONTENT_SEARCH_CELERY_QUEUE: tika
       # GWR
       GWR_FERNET_KEY: GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       GWR_HOUSING_STAT_BASE_URI: https://www-r.housing-stat.ch/regbl/api/ech0216/2
