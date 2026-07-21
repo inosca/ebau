@@ -147,7 +147,6 @@ services:
       <<: *django_env
       CELERY_QUEUE: import
       CELERY_WORKER_CONCURRENCY: 1
-      CELERY_TASK_SOFT_TIME_LIMIT: 43200 # 12hours
     ports: []
     command: celerydev
 
@@ -164,7 +163,6 @@ services:
       <<: *django_env
       CELERY_QUEUE: tika
       CELERY_WORKER_CONCURRENCY: 1
-      CELERY_TASK_SOFT_TIME_LIMIT: 300 # 5min
     ports: []
     command: celerydev
 

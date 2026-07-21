@@ -13,6 +13,12 @@ DOSSIER_IMPORT = {
         "RESOURCE_ID_PATH": "/dossier-import",
         "DELETE_KEYWORD": "<LÖSCHEN>",
         "ALEXANDRIA_UPDATE_EXISTING_DOCUMENTS": True,
+        "SOFT_TIME_LIMITS": {
+            # 6 hours
+            "IMPORT": env.int("DJANGO_DOSSIER_IMPORT_IMPORT_STL", default=60 * 60 * 6),
+            # 2 hours
+            "UNDO": env.int("DJANGO_DOSSIER_IMPORT_UNDO_STL", default=60 * 60 * 2),
+        },
     },
     "kt_schwyz": {
         "ENABLED": True,

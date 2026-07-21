@@ -3504,13 +3504,15 @@ if timeout := CELERY_BROKER_TRANSPORT_OPTIONS.get(
 ):  # pragma: no cover
     CELERY_BROKER_TRANSPORT_OPTIONS["visibility_timeout"] = float(timeout)
 
-CELERY_TASK_SOFT_TIME_LIMIT = env.int("CELERY_TASK_SOFT_TIME_LIMIT", default=60)
+CELERY_TASK_SOFT_TIME_LIMIT = env.int("CELERY_TASK_SOFT_TIME_LIMIT", default=120)
 # if unspecified, celery starts one worker process per CPU.
 CELERY_WORKER_CONCURRENCY = env.int("CELERY_WORKER_CONCURRENCY", default=None)
 
 # Celery task routing. Specialized tasks get their own queue so a deployment can
-# run dedicated workers for them (with their own concurrency and time limits)
-# instead of occupying the default queue's workers.
+# run dedicated workers for them (with their own concurrency) instead of
+# occupying the default queue's workers. Long running tasks carry their own
+# `soft_time_limit` (see e.g. the dossier import tasks), so the limit no longer
+# depends on which worker consumes the queue.
 # By default one worker listens to all queues (see `CELERY_QUEUE` in
 # `entrypoint.sh`), so tasks are never stranded. Deployments that want isolation
 # start extra workers each pinned to a single queue (see `compose/kt_so-dev.yml`

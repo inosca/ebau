@@ -37,7 +37,7 @@ from camac.dossier_import.utils import get_token_for_transmission
 from camac.instance.models import Instance
 from camac.tags.models import Keyword
 from camac.user.models import User
-from camac.utils import build_url
+from camac.utils import build_url, get_dict_item
 
 if TYPE_CHECKING:
     from camac.dossier_import.writers import DossierWriter
@@ -127,7 +127,11 @@ def schedule_transmission(dossier_import: DossierImport) -> str:
     return task_id
 
 
-@shared_task()
+@shared_task(
+    soft_time_limit=get_dict_item(
+        settings.DOSSIER_IMPORT, "SOFT_TIME_LIMITS.IMPORT", default=None
+    )
+)
 def perform_import(dossier_import_id: str) -> DossierImport.Status:
     """Import every dossier contained in the uploaded archive.
 
@@ -266,7 +270,11 @@ def transmit_import(dossier_import_id: str) -> DossierImport.Status:
     return dossier_import.status
 
 
-@shared_task()
+@shared_task(
+    soft_time_limit=get_dict_item(
+        settings.DOSSIER_IMPORT, "SOFT_TIME_LIMITS.UNDO", default=None
+    )
+)
 def undo_import(dossier_import_id: str) -> DossierImport.Status:
     """Remove every instance, document and case created by an import.
 
