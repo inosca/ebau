@@ -97,18 +97,26 @@ def test_copy_attachments_camac_ng(
 
 
 @pytest.mark.parametrize(
-    ("application_short_name", "caluma_workflow_config", "args", "expected_copies"),
+    (
+        "application_short_name",
+        "caluma_workflow_config",
+        "alexandria_config",
+        "args",
+        "expected_copies",
+    ),
     [
         # default/SO with alexandria attachments
         (
             "so",
             lf("caluma_workflow_config_so"),
+            lf("so_alexandria_settings"),
             {"skip_exported_form_attachment": False, "is_modification": False},
             3,
         ),
         (
             "so",
             lf("caluma_workflow_config_so"),
+            lf("so_alexandria_settings"),
             {"skip_exported_form_attachment": True, "is_modification": False},
             2,
         ),
@@ -116,12 +124,14 @@ def test_copy_attachments_camac_ng(
         (
             "gr",
             lf("caluma_workflow_config_gr"),
+            lf("gr_alexandria_settings"),
             {"skip_exported_form_attachment": True, "is_modification": False},
             2,
         ),
         (
             "gr",
             lf("caluma_workflow_config_gr"),
+            lf("gr_alexandria_settings"),
             {"skip_exported_form_attachment": False, "is_modification": True},
             0,
         ),
@@ -133,6 +143,7 @@ def test_copy_attachments_alexandria(
     application_settings,
     instance_with_case,
     caluma_workflow_config,
+    alexandria_config,
     application_short_name,
     args,
     expected_copies,

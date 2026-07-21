@@ -22,6 +22,7 @@ ALEXANDRIA = {
         },
         "TAG_VISIBILITY": "all",
         "INSTANCE_COPY_CATEGORIES": ["beilagen-zum-gesuch", "nachforderung"],
+        "INSTANCE_COPY_ON_MODIFICATION": True,
         "PERMISSIONS_CONFIG": {},
         "USE_V2_PERMISSIONS": False,
         "V2_BASE_PERMISSION": "documents-write",
@@ -56,6 +57,7 @@ ALEXANDRIA = {
             "SERVICE_GROUP_MAPPING": {"authority-bab": "are"},
         },
         "INSTANCE_COPY_CATEGORIES": ["beilagen-zum-gesuch", "nachforderung", "system"],
+        "INSTANCE_COPY_ON_MODIFICATION": False,
         "USE_V2_PERMISSIONS": True,
     },
     "kt_so": {

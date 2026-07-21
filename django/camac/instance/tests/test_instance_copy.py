@@ -307,11 +307,7 @@ def test_copy_caluma_data_ag(
         target_instance,
         ag_instance,
         copy_type="demolition_payment",
-        is_modification=False,
         user=None,
-        is_appeal=False,
-        is_rejected_appeal=False,
-        is_copy=False,
     )
     assert (
         target_instance.case.document.answers.filter(question_id=question_slug)
@@ -373,11 +369,7 @@ def test_copy_caluma_data_denylisted_gr(
         target_instance,
         gr_instance,
         copy_type="ebbw_next_phase",
-        is_modification=False,
         user=None,
-        is_appeal=False,
-        is_rejected_appeal=False,
-        is_copy=False,
     )
 
     source_answers = gr_instance.case.document.flat_answer_map()
@@ -443,12 +435,8 @@ def test_copy_caluma_data_excludes_confirmation_answers_be(
     CreateInstanceLogic.copy_caluma_data(
         target_instance,
         be_instance,
-        copy_type="full",
-        is_modification=is_modification,
+        copy_type="full" if not is_modification else "full_without_confirmation",
         user=None,
-        is_appeal=False,
-        is_rejected_appeal=False,
-        is_copy=False,
     )
 
     copied_answers = target_instance.case.document.answers
