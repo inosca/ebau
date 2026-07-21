@@ -379,7 +379,7 @@
               'type': 'MultipleChoiceQuestion',
             }),
             dict({
-              'label': 'Beschreibung',
+              'label': 'Beschreibung (kurz und stichwortartig verfassen)',
               'slug': 'beschreibung-bauvorhaben',
               'type': 'TextareaQuestion',
               'value': 'Testanfrage',
