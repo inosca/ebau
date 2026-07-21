@@ -40,6 +40,21 @@ run_gunicorn() {
     camac.wsgi_gunicorn
 }
 
+run_celery() {
+  wait-for-it "${REDIS_HOST:-redis}:${REDIS_PORT:-6379}"
+
+  # Pass "--dev" as the first argument to auto-restart the worker on code
+  # changes.
+  wrapper=""
+  if [ "${1:-}" = "--dev" ]; then
+    wrapper="watchmedo auto-restart -d . --recursive -p *.py --"
+  fi
+
+  exec $wrapper celery -A camac worker -l INFO -E -O fair \
+    -n "${CELERY_QUEUE:-celery}@%h" \
+    -Q "${CELERY_QUEUE:-celery,import,tika}"
+}
+
 # Default command (from Dockerfile) is "uwsgi". This implies production mode
 # and we only load config in prod mode.
 if [ "$#" -lt 1 ]; then
@@ -100,12 +115,10 @@ case "$1" in
     run_gunicorn
     ;;
   celery )
-    wait-for-it ${REDIS_HOST:-redis}:${REDIS_PORT:-6379}
-    celery -A camac worker -l INFO -E -O fair -Q "${CELERY_QUEUE:-celery,import,tika}";
+    run_celery
     ;;
   celerydev )
-    wait-for-it ${REDIS_HOST:-redis}:${REDIS_PORT:-6379}
-    watchmedo auto-restart -d . --recursive -p '*.py' -- celery -A camac worker -l INFO -E -O fair -Q "${CELERY_QUEUE:-celery,import,tika}";
+    run_celery --dev
     ;;
   celery-beat)
     exec celery -A camac beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler

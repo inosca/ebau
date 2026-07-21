@@ -211,21 +211,25 @@ services:
   celery-import:
     <<: *django
     image: acr.run/camac-ng/camac-ng/django:master
-    ports: []
     environment:
       <<: *django_env
       CELERY_QUEUE: import
       CELERY_WORKER_CONCURRENCY: 1
+      CELERY_DEBUGPY_PORT: 5680
+    ports:
+      - "5680:5680" # debugpy
     command: celerydev
 
   celery-tika:
     <<: *django
     image: acr.run/camac-ng/camac-ng/django:master
-    ports: []
     environment:
       <<: *django_env
       CELERY_QUEUE: tika
       CELERY_WORKER_CONCURRENCY: 1
+      CELERY_DEBUGPY_PORT: 5681
+    ports:
+      - "5681:5681" # debugpy
     command: celerydev
 
   celery-beat:
