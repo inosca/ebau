@@ -84,8 +84,6 @@ services:
       GR_GIS_BASE_URL: https://wps-test.geo.gr.ch
       # celery
       CELERY_RDB_HOST: 0.0.0.0. # to be able to telnet from outside the container
-      CELERY_WORKER_CONCURRENCY: 1
-      CELERY_TASK_SOFT_TIME_LIMIT: 43200 # 12hours
       PYTHONUNBUFFERED: 1
       FORMAT_VALIDATOR_CLASSES: camac.caluma.extensions.format_validators.EEBADeclarationFormatValidator,camac.caluma.extensions.format_validators.DateAfterValidator
     env_file:
@@ -208,7 +206,6 @@ services:
       <<: *django_env
       CELERY_QUEUE: celery
       CELERY_WORKER_CONCURRENCY: 2
-      CELERY_TASK_SOFT_TIME_LIMIT: 120 # 2min
     command: celerydev
 
   celery-import:
@@ -219,7 +216,6 @@ services:
       <<: *django_env
       CELERY_QUEUE: import
       CELERY_WORKER_CONCURRENCY: 1
-      CELERY_TASK_SOFT_TIME_LIMIT: 43200 # 12hours
     command: celerydev
 
   celery-tika:
@@ -230,7 +226,6 @@ services:
       <<: *django_env
       CELERY_QUEUE: tika
       CELERY_WORKER_CONCURRENCY: 1
-      CELERY_TASK_SOFT_TIME_LIMIT: 300 # 5min
     command: celerydev
 
   celery-beat:

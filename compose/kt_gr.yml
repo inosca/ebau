@@ -118,7 +118,6 @@ services:
       <<: *django_env
       CELERY_QUEUE: celery
       CELERY_WORKER_CONCURRENCY: 2
-      CELERY_TASK_SOFT_TIME_LIMIT: 120 # 2min
     command: celery
 
   celery-import:
@@ -127,7 +126,6 @@ services:
       <<: *django_env
       CELERY_QUEUE: import
       CELERY_WORKER_CONCURRENCY: 1
-      CELERY_TASK_SOFT_TIME_LIMIT: 43200 # 12hours
     command: celery
 
   celery-tika:
@@ -136,7 +134,6 @@ services:
       <<: *django_env
       CELERY_QUEUE: tika
       CELERY_WORKER_CONCURRENCY: 1
-      CELERY_TASK_SOFT_TIME_LIMIT: 300 # 5min
     command: celery
 
   celery-beat:
