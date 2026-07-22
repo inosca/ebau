@@ -194,7 +194,7 @@ class ServiceView(MultilangMixin, ModelViewSet):
             geometer_id=request.data["selected_geometer_service_id"],
             status="scheduled",
         )
-        transaction.on_commit(lambda: change_geometer_task.delay(task.pk))
+        change_geometer_task.delay_on_commit(task.pk)
         return self._task_to_response(task)
 
     @permission_aware
