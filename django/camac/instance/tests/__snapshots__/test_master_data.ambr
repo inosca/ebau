@@ -79,7 +79,7 @@
       }),
     ]),
     'municipality_name': 'Aarburg',
-    'municipality_slug': '55',
+    'municipality_slug': str,
     'nature_risk': list([
       dict({
         'risk_type': 'Hochwasser (erhebliche Gefährdung)',
@@ -252,7 +252,7 @@
       }),
     ]),
     'municipality_name': 'Bern',
-    'municipality_slug': '1',
+    'municipality_slug': str,
     'nature_risk': list([
     ]),
     'number_of_accomodated_persons': None,
@@ -491,7 +491,7 @@
       }),
     ]),
     'municipality_name': 'Berne',
-    'municipality_slug': '1',
+    'municipality_slug': str,
     'nature_risk': list([
     ]),
     'number_of_accomodated_persons': None,
@@ -665,7 +665,7 @@
       }),
     ]),
     'municipality_name': 'St.Gallen',
-    'municipality_slug': '999',
+    'municipality_slug': str,
     'plot_data': list([
       dict({
         'coord_east': 2746641.47,
@@ -951,7 +951,7 @@
     'legal_representatives': list([
     ]),
     'municipality_name': 'Solothurn',
-    'municipality_slug': '1',
+    'municipality_slug': str,
     'national_inventory': None,
     'nature_risk': list([
       dict({
@@ -1121,7 +1121,7 @@
   
     ''',
     'municipality_name': 'Schübelbach',
-    'municipality_slug': 999,
+    'municipality_slug': int,
     'nature_risk': list([
     ]),
     'organization_category': 'ebausz',
@@ -1253,7 +1253,7 @@
   
     ''',
     'municipality_name': 'Schübelbach',
-    'municipality_slug': 999,
+    'municipality_slug': int,
     'nature_risk': list([
     ]),
     'organization_category': 'ebausz',
@@ -1364,7 +1364,7 @@
     ]),
     'leitbehoerde_internal_form': None,
     'municipality_name': 'Altdorf',
-    'municipality_slug': '1',
+    'municipality_slug': str,
     'oereb_topic': list([
       'oereb-thema-knp',
     ]),
