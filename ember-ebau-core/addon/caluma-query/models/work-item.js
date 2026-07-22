@@ -52,7 +52,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
     const caseMeta = this.case?.meta ?? {};
 
     return (caseMeta["suspended-services"] ?? [])
-      .map(parseInt)
+      .map((v) => parseInt(v))
       .includes(parseInt(this.ebauModules.serviceId));
   }
 
