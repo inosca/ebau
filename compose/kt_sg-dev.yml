@@ -98,7 +98,6 @@ services:
       # celery
       CELERY_RDB_HOST: 0.0.0.0. # to be able to telnet from outside the container
       PYTHONUNBUFFERED: 1
-      CELERY_WORKER_CONCURRENCY: 1
     env_file:
       - ../garage/compose-env/dev-ebau.conf
       - ../garage/compose-env/dev-alexandria.conf

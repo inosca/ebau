@@ -26,6 +26,7 @@ export DJANGO_SERVER_EMAIL=none@example.com
 export DJANGO_EMAIL_HOST=localhost
 export GWR_FERNET_KEY=none
 export GWR_WSK_ID=9
+export CELERY_WORKER_CONCURRENCY=1
 
 
 ./manage.py collectstatic --noinput

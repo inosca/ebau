@@ -3505,8 +3505,10 @@ if timeout := CELERY_BROKER_TRANSPORT_OPTIONS.get(
     CELERY_BROKER_TRANSPORT_OPTIONS["visibility_timeout"] = float(timeout)
 
 CELERY_TASK_SOFT_TIME_LIMIT = env.int("CELERY_TASK_SOFT_TIME_LIMIT", default=120)
-# if unspecified, celery starts one worker process per CPU.
-CELERY_WORKER_CONCURRENCY = env.int("CELERY_WORKER_CONCURRENCY", default=None)
+# By default, we spawn only one celery worker. In production environments this
+# must be explicitly defined in order to make sure we don't spawn too many
+# workers by using `None` (CPUs + 1) as default
+CELERY_WORKER_CONCURRENCY = env.int("CELERY_WORKER_CONCURRENCY", default=default(1))
 
 # Celery task routing. Specialized tasks get their own queue so a deployment can
 # run dedicated workers for them (with their own concurrency) instead of
