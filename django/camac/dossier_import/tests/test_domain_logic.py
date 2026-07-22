@@ -8,7 +8,6 @@ from caluma.caluma_workflow.models import Case
 from celery.utils import uuid
 from django.urls import reverse
 from django.utils import timezone
-from pytest_lazy_fixtures import lf
 
 from camac.dossier_import.domain_logic import (
     perform_import,
@@ -77,38 +76,20 @@ def test_undo_import(
         ("import-example-no-errors.zip", "import-example-no-errors-reimport.zip"),
     ],
 )
-# the dossier_id marks the tested re-import line in the import source file
-@pytest.mark.parametrize("dossier_id", ["2017-84"])
-# configurations of schwyz and bern have different setup requirements.
-# in order to reuse the general test setup we'll
-# cope with some redundancy with test setup and parametrization.
-@pytest.mark.parametrize(
-    "app",
-    [
-        lf("set_application_sz"),
-        lf("set_application_be"),
-        lf("set_application_so"),
-    ],
-)
+@pytest.mark.parametrize("config", ["kt_schwyz", "kt_bern", "kt_so"])
 @pytest.mark.django_db
 def test_perform_reimport(  # noqa: C901
     master_data_is_visible_mock,
-    admin_client,
+    admin_user,  # Needed for the responsible user
     archive_file,
     dossier_import_factory,
     dossier_loader,
-    dossier_id,
     setup_dossier_writer,
     first_import_file,
     reimport_file,
     freezer,
-    tmpdir,
-    app,
-    settings,
-    support_role,
+    config,
 ):
-    config = settings.APPLICATION_NAME
-
     writer = setup_dossier_writer(config)
     now = timezone.now()
 
@@ -125,6 +106,8 @@ def test_perform_reimport(  # noqa: C901
 
     perform_import(first_import.pk)
 
+    # The dossier_id marks the tested re-import line in the import source file
+    dossier_id = "2017-84"
     imported_dossier = writer.find_existing_instance(
         Dossier(id=dossier_id, proposal=""), writer._caluma_user
     )
