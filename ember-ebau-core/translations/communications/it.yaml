@@ -38,8 +38,8 @@ communications:
     deleteConfirm: Cancella davvero il file?
 
   new:
-    linkFile: È anche possibile collegare direttamente dei file dal modulo documenti
-    linkFileAction: ""
+    linkFile: È anche possibile collegare direttamente dei file
+    linkFileAction: "dal modulo documenti"
     newTopic: Avvia nuova conversazione
     involvedEntities: Parti coinvolte
     involvedEntitiesPlaceholder: Parti coinvolte...
