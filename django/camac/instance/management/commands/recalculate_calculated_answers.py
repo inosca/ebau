@@ -133,8 +133,9 @@ class Command(BaseCommand):
 
                         # Only update answer if the new calculated value can be
                         # determined (may fail for example if the calc
-                        # dependendencies are hidden, in which case None is
-                        # returned, which shouldn't overwrite a correct answer).
+                        # dependendencies are empty without a default value, in
+                        # which case `None` is returned, which shouldn't
+                        # overwrite a correct answer).
                         if new_value is None:
                             tqdm.write(
                                 f'- Not recalculating answer (old value: {old_value}, new value: {new_value}) (question: "{question.slug}", is_hidden: {field.is_hidden()}, instance: {document.case.instance.pk}, answer: {field.answer.pk})'
