@@ -72,7 +72,11 @@ export default class SubnavHeaderComponent extends Component {
   saveInstanceMarks = task({ drop: true }, async () => {
     try {
       this.args.case.instance.instanceMarks = this.selectedMarks;
-      await this.args.case.instance.save();
+      await this.args.case.instance.save({
+        adapterOptions: {
+          patchedRelationships: ["instanceMarks"],
+        },
+      });
 
       this.notification.success(
         this.intl.t("cases.instanceMarks.save.success"),

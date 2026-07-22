@@ -27,7 +27,11 @@ export default class CaseHeaderStaticKeywordsComponent extends Component {
   @action
   onChange(selected) {
     this.args.instance.staticKeywords = selected;
-    this.args.instance.save();
+    this.args.instance.save({
+      adapterOptions: {
+        patchedRelationships: ["staticKeywords"],
+      },
+    });
   }
 
   staticKeywords = paginatedQuery(this, "static-keyword", () => ({
