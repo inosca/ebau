@@ -3,6 +3,7 @@ import json
 import logging
 import os
 import re
+import sys
 from datetime import timedelta
 
 import environ
@@ -2822,6 +2823,9 @@ REDIS_HOST = env.str("REDIS_HOST", default="redis")
 REDIS_PORT = env.int("REDIS_PORT", default=6379)
 REDIS_USER = env.str("REDIS_USER", default="default")
 REDIS_PASSWORD = env.str("REDIS_PASSWORD", default="redis")
+REDIS_BASE_URL = (
+    f"redis://{REDIS_USER}:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}"  # gitleaks:allow
+)
 
 # Cache
 # https://docs.djangoproject.com/en/1.11/ref/settings/#caches
@@ -2844,7 +2848,7 @@ _DEFAULT_CACHE_OPTIONS = {
 
 if env.bool("DJANGO_USE_REDIS_CACHE", default=False):  # pragma: no cover
     _DEFAULT_CACHE_BACKEND = "django.core.cache.backends.redis.RedisCache"
-    _DEFAULT_CACHE_LOCATION = f"redis://{REDIS_USER}:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/2"  # gitleaks:allow
+    _DEFAULT_CACHE_LOCATION = f"{REDIS_BASE_URL}/2"
     _DEFAULT_CACHE_OPTIONS = {
         # Wait max 100ms for a connection to the cache
         "socket_connect_timeout": 0.1,
@@ -3484,31 +3488,32 @@ ALEXANDRIA_DMS_URL = env.str(
 
 
 # Celery
-CELERY_BROKER_URL = env.str(
-    "CELERY_BROKER_URL",
-    default=f"redis://{REDIS_USER}:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/0",  # gitleaks:allow
+IS_CELERY_WORKER = (
+    bool(sys.argv[:1]) and sys.argv[0].endswith("celery") and "worker" in sys.argv
 )
-CELERY_RESULT_BACKEND = env.str(
-    "CELERY_RESULT_BACKEND",
-    default=f"redis://{REDIS_USER}:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/1",  # gitleaks:allow
-)
-CELERY_TASK_ACKS_LATE = env.bool(
-    "CELERY_TASK_ACKS_LATE",
-    default=True,
-)
+
+CELERY_BROKER_URL = env.str("CELERY_BROKER_URL", default=f"{REDIS_BASE_URL}/0")
+CELERY_RESULT_BACKEND = env.str("CELERY_RESULT_BACKEND", default=f"{REDIS_BASE_URL}/1")
+CELERY_TASK_ACKS_LATE = env.bool("CELERY_TASK_ACKS_LATE", default=True)
 CELERY_BROKER_TRANSPORT_OPTIONS = env.dict(
-    "CELERY_BROKER_TRANSPORT_OPTIONS", default={}
+    "CELERY_BROKER_TRANSPORT_OPTIONS",
+    default={},
+    cast={
+        "value": str,
+        "cast": {
+            "visibility_timeout": float,
+        },
+    },
 )
-if timeout := CELERY_BROKER_TRANSPORT_OPTIONS.get(
-    "visibility_timeout"
-):  # pragma: no cover
-    CELERY_BROKER_TRANSPORT_OPTIONS["visibility_timeout"] = float(timeout)
 
 CELERY_TASK_SOFT_TIME_LIMIT = env.int("CELERY_TASK_SOFT_TIME_LIMIT", default=120)
-# By default, we spawn only one celery worker. In production environments this
-# must be explicitly defined in order to make sure we don't spawn too many
-# workers by using `None` (CPUs + 1) as default
-CELERY_WORKER_CONCURRENCY = env.int("CELERY_WORKER_CONCURRENCY", default=default(1))
+# By default, we spawn only one celery worker. In production the worker process
+# must define this explicitly so we don't accidentally spawn too many workers by
+# using `None` (CPUs + 1) as default. Other processes (web, beat) don't consume
+# it, so they fall back to `None` and are not required to set it.
+CELERY_WORKER_CONCURRENCY = env.int(
+    "CELERY_WORKER_CONCURRENCY", default=default(1, require_if(IS_CELERY_WORKER))
+)
 
 # Celery task routing. Specialized tasks get their own queue so a deployment can
 # run dedicated workers for them (with their own concurrency) instead of
