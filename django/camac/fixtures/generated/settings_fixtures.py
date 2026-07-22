@@ -2757,6 +2757,59 @@ def gr_eeba_integration_settings(
 
 
 @pytest.fixture
+def gis_export_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for gis export (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        settings_name="GIS_EXPORT",
+        import_path="camac.settings.modules.gis_export.GIS_EXPORT",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_gis_export_settings(
+    request,
+    settings,
+    gis_export_settings,
+):
+    """Disable the gis export module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=gis_export_settings,
+        settings_name="GIS_EXPORT",
+        import_path="camac.settings.modules.gis_export.GIS_EXPORT",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def so_gis_export_settings(
+    request,
+    settings,
+    gis_export_settings,
+):
+    """Module-specific settings for gis export (canton SO)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=gis_export_settings,
+        settings_name="GIS_EXPORT",
+        import_path="camac.settings.modules.gis_export.GIS_EXPORT",
+        canton="kt_so",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def instance_copy_settings(
     request,
     settings,

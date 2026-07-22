@@ -1,23 +1,24 @@
 from __future__ import annotations
 
+from io import BytesIO
 from logging import getLogger
 from typing import TYPE_CHECKING
 
 from django.db import transaction
 from django.http import StreamingHttpResponse
-from django.utils.timezone import now
 from rest_framework import response, status
+from rest_framework.exceptions import NotFound
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 
-from camac.gis_export.domain_logic import export_so
+from camac.gis_export.domain_logic import collect_so_exports
+from camac.gis_export.formatters import build_sogis_transfer_xml
 from camac.gis_export.models import SOGISExport
-from camac.gis_export.serializers import export_sogis_xml
+from camac.settings.utils import is_module_enabled
 from camac.user.permissions import IsSogisClientToken
 
 if TYPE_CHECKING:  # pragma: no cover
     from collections.abc import Iterator
-    from io import BytesIO
 
     from rest_framework.request import Request
 
@@ -35,9 +36,9 @@ def _stream_and_mark_exported(
         buffer.close()
 
     try:
-        SOGISExport.objects.filter(pk__in=pks).update(exported_at=now())
+        SOGISExport.objects.mark_exported(pks)
     except Exception as e:  # pragma: no cover
-        log.warning("Failed to mark GIS exports as delivered: %s", e)
+        log.error("Failed to mark GIS exports as delivered: %s", e)
 
 
 class ExportSOGISView(APIView):
@@ -45,19 +46,33 @@ class ExportSOGISView(APIView):
 
     @transaction.atomic
     def get(self, request: Request) -> response.Response | StreamingHttpResponse:
-        exports = export_so()
+        if not is_module_enabled("GIS_EXPORT"):
+            raise NotFound
 
-        xml = export_sogis_xml(exports)
+        exports = collect_so_exports()
+        transfer = build_sogis_transfer_xml(exports)
 
-        if xml is None:
+        if transfer.errors:
+            log.error(
+                "Skipped %d invalid GIS export(s), retrying on the next run:\n%s",
+                len(transfer.errors),
+                "\n".join(str(error) for error in transfer.errors),
+            )
+
+        if not transfer.exported:
             return response.Response([], status=status.HTTP_204_NO_CONTENT)
 
+        buffer = BytesIO(transfer.xml.encode("utf-8"))
+        exported_pks = [export.pk for export in transfer.exported]
+        content_length = buffer.getbuffer().nbytes
+
         streaming_response = StreamingHttpResponse(
-            _stream_and_mark_exported(xml, [export.pk for export in exports]),
+            _stream_and_mark_exported(buffer, exported_pks),
             content_type="application/xml",
         )
-        streaming_response["Content-Length"] = str(xml.getbuffer().nbytes)
+        streaming_response["Content-Length"] = str(content_length)
         streaming_response["Content-Disposition"] = (
             'inline; filename="so_gis_export.xtf"'
         )
+
         return streaming_response

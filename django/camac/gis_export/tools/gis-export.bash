@@ -34,4 +34,5 @@ echo "Token: $TOKEN"
 curl -v -L "$EBAU_HOST/api/v1/gis-export/so/" \
 -H "authorization: Bearer $TOKEN" \
 > $FOLDER/export.xtf
+cat $FOLDER/export.xtf
 
