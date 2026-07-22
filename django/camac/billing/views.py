@@ -78,24 +78,6 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
         return self.queryset.none()
 
     @permission_switching_method
-    def has_object_release_for_clearing_permission(self, obj):
-        manager = PermissionManager.from_request(self.request)
-        if not manager.has_all(obj.instance, "billing-write"):
-            return False
-
-        return (
-            self.request.group.service.service_group.slug
-            in settings.BILLING.cantonal_service_group_slugs
-        )
-
-    @has_object_release_for_clearing_permission.register_old
-    def has_object_release_for_clearing_permission_rbac(self, obj):
-        return (
-            self.request.group.service.service_group.slug
-            in settings.BILLING.cantonal_service_group_slugs
-        )
-
-    @permission_switching_method
     def has_create_permission(self, *args, **kwargs):
         instance_id = self.request.data.get("instance", {}).get("id")
         if not instance_id:  # pragma: no cover
@@ -172,12 +154,46 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
 
-    @action(methods=["PATCH"], detail=True, url_path="release-for-clearing")
+    @action(methods=["POST"], detail=False, url_path="release-for-clearing-bulk")
     @transaction.atomic
-    def release_for_clearing(self, request, pk=None):
-        billing_entry = self.get_object()
-        billing_entry.released_for_clearing = timezone.now().date()
-        billing_entry.save(update_fields=["released_for_clearing"])
+    def release_for_clearing_bulk(self, request):
+        serializer = BillingV2BulkEntryIdsSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        entry_ids = serializer.validated_data["entry_ids"]
+        entries = self.get_queryset().filter(id__in=entry_ids)
+
+        # Check if all requested entries exist
+        fetched_entry_ids = entries.values_list("id", flat=True)
+        if len(set(entry_ids) - set(fetched_entry_ids)) != 0:
+            raise NotFound
+
+        # Check if all requested entries belong to the same instance
+        distinct_entry_instance_ids = set(entries.values_list("instance", flat=True))
+        if len(distinct_entry_instance_ids) != 1:
+            raise ValidationError(
+                _("All entries to release must belong to the same instance")
+            )
+
+        # Check if the user has permission to release the requested entries
+        # It is sufficient to only check the first entry because we already know that
+        # all entries belong to the same instance
+        instance = entries.first().instance
+
+        has_permission = (
+            self.request.group.service.service_group.slug
+            in settings.BILLING.cantonal_service_group_slugs
+        )
+
+        if is_permission_module_fully_enabled(group=self.request.group):
+            has_permission &= PermissionManager.from_request(self.request).has_all(
+                instance, "billing-write"
+            )
+
+        if not has_permission:
+            raise PermissionDenied
+
+        entries.update(released_for_clearing=timezone.now().date())
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
 

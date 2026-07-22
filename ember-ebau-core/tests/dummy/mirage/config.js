@@ -108,12 +108,15 @@ export default function makeServer(config) {
         },
         204,
       );
-      this.patch(
-        "billing-v2-entries/:id/release-for-clearing",
+      this.post(
+        "billing-v2-entries/release-for-clearing-bulk",
         ({ billingV2Entries }, request) => {
-          const entry = billingV2Entries.find(request.params.id);
-          entry.update({ releasedForClearing: DateTime.now().toISO() });
-          return;
+          const entryIds = JSON.parse(request.requestBody).entry_ids;
+          const newReleasedForClearing = DateTime.now().toISO();
+
+          billingV2Entries.find(entryIds).update({
+            releasedForClearing: newReleasedForClearing,
+          });
         },
         204,
       );

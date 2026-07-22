@@ -18,14 +18,7 @@
 >
   <thead>
     <tr>
-      {{#if
-        (or
-          (await (can "charge billing-v2-entries"))
-          (await
-            (can "release-for-clearing billing-v2-entries" @entries.records)
-          )
-        )
-      }}
+      {{#if @canSelect}}
         <th data-test-charge>
           <input
             type="checkbox"
@@ -69,7 +62,7 @@
             "billing.product-number"
           }}</th>
       {{/if}}
-      {{#if (await (can "edit billing-v2-entries"))}}
+      {{#if @canEdit}}
         <th data-test-delete></th>
       {{/if}}
     </tr>
@@ -85,6 +78,8 @@
       {{#each this.filteredEntries as |entry|}}
         <BillingTable::Row
           @entry={{entry}}
+          @canSelect={{@canSelect}}
+          @canEdit={{@canEdit}}
           @selected={{includes entry.id @selectedRows}}
           @onToggle={{@onToggleRow}}
           @onRefresh={{@onRefresh}}

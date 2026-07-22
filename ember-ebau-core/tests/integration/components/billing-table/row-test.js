@@ -49,7 +49,11 @@ module("Integration | Component | billing-table/row", function (hooks) {
       "billing.costCenter",
     );
     this.features.disable("billing.displayService");
-    await render(hbs`<BillingTable::Row @entry={{this.entry}} />`);
+    await render(hbs`<BillingTable::Row
+  @entry={{this.entry}}
+  @canSelect={{true}}
+  @canEdit={{true}}
+/>`);
 
     assert.dom("tr").exists({ count: 1 });
     assert.dom("td").exists({ count: 11 });
@@ -119,9 +123,11 @@ module("Integration | Component | billing-table/row", function (hooks) {
       204,
     );
 
-    await render(
-      hbs`<BillingTable::Row @entry={{this.entry}} @onRefresh={{this.refresh}} />`,
-    );
+    await render(hbs`<BillingTable::Row
+  @entry={{this.entry}}
+  @onRefresh={{this.refresh}}
+  @canEdit={{true}}
+/>`);
 
     await click("button[data-test-delete]");
 
@@ -138,9 +144,11 @@ module("Integration | Component | billing-table/row", function (hooks) {
       assert.strictEqual(value, this.entry.id);
     };
 
-    await render(
-      hbs`<BillingTable::Row @entry={{this.entry}} @onToggle={{this.toggle}} />`,
-    );
+    await render(hbs`<BillingTable::Row
+  @entry={{this.entry}}
+  @onToggle={{this.toggle}}
+  @canSelect={{true}}
+/>`);
 
     assert.dom("input[data-test-toggle]").isEnabled();
     await click("input[data-test-toggle]");

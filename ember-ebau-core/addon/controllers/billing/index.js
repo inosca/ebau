@@ -5,6 +5,7 @@ import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { query, findRecord } from "ember-data-resources";
 import { confirm } from "ember-uikit";
+import { trackedFunction } from "reactiveweb/function";
 
 export default class BillingIndexController extends Controller {
   @service intl;
@@ -22,6 +23,41 @@ export default class BillingIndexController extends Controller {
 
   instance = findRecord(this, "instance", () => [this.ebauModules.instanceId]);
 
+  #canCharge = trackedFunction(this, async () => {
+    return await this.abilities.can("charge billing-v2-entries");
+  });
+
+  get canCharge() {
+    return this.#canCharge.value;
+  }
+
+  #canReleaseForClearing = trackedFunction(this, async () => {
+    return (
+      this.entries.records &&
+      (await this.abilities.can("release-for-clearing billing-v2-entries"))
+    );
+  });
+
+  get canReleaseForClearing() {
+    return this.#canReleaseForClearing.value;
+  }
+
+  #canSelect = trackedFunction(this, async () => {
+    return this.canCharge || this.canReleaseForClearing;
+  });
+
+  get canSelect() {
+    return this.#canSelect.value;
+  }
+
+  #canEdit = trackedFunction(this, async () => {
+    return await this.abilities.can("edit billing-v2-entries");
+  });
+
+  get canEdit() {
+    return this.#canEdit.value;
+  }
+
   @action
   async refresh() {
     await this.entries.retry();
@@ -37,11 +73,21 @@ export default class BillingIndexController extends Controller {
   }
 
   @action
-  toggleAll({ target: { checked } }) {
+  async toggleAll({ target: { checked } }) {
     if (checked) {
-      this.selectedRows = this.entries.records
-        ?.filter((entry) => entry.dateCharged === null)
-        .map((entry) => entry.id);
+      this.selectedRows = (
+        await Promise.all(
+          this.entries.records?.map(async (entry) => ({
+            entry,
+            selectable: await this.abilities.can(
+              "select billing-v2-entry",
+              entry,
+            ),
+          })),
+        )
+      )
+        .filter((row) => row.selectable)
+        .map((row) => row.entry.id);
     } else {
       this.selectedRows = [];
     }
@@ -49,7 +95,7 @@ export default class BillingIndexController extends Controller {
 
   charge = dropTask(this, async () => {
     if (
-      (await this.abilities.cannot("charge billing-v2-entries")) ||
+      !this.canCharge ||
       !this.selectedRows.length ||
       !(await confirm(this.intl.t("billing.confirm-charge")))
     ) {
@@ -79,9 +125,7 @@ export default class BillingIndexController extends Controller {
 
   releaseForClearing = dropTask(this, async () => {
     if (
-      (await this.abilities.cannot(
-        "release-for-clearing billing-v2-entries",
-      )) ||
+      !this.canReleaseForClearing ||
       !this.selectedRows.length ||
       !(await confirm(this.intl.t("billing.confirm-release-for-clearing")))
     ) {
@@ -89,13 +133,18 @@ export default class BillingIndexController extends Controller {
     }
 
     try {
-      await Promise.all(
-        this.selectedRows.map(async (id) => {
-          return await this.fetch.fetch(
-            `/api/v1/billing-v2-entries/${id}/release-for-clearing`,
-            { method: "PATCH" },
-          );
-        }),
+      await this.fetch.fetch(
+        `/api/v1/billing-v2-entries/release-for-clearing-bulk`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            entry_ids: this.selectedRows.map((id) => parseInt(id)),
+          }),
+          headers: {
+            "content-type": "application/json",
+            accept: "application/json",
+          },
+        },
       );
 
       // manually refresh in order to update the totals as well

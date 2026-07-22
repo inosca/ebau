@@ -2,6 +2,7 @@ export default {
   billing: {
     charge: true,
     organization: true,
+    selectByOrganization: true,
     reducedTaxRate: true,
     orderTaxByRate: true,
     displayService: false,
