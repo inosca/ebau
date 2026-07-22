@@ -70,12 +70,7 @@ def dispatch_task(task: DjangoTask, dossier_import: DossierImport) -> str:
         The celery task ID of the dispatched task.
     """
     task_id = uuid()
-
-    task.apply_async_on_commit(
-        kwargs={"dossier_import_id": str(dossier_import.pk)},
-        task_id=task_id,
-    )
-
+    task.apply_async_on_commit((str(dossier_import.pk),), task_id=task_id)
     return task_id
 
 

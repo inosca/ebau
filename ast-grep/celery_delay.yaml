@@ -1,29 +1,36 @@
-id: celery-delay-outside-on-commit
+id: celery-dispatch-outside-on-commit
 language: python
 severity: error
 ignores:
   - "**/test_*.py"
-message: "Using `.delay()` directly can lead to race conditions (celery starting work before transaction completes)"
+message: |
+  Dispatching a celery task with `.delay()` or `.apply_async()` directly can
+  lead to race conditions (celery starting work before transaction completes)
 note: |
-  Use `django.db.transaction.on_commit(lambda: task.delay(...))` instead
-  to ensure the task only runs after a successful commit.
-  Hint: You can use `# noqa: SG001` to ignore this rule.
+  Use the `_on_commit` variant (e.g. `task.delay_on_commit(...)`) instead to
+  ensure the task only runs after a successful commit. Hint: You can use
+  `# noqa: SG001` to ignore this rule.
 rule:
-  all:
-    - pattern: "$TASK.delay($$$ARGS)"
-    - not:
-        any:
-          - inside:
-              any:
-                - pattern: "on_commit($$$)"
-                - pattern: "transaction.on_commit($$$)"
-                - pattern: "django.db.transaction.on_commit($$$)"
-                - kind: lambda
-                - precedes:
-                    kind: comment
-                    regex: "noqa: SG001"
-                - follows:
-                    kind: comment
-                    regex: "noqa: SG001"
-          - has:
-              regex: "#.*noqa: SG001"
+  pattern: "$TASK.$METHOD($$$ARGS)"
+  not:
+    any:
+      - inside:
+          any:
+            - precedes:
+                kind: comment
+                regex: "noqa: SG001"
+            - follows:
+                kind: comment
+                regex: "noqa: SG001"
+      - has:
+          regex: "#.*noqa: SG001"
+constraints:
+  METHOD:
+    regex: "^(delay|apply_async)$"
+transform:
+  ON_COMMIT:
+    replace:
+      source: "$METHOD"
+      replace: "(delay|apply_async)"
+      by: "${1}_on_commit"
+fix: "$TASK.$ON_COMMIT($$$ARGS)"
