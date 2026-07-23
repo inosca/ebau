@@ -8,12 +8,13 @@ from pathlib import Path
 from tempfile import NamedTemporaryFile
 
 import setproctitle
-from alexandria.core.models import Document, File
+from alexandria.core.models import Document, File, make_uuid
 from alexandria.core.tika import TikaClient
 from alexandria.storages.backends.s3 import S3Storage
 from django.conf import settings
 from django.contrib.postgres.search import SearchVector
 from django.core.files.base import ContentFile
+from django.core.files.storage import storages
 from django.db import transaction
 from django.db.models import Prefetch, Value
 from django.utils import timezone
@@ -21,6 +22,7 @@ from preview_generator.manager import PreviewManager
 
 from camac.alexandria_migration.domain_logic.base import BaseMigrator, disable_auto_now
 from camac.alexandria_migration.models import DocumentMark, MigrationLog
+from camac.alexandria_migration.utils import UploadState
 from camac.instance.models import InstanceAlexandriaDocument
 
 
@@ -81,6 +83,53 @@ class AnnotateDocumentsMigrator(BaseMigrator):
     no_parallel: bool = field(default=False)
     workers: int = field(default=0)
 
+    _storage = None
+
+    @classmethod
+    def cleanup_orphans(cls):
+        """Clean up orphaned uploads from previous aborted runs."""
+        from alexandria.core.models import File as AlexandriaFile
+
+        cls._storage = None
+        log_files = UploadState.get_all_log_files()
+        if not log_files:
+            return
+
+        print("Cleaning up any orphaned thumbnails from S3 ...", end="", flush=True)
+        storage = cls.get_storage()
+        total_cleaned = 0
+        for log_path in log_files:
+            with open(log_path) as f:
+                paths = [line.strip() for line in f if line.strip()]
+
+            for s3_path in paths:
+                # Check if this path exists in File table
+                if not AlexandriaFile.objects.filter(content=s3_path).exists():
+                    # Check if it was maybe just created in this run?
+                    # No, this is called at the very beginning of the command.
+                    storage.delete(s3_path)
+                    total_cleaned += 1
+                    if total_cleaned % 20 == 0:
+                        print(".", end="", flush=True)
+
+            UploadState.delete_log_file(log_path)
+
+        if total_cleaned > 0:
+            print(f"\nCleaned up {total_cleaned} orphaned thumbnails")
+        else:
+            print("\nNothing to cleanup")
+
+    @classmethod
+    def get_storage(cls):
+        if cls._storage is None:
+            storage_backend = settings.ALEXANDRIA_FILE_STORAGE
+            cls._storage = storages.create_storage({"BACKEND": storage_backend})
+            if hasattr(cls._storage, "bucket"):
+                # Initialize the S3 client once per process
+                _ = cls._storage.bucket.meta.client
+
+        return cls._storage
+
     def process(self) -> None:
         documents = Document.objects.filter(
             instance_document__instance_id__in=self.instance_ids
@@ -121,13 +170,16 @@ class AnnotateDocumentsMigrator(BaseMigrator):
                 f"Annotating Documents: {type(executor).__name__} with {workers} workers"
             )
 
+        upload_state = UploadState(self.run)
+
             with executor as executor:
                 total = len(documents)
                 for i, document in enumerate(documents, start=1):
                     future = executor.submit(
-                        AnnotateDocumentsMigrator.annotate_document,
+                        self.annotate_document,
                         document,
                         (i, total),
+                        self.run,
                     )
                     # Process Pool executor can't update `self`, as it's in a
                     # subprocess, so we do it via return values instead
@@ -158,6 +210,8 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             setproctitle.setproctitle("Annotating Documents: Storing logs")
             MigrationLog.objects.bulk_create(self.logs)
 
+            upload_state.clear()
+
     def _record_task_result(self, future):
         # Can be called with future or direct result
         result = future if isinstance(future, list) else future.result()
@@ -186,14 +240,16 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             print("No file for getting content, WAT")
             return None
 
-        assert isinstance(file.content.storage, S3Storage), (
-            f"Misconfigured Storage backend? {file.content.storage} is not S3"
+        storage = cls.get_storage()
+        assert isinstance(storage, S3Storage), (
+            f"Misconfigured Storage backend? {storage} is not S3"
         )
-        with file.content.open("rb") as fh:
+
+        with storage.open(file.content.name, "rb") as fh:
             return fh.read()
 
     @classmethod
-    def annotate_document(cls, document, progressinfo):
+    def annotate_document(cls, document, progressinfo, run):
         """Annotate the given document.
 
         Return a list of dicts, each with their file-specific result data:
@@ -202,8 +258,8 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         - file_created: None or the created thumbnail
         """
         i, t = progressinfo
-        prefix = f"Annotating Documents: doc {i}/{t}"
-        setproctitle.setproctitle(prefix)
+        doc_prefix = f"Annotating Documents: doc {i}/{t}"
+        setproctitle.setproctitle(doc_prefix)
 
         # We only make thumbnails for the most recent files. Those
         # are the ones being used, the rest is not really needed by anyone
@@ -214,7 +270,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             # If the document has no "most recent file", it could be that it's already
             # filtered out because there is a thumbnail. Therefore, it's only a problem
             # if there is *no* thumbnail on this document.
-            #
+
             # But in any case, we don't process the file if there's no
             # most-recent original to be processed.
             if not document._most_recent_thumbnail:
@@ -232,16 +288,16 @@ class AnnotateDocumentsMigrator(BaseMigrator):
                 # done, and only do it (and pull the file from storage!)
                 # if it's not done yet
                 is_most_recent=most_recent and (file.pk == most_recent.pk),
-                nfile=f"file {fi}/{len(document._originals)}",
-                prefix=prefix,
+                prefix=f"{doc_prefix} - file id {file.pk}",
+                run=run,
             )
-            for fi, file in enumerate(document._originals, start=1)
+            for file in document._originals
         ]
 
         return res
 
     @classmethod
-    def annotate_file(cls, file, instance_id, is_most_recent, prefix, nfile):
+    def annotate_file(cls, file, instance_id, is_most_recent, prefix, run):
         """Annotate the given file.
 
         This includes setting the checksum, fulltext index, and, for
@@ -258,7 +314,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         # and only have to update each file's DB entry once as well.
 
         try:
-            setproctitle.setproctitle(f"{prefix} - {nfile}: Fetching contents")
+            setproctitle.setproctitle(f"{prefix}: Fetching contents")
             content = cls._get_file_content(file)
         except FileNotFoundError as exc:
             print(f"Err: Migrated original file not found in S3: {exc}")
@@ -279,7 +335,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             "file_created": None,
         }
 
-        setproctitle.setproctitle(f"{prefix} - {nfile}: Checksumming")
+        setproctitle.setproctitle(f"{prefix}: Checksumming")
         did_checksum = cls._set_checksum(file, content)
         if did_checksum:
             results["logs"].append(
@@ -292,7 +348,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
                 )
             )
 
-        setproctitle.setproctitle(f"{prefix} - {nfile}: Content Vector")
+        setproctitle.setproctitle(f"{prefix}: Content Vector")
         did_content_vector = cls._set_content_vector(file, content)
         if did_content_vector:
             results["logs"].append(
@@ -305,8 +361,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
                 )
             )
 
-        setproctitle.setproctitle(f"{prefix} - {nfile}: Thumbnailing")
-        thumbnail = cls._make_thumbnail(file, instance_id, content)
+        thumbnail = cls._make_thumbnail(file, instance_id, content, run, prefix)
         if thumbnail:
             results["logs"].append(
                 MigrationLog(
@@ -327,7 +382,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         return results
 
     @classmethod
-    def _make_thumbnail(cls, file, instance_id, content):
+    def _make_thumbnail(cls, file, instance_id, content, run, prefix):
         """Generate thumbnail for the given file.
 
         Return the thumbnail File if done, None if not.
@@ -338,7 +393,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             and file.renderings.count() < 1
             and settings.ALEXANDRIA_ENABLE_THUMBNAIL_GENERATION
         ):
-            return cls._create_thumbnail(file, content)
+            return cls._create_thumbnail(file, content, run, prefix)
 
     @classmethod
     def _set_content_vector(cls, file, content):
@@ -403,12 +458,13 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         return False
 
     @classmethod
-    def _create_thumbnail(cls, file, content):
+    def _create_thumbnail(cls, file, content, run, prefix):
         """Generate an Alexandria thumbnail file and return it.
 
         May return None if it wasn't possible
         """
 
+        setproctitle.setproctitle(f"{prefix} - {nfile}: Thumbnailing")
         with NamedTemporaryFile() as tmp:
             temp_file = Path(tmp.name)
             manager = PreviewManager(str(temp_file.parent))
@@ -431,16 +487,36 @@ class AnnotateDocumentsMigrator(BaseMigrator):
 
         with path_to_preview_image.open("rb") as thumb:
             thumb_content = thumb.read()
+
+            storage = cls.get_storage()
+            new_file_pk = make_uuid()
+            file_name = f"{file.name}_preview.jpg"
+            s3_filename = f"{new_file_pk}_{file_name}"
+
+            # Immediate upload
+            setproctitle.setproctitle(f"{prefix}: Uploading thumbnail")
+
+            actual_s3_path = storage.save(s3_filename, ContentFile(thumb_content))
+            UploadState(run).add(actual_s3_path)
+
             ret = File(
-                name=f"{file.name}_preview.jpg",
+                pk=new_file_pk,
+                name=file_name,
                 document=file.document,
                 variant=File.Variant.THUMBNAIL.value,
                 created_at=timezone.now(),
                 modified_at=timezone.now(),
                 original=file,
                 encryption_status=file.encryption_status,
-                content=ContentFile(thumb_content, name=f"{file.name}_preview.jpg"),
+                content=actual_s3_path,
                 mime_type="image/jpeg",
                 size=len(thumb_content),
             )
+
+            # Clean up the local preview image
+            if path_to_preview_image.exists():
+                path_to_preview_image.unlink()
+
+            setproctitle.setproctitle(f"{prefix}: Done")
+
             return ret

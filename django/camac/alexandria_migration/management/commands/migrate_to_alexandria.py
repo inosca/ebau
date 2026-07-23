@@ -349,6 +349,8 @@ class Command(BaseCommand):
             )
         )
 
+        AnnotateDocumentsMigrator.cleanup_orphans()
+
         with tqdm(total=len(instances)) as bar:
             for batch in itertools.batched(instances, batch_size):
                 AnnotateDocumentsMigrator(
