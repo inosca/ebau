@@ -21,6 +21,7 @@ from camac.caluma.event_utils import (
     filter_by_workflow,
     setting,
 )
+from camac.caluma.models import Inquiry
 from camac.caluma.utils import date_to_deadline
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import construction_monitoring_started
@@ -29,7 +30,7 @@ from camac.notification.utils import send_mail_without_request
 from camac.permissions.events import core as permissions_events
 from camac.permissions.events.core import Trigger
 from camac.settings.utils import is_module_enabled
-from camac.user.models import User
+from camac.user.models import Service, User
 
 from .general import get_instance
 
@@ -290,8 +291,25 @@ def post_complete_construction_step_work_item(
                 instance=instance,
                 user_pk=camac_user.pk,
                 group_pk=user.camac_group,
-                inquiry=work_item,
             )
+
+            # In Kt. GR status message for "construction-monitoring" should also be
+            # created with ARE as receiver, if ARE is inquired.
+            if settings.APPLICATION_NAME == "kt_gr":
+                service_are = Service.objects.get(slug="are")
+                if (
+                    Inquiry.objects.for_instance(instance)
+                    .addressed_to(service_are)
+                    .only_active()
+                    .exists()
+                ):
+                    construction_monitoring_started.send(
+                        sender="post_complete_construction_step_work_item",
+                        instance=instance,
+                        user_pk=camac_user.pk,
+                        group_pk=service_are.pk,
+                        message_receiver=service_are,
+                    )
 
     notifications = settings.CONSTRUCTION_MONITORING["NOTIFICATIONS"].get(
         work_item.task.pk, []
