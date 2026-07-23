@@ -15,13 +15,11 @@ from pyxb import (
     UnprocessedKeywordContentError,
 )
 
-from camac.caluma.models import Inquiry
 from camac.constants.kt_bern import (
     ECH_ACCOMPANYING_REPORT,
     ECH_CHANGE_RESPONSIBILITY,
     ECH_CLAIM,
     ECH_FILE_SUBSEQUENTLY,
-    ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG,
     ECH_SUBMIT,
     ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
 )
@@ -91,11 +89,8 @@ class BaseEventHandler:
     def get_xml(self, **kwargs):  # pragma: no cover
         raise NotImplementedError
 
-    def create_message(self, xml, receiver=None, message_id=None):
-        message_id = message_id or self.message_id
-        message_receiver = receiver or self.message_receiver
-
-        if not message_receiver:
+    def create_message(self, xml):
+        if not self.message_receiver:
             # Due to possible misconfiguration of the instance, the
             # fallback to active_service might not work (and return
             # None). This needs to be caught
@@ -108,9 +103,9 @@ class BaseEventHandler:
 
         return Message.objects.create(
             body=xml,
-            receiver=message_receiver,
+            receiver=self.message_receiver,
             created_at=self.message_date,
-            id=message_id,
+            id=self.message_id,
             instance=self.instance,
         )
 
@@ -175,6 +170,12 @@ class FileSubsequentlyEventHandler(BaseEventHandler):
 class StatusNotificationEventHandler(BaseEventHandler):
     event_type = "status notification"
 
+    def __init__(self, instance, user_pk=None, group_pk=None, message_receiver=None):
+        super().__init__(instance, user_pk, group_pk)
+
+        if message_receiver:
+            self.message_receiver = message_receiver
+
     def get_message_type(self):
         for rule in settings.ECH0211.get("STATUS_NOTIFICATION_TYPES", []):
             if new_state := rule.get("new_state"):
@@ -211,25 +212,7 @@ class StatusNotificationEventHandler(BaseEventHandler):
             raise
 
     def run(self):
-        message_type = self.get_message_type()
-        xml = self.get_xml(message_type)
-
-        # In Kt. GR status message for "construction-monitoring" should also be
-        # created with ARE as receiver, if ARE is inquired.
-        if (
-            settings.APPLICATION_NAME == "kt_gr"
-            and is_module_enabled("CONSTRUCTION_MONITORING")
-            and message_type == ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG
-        ):
-            service_are = Service.objects.get(slug="are")
-            if (
-                self.message_receiver != service_are
-                and Inquiry.objects.for_instance(self.instance)
-                .addressed_to(service_are)
-                .exists()
-            ):
-                self.create_message(xml, receiver=service_are, message_id=uuid4())
-
+        xml = self.get_xml(self.get_message_type())
         return self.create_message(xml)
 
 
@@ -431,11 +414,24 @@ def submit_callback(sender, instance, user_pk, group_pk, **kwargs):
 @receiver(finished)
 @receiver(rejected)
 @receiver(rejection_reverted)
-@receiver(construction_monitoring_started)
 @if_ech_enabled(api_level="full")
 def send_status_notification(sender, instance, user_pk, group_pk, **kwargs):
     handler = StatusNotificationEventHandler(
         instance, user_pk=user_pk, group_pk=group_pk
+    )
+    handler.run()
+
+
+@receiver(construction_monitoring_started)
+@if_ech_enabled(api_level="full")
+def send_status_notification_construction_monitoring(
+    sender, instance, user_pk, group_pk, message_receiver=None, **kwargs
+):
+    handler = StatusNotificationEventHandler(
+        instance,
+        user_pk=user_pk,
+        group_pk=group_pk,
+        message_receiver=message_receiver,
     )
     handler.run()
 
