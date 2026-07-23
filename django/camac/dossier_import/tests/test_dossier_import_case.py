@@ -50,45 +50,28 @@ def test_bad_file_format_dossier_xlsx(
 
 
 @pytest.mark.parametrize(
-    "role__name",
-    ["Municipality"],
-)
-@pytest.mark.parametrize(
-    "service_group__name",
-    ["municipality"],
-)
-@pytest.mark.parametrize("location__communal_federal_number", ["1312"])
-@pytest.mark.parametrize("service__external_identifier", ["2601"])
-@pytest.mark.parametrize(
-    ("config", "camac_instance", "perm_settings", "expected_warnings"),
+    ("config", "camac_instance", "expected_warnings"),
     [
-        ("kt_schwyz", lf("sz_instance_with_form"), None, 0),
+        ("kt_schwyz", lf("sz_instance_with_form"), 0),
         # expected_warnings: BE has an invalid email in the repsonsible column.
         # See test_writers.test_responsible_user_writer()
-        ("kt_bern", lf("be_instance"), lf("be_permissions_settings"), 1),
+        ("kt_bern", lf("be_instance"), 1),
         # expected_warnings: SO doesn't accept plain text files.
-        ("kt_so", lf("so_instance"), None, 1),
-        ("kt_gr", lf("gr_instance"), None, 0),
-        ("kt_ag", lf("ag_instance"), None, 0),
+        ("kt_so", lf("so_instance"), 1),
+        ("kt_gr", lf("gr_instance"), 0),
+        ("kt_ag", lf("ag_instance"), 0),
     ],
 )
 @pytest.mark.django_db
 def test_create_instance_dossier_import_case(
-    dossier_import_factory,
     archive_file,
-    config,
-    setup_dossier_writer,
     camac_instance,
-    admin_user,
-    group,
-    settings,
-    perm_settings,
+    config,
+    dossier_import_factory,
     expected_warnings,
+    settings,
+    setup_dossier_writer,
 ):
-    if config == "kt_bern":
-        perm_settings["EVENT_HANDLER"] = (
-            "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
-        )
     # The test import file features faulty lines
     # 7 lines total. duplicate IDs are ignored
     # - 3 lines with good data (2 without documents directory)
@@ -97,7 +80,7 @@ def test_create_instance_dossier_import_case(
     writer = setup_dossier_writer(config)
     dossier_import = dossier_import_factory(
         source_file=archive_file("import-example-no-errors.zip"),
-        group__service__service_group__name="municipality",
+        group=writer._group,
     )
     loader = XlsxFileDossierLoader()
 
@@ -132,8 +115,8 @@ def test_create_instance_dossier_import_case(
             "import-id": str(dossier_import.pk),
             "camac-instance-id": first_instance.pk,
             "submit-date": "2017-04-12T00:00:00+0000",
-            "dossier-number": "4022-2017-1",
-            "dossier-number-sort": 40222017000001,
+            "dossier-number": "2601-2017-1",
+            "dossier-number-sort": 26012017000001,
         }
     if config in ["kt_gr", "kt_ag"]:
         assert first_instance.case.meta == {
@@ -481,6 +464,7 @@ IMPORT_ROWS_SO = [
 
 
 @pytest.mark.parametrize("is_empty", [True, False])
+@pytest.mark.django_db
 def test_record_loading_so(
     caluma_work_item_factory,
     dossier,
@@ -544,6 +528,7 @@ IMPORT_ROWS_GR = [
 
 
 @pytest.mark.parametrize("is_empty", [True, False])
+@pytest.mark.django_db
 def test_record_loading_gr(
     caluma_work_item_factory,
     dossier,
@@ -613,6 +598,7 @@ IMPORT_ROWS_AG = [
 
 
 @pytest.mark.parametrize("is_empty", [True, False])
+@pytest.mark.django_db
 def test_record_loading_ag(
     caluma_work_item_factory,
     dossier,
@@ -629,6 +615,7 @@ def test_record_loading_ag(
     caluma_form_factory,
 ):
     writer = setup_dossier_writer("kt_ag")
+    instance_service_factory(instance=ag_instance, service=writer._group.service)
 
     ag_instance.case.document.form_id = settings.DOSSIER_IMPORT["CALUMA_FORM"]
     ag_instance.case.document.save()
@@ -645,7 +632,6 @@ def test_record_loading_ag(
     if not is_empty:
         writer.write_fields(ag_instance, dossier)
         mocker.patch.object(writer, "find_existing_instance", ag_instance)
-        instance_service_factory(instance=ag_instance, service=writer._group.service)
 
     data = OrderedDict()
     for dossier_row_patch, expected_target in IMPORT_ROWS_AG:
@@ -1291,6 +1277,7 @@ def test_set_workflow_state_so(
     # This test skips instance creation where the instance's instance_state is set to the correct
     # state.
     writer = setup_dossier_writer("kt_so")
+    instance_service_factory(instance=so_instance, service=writer._group.service)
     dossier._meta.target_state = target_state
     writer.set_workflow_state(so_instance, dossier)
 
@@ -1562,8 +1549,10 @@ def test_set_workflow_state_ag(
     expected_case_status,
     ag_construction_monitoring_settings,
     address_assignment_settings,
+    instance_service_factory,
 ):
     writer = setup_dossier_writer("kt_ag")
+    instance_service_factory(instance=ag_instance, service=writer._group.service)
     dossier._meta.target_state = target_state
     messages = writer.set_workflow_state(ag_instance, dossier)
     assert any(msg.level == Severity.ERROR.value for msg in messages) is False, (
@@ -1603,6 +1592,7 @@ def test_set_workflow_state_ag(
         ("kt_ag", lf("ag_instance")),
     ],
 )
+@pytest.mark.django_db
 def test_import_documents(dossier, setup_dossier_writer, camac_instance, config):
     writer = setup_dossier_writer(config)
     dossier.attachments = [

@@ -1,18 +1,15 @@
 import datetime
 import shutil
 from collections import OrderedDict
-from copy import deepcopy
 from pathlib import Path
 
 import pytest
-from alexandria.core.factories import CategoryFactory
 from django.conf import settings
 from django.core.files import File
 from django.core.management import call_command
 from django.utils.module_loading import import_string
 
 from camac.dossier_import.loaders import XlsxFileDossierLoader
-from camac.user.models import Group, Service, ServiceGroup, User
 
 TEST_IMPORT_FILE_PATH = str(
     Path(settings.ROOT_DIR) / "camac/dossier_import/tests/data/"
@@ -113,198 +110,144 @@ def dossier_loader():
 
 @pytest.fixture
 def load_fixtures_so(
-    db,
-    settings,
     caluma_workflow_config_so,
-    so_dossier_import_settings,
-    caluma_document_factory,
-    caluma_dynamic_option_factory,
     service_factory,
-    so_decision_settings,
     so_construction_monitoring_settings,
-    so_permissions_settings,
+    so_decision_settings,
 ):
-    extra_fixtures = [
-        settings.ROOT_DIR("kt_so/config/permissions.json"),
-        settings.ROOT_DIR("kt_so/config/caluma_form.json"),
-        settings.ROOT_DIR("kt_so/config/caluma_form_v2.json"),
-        settings.ROOT_DIR("kt_so/config/caluma_form_default_answers.json"),
-        settings.ROOT_DIR("kt_so/config/caluma_decision_form.json"),
-        settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_form.json"),
-        settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_workflow.json"),
-    ]
-
     caluma_workflow_config_so.allow_forms.add("migriertes-dossier")
-    service = service_factory(service_group__name="municipality")
-    caluma_dynamic_option_factory(
-        slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
+    service = service_factory(
+        external_identifier="2601", service_group__name="municipality"
     )
 
-    so_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory(
-        allowed_mime_types=["application/pdf"]
-    ).pk
-
-    return service, extra_fixtures
+    return service, [
+        # TODO: Simplify to only require common and dossier import form fixtures
+        "kt_so/config/caluma_form.json",
+        "kt_so/config/caluma_form_v2.json",
+        "kt_so/config/caluma_form_default_answers.json",
+        "kt_so/config/caluma_decision_form.json",
+    ]
 
 
 @pytest.fixture
 def load_fixtures_gr(
-    db,
-    settings,
     caluma_workflow_config_gr,
-    gr_dossier_import_settings,
-    caluma_document_factory,
-    caluma_dynamic_option_factory,
-    service_factory,
-    gr_decision_settings,
     # TODO: Uncomment this as soon as the construction monitoring module in GR
     # is permanently enabled
     # gr_construction_monitoring_settings,
-    gr_permissions_settings,
+    gr_decision_settings,
     gr_distribution_settings,
+    service_factory,
 ):
-    extra_fixtures = [
-        settings.ROOT_DIR("kt_gr/config/permissions.json"),
-        settings.ROOT_DIR("kt_gr/config/caluma_form.json"),
-        settings.ROOT_DIR("kt_gr/config/caluma_form_v2.json"),
-        settings.ROOT_DIR("kt_gr/config/caluma_form_v3.json"),
-        settings.ROOT_DIR("kt_gr/config/caluma_form_v4.json"),
-        settings.ROOT_DIR("kt_gr/config/caluma_form_v5.json"),
-        settings.ROOT_DIR("kt_gr/config/caluma_form_v6.json"),
-        settings.ROOT_DIR("kt_gr/config/caluma_form_common.json"),
-        settings.ROOT_DIR("kt_gr/config/caluma_decision_form.json"),
-        settings.ROOT_DIR("kt_gr/config/caluma_construction_monitoring_form.json"),
-        settings.ROOT_DIR("kt_gr/config/caluma_material_exam_form.json"),
-        settings.ROOT_DIR("kt_gr/config/caluma_construction_monitoring_workflow.json"),
-    ]
-
     caluma_workflow_config_gr.allow_forms.add("migriertes-dossier")
     service = service_factory(service_group__name="municipality")
-    caluma_dynamic_option_factory(
-        slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
-    )
 
-    gr_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory(
-        allowed_mime_types=["application/pdf", "text/plain"]
-    ).pk
-
-    return service, extra_fixtures
+    return service, [
+        # TODO: Simplify to only require common and dossier import form fixtures
+        "kt_gr/config/caluma_form.json",
+        "kt_gr/config/caluma_form_v2.json",
+        "kt_gr/config/caluma_form_v3.json",
+        "kt_gr/config/caluma_form_v4.json",
+        "kt_gr/config/caluma_form_v5.json",
+        "kt_gr/config/caluma_form_v6.json",
+        "kt_gr/config/caluma_form_common.json",
+        "kt_gr/config/caluma_decision_form.json",
+        # TODO: This should be removed when the reference to the question
+        # "complete-material-exam" in the `caluma_form.json` fixture is removed.
+        # Why is it there in the first place?
+        "kt_gr/config/caluma_material_exam_form.json",
+    ]
 
 
 @pytest.fixture
 def load_fixtures_ag(
-    db,
-    settings,
-    caluma_workflow_config_ag,
-    ag_dossier_import_settings,
-    caluma_document_factory,
-    caluma_dynamic_option_factory,
-    service_factory,
-    ag_decision_settings,
-    ag_permissions_settings,
     ag_construction_monitoring_settings,
-):  # pragma: no cover
-    extra_fixtures = [
-        settings.ROOT_DIR("kt_ag/config/permissions.json"),
-        settings.ROOT_DIR("kt_ag/config/caluma_form.json"),
-        settings.ROOT_DIR("kt_ag/config/caluma_form_common.json"),
-        settings.ROOT_DIR("kt_ag/config/caluma_decision_form.json"),
-        settings.ROOT_DIR("kt_ag/config/user.json"),
-    ]
-
+    ag_decision_settings,
+    caluma_workflow_config_ag,
+    service_factory,
+    user_factory,
+):
     caluma_workflow_config_ag.allow_forms.add("importiertes-dossier")
     service = service_factory(service_group__name="municipality")
-    caluma_dynamic_option_factory(
-        slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
-    )
 
-    ag_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory(
-        allowed_mime_types=["application/pdf", "text/plain"]
-    ).pk
+    # Needed to verify import of responsible user
+    user_factory(email="aduncan@example.org")
 
-    User.objects.create_user("aduncan", "aduncan@example.org", "pwd")
+    # Needed for workflow
+    service_factory(slug="afb", service_group__name="service-afb")
 
-    return service, extra_fixtures
+    return service, [
+        # TODO: Simplify to only require common and dossier import form fixtures
+        "kt_ag/config/caluma_form.json",
+        "kt_ag/config/caluma_form_common.json",
+        "kt_ag/config/caluma_decision_form.json",
+    ]
 
 
 @pytest.fixture
 def load_fixtures_sz(
-    db,
-    settings,
     caluma_workflow_config_sz,
+    location,
     sz_construction_monitoring_settings,
     workflow_item_factory,
 ):
-    django_fixture_paths = [
-        settings.ROOT_DIR("kt_schwyz/config/buildingauthority.json")
-    ]
+    location.communal_federal_number = "1312"
+    location.save()
 
     for pk in [10, 15]:
         workflow_item_factory(pk=pk)
-    return None, django_fixture_paths
+
+    return None, ["kt_schwyz/config/buildingauthority.json"]
 
 
 @pytest.fixture
 def load_fixtures_be(
-    db,
-    settings,
-    caluma_workflow_config_be,
-    caluma_forms_be,
     be_decision_settings,
-    decision_factory,
-    service_factory,
+    caluma_workflow_config_be,
     construction_control_for,
-    caluma_document_factory,
-    caluma_dynamic_option_factory,
-    be_permissions_settings,
-    application_settings,
+    service_factory,
 ):
-    # Needed in order to make instance.responsible_service() work properly
-    application_settings["ACTIVE_SERVICES"] = deepcopy(
-        settings.APPLICATIONS["kt_bern"]["ACTIVE_SERVICES"]
-    )
-
-    django_fixture_paths = [
-        settings.ROOT_DIR("kt_bern/config/permissions.json"),
-        settings.ROOT_DIR("kt_bern/config/caluma_form_common.json"),
-        settings.ROOT_DIR("kt_bern/config/caluma_dossier_import_form.json"),
-        settings.ROOT_DIR("kt_bern/config/caluma_ebau_number_form.json"),
-    ]
     service = service_factory(service_group__name="municipality")
     construction_control_for(service)
-    caluma_dynamic_option_factory(
-        slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
-    )
-    return service, django_fixture_paths
+
+    return service, [
+        "kt_bern/config/caluma_form_common.json",
+        "kt_bern/config/caluma_dossier_import_form.json",
+        "kt_bern/config/caluma_ebau_number_form.json",
+        "kt_bern/config/caluma_decision_form.json",
+    ]
 
 
 @pytest.fixture
 def setup_dossier_writer(
-    request,
-    db,
-    settings,
+    alexandria_category_factory,
+    attachment_section,
     form,
-    role,
-    user,
     group,
     location,
-    attachment_section,
-    application_settings,
+    mocker,
+    request,
     role_factory,
+    settings,
+    user,
 ):
     def wrapper(config):
         # Needed for permissions module `instance_created` trigger
-        role_factory(name="Support")
+        mocker.patch(
+            "camac.permissions.config.common.get_support_role",
+            return_value=role_factory(),
+        )
 
-        common_fixtures_paths = [
+        common_fixtures = [
             # list of fixtures common to all configs. e. g.:
-            settings.ROOT_DIR(f"{config}/config/instance.json")
+            f"{config}/config/instance.json",
+            f"{config}/config/permissions.json",
         ]
 
-        settings.APPLICATION_NAME = config
         short_name = settings.APPLICATIONS[config]["SHORT_NAME"]
-        application_settings["SHORT_NAME"] = short_name
+        request.getfixturevalue(f"set_application_{short_name}")
 
+        request.getfixturevalue(f"{short_name}_permissions_settings")
         dossier_import_settings = request.getfixturevalue(
             f"{short_name}_dossier_import_settings"
         )
@@ -313,39 +256,34 @@ def setup_dossier_writer(
         )
 
         dossier_import_settings["USER"] = user.username
+        dossier_import_settings["FORM_ID"] = form.pk
+        dossier_import_settings["ATTACHMENT_SECTION_ID"] = attachment_section.pk
+        dossier_import_settings["ALEXANDRIA_CATEGORY"] = alexandria_category_factory(
+            allowed_mime_types=["application/pdf"]
+            if config == "kt_so"
+            else ["application/pdf", "text/plain"]
+        ).pk
+
+        group.service = service
+        group.save()
+
         writer_cls = import_string(settings.DOSSIER_IMPORT["WRITER_CLASS"])
-        this_group, _ = Group.objects.update_or_create(
-            pk=group.pk, defaults={"role": role}
-        )
         dossier_writer = writer_cls(
             user_id=user.pk,
-            group_id=this_group.pk,
+            group_id=group.pk,
             location_id=location.pk,
         )
 
-        if config in ["kt_bern", "kt_so", "kt_gr", "kt_ag"]:
-            this_group.service = service
-            this_group.save()
-            dossier_writer._group.refresh_from_db()
-        elif config == "kt_schwyz":
-            application_settings["SHORT_DOSSIER_NUMBER"] = True
-
-        if config in ["kt_so", "kt_gr", "kt_ag"]:
-            application_settings["DOCUMENT_BACKEND"] = "alexandria"
-        else:
-            application_settings["DOCUMENT_BACKEND"] = "camac-ng"
-
-        dossier_import_settings["FORM_ID"] = form.pk
-        dossier_import_settings["ATTACHMENT_SECTION_ID"] = attachment_section.pk
-
-        fixture_paths = common_fixtures_paths + config_fixtures
-        if len(fixture_paths):
-            call_command("loaddata", *fixture_paths)
-
-        if config == "kt_ag":
-            Service.objects.create(
-                slug="afb", service_group=ServiceGroup.objects.get(slug="service-afb")
-            )
+        # TODO: This is where most of the time in the test suite is wasted. If
+        # we manage to shrink the data that is being loaded for **every** test,
+        # we may gain quite the performance improvement.
+        # Another approach could be to use the pre-filled cantonal test DB like
+        # it's done in this PoC:
+        # https://git.adfinis.com/camac-ng/camac-ng/-/merge_requests/12850
+        call_command(
+            "loaddata",
+            [settings.ROOT_DIR(path) for path in common_fixtures + config_fixtures],
+        )
 
         return dossier_writer
 
