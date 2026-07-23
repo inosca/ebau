@@ -139,7 +139,7 @@ class Command(BaseCommand):
                 case.status = Case.STATUS_RUNNING
 
                 self.migrate_publication(case)
-                self.fix_work_item_status(case)
+                self.fix_work_item_status(case, instance)
 
                 # reset the case status
                 case.status = previous_status
