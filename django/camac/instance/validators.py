@@ -171,13 +171,10 @@ class FormDataValidator:
         return question in self.relevant_questions
 
     def _check_questions_active(self, questions):
-        for question in questions:
-            if self._check_question_active(
-                question, self.forms_def["questions"][question]
-            ):
-                return True
-
-        return False
+        return any(
+            self._check_question_active(q, self.forms_def["questions"][q])
+            for q in questions
+        )
 
     def _check_question_active(self, question, question_def):
         """Question is active when at least one dependend question is active as well."""
