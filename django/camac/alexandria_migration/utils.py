@@ -1,5 +1,7 @@
 import fcntl
+import signal
 import tempfile
+from contextlib import contextmanager
 from datetime import timedelta
 from functools import lru_cache
 from pathlib import Path
@@ -117,7 +119,7 @@ class UploadState:
     def get_all(self) -> list[str]:
         """Return a list of all S3 paths in the log file."""
         if not self.path.exists():
-            return []
+            return []  # pragma: no cover
         with open(self.path) as f:
             return [line.strip() for line in f if line.strip()]
 
@@ -136,3 +138,21 @@ class UploadState:
         """Find all migration upload log files in the temp directory."""
         tmp_dir = Path(tempfile.gettempdir())
         return list(tmp_dir.glob("alexandria_migration_*_uploads.log"))
+
+
+@contextmanager
+def timeout(seconds):
+    """Context manager for timing out a block of code using SIGALRM."""
+
+    assert seconds, "Cannot have a timeout with 0 seconds"
+
+    def signal_handler(signum, frame):
+        raise TimeoutError("Timed out!")
+
+    old_handler = signal.signal(signal.SIGALRM, signal_handler)
+    signal.alarm(int(seconds))
+    try:
+        yield
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, old_handler)

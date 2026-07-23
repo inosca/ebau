@@ -29,6 +29,40 @@ class AlexandriaMigrationConfig(ModuleApplicationConfig):
         default_factory=dict,
     )
 
+    db_batch_size: int = Field(
+        description=(
+            "Batch size for writing to DB. Used in some contexts where "
+            "queries could get extremely large"
+        ),
+        default=20,
+    )
+
+    search_vector_max_chars: int = Field(
+        description=(
+            "Maximum number of characters to use for SearchVector indexing. "
+            "Postgres has a limit of 1MB for tsvector, so we truncate to "
+            "avoid errors and keep performance."
+        ),
+        default=100_000,
+    )
+    content_text_max_chars: int = Field(
+        description=(
+            "Maximum number of characters to store of a document's content text. "
+            "It rarely makes sense to store more than 100k chars, so we use that "
+            "as a default to improve performance and reduce DB entry size."
+        ),
+        default=100_000,
+    )
+
+    tika_timeout: int = Field(
+        description=(
+            "Timeout for Tika requests, in seconds. Note that Tika has "
+            "a built-in limit of 5 minutes (300s) so setting it higher "
+            "does not make sense"
+        ),
+        default=120,
+    )
+
 
 ALEXANDRIA_MIGRATION = ModuleConfig[AlexandriaMigrationConfig](
     default=AlexandriaMigrationConfig(),

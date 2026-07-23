@@ -1,4 +1,6 @@
+import time
 from collections import OrderedDict
+from contextlib import nullcontext as no_exception
 from datetime import timedelta
 
 import pytest
@@ -7,6 +9,7 @@ from camac.alexandria_migration.utils import (
     get_available_categories,
     get_target_category,
     humanize_timedelta,
+    timeout,
 )
 
 
@@ -71,3 +74,17 @@ def test_category_mapping(canton, request, snapshot):
 )
 def test_humanize_timedelta(delta, expect_results):
     assert humanize_timedelta(delta) == expect_results
+
+
+@pytest.mark.freeze_time("2024-04-15", tick=True)
+@pytest.mark.parametrize(
+    ("test_fn", "expectation"),
+    [
+        (lambda: time.sleep(2), pytest.raises(TimeoutError)),
+        (lambda: 3, no_exception()),
+    ],
+)
+def test_timeout_context_manager(test_fn, expectation):
+
+    with expectation, timeout(1):
+        test_fn()

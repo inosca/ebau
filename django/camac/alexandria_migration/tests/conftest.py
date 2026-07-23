@@ -56,3 +56,18 @@ def clear_all_functools_caches():
     gc.collect()
     for ref in gc.get_objects():
         _clear_if_cache(ref)
+
+
+@pytest.fixture(autouse=True)
+def clear_migrator_storage():
+    """Clear cached storage in migrators to avoid leaking between tests.
+
+    Tests might use different alexandria_s3_mock instances (different ports),
+    so we must ensure migrators don't keep using the old one.
+    """
+    from camac.alexandria_migration.domain_logic.annotate_documents import (
+        AnnotateDocumentsMigrator,
+    )
+
+    AnnotateDocumentsMigrator._storage = None
+    AnnotateDocumentsMigrator._preview_manager = None

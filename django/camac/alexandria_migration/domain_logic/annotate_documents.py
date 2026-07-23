@@ -1,6 +1,8 @@
 import hashlib
 import logging
 import os
+import shutil
+import tempfile
 from concurrent.futures import Executor, Future, ProcessPoolExecutor
 from dataclasses import dataclass, field
 from mimetypes import guess_extension
@@ -15,14 +17,14 @@ from django.conf import settings
 from django.contrib.postgres.search import SearchVector
 from django.core.files.base import ContentFile
 from django.core.files.storage import storages
-from django.db import transaction
+from django.db import connections, transaction
 from django.db.models import Prefetch, Value
 from django.utils import timezone
 from preview_generator.manager import PreviewManager
 
 from camac.alexandria_migration.domain_logic.base import BaseMigrator, disable_auto_now
 from camac.alexandria_migration.models import DocumentMark, MigrationLog
-from camac.alexandria_migration.utils import UploadState
+from camac.alexandria_migration.utils import UploadState, timeout
 from camac.instance.models import InstanceAlexandriaDocument
 
 
@@ -82,8 +84,10 @@ class AnnotateDocumentsMigrator(BaseMigrator):
     copy_paths: list[tuple[str, str]] = field(default_factory=list)
     no_parallel: bool = field(default=False)
     workers: int = field(default=0)
+    failed: bool = field(default=False)
 
     _storage = None
+    _preview_manager = None
 
     @classmethod
     def cleanup_orphans(cls):
@@ -91,6 +95,13 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         from alexandria.core.models import File as AlexandriaFile
 
         cls._storage = None
+        cls._preview_manager = None
+
+        # Also clear preview cache
+        cache_path = os.path.join(tempfile.gettempdir(), "alexandria_preview_cache")
+        if os.path.exists(cache_path):
+            shutil.rmtree(cache_path, ignore_errors=True)
+
         log_files = UploadState.get_all_log_files()
         if not log_files:
             return
@@ -108,9 +119,9 @@ class AnnotateDocumentsMigrator(BaseMigrator):
                     # Check if it was maybe just created in this run?
                     # No, this is called at the very beginning of the command.
                     storage.delete(s3_path)
-                    total_cleaned += 1
                     if total_cleaned % 20 == 0:
                         print(".", end="", flush=True)
+                    total_cleaned += 1
 
             UploadState.delete_log_file(log_path)
 
@@ -129,6 +140,13 @@ class AnnotateDocumentsMigrator(BaseMigrator):
                 _ = cls._storage.bucket.meta.client
 
         return cls._storage
+
+    @classmethod
+    def get_preview_manager(cls):
+        if cls._preview_manager is None:
+            cache_path = os.path.join(tempfile.gettempdir(), "alexandria_preview_cache")
+            cls._preview_manager = PreviewManager(cache_path, create_folder=True)
+        return cls._preview_manager
 
     def process(self) -> None:
         documents = Document.objects.filter(
@@ -150,40 +168,61 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             ),
             Prefetch(
                 "files",
-                queryset=File.objects.filter(variant=File.Variant.ORIGINAL),
+                queryset=File.objects.filter(
+                    variant=File.Variant.ORIGINAL
+                ).prefetch_related("renderings"),
                 to_attr="_originals",
             ),
             "instance_document",
         )
 
-        with transaction.atomic(), disable_auto_now(Document, File):
-            # Default number of workers is number of CPU + 1.
-            # If commandline passes number of workers, use that
-            default_workers = (os.cpu_count() or 1) + 1
-            workers = self.workers or default_workers
-            executor = (
-                SynchronousExecutor()
-                if self.no_parallel
-                else ProcessPoolExecutor(max_workers=workers)
-            )
-            setproctitle.setproctitle(
-                f"Annotating Documents: {type(executor).__name__} with {workers} workers"
-            )
+        # Default number of workers is number of CPU + 1.
+        # If commandline passes number of workers, use that
+        default_workers = (os.cpu_count() or 1) + 1
+        workers = self.workers or default_workers
+        executor = (
+            SynchronousExecutor()
+            if self.no_parallel
+            else ProcessPoolExecutor(max_workers=workers)
+        )
+        setproctitle.setproctitle(
+            f"Annotating Documents: {type(executor).__name__} with {workers} workers"
+        )
 
         upload_state = UploadState(self.run)
 
-            with executor as executor:
-                total = len(documents)
-                for i, document in enumerate(documents, start=1):
-                    future = executor.submit(
-                        self.annotate_document,
-                        document,
-                        (i, total),
-                        self.run,
-                    )
-                    # Process Pool executor can't update `self`, as it's in a
-                    # subprocess, so we do it via return values instead
-                    future.add_done_callback(self._record_task_result)
+        # Record the parent PID so forked workers can detect they are
+        # in a child process and unset the inherited DB connection.
+        AnnotateDocumentsMigrator._parent_pid = os.getpid()
+
+        with executor as executor:
+            total = len(documents)
+            for i, document in enumerate(documents, start=1):
+                future = executor.submit(
+                    self.annotate_document,
+                    document,
+                    (i, total),
+                    self.run,
+                )
+                # Process Pool executor can't update `self`, as it's in a
+                # subprocess, so we do it via return values instead
+                future.add_done_callback(self._record_task_result)
+
+        if self.failed:  # pragma: no cover
+            # escalate to the management command, which will set the migration
+            # run to "failed" state
+            raise (
+                RuntimeError(
+                    "Something bad happened during annotation procedure. "
+                    "Check STDOUT and try again"
+                )
+            )
+
+        # Now that parallel work is done, save everything to DB.
+        with transaction.atomic(), disable_auto_now(Document, File):
+            # When the logs, files and everything is saved, we don't need
+            # the upload state anymore - these thumbnails are now "save"
+            transaction.on_commit(upload_state.clear)
 
             self.logs.extend(
                 [
@@ -199,29 +238,45 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             setproctitle.setproctitle(
                 "Annotating Documents: Creating Thumbnail DB entries"
             )
-            File.objects.bulk_create(self.create_files)
+            File.objects.bulk_create(
+                self.create_files,
+                batch_size=settings.ALEXANDRIA_MIGRATION.db_batch_size,
+            )
             setproctitle.setproctitle(
                 "Annotating Documents: Updating vector, checksum, language"
             )
             File.objects.bulk_update(
                 self.update_files,
                 fields=["content_vector", "content_text", "checksum", "language"],
+                batch_size=settings.ALEXANDRIA_MIGRATION.db_batch_size,
             )
             setproctitle.setproctitle("Annotating Documents: Storing logs")
-            MigrationLog.objects.bulk_create(self.logs)
-
-            upload_state.clear()
+            MigrationLog.objects.bulk_create(
+                self.logs, batch_size=settings.ALEXANDRIA_MIGRATION.db_batch_size
+            )
 
     def _record_task_result(self, future):
         # Can be called with future or direct result
-        result = future if isinstance(future, list) else future.result()
+        if isinstance(future, list):  # pragma: no cover
+            result = future
+        else:
+            try:
+                result = future.result()
+            except Exception as exc:  # pragma: no cover
+                print(f"Worker failed with {type(exc).__name__}: {exc}")
+                self.failed = True
+                return
 
         for file_res in result:
             if err := file_res.get("error"):  # pragma: todo cover
-                # TODO fix and ensure the result is loged properly. But for now,
-                # stdout is fine
+                # TODO: These are individual-file errors. Currently, the only
+                # way to get these is if the file is not available in S3, or
+                # comes out empty. This should not happen, but *might*. Not
+                # sure yet whether this should cause a fatal error of the whole
+                # migration run though
                 print(err)
-                continue
+                self.failed = True
+                return
 
             for log in file_res["logs"]:
                 # the run is not recorded to avoid passing it along
@@ -257,6 +312,18 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         - file_updated: None or the updated file object
         - file_created: None or the created thumbnail
         """
+        # Forked workers inherit the parent's DB socket. Reusing it from
+        # multiple processes can corrupt the connection or cause the server
+        # to terminate it prematurely.
+        #
+        # Instead of closing it (which might send a termination packet to
+        # the server, breaking the parent's connection), we unset it so
+        # Django "forgets" it in this process.
+        is_child = os.getpid() != cls._parent_pid
+        if is_child:  # pragma: no cover
+            # Not covered in tests, as test uses a non-subprocess executor
+            connections["default"].connection = None
+
         i, t = progressinfo
         doc_prefix = f"Annotating Documents: doc {i}/{t}"
         setproctitle.setproctitle(doc_prefix)
@@ -279,6 +346,11 @@ class AnnotateDocumentsMigrator(BaseMigrator):
                 # TODO deal with it in some more "practicable" way
                 print(f"Document has no original file? {document}")
 
+        # Pre-cache the document reference on each file so that
+        # accessing file.document in the worker doesn't trigger a DB query.
+        for file in document._originals:
+            file.document = document
+
         res = [
             cls.annotate_file(
                 file,
@@ -293,6 +365,14 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             )
             for file in document._originals
         ]
+
+        if is_child:  # pragma: no cover
+            # Not covered in tests, as test uses a non-subprocess executor
+            # If a worker in this module interacts with the DB, it's a bug.
+            assert connections["default"].connection is None, (
+                "Database query detected in forked worker! "
+                "Workers must not interact with the database."
+            )
 
         return res
 
@@ -389,8 +469,9 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         """
         if (
             file.variant == File.Variant.ORIGINAL
-            # TODO ensure this does not trigger a query
-            and file.renderings.count() < 1
+            # Use the prefetched renderings cache to avoid a DB query in
+            # the forked worker process (DB connections are not fork-safe).
+            and len(file.renderings.all()) < 1
             and settings.ALEXANDRIA_ENABLE_THUMBNAIL_GENERATION
         ):
             return cls._create_thumbnail(file, content, run, prefix)
@@ -409,9 +490,15 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             # already done or not enabled - don't do anything
             return False
 
-        parsed_content = TikaClient.get_content_from_buffer(content)
-        # Note: Tika will complain for a couple of document types that it doesn't
-        # understand. That's OK (For example, Zip archives are not supported)
+        tika_timeout = settings.ALEXANDRIA_MIGRATION.tika_timeout
+        try:
+            with timeout(tika_timeout):
+                parsed_content = TikaClient.get_content_from_buffer(content)
+        except Exception:  # pragma: no cover
+            # SIGALRM during requests.put() is caught by urllib3 and
+            # re-raised as ReadTimeout/ConnectionError instead of
+            # TimeoutError.  Treat any such failure as empty content.
+            parsed_content = None
 
         file_name = str(Path(file.name).stem)
         file_name_vector = SearchVector(Value(file_name), weight="D")
@@ -427,21 +514,39 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             file.content_vector = base_vector
             return True
 
-        language = TikaClient.get_language_from_content(parsed_content[:1000])
+        try:
+            with timeout(tika_timeout):
+                language = TikaClient.get_language_from_content(parsed_content[:1000])
+        except Exception:  # pragma: no cover
+            language = settings.LANGUAGE_CODE
+
+        if not language or language == "unknown":  # pragma: no cover
+            language = settings.LANGUAGE_CODE
 
         config = settings.ALEXANDRIA_ISO_639_TO_PSQL_SEARCH_CONFIG.get(
             language, "simple"
         )
         text_content = parsed_content.strip()
+
+        # Truncate content for indexing to avoid Postgres tsvector limits (1MB)
+        # and excessively large SQL queries.
+        indexed_content = text_content[
+            : settings.ALEXANDRIA_MIGRATION.search_vector_max_chars
+        ]
+
         content_vector = base_vector + SearchVector(
-            Value(text_content),
+            Value(indexed_content),
             config=config,
             weight="C",
         )
 
         file.content_vector = content_vector
         file.language = language
-        file.content_text = text_content
+        # Truncate stored text to a reasonable limit to avoid
+        # massive DB rows that slow down everything.
+        file.content_text = text_content[
+            : settings.ALEXANDRIA_MIGRATION.content_text_max_chars
+        ]
         return True
 
     @classmethod
@@ -464,14 +569,13 @@ class AnnotateDocumentsMigrator(BaseMigrator):
         May return None if it wasn't possible
         """
 
-        setproctitle.setproctitle(f"{prefix} - {nfile}: Thumbnailing")
-        with NamedTemporaryFile() as tmp:
-            temp_file = Path(tmp.name)
-            manager = PreviewManager(str(temp_file.parent))
-            with temp_file.open("wb") as f:
-                f.write(content)
+        setproctitle.setproctitle(f"{prefix}: Thumbnailing")
+        extension = guess_extension(file.mime_type)
+        with NamedTemporaryFile(suffix=extension) as tmp:
+            tmp.write(content)
+            tmp.flush()
 
-            extension = guess_extension(file.mime_type)
+            manager = cls.get_preview_manager()
             preview_kwargs = {"file_ext": extension}
             if settings.ALEXANDRIA_THUMBNAIL_WIDTH:  # pragma: no cover
                 preview_kwargs["width"] = settings.ALEXANDRIA_THUMBNAIL_WIDTH
@@ -479,7 +583,7 @@ class AnnotateDocumentsMigrator(BaseMigrator):
                 preview_kwargs["height"] = settings.ALEXANDRIA_THUMBNAIL_HEIGHT
             try:
                 path_to_preview_image = Path(
-                    manager.get_jpeg_preview(str(temp_file), **preview_kwargs)
+                    manager.get_jpeg_preview(tmp.name, **preview_kwargs)
                 )
             # thumbnail generation can throw many different exceptions, catch all
             except Exception:  # noqa: B902

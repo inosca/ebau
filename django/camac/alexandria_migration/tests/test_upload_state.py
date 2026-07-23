@@ -1,4 +1,5 @@
-from unittest.mock import MagicMock
+import random
+from unittest.mock import MagicMock, patch
 
 import pytest
 from alexandria.core import models as alexandria_models
@@ -12,12 +13,18 @@ from camac.alexandria_migration.utils import UploadState
 
 @pytest.fixture
 def mock_run():
-    return MagicMock(pk=12345)
+    return MagicMock(pk=random.randint(1, 1000000))
+
+
+@pytest.fixture(autouse=True)
+def mock_temp_dir(tmp_path):
+    with patch("tempfile.gettempdir", return_value=str(tmp_path)):
+        yield tmp_path
 
 
 def test_upload_state_lifecycle(mock_run):
     state = UploadState(mock_run)
-    assert "alexandria_migration_12345_uploads.log" in str(state.path)
+    assert f"alexandria_migration_{mock_run.pk}_uploads.log" in str(state.path)
 
     # Test add
     state.add("path/to/s3/file1.jpg")
@@ -46,8 +53,8 @@ def test_upload_state_concurrency(mock_run):
 
 
 @pytest.mark.django_db
-def test_cleanup_orphans(mock_run, alexandria_s3_mock):
-    # 1. Create a log file with some paths
+def test_cleanup_orphans_with_orphans(mock_run, alexandria_s3_mock):
+    """Test cleanup when orphans actually exist."""
     state = UploadState(mock_run)
     orphaned_path = "orphaned/file.jpg"
     saved_path = "saved/file.jpg"
@@ -55,12 +62,10 @@ def test_cleanup_orphans(mock_run, alexandria_s3_mock):
     state.add(orphaned_path)
     state.add(saved_path)
 
-    # 2. Upload both files to S3 mock
     storage = AnnotateDocumentsMigrator.get_storage()
     storage.save(orphaned_path, ContentFile(b"orphaned content"))
     storage.save(saved_path, ContentFile(b"saved content"))
 
-    # 3. Create a DB entry for one of them
     doc = alexandria_models.Document.objects.create(title="Test Doc")
     alexandria_models.File.objects.create(
         document=doc, name="saved.jpg", content=saved_path, size=13
@@ -69,10 +74,43 @@ def test_cleanup_orphans(mock_run, alexandria_s3_mock):
     assert storage.exists(orphaned_path)
     assert storage.exists(saved_path)
 
-    # 4. Run cleanup
     AnnotateDocumentsMigrator.cleanup_orphans()
 
-    # 5. Verify orphaned is gone, saved is still there, and log is gone
     assert not storage.exists(orphaned_path)
     assert storage.exists(saved_path)
     assert not state.path.exists()
+
+
+@pytest.mark.django_db
+def test_cleanup_orphans_no_orphans(mock_run, alexandria_s3_mock):
+    """Test cleanup when no orphans exist (all files in log are in DB)."""
+    state = UploadState(mock_run)
+    saved_path = "saved/file.jpg"
+
+    state.add(saved_path)
+
+    storage = AnnotateDocumentsMigrator.get_storage()
+    storage.save(saved_path, ContentFile(b"saved content"))
+
+    doc = alexandria_models.Document.objects.create(title="Test Doc")
+    alexandria_models.File.objects.create(
+        document=doc, name="saved.jpg", content=saved_path, size=13
+    )
+
+    assert storage.exists(saved_path)
+
+    AnnotateDocumentsMigrator.cleanup_orphans()
+
+    # File should still be there because it's in the DB
+    assert storage.exists(saved_path)
+    # But the log file should be cleaned up
+    assert not state.path.exists()
+
+
+def test_cleanup_orphans_no_logs():
+    """Test cleanup when no log files exist at all."""
+    # Ensure no logs exist (mock_temp_dir fixture handles isolation)
+    assert not UploadState.get_all_log_files()
+
+    # Should not crash and should do nothing
+    AnnotateDocumentsMigrator.cleanup_orphans()
