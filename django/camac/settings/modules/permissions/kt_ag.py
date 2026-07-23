@@ -61,9 +61,14 @@ MODULE_ADDITIONAL_DEMANDS = (
     & RequireWorkItem("init-additional-demand")
     & ~IsServiceGroup(["municipality-light"])
 )
+
 MODULE_AUDIT = NO_CORRECTION & (
     (RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY)
-    | RequireWorkItem("formal-exam", "completed")
+    | (RequireWorkItem("formal-exam", "completed"))
+)
+MODULE_AUDIT_DEMOLITION = NO_CORRECTION & (
+    (RequireWorkItem("formal-exam-demolition-payment") & ROLES_MUNICIPALITY)
+    | RequireWorkItem("formal-exam-demolition-payment", "completed")
 )
 MODULE_BILLING = (
     STATES_ALL
@@ -124,6 +129,13 @@ MODULE_INFORMATION_OF_NEIGHBORS = (
 )
 MODULE_JOURNAL_READ = STATES_ALL & ~IsServiceGroup(["municipality-light"])
 MODULE_JOURNAL_WRITE = MODULE_JOURNAL_READ & ROLES_NO_READONLY
+MODULE_RESPONSIBLE_SERVICE_READ = IsForm(
+    ["auszahlung-abbruchpraemie"]
+) & RequireInstanceState(["init-distribution", "decision", "finished"])
+MODULE_RESPONSIBLE_SERVICE_WRITE = (
+    MODULE_RESPONSIBLE_SERVICE_READ
+    & RequireInstanceState(["init-distribution", "decision"])
+)
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_LEGAL_SUBMISSIONS = NO_CORRECTION & RequireWorkItem("objections")
 MODULE_PERMISSIONS = (
@@ -336,6 +348,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
             ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
             ("audit-read", MODULE_AUDIT),
+            ("audit-demolition-read", MODULE_AUDIT_DEMOLITION),
             ("billing-read", MODULE_BILLING),
             ("billing-write", MODULE_BILLING),
             ("billing-charge", MODULE_BILLING),
@@ -366,6 +379,8 @@ AG_PERMISSIONS_SETTINGS = {
                 | (RequireInstanceState(["correction"]) & ROLES_MUNICIPALITY),
             ),
             ("history-read", MODULE_HISTORY),
+            ("instance-read-responsible-service", MODULE_RESPONSIBLE_SERVICE_READ),
+            ("instance-change-responsible-service", MODULE_RESPONSIBLE_SERVICE_WRITE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-mark-write", ACTION_INSTANCE_MARK),
             ("information-of-neighbors-read", MODULE_INFORMATION_OF_NEIGHBORS),
@@ -398,6 +413,59 @@ AG_PERMISSIONS_SETTINGS = {
             ),
             ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
             ("instance-delete", ACTION_INSTANCE_DELETE),
+        ],
+        "involved-authority": [
+            ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
+            ("audit-read", MODULE_AUDIT),
+            ("audit-demolition-read", MODULE_AUDIT_DEMOLITION),
+            ("billing-read", MODULE_BILLING),
+            ("billing-charge", MODULE_BILLING),
+            ("cantonal-exam-read", MODULE_CANTONAL_EXAM),
+            ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
+            ("communications-convert-to-document", MODULE_COMMUNICATIONS),
+            ("complete-instance-read", MODULE_COMPLETE_INSTANCE),
+            ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
+            ("corrections-read", MODULE_CORRECTIONS),
+            ("decision-read", MODULE_DECISION),
+            ("distribution-read", MODULE_DISTRIBUTION),
+            ("dms-generate-read", MODULE_DMS_GENERATE),
+            ("documents-read", MODULE_DOCUMENTS),
+            ("documents-write", MODULE_DOCUMENTS),
+            ("form-rpg2-read", MODULE_RPG2_READ),
+            ("form-read", MODULE_FORM),
+            ("history-read", MODULE_HISTORY),
+            ("instance-read-responsible-service", MODULE_RESPONSIBLE_SERVICE_READ),
+            ("instance-change-responsible-service", MODULE_RESPONSIBLE_SERVICE_WRITE),
+            ("instance-submit", ACTION_INSTANCE_SUBMIT),
+            ("information-of-neighbors-read", MODULE_INFORMATION_OF_NEIGHBORS),
+            ("journal-read", MODULE_JOURNAL_READ),
+            ("journal-write", MODULE_JOURNAL_WRITE),
+            ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
+            ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("permissions-grant-read", MODULE_PERMISSIONS),
+            ("permissions-read-any", MODULE_PERMISSIONS),
+            ("permissions-read", MODULE_PERMISSIONS),
+            ("permissions-revoke-read", MODULE_PERMISSIONS),
+            ("publication-read", MODULE_PUBLICATION),
+            ("rejection-read", MODULE_REJECTION),
+            ("responsible-read", MODULE_RESPONSIBLE),
+            ("responsible-write", MODULE_RESPONSIBLE),
+            ("work-items-read", MODULE_WORK_ITEMS),
+            ("instance-change-form", ACTION_INSTANCE_CHANGE_FORM),
+            ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
+            ("deadlines-suspensions-read", MODULE_DEADLINES_SUSPENSION_READ),
+            (
+                "deadlines-suspensions-write",
+                MODULE_DEADLINES_SUSPENSION_WRITE,
+            ),
+            ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE_READ),
+            ("deadlines-deadlines-write", MODULE_DEADLINES_DEADLINE_WRITE),
+            (
+                "deadlines-deadlines-write-custom-enddate",
+                MODULE_DEADLINES_DEADLINE_WRITE & IsForm(PGV_FORMS),
+            ),
+            ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
         ],
         "read": [
             ("documents-read", MODULE_DOCUMENTS),

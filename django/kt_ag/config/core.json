@@ -131,7 +131,7 @@
       "template": "/ember-camac-ng/corrections.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 23,
+      "sort": 25,
       "form_group": 2000000,
       "require_permission": "corrections-read"
     }
@@ -147,7 +147,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 2000000,
       "require_permission": "distribution-read"
     }
@@ -163,7 +163,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 13,
+      "sort": 15,
       "form_group": 2000000,
       "require_permission": "decision-read"
     }
@@ -195,7 +195,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 2000000,
       "require_permission": "cantonal-exam-read"
     }
@@ -211,7 +211,7 @@
       "template": "/ember-camac-ng/additional-demand.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 18,
+      "sort": 20,
       "form_group": 2000000,
       "require_permission": "additional-demands-read"
     }
@@ -227,7 +227,7 @@
       "template": "/ember-camac-ng/publication.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 2000000,
       "require_permission": "publication-read"
     }
@@ -243,7 +243,7 @@
       "template": "/ember-camac-ng/information-of-neighbors.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 2000000,
       "require_permission": "information-of-neighbors-read"
     }
@@ -259,7 +259,7 @@
       "template": "/ember-camac-ng/legal-submission.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 19,
+      "sort": 21,
       "form_group": 2000000,
       "require_permission": "legal-submissions-read"
     }
@@ -275,7 +275,7 @@
       "template": "/ember-camac-ng/construction-monitoring.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 14,
+      "sort": 16,
       "form_group": 2000000,
       "require_permission": "construction-monitoring-read"
     }
@@ -355,7 +355,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 21,
+      "sort": 23,
       "form_group": 2000000,
       "require_permission": "journal-read"
     }
@@ -371,7 +371,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 22,
+      "sort": 24,
       "form_group": 2000000,
       "require_permission": "history-read"
     }
@@ -387,7 +387,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 25,
+      "sort": 27,
       "form_group": 2000000,
       "require_permission": "permissions-read"
     }
@@ -403,7 +403,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 15,
+      "sort": 17,
       "form_group": 2000000,
       "require_permission": "complete-instance-read"
     }
@@ -419,7 +419,7 @@
       "template": "/ember-camac-ng/gwr.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 16,
+      "sort": 18,
       "form_group": 2000000,
       "require_permission": "related-gwr-projects-read"
     }
@@ -435,7 +435,7 @@
       "template": "/ember-camac-ng/billing.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 20,
+      "sort": 22,
       "form_group": 2000000,
       "require_permission": "billing-read"
     }
@@ -467,7 +467,7 @@
       "template": "/ember-camac-ng/rejection.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 17,
+      "sort": 19,
       "form_group": 2000000,
       "require_permission": "rejection-read"
     }
@@ -483,7 +483,7 @@
       "template": "/ember-camac-ng/deadlines.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 24,
+      "sort": 26,
       "form_group": 2000000,
       "require_permission": "deadlines-suspensions-read"
     }
@@ -499,9 +499,41 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 26,
+      "sort": 28,
       "form_group": 2000000,
       "require_permission": "form-rpg2-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 23000005,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 9,
+      "form_group": 2000000,
+      "require_permission": "audit-demolition-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 23000006,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/change-lead-authority.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 14,
+      "form_group": 2000000,
+      "require_permission": "instance-read-responsible-service"
     }
   },
   {
@@ -765,6 +797,26 @@
     }
   },
   {
+    "model": "core.instanceresourcet",
+    "pk": 23000005,
+    "fields": {
+      "instance_resource": 23000005,
+      "language": "de",
+      "name": "Vorläufige Prüfung",
+      "description": "Vorläufige Prüfung Auszahlung Abbruchprämie"
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 23000006,
+    "fields": {
+      "instance_resource": 23000006,
+      "language": "de",
+      "name": "Leitbehörde",
+      "description": null
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 2000001,
     "fields": {
@@ -797,6 +849,13 @@
     "pk": 23000004,
     "fields": {
       "task": "rpg2"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 23000005,
+    "fields": {
+      "task": "formal-exam-demolition-payment"
     }
   },
   {

@@ -237,17 +237,6 @@ export default {
       municipality: ["municipality", "district", "lead-service"],
       "construction-control": ["construction-control"],
     },
-    forbiddenInstanceStates: {
-      municipality: [
-        "sb1",
-        "sb2",
-        "conclusion",
-        "evaluated",
-        "finished",
-        "finishedInternal",
-      ],
-      "construction-control": [],
-    },
   },
   alexandria: {
     feedbackCategories: ["alle-beteiligten", "rechtsbegehren"],

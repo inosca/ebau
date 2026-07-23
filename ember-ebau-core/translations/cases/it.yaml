@@ -146,6 +146,7 @@ cases:
     showAll: "Visualizza tutti"
     modalTitle: "Tutti i dossier sulla particella"
     noLinkedInstances: "Non sono ancora collegati dei dossier."
+    instanceHasNoPlot: "Per questo dossier non sono state salvate informazioni relative alle parcticella."
     noInstancesOnSamePlot: "Non sono stati trovati dossier relativi a questa particella."
     linkedInstancesText: "{count} {count, plural, one {dossier collegato} other {dossier collegati}}"
     instancesOnSamePlotText: "{count} {count, plural, one {dossier sulla stessa particella} other {dossier sulla stessa particella}}"

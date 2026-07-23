@@ -134,6 +134,13 @@ export default {
       "decision",
     ],
   },
+  changeResponsibleService: {
+    serviceGroupsForType: {
+      // This should match the "ACTIVE_SERVICE" configuration in the django
+      // settings
+      municipality: ["municipality", "municipality-light", "service-afb"],
+    },
+  },
   alexandria: {
     feedbackCategories: ["alle-beteiligten", "bauabnahme"],
     marks: {

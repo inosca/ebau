@@ -7,6 +7,6 @@
     {{or @case.linkedInstancesText "-"}}
   </LinkTo>
   <LinkTo @route="cases.detail.linked-instances" @model={{@case.instanceId}}>
-    {{or this.instancesOnSamePlotText "-"}}
+    {{this.instancesOnSamePlotText}}
   </LinkTo>
 {{/if}}

@@ -140,6 +140,12 @@ cases:
     enterDossierNumber: ""
     showAll: ""
     modalTitle: ""
+    noLinkedInstances: ""
+    instanceHasNoPlot: ""
+    noInstancesOnSamePlot: ""
+    linkedInstancesText: ""
+    instancesOnSamePlotText: ""
+    fetchAmountOfInstancesOnSamePlotError: ""
     linkToPortal: "Portail requérants"
 
   new:

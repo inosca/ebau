@@ -152,7 +152,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Baubewilligung erteilt\", \"fr\": null, \"it\": null}",
-      "is_hidden": "\"plangenehmigungsverfahren-bund\"  in info.case.root.form",
+      "is_hidden": "\"plangenehmigungsverfahren-bund\" in info.case.root.form || \"auszahlung-abbruchpraemie\" in info.case.root.form",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -169,7 +169,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kenntnisnahme\", \"fr\": null, \"it\": null}",
-      "is_hidden": "\"plangenehmigungsverfahren-bund\"  in info.case.root.form",
+      "is_hidden": "\"plangenehmigungsverfahren-bund\" in info.case.root.form\n|| \"auszahlung-abbruchpraemie\" in info.case.root.form",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -186,7 +186,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Plangenehmigung erteilt\", \"fr\": null, \"it\": null}",
-      "is_hidden": "!(\"plangenehmigungsverfahren-bund\"  in info.case.root.form)",
+      "is_hidden": "!(\"plangenehmigungsverfahren-bund\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -220,7 +220,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Teilbaubewilligung mit teilweiser Abweisung mit/ohne Rückbau\", \"fr\": null, \"it\": null}",
-      "is_hidden": "\"plangenehmigungsverfahren-bund\"  in info.case.root.form",
+      "is_hidden": "\"plangenehmigungsverfahren-bund\" in info.case.root.form\n|| \"auszahlung-abbruchpraemie\" in info.case.root.form",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -255,6 +255,23 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Abweisung ohne Rückbau\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-zustimmung",
+    "fields": {
+      "created_at": "2026-07-20T16:31:25.134Z",
+      "modified_at": "2026-07-20T16:31:48.374Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zustimmung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"auszahlung-abbruchpraemie\" in info.case.root.form)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -371,7 +388,7 @@
       "label": "{\"de\": \"Entscheidtyp\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "\"entscheid-entscheid\"|answer != \"entscheid-entscheid-abweisung\" || \"plangenehmigungsverfahren-bund\" in info.case.root.form",
+      "is_hidden": "!(\n\t\"entscheid-entscheid\"|answer == \"entscheid-entscheid-abweisung\" \n\t&& !(\n\t\t\"plangenehmigungsverfahren-bund\" in info.case.root.form\n\t\t|| \"auszahlung-abbruchpraemie\" in info.case.root.form\n\t)\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -500,7 +517,7 @@
       "modified_by_group": null,
       "question": "entscheid-entscheid",
       "option": "entscheid-entscheid-baubewilligung-erteilt",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -530,7 +547,7 @@
       "modified_by_group": null,
       "question": "entscheid-entscheid",
       "option": "entscheid-entscheid-plangenehmigung-erteilt",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -552,8 +569,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entscheid-entscheid.entscheid-entscheid-teilbaubewilligung",
     "fields": {
-      "created_at": "2025-11-06T09:42:08.746Z",
-      "modified_at": "2025-11-06T09:42:08.746Z",
+      "created_at": "2026-07-20T16:31:56.472Z",
+      "modified_at": "2026-07-20T16:31:56.472Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -565,10 +582,25 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-zustimmung",
+    "fields": {
+      "created_at": "2026-07-20T16:31:56.473Z",
+      "modified_at": "2026-07-20T16:31:56.473Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-zustimmung",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "entscheid-entscheidtyp-abweisung.entscheid-entscheidtyp-abweisung-mit-rueckbau",
     "fields": {
-      "created_at": "2025-01-16T14:22:17.715Z",
-      "modified_at": "2025-01-16T14:22:17.715Z",
+      "created_at": "2026-07-20T16:33:53.056Z",
+      "modified_at": "2026-07-20T16:33:53.056Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",

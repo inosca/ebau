@@ -18,6 +18,14 @@ AG_CALUMA_SIMPLE_WORKFLOW_SETTINGS = CalumaSimpleWorkflowConfig(
                 ),
             ],
         },
+        "formal-exam-demolition-payment": {
+            "completed": [
+                EventConfig(
+                    next_instance_state="init-distribution",
+                    history_text=_("Preliminary exam performed"),
+                ),
+            ],
+        },
         "init-distribution": {
             "completed": [
                 EventConfig(
@@ -32,6 +40,13 @@ AG_CALUMA_SIMPLE_WORKFLOW_SETTINGS = CalumaSimpleWorkflowConfig(
                 EventConfig(
                     next_instance_state="decision",
                     ech_event="camac.ech0211.signals.circulation_ended",
+                ),
+            ],
+        },
+        "change-responsible-service": {
+            "completed": [
+                EventConfig(
+                    next_instance_state="decision",
                 ),
             ],
         },

@@ -1,0 +1,81 @@
+mutation CreateFormalExamTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "formal-exam-demolition-payment"
+      form: "vorlaeufige-pruefung-abbruchpraemie"
+      name: "Vorläufige Prüfung"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 1728000 # 20 days
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}, \"redirectToWorkItemsAfterCompletion\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateChangeResponsibleServiceTask {
+  saveSimpleTask(
+    input: {
+      slug: "change-responsible-service"
+      name: "Leitbehörde wechseln"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 1728000 # 20 days
+      meta: "{\"directLink\":{\"route\":\"cases.detail.change-responsible-service\",\"models\":[\"INSTANCE_ID\", \"municipality\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+
+mutation CreateDemolitionPaymentWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "demolition-payment"
+      name: "Antrag auf Auszahlung der Abbruchprämie"
+      startTasks: ["submit"]
+      allowForms: ["auszahlung-abbruchpraemie"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateInternalDossierFlowAfterSubmit {
+  addWorkflowFlow(
+    input: {
+      workflow: "demolition-payment"
+      tasks: ["submit"]
+      next: "[\"after-submit-demolition-payment\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateInternalDossierFlowAfterFormalExam {
+  addWorkflowFlow(
+    input: {
+      workflow: "demolition-payment"
+      tasks: ["formal-exam-demolition-payment"]
+      next: "[\"change-responsible-service\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterChangeResponsibleService {
+  addWorkflowFlow(
+    input: {
+      workflow: "demolition-payment"
+      tasks: ["change-responsible-service"]
+      next: "[\"decision\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
