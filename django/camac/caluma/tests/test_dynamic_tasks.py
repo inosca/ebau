@@ -1842,3 +1842,38 @@ def test_resolve_after_decision_abbruchpraemie_sz(
         controlling_groups=[service.pk],
         status=WorkItem.STATUS_READY,
     ).exists()
+
+
+@pytest.mark.parametrize(
+    ("service_group_name", "expected"),
+    [
+        (
+            "municipality",
+            [
+                "create-manual-workitems",
+                "init-additional-demand",
+                "formal-exam-demolition-payment",
+            ],
+        ),
+        (
+            "municipality-light",
+            [
+                "create-manual-workitems",
+                "init-additional-demand",
+                "change-responsible-service",
+            ],
+        ),
+    ],
+)
+def test_resolve_after_submit_demolition_payment(mocker, service_group_name, expected):
+    custom_dynamic_task = CustomDynamicTasks()
+    case = mocker.MagicMock()
+    case.instance.responsible_service.return_value.service_group.name = (
+        service_group_name
+    )
+    assert (
+        custom_dynamic_task.resolve_after_submit_demolition_payment(
+            case, None, None, None
+        )
+        == expected
+    )

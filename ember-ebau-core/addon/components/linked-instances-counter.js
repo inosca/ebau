@@ -15,6 +15,9 @@ export default class LinkedInstancesCounterComponent extends Component {
   @service intl;
 
   get instancesOnSamePlotText() {
+    if (!this.amountOfInstancesOnSamePlot.value) {
+      return "";
+    }
     return this.intl.t("cases.miscellaneous.instancesOnSamePlotText", {
       count: this.amountOfInstancesOnSamePlot.value,
     });

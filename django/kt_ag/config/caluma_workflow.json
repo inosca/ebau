@@ -66,6 +66,45 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "06a4775e-1873-7471-8000-514ce9349d23",
+    "fields": {
+      "created_at": "2026-07-03T08:42:09.528Z",
+      "modified_at": "2026-07-03T08:42:09.528Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"after-submit-demolition-payment\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "06a5c683-54c1-779f-8000-05a0eb066bf7",
+    "fields": {
+      "created_at": "2026-07-19T06:01:25.297Z",
+      "modified_at": "2026-07-19T06:01:25.297Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"change-responsible-service\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "06a5e49f-0cc0-7b22-8000-c027ae4f5083",
+    "fields": {
+      "created_at": "2026-07-20T16:16:48.797Z",
+      "modified_at": "2026-07-20T16:16:48.797Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"decision\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "17f268c4-4038-459c-88ce-45f6de82a878",
     "fields": {
       "created_at": "2025-01-31T14:08:08.922Z",
@@ -229,6 +268,34 @@
       "is_archived": false,
       "form": "kantonale-pruefung",
       "lead_time": null,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "change-responsible-service",
+    "fields": {
+      "created_at": "2026-07-19T06:01:23.139Z",
+      "modified_at": "2026-07-20T15:23:09.728Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Leitbehörde wechseln\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.change-responsible-service",
+          "models": ["INSTANCE_ID", "municipality"]
+        }
+      },
+      "address_groups": "[\"municipality\"]|groups",
+      "control_groups": "[\"municipality\"]|groups",
+      "is_archived": false,
+      "form": null,
+      "lead_time": 1728000,
       "is_multiple_instance": false,
       "continue_async": false
     }
@@ -453,6 +520,35 @@
       "control_groups": "[\"municipality\"]|groups",
       "is_archived": false,
       "form": "vorlaeufige-pruefung",
+      "lead_time": 1728000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "formal-exam-demolition-payment",
+    "fields": {
+      "created_at": "2026-07-03T08:45:04.117Z",
+      "modified_at": "2026-07-03T08:45:04.117Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vorläufige Prüfung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.task-form",
+          "models": ["INSTANCE_ID", "TASK_SLUG"]
+        },
+        "redirectToWorkItemsAfterCompletion": true
+      },
+      "address_groups": "[\"municipality\"]|groups",
+      "control_groups": "[\"municipality\"]|groups",
+      "is_archived": false,
+      "form": "vorlaeufige-pruefung-abbruchpraemie",
       "lead_time": 1728000,
       "is_multiple_instance": false,
       "continue_async": false
@@ -745,6 +841,54 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "06a4775e-187a-7c43-8000-d7b738af4c51",
+    "fields": {
+      "created_at": "2026-07-03T08:42:09.530Z",
+      "modified_at": "2026-07-03T08:42:09.530Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "demolition-payment",
+      "task": "submit",
+      "flow": "06a4775e-1873-7471-8000-514ce9349d23",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "06a5c683-54c9-7da3-8000-c77b24a79779",
+    "fields": {
+      "created_at": "2026-07-19T06:01:25.299Z",
+      "modified_at": "2026-07-19T06:01:25.299Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "demolition-payment",
+      "task": "formal-exam-demolition-payment",
+      "flow": "06a5c683-54c1-779f-8000-05a0eb066bf7",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "06a5e49f-0ccb-76d9-8000-339ea64898ef",
+    "fields": {
+      "created_at": "2026-07-20T16:16:48.799Z",
+      "modified_at": "2026-07-20T16:16:48.799Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "demolition-payment",
+      "task": "change-responsible-service",
+      "flow": "06a5e49f-0cc0-7b22-8000-c027ae4f5083",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "0e44b3cc-ee68-4c82-aca0-25a71481d323",
     "fields": {
       "created_at": "2025-02-26T11:51:41.877Z",
@@ -927,7 +1071,6 @@
       "allow_forms": [
         "anfrage",
         "anfrage-migration",
-        "auszahlung-abbruchpraemie",
         "baugesuch",
         "baugesuch-migration",
         "baugesuch-mit-uvp",
@@ -946,6 +1089,26 @@
         "vorentscheid-migration",
         "vorentscheid-v2"
       ]
+    }
+  },
+  {
+    "model": "caluma_workflow.workflow",
+    "pk": "demolition-payment",
+    "fields": {
+      "created_at": "2026-07-03T08:30:31.011Z",
+      "modified_at": "2026-07-03T08:30:31.011Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Antrag auf Auszahlung der Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "allow_all_forms": false,
+      "start_tasks": ["submit"],
+      "allow_forms": ["auszahlung-abbruchpraemie"]
     }
   },
   {

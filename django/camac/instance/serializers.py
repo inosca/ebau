@@ -2436,12 +2436,14 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
         from_service = instance.responsible_service(filter_type=filter_type)
         to_service = validated_data["to"]
 
+        caluma_user = self.context["request"].caluma_info.context.user
+
         if to_service.service_group.name == "municipality":
             caluma_api.update_or_create_answer(
                 document=instance.case.document,
                 question_slug="gemeinde",
                 value=str(to_service.pk),
-                user=self.context["request"].caluma_info.context.user,
+                user=caluma_user,
             )
 
         instance.instance_services.filter(service=from_service).update(active=0)
@@ -2457,6 +2459,12 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
                 _("Responsible service did not change for instance %(instance_id)s")
                 % {"instance_id": instance.pk}
             )
+
+        if work_item := instance.case.work_items.filter(
+            task_id="change-responsible-service",
+            status=workflow_models.WorkItem.STATUS_READY,
+        ).first():  # pragma: no cover
+            workflow_api.complete_work_item(work_item=work_item, user=caluma_user)
 
         # Side effects
         permissions_events.Trigger.changed_responsible_service(

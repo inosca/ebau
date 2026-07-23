@@ -5,6 +5,7 @@ from camac.user.models import Service, ServiceGroup
 
 from .common import (
     ApplicantsEventHandlerMixin,
+    ChangeResponsibleServiceHandlerMixin,
     DistributionHandlerMixin,
     InstanceCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,
@@ -13,6 +14,7 @@ from .common import (
 
 class PermissionEventHandlerAG(
     ApplicantsEventHandlerMixin,
+    ChangeResponsibleServiceHandlerMixin,
     DistributionHandlerMixin,
     InstanceCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,

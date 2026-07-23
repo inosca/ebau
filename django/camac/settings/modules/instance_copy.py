@@ -147,7 +147,6 @@ INSTANCE_COPY = ModuleConfig[InstanceCopyConfig](
                 "personalien-projektverfasserin",
                 "personalien-rechnungsempfaenger",
                 "vertreterin-mit-vollmacht",
-                "parzelle",
             ],
         ),
     ),

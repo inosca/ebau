@@ -1342,6 +1342,7 @@ def caluma_forms_ag(settings, add_general_questions):
         "kantonale-pruefung",
         "rpg2",
         "vorlaeufige-pruefung",
+        "vorlaeufige-pruefung-abbruchpraemie",
         "publikation",
         "nachbarschaftsorientierung",
         "einwendungen",

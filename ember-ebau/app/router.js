@@ -3,6 +3,7 @@ import { service } from "@ember/service";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import registerAdditionalDemand from "ember-ebau-core/modules/additional-demand";
 import registerBilling from "ember-ebau-core/modules/billing";
+import registerChangeResponsibleService from "ember-ebau-core/modules/change-responsible-service";
 import registerCommunications from "ember-ebau-core/modules/communications";
 import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
 import registerConstructionMonitoring from "ember-ebau-core/modules/construction-monitoring";
@@ -98,6 +99,7 @@ Router.map(function () {
         registerCorrections(this);
         registerHistory(this);
         registerJournal(this);
+        registerChangeResponsibleService(this);
       });
       this.route("new");
       this.route("not-found");

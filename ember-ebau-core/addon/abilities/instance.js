@@ -198,24 +198,9 @@ export default class InstanceAbility extends Ability {
   }
 
   async canChangeResponsibleService() {
-    if (this.permissions.fullyEnabled) {
-      return await this.permissions.hasAll(
-        this.model?.id,
-        "instance-change-responsible-service",
-      );
-    }
-
-    return (
-      this.ebauModules.isSupportRole ||
-      (!this.ebauModules.isReadOnlyRole &&
-        !hasInstanceState(
-          this.model,
-          mainConfig.changeResponsibleService.forbiddenInstanceStates[
-            this.type
-          ],
-        ) &&
-        // Active service is passed into the permission check
-        parseInt(this.activeService?.id) === this.ebauModules.serviceId)
+    return await this.permissions.hasAll(
+      this.model?.id,
+      "instance-change-responsible-service",
     );
   }
 

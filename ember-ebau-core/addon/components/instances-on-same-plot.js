@@ -56,6 +56,10 @@ export default class InstancesOnSamePlotComponent extends Component {
     ];
   }
 
+  get instanceHasPlot() {
+    return this.args.case?.plots && this.args.case?.municipalityId;
+  }
+
   @dropTask
   *fetchInstancesOnSamePlot() {
     try {

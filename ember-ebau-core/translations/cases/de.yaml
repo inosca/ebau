@@ -154,6 +154,7 @@ cases:
     showAll: "Alle anzeigen"
     modalTitle: "Alle Dossiers auf Parzelle"
     noLinkedInstances: "Es wurden noch keine Dossiers verknüpft."
+    instanceHasNoPlot: "Für dieses Dossier wurden keine Parzelleninformationen gespeichert."
     noInstancesOnSamePlot: "Es wurden keine Dossiers auf dieser Parzelle gefunden."
     linkedInstancesText: "{count} {count, plural, one {verknüpftes Dossier} other {verknüpfte Dossiers}}"
     instancesOnSamePlotText: "{count} {count, plural, one {Dossier auf der gleichen Parzelle} other {Dossiers auf der gleichen Parzelle}}"

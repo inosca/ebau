@@ -19,6 +19,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "vorlaeufige-pruefung-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-07-03T08:44:58.444Z",
+      "modified_at": "2026-07-06T14:57:47.731Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vorläufige Prüfung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Vorläufige Prüfung Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "vorlaeufige-pruefung-formelle-vorpruefung",
     "fields": {
       "created_at": "2025-01-16T09:52:07.988Z",
@@ -51,6 +69,81 @@
       "is_published": false,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorlaeufige-pruefung-abbruchpraemie.abbruch-vorgenommen-und-vor-ort-kontrolliert",
+    "fields": {
+      "created_at": "2026-07-06T14:58:24.538Z",
+      "modified_at": "2026-07-06T14:58:24.538Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorlaeufige-pruefung-abbruchpraemie",
+      "question": "abbruch-vorgenommen-und-vor-ort-kontrolliert",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorlaeufige-pruefung-abbruchpraemie.abfaelle-ordnungsgemaess-entsorgt",
+    "fields": {
+      "created_at": "2026-07-06T14:59:49.670Z",
+      "modified_at": "2026-07-06T14:59:49.670Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorlaeufige-pruefung-abbruchpraemie",
+      "question": "abfaelle-ordnungsgemaess-entsorgt",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorlaeufige-pruefung-abbruchpraemie.auflagen-abbruch-erfuellt",
+    "fields": {
+      "created_at": "2026-07-06T14:59:23.708Z",
+      "modified_at": "2026-07-06T14:59:23.708Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorlaeufige-pruefung-abbruchpraemie",
+      "question": "auflagen-abbruch-erfuellt",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorlaeufige-pruefung-abbruchpraemie.bestaetigung-zum-abbruch-abgelegt",
+    "fields": {
+      "created_at": "2026-07-06T15:00:35.146Z",
+      "modified_at": "2026-07-06T15:00:35.146Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorlaeufige-pruefung-abbruchpraemie",
+      "question": "bestaetigung-zum-abbruch-abgelegt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorlaeufige-pruefung-abbruchpraemie.vorlaeufige-pruefung-abbruchpraemie-abschliessen",
+    "fields": {
+      "created_at": "2026-07-06T15:08:55.513Z",
+      "modified_at": "2026-07-06T15:08:55.513Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorlaeufige-pruefung-abbruchpraemie",
+      "question": "vorlaeufige-pruefung-abbruchpraemie-abschliessen",
+      "sort": 1
     }
   },
   {
@@ -741,6 +834,142 @@
       "form": "vorlaeufige-pruefung",
       "question": "vorlaeufige-pruefung-materielle-vorpruefung",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "abbruch-vorgenommen-und-vor-ort-kontrolliert-ja",
+    "fields": {
+      "created_at": "2026-07-06T14:58:24.424Z",
+      "modified_at": "2026-07-06T14:58:24.424Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "abbruch-vorgenommen-und-vor-ort-kontrolliert-nein",
+    "fields": {
+      "created_at": "2026-07-06T14:58:24.427Z",
+      "modified_at": "2026-07-06T14:58:24.427Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "abfaelle-ordnungsgemaess-entsorgt-ja",
+    "fields": {
+      "created_at": "2026-07-06T14:59:49.564Z",
+      "modified_at": "2026-07-06T14:59:49.564Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "abfaelle-ordnungsgemaess-entsorgt-nein",
+    "fields": {
+      "created_at": "2026-07-06T14:59:49.573Z",
+      "modified_at": "2026-07-06T14:59:49.573Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "auflagen-abbruch-erfuellt-ja",
+    "fields": {
+      "created_at": "2026-07-06T14:59:23.612Z",
+      "modified_at": "2026-07-06T14:59:23.612Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "auflagen-abbruch-erfuellt-nein",
+    "fields": {
+      "created_at": "2026-07-06T14:59:23.609Z",
+      "modified_at": "2026-07-06T14:59:23.609Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bestaetigung-zum-abbruch-abgelegt-ja",
+    "fields": {
+      "created_at": "2026-07-06T15:00:35.044Z",
+      "modified_at": "2026-07-06T15:00:35.044Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bestaetigung-zum-abbruch-abgelegt-nein",
+    "fields": {
+      "created_at": "2026-07-06T15:00:35.043Z",
+      "modified_at": "2026-07-06T15:00:35.043Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
     }
   },
   {
@@ -1867,10 +2096,170 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "abbruch-vorgenommen-und-vor-ort-kontrolliert",
+    "fields": {
+      "created_at": "2026-07-06T14:58:24.487Z",
+      "modified_at": "2026-07-06T14:58:24.487Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wurde der Abbruch gemäss Baubewilligung vorgenommen und vor Ort kontrolliert?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abfaelle-ordnungsgemaess-entsorgt",
+    "fields": {
+      "created_at": "2026-07-06T14:59:49.626Z",
+      "modified_at": "2026-07-06T15:00:37.980Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wurden die Abfälle ordnungsgemäss entsorgt und liegt ein Entsorgungsnachweis vor?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "auflagen-abbruch-erfuellt",
+    "fields": {
+      "created_at": "2026-07-06T14:59:23.662Z",
+      "modified_at": "2026-07-06T14:59:23.662Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind alle Auflagen betreffend Abbruch aus der Baubewilligung erfüllt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-zum-abbruch-abgelegt",
+    "fields": {
+      "created_at": "2026-07-06T15:00:35.100Z",
+      "modified_at": "2026-07-06T15:00:35.100Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wurde die Bestätigung zum Abbruch und der ordnungsgemässen Entsorgung der Abfälle im Modul “Dokumente” in der Kategorie “Beteiligte Behörden” durch die Gemeinde abgelegt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorlaeufige-pruefung-abbruchpraemie-abschliessen",
+    "fields": {
+      "created_at": "2026-07-06T15:08:55.447Z",
+      "modified_at": "2026-07-06T15:08:55.447Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorläufige Prüfung abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "vorlaeufige-pruefung-abschliessen",
     "fields": {
       "created_at": "2025-01-13T14:22:40.415Z",
-      "modified_at": "2025-01-29T09:33:28.691Z",
+      "modified_at": "2026-07-06T15:07:34.058Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -3336,6 +3725,126 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abbruch-vorgenommen-und-vor-ort-kontrolliert.abbruch-vorgenommen-und-vor-ort-kontrolliert-ja",
+    "fields": {
+      "created_at": "2026-07-06T14:58:24.495Z",
+      "modified_at": "2026-07-06T14:58:24.495Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "abbruch-vorgenommen-und-vor-ort-kontrolliert",
+      "option": "abbruch-vorgenommen-und-vor-ort-kontrolliert-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abbruch-vorgenommen-und-vor-ort-kontrolliert.abbruch-vorgenommen-und-vor-ort-kontrolliert-nein",
+    "fields": {
+      "created_at": "2026-07-06T14:58:24.492Z",
+      "modified_at": "2026-07-06T14:58:24.492Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "abbruch-vorgenommen-und-vor-ort-kontrolliert",
+      "option": "abbruch-vorgenommen-und-vor-ort-kontrolliert-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abfaelle-ordnungsgemaess-entsorgt.abfaelle-ordnungsgemaess-entsorgt-ja",
+    "fields": {
+      "created_at": "2026-07-06T15:00:37.984Z",
+      "modified_at": "2026-07-06T15:00:37.984Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "abfaelle-ordnungsgemaess-entsorgt",
+      "option": "abfaelle-ordnungsgemaess-entsorgt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abfaelle-ordnungsgemaess-entsorgt.abfaelle-ordnungsgemaess-entsorgt-nein",
+    "fields": {
+      "created_at": "2026-07-06T15:00:37.983Z",
+      "modified_at": "2026-07-06T15:00:37.983Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "abfaelle-ordnungsgemaess-entsorgt",
+      "option": "abfaelle-ordnungsgemaess-entsorgt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "auflagen-abbruch-erfuellt.auflagen-abbruch-erfuellt-ja",
+    "fields": {
+      "created_at": "2026-07-06T14:59:23.667Z",
+      "modified_at": "2026-07-06T14:59:23.667Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "auflagen-abbruch-erfuellt",
+      "option": "auflagen-abbruch-erfuellt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "auflagen-abbruch-erfuellt.auflagen-abbruch-erfuellt-nein",
+    "fields": {
+      "created_at": "2026-07-06T14:59:23.665Z",
+      "modified_at": "2026-07-06T14:59:23.665Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "auflagen-abbruch-erfuellt",
+      "option": "auflagen-abbruch-erfuellt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-zum-abbruch-abgelegt.bestaetigung-zum-abbruch-abgelegt-ja",
+    "fields": {
+      "created_at": "2026-07-06T15:00:35.106Z",
+      "modified_at": "2026-07-06T15:00:35.106Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bestaetigung-zum-abbruch-abgelegt",
+      "option": "bestaetigung-zum-abbruch-abgelegt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-zum-abbruch-abgelegt.bestaetigung-zum-abbruch-abgelegt-nein",
+    "fields": {
+      "created_at": "2026-07-06T15:00:35.104Z",
+      "modified_at": "2026-07-06T15:00:35.104Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bestaetigung-zum-abbruch-abgelegt",
+      "option": "bestaetigung-zum-abbruch-abgelegt-nein",
+      "sort": 1
     }
   },
   {
