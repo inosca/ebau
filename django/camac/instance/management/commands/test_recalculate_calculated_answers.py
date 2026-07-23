@@ -81,10 +81,30 @@ def test_recalculate_calculated_answers(
     calculated_answer.refresh_from_db()
     assert calculated_answer.value == 55
 
-    # Cannot evaluate calculated answer because dependency is hidden,
-    # don't update
+    # Dependency is hidden, recalulate uses default value (0) for calculation
     question_2.is_hidden = "true"
     question_2.save()
+    calculated_answer = save_answer(
+        question=calculated_question, document=main_document, value=7
+    )
+    call_command(
+        "recalculate_calculated_answers",
+        questions=question_list,
+        commit=True,
+        stdout=io.StringIO(),
+    )
+
+    calculated_answer.refresh_from_db()
+    assert calculated_answer.value == 25
+
+    # Cannot evaluate calculated answer because dependency is empty without
+    # having a default value - don't update
+    question_2.value = None
+    question_2.save()
+    calculated_question.calc_expression = (
+        '"form_question_1"|answer(0) + "form_question_2"|answer'
+    )
+    calculated_question.save()
     calculated_answer = save_answer(
         question=calculated_question, document=main_document, value=7
     )
