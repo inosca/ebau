@@ -3515,15 +3515,25 @@ CELERY_WORKER_CONCURRENCY = env.int(
     "CELERY_WORKER_CONCURRENCY", default=default(1, require_if(IS_CELERY_WORKER))
 )
 
-# Celery task routing. Specialized tasks get their own queue so a deployment can
-# run dedicated workers for them (with their own concurrency) instead of
-# occupying the default queue's workers. Long running tasks carry their own
-# `soft_time_limit` (see e.g. the dossier import tasks), so the limit no longer
-# depends on which worker consumes the queue.
-# By default one worker listens to all queues (see `CELERY_QUEUE` in
-# `entrypoint.sh`), so tasks are never stranded. Deployments that want isolation
-# start extra workers each pinned to a single queue (see `compose/kt_so-dev.yml`
-# for example).
+
+_celery_queue_label = env.str("CELERY_QUEUE_LABEL", default=None)
+if _celery_queue_label:  # pragma: no cover
+    _suffix = f"[Q:{_celery_queue_label}]"
+    CELERY_WORKER_LOG_FORMAT = (
+        f"[%(asctime)s: %(levelname)s/%(processName)s]{_suffix} %(message)s"
+    )
+    CELERY_WORKER_TASK_LOG_FORMAT = (
+        "[%(asctime)s: %(levelname)s/%(processName)s] "
+        f"%(task_name)s[%(task_id)s]{_suffix}: %(message)s"
+    )
+
+# Celery task routing. Specialized tasks get their own queue so they can run on
+# a dedicated worker (with its own concurrency) instead of occupying the default
+# queue's workers. How workers consume these queues (single worker,
+# `--isolated`, or split containers) and when to choose which is documented in
+# `entrypoint.sh`. Long running tasks carry their own `soft_time_limit` (see
+# e.g. the dossier import tasks), so the limit no longer depends on which worker
+# consumes the queue.
 #
 # Explicitly route `update_orphaned_imports` to the default queue: it detects
 # imports whose worker died, so it must not sit behind an in-progress import on
@@ -3531,10 +3541,13 @@ CELERY_WORKER_CONCURRENCY = env.int(
 # patterns (celery's MapRoute), so it stays on the default queue despite the
 # glob below.
 #
-# WARNING: If you add a new queue in here, make sure to adjust the fallback
-# queues in the entrypoint. Also, deployments using isolated workers need to
-# either spawn a new worker or configure an existing worker to also handle the
-# new queue.
+# WARNING: If you add a new queue here, make sure something actually consumes it
+# in every topology you deploy:
+#   - single worker: add it to the `-Q` fallback list in `entrypoint.sh`
+#   - `--isolated`: add a `[program:celery-<queue>]` block to
+#     `django/supervisord.ini` and export its concurrency default in
+#     `entrypoint.sh`
+#   - split containers: add a container/service with `CELERY_QUEUE=<queue>`
 CELERY_TASK_ROUTES = {
     "camac.dossier_import.domain_logic.update_orphaned_imports": {"queue": "celery"},
     "camac.dossier_import.domain_logic.*": {"queue": "import"},

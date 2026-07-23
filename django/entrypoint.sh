@@ -41,15 +41,55 @@ run_gunicorn() {
 }
 
 run_celery() {
+  # Arguments (any combination):
+  #   --dev       auto-restart the worker(s) on code changes
+  #   --isolated  run one worker per queue via supervisord, so each queue gets
+  #               its own concurrency and they can't block each other
+  #
+  # The celery queues (see `CELERY_TASK_ROUTES` in the django settings) can be
+  # consumed in one of three topologies:
+  #   1. `celery` (default): a single worker consumes all queues
+  #      (`-Q celery,import,tika`), so tasks are never stranded but the queues
+  #      share one concurrency pool and can block each other.
+  #      This should be chosen for simple setups where no dossier import or even
+  #      no alexandria is used.
+  #   2. `celery --isolated`: one container in which supervisord runs one worker
+  #      per queue (see `supervisord.ini`), giving independent concurrency
+  #      without extra containers (see Kt. SG).
+  #      This setup should be chosen as soon as dossier import or heavy
+  #      alexandria (tika) usage is enabled, as those long-running tasks would
+  #      block the other queues otherwise.
+  #   3. Split containers: several `celery` containers, each pinned to one queue
+  #      via the `CELERY_QUEUE` env var, giving every queue its own concurrency
+  #      and independent scaling (see Kt. SO & Kt. GR).
+  #      This setup should be chosen if you have the same requirements as 2. but
+  #      you also want to limit resources (e.g. CPUs / MEM) **per queue**.
+  dev="false"
+  isolated="false"
+  for arg in "$@"; do
+    case "$arg" in
+      --dev) dev="true" ;;
+      --isolated) isolated="true" ;;
+      *) ;;
+    esac
+  done
+
   wait-for-it "${REDIS_HOST:-redis}:${REDIS_PORT:-6379}"
 
-  # Pass "--dev" as the first argument to auto-restart the worker on code
-  # changes.
   wrapper=""
-  if [ "${1:-}" = "--dev" ]; then
+  if [ "$dev" = "true" ]; then
     wrapper="watchmedo auto-restart -d . --recursive -p *.py --"
   fi
 
+  if [ "$isolated" = "true" ]; then
+    export CELERY_CONCURRENCY_DEFAULT_QUEUE="${CELERY_CONCURRENCY_DEFAULT_QUEUE:-2}"
+    export CELERY_CONCURRENCY_IMPORT_QUEUE="${CELERY_CONCURRENCY_IMPORT_QUEUE:-1}"
+    export CELERY_CONCURRENCY_TIKA_QUEUE="${CELERY_CONCURRENCY_TIKA_QUEUE:-1}"
+
+    exec $wrapper supervisord -c /app/supervisord.ini
+  fi
+
+  # A single worker consuming all queues (or the queue named in CELERY_QUEUE).
   exec $wrapper celery -A camac worker -l INFO -E -O fair \
     -n "${CELERY_QUEUE:-celery}@%h" \
     -Q "${CELERY_QUEUE:-celery,import,tika}"
@@ -68,8 +108,9 @@ if [ "$#" -lt 1 ]; then
   echo "      --no-loadconfig  to skip the loadconfig step"
   echo "   - gunicorn_k8s      to run the production server without integrated webdav and"
   echo "                       without any implicit setup (loadconfig, migrate)"
-  echo "   - celery            to run the celery service"
-  echo "   - celerydev         to run the celery service in development mode"
+  echo "   - celery            to run the celery service, possible arguments:"
+  echo "      --dev            to auto-restart the worker(s) on code changes"
+  echo "      --isolated       to run one worker per queue (independent concurrency)"
   echo "   - celery-beat       to run the celery beat scheduler"
   echo "   - celery-beat-dev   to run the celery beat scheduler in development mode"
   echo "   - webdav            to run the webdav server via gunicorn and webdav.wsgi"
@@ -115,10 +156,8 @@ case "$1" in
     run_gunicorn
     ;;
   celery )
-    run_celery
-    ;;
-  celerydev )
-    run_celery --dev
+    shift
+    run_celery "$@"
     ;;
   celery-beat)
     exec celery -A camac beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
