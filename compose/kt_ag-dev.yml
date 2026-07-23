@@ -122,7 +122,7 @@ services:
     ports:
       - "6899:6899" # celery rdb
       - "5679:5679" # debugpy
-    command: celerydev
+    command: celery --dev
 
   celery-beat:
     <<: *django

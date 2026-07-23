@@ -131,7 +131,7 @@ services:
     ports:
       - "6899:6899" # celery rdb
       - "5679:5679" # debugpy
-    command: celerydev
+    command: celery --dev
 
   celery-import:
     <<: *django
@@ -148,7 +148,7 @@ services:
       CELERY_DEBUGPY_PORT: 5680
     ports:
       - "5680:5680" # debugpy
-    command: celerydev
+    command: celery --dev
 
   celery-tika:
     <<: *django
@@ -165,7 +165,7 @@ services:
       CELERY_DEBUGPY_PORT: 5681
     ports:
       - "5681:5681" # debugpy
-    command: celerydev
+    command: celery --dev
 
   celery-beat:
     <<: *django
