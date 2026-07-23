@@ -468,6 +468,18 @@ class DecisionLogic:
         return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
 
     @classmethod
+    def get_notification_config_ag(cls, instance, work_item):
+        if get_unversioned_slug(instance.case.document.form_id) in [
+            "anfrage",
+            "auszahlung-abbruchpraemie",
+        ]:
+            return settings.APPLICATION["NOTIFICATIONS"].get(
+                "NON_BUILDING_PERMIT_DECISION", []
+            )
+
+        return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
+
+    @classmethod
     def maybe_skip_construction_monitoring(
         cls, instance: Instance, user: BaseUser
     ) -> None:

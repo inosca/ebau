@@ -4794,7 +4794,7 @@
       "modified_by_group": null,
       "form": "dokumente-abbruchpraemie",
       "question": "dokumente-platzhalter",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -4809,7 +4809,22 @@
       "modified_by_group": null,
       "form": "dokumente-abbruchpraemie",
       "question": "entsorgungsnachweis",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-abbruchpraemie.fotos-des-erfolgten-rueckbaus",
+    "fields": {
+      "created_at": "2026-07-23T15:21:07.017Z",
+      "modified_at": "2026-07-23T15:21:07.017Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-abbruchpraemie",
+      "question": "fotos-des-erfolgten-rueckbaus",
+      "sort": 1
     }
   },
   {
@@ -4824,7 +4839,7 @@
       "modified_by_group": null,
       "form": "dokumente-abbruchpraemie",
       "question": "hinweistext-dokumente",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -4839,7 +4854,7 @@
       "modified_by_group": null,
       "form": "dokumente-abbruchpraemie",
       "question": "vollmacht-eigentuemergemeinschaft",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -13710,6 +13725,23 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Fotodokumentation\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fotos-des-erfolgten-rueckbaus-ja",
+    "fields": {
+      "created_at": "2026-07-23T15:21:06.924Z",
+      "modified_at": "2026-07-23T15:21:06.924Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fotos des erfolgten Rückbaus\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -23986,14 +24018,14 @@
     "pk": "eigentuemergemeinschaft",
     "fields": {
       "created_at": "2026-06-21T21:29:53.336Z",
-      "modified_at": "2026-06-22T05:52:31.544Z",
+      "modified_at": "2026-07-23T15:19:24.087Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Handelt es sich bei der Gebäude-/Anlageeigentümer/in um eine Eigentümergemeinschaft?\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -25264,6 +25296,39 @@
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "!(\"ausserhalb-bauzone\"|answer == \"ausserhalb-bauzone-ja\" \n  && [\"vorhaben-neubau\", \"vorhaben-umbau-erweiterung-zweckaenderung\", \"vorhaben-zweckaenderung\"] intersects \"vorhaben\"|answer([])\n  && (\n  \t\"zweckbestimmung-wohnnutzung\" in \"zweckbestimmung\"|answer \n    || \"beschreibung-der-landwirtschaftlichen-bauten-wohnhaus\" in \"beschreibung-der-landwirtschaftlichen-bauten\"|answer\n  )\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fotos-des-erfolgten-rueckbaus",
+    "fields": {
+      "created_at": "2026-07-23T15:21:06.965Z",
+      "modified_at": "2026-07-23T15:21:18.929Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fotos des erfolgten Rückbaus\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -31737,14 +31802,14 @@
     "pk": "zahlungsverbindung",
     "fields": {
       "created_at": "2026-06-21T21:29:53.332Z",
-      "modified_at": "2026-06-22T05:54:00.099Z",
+      "modified_at": "2026-07-23T15:19:15.342Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Zahlungsverbindung (IBAN, Bankname, PC-Konto)\", \"fr\": null, \"it\": null}",
       "type": "textarea",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -35325,6 +35390,21 @@
       "modified_by_group": null,
       "question": "fotodokumentation",
       "option": "fotodokumentation-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fotos-des-erfolgten-rueckbaus.fotos-des-erfolgten-rueckbaus-ja",
+    "fields": {
+      "created_at": "2026-07-23T15:21:18.936Z",
+      "modified_at": "2026-07-23T15:21:18.936Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "fotos-des-erfolgten-rueckbaus",
+      "option": "fotos-des-erfolgten-rueckbaus-ja",
       "sort": 1
     }
   },

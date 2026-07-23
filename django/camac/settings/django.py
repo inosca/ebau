@@ -2474,7 +2474,7 @@ APPLICATIONS = {
                     "recipient_types": ["applicant"],
                 },
                 {
-                    "template_slug": "decision-completed-bauanzeige-vorlaeufige-beurteilung",
+                    "template_slug": "beurteilung-behoerden",
                     "recipient_types": ["involved_in_distribution"],
                 },
             ],
@@ -2491,6 +2491,10 @@ APPLICATIONS = {
                     "recipient_types": ["acl_authorized"],
                 }
             ],
+            "CHANGE_RESPONSIBLE_SERVICE": {
+                "template_slug": "change-responsible-service",
+                "recipient_types": ["leitbehoerde"],
+            },
         },
         "SUBSERVICE_ROLES": ["subservice"],
         "DOCUMENT_BACKEND": "alexandria",

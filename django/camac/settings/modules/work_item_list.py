@@ -47,6 +47,7 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
                 "check-pa",
                 "cantonal-exam",
                 "check-document-supplement",
+                "decision",
                 "trigger-billing",
             ],
         },

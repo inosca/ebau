@@ -229,18 +229,6 @@
   },
   {
     "model": "notification.notificationtemplate",
-    "pk": 21,
-    "fields": {
-      "slug": "decision-completed-bauanzeige-vorlaeufige-beurteilung",
-      "purpose": null,
-      "subject": null,
-      "body": null,
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
     "pk": 22,
     "fields": {
       "slug": "zirkulation-abgebrochen",
@@ -316,6 +304,18 @@
     "pk": 28,
     "fields": {
       "slug": "inquiry-reminder",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 29,
+    "fields": {
+      "slug": "change-responsible-service",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -416,7 +416,7 @@
       "language": "de",
       "purpose": "Entscheid (Gesuchsteller)",
       "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nDer Bauentscheid zum Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid  des Gemeinderates finden Sie in den eBau-Dokumenten. Bitte beachten Sie, dass mit der Eröffnung des Bauentscheids die Rechtsmittelfrist  zu laufen beginnt. \n\n{{PUBLIC_DOSSIER_LINK}}/feedback\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\r\n\r\nDer Entscheid zum Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid  des Gemeinderates finden Sie in den eBau-Dokumenten. Bitte beachten Sie, dass mit der Eröffnung des Bauentscheids die Rechtsmittelfrist  zu laufen beginnt. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}"
     }
   },
   {
@@ -486,7 +486,7 @@
       "template": 13,
       "template_slug": "beurteilung-gesuchsteller",
       "language": "de",
-      "purpose": "Beurteilung Vorabklärung, Bauanzeige, Solaranlage (Gesuchsteller)",
+      "purpose": "Beurteilung Anfrage, Auszahlung Abbruchprämie",
       "subject": "Information über Beurteilung (Dossier-Nr. {{DOSSIER_NR}})",
       "body": "Guten Tag\n\nDie Beurteilung zum Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\n\n{{PUBLIC_DOSSIER_LINK}}/feedback\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
     }
@@ -498,9 +498,9 @@
       "template": 14,
       "template_slug": "beurteilung-behoerden",
       "language": "de",
-      "purpose": "Beurteilung Vorabklärung, Bauanzeige (Behörden)",
+      "purpose": "Beurteilung Anfrage, Auszahlung Abbruchprämie (Behörden)",
       "subject": "Information über Beurteilung (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nDie Beurteilung zum Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\n\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\n\nDie Beurteilung zum Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Beurteilung unter folgendem Link:\n\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
     }
   },
   {
@@ -561,18 +561,6 @@
       "purpose": "Dossier-Zuständigkeit",
       "subject": "Neue Zuständigkeit bei eBau-Dossier",
       "body": "Guten Tag\n\nIhnen wurde die Zuständigkeit für das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}})  zugewiesen.\n\n{{ INTERNAL_DOSSIER_LINK }}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
-    }
-  },
-  {
-    "model": "notification.notificationtemplatet",
-    "pk": 21,
-    "fields": {
-      "template": 21,
-      "template_slug": "decision-completed-bauanzeige-vorlaeufige-beurteilung",
-      "language": "de",
-      "purpose": "Entscheid verfügt Bauanzeige und vorläufige Beurteilung",
-      "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nDie Beurteilung zum Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Den Entscheid  des Gemeinderates finden Sie in den eBau-Dokumenten. Sie finden die Dokumente unter folgendem Link:\n\n{{INTERNAL_DOSSIER_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
     }
   },
   {
@@ -657,6 +645,18 @@
       "purpose": "Meldung Fristüberschreitung (Fachstelle)",
       "subject": "Meldung Fristüberschreitung (Dossier-Nr. {{DOSSIER_NR}})",
       "body": "Guten Tag \r\n\r\nHiermit werden Sie darauf aufmerksam gemacht, dass die gesetzte Frist im Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) abgelaufen ist. Es wird um Stellungnahme gebeten.\r\n\r\n{{INQUIRY_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 29,
+    "fields": {
+      "template": 29,
+      "template_slug": "change-responsible-service",
+      "language": "de",
+      "purpose": "Leitbehördenwechsel",
+      "subject": "Fortsetzung Dossier (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nWir leiten Ihnen zuständigkeitshalber das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zur Fortsetzung des Baubewilligungsverfahrens weiter.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{MUNICIPALITY_DE}}"
     }
   },
   {

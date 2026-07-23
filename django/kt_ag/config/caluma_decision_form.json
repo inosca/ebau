@@ -104,6 +104,21 @@
       "modified_by_group": null,
       "form": "entscheid",
       "question": "entscheid-verfuegen-submit",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-verfuegen-submit-demolition-payment",
+    "fields": {
+      "created_at": "2026-07-23T15:28:04.633Z",
+      "modified_at": "2026-07-23T15:28:04.633Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-verfuegen-submit-demolition-payment",
       "sort": 1
     }
   },
@@ -419,7 +434,7 @@
       "label": "{\"de\": \"entscheid-hinweistext\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"auszahlung-abbruchpraemie\" in info.case.root.form",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -450,10 +465,48 @@
       "label": "{\"de\": \"Entscheid verfügen\", \"fr\": null, \"it\": null}",
       "type": "action_button",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"auszahlung-abbruchpraemie\" in info.case.root.form",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Haben Sie den Entscheid im Modul \\\"Dokumente\\\" in die Kategorie \\\"Alle Beteiligte\\\" verschoben und möchten Sie den Entscheid jetzt verfügen? Dieser Schritt kann nicht rückgängig gemacht werden. \\n<br><br>\\nHaben Sie einen Teilentscheid (Teilbaubewilligung) verfasst? Dann führen Sie diesen Schritt erst beim <u>letzten</u> Teilentscheid des Verfahrens aus. Vorgängige Teilentscheide sind im Modul \\\"Dokumente\\\" in die Kategorie \\\"Alle Beteiligte\\\" zu verschieben und die Bauherrschaft über das Kommunikationsmodul über den Entscheid zu informieren. \\n<br><br>\\nHinweis: Bis zum Vorliegen der nötigen technischen Voraussetzungen zur fristauslösenden digitalen Zustellung ist die Baubewilligung der Bauherrschaft zusätzlich physisch per Post zuzustellen. Sämtliche Beilagen und bewilligten Pläne werden digital über das Portal bereitgestellt.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {
+        "widgetOverride": "decision/submit-button"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entscheid-verfuegen-submit-demolition-payment",
+    "fields": {
+      "created_at": "2026-07-23T15:28:04.577Z",
+      "modified_at": "2026-07-23T15:29:09.790Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid verfügen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "!(\"auszahlung-abbruchpraemie\" in info.case.root.form)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Wollen Sie den Entscheid wirklich verfügen? Dieser Schritt kann nicht rückgängig gemacht werden.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
