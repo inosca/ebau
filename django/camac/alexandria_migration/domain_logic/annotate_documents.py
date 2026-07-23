@@ -1,4 +1,5 @@
 import hashlib
+import logging
 import os
 from concurrent.futures import Executor, Future, ProcessPoolExecutor
 from dataclasses import dataclass, field
@@ -21,6 +22,25 @@ from preview_generator.manager import PreviewManager
 from camac.alexandria_migration.domain_logic.base import BaseMigrator, disable_auto_now
 from camac.alexandria_migration.models import DocumentMark, MigrationLog
 from camac.instance.models import InstanceAlexandriaDocument
+
+
+def _patch_thumbnail_logging():
+    """Install logging filter for thumbnailer.
+
+    We need this so we don't get the "missing a dependency" errors spammed on
+    the terminal.
+    """
+
+    def _filter_missing_dependency(record):
+        # return False to drop the record, True to let it through
+        return "is missing a dependency" not in record.getMessage()
+
+    # attach to preview_generator's logger itself (blocks before any handler sees it)
+    # The logger name in preview_generator is "PreviewGenerator"
+    logging.getLogger("PreviewGenerator").addFilter(_filter_missing_dependency)
+
+
+_patch_thumbnail_logging()
 
 
 class SynchronousExecutor(Executor):
