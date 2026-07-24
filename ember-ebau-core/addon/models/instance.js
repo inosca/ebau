@@ -23,6 +23,7 @@ export default class InstanceModel extends Model {
   @attr isAfterDecision;
   @attr isInSB1;
   @attr rejectionFeedback;
+  @attr creationDate;
 
   @belongsTo("user", { inverse: null, async: true, readOnly: true }) user;
   @belongsTo("form", { inverse: null, async: true, readOnly: true }) form;
@@ -40,6 +41,7 @@ export default class InstanceModel extends Model {
     readOnly: true,
   })
   deadline;
+  @belongsTo("group", { inverse: null, async: true, readOnly: true }) group;
 
   @hasMany("circulation", { inverse: "instance", async: true, readOnly: true })
   circulations;

@@ -1,4 +1,5 @@
 import { isEmpty } from "@ember/utils";
+import { DateTime } from "luxon";
 
 import CustomCaseBaseModel from "ember-ebau-core/caluma-query/models/-case";
 
@@ -23,6 +24,16 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
 
   get caseDocumentFormName() {
     return this.raw.document.form.name;
+  }
+
+  get groupName() {
+    return this.instance?.group.get("name");
+  }
+
+  get creationDate() {
+    return this.instance
+      ? DateTime.fromISO(this.instance.creationDate).toFormat("dd.MM.yyyy")
+      : undefined;
   }
 
   get user() {

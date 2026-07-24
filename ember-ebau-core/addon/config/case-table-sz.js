@@ -1,6 +1,13 @@
 export default {
   columns: {
-    caluma: ["dossierNumber", "caseDocumentFormName", "intent", "caseStatus"],
+    caluma: [
+      "dossierNumber",
+      "caseDocumentFormName",
+      "intent",
+      "groupName",
+      "creationDate",
+      "caseStatus",
+    ],
     "camac-ng": [
       "dossierNumber",
       "instanceFormDescription",
