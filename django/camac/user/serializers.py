@@ -131,6 +131,7 @@ class CurrentUserSerializer(UserSerializer):
             "position",
             "mobile",
             "division",
+            "metainfo",
         )
         read_only_fields = UserSerializer.Meta.fields + (
             "groups",
@@ -142,6 +143,7 @@ class CurrentUserSerializer(UserSerializer):
             "position",
             "mobile",
             "division",
+            "metainfo",
         )
 
 
