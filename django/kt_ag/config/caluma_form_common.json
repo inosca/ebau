@@ -3163,7 +3163,7 @@
       "label": "{\"de\": \"Wird das Bauvorhaben durch einen Qualitätssicherungsverantwortliche(r) Brandschutz (QSV) begleitet?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\"baugesuch\" in info.case.root.form || \"vorentscheid\" in info.case.root.form)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",

@@ -95,7 +95,7 @@ MODULE_CORRECTIONS = (
     STATES_ALL | RequireInstanceState(["correction"])
 ) & ROLES_NO_READONLY
 MODULE_DECISION = NO_CORRECTION & (
-    (RequireWorkItem("decision") & ROLES_MUNICIPALITY)
+    (RequireWorkItem("decision") & (ROLES_MUNICIPALITY | ROLES_AFB))
     | RequireWorkItem("decision", "completed")
 )
 MODULE_DISTRIBUTION = NO_CORRECTION & RequireWorkItem("distribution")
@@ -129,9 +129,11 @@ MODULE_INFORMATION_OF_NEIGHBORS = (
 )
 MODULE_JOURNAL_READ = STATES_ALL & ~IsServiceGroup(["municipality-light"])
 MODULE_JOURNAL_WRITE = MODULE_JOURNAL_READ & ROLES_NO_READONLY
-MODULE_RESPONSIBLE_SERVICE_READ = IsForm(
-    ["auszahlung-abbruchpraemie"]
-) & RequireInstanceState(["init-distribution", "decision", "finished"])
+MODULE_RESPONSIBLE_SERVICE_READ = (
+    ROLES_MUNICIPALITY
+    & IsForm(["auszahlung-abbruchpraemie"])
+    & RequireInstanceState(["init-distribution", "decision", "finished"])
+)
 MODULE_RESPONSIBLE_SERVICE_WRITE = (
     MODULE_RESPONSIBLE_SERVICE_READ
     & RequireInstanceState(["init-distribution", "decision"])
