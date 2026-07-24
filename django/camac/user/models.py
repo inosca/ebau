@@ -184,6 +184,7 @@ class User(AbstractBaseUser):
         null=True,
         verbose_name=_("Division"),
     )
+    metainfo = models.JSONField(blank=True, default=dict)
 
     @property
     def is_superuser(self):

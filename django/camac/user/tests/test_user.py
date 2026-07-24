@@ -223,6 +223,7 @@ def test_me_patch(admin_client, admin_user, user_settings, application_settings)
         "surname",
     ]
     application_settings["OIDC_SYNC_USER_ATTRIBUTES"] = ["surname"]
+    original_metainfo = admin_user.metainfo
 
     response = admin_client.patch(
         reverse("me"),
@@ -240,6 +241,7 @@ def test_me_patch(admin_client, admin_user, user_settings, application_settings)
                     "surname": "Doe",
                     # Not in writable properties, should not be updated
                     "name": "John",
+                    "metainfo": {"managed-by": "user"},
                 },
             }
         },
@@ -257,6 +259,7 @@ def test_me_patch(admin_client, admin_user, user_settings, application_settings)
     # Properties that are not allowed for updates are being ignored
     assert admin_user.surname != "Doe"
     assert admin_user.name != "John"
+    assert admin_user.metainfo == original_metainfo
 
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
