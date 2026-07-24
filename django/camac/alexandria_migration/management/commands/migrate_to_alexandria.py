@@ -1,6 +1,5 @@
 import itertools
 
-from alexandria.core.models import Document
 from django.core.management.base import BaseCommand
 from django.db import connection
 from django.db.models import Exists, OuterRef
@@ -15,7 +14,6 @@ from camac.alexandria_migration.domain_logic import (
 )
 from camac.alexandria_migration.models import MigrationLog, MigrationRun
 from camac.alexandria_migration.utils import humanize_timedelta
-from camac.communications.models import CommunicationsAttachment
 from camac.instance.models import Instance
 
 
@@ -196,12 +194,6 @@ class Command(BaseCommand):
                         instance_id=OuterRef("pk"),
                     )
                 )
-                & Exists(
-                    Document.objects.filter(
-                        metainfo__has_key="duplicate-to",
-                        instance_document__instance_id=OuterRef("pk"),
-                    )
-                )
             ).exclude(
                 Exists(
                     MigrationLog.objects.filter(
@@ -252,12 +244,6 @@ class Command(BaseCommand):
                         instance_id=OuterRef("pk"),
                     )
                 )
-                & Exists(
-                    CommunicationsAttachment.objects.filter(
-                        document_attachment__isnull=False,
-                        message__topic__instance_id=OuterRef("pk"),
-                    )
-                )
             ).exclude(
                 Exists(
                     MigrationLog.objects.filter(
@@ -304,23 +290,20 @@ class Command(BaseCommand):
 
     def annotate_documents(self, *args, **options):
         instances = self.filter_instances(
-            # Eligible instances: Are created from the migration, are duplicated,
-            # and not yet annotated. Note we do not care about the communication
-            # link status here - that may happen at the same time, before, or after,
-            # it doesn't matter.
+            # Eligible instances: created, completed duplication, not yet annotated.
             Instance.objects.filter(
                 Exists(
                     MigrationLog.objects.filter(
                         type=MigrationLog.Type.INSTANCE_DOCUMENTS_CREATED,
                         instance_id=OuterRef("pk"),
                     )
-                )
-                & Exists(
+                ),
+                Exists(
                     MigrationLog.objects.filter(
                         type=MigrationLog.Type.INSTANCE_DOCUMENTS_DUPLICATED,
                         instance_id=OuterRef("pk"),
                     )
-                )
+                ),
             ).exclude(
                 Exists(
                     MigrationLog.objects.filter(

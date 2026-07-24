@@ -98,6 +98,18 @@ def setup_migration_test_data(
         att.context[mark] = True
         att.save()
 
+    # Create instance without documents to duplicate to test funnel fix.
+    # Add 3rd instance with only one single-category attachment.
+    skipped_instance = instance_factory.create()
+    skipped_att = attachment_attachment_section_factory(
+        attachment__instance=skipped_instance,
+        attachmentsection=sections[0],
+        attachment__name="skipped_inst_file.pdf",
+        attachment__path="skipped_inst_file.pdf",
+    ).attachment
+    attachments.append(skipped_att)
+    instances.append(skipped_instance)
+
     # Versions (only for single-category attachments to keep it simple and legal)
     single_cat_attachments = [
         a for a in attachments if a.attachment_sections.count() == 1
@@ -321,6 +333,19 @@ def test_migration_end_to_end(
     # Update fulltext index, thumbnails, checksum for each migrated alexandria document
     run_migration_command("annotate", min_inst, max_inst, "--no-parallel")
     check_annotate(attachments)
+
+    from camac.alexandria_migration.models import MigrationLog
+
+    for instance_id in instance_ids:
+        for log_type in [
+            MigrationLog.Type.INSTANCE_DOCUMENTS_CREATED,
+            MigrationLog.Type.INSTANCE_DOCUMENTS_DUPLICATED,
+            MigrationLog.Type.INSTANCE_COMMUNICATION_LINKS_FIXED,
+            MigrationLog.Type.INSTANCE_DOCUMENTS_ANNOTATED,
+        ]:
+            assert MigrationLog.objects.filter(
+                instance_id=instance_id, type=log_type
+            ).exists(), f"Log {log_type} missing for instance {instance_id}"
 
 
 def run_migration_command(cmd, min_inst, max_inst, *args):

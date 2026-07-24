@@ -15,7 +15,9 @@ class MigrationLogForm(ModelForm):
         fields = [
             "instance",
             "type",
+            "success",
             "created_at",
+            "info",
         ]
 
         read_only_fields = fields
@@ -42,20 +44,22 @@ class MigrationLogInline(ReadOnlyAdminMixin, TabularInline):
     fields = [
         "created_at",
         "type",
+        "success",
         "source_attachment",
         "target_document",
         "target_file",
+        "info",
     ]
 
 
 @register(MigrationLog)
 class MigrationLogAdmin(ReadOnlyAdminMixin, EbauAdminMixin, ModelAdmin):
-    list_display = ["__str__", "id", "instance_id", "type", "created_at"]
-    filter_fields = ["instance_id"]
+    list_display = ["__str__", "id", "instance_id", "type", "success", "created_at"]
+    search_fields = ["instance__pk", "instance__identifier"]
 
     sortable_by = ["instance_id", "created_at"]
 
-    list_filter = ["type", "run"]
+    list_filter = ["type", "run", "success"]
 
     form = MigrationLogForm
 
@@ -73,7 +77,7 @@ class MigrationInstanceLog(ReadOnlyAdminMixin, EbauAdminMixin, ModelAdmin):
         "num_annotated_fulltext_search",
         "num_annotated_checksum",
     ]
-    filter_fields = ["instance_id"]
+    search_fields = ["pk", "identifier"]
 
     list_filter = ["case__document__form__name"]
 

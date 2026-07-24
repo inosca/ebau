@@ -167,9 +167,11 @@ def test_set_content_vector(
 def test_annotate_without_content(mocker, failure_mode, expected_result):
     content = b""
 
+    doc = alexandria_models.Document(title="Some Data")
     file = alexandria_models.File(
         content=ContentFile(content, name="somedata.txt"),
         variant=alexandria_models.File.Variant.ORIGINAL,
+        document=doc,
         name="data.txt",
     )
 
@@ -185,6 +187,10 @@ def test_annotate_without_content(mocker, failure_mode, expected_result):
         file, 123, True, prefix="", run=run
     )
 
-    assert results == {
-        "error": expected_result.format(file.pk),
-    }
+    assert len(results["logs"]) == 1
+    log = results["logs"][0]
+    assert log.type == annotate_documents.MigrationLog.Type.ANNOTATION_FAILED
+    assert log.success is False
+    assert log.info == expected_result.format(file.pk)
+    assert results["file_updated"] is None
+    assert results["file_created"] is None

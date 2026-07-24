@@ -268,16 +268,6 @@ class AnnotateDocumentsMigrator(BaseMigrator):
                 return
 
         for file_res in result:
-            if err := file_res.get("error"):  # pragma: todo cover
-                # TODO: These are individual-file errors. Currently, the only
-                # way to get these is if the file is not available in S3, or
-                # comes out empty. This should not happen, but *might*. Not
-                # sure yet whether this should cause a fatal error of the whole
-                # migration run though
-                print(err)
-                self.failed = True
-                return
-
             for log in file_res["logs"]:
                 # the run is not recorded to avoid passing it along
                 # across multiple functions
@@ -398,15 +388,38 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             content = cls._get_file_content(file)
         except FileNotFoundError as exc:
             print(f"Err: Migrated original file not found in S3: {exc}")
-            # TODO Deal with this - S3 doesn't have our migrated file,
-            # this sounds bad
-            #
-            # return here, as FTS and thumbnail will definitely also not work here
-            return {"error": str(exc)}
+            return {
+                "logs": [
+                    MigrationLog(
+                        run=None,
+                        instance_id=instance_id,
+                        target_document=file.document,
+                        target_file=file,
+                        type=MigrationLog.Type.ANNOTATION_FAILED,
+                        success=False,
+                        info=str(exc),
+                    )
+                ],
+                "file_updated": None,
+                "file_created": None,
+            }
 
         if not content:
+            err = f"could not get content for file {file.pk} (name:{file.name})"
             return {
-                "error": f"could not get content for file {file.pk} (name:{file.name})"
+                "logs": [
+                    MigrationLog(
+                        run=None,
+                        instance_id=instance_id,
+                        target_document=file.document,
+                        target_file=file,
+                        type=MigrationLog.Type.ANNOTATION_FAILED,
+                        success=False,
+                        info=err,
+                    )
+                ],
+                "file_updated": None,
+                "file_created": None,
             }
 
         results = {

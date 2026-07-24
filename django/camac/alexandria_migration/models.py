@@ -141,17 +141,27 @@ class MigrationRun(models.Model):
                 "id",
                 filter=Q(type=MigrationLog.Type.INSTANCE_DOCUMENTS_ANNOTATED),
             ),
+            instance_communication_links_fixed=Count(
+                "id",
+                filter=Q(type=MigrationLog.Type.INSTANCE_COMMUNICATION_LINKS_FIXED),
+            ),
             annotated_checksum=Count(
                 "id",
-                filter=Q(type=MigrationLog.Type.ANNOTATED_CHECKSUM),
+                filter=Q(type=MigrationLog.Type.ANNOTATED_CHECKSUM, success=True),
             ),
             annotated_thumbnail=Count(
                 "id",
-                filter=Q(type=MigrationLog.Type.ANNOTATED_THUMBNAIL),
+                filter=Q(type=MigrationLog.Type.ANNOTATED_THUMBNAIL, success=True),
             ),
             annotated_fulltext_search=Count(
                 "id",
-                filter=Q(type=MigrationLog.Type.ANNOTATED_FULLTEXT_SEARCH),
+                filter=Q(
+                    type=MigrationLog.Type.ANNOTATED_FULLTEXT_SEARCH, success=True
+                ),
+            ),
+            annotation_failed=Count(
+                "id",
+                filter=Q(type=MigrationLog.Type.ANNOTATION_FAILED),
             ),
             file_created=Count(
                 "id",
@@ -203,6 +213,20 @@ class MigrationRun(models.Model):
                         ("Documents duplicated", counts["document_duplicated"]),
                     ]
                 )
+            case MigrationRun.Command.COMMUNICATION_LINKS:  # pragma: no cover
+                # Not worth explicitly covering in tests
+                stats.extend(
+                    [
+                        (
+                            "Instances processed",
+                            counts["instance_communication_links_fixed"],
+                        ),
+                        (
+                            "Communication links fixed",
+                            counts["communication_link_fixed"],
+                        ),
+                    ]
+                )
             case MigrationRun.Command.ANNOTATE_DOCUMENTS:
                 stats.extend(
                     [
@@ -218,6 +242,9 @@ class MigrationRun(models.Model):
                         ),
                     ]
                 )
+                if counts["annotation_failed"]:  # pragma: no cover
+                    # not worth explicitly testing
+                    stats.append(("Annotation failures", counts["annotation_failed"]))
 
         return "\n".join([title, *[f"- {t}: {c}" for t, c in stats]])
 
@@ -242,6 +269,7 @@ class MigrationLog(models.Model):
         ANNOTATED_THUMBNAIL = "annotated_thumbnail"
         ANNOTATED_FULLTEXT_SEARCH = "annotated_fulltext_search"
         ANNOTATED_CHECKSUM = "annotated_checksum"
+        ANNOTATION_FAILED = "annotation_failed"
 
     id = models.UUIDField(
         primary_key=True, default=uuid_extensions.uuid7, editable=False
@@ -277,6 +305,8 @@ class MigrationLog(models.Model):
     target_file = models.ForeignKey(
         "alexandria_core.File", models.CASCADE, null=True, blank=True, related_name="+"
     )
+    success = models.BooleanField(default=True)
+    info = models.TextField(null=True, blank=True)
 
     def __str__(self):
         # For django admin, mainly

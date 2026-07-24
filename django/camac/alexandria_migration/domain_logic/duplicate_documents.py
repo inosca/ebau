@@ -52,6 +52,8 @@ class DuplicateDocumentsMigrator(BaseMigrator):
         for document in documents:
             self.copy_document(document)
 
+        # Create per-instance logs for all instances in batch.
+        # Ensure marked as processed even if no documents duplicated (prerequisite for annotate).
         self.logs.extend(
             [
                 MigrationLog(
