@@ -42,9 +42,15 @@ run_gunicorn() {
 
 run_celery() {
   # Arguments (any combination):
-  #   --dev       auto-restart the worker(s) on code changes
-  #   --isolated  run one worker per queue via supervisord, so each queue gets
-  #               its own concurrency and they can't block each other
+  #   --dev        auto-restart the worker(s) on code changes
+  #   --isolated   run one worker per queue via supervisord, so each queue gets
+  #                its own concurrency and they can't block each other
+  #   --with-beat  additionally run the beat scheduler under supervisord (only
+  #                takes effect together with --isolated). This just sets the
+  #                default. An explicit `CELERY_ENABLE_BEAT` env var overrides
+  #                it, so load-balanced servers sharing one command can still
+  #                run beat on exactly one (set `CELERY_ENABLE_BEAT=false` on
+  #                the rest).
   #
   # The celery queues (see `CELERY_TASK_ROUTES` in the django settings) can be
   # consumed in one of three topologies:
@@ -66,10 +72,12 @@ run_celery() {
   #      you also want to limit resources (e.g. CPUs / MEM) **per queue**.
   dev="false"
   isolated="false"
+  beat="false"
   for arg in "$@"; do
     case "$arg" in
       --dev) dev="true" ;;
       --isolated) isolated="true" ;;
+      --with-beat) beat="true" ;;
       *) ;;
     esac
   done
@@ -85,6 +93,15 @@ run_celery() {
     export CELERY_CONCURRENCY_DEFAULT_QUEUE="${CELERY_CONCURRENCY_DEFAULT_QUEUE:-2}"
     export CELERY_CONCURRENCY_IMPORT_QUEUE="${CELERY_CONCURRENCY_IMPORT_QUEUE:-1}"
     export CELERY_CONCURRENCY_TIKA_QUEUE="${CELERY_CONCURRENCY_TIKA_QUEUE:-1}"
+
+    case "${CELERY_ENABLE_BEAT:-$beat}" in
+      true|True|1) export CELERY_ENABLE_BEAT="true" ;;
+      false|False|0) export CELERY_ENABLE_BEAT="false" ;;
+      *)
+        echo "ERROR: CELERY_ENABLE_BEAT must be true/false, got '$CELERY_ENABLE_BEAT'" >&2
+        exit 1
+        ;;
+    esac
 
     exec $wrapper supervisord -c /app/supervisord.ini
   fi
@@ -111,6 +128,7 @@ if [ "$#" -lt 1 ]; then
   echo "   - celery            to run the celery service, possible arguments:"
   echo "      --dev            to auto-restart the worker(s) on code changes"
   echo "      --isolated       to run one worker per queue (independent concurrency)"
+  echo "      --with-beat      run the beat scheduler alongside the isolated workers"
   echo "   - celery-beat       to run the celery beat scheduler"
   echo "   - celery-beat-dev   to run the celery beat scheduler in development mode"
   echo "   - webdav            to run the webdav server via gunicorn and webdav.wsgi"

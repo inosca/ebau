@@ -121,19 +121,7 @@ services:
       - "5679:5679" # debugpy (default queue)
       - "5680:5680" # debugpy (import queue)
       - "5681:5681" # debugpy (tika queue)
-    command: celery --dev --isolated
-
-  celery-beat:
-    <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
-    build:
-      context: ../django
-      cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
-      args:
-        REQUIREMENTS: requirements-dev.txt
-    ports: []
-    command: celery-beat-dev
+    command: celery --dev --isolated --with-beat
 
   ember-caluma-portal:
     user: nginx:nginx
