@@ -242,4 +242,11 @@ export default class InstanceAbility extends Ability {
 
     return hasInstanceState(this.model, "new") && this.model.isPaper;
   }
+
+  async canCreateDemolitionPayment() {
+    return await this.permissions.hasAll(
+      this.model?.id,
+      "instance-request-demolition-payment",
+    );
+  }
 }

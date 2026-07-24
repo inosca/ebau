@@ -51,14 +51,23 @@
         <Corrections::CopyInstance @instance={{this.instance.record}} />
       </div>
     {{/if}}
+    {{#if (has-feature "corrections.deleteInternalInstance")}}
+      <div>
+        <Corrections::DeleteInstance @instance={{this.instance.record}} />
+      </div>
+    {{/if}}
     {{#if
       (and
-        (has-feature "corrections.deleteInternalInstance")
-        (can "delete instance" this.instance.record)
+        (has-feature "corrections.createPaperDemolitionPayment")
+        (await
+          (can "create demolition payment for instance" this.instance.record)
+        )
       )
     }}
       <div>
-        <Corrections::DeleteInstance @instance={{this.instance.record}} />
+        <Corrections::CreatePaperDemolitionPayment
+          @instance={{this.instance.record}}
+        />
       </div>
     {{/if}}
   </div>

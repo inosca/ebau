@@ -360,7 +360,7 @@ def test_decision_event_handler_gr(
 
 
 @pytest.mark.freeze_time("2022-06-03")
-@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize("is_paper", [False, True])
 @pytest.mark.django_db
 def test_submit_create_acl_be(

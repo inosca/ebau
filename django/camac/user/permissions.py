@@ -87,9 +87,14 @@ def permission_aware(func):
     return wrapper
 
 
-def get_role_name(group):
-    perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-    return perms.get(group.role.name) if group else "public"
+def get_role_name(group_or_role) -> str:
+    from camac.user.models import Group
+
+    if not group_or_role:
+        return "public"
+
+    role = group_or_role.role if isinstance(group_or_role, Group) else group_or_role
+    return settings.APPLICATION.get("ROLE_PERMISSIONS", {}).get(role.name)
 
 
 def get_permission_func(cls, name, group):

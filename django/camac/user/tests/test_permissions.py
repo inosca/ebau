@@ -1,5 +1,3 @@
-from collections import namedtuple
-
 import pytest
 
 from camac.user.permissions import permission_aware
@@ -18,7 +16,7 @@ class FakeView:
 
 
 @pytest.mark.parametrize(
-    ("role", "expected"),
+    ("role__name", "expected"),
     [
         ("Municipality", "municipality"),
         ("Service", "service"),
@@ -26,9 +24,7 @@ class FakeView:
         ("TrustedService", "service"),
     ],
 )
-def test_permission_aware_decorator(role, expected, mocker):
-    Group = namedtuple("Group", "role")
-    Role = namedtuple("Role", "name")
-    group = Group(Role(role))
+@pytest.mark.django_db
+def test_permission_aware_decorator(group, expected, mocker):
     mocker.patch("camac.user.permissions.get_group", return_value=group)
     assert FakeView().foo() == expected
