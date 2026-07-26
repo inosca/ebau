@@ -323,8 +323,7 @@ class ConstructionMonitoringHandlerMixin:
 
 
 class GeometerHandlerMixin:
-    def grant_geometer_permission(self, work_item: WorkItem):
-        instance = work_item.case.instance
+    def grant_geometer_permission(self, instance: Instance):
         geometer_service = get_provider_services(
             instance.responsible_service(),
             ServiceRelation.FUNCTION_GEOMETER,
@@ -336,5 +335,5 @@ class GeometerHandlerMixin:
                 grant_type="SERVICE",
                 access_level="geometer",
                 service=geometer_service,
-                event_name="formal-exam-completed",
+                event_name="decision-decreed",
             )

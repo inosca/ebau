@@ -160,7 +160,7 @@ mutation CreateGeometerTask {
   saveCompleteTaskFormTask(
     input: {
       slug: "geometer"
-      name: "Zur Kentniss"
+      name: "Zur Kenntnis"
       addressGroups: "[\"geometer\"]|groups"
       meta: "{\"is-manually-completable\":true}"
     }

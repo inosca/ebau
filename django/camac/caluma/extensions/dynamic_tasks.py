@@ -84,9 +84,16 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if domain_logic.DecisionLogic.should_continue_after_decision(
             case.instance, prev_work_item
         ):
-            return [
-                settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"]
+            tasks = [
+                settings.CONSTRUCTION_MONITORING[
+                    "INIT_CONSTRUCTION_MONITORING_TASK"
+                ]
             ]
+
+            if MasterData.from_case_id(case.pk).geometer_required:
+                tasks.append("geometer")
+
+            return tasks
 
         decision = domain_logic.DecisionLogic.get_decision_answer(
             question_id=settings.DECISION["QUESTIONS"]["DECISION"],
@@ -617,10 +624,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
             return [settings.REJECTION["WORK_ITEM"]["TASK"]]
 
         if prev_work_item.task_id == "formal-exam":
-            master_data = MasterData.from_case_id(case.pk)
-            if master_data.geometer_required:
-                return ["material-exam", "geometer"]
-
             return ["material-exam"]
         elif prev_work_item.task_id == "material-exam":
             if (

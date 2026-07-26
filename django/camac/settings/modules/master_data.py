@@ -3231,7 +3231,7 @@ MASTER_DATA = {
                 "answer",
                 "formelle-pruefung-geometer",
                 {
-                    "document_from_work_item": "formal-exam",
+                    "document_from_work_item": "decision",
                     "value_parser": (
                         "value_mapping",
                         {

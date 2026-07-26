@@ -1,5 +1,3 @@
-from caluma.caluma_workflow.models import WorkItem
-
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.permissions import models as permissions_models
@@ -33,9 +31,9 @@ class PermissionEventHandlerSO(
         ):
             self.manager.revoke(acl)
 
-    def formal_exam_completed(self, instance: Instance, work_item: WorkItem):
+    def decision_decreed(self, instance: Instance):
         master_data = MasterData.from_case_id(instance.case.pk)
         if not master_data.geometer_required:
             return
 
-        self.grant_geometer_permission(work_item)
+        self.grant_geometer_permission(instance)

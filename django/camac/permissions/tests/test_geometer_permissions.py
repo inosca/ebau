@@ -124,7 +124,7 @@ def test_construction_monitoring_geometer_work_item_created(
     [True, False],
 )
 @pytest.mark.django_db
-def test_formal_exam_completed_geometer_so(
+def test_decision_decreed_geometer_so(
     mocker,
     service_factory,
     caluma_work_item_factory,
@@ -150,8 +150,17 @@ def test_formal_exam_completed_geometer_so(
         function=ServiceRelation.FUNCTION_GEOMETER,
     )
     work_item = caluma_work_item_factory(case=so_instance.case)
+
     assert InstanceACL.objects.count() == 0
-    Trigger.formal_exam_completed(None, instance=so_instance, work_item=work_item)
+
+    Trigger.formal_exam_completed(
+        None,
+        instance=so_instance,
+        work_item=work_item,
+    )
+    assert InstanceACL.objects.count() == 0
+
+    Trigger.decision_decreed(None, instance=so_instance)
     if geometer_required:
         assert InstanceACL.objects.count() == 1
         assert InstanceACL.objects.first().service == geometer
