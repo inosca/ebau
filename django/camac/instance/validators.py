@@ -347,25 +347,29 @@ class FormDataValidator:
 
         Some notable quirks:
 
-         * For performance reasons, if the expression contains one or more
-           `|value` transforms, at least one of them must evaluate to True in
-           order for the expression to be evaluated at all; otherwise this
-           returns False.
-           If the expression contains no `|value` transforms, the expression
-           is evaluated normally.
+         * For performance reasons, if the expression contains `|value`
+           transforms for one or more questions that are part of the current
+           form, at least one of them must evaluate to True in order for the
+           expression to be evaluated at all; otherwise this returns False.
+           If the expression contains no `|value` transforms (or only for
+           questions that are not part of this form), the expression is
+           evaluated normally.
 
-         * `|value` transforms for unanswered questions will be treated as
-           None for comparisons.
+         * `|value` transforms for unanswered questions (or questions that are
+           not part of the form) will be treated as None for comparisons.
            If the expression contains any comparisons that would be rendered
            invalid this way (e.g. `None < 250`), this returns False.
         """
 
         # If there are any related questions, skip evaluation if none of them are
         # active:
-        dep_questions = self.jexl.analyze(
+        referenced_questions = self.jexl.analyze(
             expression, partial(ExtractTransformSubjectAnalyzer, transforms=["value"])
         )
-        if dep_questions and not self._check_questions_active(dep_questions):
+        related_questions = [
+            q for q in referenced_questions if self._check_question_relevant(q)
+        ]
+        if related_questions and not self._check_questions_active(related_questions):
             return False
 
         # A TypeError is raised if a question is not filled. It then tries
