@@ -116,6 +116,7 @@ DOSSIER_IMPORT = {
         "FORM_ID": 1,
         "ALEXANDRIA_CATEGORY": "dossier-import",
         "ALEXANDRIA_UPDATE_EXISTING_DOCUMENTS": False,
+        "PROD_SUPPORT_GROUP_ID": 10000,
         "PROD_URL": env.str(
             "DJANGO_DOSSIER_IMPORT_PROD_URL",
             "https://ebauintern.ag.ch/",
