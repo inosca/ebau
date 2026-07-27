@@ -191,6 +191,12 @@
                         <ns8:keyword>tags</ns8:keyword>
                     </ns7:keywords>
                     <ns7:documentKind>Alle Beteiligten</ns7:documentKind>
+					<ns7:owner>
+			    		<!-- Nur im Kt. GR, AG -->
+						<!-- Gültige Werte: "APPLICANT" oder serviceID -->
+						<!-- Wert "APPLICANT" = Gesuchsteller -->
+						<!-- Wert "128" = Organisation mit ID 128 (Service) (beispielhaft) -->
+					</ns7:owner>
                 </ns1:document>
                 <ns1:referencedPlanningPermissionApplication>
                     <ns1:localID>
