@@ -4265,74 +4265,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "art-der-stromerzeugung-oder-windanlage-ersatzabgabe-gestuetzt-auf-pv-ersatzsabgabe-rechner",
-    "fields": {
-      "created_at": "2026-05-19T15:15:30.896Z",
-      "modified_at": "2026-05-19T15:15:30.896Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ersatzabgabe gestützt auf PV-Ersatzsabgabe-Rechner\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "art-der-stromerzeugung-oder-windanlage-realisierung-mittels-zusammenschlusses-zum-eigenverbrauch-zev",
-    "fields": {
-      "created_at": "2026-05-19T15:15:30.886Z",
-      "modified_at": "2026-05-19T15:15:30.886Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Realisierung mittels Zusammenschlusses zum Eigenverbrauch (ZEV)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "art-der-stromerzeugung-oder-windanlage-reduktion-gewichteter-energiebedarf-um-mind-5-kwhm-ebf-geplant-nachweis-in-en-101b",
-    "fields": {
-      "created_at": "2026-05-19T15:15:30.923Z",
-      "modified_at": "2026-05-19T15:15:30.924Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Reduktion gewichteter Energiebedarf um mind. 5 KWh/m² EBF geplant (Nachweis in EN-101b)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "art-der-stromerzeugung-oder-windanlage-speicheranlage-vorgesehen",
-    "fields": {
-      "created_at": "2026-05-19T15:15:30.883Z",
-      "modified_at": "2026-05-19T15:15:30.883Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Speicheranlage vorgesehen\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "art-des-betriebs-andere",
     "fields": {
       "created_at": "2026-06-05T07:44:14.215Z",
@@ -6594,40 +6526,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-ja",
-    "fields": {
-      "created_at": "2026-05-19T15:14:42.335Z",
-      "modified_at": "2026-05-19T15:14:42.335Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-nein",
-    "fields": {
-      "created_at": "2026-05-19T15:14:42.337Z",
-      "modified_at": "2026-05-19T15:14:42.337Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "stromerzeugungsanlage-art-blockheizkraftwerk",
     "fields": {
       "created_at": "2026-07-03T08:54:58.965Z",
@@ -8015,37 +7913,6 @@
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "\"lueftung-klima-installiert-oder-veraendert\"|answer != \"lueftung-klima-installiert-oder-veraendert-ja\"",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "art-der-stromerzeugung-oder-windanlage",
-    "fields": {
-      "created_at": "2026-05-19T15:15:31.035Z",
-      "modified_at": "2026-05-19T15:15:31.035Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Art der Stromerzeugung- oder Windanlage\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "\"stromerzeugung-oder-windanlage-installiert-oder-veraendert\"|answer != \"stromerzeugung-oder-windanlage-installiert-oder-veraendert-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -12311,37 +12178,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
-    "fields": {
-      "created_at": "2026-05-19T15:14:42.434Z",
-      "modified_at": "2026-05-19T15:19:54.484Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Wird eine Stromerzeugung- oder Windanlage installiert oder verändert?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"art-des-vorhabens-neubau\",\n\t\t\"art-des-vorhabens-umbau\"\n\t] intersects \"art-des-vorhabens\"|answer([])\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "stromerzeugungsanlage-art",
     "fields": {
       "created_at": "2026-07-03T08:54:59.217Z",
@@ -14893,66 +14729,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "art-der-stromerzeugung-oder-windanlage.art-der-stromerzeugung-oder-windanlage-ersatzabgabe-gestuetzt-auf-pv-ersatzsabgabe-rechner",
-    "fields": {
-      "created_at": "2026-05-19T15:15:31.048Z",
-      "modified_at": "2026-05-19T15:15:31.048Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "art-der-stromerzeugung-oder-windanlage",
-      "option": "art-der-stromerzeugung-oder-windanlage-ersatzabgabe-gestuetzt-auf-pv-ersatzsabgabe-rechner",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "art-der-stromerzeugung-oder-windanlage.art-der-stromerzeugung-oder-windanlage-realisierung-mittels-zusammenschlusses-zum-eigenverbrauch-zev",
-    "fields": {
-      "created_at": "2026-05-19T15:15:31.051Z",
-      "modified_at": "2026-05-19T15:15:31.051Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "art-der-stromerzeugung-oder-windanlage",
-      "option": "art-der-stromerzeugung-oder-windanlage-realisierung-mittels-zusammenschlusses-zum-eigenverbrauch-zev",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "art-der-stromerzeugung-oder-windanlage.art-der-stromerzeugung-oder-windanlage-reduktion-gewichteter-energiebedarf-um-mind-5-kwhm-ebf-geplant-nachweis-in-en-101b",
-    "fields": {
-      "created_at": "2026-05-19T15:15:31.045Z",
-      "modified_at": "2026-05-19T15:15:31.045Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "art-der-stromerzeugung-oder-windanlage",
-      "option": "art-der-stromerzeugung-oder-windanlage-reduktion-gewichteter-energiebedarf-um-mind-5-kwhm-ebf-geplant-nachweis-in-en-101b",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "art-der-stromerzeugung-oder-windanlage.art-der-stromerzeugung-oder-windanlage-speicheranlage-vorgesehen",
-    "fields": {
-      "created_at": "2026-05-19T15:15:31.041Z",
-      "modified_at": "2026-05-19T15:15:31.041Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "art-der-stromerzeugung-oder-windanlage",
-      "option": "art-der-stromerzeugung-oder-windanlage-speicheranlage-vorgesehen",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "art-des-betriebs.art-des-betriebs-andere",
     "fields": {
       "created_at": "2026-06-05T08:17:52.163Z",
@@ -16944,36 +16720,6 @@
       "question": "stand",
       "option": "stand-sanierung",
       "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "stromerzeugung-oder-windanlage-installiert-oder-veraendert.stromerzeugung-oder-windanlage-installiert-oder-veraendert-ja",
-    "fields": {
-      "created_at": "2026-05-19T15:19:54.496Z",
-      "modified_at": "2026-05-19T15:19:54.496Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
-      "option": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "stromerzeugung-oder-windanlage-installiert-oder-veraendert.stromerzeugung-oder-windanlage-installiert-oder-veraendert-nein",
-    "fields": {
-      "created_at": "2026-05-19T15:19:54.492Z",
-      "modified_at": "2026-05-19T15:19:54.492Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
-      "option": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-nein",
-      "sort": 1
     }
   },
   {
