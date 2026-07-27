@@ -380,7 +380,7 @@
       "language": "de",
       "purpose": "Gesuchsbearbeitungs Einladung, Neu",
       "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ DOSSIER_NR }})",
-      "body": "Guten Tag\n\nSie haben von {{GESUCHSTELLER}} den Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen und mitbearbeiten.\n\nUm das Dossier einsehen zu können, ist eine Registrierung auf dem eBau-Portal des Kantons Argau erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: {{ REGISTRATION_LINK }}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
+      "body": "Guten Tag\n\nSie haben von {{GESUCHSTELLER}} den Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen und mitbearbeiten.\n\nUm das Dossier einsehen zu können, ist eine Registrierung auf dem eBau-Portal des Kantons Aargau erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: {{ REGISTRATION_LINK }}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
     }
   },
   {
