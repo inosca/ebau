@@ -342,12 +342,28 @@ class FormDataValidator:
         return relevant_data
 
     def is_active_expression(self, expression: str):
+        """
+        Evaluate a JEXL expression in the context of a given instance.
+
+        Some notable quirks:
+
+         * For performance reasons, at least one of the `|value` transform
+           in the expression must evaluate to True, otherwise this returns
+           False.
+
+         * `|value` transforms for unanswered questions will be treated as
+           None for comparisons.
+           If the expression contains any comparisons that would be rendered
+           invalid this way (e.g. `None < 250`), this returns False.
+        """
+
         dep_questions = self.jexl.analyze(
             expression, partial(ExtractTransformSubjectAnalyzer, transforms=["value"])
         )
-        active = False
+
         # A TypeError is raised if a question is not filled. It then tries
         # to e.g compare None < 250 which can't work
+        active = False
         with contextlib.suppress(TypeError):
             active = self._check_questions_active(dep_questions) and self.jexl.evaluate(
                 expression, {"form": self.instance.form.family.name}
