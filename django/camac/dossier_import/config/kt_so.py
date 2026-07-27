@@ -3,6 +3,7 @@ from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 
+from camac.dossier_import.config.common import PersonalDataTriageFieldsMixin
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.utils import mark_work_items_as_imported
 from camac.dossier_import.validation import TargetStatus
@@ -44,7 +45,7 @@ PLOT_DATA_MAPPING = {
 }
 
 
-class KtSolothurnDossierWriter(DossierWriter):
+class KtSolothurnDossierWriter(PersonalDataTriageFieldsMixin, DossierWriter):
     id = CalumaAnswerWriter(
         target="kommunale-gesuchsnummer", formatter="to-string", protected=True
     )
@@ -87,43 +88,9 @@ class KtSolothurnDossierWriter(DossierWriter):
     )
 
     def _post_write_fields(self, instance, dossier):
-        self._write_triage_fields(instance)
+        super()._post_write_fields(instance, dossier)
         work_items = instance.case.work_items.all()
         mark_work_items_as_imported(work_items)
-
-    def _write_triage_fields(self, instance: Instance):
-        """Write triage answers for personal data.
-
-        The table questions for landowner, and project author are only displayed
-        if the associated triage question whether the data is different from the
-        applicant is answered with yes. This method checks if there is any data
-        in the personal table and answers the triage question accordingly.
-        """
-
-        for table_question in [
-            "grundeigentuemerin",
-            "projektverfasserin",
-            # As the invoice recipient can not be passed to the import, the
-            # table will always be empty and the triage question will always be
-            # answered with "no". However, we still use the same logic as for
-            # the others in order to avoid more code.
-            "rechnungsempfaengerin",
-        ]:
-            table_answer = instance.case.document.answers.filter(
-                question_id=table_question
-            ).first()
-            has_rows = table_answer.documents.exists() if table_answer else False
-
-            suffix = "ja" if has_rows else "nein"
-            triage_question = f"{table_question}-abweichend"
-            value = f"{triage_question}-{suffix}"
-
-            form_api.save_answer(
-                document=instance.case.document,
-                question=Question.objects.get(pk=triage_question),
-                value=value,
-                user=self._caluma_user,
-            )
 
     def get_workflow_skip_path(self, instance: Instance, dossier: Dossier) -> list[str]:
         """Return the skip path per target state."""

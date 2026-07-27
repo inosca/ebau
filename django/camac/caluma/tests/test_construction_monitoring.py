@@ -1002,7 +1002,7 @@ def test_skip_construction_monitoring_after_decision(
 
     init_work_item = caluma_work_item_factory(
         case=sg_instance.case,
-        task__pk=construction_monitoring_settings["INIT_CONSTRUCTION_MONITORING_TASK"],
+        task_id=construction_monitoring_settings["INIT_CONSTRUCTION_MONITORING_TASK"],
         status=current_status,
         child_case=None,
     )

@@ -379,6 +379,144 @@
     ]),
   })
 # ---
+# name: test_record_loading_sg[False]
+  OrderedDict({
+    'plot_data': list([
+      dict({
+        'coord_east': 2710662.123,
+        'coord_north': 1225997.123,
+        'egrid_number': 'CH123456789123',
+        'plot_number': '1',
+      }),
+    ]),
+    'application_type': 'Migriertes Dossier',
+    'street': 'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreet 3a',
+    'submit_date': datetime.datetime(2021, 12, 12, 0, 0, tzinfo=tzutc()),
+    'publication_date': datetime.date(2021, 12, 12),
+    'construction_start_date': datetime.date(2021, 12, 12),
+    'profile_approval_date': datetime.date(2021, 12, 12),
+    'decision_date': datetime.date(2021, 12, 12),
+    'final_approval_date': datetime.date(2021, 12, 12),
+    'completion_date': datetime.date(2021, 12, 12),
+    'applicants': list([
+      dict({
+        'country': None,
+        'country_code': None,
+        'email': 'candy@example.com',
+        'first_name': 'Willy',
+        'is_juristic_person': True,
+        'juristic_name': 'Chocolate Factory',
+        'last_name': 'Wonka',
+        'po_box': None,
+        'street': 'Candy Lane 13',
+        'tel': '+1 101 10 01 101',
+        'town': 'Wonderland',
+        'zip': '1234',
+      }),
+    ]),
+    'landowners': list([
+      dict({
+        'country': None,
+        'country_code': None,
+        'email': 'candy@example.com',
+        'first_name': 'Willy',
+        'is_juristic_person': True,
+        'juristic_name': 'Chocolate Factory',
+        'last_name': 'Wonka',
+        'po_box': None,
+        'street': 'Candy Lane 13',
+        'tel': '+1 101 10 01 101',
+        'town': 'Wonderland',
+        'zip': '1234',
+      }),
+    ]),
+    'project_authors': list([
+      dict({
+        'country': None,
+        'country_code': None,
+        'email': 'candy@example.com',
+        'first_name': 'Willy',
+        'is_juristic_person': False,
+        'juristic_name': None,
+        'last_name': 'Wonka',
+        'po_box': None,
+        'street': 'Candy Lane',
+        'tel': '+1 101 10 01 101',
+        'town': 'Wonderland',
+        'zip': '1234',
+      }),
+    ]),
+  })
+# ---
+# name: test_record_loading_sg[True]
+  OrderedDict({
+    'plot_data': list([
+      dict({
+        'coord_east': 2710662.123,
+        'coord_north': 1225997.123,
+        'egrid_number': 'CH123456789123',
+        'plot_number': '1',
+      }),
+    ]),
+    'application_type': 'Migriertes Dossier',
+    'street': 'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreet 3a',
+    'submit_date': datetime.datetime(2021, 12, 12, 0, 0, tzinfo=tzutc()),
+    'publication_date': datetime.date(2021, 12, 12),
+    'construction_start_date': datetime.date(2021, 12, 12),
+    'profile_approval_date': datetime.date(2021, 12, 12),
+    'decision_date': datetime.date(2021, 12, 12),
+    'final_approval_date': datetime.date(2021, 12, 12),
+    'completion_date': datetime.date(2021, 12, 12),
+    'applicants': list([
+      dict({
+        'country': None,
+        'country_code': None,
+        'email': 'candy@example.com',
+        'first_name': 'Willy',
+        'is_juristic_person': True,
+        'juristic_name': 'Chocolate Factory',
+        'last_name': 'Wonka',
+        'po_box': None,
+        'street': 'Candy Lane 13',
+        'tel': '+1 101 10 01 101',
+        'town': 'Wonderland',
+        'zip': '1234',
+      }),
+    ]),
+    'landowners': list([
+      dict({
+        'country': None,
+        'country_code': None,
+        'email': 'candy@example.com',
+        'first_name': 'Willy',
+        'is_juristic_person': True,
+        'juristic_name': 'Chocolate Factory',
+        'last_name': 'Wonka',
+        'po_box': None,
+        'street': 'Candy Lane 13',
+        'tel': '+1 101 10 01 101',
+        'town': 'Wonderland',
+        'zip': '1234',
+      }),
+    ]),
+    'project_authors': list([
+      dict({
+        'country': None,
+        'country_code': None,
+        'email': 'candy@example.com',
+        'first_name': 'Willy',
+        'is_juristic_person': False,
+        'juristic_name': None,
+        'last_name': 'Wonka',
+        'po_box': None,
+        'street': 'Candy Lane',
+        'tel': '+1 101 10 01 101',
+        'town': 'Wonderland',
+        'zip': '1234',
+      }),
+    ]),
+  })
+# ---
 # name: test_record_loading_so[False]
   OrderedDict({
     'plot_data': list([

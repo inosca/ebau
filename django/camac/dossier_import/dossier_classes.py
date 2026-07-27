@@ -40,14 +40,19 @@ class Person:
     company: str | None
     street: str | None
     street_number: str | None
+    street_and_number: str | None = field(init=False)
     zip: int | None
     town: str | None
     phone: str | None
     email: str | None
-    is_juristic_person: bool = False
+    is_juristic_person: bool = field(init=False)
 
     def __post_init__(self):
         self.is_juristic_person = bool(self.company)
+        self.street_and_number = (
+            " ".join(str(part) for part in (self.street, self.street_number) if part)
+            or None
+        )
 
 
 @dataclass

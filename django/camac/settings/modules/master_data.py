@@ -3432,6 +3432,7 @@ MASTER_DATA = {
     "kt_sg": {
         "ENABLED": True,
         "CONFIG": {
+            "application_type": ("form_name",),
             "municipality_name": (
                 "answer",
                 "gemeinde",
@@ -3516,6 +3517,32 @@ MASTER_DATA = {
                     ),
                     "default": False,
                 },
+            ),
+            # Migrated dossiers
+            "final_approval_date": (
+                "answer",
+                "datum-schlussabnahme",
+                {"value_key": "date"},
+            ),
+            "publication_date": (
+                "answer",
+                "datum-publikation",
+                {"value_key": "date"},
+            ),
+            "construction_start_date": (
+                "answer",
+                "baubeginn",
+                {"value_key": "date"},
+            ),
+            "profile_approval_date": (
+                "answer",
+                "datum-schnurgeruestabnahme",
+                {"value_key": "date"},
+            ),
+            "completion_date": (
+                "answer",
+                "bauende",
+                {"value_key": "date"},
             ),
         },
     },

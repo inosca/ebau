@@ -23,7 +23,12 @@ def add_dump_form_config_conditions(existing_filter: dict, conditions: dict):
             existing_filter[key] &= condition
 
 
-def generate_form_dump_config(regex: str = None, version: int = None):
+def generate_form_dump_config(
+    regex: str = None,
+    version: int = None,
+    forms: list[str] | None = None,
+    questions: list[str] | None = None,
+) -> dict[str, Q]:
     filters = {}
 
     if regex:
@@ -58,6 +63,28 @@ def generate_form_dump_config(regex: str = None, version: int = None):
                 ),
             },
         )
+
+    if forms is not None or questions is not None:
+        forms = forms or []
+        questions = questions or []
+
+        add_dump_form_config_conditions(
+            filters,
+            {
+                "caluma_form.Form": Q(pk__in=forms),
+                "caluma_form.FormQuestion": Q(form__pk__in=forms),
+                "caluma_form.Question": Q(forms__pk__in=forms) | Q(pk__in=questions),
+                "caluma_form.QuestionOption": Q(question__forms__pk__in=forms)
+                | Q(question__pk__in=questions),
+                "caluma_form.Option": Q(questions__forms__pk__in=forms)
+                | Q(questions__pk__in=questions),
+                "caluma_form.Answer": Q(
+                    Q(question__forms__pk__in=forms) | Q(question__pk__in=questions)
+                )
+                & Q(document__isnull=True),
+            },
+        )
+
     return filters
 
 
@@ -813,11 +840,35 @@ DUMP = {
         "ENABLED": True,
         "CONFIG": {
             "GROUPS": {
+                # Common questions & forms used in all main forms
+                # This is mainly so we can have two minimal dumps that will give
+                # us 100% of the dossier import form for testing purposes
+                "caluma_form_common": generate_form_dump_config(
+                    forms=[
+                        "parzellen-tabelle",
+                        "personalien",
+                        "personalien-tabelle",
+                    ],
+                    questions=[
+                        "personalien",
+                        "is-paper",
+                        "gemeinde",
+                        "strasse-und-nr",
+                        "parzellen",
+                        "baubeginn",
+                    ],
+                ),
+                "caluma_dossier_import_form": DumpConfig(
+                    filters=generate_form_dump_config(regex=r"^migriertes-dossier"),
+                    dependency="caluma_form_common",
+                ),
+                # Email notifications
                 "email_notifications": {
                     "notification.NotificationTemplate": Q(type="email"),
                     "notification.NotificationTemplateT": Q(template__type="email"),
                 },
-                # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
+                # Sync the "core" groups (admin, support, portal) between
+                # servers, the rest is treated as data
                 "user_core_groups": {
                     "user.Group": Q(role__name__in=["admin", "applicant", "support"]),
                     "user.GroupT": Q(

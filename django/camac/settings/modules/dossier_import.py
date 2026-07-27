@@ -19,6 +19,7 @@ DOSSIER_IMPORT = {
             # 2 hours
             "UNDO": env.int("DJANGO_DOSSIER_IMPORT_UNDO_STL", default=60 * 60 * 2),
         },
+        "CALUMA_FORM": "migriertes-dossier",
     },
     "kt_schwyz": {
         "ENABLED": True,
@@ -67,7 +68,6 @@ DOSSIER_IMPORT = {
             "BUILDINGPERMIT": "building-permit",
             "PRELIMINARY": "preliminary-clarification",
         },
-        "CALUMA_FORM": "migriertes-dossier",
         "FORM_ID": 1,
         "ATTACHMENT_SECTION_ID": 4,  # Internal
         "PROD_URL": env.str(
@@ -91,7 +91,6 @@ DOSSIER_IMPORT = {
             "WRITTEN OFF": "withdrawn",
             "DONE": "finished",
         },
-        "CALUMA_FORM": "migriertes-dossier",
         "FORM_ID": 1,
         "ALEXANDRIA_CATEGORY": "migrierte-dokumente",
         "PROD_URL": env.str(
@@ -139,7 +138,6 @@ DOSSIER_IMPORT = {
             "WRITTEN OFF": "withdrawn",
             "DONE": "finished",
         },
-        "CALUMA_FORM": "migriertes-dossier",
         "FORM_ID": 1,
         "ALEXANDRIA_CATEGORY": "migrierte-dokumente",
         # todo: enable for GR production
@@ -151,5 +149,18 @@ DOSSIER_IMPORT = {
         #     "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
         #     "https://ebau.gr.ch/auth/realms/ebau/protocol/openid-connect/token",
         # ),
+    },
+    "kt_sg": {
+        "ENABLED": True,
+        "WRITER_CLASS": "camac.dossier_import.config.kt_sg.KtStGallenDossierWriter",
+        "INSTANCE_STATE_MAPPING": {
+            "SUBMITTED": "subm",
+            "APPROVED": "decided",
+            "REJECTED": "finished",
+            "WRITTEN OFF": "finished",
+            "DONE": "finished",
+        },
+        "FORM_ID": 1,
+        "ALEXANDRIA_CATEGORY": "intern",
     },
 }

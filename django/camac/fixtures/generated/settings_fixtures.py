@@ -2346,6 +2346,24 @@ def gr_dossier_import_settings(
 
 
 @pytest.fixture
+def sg_dossier_import_settings(
+    request,
+    settings,
+    dossier_import_settings,
+):
+    """Module-specific settings for dossier import (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=dossier_import_settings,
+        settings_name="DOSSIER_IMPORT",
+        import_path="camac.settings.modules.dossier_import.DOSSIER_IMPORT",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def dump_settings(
     request,
     settings,

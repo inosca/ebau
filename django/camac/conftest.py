@@ -894,6 +894,7 @@ def caluma_workflow_config_sg(settings, caluma_forms_sg, caluma_config_sg):
         settings.ROOT_DIR("kt_sg/config/caluma_workflow.json"),
         settings.ROOT_DIR("kt_sg/config/caluma_additional_demand.json"),
         settings.ROOT_DIR("kt_sg/config/caluma_distribution.json"),
+        settings.ROOT_DIR("kt_sg/config/caluma_construction_monitoring_workflow.json"),
     )
 
     main_workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
@@ -1386,12 +1387,33 @@ def caluma_forms_sg(
     for slug in [
         # Main forms
         "baugesuch",
+        "migriertes-dossier",
         # Task forms
         "formelle-vorpruefung",
         "materielle-pruefung",
         "publikation",
         "bauanzeige",
         "entscheid",
+        # Construction monitoring
+        "complete-instance",
+        "construction-step-baubeginn-melden",
+        "construction-step-baufreigabe",
+        "construction-step-baufreigabe-beantragen",
+        "construction-step-kanalisation-kontrollieren",
+        "construction-step-kanalisationsabnahme-melden",
+        "construction-step-plan-construction-stage",
+        "construction-step-rohbauabnahme-melden",
+        "construction-step-rohbau-kontrollieren",
+        "construction-step-schlussabnahme-gebaeude",
+        "construction-step-schlussabnahme-gebaeude-melden",
+        "construction-step-schlussabnahme-projekt",
+        "construction-step-schlussabnahme-projekt-melden",
+        "construction-step-schlussabnahme-projekt-planen",
+        "construction-step-schnurgeruestabnahme-melden",
+        "construction-step-schnurgeruestabnahme-planen",
+        "construction-step-schnurgeruest-kontrollieren",
+        "construction-step-zwischenkontrolle",
+        "construction-step-zwischenkontrolle-melden",
     ]:
         caluma_form_factory(slug=slug)
 
