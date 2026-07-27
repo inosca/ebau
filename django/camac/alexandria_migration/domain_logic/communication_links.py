@@ -47,6 +47,8 @@ class CommunicationLinksMigrator(BaseMigrator):
                 )
             )
 
+        # Create per-instance logs for all instances in batch.
+        # Ensure marked as processed even if no links were fixed.
         self.logs.extend(
             [
                 MigrationLog(
