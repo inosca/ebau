@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-10 09:14+0200\n"
+"POT-Creation-Date: 2026-07-27 15:41+0200\n"
 "PO-Revision-Date: 2025-05-26 15:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2261,6 +2261,14 @@ msgstr "RESPONSABILE_GQ"
 #: camac/instance/placeholders/serializers.py
 msgid "Name of the person responsible for QS"
 msgstr "Nome della persona responsabile della GQ"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STATIC_KEYWORDS"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Static keywords of the instance"
+msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "SHORT_PROPOSAL"

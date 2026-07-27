@@ -1927,6 +1927,10 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
 
 
 class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    sachverhalte = fields.StaticKeywordsField(
+        aliases=[_("STATIC_KEYWORDS")],
+        description=_("Static keywords of the instance"),
+    )
     kurzbeschreibung_bauvorhaben = fields.MasterDataField(
         source="short_proposal",
         aliases=[_("SHORT_PROPOSAL")],

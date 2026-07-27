@@ -21412,6 +21412,7 @@
     'RECHNUNGSEMPFAENGER_ADRESSE_1': 'John Corners 4560',
     'RECHNUNGSEMPFAENGER_ADRESSE_2': '2014 Cindyville',
     'RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Lisa Walker, John Corners 4560, 2014 Cindyville',
+    'SACHVERHALTE': 'Sachverhalt A, Sachverhalt B',
     'STATUS': 'David Rangel',
     'TODAY': '18.01.2024',
     'ZIRKULATION_ALLE': list([
