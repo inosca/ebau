@@ -16,7 +16,11 @@ export default class CaseHeaderKeywordsComponent extends Component {
   @action
   onChange(selected) {
     this.args.instance.keywords = selected;
-    this.args.instance.save();
+    this.args.instance.save({
+      adapterOptions: {
+        patchedRelationships: ["keywords"],
+      },
+    });
   }
 
   // this action only overwrites the built-in text "add" from ember-power-select-with-create
@@ -54,7 +58,11 @@ export default class CaseHeaderKeywordsComponent extends Component {
       } else {
         const keywords = await this.args.instance.keywords;
         keywords.push(keyword);
-        this.args.instance.save();
+        this.args.instance.save({
+          adapterOptions: {
+            patchedRelationships: ["keywords"],
+          },
+        });
       }
     } catch (e) {
       this.notification.danger(this.intl.t("cases.header.keywordSaveFailed"));
