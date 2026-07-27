@@ -291,13 +291,30 @@ def test_dynamic_task_after_decision_with_check_prevent_submit(
         # monitoring was started before.
         (True, True, True, False, "baugesuch-v3", []),
         # CONSTRUCTION-ACCEPTANCE:
-        # create construction-acceptance after positive decision on baugesuch
+        # create construction-acceptance after positive decision on
+        # baugesuch/bauanzeige/solaranlage
         (False, False, False, True, "baugesuch-v3", ["construction-acceptance"]),
+        (False, False, False, True, "bauanzeige-v3", ["construction-acceptance"]),
+        (False, False, False, True, "solaranlage-v2", ["construction-acceptance"]),
         # create complete-instance after negative decision on baugesuch
         (False, False, False, False, "baugesuch-v3", ["complete-instance"]),
-        # create complete-instance after any decision on other forms
-        (False, False, False, True, "bauanzeige-v3", ["complete-instance"]),
-        (False, False, False, False, "bauanzeige-v3", ["complete-instance"]),
+        # create complete-instance after any decision on vorlaufige-beurteilung
+        (
+            False,
+            False,
+            False,
+            True,
+            "vorlaeufige-beurteilung-v6",
+            ["complete-instance"],
+        ),
+        (
+            False,
+            False,
+            False,
+            False,
+            "vorlaeufige-beurteilung-v6",
+            ["complete-instance"],
+        ),
     ],
 )
 @pytest.mark.django_db
