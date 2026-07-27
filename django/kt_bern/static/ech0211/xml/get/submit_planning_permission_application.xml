@@ -125,6 +125,12 @@
 					</ns6:file>
 				</ns6:files>
 				<ns6:documentKind>Weitere Dokumente</ns6:documentKind>
+				<ns6:owner>
+			    	<!-- Nur im Kt. GR, AG -->
+					<!-- Gültige Werte: "APPLICANT" oder serviceID -->
+					<!-- Wert "APPLICANT" = Gesuchsteller -->
+					<!-- Wert "128" = Organisation mit ID 128 (Service) (beispielhaft) -->
+				</ns6:owner>
 			</ns1:document>
 		</ns1:planningPermissionApplication>
 		<ns1:relationshipToPerson>

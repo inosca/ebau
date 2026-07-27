@@ -573,6 +573,7 @@
   							<ns6:mimeType>multipart/encrypted</ns6:mimeType>
   						</ns6:file>
   					</ns6:files>
+  					<ns6:owner><!-- OWNER_ID --></ns6:owner>
   					<ns6:keywords>
   						<ns7:keyword>Amber Griffith</ns7:keyword>
   						<ns7:keyword>Grace Mitchell</ns7:keyword>
@@ -1032,6 +1033,7 @@
   							<ns7:mimeType>application/font-woff</ns7:mimeType>
   						</ns7:file>
   					</ns7:files>
+  					<ns7:owner><!-- OWNER_ID --></ns7:owner>
   					<ns7:keywords>
   						<ns8:keyword>My tag</ns8:keyword>
   					</ns7:keywords>

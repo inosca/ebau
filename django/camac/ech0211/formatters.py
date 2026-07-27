@@ -211,6 +211,9 @@ def parse_alexandria_document(document, request):
         uuid=str(document.pk),
         titles=pyxb.BIND(title=[document.title]),
         status=get_document_status_type(document),
+        owner="APPLICANT"
+        if not document.created_by_group
+        else document.created_by_group,
         documentKind=document.category.name.translate(),
         keywords=pyxb.BIND(keyword=list(tags)) if tags.exists() else None,
         files=ns_nachrichten_t0.filesType(

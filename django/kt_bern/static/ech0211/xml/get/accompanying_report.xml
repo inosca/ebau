@@ -46,6 +46,12 @@
 				</ns4:file>
 			</ns4:files>
 			<ns4:documentKind>Weitere Dokumente</ns4:documentKind>
+			<ns4:owner>
+			    <!-- Nur im Kt. GR, AG -->
+				<!-- Gültige Werte: "APPLICANT" oder serviceID -->
+				<!-- Wert "APPLICANT" = Gesuchsteller -->
+				<!-- Wert "128" = Organisation mit ID 128 (Service) (beispielhaft) -->
+			</ns4:owner>
 		</ns1:document>
 		<ns1:remark>Stellungnahmetext</ns1:remark>
 		<ns1:ancillaryClauses>Nebenbestimmungen Text</ns1:ancillaryClauses>

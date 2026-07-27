@@ -354,6 +354,10 @@ def ech_snapshot(snapshot):
                 r"(<ns\d+:pathFileName>)(.*attachments=|.+files/)[\w-]+(</ns\d+:pathFileName>)",
                 r"\1\2<!-- ATTACHMENT_ID -->\3",
             ),
+            (
+                r"(<(?:ns\d+:)?owner>).+(</(?:ns\d+:)?owner>)",
+                r"\1<!-- OWNER_ID -->\2",
+            ),
         ]:
             pretty_xml = re.sub(
                 search,

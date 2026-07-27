@@ -68,6 +68,7 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
   - `documentKind` enthält den Namen der `Category`
   - `keywords` enthält alle Tags (zB: `vollmacht-dokument`)
   - `uuid` diese UUID kann in anderen eCH Meldungen referenziert werden
+  - `owner` enthält die Organisations-ID oder `APPLICANT`, wenn der Gesuchsteller das Dokument hochgeladen hat
 
 - In einer `application` wird immer der Status `6701` gesetzt. Der korrekte Status aus dem eBau findet sich unter `namedMetaData.status`. Bei einer `statusNotification` wird immer der Status `in progress` gesetzt. Der korrekte Status findet sich im `remark`.
 
