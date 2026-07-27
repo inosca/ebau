@@ -30,11 +30,7 @@
         as |active|
       >
         <AriaHeading @enabled={{active}}>
-          {{#if (has-feature "instanceOverview.useFormNameAsTabTitle")}}
-            {{this.case.document.form.name}}
-          {{else}}
-            {{t "instances.forms.form"}}
-          {{/if}}
+          {{t "instances.forms.form"}}
         </AriaHeading>
       </Tab.item>
     {{/if}}

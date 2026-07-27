@@ -76,9 +76,6 @@ export default {
   staticFaq: true,
   instanceSupport: true,
   instanceMarks: true,
-  instanceOverview: {
-    useFormNameAsTabTitle: true,
-  },
   snippets: {
     journal: true,
     workItems: true,

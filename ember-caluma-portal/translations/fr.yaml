@@ -326,6 +326,7 @@ Veuillez ouvrir le formulaire en cliquant sur « Soumettre à nouveau le dossier
     sb1-v2: "Déclaration spontanée 1"
     sb2: "Déclaration spontanée 2"
     nfd: "Demandes de complément d'information"
+    form: "Formulaire"
 
   applicants:
     municipality-access: ""

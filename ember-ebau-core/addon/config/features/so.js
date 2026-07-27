@@ -46,7 +46,6 @@ export default {
   instanceOverview: {
     useSpecialId: true,
     hideActionDescription: true,
-    useFormNameAsTabTitle: true,
   },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
   municipalityLogo: true,
