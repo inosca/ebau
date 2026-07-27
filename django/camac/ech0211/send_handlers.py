@@ -14,6 +14,7 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core.files.base import ContentFile
+from django.db.models import Q
 from django.utils.translation import gettext as _
 from lxml import etree
 
@@ -623,6 +624,50 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
             != self.group.service
         ):
             return False, "The current service does not match the responsible service."
+
+        # do not allow closing dossiers where the construction monitoring
+        # is still in progress.
+        if is_module_enabled("CONSTRUCTION_MONITORING"):
+            family_work_items = WorkItem.objects.filter(case__family=self.instance.case)
+            completed_plan_work_item = family_work_items.filter(
+                task_id=settings.CONSTRUCTION_MONITORING[
+                    "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
+                ],
+                status=WorkItem.STATUS_COMPLETED,
+            )
+            in_progress_work_items = family_work_items.filter(
+                Q(
+                    **{
+                        "meta__construction-step-id__isnull": False,
+                        "status": WorkItem.STATUS_READY,
+                    }
+                ),
+            )
+            complete_construction_monitoring = family_work_items.filter(
+                task_id=settings.CONSTRUCTION_MONITORING[
+                    "COMPLETE_CONSTRUCTION_MONITORING_TASK"
+                ],
+                status=WorkItem.STATUS_READY,
+            )
+
+            if completed_plan_work_item.exists() and in_progress_work_items.exists():
+                # if the planning stage has been completed and there are
+                # construction-monitoring workitems in progress, don't allow
+                # closing the dossier.
+                return (
+                    False,
+                    "Construction monitoring is still in progress. Please complete it before closing the dossier.",
+                )
+            elif (
+                completed_plan_work_item.exists()
+                and complete_construction_monitoring.exists()
+            ):
+                # if the planning stage has been completed and the work item to complete
+                # the construction monitoring is still ready, don't allow closing the dossier.
+                return (
+                    False,
+                    "Construction monitoring is not yet completed. Please complete it before closing the dossier.",
+                )
 
         allowed_states = settings.ECH0211.get("CLOSE_DOSSIER", {}).get(
             "ALLOWED_STATES", []
