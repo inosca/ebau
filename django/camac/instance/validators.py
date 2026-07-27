@@ -347,9 +347,12 @@ class FormDataValidator:
 
         Some notable quirks:
 
-         * For performance reasons, at least one of the `|value` transform
-           in the expression must evaluate to True, otherwise this returns
-           False.
+         * For performance reasons, if the expression contains one or more
+           `|value` transforms, at least one of them must evaluate to True in
+           order for the expression to be evaluated at all; otherwise this
+           returns False.
+           If the expression contains no `|value` transforms, the expression
+           is evaluated normally.
 
          * `|value` transforms for unanswered questions will be treated as
            None for comparisons.
@@ -357,15 +360,19 @@ class FormDataValidator:
            invalid this way (e.g. `None < 250`), this returns False.
         """
 
+        # If there are any related questions, skip evaluation if none of them are
+        # active:
         dep_questions = self.jexl.analyze(
             expression, partial(ExtractTransformSubjectAnalyzer, transforms=["value"])
         )
+        if dep_questions and not self._check_questions_active(dep_questions):
+            return False
 
         # A TypeError is raised if a question is not filled. It then tries
         # to e.g compare None < 250 which can't work
         active = False
         with contextlib.suppress(TypeError):
-            active = self._check_questions_active(dep_questions) and self.jexl.evaluate(
+            active = self.jexl.evaluate(
                 expression, {"form": self.instance.form.family.name}
             )
         return active

@@ -483,6 +483,40 @@ DEFAULT_FORM_CONFIG = {
             "new",
             False,  # question-0 not part of the form, hence question-1 not active
         ),
+        (
+            {
+                "question-0": {
+                    "label": "Question 1",
+                    "type": "radio",
+                    "required": True,
+                    "active-expression": "true",
+                    "config": {"options": ["Yes", "No"]},
+                },
+            },
+            ["question-0"],
+            [],
+            {"question-0": True, "question-1": True},
+            {"question-0": True, "question-1": True},
+            "new",
+            True,  # active and required, but not answered
+        ),
+        (
+            {
+                "question-0": {
+                    "label": "Question 0",
+                    "type": "radio",
+                    "required": True,
+                    "active-expression": "form == 'form-a'",
+                    "config": {"options": ["Yes", "No"]},
+                },
+            },
+            ["question-0"],
+            [],
+            {"question-0": True, "question-1": True},
+            {"question-0": True, "question-1": True},
+            "new",
+            True,  # active and required, but not answered
+        ),
     ],
 )
 @pytest.mark.django_db
