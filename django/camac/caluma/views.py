@@ -1,17 +1,25 @@
 from collections import namedtuple
+from logging import getLogger
 
 from caluma.caluma_user.models import AnonymousUser, OIDCUser
 from caluma.caluma_user.views import AuthenticationGraphQLView, HttpResponseUnauthorized
 from django.conf import settings
+from django.core.exceptions import (
+    PermissionDenied as DjangoPermissionDenied,
+    ValidationError as DjangoValidationError,
+)
 from django.http.response import HttpResponse
 from graphene_django.views import HttpError
-from rest_framework.exceptions import PermissionDenied
+from graphql import GraphQLError
+from rest_framework.exceptions import APIException, PermissionDenied
 
 from camac.caluma.utils import CamacRequest, extend_user
 from camac.captcha.utils import validate_captcha_token
 from camac.token_exchange.permissions import has_required_lot
 from camac.user.models import User
 from camac.user.permissions import is_allowed_client
+
+log = getLogger(__name__)
 
 
 class HttpResponseForbidden(HttpResponse):
@@ -58,3 +66,39 @@ class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
             raise HttpError(HttpResponseForbidden())
 
         return oidc_user
+
+    def execute_graphql_request(self, request, *args, **kwargs):
+        """Log GraphQL execution errors with their original traceback.
+
+        `graphql-core` wraps every resolver exception into a `GraphQLError` and
+        `graphene-django` only serializes its message, so unexpected errors
+        would otherwise be returned as a bare message with an HTTP 200 and never
+        show up in the logs.
+        """
+        result = super().execute_graphql_request(request, *args, **kwargs)
+        errors = getattr(result, "errors", None)
+
+        if settings.DEBUG and errors:
+            for error in errors:
+                while (
+                    isinstance(error, GraphQLError) and error.original_error is not None
+                ):
+                    # Iterate over the original errors until we get to the root
+                    # of the error
+                    error = error.original_error
+
+                if isinstance(
+                    error,
+                    (
+                        GraphQLError,
+                        APIException,
+                        DjangoPermissionDenied,
+                        DjangoValidationError,
+                    ),
+                ):
+                    # Don't log anything for expected errors
+                    continue
+
+                log.exception(error, exc_info=error)
+
+        return result
