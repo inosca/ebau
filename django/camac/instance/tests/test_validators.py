@@ -483,6 +483,92 @@ DEFAULT_FORM_CONFIG = {
             "new",
             False,  # question-0 not part of the form, hence question-1 not active
         ),
+        (
+            {
+                "question-0": {
+                    "label": "Question 1",
+                    "type": "radio",
+                    "required": True,
+                    "active-expression": "true",
+                    "config": {"options": ["Yes", "No"]},
+                },
+            },
+            ["question-0"],
+            [],
+            {"question-0": True, "question-1": True},
+            {"question-0": True, "question-1": True},
+            "new",
+            True,  # active and required, but not answered
+        ),
+        (
+            {
+                "question-0": {
+                    "label": "Question 0",
+                    "type": "radio",
+                    "required": True,
+                    "active-expression": "form == 'form-a'",
+                    "config": {"options": ["Yes", "No"]},
+                },
+            },
+            ["question-0"],
+            [],
+            {"question-0": True, "question-1": True},
+            {"question-0": True, "question-1": True},
+            "new",
+            True,  # active and required, but not answered
+        ),
+        (
+            {
+                "question-0": {
+                    "label": "Question 0",
+                    "type": "radio",
+                    "required": True,
+                    "config": {"options": ["Yes", "No"]},
+                },
+                "question-1": {
+                    "label": "Question 1",
+                    "type": "radio",
+                    "required": True,
+                    "active-expression": "form != 'form-b' || 'question-0'|value == 'Yes'",
+                    "config": {"options": ["Yes", "No"]},
+                },
+            },
+            ["question-1"],
+            [],
+            {"question-0": False, "question-1": True},
+            {"question-0": False, "question-1": True},
+            "new",
+            True,  # active and required, but not answered
+        ),
+        (
+            {
+                "question-0": {
+                    "label": "Question 0",
+                    "type": "radio",
+                    "required": True,
+                    "config": {"options": ["Yes", "No"]},
+                },
+                "question-1": {
+                    "label": "Question 1",
+                    "type": "radio",
+                    "required": True,
+                    "config": {"options": ["Yes", "No"]},
+                },
+                "question-X": {
+                    "label": "Question 2",
+                    "type": "radio",
+                    "required": True,
+                    "active-expression": "'question-0'|value == 'Yes' || 'question-1'|value == 'Yes'",
+                    "config": {"options": ["Yes", "No"]},
+                },
+            },
+            ["question-0", "question-X"],
+            [("question-0", "No"), ("question-1", "Yes")],
+            {"question-0": True, "question-1": False, "question-X": False},
+            {"question-0": True, "question-1": False, "question-X": False},
+            "new",
+            False,  # question-1 is not part of the form, so it should ignore its value
+        ),
     ],
 )
 @pytest.mark.django_db
