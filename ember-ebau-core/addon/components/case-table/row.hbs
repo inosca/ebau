@@ -7,7 +7,7 @@
   {{#each @tableColumns as |tColumn|}}
     <td
       class="{{if (eq tColumn.name 'dossierNumber') 'uk-text-nowrap'}}
-        {{if (eq tColumn.name 'intent') 'uk-text-truncate uk-table-expand'}}
+        {{if (eq tColumn.name 'intent') 'uk-table-expand'}}
         {{if
           (includes tColumn.name (array 'applicants' 'address'))
           'uk-text-break'
@@ -16,6 +16,13 @@
       title={{if
         (eq tColumn.name "instanceState")
         (get @node "instanceStateDescription")
+        (if
+          (and
+            (eq tColumn.name "intent")
+            (gt (get (get @node tColumn.name) "length") 180)
+          )
+          (get @node tColumn.name)
+        )
       }}
     >
       {{#if (eq tColumn.name "applicant")}}
@@ -47,7 +54,11 @@
           {{/if}}
         {{/if}}
       {{else}}
-        {{get @node tColumn.name}}
+        {{#if (eq tColumn.name "intent")}}
+          {{truncate-text (get @node tColumn.name) 180}}
+        {{else}}
+          {{get @node tColumn.name}}
+        {{/if}}
       {{/if}}
     </td>
   {{/each}}
