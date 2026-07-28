@@ -94,7 +94,7 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "entscheid.formelle-pruefung-geometer",
+    "pk": "entscheid.entscheid-geometer",
     "fields": {
       "created_at": "2026-01-29T14:21:55.083Z",
       "modified_at": "2026-01-29T14:21:55.083Z",
@@ -103,13 +103,13 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "entscheid",
-      "question": "formelle-pruefung-geometer",
+      "question": "entscheid-geometer",
       "sort": 9
     }
   },
   {
     "model": "caluma_form.option",
-    "pk": "formelle-pruefung-geometer-ja",
+    "pk": "entscheid-geometer-ja",
     "fields": {
       "created_at": "2026-01-29T14:21:54.987Z",
       "modified_at": "2026-01-29T14:21:54.987Z",
@@ -126,7 +126,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "formelle-pruefung-geometer-nein",
+    "pk": "entscheid-geometer-nein",
     "fields": {
       "created_at": "2026-01-29T14:21:54.989Z",
       "modified_at": "2026-01-29T14:21:54.989Z",
@@ -143,7 +143,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "formelle-pruefung-geometer",
+    "pk": "entscheid-geometer",
     "fields": {
       "created_at": "2026-01-29T14:21:55.033Z",
       "modified_at": "2026-04-20T15:42:57.030Z",
@@ -174,7 +174,7 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "formelle-pruefung-geometer.formelle-pruefung-geometer-ja",
+    "pk": "entscheid-geometer.entscheid-geometer-ja",
     "fields": {
       "created_at": "2026-04-20T15:42:57.035Z",
       "modified_at": "2026-04-20T15:42:57.035Z",
@@ -182,14 +182,14 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "question": "formelle-pruefung-geometer",
-      "option": "formelle-pruefung-geometer-ja",
+      "question": "entscheid-geometer",
+      "option": "entscheid-geometer-ja",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "formelle-pruefung-geometer.formelle-pruefung-geometer-nein",
+    "pk": "entscheid-geometer.entscheid-geometer-nein",
     "fields": {
       "created_at": "2026-04-20T15:42:57.033Z",
       "modified_at": "2026-04-20T15:42:57.033Z",
@@ -197,8 +197,8 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "question": "formelle-pruefung-geometer",
-      "option": "formelle-pruefung-geometer-nein",
+      "question": "entscheid-geometer",
+      "option": "entscheid-geometer-nein",
       "sort": 1
     }
   },

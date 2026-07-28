@@ -3229,15 +3229,15 @@ MASTER_DATA = {
             "zip": ("answer", "plz"),
             "geometer_required": (
                 "answer",
-                "formelle-pruefung-geometer",
+                "entscheid-geometer",
                 {
                     "document_from_work_item": "decision",
                     "value_parser": (
                         "value_mapping",
                         {
                             "mapping": {
-                                "formelle-pruefung-geometer-ja": True,
-                                "formelle-pruefung-geometer-nein": False,
+                                "entscheid-geometer-ja": True,
+                                "entscheid-geometer-nein": False,
                             }
                         },
                     ),
