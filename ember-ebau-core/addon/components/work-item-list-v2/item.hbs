@@ -25,10 +25,10 @@
       {{else if (eq column "description")}}
         <span
           {{uk-tooltip
-            (if (gt @row.description.length 250) @row.description "")
+            (if (gt @row.description.length 180) @row.description "")
           }}
         >
-          {{truncate-text @row.description 250}}
+          {{truncate-text @row.description 180}}
         </span>
       {{else if (eq column "deadline")}}
         <span {{uk-tooltip (format-date @row.deadline format="date")}}>

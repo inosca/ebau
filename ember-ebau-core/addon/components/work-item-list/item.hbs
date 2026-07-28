@@ -62,7 +62,7 @@
         {{if @workItem.closedByUser @workItem.closedByUser.fullName "-"}}
       {{else if (eq column "description")}}
         {{#if (has-feature "workItemList.useExperimentalLayout")}}
-          {{truncate-text @workItem.instanceDescription 250}}
+          {{truncate-text @workItem.instanceDescription 180}}
         {{else}}
           {{@workItem.instanceDescription}}
         {{/if}}
