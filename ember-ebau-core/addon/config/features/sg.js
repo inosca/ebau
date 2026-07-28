@@ -8,9 +8,6 @@ export default {
   workItems: {
     v2: true,
   },
-  instanceOverview: {
-    useFormNameAsTabTitle: true,
-  },
   communications: {
     enabled: true,
   },
