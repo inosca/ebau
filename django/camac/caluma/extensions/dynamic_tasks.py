@@ -85,9 +85,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
             case.instance, prev_work_item
         ):
             tasks = [
-                settings.CONSTRUCTION_MONITORING[
-                    "INIT_CONSTRUCTION_MONITORING_TASK"
-                ]
+                settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"]
             ]
 
             if MasterData.from_case_id(case.pk).geometer_required:
