@@ -1,6 +1,6 @@
 {
   "name": "camac-ng",
-  "version": "1.1.1",
+  "version": "0.0.0-dev",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -20,6 +20,6 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "sass": "1.82.0",
-    "uikit": "^3.16.19"
+    "uikit": "3.24.1"
   }
 }

@@ -4,3 +4,4 @@ packages:
   - ember-ebau-core
   - ember-ebau
   - ember
+  - keycloak/themes
