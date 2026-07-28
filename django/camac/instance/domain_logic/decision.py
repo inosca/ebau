@@ -128,18 +128,13 @@ class DecisionLogic:
         # if construction monitoring is enabled but the instance type does not allow
         # construction monitoring, we do not continue the workflow after the decision.
         # without construction monitoring, the workflow should not be continued
-        # for certain instance types (bauanzeige, solaranlage, vorlaeufige-beurteilung)
+        # for certain instance types (vorlaeufige-beurteilung)
         if is_module_enabled(  # noqa: SIM114
             "CONSTRUCTION_MONITORING"
         ) and not can_perform_construction_monitoring(instance):
             return False
         elif not is_module_enabled("CONSTRUCTION_MONITORING") and (
-            instance.case.document.form_id
-            in [
-                *gr_constants.BAUANZEIGE_FORMS,
-                *gr_constants.SOLARANLAGE_FORMS,
-                *gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
-            ]
+            instance.case.document.form_id in gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS
         ):
             return False
 
