@@ -6,8 +6,8 @@
 #   - https://hub.docker.com/_/debian/tags?name=trixie-20260623-slim - for the release image
 #   - Ex: docker.io/hexpm/elixir:1.19.5-erlang-28.2-debian-trixie-20260623-slim
 #
-ARG ELIXIR_VERSION=1.19.5
-ARG OTP_VERSION=28.2
+ARG ELIXIR_VERSION=1.20.2
+ARG OTP_VERSION=29.0.4
 ARG DEBIAN_VERSION=trixie-20260623-slim
 
 ARG BUILDER_IMAGE="docker.io/hexpm/elixir:${ELIXIR_VERSION}-erlang-${OTP_VERSION}-debian-${DEBIAN_VERSION}"
