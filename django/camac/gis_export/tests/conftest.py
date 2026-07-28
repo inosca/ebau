@@ -3,7 +3,6 @@ from datetime import date
 import pytest
 from caluma.caluma_workflow.models import WorkItem
 
-from camac.settings.django import load_module_settings
 from camac.tests.data import so_personal_row_factory
 
 
@@ -203,10 +202,9 @@ def setup_so_instance(  # noqa: C901
 
 
 @pytest.fixture
-def sogis_client(admin_client, admin_user, settings):
-    settings.GIS_EXPORT = load_module_settings("gis_export", "kt_so")
+def sogis_client(admin_client, admin_user, so_gis_export_settings):
     admin_client.force_authenticate(
-        user=admin_user, token={"azp": settings.GIS_EXPORT.keycloak_client}
+        user=admin_user, token={"azp": so_gis_export_settings.keycloak_client}
     )
 
     return admin_client

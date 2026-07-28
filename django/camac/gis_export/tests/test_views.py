@@ -181,10 +181,10 @@ def test_export_rejects_a_request_without_the_sogis_client_token(
 
 @pytest.mark.django_db
 def test_export_is_not_found_when_the_module_is_disabled(
-    admin_client, admin_user, settings
+    admin_client, admin_user, disable_gis_export_settings
 ):
     admin_client.force_authenticate(
-        user=admin_user, token={"azp": settings.GIS_EXPORT.keycloak_client}
+        user=admin_user, token={"azp": disable_gis_export_settings.keycloak_client}
     )
 
     response = admin_client.get(reverse("so-gis-export"))
