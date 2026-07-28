@@ -112,14 +112,27 @@ def test_complete_decision_gr(
     )
 
     if construction_monitoring_enabled and decision == "APPROVED":
-        init_construction_monitoring = caluma_work_item_factory(
+        stage_work_item = caluma_work_item_factory(
             case=gr_instance.case,
+            child_case__family=gr_instance.case,
+            task_id=module_settings["CONSTRUCTION_STAGE_TASK"],
+        )
+        plan_work_item = caluma_work_item_factory(
+            case=stage_work_item.child_case,
             task_id=module_settings["CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"],
+        )
+        # Call post create hook to update work item meta
+        send_event(
+            post_create_work_item,
+            sender="post_create_work_item",
+            work_item=plan_work_item,
+            user=caluma_admin_user,
+            context={},
         )
         send_event(
             post_complete_work_item,
             sender="post_complete_work_item",
-            work_item=init_construction_monitoring,
+            work_item=plan_work_item,
             user=caluma_admin_user,
             context={},
         )
