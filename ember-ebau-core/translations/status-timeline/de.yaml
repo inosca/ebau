@@ -1,0 +1,11 @@
+status-timeline:
+  steps:
+    submit: Einreichen
+    exam: Prüfung
+    distribution: Zirkulation
+    decision: Entscheid
+    construction-monitoring: Baubegleitung
+    finish: Abschluss
+
+  current-pending: "Aktuelle Pendenzen:"
+  no-pending: keine

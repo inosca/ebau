@@ -1,0 +1,36 @@
+<div class="status-timeline" ...attributes>
+  {{#if this.statusTimeline.isLoading}}
+    {{#each (range 0 this.skeletonStepCount)}}
+      <div class="status-timeline__step status-timeline__step--skeleton">
+        &nbsp;
+      </div>
+    {{/each}}
+  {{else}}
+    {{#each-in this.statusTimeline.value.steps as |step status|}}
+      <div class="status-timeline__step status-timeline__step--{{status}}">
+        <FaIcon @fixedWidth={{true}} @icon={{this.getIcon status}} />
+        {{t (concat "status-timeline.steps." step)}}
+      </div>
+
+      {{#if (eq status "running")}}
+        <div uk-dropdown pos="bottom-center">
+          <p class="uk-text-bold">{{t "status-timeline.current-pending"}}</p>
+          <ul>
+            {{#each this.statusTimeline.value.pending as |item|}}
+              <li>
+                <span class="uk-text-bold">{{item.name}}</span>
+                <ul>
+                  {{#each item.services as |service|}}
+                    <li>{{service}}</li>
+                  {{/each}}
+                </ul>
+              </li>
+            {{else}}
+              <li class="uk-text-italic">{{t "status-timeline.no-pending"}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/if}}
+    {{/each-in}}
+  {{/if}}
+</div>

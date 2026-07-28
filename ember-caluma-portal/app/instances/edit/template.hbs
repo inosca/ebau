@@ -8,6 +8,10 @@
     </div>
   {{/if}}
 
+  {{#if (has-feature "instanceOverview.statusTimeline")}}
+    <StatusTimeline @instanceId={{@model}} class="uk-margin" />
+  {{/if}}
+
   <UkTab class="uk-margin-remove-top" as |Tab|>
     {{#if (not (is-embedded))}}
       <Tab.item

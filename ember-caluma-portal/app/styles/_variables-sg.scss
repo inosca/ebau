@@ -106,3 +106,7 @@ $portal-nav-badge-color: $global-secondary-background;
   --sg-gis-search-result: #{$global-secondary-background};
   --sg-gis-plot: #{$global-success-background};
 }
+
+// Status timeline
+$st-running-background: $sg-olivgreen;
+$st-running-color: $global-color;

@@ -10,6 +10,7 @@ export default {
   },
   instanceOverview: {
     showInternalStatus: true,
+    statusTimeline: true,
   },
   communications: {
     enabled: true,

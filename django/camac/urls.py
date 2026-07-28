@@ -46,6 +46,7 @@ urlpatterns = [
     re_path(r"^api/v1/", include("camac.deadlines.urls")),
     re_path(r"^api/v1/", include("camac.captcha.urls")),
     re_path(r"^api/v1/", include("camac.timelines.urls")),
+    re_path(r"^api/v1/", include("camac.procedure_status.urls")),
     re_path(
         r"^graphql",
         CamacAuthenticatedGraphQLView.as_view(graphiql=settings.DEBUG),
