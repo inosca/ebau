@@ -5,3 +5,6 @@ packages:
   - ember-ebau
   - ember
   - keycloak/themes
+peerDependencyRules:
+  allowedVersions:
+    graphql: "^15.9.0"
