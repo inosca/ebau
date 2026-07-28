@@ -1,5 +1,6 @@
 import { service } from "@ember/service";
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 /**
  * Portal-specific instance model
@@ -26,6 +27,10 @@ export default class Instance extends Model {
   @attr("string") rejectionFeedback;
 
   get status() {
+    if (hasFeature("instanceOverview.showInternalStatus")) {
+      return this.instanceState.get("name");
+    }
+
     return this.intl.t(`instances.status.${this.publicStatus}`);
   }
 }

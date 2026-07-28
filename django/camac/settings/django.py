@@ -2577,22 +2577,6 @@ APPLICATIONS = {
                 },
                 "complete-instance": {"cancel": ["create-manual-workitems"]},
             },
-            "PUBLIC_STATUS": {
-                "USE_SLUGS": True,
-                "MAP": {
-                    "new": "creation",
-                    "subm": "inProcedure",
-                    "rejected": "rejected",
-                    "init-distribution": "inProcedure",
-                    "distribution": "inProcedure",
-                    "decision": "inProcedure",
-                    "decided": "decided",
-                    "construction-monitoring": "constructionMonitoring",
-                    "to-finish": "decided",
-                    "finished": "done",
-                },
-                "DEFAULT": "inProcedure",
-            },
         },
         "USE_INSTANCE_SERVICE": True,
         "NOTIFICATIONS": {

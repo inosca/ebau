@@ -296,6 +296,9 @@ export default class InstancesIndexController extends Controller {
     if (instanceIds.length) {
       await this.store.query("instance", {
         instance_id: instanceIds.join(","),
+        ...(hasFeature("instanceOverview.showInternalStatus")
+          ? { include: "instance_state" }
+          : {}),
       });
     }
 
