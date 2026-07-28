@@ -16,13 +16,6 @@
     "@ember/string": "4.0.0",
     "ember-inflector": "4.0.3"
   },
-  "pnpm": {
-    "peerDependencyRules": {
-      "allowedVersions": {
-        "graphql": "^15.9.0"
-      }
-    }
-  },
   "devDependencies": {
     "syncpack": "13.0.4"
   },
