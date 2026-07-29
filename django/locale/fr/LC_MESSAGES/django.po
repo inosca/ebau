@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-16 15:03+0200\n"
+"POT-Creation-Date: 2026-07-28 17:45+0200\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -327,10 +327,6 @@ msgstr ""
 msgid "All sanctions that could be fulfilled until now have been fullfilled"
 msgstr ""
 
-#: camac/caluma/extensions/dynamic_tasks.py
-msgid "Construction step completed"
-msgstr ""
-
 #: camac/caluma/extensions/events/audit.py
 msgid "Exam skipped"
 msgstr "Examen sauté"
@@ -393,6 +389,11 @@ msgstr ""
 
 #: camac/caluma/extensions/events/construction_monitoring.py
 msgid "Construction monitoring started"
+msgstr ""
+
+#: camac/caluma/extensions/events/construction_monitoring.py
+#, python-format
+msgid "%(construction_step)s (%(construction_stage)s) completed"
 msgstr ""
 
 #: camac/caluma/extensions/events/construction_monitoring.py

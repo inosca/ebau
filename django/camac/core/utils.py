@@ -94,13 +94,10 @@ def create_history_entry(
     instance: Instance,
     user: User | None,
     text: str,
-    text_data: Callable[[str], dict] = lambda language: {},
+    text_data: Callable[[str], dict] | None = None,
     history_type: str = HistoryActionConfig.HISTORY_TYPE_STATUS,
     body: str = "",
 ) -> None:
-    # avoid circular import
-    from camac.instance.models import HistoryEntry, HistoryEntryT
-
     """
     Create a multilingual history entry for an instance.
 
@@ -121,10 +118,23 @@ def create_history_entry(
     ...     history_type
     ... )
     """
+    # avoid circular import
+    from camac.instance.models import HistoryEntry, HistoryEntryT
+
+    def format_text(translated_text, language):
+        # Texts without data are used as-is - they may contain characters
+        # (e.g. "%") that are not valid printf-style format specifiers.
+        if text_data is None:
+            return translated_text
+
+        return translated_text % text_data(language)
 
     data = {}
     if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
-        data = {"title": gettext(text) % text_data(get_language()), "body": body}
+        data = {
+            "title": format_text(gettext(text), get_language()),
+            "body": body,
+        }
 
     history = HistoryEntry.objects.create(
         instance=instance,
@@ -137,7 +147,7 @@ def create_history_entry(
     for language, translated_text in get_translations(text).items():
         HistoryEntryT.objects.create(
             history_entry=history,
-            title=translated_text % text_data(language),
+            title=format_text(translated_text, language),
             body=body,
             language=language,
         )

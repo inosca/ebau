@@ -10,19 +10,21 @@ from caluma.caluma_workflow.events import (
     post_complete_work_item,
     post_create_work_item,
 )
-from caluma.caluma_workflow.models import Case, Workflow, WorkItem
+from caluma.caluma_workflow.models import Case, Task, Workflow, WorkItem
 from django.conf import settings
 from django.db import transaction
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_noop
 
 from camac.caluma.event_utils import (
     filter_by_canton,
     filter_by_task,
     filter_by_workflow,
+    if_module_enabled,
     setting,
 )
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import date_to_deadline
+from camac.core.translations import get_translation_in
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import construction_monitoring_started
 from camac.instance.models import Instance
@@ -77,6 +79,24 @@ def can_continue_construction_step(work_item: WorkItem) -> bool:
     ]
 
     return answer_is_approved in approved_answer_slugs
+
+
+def is_last_construction_step_item(work_item: WorkItem) -> bool:
+    """Check whether the work item is the last one of its construction step.
+
+    A construction step consists of one or more work items which are processed
+    in the order of their configured index.
+    """
+
+    return not Task.objects.filter(
+        **{
+            "meta__construction-step-id": work_item.meta["construction-step-id"],
+            "meta__construction-step__index": work_item.meta["construction-step"][
+                "index"
+            ]
+            + 1,
+        }
+    ).exists()
 
 
 def can_perform_construction_monitoring(instance: Instance) -> bool:
@@ -187,18 +207,20 @@ def set_complete_construction_monitoring_deadline(case: Case):
 
 
 CONSTRUCTION_STEP_TRANSLATIONS = {
-    "construction-step-plan-construction-stage": _("Baubegleitung planen"),
-    "construction-step-adressvergabe": _("Adressvergabe"),
-    "construction-step-baufreigabe": _("Baufreigabe"),
-    "construction-step-gebaeudeabbruch": _("Gebäudeabbruch"),
-    "construction-step-baubeginn": _("Baubeginn"),
-    "construction-step-schnurgeruestabnahme": _("Schnurgeruestabnahme"),
-    "construction-step-kanalisationsabnahme": _("Kanalisationsabnahme"),
-    "construction-step-einmessung": _("Einmessung im offenen Graben"),
-    "construction-step-rohbauabnahme": _("Rohbauabnahme"),
-    "construction-step-zwischenkontrolle": _("Zwischenkontrolle"),
-    "construction-step-schlussabnahme-gebaeude": _("Schlussabnahme Gebaeude"),
-    "construction-step-schlussabnahme-projekt": _("Schlussabnahme Projekt"),
+    "construction-step-plan-construction-stage": gettext_noop("Baubegleitung planen"),
+    "construction-step-adressvergabe": gettext_noop("Adressvergabe"),
+    "construction-step-baufreigabe": gettext_noop("Baufreigabe"),
+    "construction-step-gebaeudeabbruch": gettext_noop("Gebäudeabbruch"),
+    "construction-step-baubeginn": gettext_noop("Baubeginn"),
+    "construction-step-schnurgeruestabnahme": gettext_noop("Schnurgeruestabnahme"),
+    "construction-step-kanalisationsabnahme": gettext_noop("Kanalisationsabnahme"),
+    "construction-step-einmessung": gettext_noop("Einmessung im offenen Graben"),
+    "construction-step-rohbauabnahme": gettext_noop("Rohbauabnahme"),
+    "construction-step-zwischenkontrolle": gettext_noop("Zwischenkontrolle"),
+    "construction-step-schlussabnahme-gebaeude": gettext_noop(
+        "Schlussabnahme Gebaeude"
+    ),
+    "construction-step-schlussabnahme-projekt": gettext_noop("Schlussabnahme Projekt"),
 }
 
 
@@ -211,7 +233,7 @@ def post_complete_init_construction_monitoring(
     if context and context["skip"]:
         instance = get_instance(work_item)
         camac_user = User.objects.get(username=user.username)
-        history_text = _("Construction monitoring skipped")
+        history_text = gettext_noop("Construction monitoring skipped")
         create_history_entry(instance, camac_user, history_text)
 
 
@@ -233,13 +255,12 @@ def post_create_construction_stage(sender, work_item, user, context=None, **kwar
 
 
 @on(post_create_work_item, raise_exception=True)
+@if_module_enabled("CONSTRUCTION_MONITORING")
 @transaction.atomic
 def post_create_construction_step_work_item(sender, work_item, user, context, **kwargs):
     """Set needed meta attributes on the newly created work item."""
 
-    if not is_module_enabled("CONSTRUCTION_MONITORING") or not work_item.task.meta.get(
-        "construction-step-id"
-    ):
+    if not work_item.task.meta.get("construction-step-id"):
         return
 
     if (
@@ -256,18 +277,19 @@ def post_create_construction_step_work_item(sender, work_item, user, context, **
 
 
 @on(post_complete_work_item, raise_exception=True)
+@if_module_enabled("CONSTRUCTION_MONITORING")
 @transaction.atomic
 def post_complete_construction_step_work_item(
     sender, work_item, user, context, **kwargs
 ):
     """Set needed meta attributes on the newly created work item."""
 
-    if not is_module_enabled("CONSTRUCTION_MONITORING") or not work_item.task.meta.get(
-        "construction-step-id"
-    ):
+    if not work_item.task.meta.get("construction-step-id"):
         return
 
     instance = get_instance(work_item)
+    camac_user = User.objects.get(username=user.username)
+
     if (
         work_item.task.pk
         == settings.CONSTRUCTION_MONITORING[
@@ -276,8 +298,7 @@ def post_complete_construction_step_work_item(
         and instance.instance_state.name
         == settings.CONSTRUCTION_MONITORING["PREVIOUS_INSTANCE_STATE"]
     ):
-        camac_user = User.objects.get(username=user.username)
-        history_text = _("Construction monitoring started")
+        history_text = gettext_noop("Construction monitoring started")
         create_history_entry(instance, camac_user, history_text)
 
         instance.set_instance_state(
@@ -315,6 +336,25 @@ def post_complete_construction_step_work_item(
         work_item.task.pk, []
     )
     if can_continue_construction_step(work_item):
+        if is_last_construction_step_item(work_item):
+            # If it's the last construction step we add a history entry
+            create_history_entry(
+                instance,
+                camac_user,
+                gettext_noop(
+                    "%(construction_step)s (%(construction_stage)s) completed"
+                ),
+                lambda language: {
+                    "construction_step": get_translation_in(
+                        language,
+                        CONSTRUCTION_STEP_TRANSLATIONS[
+                            work_item.meta["construction-step-id"]
+                        ],
+                    ),
+                    "construction_stage": work_item.case.parent_work_item.name,
+                },
+            )
+
         for config in notifications:
             send_mail_without_request(
                 config["template_slug"],
@@ -341,7 +381,7 @@ def post_complete_construction_monitoring(sender, work_item, user, context, **kw
 
     instance = get_instance(work_item)
     camac_user = User.objects.get(username=user.username)
-    history_text = _("Construction monitoring completed")
+    history_text = gettext_noop("Construction monitoring completed")
     create_history_entry(instance, camac_user, history_text)
 
 

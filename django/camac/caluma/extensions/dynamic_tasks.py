@@ -11,18 +11,15 @@ from caluma.caluma_workflow.models import Task, WorkItem
 from caluma.caluma_workflow.utils import create_work_items
 from django.conf import settings
 from django.utils.timezone import now
-from django.utils.translation import gettext as _
 
 from camac.caluma.extensions.events.construction_monitoring import (
-    CONSTRUCTION_STEP_TRANSLATIONS,
     can_continue_construction_step,
     can_perform_construction_monitoring,
 )
-from camac.caluma.extensions.events.general import get_instance
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import date_to_deadline
 from camac.constants import kt_ag as ag_constants, kt_gr as gr_constants
-from camac.core.utils import canton_aware, create_history_entry
+from camac.core.utils import canton_aware
 from camac.instance import domain_logic
 from camac.instance.master_data import MasterData
 from camac.instance.utils import (
@@ -31,7 +28,7 @@ from camac.instance.utils import (
     geometer_cadastral_survey_necessary_answer,
 )
 from camac.settings.utils import is_module_enabled
-from camac.user.models import Service, User
+from camac.user.models import Service
 from camac.utils import get_unversioned_slug
 
 
@@ -729,14 +726,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
                     }
                 ).values_list("pk", flat=True)
             )
-
-        # Create history entry for completed construction-step
-        instance = get_instance(prev_work_item)
-        camac_user = User.objects.get(username=user.username)
-        construction_step_translation = CONSTRUCTION_STEP_TRANSLATIONS[previous_step]
-        construction_step_completed_translation = _("Construction step completed")
-        history_text = f"{construction_step_translation} ({prev_work_item.case.parent_work_item.name}) {construction_step_completed_translation}"
-        create_history_entry(instance, camac_user, history_text)
 
         # Retrieve selected construction steps
         document = Document.objects.filter(
