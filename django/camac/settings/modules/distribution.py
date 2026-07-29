@@ -14,6 +14,19 @@ from .distribution_suggestions.kt_schwyz import SZ_DISTRIBUTION_SUGGESTIONS
 from .distribution_suggestions.kt_so import SO_DISTRIBUTION_SUGGESTIONS
 from .distribution_suggestions.kt_uri import UR_DISTRIBUTION_SUGGESTIONS
 
+# These services may invite each other in the distribution (in addition to the
+# external and federal services which everyone can invite)
+SG_PEER_INVITE_SERVICES = [
+    "afu-bs-ar",
+    "afu-bs-ba",
+    "afu-bs-lw",
+    "afu-ig-b1",
+    "afu-ig-b2",
+    "afu-ig-lu",
+    "awe-gg-aw",
+    "awe-gg-gw",
+]
+
 """
 WARNING: Any key that is either "TASK or ends with "_TASK" will be picked up by the visibilty filter for work items (see django/camac/extensions/visibilities.py).
 """
@@ -617,7 +630,14 @@ DISTRIBUTION = {
                             ],
                         )
                     ]
-                }
+                },
+                {
+                    # Some of the cantonal services may also invite each other
+                    "conditions": [
+                        lambda _, service: service.slug in SG_PEER_INVITE_SERVICES
+                    ],
+                    "include": [("services", SG_PEER_INVITE_SERVICES)],
+                },
             ],
         },
     },

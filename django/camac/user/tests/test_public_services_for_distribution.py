@@ -202,3 +202,57 @@ def test_distribution_services(
     assert {
         i["attributes"]["name"] for i in response.json()["data"]
     } == expected_services
+
+
+@pytest.mark.parametrize("service_group__name", ["service"])
+@pytest.mark.parametrize(
+    ("service__slug", "expected_services"),
+    [
+        ("peer-1", {"service-1", "peer-2"}),
+        ("other", {"service-1"}),
+    ],
+)
+def test_distribution_services_callable_condition(
+    admin_client,
+    service_factory,
+    service,
+    instance,
+    distribution_settings,
+    mocker,
+    expected_services,
+):
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service_factory(),
+    )
+
+    peers = ["peer-1", "peer-2"]
+    distribution_settings["AVAILABLE_SERVICES_FOR_INQUIRY"] = {
+        "service": [
+            {"include": [("service_groups", ["external"])]},
+            {
+                "conditions": [lambda _, service: service.slug in peers],
+                "include": [("services", peers)],
+            },
+        ],
+    }
+
+    for slug, service_group_name in [
+        ("service-1", "external"),
+        ("peer-2", "some-other"),
+        ("service-2", "some-other"),
+    ]:
+        service_factory(slug=slug, name=slug, service_group__name=service_group_name)
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        {
+            "available_in_distribution_for_instance": instance.pk,
+            "exclude_own_service": True,
+        },
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert {
+        i["attributes"]["name"] for i in response.json()["data"]
+    } == expected_services
