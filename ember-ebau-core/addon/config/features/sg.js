@@ -8,6 +8,9 @@ export default {
   workItems: {
     v2: true,
   },
+  instanceOverview: {
+    showInternalStatus: true,
+  },
   communications: {
     enabled: true,
   },
