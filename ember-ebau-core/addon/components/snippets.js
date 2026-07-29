@@ -12,11 +12,14 @@ export default class SnippetsComponent extends Component {
   @service store;
   @service calumaOptions;
 
+  get isGlobalSnippetsEnabled() {
+    return hasFeature("snippets.allowGlobalSnippets");
+  }
+
   _inputElement = null;
 
   snippets = trackedFunction(this, async () => {
     const currentServiceId = this.calumaOptions.currentGroupId;
-    const globalSnippetsEnabled = hasFeature("snippets.allowGlobalSnippets");
 
     let snippets = this.store
       .peekAll("notification-template")
@@ -25,14 +28,14 @@ export default class SnippetsComponent extends Component {
         const isValidService =
           serviceId !== null
             ? serviceId === currentServiceId
-            : globalSnippetsEnabled;
+            : this.isGlobalSnippetsEnabled;
 
         return template.notificationType === "textcomponent" && isValidService;
       });
 
     if (!snippets.length) {
       snippets = await this.store.query("notification-template", {
-        service: !globalSnippetsEnabled ? currentServiceId : undefined,
+        service: !this.isGlobalSnippetsEnabled ? currentServiceId : undefined,
         type: "textcomponent",
       });
     }
@@ -45,7 +48,7 @@ export default class SnippetsComponent extends Component {
 
       if (snippetServiceId !== null && snippetServiceId === currentServiceId) {
         ownSnippets.push(snippet);
-      } else if (globalSnippetsEnabled) {
+      } else if (this.isGlobalSnippetsEnabled) {
         systemSnippets.push(snippet);
       }
     });
@@ -54,7 +57,7 @@ export default class SnippetsComponent extends Component {
       own: groupAndSort(ownSnippets),
     };
 
-    if (globalSnippetsEnabled) {
+    if (this.isGlobalSnippetsEnabled) {
       data.system = groupAndSort(systemSnippets);
     }
     return data;
