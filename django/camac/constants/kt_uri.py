@@ -312,3 +312,9 @@ MUNICIPAL_AUTHORITY_NAME_MAPPING = {
     "Unterschächen": "Gemeindebaubehörde Unterschächen",
     "Wassen": "Gemeindebaubehörde Urner Oberland",
 }
+
+FORM_TYPE_INTENTS = {
+    "form-type-commercial-permit": "Reklamegesuch",
+    "form-type-solar-announcement": "Solaranlage",
+    "form-type-technische-bewilligung": "Gebäudetechnik",
+}

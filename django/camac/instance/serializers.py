@@ -2928,14 +2928,15 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):
         )
 
     def get_intent(self, case):
-        if settings.APPLICATION_NAME == "kt_uri":
-            form_type = self.get_master_data(case).form_type
+        master_data = self.get_master_data(case)
 
-            if form_type == "form-type-commercial-permit":
-                return "Reklamegesuch"
-            elif form_type == "form-type-solar-announcement":
-                return "Solaranlage"
-        return self.get_master_data(case).proposal
+        if (
+            settings.APPLICATION_NAME == "kt_uri"
+            and master_data.form_type in uri_constants.FORM_TYPE_INTENTS
+        ):
+            return uri_constants.FORM_TYPE_INTENTS[master_data.form_type]
+
+        return master_data.proposal
 
     def get_street(self, case):
         md = self.get_master_data(case)
