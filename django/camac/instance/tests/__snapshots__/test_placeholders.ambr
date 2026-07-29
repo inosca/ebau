@@ -14075,6 +14075,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'SACHVERHALTE': dict({
+      'aliases': list([
+        dict({
+          'de': 'SACHVERHALTE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Sachverhalte des Dossiers',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'STATUS': dict({
       'aliases': list([
         dict({
@@ -18870,6 +18882,7 @@
     'RECHNUNGSEMPFAENGER_ADRESSE_1',
     'RECHNUNGSEMPFAENGER_ADRESSE_2',
     'RECHNUNGSEMPFAENGER_NAME_ADRESSE',
+    'SACHVERHALTE',
     'STATUS',
     'ZIRKULATION_ALLE',
     'ZIRKULATION_ALLE[]',
