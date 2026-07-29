@@ -18185,7 +18185,7 @@
       "modified_by_group": null,
       "form": "zivilschutz",
       "question": "zivilschutz-anzahl-schutzplaetze-spitaeler",
-      "sort": 26
+      "sort": 25
     }
   },
   {
@@ -18200,7 +18200,7 @@
       "modified_by_group": null,
       "form": "zivilschutz",
       "question": "zivilschutz-gebaeudeart-berechnungsgrundlage",
-      "sort": 24
+      "sort": 27
     }
   },
   {
@@ -18230,7 +18230,7 @@
       "modified_by_group": null,
       "form": "zivilschutz",
       "question": "zivilschutz-anzahl-schutzplaetze-wohnungen",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -18545,7 +18545,7 @@
       "modified_by_group": null,
       "form": "zivilschutz",
       "question": "zivilschutz-total-pflichtschutzplaetze",
-      "sort": 27
+      "sort": 24
     }
   },
   {
@@ -68515,8 +68515,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Anzahl Schutzplätze für Spitäler, Alters- und Pflegeheime (1 Schutzplatz pro Patientenbett)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"zivilschutz-gebaeudeart-berechnungsgrundlage-spitaeler-alters-und-pflegeheime\" in \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer([]))",
+      "is_required": "\"zivilschutz-gebaeudeart-berechnungsgrundlage-spitaeler-alters-und-pflegeheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer",
+      "is_hidden": "!(\"zivilschutz-gebaeudeart-berechnungsgrundlage-spitaeler-alters-und-pflegeheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -68587,8 +68587,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Anzahl Schutzplätze für Wohnungen und Wohnheime (2 Schutzplätze pro 3 Zimmer)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"zivilschutz-gebaeudeart-berechnungsgrundlage-wohnungen-und-wohnheime\" in \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer([]))",
+      "is_required": "\"zivilschutz-gebaeudeart-berechnungsgrundlage-wohnungen-und-wohnheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer",
+      "is_hidden": "!(\"zivilschutz-gebaeudeart-berechnungsgrundlage-wohnungen-und-wohnheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -69057,7 +69057,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gebäudeart und Berechnungsgrundlage\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
+      "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\"zivilschutz-befreiung-oder-bewilligung\"|answer != None)",
       "is_archived": false,
@@ -69074,7 +69074,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[]"
+      "calc_dependents": "[\"zivilschutz-total-pflichtschutzplaetze\"]"
     }
   },
   {
@@ -69664,7 +69664,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": "\"zivilschutz-anzahl-schutzplaetze-wohnungen\"|answer(0) + \"zivilschutz-anzahl-schutzplaetze-spitaeler\"|answer(0)",
+      "calc_expression": "(\"zivilschutz-gebaeudeart-berechnungsgrundlage-wohnungen-und-wohnheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer) ? (\"zivilschutz-anzahl-schutzplaetze-wohnungen\"|answer(0)) : ((\"zivilschutz-gebaeudeart-berechnungsgrundlage-spitaeler-alters-und-pflegeheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer) ? (\"zivilschutz-anzahl-schutzplaetze-spitaeler\"|answer(0)) : (0))",
       "calc_dependents": "[\"zivilschutz-total-schutzplaetze\"]"
     }
   },
