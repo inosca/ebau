@@ -1,16 +1,13 @@
 from dataclasses import dataclass
 from typing import Any
 
-from caluma.caluma_core.exceptions import ConfigurationError
-from caluma.caluma_form.api import save_answer
-from caluma.caluma_form.models import Document, Question
-from caluma.caluma_form.validators import CustomValidationError
 from django.core.cache import cache
 from django.utils.translation import gettext as _
 from rest_framework import serializers
 from rest_framework.exceptions import PermissionDenied, ValidationError
 
 from camac.caluma.extensions.permissions import CustomPermission
+from camac.caluma.form_import_utils import FormImportWriter
 from camac.instance.models import Instance
 
 
@@ -44,45 +41,6 @@ class GISApplySerializer(serializers.Serializer):
 
         return value
 
-    def _write_row(self, form_slug, row_data):
-        row_document = Document.objects.create(form_id=form_slug)
-
-        for question_slug, value in row_data.items():
-            self._write_answer(row_document, question_slug, value)
-
-        return str(row_document.pk)
-
-    def _write_answer(self, document, question_slug, value):
-        try:
-            question = Question.objects.get(pk=question_slug)
-        except Question.DoesNotExist:
-            return False
-
-        answer_value = value["value"]
-
-        if question.type == Question.TYPE_TABLE:
-            answer_value = [
-                self._write_row(value["form"], row) for row in value["value"]
-            ]
-        elif question.type == Question.TYPE_MULTIPLE_CHOICE:
-            answer_value = [opt["value"] for opt in answer_value]
-
-        try:
-            value = convert_answer_value(question.type, answer_value)
-            save_answer(
-                question=question,
-                document=document,
-                user=self.context["request"].caluma_info.context.user,
-                value=value,
-                meta={"gis-value": value},
-                context={"instanceId": self.validated_data["instance"].pk},
-            )
-        except (ConfigurationError, CustomValidationError):
-            # Question does not exist in this form, ignore it.
-            return False
-
-        return True
-
     def create(self, validated_data):
         data = cache.get(validated_data["cache"])
         document = validated_data["instance"].case.document
@@ -93,9 +51,14 @@ class GISApplySerializer(serializers.Serializer):
         ):
             raise PermissionDenied
 
+        writer = FormImportWriter(
+            user=self.context["request"].caluma_info.context.user,
+            instance_pk=validated_data["instance"].pk,
+            meta_key="gis-value",
+            convert_answer_value=convert_answer_value,
+        )
         for question_slug, value in data.items():
-            success = self._write_answer(document, question_slug, value)
-
+            success = writer.write_answer(document, question_slug, value)
             if success:
                 written_questions.add(question_slug)
 

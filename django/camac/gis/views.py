@@ -3,7 +3,6 @@ import logging
 from uuid import uuid4
 
 from caluma.caluma_data_source.data_source_handlers import get_data_sources
-from caluma.caluma_form.models import Question
 from celery import result
 from django.core.cache import cache
 from django.utils.translation import get_language
@@ -13,6 +12,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 
+from camac.caluma.form_import_utils import FormImportLabeler
 from camac.gis.models import GISDataSource
 from camac.gis.serializers import GISApplySerializer
 
@@ -21,86 +21,50 @@ from . import tasks
 logger = logging.getLogger(__name__)
 
 
+class GISLabeler(FormImportLabeler):
+    def __init__(self, request):
+        self.request = request
+        instance_id = self.request.query_params.get("instance")
+        self.context = {"instanceId": instance_id} if instance_id else {}
+
+    def lookup_dynamic_choice(self, question, value):
+        # This code only implements one of the possible structures a
+        # caluma data source can have: a list containing a dict with
+        # label and slug where the label is also a dict with a key value
+        # pair for each language. Right now this is the only structure
+        # we use in camac-ng. For more information on how the data
+        # source structure looks like, please check the implementation
+        # in django/camac/caluma/extensions/data_sources.py
+        caluma_user = self.request.caluma_info.context.user
+
+        data_source = get_data_sources(dic=True)[question.data_source]()
+        options = {
+            str(slug): label[get_language()]
+            for slug, label in data_source.get_data(caluma_user, question, self.context)
+        }
+
+        if isinstance(value, dict) and "key" in value:
+            # If the value is a dictionary with a `key` property, we can
+            # use said key to determine the respective label
+            option_key = value["key"]
+            option_label = options.get(option_key)
+        else:
+            # Otherwise assume the passed value is a label of an option
+            # in the current language and assign the actual value based
+            # on that
+            options_by_label = {v: k for k, v in options.items()}
+
+            option_key = options_by_label.get(value)
+            option_label = value
+        return option_key, option_label
+
+
 class GISDataView(ListAPIView):
     renderer_classes = [JSONRenderer]
     queryset = GISDataSource.objects.filter(disabled=False).order_by("sort")
 
     def add_labels(self, data: dict) -> dict:
-        labeled_data = {}
-
-        instance_id = self.request.query_params.get("instance")
-        context = {"instanceId": instance_id} if instance_id else {}
-
-        for question_slug, value in data.items():
-            question = (
-                Question.objects.filter(pk=question_slug)
-                .only("label", "type", "row_form_id")
-                .first()
-            )
-
-            # add labels recursively for tables, but not for multiple choice questions
-            if value and isinstance(value, list) and isinstance(value[0], dict):
-                value = [self.add_labels(row) for row in value]
-
-            labeled_data[question_slug] = {
-                "label": str(question.label) if question else None,
-                "value": value,
-            }
-
-            if not question:
-                continue
-
-            if question.type == Question.TYPE_TABLE:
-                labeled_data[question_slug]["form"] = question.row_form_id
-            elif question.type == Question.TYPE_CHOICE:
-                option = question.options.filter(
-                    slug=f"{question.slug}-{value}"
-                ).first()
-                labeled_data[question_slug]["value"] = option.slug
-                labeled_data[question_slug]["displayValue"] = option.label.translate()
-            elif question.type == Question.TYPE_MULTIPLE_CHOICE:
-                options = question.options.filter(
-                    slug__in=[f"{question.slug}-{v}" for v in value]
-                ).order_by("-questionoption__sort")
-                labeled_data[question_slug]["value"] = [
-                    {"value": o.slug, "displayValue": o.label.translate()}
-                    for o in options
-                ]
-            elif question.type == Question.TYPE_DYNAMIC_CHOICE:
-                # This code only implements one of the possible structures a
-                # caluma data source can have: a list containing a dict with
-                # label and slug where the label is also a dict with a key value
-                # pair for each language. Right now this is the only structure
-                # we use in camac-ng. For more information on how the data
-                # source structure looks like, please check the implementation
-                # in django/camac/caluma/extensions/data_sources.py
-                caluma_user = self.request.caluma_info.context.user
-                data_source = get_data_sources(dic=True)[question.data_source]()
-                options = {
-                    str(slug): label[get_language()]
-                    for slug, label in data_source.get_data(
-                        caluma_user, question, context
-                    )
-                }
-
-                if isinstance(value, dict) and "key" in value:
-                    # If the value is a dictionary with a `key` property, we can
-                    # use said key to determine the respective label
-                    option_key = value["key"]
-                    option_label = options.get(option_key)
-                else:
-                    # Otherwise assume the passed value is a label of an option
-                    # in the current language and assign the actual value based
-                    # on that
-                    options_by_label = {v: k for k, v in options.items()}
-
-                    option_key = options_by_label.get(value)
-                    option_label = value
-
-                labeled_data[question_slug]["value"] = option_key
-                labeled_data[question_slug]["displayValue"] = option_label
-
-        return labeled_data
+        return GISLabeler(self.request).label(data)
 
     def add_hidden(self, data):
         """Attach the hidden field to the view response."""

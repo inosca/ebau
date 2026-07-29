@@ -8,6 +8,7 @@ from django.utils.translation import override
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 from syrupy.filters import paths
+from syrupy.matchers import path_type
 
 from camac.instance.master_data import MasterData
 from camac.tests.form_utils import FormUtils
@@ -274,7 +275,15 @@ def test_master_data(
                 "applicants.0.row_id",
                 "invoice_recipients.0.row_id",
                 "project_authors.0.row_id",
-            )
+            ),
+            matcher=path_type(
+                {
+                    # Exclude the municipality slug as it's a dynamic primary
+                    # key that shouldn't be static in tests. SZ uses integers,
+                    # everyone else strings.
+                    "municipality_slug": (str, int),
+                }
+            ),
         )
 
 

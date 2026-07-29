@@ -1,0 +1,64 @@
+<ul class="uk-list uk-list-divider">
+  {{#each-in @data as |question data|}}
+    {{#unless data.hidden}}
+      {{#if data.form}}
+        {{! table question }}
+        {{#each data.value as |row i|}}
+          <li data-test-import-preview-row>
+            <p
+              class="uk-text-bold uk-margin-remove"
+              data-test-import-preview-label
+            >
+              {{data.label}}
+              {{#if (gt data.value.length 1)}}
+                {{t "import-preview.row-count" count=(add i 1)}}
+              {{/if}}
+            </p>
+            <table
+              class="uk-table uk-table-small uk-table-divider uk-table-justify uk-margin-remove"
+            >
+              <tbody>
+                {{#each-in row as |rowQuestion rowData|}}
+                  {{#unless rowData.hidden}}
+                    <tr>
+                      <td data-test-import-preview-table-label>
+                        {{rowData.label}}
+                      </td>
+                      <td data-test-import-preview-table-value>
+                        {{or rowData.displayValue rowData.value "-"}}
+                      </td>
+                    </tr>
+                  {{/unless}}
+                {{/each-in}}
+              </tbody>
+            </table>
+          </li>
+        {{/each}}
+      {{else}}
+        <li data-test-import-preview-row>
+          <p
+            class="uk-text-bold uk-margin-remove"
+            data-test-import-preview-label
+          >{{data.label}}</p>
+          {{#if (is-array data.value)}}
+            {{! multiple choice question }}
+            <ul class="uk-list uk-list-hyphen" data-test-import-preview-value>
+              {{#each data.value as |option|}}
+                <li>{{or option.displayValue option.value "-"}}</li>
+              {{/each}}
+            </ul>
+          {{else}}
+            {{! regular question }}
+            <p class="uk-margin-remove" data-test-import-preview-value>{{or
+                data.displayValue
+                data.value
+                "-"
+              }}</p>
+          {{/if}}
+        </li>
+      {{/if}}
+    {{/unless}}
+  {{/each-in}}
+
+  {{yield to="footer"}}
+</ul>

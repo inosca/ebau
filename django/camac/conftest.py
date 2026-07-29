@@ -2536,7 +2536,6 @@ def ag_master_data_case(
 
     # Municipality
     municipality = service_factory(
-        pk=55,
         trans__name="Aarburg",
         trans__language="de",
         service_group__name="municipality",

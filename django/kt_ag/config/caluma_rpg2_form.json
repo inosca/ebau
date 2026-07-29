@@ -112,6 +112,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "rpg2.rpg2-gesuchsdaten-importieren",
+    "fields": {
+      "created_at": "2026-06-25T03:58:59.566Z",
+      "modified_at": "2026-06-25T03:58:59.566Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rpg2",
+      "question": "rpg2-gesuchsdaten-importieren",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "rpg2.rpg2-hinweis-versiegelt-oder-entsiegelt",
     "fields": {
       "created_at": "2026-05-18T15:23:53.227Z",
@@ -2353,6 +2368,39 @@
         "min_length": null
       },
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg2-gesuchsdaten-importieren",
+    "fields": {
+      "created_at": "2026-06-25T03:58:59.505Z",
+      "modified_at": "2026-06-25T04:11:14.261Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG2 Gesuchsdaten importieren\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"RPG2 Gesuchsdaten importieren\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "rpg2-import-button"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,

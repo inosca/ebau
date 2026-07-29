@@ -1,0 +1,10 @@
+rpg2-import-button:
+  label: "Gesuchsdaten importieren"
+  preview-title: "Gesuchsdaten importieren"
+  preview-hint: "Folgende Daten wurden im Gesuchsformular gefunden. Möchten Sie die Daten importieren?"
+  preview-warning: "'<strong'>Achtung:'</strong'> In den betroffenen Feldern bereits erfasste Daten werden dabei überschrieben!"
+  preview-error: "Beim Laden ist ein Fehler aufgetreten"
+  empty: "Keine importierbaren Daten gefunden"
+  confirm: "Gesuchsdaten importieren"
+  success: "Daten wurden übernommen"
+  apply-error: "Import fehlgeschlagen."

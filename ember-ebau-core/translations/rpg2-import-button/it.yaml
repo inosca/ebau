@@ -1,0 +1,10 @@
+rpg2-import-button:
+  label: ""
+  preview-title: ""
+  preview-hint: ""
+  preview-warning: ""
+  preview-error:
+  empty: ""
+  confirm: ""
+  success: ""
+  apply-error: ""

@@ -72,6 +72,7 @@ from . import (
     gwr_lookups,
     mixins,
     models,
+    rpg2_import,
     serializers,
     validators,
 )
@@ -538,6 +539,12 @@ class InstanceView(
     def has_object_grant_municipality_access_permission_for_applicant(self, instance):
         return instance.instance_state.name == "new"
 
+    def has_object_rpg2_data_permission(self, instance):
+        return rpg2_import.has_rpg2_edit_permission(self.request, instance)
+
+    def has_object_rpg2_apply_permission(self, instance):
+        return rpg2_import.has_rpg2_edit_permission(self.request, instance)
+
     @swagger_auto_schema(auto_schema=None)
     @permission_aware
     def retrieve(self, request, *args, **kwargs):
@@ -595,6 +602,31 @@ class InstanceView(
         resolver = gwr_lookups.GwrSerializer(self.get_object())
 
         return response.Response(resolver.data)
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(
+        methods=["get"],
+        detail=True,
+        url_path="rpg2-data",
+        renderer_classes=[JSONRenderer],
+    )
+    def rpg2_data(self, request, pk=None):
+        instance = self.get_object()
+        return response.Response(rpg2_import.get_rpg2_import_data(instance))
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(
+        methods=["post"],
+        detail=True,
+        url_path="rpg2-apply",
+        renderer_classes=[JSONRenderer],
+    )
+    def rpg2_apply(self, request, pk=None):
+        instance = self.get_object()
+        return response.Response(
+            rpg2_import.apply_rpg2_import(instance, request),
+            status=status.HTTP_200_OK,
+        )
 
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["get"], detail=False)
