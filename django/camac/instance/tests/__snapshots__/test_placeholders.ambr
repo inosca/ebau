@@ -12276,6 +12276,68 @@
       'nested_aliases': dict({
       }),
     }),
+    'DOKUMENTE_NACHFORDERUNGEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'DOKUMENTE_NACHFORDERUNGEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Alle Dokumente aus Nachforderungen',
+      }),
+      'nested_aliases': dict({
+        'CATEGORY': list([
+          dict({
+            'de': 'KATEGORIE',
+          }),
+        ]),
+        'CREATED_AT': list([
+          dict({
+            'de': 'ERSTELLT_AM',
+          }),
+        ]),
+        'CREATED_BY': list([
+          dict({
+            'de': 'ERSTELLT_VON',
+          }),
+        ]),
+        'DESCRIPTION': list([
+          dict({
+            'de': 'BESCHREIBUNG',
+          }),
+        ]),
+        'MARKS': list([
+          dict({
+            'de': 'MARKIERUNGEN',
+          }),
+        ]),
+        'MODIFIED_AT': list([
+          dict({
+            'de': 'GEAENDERT_AM',
+          }),
+        ]),
+        'MODIFIED_BY': list([
+          dict({
+            'de': 'GEAENDERT_VON',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+        'ORIGINAL_NAME': list([
+          dict({
+            'de': 'ORIGINAL_NAME',
+          }),
+        ]),
+        'TAGS': list([
+          dict({
+            'de': 'STICHWORTE',
+          }),
+        ]),
+      }),
+    }),
     'DOSSIER_NUMBER': dict({
       'aliases': list([
         dict({
@@ -18637,6 +18699,18 @@
     'BAUENTSCHEID_DATUM',
     'BESCHREIBUNG_BAUVORHABEN',
     'BFS_NUMMER',
+    'DOKUMENTE_NACHFORDERUNGEN',
+    'DOKUMENTE_NACHFORDERUNGEN[]',
+    'DOKUMENTE_NACHFORDERUNGEN[].BESCHREIBUNG',
+    'DOKUMENTE_NACHFORDERUNGEN[].ERSTELLT_AM',
+    'DOKUMENTE_NACHFORDERUNGEN[].ERSTELLT_VON',
+    'DOKUMENTE_NACHFORDERUNGEN[].GEAENDERT_AM',
+    'DOKUMENTE_NACHFORDERUNGEN[].GEAENDERT_VON',
+    'DOKUMENTE_NACHFORDERUNGEN[].KATEGORIE',
+    'DOKUMENTE_NACHFORDERUNGEN[].MARKIERUNGEN',
+    'DOKUMENTE_NACHFORDERUNGEN[].NAME',
+    'DOKUMENTE_NACHFORDERUNGEN[].ORIGINAL_NAME',
+    'DOKUMENTE_NACHFORDERUNGEN[].STICHWORTE',
     'DOSSIER_NUMMER',
     'DOSSIER_TYP',
     'EBAU_URL',
@@ -20921,6 +20995,32 @@
     'BESCHREIBUNG_BAUVORHABEN': '',
     'BFS_NUMMER': '',
     'DECISION_DATE': '18. April 2024',
+    'DOKUMENTE_NACHFORDERUNGEN': list([
+      dict({
+        'BESCHREIBUNG': 'Public finish method light seat mention myself ever. Claim short real animal live Congress my. Learn young note music. Bill third one feeling audience player.',
+        'CATEGORY': 'nachforderung',
+        'CREATED_AT': '18.01.2024 14:37',
+        'CREATED_BY': 'Admin User',
+        'DESCRIPTION': 'Public finish method light seat mention myself ever. Claim short real animal live Congress my. Learn young note music. Bill third one feeling audience player.',
+        'ERSTELLT_AM': '18.01.2024 14:37',
+        'ERSTELLT_VON': 'Admin User',
+        'GEAENDERT_AM': '18.01.2024 14:37',
+        'GEAENDERT_VON': 'Admin User',
+        'KATEGORIE': 'nachforderung',
+        'MARKIERUNGEN': list([
+        ]),
+        'MARKS': list([
+        ]),
+        'MODIFIED_AT': '18.01.2024 14:37',
+        'MODIFIED_BY': 'Admin User',
+        'NAME': 'Nachforderungsdokument',
+        'ORIGINAL_NAME': 'Nachforderungsdokument.pdf',
+        'STICHWORTE': list([
+        ]),
+        'TAGS': list([
+        ]),
+      }),
+    ]),
     'DOSSIER_NUMBER': '',
     'DOSSIER_NUMMER': '',
     'DOSSIER_TYP': 'Baugesuch',

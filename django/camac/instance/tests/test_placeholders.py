@@ -582,6 +582,25 @@ def test_dms_placeholders_so(
     )
     so_fill_cantonal_exam(cantonal_exam.document, form_utils)
 
+    FileFactory(
+        name="Nachforderungsdokument.pdf",
+        document=AlexandriaDocumentFactory(
+            title="Nachforderungsdokument",
+            category=CategoryFactory(
+                slug="nachforderung",
+                metainfo={
+                    "access": {
+                        "municipality-lead": {"visibility": "all"},
+                    }
+                },
+            ),
+            metainfo={"camac-instance-id": str(so_instance.pk)},
+            created_by_user=admin_client.user.pk,
+            modified_by_user=admin_client.user.pk,
+        ),
+        variant="original",
+    )
+
     url = reverse("instance-dms-placeholders", args=[so_instance.pk])
 
     response = admin_client.get(url)
