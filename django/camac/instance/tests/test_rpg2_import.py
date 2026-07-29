@@ -1,5 +1,5 @@
 import pytest
-from caluma.caluma_workflow.models import Task, WorkItem
+from caluma.caluma_workflow.models import WorkItem
 from django.core.management import call_command
 from django.urls import reverse
 from rest_framework import status
@@ -172,16 +172,6 @@ def rpg2_edit_permission(mocker):
     )
 
 
-def _add_rpg2_work_item(instance, caluma_work_item_factory, settings):
-    rpg2_task = Task.objects.get(pk=settings.RPG2.task)
-    caluma_work_item_factory(
-        task_id=settings.RPG2.task,
-        case=instance.case,
-        status=WorkItem.STATUS_READY,
-        document__form_id=rpg2_task.form,
-    )
-
-
 @pytest.fixture
 def rpg2_ag_instance(
     ag_instance,
@@ -193,7 +183,12 @@ def rpg2_ag_instance(
     settings,
 ):
     call_command("loaddata", settings.ROOT_DIR("kt_ag/config/caluma_rpg2_form.json"))
-    _add_rpg2_work_item(ag_instance, caluma_work_item_factory, settings)
+    caluma_work_item_factory(
+        task_id=ag_rpg2_settings.task,
+        case=ag_instance.case,
+        status=WorkItem.STATUS_READY,
+        document__form_id=ag_rpg2_settings.form,
+    )
     caluma_work_item_factory(
         task_id="cantonal-exam",
         case=ag_instance.case,
@@ -426,7 +421,12 @@ def rpg2_be_instance(
     settings,
 ):
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_rpg2_form.json"))
-    _add_rpg2_work_item(be_instance, caluma_work_item_factory, settings)
+    caluma_work_item_factory(
+        task_id=be_rpg2_settings.task,
+        case=be_instance.case,
+        status=WorkItem.STATUS_READY,
+        document__form_id=be_rpg2_settings.form,
+    )
     # for visibility
     permissions_api.grant(
         be_instance,
