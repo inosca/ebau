@@ -20,13 +20,16 @@ from django.utils.translation import get_language, gettext as _
 from rest_framework import exceptions, status
 from rest_framework.authentication import get_authorization_header
 
+from camac.applicants.models import Applicant, ApplicantConfirmationRound
 from camac.caluma.api import CalumaApi
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.instance.placeholders.utils import (
     enrich_personal_data,
+    format_datetime,
     format_gis_center_coordinates,
     get_person_name,
+    human_readable_filesize,
 )
 from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
@@ -147,7 +150,7 @@ class DMSHandler:
 
         return files
 
-    def get_meta_data(self, instance, document, service):
+    def get_meta_data(self, instance, document, service, request_user):
         master_data = MasterData(instance.case)
         timezone = get_current_timezone()
 
@@ -172,29 +175,17 @@ class DMSHandler:
             "signatureSectionTitle": _("Signatures"),
             "signatureTitle": _("Signature"),
             "signatureMetadata": _("Place and date"),
-            "generatedAt": _("Generated %(date)s at %(time)s")
-            % {
-                "date": generated_at.strftime("%d.%m.%Y"),
-                "time": generated_at.strftime("%H:%M"),
-            },
-            "modifiedAt": _("Modified %(date)s at %(time)s")
-            % {
-                "date": modified_at.strftime("%d.%m.%Y"),
-                "time": modified_at.strftime("%H:%M"),
-            },
-            "createdAt": _("Created %(date)s at %(time)s")
-            % {
-                "date": created_at.strftime("%d.%m.%Y"),
-                "time": created_at.strftime("%H:%M"),
-            },
-            "uploadedAt": _("Uploaded %(date)s at %(time)s")
-            % {
-                "date": generated_at.strftime("%d.%m.%Y"),
-                "time": generated_at.strftime("%H:%M"),
-            },
+            "generatedAt": format_datetime(generated_at, "generatedAt"),
+            "modifiedAt": format_datetime(modified_at, "modifiedAt"),
+            "createdAt": format_datetime(created_at, "createdAt"),
+            "uploadedAt": format_datetime(generated_at, "uploadedAt"),
             "gisCoordinatesCenter": format_gis_center_coordinates(
                 graceful_get(master_data, "gis_coordinates", default=None)
             ),
+            "generatedBy": {
+                "full_name": request_user.get_full_name(),
+                "username": request_user.username,
+            },
         }
 
         if settings.DMS.get("ADD_ADDRESS_DATA") and (
@@ -208,6 +199,47 @@ class DMSHandler:
                 ),
             }
             data.update(address_data)
+
+        if settings.DMS.get("ADD_CONFIRMATIONS"):
+            latest_confirmation_round = instance.confirmation_rounds.filter(
+                status=ApplicantConfirmationRound.Status.COMPLETED
+            ).latest("closed_at")
+
+            all_confirmations = []
+
+            if latest_confirmation_round:
+                confirmations = (
+                    latest_confirmation_round.confirmations.only_confirmed()
+                    .select_related("applicant__invitee")
+                    .prefetch_related("source_questions")
+                )
+
+                for confirmation in confirmations:
+                    all_confirmations = [
+                        {
+                            "full_name": confirmation.display_name,
+                            "username": confirmation.applicant.invitee.username,
+                            "roles": confirmation.roles,
+                        }
+                    ]
+
+            data["confirmations"] = all_confirmations
+
+        if settings.DMS.get("ADD_INVOLVED_APPLICANTS"):
+            applicants = (
+                Applicant.objects.filter(instance=instance)
+                .order_by("created")
+                .select_related("invitee")
+            )
+
+            data["involved_applicants"] = [
+                {
+                    "full_name": applicant.invitee.get_full_name(),
+                    "username": applicant.invitee.username,
+                    "permission": applicant.get_role_display(),
+                }
+                for applicant in applicants
+            ]
 
         if settings.DMS.get("ADD_HEADER_DATA"):
             header_data = {
@@ -297,34 +329,34 @@ class DMSHandler:
         else:
             filters = {"category_id__in": categories}
 
+        latest_file = alexandria_models.File.objects.filter(
+            document=OuterRef("pk"),
+            variant=alexandria_models.File.Variant.ORIGINAL,
+        ).order_by("-created_at")
+
         documents = (
             alexandria_models.Document.objects.filter(
                 **filters,
                 instance_document__instance=instance,
             )
-            .annotate(
-                checksum=alexandria_models.File.objects.filter(
-                    document=OuterRef("pk"),
-                    variant=alexandria_models.File.Variant.ORIGINAL,
-                )
-                .order_by("-created_at")
-                .values("checksum")[:1]
-            )
+            .annotate(checksum=latest_file.values("checksum")[:1])
+            .annotate(size=latest_file.values("size")[:1])
             .exclude(metainfo__has_key="system-generated")
+            .select_related("category")
+            .only("title", "created_at", "category")
             .order_by("-created_at")
-            .values("title", "created_at", "checksum")
         )
 
         timezone = get_current_timezone()
 
         return [
             {
-                "filename": str(document["title"]),
-                "date": document["created_at"]
-                .astimezone(timezone)
-                .strftime("%d.%m.%Y"),
-                "time": document["created_at"].astimezone(timezone).strftime("%H:%M"),
-                "checksum": document["checksum"],
+                "filename": str(document.title),
+                "date": document.created_at.astimezone(timezone).strftime("%d.%m.%Y"),
+                "time": document.created_at.astimezone(timezone).strftime("%H:%M"),
+                "checksum": document.checksum,
+                "filesize": human_readable_filesize(document.size),
+                "category": document.category.name.translate(),
             }
             for document in documents
         ]
@@ -360,7 +392,15 @@ class DMSHandler:
 
         return (instance, document)
 
-    def get_data(self, instance, document, user, service, for_additional_demand=None):
+    def get_data(
+        self,
+        instance,
+        document,
+        user,
+        service,
+        request_user,
+        for_additional_demand=None,
+    ):
         visitor = DMSVisitor(document, instance, user)
 
         if get_form_type_config(document.form.slug).get(
@@ -371,7 +411,7 @@ class DMSHandler:
             is_draft = not caluma_api.is_post_submit(instance, document)
 
         return {
-            **self.get_meta_data(instance, document, service),
+            **self.get_meta_data(instance, document, service, request_user),
             "draft": _("Draft") if is_draft else "",
             "sections": visitor.build_form_structure(),
             "documents": self.prepare_documents(instance, for_additional_demand),
@@ -422,6 +462,7 @@ class DMSHandler:
                 document,
                 request.caluma_info.context.user,
                 request.group.service,
+                request.user,
                 for_additional_demand=for_additional_demand,
             ),
             template,
@@ -484,7 +525,6 @@ class DMSClient:
 
         if response.status_code == status.HTTP_401_UNAUTHORIZED:
             raise exceptions.AuthenticationFailed(_("Signature has expired."))
-
         response.raise_for_status()
 
         return response.content

@@ -8,6 +8,7 @@ from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.db import models, transaction
 from django.utils.timezone import now
+from django.utils.translation import gettext_lazy as _
 from rest_framework.exceptions import PermissionDenied, ValidationError
 from uuid_extensions import uuid7
 
@@ -86,10 +87,10 @@ class ApplicantManager(models.Manager):
 
 
 class ROLE_CHOICES(models.TextChoices):
-    PROJECT_OWNER = "PROJECT_OWNER", "Project owner"
-    ADMIN = "ADMIN", "Admin"
-    EDITOR = "EDITOR", "Editor"
-    READ_ONLY = "READ_ONLY", "Read only"
+    PROJECT_OWNER = "PROJECT_OWNER", _("Project owner")
+    ADMIN = "ADMIN", _("Admin")
+    EDITOR = "EDITOR", _("Editor")
+    READ_ONLY = "READ_ONLY", _("Read only")
 
 
 class Applicant(models.Model):

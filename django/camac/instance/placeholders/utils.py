@@ -1,6 +1,7 @@
 import json
 from collections.abc import Callable
 from datetime import date, datetime
+from typing import Literal
 
 from babel.dates import format_date
 from caluma.caluma_form.models import Document
@@ -132,6 +133,29 @@ def enrich_personal_data(personal_data):
     return [clean_and_add_full_name(entry) for entry in personal_data]
 
 
+def format_datetime(
+    value: datetime,
+    datetime_type: Literal["generatedAt", "createdAt", "uploadedAt", "modifiedAt"],
+) -> str:
+    """
+    Format datetime object based on the templates defined in the DMS settings.
+
+    `date_format` and `time_format` used for the templates can be specified
+    in the settings as well.
+    """
+    config = settings.DMS.get("FORMAT_HEADER_DATA", {})
+
+    date_format = config["date_format"]
+    time_format = config["time_format"]
+
+    template = config[datetime_type]
+
+    return template % {
+        "date": _readable_date(value, date_format),
+        "time": value.strftime(time_format),
+    }
+
+
 def format_gis_center_coordinates(value):
     if not value:
         return None
@@ -197,6 +221,14 @@ def compact_human_readable_date(value: datetime | date | None) -> str | None:
     "04.09.2021"
     """
     return _readable_date(value, date_format="medium")
+
+
+def human_readable_filesize(filesize: int) -> str:
+    """Convert filesize to a human-readable format."""
+    for unit in ["B", "KB", "MB", "GB"]:
+        if filesize < 1024:
+            return f"{filesize:.1f}{unit}"
+        filesize /= 1024
 
 
 def datetime_timestamp(value: date | datetime | None) -> str:

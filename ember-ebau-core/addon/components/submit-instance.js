@@ -207,13 +207,12 @@ export default class SubmitInstanceComponent extends Component {
 
       const lang = this.intl.primaryLocale.split("-")[0];
 
-      await this.dms.generatePdf(
-        this.instanceId,
-        cleanObject({
-          template: this.config.export?.templateName(lang),
-          "form-slug": useCustomFormSlug ? rootFormSlug : null,
-        }),
-      );
+      const templatePayload = cleanObject({
+        template: this.config.export?.templateName(lang),
+        "form-slug": useCustomFormSlug ? rootFormSlug : null,
+      });
+
+      await this.dms.generatePdf(this.instanceId, templatePayload);
     } catch {
       this.notification.danger(this.intl.t("dms.downloadError"));
     }

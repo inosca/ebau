@@ -52,7 +52,10 @@ const config = {
     requiredPermissions: {
       submit: ["instance-submit"],
     },
-    export: { enabled: () => false },
+    export: {
+      enabled: () => true,
+      templateName: () => `eingabequittung`,
+    },
   },
   communication: {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
