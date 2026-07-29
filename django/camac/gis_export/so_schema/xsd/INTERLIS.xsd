@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://www.interlis.ch/xtf/2.4/INTERLIS"
+  targetNamespace="http://www.interlis.ch/xtf/2.4/INTERLIS"
+  xmlns:geom="http://www.interlis.ch/geometry/1.0" elementFormDefault="qualified"
+  attributeFormDefault="unqualified" version="2021-04-21">
+  <xsd:import namespace="http://www.interlis.ch/geometry/1.0"/>
+
+  <xsd:element name="extensions">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:attribute name="tid" type="tidType"/>
+  <xsd:attribute name="ref" type="tidType"/>
+  <xsd:attribute name="operation" type="operationType"/>
+  <xsd:attribute name="order_pos" type="orderposType"/>
+  <xsd:attribute name="bid" type="bidType"/>
+  <xsd:attribute name="consistency" type="consistencyType"/>
+  <xsd:attribute name="domains" type="domainsType"/>
+  <xsd:attribute name="kind" type="transferKindType"/>
+  <xsd:attribute name="startstate" type="basketStateType"/>
+  <xsd:attribute name="endstate" type="basketStateType"/>
+
+  <xsd:simpleType name="tidType">
+    <xsd:restriction base="xsd:token"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="refType">
+    <xsd:restriction base="xsd:token"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="orderposType">
+    <xsd:restriction base="xsd:positiveInteger"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="bidType">
+    <xsd:restriction base="xsd:token"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="consistencyType">
+    <xsd:restriction base="xsd:token">
+      <xsd:enumeration value="COMPLETE"/>
+      <xsd:enumeration value="INCOMPLETE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="domainsType">
+    <xsd:restriction base="xsd:normalizedString"> </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="transferKindType">
+    <xsd:restriction base="xsd:token">
+      <xsd:enumeration value="FULL"/>
+      <xsd:enumeration value="UPDATE"/>
+      <xsd:enumeration value="INITIAL"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="operationType">
+    <xsd:restriction base="xsd:token">
+      <xsd:enumeration value="INSERT"/>
+      <xsd:enumeration value="UPDATE"/>
+      <xsd:enumeration value="DELETE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="basketStateType">
+    <xsd:restriction base="xsd:token"/>
+  </xsd:simpleType>
+
+  <xsd:element name="transfer" type="TransferType"/>
+  <xsd:complexType name="TransferType">
+    <xsd:sequence>
+      <xsd:element name="headersection">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="models">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="model" type="xsd:token" maxOccurs="unbounded"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="sender" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="comment" type="xsd:string" minOccurs="0"/>
+            <xsd:element ref="extensions" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="datasection">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:any minOccurs="0" maxOccurs="unbounded" processContents="strict"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:simpleType name="HALIGNMENT">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Left"/>
+      <xsd:enumeration value="Center"/>
+      <xsd:enumeration value="Right"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="VALIGNMENT">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Top"/>
+      <xsd:enumeration value="Cap"/>
+      <xsd:enumeration value="Half"/>
+      <xsd:enumeration value="Base"/>
+      <xsd:enumeration value="Bottom"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="I32OID">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="STANDARDOID">
+    <xsd:restriction base="xsd:token">
+      <xsd:length value="16"/>
+      <xsd:pattern value="[a-zA-Z][a-zA-Z0-9]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="UUIDOID">
+    <xsd:restriction base="xsd:token">
+      <xsd:length value="36"/>
+      <xsd:pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:element name="METAOBJECT" type="METAOBJECTType"/>
+  <xsd:complexType name="METAOBJECTType">
+    <xsd:sequence>
+      <xsd:element ref="extensions" minOccurs="0"/>
+      <xsd:element name="Name">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:token">
+            <xsd:maxLength value="255"/>
+            <xsd:pattern value="[a-zA-Z][a-zA-Z0-9_]*"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute ref="tid" use="required"/>
+    <xsd:anyAttribute processContents="lax"/>
+  </xsd:complexType>
+  <xsd:element name="METAOBJECT_TRANSLATION" type="METAOBJECT_TRANSLATIONType"/>
+  <xsd:complexType name="METAOBJECT_TRANSLATIONType">
+    <xsd:sequence>
+      <xsd:element ref="extensions" minOccurs="0"/>
+      <xsd:element name="Name">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:token">
+            <xsd:maxLength value="255"/>
+            <xsd:pattern value="[a-zA-Z][a-zA-Z0-9_]*"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="NameInBaseLanguage">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:token">
+            <xsd:maxLength value="255"/>
+            <xsd:pattern value="[a-zA-Z][a-zA-Z0-9_]*"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute ref="tid" use="required"/>
+    <xsd:anyAttribute processContents="lax"/>
+  </xsd:complexType>
+  <xsd:element name="AXIS" type="AXISType"/>
+  <xsd:complexType name="AXISType">
+    <xsd:sequence> </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="REFSYSTEM" type="REFSYSTEMType" substitutionGroup="METAOBJECT"/>
+  <xsd:complexType name="REFSYSTEMType">
+    <xsd:complexContent>
+      <xsd:extension base="METAOBJECTType">
+        <xsd:sequence> </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="COORDSYSTEM" type="COORDSYSTEMType" substitutionGroup="REFSYSTEM"/>
+  <xsd:complexType name="COORDSYSTEMType">
+    <xsd:complexContent>
+      <xsd:extension base="REFSYSTEMType">
+        <xsd:sequence>
+          <xsd:element name="Axis" maxOccurs="3">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="AXIS"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SCALSYSTEM" type="SCALSYSTEMType" substitutionGroup="REFSYSTEM"/>
+  <xsd:complexType name="SCALSYSTEMType">
+    <xsd:complexContent>
+      <xsd:extension base="REFSYSTEMType">
+        <xsd:sequence> </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SIGN" type="SIGNType" substitutionGroup="METAOBJECT"/>
+  <xsd:complexType name="SIGNType">
+    <xsd:complexContent>
+      <xsd:extension base="METAOBJECTType">
+        <xsd:sequence> </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CALENDAR" type="CALENDARType" substitutionGroup="SCALSYSTEM"/>
+  <xsd:complexType name="CALENDARType">
+    <xsd:complexContent>
+      <xsd:extension base="SCALSYSTEMType">
+        <xsd:sequence> </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TIMEOFDAYSYS" type="TIMEOFDAYSYSType" substitutionGroup="SCALSYSTEM"/>
+  <xsd:complexType name="TIMEOFDAYSYSType">
+    <xsd:complexContent>
+      <xsd:extension base="SCALSYSTEMType">
+        <xsd:sequence> </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TIMESYSTEMS" type="TIMESYSTEMSType"/>
+  <xsd:complexType name="TIMESYSTEMSType">
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element ref="CALENDAR"/>
+        <xsd:element ref="TIMEOFDAYSYS"/>
+      </xsd:choice>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="TimeOfDay" type="TimeOfDayType"/>
+  <xsd:complexType name="TimeOfDayType">
+    <xsd:sequence>
+      <xsd:element ref="extensions" minOccurs="0"/>
+      <xsd:element name="Hours" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="23"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Minutes" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="59"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Seconds" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:decimal">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="59.999"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:anyAttribute processContents="lax"/>
+  </xsd:complexType>
+  <xsd:element name="UTC" type="UTCType" substitutionGroup="TimeOfDay"/>
+  <xsd:complexType name="UTCType">
+    <xsd:complexContent>
+      <xsd:extension base="TimeOfDayType">
+        <xsd:sequence> </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GregorianDate" type="GregorianDateType"/>
+  <xsd:complexType name="GregorianDateType">
+    <xsd:sequence>
+      <xsd:element ref="extensions" minOccurs="0"/>
+      <xsd:element name="Year" type="xsd:gYear" minOccurs="0"/>
+      <xsd:element name="Month" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="1"/>
+            <xsd:maxInclusive value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Day" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="1"/>
+            <xsd:maxInclusive value="31"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:anyAttribute processContents="lax"/>
+  </xsd:complexType>
+  <xsd:element name="GregorianDateTime" type="GregorianDateTimeType" substitutionGroup="GregorianDate"/>
+  <xsd:complexType name="GregorianDateTimeType">
+    <xsd:complexContent>
+      <xsd:extension base="GregorianDateType">
+        <xsd:sequence>
+          <xsd:element name="Hours" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:integer">
+                <xsd:minInclusive value="0"/>
+                <xsd:maxInclusive value="23"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="Minutes" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:integer">
+                <xsd:minInclusive value="0"/>
+                <xsd:maxInclusive value="59"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="Seconds" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal">
+                <xsd:minInclusive value="0.0"/>
+                <xsd:maxInclusive value="59.999"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:element name="LineSegment" type="LineSegmentType" substitutionGroup="geom:customLineSegment"/>
+  <xsd:complexType name="LineSegmentType">
+    <xsd:complexContent>
+      <xsd:extension base="geom:LineSegmentType"> </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:element name="SurfaceEdge" type="SurfaceEdgeType"/>
+  <xsd:complexType name="SurfaceEdgeType">
+    <xsd:sequence>
+      <xsd:element ref="extensions" minOccurs="0"/>
+      <xsd:element name="Geometry" minOccurs="0" type="geom:PolylineType"/>
+    </xsd:sequence>
+    <xsd:anyAttribute processContents="lax"/>
+  </xsd:complexType>
+  <xsd:element name="SurfaceBoundary" type="SurfaceBoundaryType"/>
+  <xsd:complexType name="SurfaceBoundaryType">
+    <xsd:sequence>
+      <xsd:element ref="extensions" minOccurs="0"/>
+      <xsd:element name="Lines" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="SurfaceEdge"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:anyAttribute processContents="lax"/>
+  </xsd:complexType>
+  <xsd:element name="LineGeometry" type="LineGeometryType"/>
+  <xsd:complexType name="LineGeometryType">
+    <xsd:sequence>
+      <xsd:element ref="extensions" minOccurs="0"/>
+      <xsd:element name="Segments" type="geom:LineSegmentType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:anyAttribute processContents="lax"/>
+  </xsd:complexType>
+
+</xsd:schema>
+

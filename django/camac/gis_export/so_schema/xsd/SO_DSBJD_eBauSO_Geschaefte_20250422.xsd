@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422"
+  targetNamespace="http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422"
+  xmlns:geom="http://www.interlis.ch/geometry/1.0"
+  xmlns:INTERLIS="http://www.interlis.ch/xtf/2.4/INTERLIS"
+  xmlns:ili2c="http://www.interlis.ch/ili2c"
+  xmlns:GeometryCHLV95_V2="http://www.interlis.ch/xtf/2.4/GeometryCHLV95_V2"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
+<xsd:annotation>
+  <xsd:appinfo source="http://www.interlis.ch/ili2c/ili2cversion">5.6.8-e6f7ab6dd5cdba29afc9b24866ecb98c057d82b2</xsd:appinfo>
+  <xsd:appinfo source="http://www.interlis.ch/ili2c">
+    <ili2c:model>SO_DSBJD_eBauSO_Geschaefte_20250422</ili2c:model>
+    <ili2c:modelVersion>2025-04-22</ili2c:modelVersion>
+    <ili2c:modelAt>https://bjd.so.ch</ili2c:modelAt>
+  </xsd:appinfo>
+</xsd:annotation>
+<xsd:import namespace="http://www.interlis.ch/geometry/1.0"/>
+<xsd:import namespace="http://www.interlis.ch/xtf/2.4/INTERLIS"/>
+<xsd:import namespace="http://www.interlis.ch/xtf/2.4/GeometryCHLV95_V2"/>
+<xsd:simpleType name="Status_Geschaeft">
+  <xsd:restriction base="xsd:normalizedString">
+  </xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="Entscheid">
+  <xsd:restriction base="xsd:normalizedString">
+  </xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="Fachstellen">
+  <xsd:restriction base="xsd:normalizedString">
+  </xsd:restriction>
+</xsd:simpleType>
+<xsd:element name="Zustaendigkeit" type="ZustaendigkeitType"/>
+<xsd:complexType  name="ZustaendigkeitType">
+  <xsd:sequence>
+    <xsd:element name="Fachstelle" type="Fachstellen"/>
+    <xsd:element name="Name" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="500"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Abteilung" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="500"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="Adresse_" type="Adresse_Type"/>
+<xsd:complexType  name="Adresse_Type">
+  <xsd:sequence>
+    <xsd:element name="Strassenname" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="200"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Hausnummer" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="PLZ">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:minInclusive value="1000"/>
+          <xsd:maxInclusive value="9999"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Ortschaft">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="200"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="Natuerliche_Person" type="Natuerliche_PersonType"/>
+<xsd:complexType  name="Natuerliche_PersonType">
+  <xsd:sequence>
+    <xsd:element name="Name" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="100"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Vorname" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="100"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="Juristische_Person" type="Juristische_PersonType"/>
+<xsd:complexType  name="Juristische_PersonType">
+  <xsd:sequence>
+    <xsd:element name="Name" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="200"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="PersonAdresse" type="PersonAdresseType"/>
+<xsd:complexType  name="PersonAdresseType">
+  <xsd:sequence>
+    <xsd:element name="Natuerliche_Person">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="Natuerliche_Person"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Juristische_Person" minOccurs="0">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="Juristische_Person"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Adresse">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="Adresse_"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="Entscheid_" type="Entscheid_Type"/>
+<xsd:complexType  name="Entscheid_Type">
+  <xsd:sequence>
+    <xsd:element name="Entscheid" type="Entscheid"/>
+    <xsd:element name="Datum" type="xsd:date"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="Publikation_" type="Publikation_Type"/>
+<xsd:complexType  name="Publikation_Type">
+  <xsd:sequence>
+    <xsd:element name="Startdatum" type="xsd:date" minOccurs="0"/>
+    <xsd:element name="Enddatum" type="xsd:date" minOccurs="0"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="Grundstueck" type="GrundstueckType"/>
+<xsd:complexType  name="GrundstueckType">
+  <xsd:sequence>
+    <xsd:element name="Nummer">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="EGRID">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="14"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="Bauwerk" type="BauwerkType"/>
+<xsd:complexType  name="BauwerkType">
+  <xsd:sequence>
+    <xsd:element name="Bezeichnung">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="200"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Bauwerk_Typ">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="1000"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="EGID" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:minInclusive value="1"/>
+          <xsd:maxInclusive value="900000000"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Arbeiten_Art" maxOccurs="3">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="20"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Gebaeudekategorie">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="100"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="Bauprojekt_" type="Bauprojekt_Type"/>
+<xsd:complexType  name="Bauprojekt_Type">
+  <xsd:sequence>
+    <xsd:element name="Beschreibung" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Bauwerk_Art" maxOccurs="2">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="20"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Nutzungszweck" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="200"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Bauwerke" minOccurs="0" maxOccurs="unbounded">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="Bauwerk"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="Geschaeft" type="GeschaeftType"/>
+<xsd:complexType  name="GeschaeftType">
+  <xsd:sequence>
+    <xsd:element name="Identifikator">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="72"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="BFSNr">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:minInclusive value="0"/>
+          <xsd:maxInclusive value="9999"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Verfahrensart">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="200"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Geometrie_Punkt" type="GeometryCHLV95_V2:MultiPoint" minOccurs="0"/>
+    <xsd:element name="Geometrie_Linie" type="GeometryCHLV95_V2:MultiLine" minOccurs="0"/>
+    <xsd:element name="Geometrie_Flaeche" type="GeometryCHLV95_V2:MultiSurface" minOccurs="0"/>
+    <xsd:element name="Lokalisation" minOccurs="0">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="Adresse_"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Status" type="Status_Geschaeft"/>
+    <xsd:element name="Gesuchsteller">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="PersonAdresse"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Gesuchsteller_Vertretung" minOccurs="0">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="PersonAdresse"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Projektverfasser" minOccurs="0">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="PersonAdresse"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Rechnungsempfaenger" minOccurs="0">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="PersonAdresse"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Grundeigentuemer" minOccurs="0">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="PersonAdresse"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ausserhalb_Bauzone" type="xsd:boolean" minOccurs="0"/>
+    <xsd:element name="Bauprojekt" minOccurs="0">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="Bauprojekt_"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Grundstuecke" maxOccurs="unbounded">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="Grundstueck"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Entscheid_Leitbehoerde" minOccurs="0">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="Entscheid_"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Publikation" minOccurs="0">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="Publikation_"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Zirkulation" minOccurs="0" maxOccurs="unbounded">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="Zustaendigkeit"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Zustaendige_Personen" minOccurs="0">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="Zustaendigkeit"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="eBau_Link">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:anyURI">
+          <xsd:maxLength value="1023"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+  </xsd:sequence>
+  <xsd:attribute ref="INTERLIS:tid" use="required"/>
+</xsd:complexType>
+<xsd:element name="Geschaefte" type="GeschaefteType"/>
+<xsd:complexType name="GeschaefteType">
+  <xsd:choice minOccurs="0" maxOccurs="unbounded">
+    <xsd:element ref="Geschaeft"/>
+  </xsd:choice>
+  <xsd:attribute ref="INTERLIS:bid" use="required"/>
+  <xsd:attribute ref="INTERLIS:consistency"/>
+</xsd:complexType>
+</xsd:schema>

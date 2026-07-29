@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://www.interlis.ch/xtf/2.4/Geometry_V2"
+  targetNamespace="http://www.interlis.ch/xtf/2.4/Geometry_V2"
+  xmlns:geom="http://www.interlis.ch/geometry/1.0"
+  xmlns:INTERLIS="http://www.interlis.ch/xtf/2.4/INTERLIS"
+  xmlns:ili2c="http://www.interlis.ch/ili2c"
+  xmlns:Units="http://www.interlis.ch/xtf/2.4/Units"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
+<xsd:annotation>
+  <xsd:appinfo source="http://www.interlis.ch/ili2c/ili2cversion">5.6.8-e6f7ab6dd5cdba29afc9b24866ecb98c057d82b2</xsd:appinfo>
+  <xsd:appinfo source="http://www.interlis.ch/ili2c">
+    <ili2c:model>Geometry_V2</ili2c:model>
+    <ili2c:modelVersion>2021-01-06</ili2c:modelVersion>
+    <ili2c:modelAt>https://models.geo.admin.ch/CH/</ili2c:modelAt>
+  </xsd:appinfo>
+</xsd:annotation>
+<xsd:import namespace="http://www.interlis.ch/geometry/1.0"/>
+<xsd:import namespace="http://www.interlis.ch/xtf/2.4/INTERLIS"/>
+<xsd:import namespace="http://www.interlis.ch/xtf/2.4/Units"/>
+<xsd:complexType name="Coord2">
+  <xsd:sequence>
+    <xsd:element ref="geom:coord"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="Coord3">
+  <xsd:sequence>
+    <xsd:element ref="geom:coord"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="MultiPoint">
+  <xsd:sequence>
+    <xsd:element ref="geom:multicoord"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="MultiPoint3D">
+  <xsd:sequence>
+    <xsd:element ref="geom:multicoord"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="Surface">
+  <xsd:sequence>
+    <xsd:element ref="geom:surface"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="Area">
+  <xsd:sequence>
+    <xsd:element ref="geom:surface"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="Line">
+  <xsd:sequence>
+    <xsd:element ref="geom:polyline"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="DirectedLine">
+  <xsd:sequence>
+    <xsd:element ref="geom:polyline"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="LineWithAltitude">
+  <xsd:sequence>
+    <xsd:element ref="geom:polyline"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="DirectedLineWithAltitude">
+  <xsd:sequence>
+    <xsd:element ref="geom:polyline"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="SurfaceWithoutArcs">
+  <xsd:sequence>
+    <xsd:element ref="geom:surface"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="AreaWithoutArcs">
+  <xsd:sequence>
+    <xsd:element ref="geom:surface"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="LineWithoutArcs">
+  <xsd:sequence>
+    <xsd:element ref="geom:polyline"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="DirectedLineWithoutArcs">
+  <xsd:sequence>
+    <xsd:element ref="geom:polyline"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="LineWithAltitudeWithoutArcs">
+  <xsd:sequence>
+    <xsd:element ref="geom:polyline"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="DirectedLineWithAltitudeWithoutArcs">
+  <xsd:sequence>
+    <xsd:element ref="geom:polyline"/>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:simpleType name="Orientation">
+  <xsd:restriction base="xsd:decimal">
+    <xsd:minInclusive value="0.00000"/>
+    <xsd:maxInclusive value="359.99999"/>
+  </xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="Accuracy">
+  <xsd:restriction base="xsd:normalizedString">
+  </xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="Method">
+  <xsd:restriction base="xsd:normalizedString">
+  </xsd:restriction>
+</xsd:simpleType>
+</xsd:schema>

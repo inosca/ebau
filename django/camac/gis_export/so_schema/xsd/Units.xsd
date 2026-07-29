@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://www.interlis.ch/xtf/2.4/Units"
+  targetNamespace="http://www.interlis.ch/xtf/2.4/Units"
+  xmlns:geom="http://www.interlis.ch/geometry/1.0"
+  xmlns:INTERLIS="http://www.interlis.ch/xtf/2.4/INTERLIS"
+  xmlns:ili2c="http://www.interlis.ch/ili2c"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
+<xsd:annotation>
+  <xsd:appinfo source="http://www.interlis.ch/ili2c/ili2cversion">5.6.8-e6f7ab6dd5cdba29afc9b24866ecb98c057d82b2</xsd:appinfo>
+  <xsd:appinfo source="http://www.interlis.ch/ili2c">
+    <ili2c:model>Units</ili2c:model>
+    <ili2c:modelVersion>2014-07-09</ili2c:modelVersion>
+    <ili2c:modelAt>http://www.interlis.ch/models/refhb24</ili2c:modelAt>
+  </xsd:appinfo>
+</xsd:annotation>
+<xsd:import namespace="http://www.interlis.ch/geometry/1.0"/>
+<xsd:import namespace="http://www.interlis.ch/xtf/2.4/INTERLIS"/>
+</xsd:schema>

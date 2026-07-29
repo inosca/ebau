@@ -4,7 +4,7 @@ from django.db import transaction
 from django.db.models import OuterRef
 from django.utils.timezone import now
 
-from .models import AGGISExport, InstanceProxyAG
+from .models import AGGISExport, InstanceProxyAG, SOGISExport
 
 log = getLogger(__name__)
 
@@ -72,3 +72,10 @@ def export_agis():
     except Exception as e:  # pragma: no cover
         log.warning(f"Failed to create export entries for instances {to_create}")
         log.warning(e)
+
+
+@transaction.atomic
+def collect_so_exports() -> list[SOGISExport]:
+    """Refresh the export table and return the dossiers still due for delivery."""
+    SOGISExport.objects.sync()
+    return list(SOGISExport.objects.pending().order_by("identifikator"))

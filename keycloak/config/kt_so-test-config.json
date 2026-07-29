@@ -3609,6 +3609,21 @@
         "groups": []
       },
       {
+        "id": "5590a727-c7ec-45fc-9a4e-e2512240e0a5",
+        "username": "service-account-sogis",
+        "emailVerified": false,
+        "enabled": true,
+        "createdTimestamp": 1784646055921,
+        "totp": false,
+        "serviceAccountClientId": "sogis",
+        "credentials": [],
+        "disableableCredentialTypes": [],
+        "requiredActions": [],
+        "realmRoles": ["default-roles-ebau"],
+        "notBefore": 0,
+        "groups": []
+      },
+      {
         "id": "b3052c81-2603-449c-b897-1cb0bae67004",
         "username": "service-account-test-gemeinde",
         "emailVerified": false,
@@ -5359,6 +5374,61 @@
           "phone",
           "offline_access",
           "microprofile-jwt"
+        ]
+      },
+      {
+        "id": "23f8991e-8b25-4f4d-b6b2-1d1447005817",
+        "clientId": "sogis",
+        "name": "",
+        "description": "",
+        "rootUrl": "",
+        "adminUrl": "",
+        "baseUrl": "",
+        "surrogateAuthRequired": false,
+        "enabled": true,
+        "alwaysDisplayInConsole": false,
+        "clientAuthenticatorType": "client-secret",
+        "secret": "wMCgltTzcKcvDnipXas3v0m4Mn1cq83u",
+        "redirectUris": [],
+        "webOrigins": [],
+        "notBefore": 0,
+        "bearerOnly": false,
+        "consentRequired": false,
+        "standardFlowEnabled": false,
+        "implicitFlowEnabled": false,
+        "directAccessGrantsEnabled": false,
+        "serviceAccountsEnabled": true,
+        "publicClient": false,
+        "frontchannelLogout": true,
+        "protocol": "openid-connect",
+        "attributes": {
+          "realm_client": "false",
+          "oidc.ciba.grant.enabled": "false",
+          "client.secret.creation.time": "1784646055",
+          "backchannel.logout.session.required": "true",
+          "standard.token.exchange.enabled": "false",
+          "oauth2.device.authorization.grant.enabled": "false",
+          "backchannel.logout.revoke.offline.tokens": "false",
+          "dpop.bound.access.tokens": "false"
+        },
+        "authenticationFlowBindingOverrides": {},
+        "fullScopeAllowed": true,
+        "nodeReRegistrationTimeout": -1,
+        "defaultClientScopes": [
+          "web-origins",
+          "service_account",
+          "acr",
+          "roles",
+          "profile",
+          "basic",
+          "email"
+        ],
+        "optionalClientScopes": [
+          "address",
+          "phone",
+          "offline_access",
+          "microprofile-jwt",
+          "token-exchange"
         ]
       },
       {

@@ -357,3 +357,15 @@ class IsWilkenClientToken(permissions.BasePermission):
             )
         except AttributeError:
             return False
+
+
+class IsSogisClientToken(permissions.BasePermission):
+    """Verify that the token is authorized by the configured SOGIS client."""
+
+    code = "unallowed_azp"
+
+    def has_permission(self, request, view):
+        try:
+            return request.auth.get("azp", "") == settings.GIS_EXPORT.keycloak_client
+        except AttributeError:
+            return False

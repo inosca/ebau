@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://www.interlis.ch/xtf/2.4/CoordSys"
+  targetNamespace="http://www.interlis.ch/xtf/2.4/CoordSys"
+  xmlns:geom="http://www.interlis.ch/geometry/1.0"
+  xmlns:INTERLIS="http://www.interlis.ch/xtf/2.4/INTERLIS"
+  xmlns:ili2c="http://www.interlis.ch/ili2c"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
+<xsd:annotation>
+  <xsd:appinfo source="http://www.interlis.ch/ili2c/ili2cversion">5.6.8-e6f7ab6dd5cdba29afc9b24866ecb98c057d82b2</xsd:appinfo>
+  <xsd:appinfo source="http://www.interlis.ch/ili2c">
+    <ili2c:model>CoordSys</ili2c:model>
+    <ili2c:modelVersion>2014-07-09</ili2c:modelVersion>
+    <ili2c:modelAt>http://www.interlis.ch/models/refhb24</ili2c:modelAt>
+  </xsd:appinfo>
+</xsd:annotation>
+<xsd:import namespace="http://www.interlis.ch/geometry/1.0"/>
+<xsd:import namespace="http://www.interlis.ch/xtf/2.4/INTERLIS"/>
+<xsd:element name="Angle_DMS_S" type="Angle_DMS_SType"/>
+<xsd:complexType  name="Angle_DMS_SType">
+  <xsd:sequence>
+    <xsd:element name="Degrees" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:minInclusive value="-180"/>
+          <xsd:maxInclusive value="180"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Minutes" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:minInclusive value="0"/>
+          <xsd:maxInclusive value="59"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Seconds" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:minInclusive value="0.000"/>
+          <xsd:maxInclusive value="59.999"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:simpleType name="Angle_DMS">
+  <xsd:restriction base="xsd:normalizedString">
+  <xsd:pattern value="([\+\-0-9\.]+):([\+\-0-9\.]+):([\+\-0-9\.]+)"/>
+  </xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="Angle_DMS_90">
+  <xsd:restriction base="xsd:normalizedString">
+  <xsd:pattern value="([\+\-0-9\.]+):([\+\-0-9\.]+):([\+\-0-9\.]+)"/>
+  </xsd:restriction>
+</xsd:simpleType>
+<xsd:element name="Ellipsoid" type="EllipsoidType" substitutionGroup="INTERLIS:REFSYSTEM"/>
+<xsd:complexType  name="EllipsoidType">
+  <xsd:complexContent>
+    <xsd:extension base="INTERLIS:REFSYSTEMType">
+      <xsd:sequence>
+        <xsd:element name="EllipsoidAlias" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="70"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="SemiMajorAxis">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:decimal">
+              <xsd:minInclusive value="6360000.0000"/>
+              <xsd:maxInclusive value="6390000.0000"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="InverseFlattening">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:decimal">
+              <xsd:minInclusive value="0.00000000"/>
+              <xsd:maxInclusive value="350.00000000"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="Remarks" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="70"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="GravityModel" type="GravityModelType" substitutionGroup="INTERLIS:REFSYSTEM"/>
+<xsd:complexType  name="GravityModelType">
+  <xsd:complexContent>
+    <xsd:extension base="INTERLIS:REFSYSTEMType">
+      <xsd:sequence>
+        <xsd:element name="GravityModAlias" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="70"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="Definition" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="70"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="GeoidModel" type="GeoidModelType" substitutionGroup="INTERLIS:REFSYSTEM"/>
+<xsd:complexType  name="GeoidModelType">
+  <xsd:complexContent>
+    <xsd:extension base="INTERLIS:REFSYSTEMType">
+      <xsd:sequence>
+        <xsd:element name="GeoidModAlias" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="70"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="Definition" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="70"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="LengthAXIS" type="LengthAXISType" substitutionGroup="INTERLIS:AXIS"/>
+<xsd:complexType  name="LengthAXISType">
+  <xsd:complexContent>
+    <xsd:extension base="INTERLIS:AXISType">
+      <xsd:sequence>
+        <xsd:element name="ShortName" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="12"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="Description" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="255"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="AngleAXIS" type="AngleAXISType" substitutionGroup="INTERLIS:AXIS"/>
+<xsd:complexType  name="AngleAXISType">
+  <xsd:complexContent>
+    <xsd:extension base="INTERLIS:AXISType">
+      <xsd:sequence>
+        <xsd:element name="ShortName" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="12"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="Description" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="255"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="GeoCartesian1D" type="GeoCartesian1DType" substitutionGroup="INTERLIS:COORDSYSTEM"/>
+<xsd:complexType  name="GeoCartesian1DType">
+  <xsd:complexContent>
+    <xsd:extension base="INTERLIS:COORDSYSTEMType">
+      <xsd:sequence>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="GeoHeight" type="GeoHeightType" substitutionGroup="GeoCartesian1D"/>
+<xsd:complexType  name="GeoHeightType">
+  <xsd:complexContent>
+    <xsd:extension base="GeoCartesian1DType">
+      <xsd:sequence>
+        <xsd:element name="System">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="ReferenceHeight">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:decimal">
+              <xsd:minInclusive value="-10000.000"/>
+              <xsd:maxInclusive value="10000.000"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="ReferenceHeightDescr" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="70"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="EllipsoidRef">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element ref="HeightEllips" minOccurs="0"/>
+            </xsd:sequence>
+            <xsd:attribute ref="INTERLIS:ref" use="required"/>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="GeoidRef">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element ref="HeightGeoid" minOccurs="0"/>
+            </xsd:sequence>
+            <xsd:attribute ref="INTERLIS:ref" use="required"/>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="GravityRef">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element ref="HeightGravit" minOccurs="0"/>
+            </xsd:sequence>
+            <xsd:attribute ref="INTERLIS:ref" use="required"/>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="HeightEllips" type="HeightEllipsType"/>
+<xsd:complexType  name="HeightEllipsType">
+  <xsd:sequence>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="HeightGravit" type="HeightGravitType"/>
+<xsd:complexType  name="HeightGravitType">
+  <xsd:sequence>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="HeightGeoid" type="HeightGeoidType"/>
+<xsd:complexType  name="HeightGeoidType">
+  <xsd:sequence>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="GeoCartesian2D" type="GeoCartesian2DType" substitutionGroup="INTERLIS:COORDSYSTEM"/>
+<xsd:complexType  name="GeoCartesian2DType">
+  <xsd:complexContent>
+    <xsd:extension base="INTERLIS:COORDSYSTEMType">
+      <xsd:sequence>
+        <xsd:element name="Definition" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="70"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="GeoCartesian3D" type="GeoCartesian3DType" substitutionGroup="INTERLIS:COORDSYSTEM"/>
+<xsd:complexType  name="GeoCartesian3DType">
+  <xsd:complexContent>
+    <xsd:extension base="INTERLIS:COORDSYSTEMType">
+      <xsd:sequence>
+        <xsd:element name="Definition" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="70"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="GeoEllipsoidal" type="GeoEllipsoidalType" substitutionGroup="INTERLIS:COORDSYSTEM"/>
+<xsd:complexType  name="GeoEllipsoidalType">
+  <xsd:complexContent>
+    <xsd:extension base="INTERLIS:COORDSYSTEMType">
+      <xsd:sequence>
+        <xsd:element name="Definition" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:maxLength value="70"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="EllipsoidRef">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element ref="EllCSEllips" minOccurs="0"/>
+            </xsd:sequence>
+            <xsd:attribute ref="INTERLIS:ref" use="required"/>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="EllCSEllips" type="EllCSEllipsType"/>
+<xsd:complexType  name="EllCSEllipsType">
+  <xsd:sequence>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="ToGeoEllipsoidal" type="ToGeoEllipsoidalType"/>
+<xsd:complexType  name="ToGeoEllipsoidalType">
+  <xsd:sequence>
+    <xsd:element name="From">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="To">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ToHeight">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="ToGeoCartesian3D" type="ToGeoCartesian3DType"/>
+<xsd:complexType  name="ToGeoCartesian3DType">
+  <xsd:sequence>
+    <xsd:element name="From2">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FromHeight">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="To3">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="BidirectGeoCartesian2D" type="BidirectGeoCartesian2DType"/>
+<xsd:complexType  name="BidirectGeoCartesian2DType">
+  <xsd:sequence>
+    <xsd:element name="From">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="To">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="BidirectGeoCartesian3D" type="BidirectGeoCartesian3DType"/>
+<xsd:complexType  name="BidirectGeoCartesian3DType">
+  <xsd:sequence>
+    <xsd:element name="From">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="To2">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Precision">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="ShiftAxis1">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:minInclusive value="-10000.000"/>
+          <xsd:maxInclusive value="10000.000"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="ShiftAxis2">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:minInclusive value="-10000.000"/>
+          <xsd:maxInclusive value="10000.000"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="ShiftAxis3">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:minInclusive value="-10000.000"/>
+          <xsd:maxInclusive value="10000.000"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="RotationAxis1" type="Angle_DMS_90" minOccurs="0"/>
+    <xsd:element name="RotationAxis2" type="Angle_DMS_90" minOccurs="0"/>
+    <xsd:element name="RotationAxis3" type="Angle_DMS_90" minOccurs="0"/>
+    <xsd:element name="NewScale" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:minInclusive value="0.000001"/>
+          <xsd:maxInclusive value="1000000.000000"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="BidirectGeoEllipsoidal" type="BidirectGeoEllipsoidalType"/>
+<xsd:complexType  name="BidirectGeoEllipsoidalType">
+  <xsd:sequence>
+    <xsd:element name="From4">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="To4">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="MapProjection" type="MapProjectionType"/>
+<xsd:complexType  name="MapProjectionType">
+  <xsd:sequence>
+    <xsd:element name="From5">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="To5">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FromCo1_FundPt" type="Angle_DMS_90"/>
+    <xsd:element name="FromCo2_FundPt" type="Angle_DMS_90"/>
+    <xsd:element name="ToCoord1_FundPt">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:minInclusive value="-10000000"/>
+          <xsd:maxInclusive value="10000000"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="ToCoord2_FundPt">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:minInclusive value="-10000000"/>
+          <xsd:maxInclusive value="10000000"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="TransverseMercator" type="TransverseMercatorType" substitutionGroup="MapProjection"/>
+<xsd:complexType  name="TransverseMercatorType">
+  <xsd:complexContent>
+    <xsd:extension base="MapProjectionType">
+      <xsd:sequence>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="SwissProjection" type="SwissProjectionType" substitutionGroup="MapProjection"/>
+<xsd:complexType  name="SwissProjectionType">
+  <xsd:complexContent>
+    <xsd:extension base="MapProjectionType">
+      <xsd:sequence>
+        <xsd:element name="IntermFundP1" type="Angle_DMS_90"/>
+        <xsd:element name="IntermFundP2" type="Angle_DMS_90"/>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="Mercator" type="MercatorType" substitutionGroup="MapProjection"/>
+<xsd:complexType  name="MercatorType">
+  <xsd:complexContent>
+    <xsd:extension base="MapProjectionType">
+      <xsd:sequence>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="ObliqueMercator" type="ObliqueMercatorType" substitutionGroup="MapProjection"/>
+<xsd:complexType  name="ObliqueMercatorType">
+  <xsd:complexContent>
+    <xsd:extension base="MapProjectionType">
+      <xsd:sequence>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="Lambert" type="LambertType" substitutionGroup="MapProjection"/>
+<xsd:complexType  name="LambertType">
+  <xsd:complexContent>
+    <xsd:extension base="MapProjectionType">
+      <xsd:sequence>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="Polyconic" type="PolyconicType" substitutionGroup="MapProjection"/>
+<xsd:complexType  name="PolyconicType">
+  <xsd:complexContent>
+    <xsd:extension base="MapProjectionType">
+      <xsd:sequence>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="Albus" type="AlbusType" substitutionGroup="MapProjection"/>
+<xsd:complexType  name="AlbusType">
+  <xsd:complexContent>
+    <xsd:extension base="MapProjectionType">
+      <xsd:sequence>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="Azimutal" type="AzimutalType" substitutionGroup="MapProjection"/>
+<xsd:complexType  name="AzimutalType">
+  <xsd:complexContent>
+    <xsd:extension base="MapProjectionType">
+      <xsd:sequence>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="Stereographic" type="StereographicType" substitutionGroup="MapProjection"/>
+<xsd:complexType  name="StereographicType">
+  <xsd:complexContent>
+    <xsd:extension base="MapProjectionType">
+      <xsd:sequence>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="HeightConversion" type="HeightConversionType"/>
+<xsd:complexType  name="HeightConversionType">
+  <xsd:sequence>
+    <xsd:element name="FromHeight">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ToHeight">
+      <xsd:complexType>
+        <xsd:attribute ref="INTERLIS:ref" use="required"/>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Definition" minOccurs="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:normalizedString">
+          <xsd:maxLength value="70"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+<xsd:element name="CoordsysTopic" type="CoordsysTopicType"/>
+<xsd:complexType name="CoordsysTopicType">
+  <xsd:choice minOccurs="0" maxOccurs="unbounded">
+    <xsd:element ref="ToGeoEllipsoidal"/>
+    <xsd:element ref="ToGeoCartesian3D"/>
+    <xsd:element ref="BidirectGeoCartesian2D"/>
+    <xsd:element ref="BidirectGeoCartesian3D"/>
+    <xsd:element ref="BidirectGeoEllipsoidal"/>
+    <xsd:element ref="MapProjection"/>
+    <xsd:element ref="HeightConversion"/>
+  </xsd:choice>
+  <xsd:attribute ref="INTERLIS:bid" use="required"/>
+  <xsd:attribute ref="INTERLIS:consistency"/>
+</xsd:complexType>
+</xsd:schema>

@@ -2980,6 +2980,7 @@ KEYCLOAK_CAMAC_ADMIN_CLIENT = env.str(
     "KEYCLOAK_CAMAC_ADMIN_CLIENT", default="camac-admin"
 )
 
+
 KEYCLOAK_OIDC_TOKEN_URL = build_url(
     KEYCLOAK_URL, f"/realms/{KEYCLOAK_REALM}/protocol/openid-connect/token"
 )
@@ -3394,6 +3395,7 @@ def load_module_settings(module_name, application_name=APPLICATION_NAME):
 # `ast-grep/module_enabled_check.yaml` in sync so its enable-check linting stays
 # accurate.
 BILLING = load_module_settings("billing")
+GIS_EXPORT = load_module_settings("gis_export")
 APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
 PARASHIFT = load_module_settings("parashift")

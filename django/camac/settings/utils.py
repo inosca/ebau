@@ -27,6 +27,12 @@ def generate_module_settings(
         else:
             module_settings["ENABLED"] = True
 
+    def _disable(module_settings: ModuleApplicationConfig | dict):
+        if isinstance(module_settings, ModuleApplicationConfig):
+            module_settings.enabled = False
+        else:
+            module_settings.clear()
+
     module_name = settings_name.lower()
     # Implementation details: Tests can request `module_settings` and
     # `canton_module_settings`     at the same time. Those two settings must not
@@ -104,8 +110,7 @@ def generate_module_settings(
         yield canton_settings
 
     elif disable:
-        if isinstance(base_fixture, dict):
-            base_fixture.clear()
+        _disable(base_fixture)
 
         yield base_fixture
 

@@ -1,5 +1,7 @@
 /Dockerfile.ember gitlab-language=dockerfile
 /django/camac/fixtures/generated/*.py gitlab-generated
+/django/camac/gis_export/so_schema/*.py gitlab-generated
+/django/camac/gis_export/so_schema/xsd/* gitlab-generated
 /elixir-ebau/.claude/** gitlab-generated
 /elixir-ebau/CLAUDE.md gitlab-generated
 /elixir-ebau/mix.lock gitlab-generated
