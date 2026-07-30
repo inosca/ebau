@@ -100,6 +100,10 @@ export default {
       templateSlug: "9-1-stopp-publikation-an-amtsblatt",
       recipientTypes: ["amtsblatt_uri"],
     },
+    cancelNotificationOereb: {
+      templateSlug: "9-1-stopp-publikation-an-amtsblatt",
+      recipientTypes: ["koor_np_users", "lisag"],
+    },
     public: {
       task: "fill-publication",
       createTask: "create-publication",

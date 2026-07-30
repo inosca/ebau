@@ -6,6 +6,7 @@ from camac.settings.modules.caluma_simple_workflow_schema import (
 from camac.utils import (
     not_send_for_migrated_publications,
     send_only_for_einfache_anfrage,
+    send_only_for_oereb_dossiers,
 )
 
 UR_CALUMA_SIMPLE_WORKFLOW_SETTINGS = CalumaSimpleWorkflowConfig(
@@ -433,6 +434,15 @@ UR_CALUMA_SIMPLE_WORKFLOW_SETTINGS = CalumaSimpleWorkflowConfig(
                         NotificationConfig(
                             template_slug="9-nachricht-an-amtsblatt",
                             recipient_types=["amtsblatt_uri"],
+                        ),
+                    ],
+                ),
+                EventConfig(
+                    condition=lambda work_item: send_only_for_oereb_dossiers(work_item),
+                    notifications=[
+                        NotificationConfig(
+                            template_slug="9-nachricht-an-amtsblatt",
+                            recipient_types=["lisag", "koor_np_users"],
                         ),
                     ],
                 ),

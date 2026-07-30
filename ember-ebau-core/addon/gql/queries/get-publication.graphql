@@ -18,6 +18,7 @@ query GetPublication($id: ID!) {
             id
             form {
               name
+              slug
             }
             answers {
               edges {

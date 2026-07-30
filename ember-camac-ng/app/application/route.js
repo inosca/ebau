@@ -1,5 +1,6 @@
 import Route from "@ember/routing/route";
 import { service } from "@ember/service";
+import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import CamacAdditionalDemandFilesComponent from "ember-ebau-core/components/camac-additional-demand-files";
 import CamacSchnurgeruestabnahmeFilesComponent from "ember-ebau-core/components/camac-schnurgeruestabnahme-files";
 import CfSnippetsTextComponent from "ember-ebau-core/components/cf-snippets-text";
@@ -204,6 +205,12 @@ export default class ApplicationRoute extends Route {
       label: "RPG2 Import",
       component: "rpg2-import-button",
       componentClass: Rpg2ImportButtonComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Berechnetes Publikations-Enddatum",
+      component: "calculated-publication-date",
+      componentClass: CalculatedPublicationDateComponent,
     });
   }
 }
