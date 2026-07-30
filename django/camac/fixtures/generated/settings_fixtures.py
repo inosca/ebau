@@ -3972,6 +3972,59 @@ def test_placeholders_settings(
 
 
 @pytest.fixture
+def procedure_status_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for procedure status (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        settings_name="PROCEDURE_STATUS",
+        import_path="camac.settings.modules.procedure_status.PROCEDURE_STATUS",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_procedure_status_settings(
+    request,
+    settings,
+    procedure_status_settings,
+):
+    """Disable the procedure status module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=procedure_status_settings,
+        settings_name="PROCEDURE_STATUS",
+        import_path="camac.settings.modules.procedure_status.PROCEDURE_STATUS",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def sg_procedure_status_settings(
+    request,
+    settings,
+    procedure_status_settings,
+):
+    """Module-specific settings for procedure status (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=procedure_status_settings,
+        settings_name="PROCEDURE_STATUS",
+        import_path="camac.settings.modules.procedure_status.PROCEDURE_STATUS",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def project_modification_settings(
     request,
     settings,

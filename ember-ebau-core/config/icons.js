@@ -29,6 +29,9 @@ module.exports = function () {
       "coins",
       "hand-holding-dollar",
       "file-invoice-dollar",
+      "check",
+      "play",
+      "ellipsis",
     ],
   };
 };

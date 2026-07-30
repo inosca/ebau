@@ -1,0 +1,85 @@
+$st-arrow-depth: 10px !default;
+$st-padding-v: 5px !default;
+$st-padding-h: 10px !default;
+$st-pending-background: $global-muted-background !default;
+$st-pending-color: $global-color !default;
+$st-running-background: $global-secondary-background !default;
+$st-running-color: $global-inverse-color !default;
+$st-done-background: $global-primary-background !default;
+$st-done-color: $global-inverse-color !default;
+
+.status-timeline {
+  display: flex;
+
+  &__step {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding: $st-padding-v $st-padding-h + $st-arrow-depth * 2 $st-padding-v
+      $st-padding-h + $st-arrow-depth;
+    clip-path: polygon(
+      0 0,
+      calc(100% - $st-arrow-depth) 0,
+      100% 50%,
+      calc(100% - $st-arrow-depth) 100%,
+      0 100%,
+      $st-arrow-depth 50%
+    );
+
+    &:first-child {
+      // Remove left notch on the first step and adjust left padding accordingly
+      padding-left: $st-padding-h;
+      clip-path: polygon(
+        0 0,
+        calc(100% - $st-arrow-depth) 0,
+        100% 50%,
+        calc(100% - $st-arrow-depth) 100%,
+        0 100%
+      );
+    }
+
+    &--skeleton {
+      background: linear-gradient(
+        100deg,
+        $global-muted-background,
+        $global-muted-background 50%,
+        $global-inverse-color 60%,
+        $global-muted-background 70%
+      );
+      background-size: 200% 100%;
+      animation: skeleton-shimmer 2s ease-out infinite;
+    }
+
+    &--pending {
+      background-color: $st-pending-background;
+      color: $st-pending-color;
+    }
+
+    &--running {
+      background-color: $st-running-background;
+      color: $st-running-color;
+
+      // The running step shows the open work items on hover
+      cursor: pointer;
+    }
+
+    &--done {
+      background-color: $st-done-background;
+      color: $st-done-color;
+    }
+
+    svg {
+      margin-right: calc($st-padding-h / 2);
+    }
+  }
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position-x: 200%;
+  }
+
+  100% {
+    background-position-x: 0%;
+  }
+}

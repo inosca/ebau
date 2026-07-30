@@ -141,6 +141,7 @@ INSTALLED_APPS = [
     "camac.gis_export.apps.GISExportConfig",
     "camac.captcha.apps.DefaultConfig",
     "camac.timelines.apps.TimelinesConfig",
+    "camac.procedure_status.apps.ProcedureStatusConfig",
     "camac.alexandria_migration.apps.AlexandriaMigrationConfig",
     "django_extensions",
 ]
@@ -3434,6 +3435,7 @@ APPLICANTS = load_module_settings("applicants")
 CALUMA_SIMPLE_WORKFLOW = load_module_settings("caluma_simple_workflow")
 INSTANCE_SUBMIT = load_module_settings("instance_submit")
 INSTANCE_COPY = load_module_settings("instance_copy")
+PROCEDURE_STATUS = load_module_settings("procedure_status")
 
 # Permissions incl. module specific integrations
 PERMISSIONS = load_module_settings("permissions")
