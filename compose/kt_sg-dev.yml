@@ -165,10 +165,6 @@ services:
       - valkey
       - db
       - garage
-    cap_add:
-      - CAP_SYS_ADMIN
-    security_opt:
-      - apparmor:unconfined
     environment:
       CACHE_BACKEND: django.core.cache.backends.redis.RedisCache
       CACHE_LOCATION: redis://default:redis@valkey:6379/3 # gitleaks:allow
@@ -181,7 +177,6 @@ services:
       ENV: dev
       EXTENSIONS_ARGUMENTS: DJANGO_API=http://django
       FILE_STORAGE: storages.backends.s3.S3Storage
-      ISOLATE_UNOCONV: true
       OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       URL_PREFIX: document-merge-service/
     volumes:

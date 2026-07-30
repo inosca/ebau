@@ -3,6 +3,7 @@ FROM ghcr.io/adfinis/document-merge-service:${DMS_VERSION}
 
 # Only root user can install packages
 USER root
+# TODO: Remove when every canton is on v10
 RUN \
   --mount=type=cache,target=/var/cache/apt,sharing=locked \
   apt-get update && apt-get install -y --no-install-recommends hyphen-de hyphen-fr \
@@ -18,6 +19,7 @@ ENV PAGINATION_ENABLED=False
 ENV DMS_VISIBILITY_CLASSES=document_merge_service.extensions.visibilities.CustomVisibility
 ENV DMS_PERMISSION_CLASSES=document_merge_service.extensions.permissions.CustomPermission
 ENV DATA_UPLOAD_MAX_NUMBER_FIELDS=2000
+ENV GOTENBERG_PDF_METADATA=producer=eBau
 
 # We will migrate to a startup task in K8s soon, this is
 # just in preparation for it
@@ -28,6 +30,7 @@ ENV DISABLE_WEB_SERVICE=false
 ARG APPLICATION
 
 COPY Makefile .
+# TODO: Remove when every canton is on v10
 COPY fonts /usr/local/share/fonts
 COPY extensions document_merge_service/extensions
 COPY $APPLICATION /data/document-merge-service/
