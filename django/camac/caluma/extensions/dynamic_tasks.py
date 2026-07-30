@@ -250,7 +250,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
             question_id="oereb-thema"
         ).first()
 
-        if oereb_gnp_answer and oereb_gnp_answer.value == "oereb-thema-gnp":
+        if (
+            oereb_gnp_answer
+            and oereb_gnp_answer.value == "oereb-thema-gnp"
+            and not case.meta.get("oereb_copy", False)
+        ):
             tasks.append("rpg")
 
         # Additional demand
