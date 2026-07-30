@@ -69,7 +69,9 @@ export default class BillingV2EntryAbility extends Ability {
       return false;
     }
 
+    const verfahrensart = await this.store.peekAll("form-field");
     const form = await this.instance.form;
+    const formName = removeVersion(form.name);
     const settings = mainConfig.billing?.releaseForClearing;
     const billingEntries = this.model
       ? [this.model]
@@ -79,7 +81,12 @@ export default class BillingV2EntryAbility extends Ability {
 
     if (
       !billingEntries.length ||
-      (settings.forms && !settings.forms.includes(removeVersion(form.name)))
+      !hasFeature("billing.releaseForClearing") ||
+      !(
+        settings.forms?.includes(formName) ||
+        (settings.verfahrensartForms?.includes(formName) &&
+          settings.verfahrensartTypes?.includes(verfahrensart[0].value))
+      )
     ) {
       return false;
     }

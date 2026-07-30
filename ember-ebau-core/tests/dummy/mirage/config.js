@@ -22,6 +22,7 @@ export default function makeServer(config) {
       this.resource("attachments");
       this.resource("instances", { only: ["index", "show"] });
       this.resource("forms", { only: ["show"] });
+      this.resource("form-fields");
       this.resource("instance-states", { only: ["index", "show"] });
       this.resource("services");
       this.resource("users");
@@ -33,6 +34,20 @@ export default function makeServer(config) {
       this.resource("responsible-services", { except: ["delete"] });
       this.resource("responsible-user-rule");
       this.resource("application-type", { only: ["index", "show"] });
+      this.get(
+        "form-fields",
+        function ({ formFields, instances }, { queryParams }) {
+          if (queryParams.name === "verfahrensart") {
+            formFields.create({
+              name: "verfahrensart",
+              value: "vereinfacht",
+              instance: instances.find(queryParams.instance),
+            });
+          }
+          return this.serialize(formFields.all());
+        },
+        200,
+      );
       this.delete(
         "notification-templates/delete_by_purpose",
         function ({ notificationTemplates }, { queryParams: { purpose } }) {
