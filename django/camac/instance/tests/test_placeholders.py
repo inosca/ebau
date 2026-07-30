@@ -316,6 +316,7 @@ def test_dms_placeholders_so(
     so_placeholders_settings,
     so_instance,
     service_factory,
+    static_keyword_factory,
     caluma_work_item_factory,
     caluma_dynamic_option_factory,
     mocker,
@@ -340,6 +341,17 @@ def test_dms_placeholders_so(
     # Current service
     group.service.website = "https://meine-organisation.ch"
     group.service.save()
+
+    # Static keywords
+    static_keyword_b = static_keyword_factory(
+        name="Sachverhalt B",
+        service=group.service,
+    )
+    static_keyword_a = static_keyword_factory(
+        name="Sachverhalt A",
+        service=group.service,
+    )
+    so_instance.static_keywords.set([static_keyword_b, static_keyword_a])
 
     # Municipality
     municipality = service_factory(website="https://gemeinde.ch")

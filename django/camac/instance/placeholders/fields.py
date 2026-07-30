@@ -32,7 +32,7 @@ from camac.caluma.utils import (
 from camac.core.translations import (
     get_translations_canton_aware,
 )
-from camac.tags.models import Keyword
+from camac.tags.models import Keyword, StaticKeyword
 from camac.user.models import Service, User
 from camac.utils import build_url, clean_join, get_dict_item
 
@@ -1709,6 +1709,8 @@ class AlexandriaSimpleDocumentField(AlexandriaDocumentField):
 
 
 class KeywordsField(AliasedMixin, serializers.ReadOnlyField):
+    keyword_model = Keyword
+
     def __init__(self, join_by=", ", *args, **kwargs):
         super().__init__(is_collection=False, **kwargs)
         self.join_by = join_by
@@ -1720,5 +1722,11 @@ class KeywordsField(AliasedMixin, serializers.ReadOnlyField):
 
     def get_attribute(self, instance):
         return (
-            Keyword.objects.filter(instances=instance).values("name").order_by("name")
+            self.keyword_model.objects.filter(instances=instance)
+            .values("name")
+            .order_by("name")
         )
+
+
+class StaticKeywordsField(KeywordsField):
+    keyword_model = StaticKeyword
