@@ -1,4 +1,5 @@
-FROM ghcr.io/adfinis/document-merge-service:9.2.4
+ARG DMS_VERSION=9.2.4
+FROM ghcr.io/adfinis/document-merge-service:${DMS_VERSION}
 
 # Only root user can install packages
 USER root
