@@ -19,7 +19,7 @@
         <UkSpinner class="uk-animation-fade" />
       {{else}}
         {{#each-in this.snippets.value as |groupName categories|}}
-          {{#if (has-feature "snippets.allowGlobalSnippets")}}
+          {{#if this.isGlobalSnippetsEnabled}}
             <h5 class="uk-margin-small-bottom uk-text-uppercase uk-text-muted">
               {{t (concat "snippets.title." groupName)}}
             </h5>
