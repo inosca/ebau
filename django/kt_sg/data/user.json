@@ -9616,7 +9616,7 @@
     "model": "user.service",
     "pk": 77,
     "fields": {
-      "slug": null,
+      "slug": "afu-bs-ar",
       "service_group": 3,
       "service_parent": null,
       "name": null,
@@ -9644,7 +9644,7 @@
     "model": "user.service",
     "pk": 78,
     "fields": {
-      "slug": null,
+      "slug": "afu-bs-ba",
       "service_group": 3,
       "service_parent": null,
       "name": null,
@@ -9672,7 +9672,7 @@
     "model": "user.service",
     "pk": 79,
     "fields": {
-      "slug": null,
+      "slug": "afu-bs-lw",
       "service_group": 3,
       "service_parent": null,
       "name": null,
@@ -9700,7 +9700,7 @@
     "model": "user.service",
     "pk": 80,
     "fields": {
-      "slug": null,
+      "slug": "afu-ig-b1",
       "service_group": 3,
       "service_parent": null,
       "name": null,
@@ -9728,7 +9728,7 @@
     "model": "user.service",
     "pk": 81,
     "fields": {
-      "slug": null,
+      "slug": "afu-ig-b2",
       "service_group": 3,
       "service_parent": null,
       "name": null,
@@ -9756,7 +9756,7 @@
     "model": "user.service",
     "pk": 82,
     "fields": {
-      "slug": null,
+      "slug": "afu-ig-lu",
       "service_group": 3,
       "service_parent": null,
       "name": null,
@@ -10288,7 +10288,7 @@
     "model": "user.service",
     "pk": 101,
     "fields": {
-      "slug": null,
+      "slug": "awe-gg-aw",
       "service_group": 3,
       "service_parent": null,
       "name": null,
@@ -10316,7 +10316,7 @@
     "model": "user.service",
     "pk": 102,
     "fields": {
-      "slug": null,
+      "slug": "awe-gg-gw",
       "service_group": 3,
       "service_parent": null,
       "name": null,

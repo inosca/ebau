@@ -1,3 +1,4 @@
+from collections.abc import Callable
 from functools import reduce
 
 from caluma.caluma_form.models import Answer
@@ -31,6 +32,7 @@ from camac.permissions import api as permissions_api
 from camac.permissions.switcher import permission_switching_method
 from camac.responsible.models import ResponsibleService
 from camac.settings.utils import is_module_enabled
+from camac.user.models import Service
 from camac.utils import get_unversioned_slug
 
 from . import models
@@ -180,12 +182,9 @@ class PublicServiceFilterSet(FilterSet):
         }
 
         for config_part in applied_config:
-            conditions = config_part.get("conditions", [])
-
-            if len(conditions) and not all(
-                getattr(self, f"_condition_{condition['name']}")(instance)
-                != condition.get("invert", False)
-                for condition in conditions
+            if not all(
+                self.evaluate_config_condition(condition, instance, service)
+                for condition in config_part.get("conditions", [])
             ):
                 continue
 
@@ -203,6 +202,25 @@ class PublicServiceFilterSet(FilterSet):
                         )
 
         return queryset.filter(filters["include"]).exclude(filters["exclude"])
+
+    def evaluate_config_condition(
+        self,
+        condition: Callable | dict[str, str | bool],
+        instance: Instance,
+        service: Service,
+    ) -> bool:
+        """Evaluate a condition of the `AVAILABLE_SERVICES_FOR_INQUIRY` config.
+
+        A condition is either a callable which receives the current service and
+        instance or a dict referring to a `_condition_*` method which can
+        optionally be inverted.
+        """
+        if callable(condition):
+            return condition(instance, service)
+
+        return getattr(self, f"_condition_{condition['name']}")(
+            instance, service
+        ) != condition.get("invert", False)
 
     @canton_aware
     def get_config_key_for_distribution_filter(self, service, instance):
@@ -233,25 +251,25 @@ class PublicServiceFilterSet(FilterSet):
             instance_services__instance_id=value,
         )
 
-    def _condition_is_bab(self, instance):
+    def _condition_is_bab(self, instance, service):
         if not is_module_enabled("BAB"):  # pragma: no cover
             return False
 
         return instance.case.meta.get("is-bab", False)
 
-    def _condition_is_imported(self, instance):
+    def _condition_is_imported(self, instance, service):
         return CalumaApi().is_imported(instance)
 
-    def _condition_is_appeal(self, instance):
+    def _condition_is_appeal(self, instance, service):
         if not is_module_enabled("APPEAL"):  # pragma: no cover
             return False
 
         return instance.case.meta.get("is-appeal", False)
 
-    def _condition_is_preliminary_inquiry(self, instance):
+    def _condition_is_preliminary_inquiry(self, instance, service):
         return get_unversioned_slug(instance.case.document.form_id) == "voranfrage"
 
-    def _condition_publication_is_done(self, instance):
+    def _condition_publication_is_done(self, instance, service):
         publication_work_items = WorkItem.objects.filter(
             **{
                 "case": instance.case,
