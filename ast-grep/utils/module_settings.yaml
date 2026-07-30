@@ -1,0 +1,11 @@
+# Matches the name of a module settings object, e.g. the `DECISION` in
+# `settings.DECISION`.
+#
+# `ast-grep` can't read the module names from the `load_module_settings(...)`
+# calls in `django/camac/settings/django.py`, so they have to be enumerated here.
+# The `register-module-settings-name` rule in `rules/module_enabled_check.yaml`
+# fails the linting for every module that is loaded there but missing below.
+id: module-settings-name
+language: python
+rule:
+  regex: "^(ADDITIONAL_DEMAND|ADDRESS_ASSIGNMENT|ALEXANDRIA|ALEXANDRIA_MIGRATION|APPEAL|APPLICANTS|BAB|BILLING|CALUMA_SIMPLE_WORKFLOW|CHANGE_FORM|COMMUNICATIONS|CONSTRUCTION_MONITORING|CORRECTION|DEADLINES|DECISION|DISTRIBUTION|DJANGO_ADMIN|DMS|DOSSIER_IMPORT|DUMP|ECH0211|EEBA_INTEGRATION|GIS_EXPORT|INSTANCE_COPY|INSTANCE_SUBMIT|LINKED_INSTANCES|MASTER_DATA|PARASHIFT|PERMISSIONS|PERMISSIONS_ALEXANDRIA|PLACEHOLDERS|PROCEDURE_STATUS|PROJECT_MODIFICATION|PUBLICATION|REJECTION|RPG2|RULESETS|SANCTIONS|SERVICE|STATISTICS|TAGS|TIMELINES|USER|WITHDRAWAL|WORK_ITEM_LIST)$"

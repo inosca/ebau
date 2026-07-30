@@ -3392,9 +3392,10 @@ def load_module_settings(module_name, application_name=APPLICATION_NAME):
         )
 
 
-# NOTE: When adding or removing a module below, keep the `MODULE` regex in
-# `ast-grep/module_enabled_check.yaml` in sync so its enable-check linting stays
-# accurate.
+# NOTE: When adding or removing a module, it also has to be added to or removed
+# from the `module-settings-name` util rule in
+# `ast-grep/utils/module_settings.yaml`, which is what makes its enable checks
+# get linted.
 BILLING = load_module_settings("billing")
 GIS_EXPORT = load_module_settings("gis_export")
 APPEAL = load_module_settings("appeal")
@@ -3436,17 +3437,14 @@ CALUMA_SIMPLE_WORKFLOW = load_module_settings("caluma_simple_workflow")
 INSTANCE_SUBMIT = load_module_settings("instance_submit")
 INSTANCE_COPY = load_module_settings("instance_copy")
 PROCEDURE_STATUS = load_module_settings("procedure_status")
-
-# Permissions incl. module specific integrations
 PERMISSIONS = load_module_settings("permissions")
 PERMISSIONS_ALEXANDRIA = load_module_settings("permissions.alexandria")
-
-# Alexandria
 ALEXANDRIA = load_module_settings("alexandria")
 ALEXANDRIA_MIGRATION = load_module_settings("alexandria_migration")
-# NOTE: When adding or removing a module above, keep the `MODULE` regex in
-# `ast-grep/module_enabled_check.yaml` in sync so its enable-check linting stays
-# accurate.
+# NOTE: When adding or removing a module, it also has to be added to or removed
+# from the `module-settings-name` util rule in
+# `ast-grep/utils/module_settings.yaml`, which is what makes its enable checks
+# get linted.
 
 ALEXANDRIA_GET_USER_AND_GROUP_FUNCTION = (
     "camac.alexandria.extensions.common.get_user_and_group"
