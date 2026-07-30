@@ -1,7 +1,7 @@
 id: use-is-module-enabled-config
 language: python
 severity: error
-message: 'Use `is_module_enabled("MODULE")` instead of reading the module config directly'
+message: 'Use `is_module_enabled("$MODULE")` instead of reading the module config directly'
 note: |
   Import it with `from camac.settings.utils import is_module_enabled`.
   `is_module_enabled` works for both pydantic (`.enabled`) and dict
@@ -15,14 +15,13 @@ rule:
     - pattern: settings.$MODULE.get("ENABLED", False)
 constraints:
   MODULE:
-    # Needs to be kept in sync with `django/camac/settings/django.py`
-    regex: "^(ADDITIONAL_DEMAND|ADDRESS_ASSIGNMENT|ALEXANDRIA|ALEXANDRIA_MIGRATION|APPEAL|APPLICANTS|BAB|BILLING|CALUMA_SIMPLE_WORKFLOW|CHANGE_FORM|COMMUNICATIONS|CONSTRUCTION_MONITORING|CORRECTION|DEADLINES|DECISION|DISTRIBUTION|DJANGO_ADMIN|DMS|DOSSIER_IMPORT|DUMP|ECH0211|EEBA_INTEGRATION|INSTANCE_COPY|INSTANCE_SUBMIT|LINKED_INSTANCES|MASTER_DATA|PARASHIFT|PERMISSIONS|PERMISSIONS_ALEXANDRIA|PLACEHOLDERS|PROCEDURE_STATUS|PROJECT_MODIFICATION|PUBLICATION|REJECTION|RPG2|RULESETS|SANCTIONS|SERVICE|STATISTICS|TAGS|TIMELINES|USER|WITHDRAWAL|WORK_ITEM_LIST|GIS_EXPORT)$"
+    matches: module-settings-name
 fix: 'is_module_enabled("$MODULE")'
 ---
 id: use-is-module-enabled-empty-dict
 language: python
 severity: error
-message: 'Use `is_module_enabled("MODULE")` instead of the bare `settings.MODULE` truthiness check'
+message: 'Use `is_module_enabled("$MODULE")` instead of the bare `settings.$MODULE` truthiness check'
 note: |
   Import it with `from camac.settings.utils import is_module_enabled`. A bare
   `settings.MODULE` check relies on the config being falsy when disabled, which
@@ -44,6 +43,23 @@ rule:
     - pattern: bool(settings.$MODULE)
 constraints:
   MODULE:
-    # Needs to be kept in sync with `django/camac/settings/django.py`
-    regex: "^(ADDITIONAL_DEMAND|ADDRESS_ASSIGNMENT|ALEXANDRIA|ALEXANDRIA_MIGRATION|APPEAL|APPLICANTS|BAB|BILLING|CALUMA_SIMPLE_WORKFLOW|CHANGE_FORM|COMMUNICATIONS|CONSTRUCTION_MONITORING|CORRECTION|DEADLINES|DECISION|DISTRIBUTION|DJANGO_ADMIN|DMS|DOSSIER_IMPORT|DUMP|ECH0211|EEBA_INTEGRATION|INSTANCE_COPY|INSTANCE_SUBMIT|LINKED_INSTANCES|MASTER_DATA|PARASHIFT|PERMISSIONS|PERMISSIONS_ALEXANDRIA|PLACEHOLDERS|PROCEDURE_STATUS|PROJECT_MODIFICATION|PUBLICATION|REJECTION|RPG2|RULESETS|SANCTIONS|SERVICE|STATISTICS|TAGS|TIMELINES|USER|WITHDRAWAL|WORK_ITEM_LIST|GIS_EXPORT)$"
+    matches: module-settings-name
 fix: 'is_module_enabled("$MODULE")'
+---
+id: register-module-settings-name
+language: python
+severity: error
+message: "Add `$NAME` to the `module-settings-name` util rule in `ast-grep/utils/module_settings.yaml`"
+note: |
+  The rules above can only lint enable checks for modules that are listed in the
+  `module-settings-name` util rule, and `ast-grep` cannot derive that list from
+  the Django settings. Add the module name to its regex, keeping the list
+  alphabetically sorted, so its enable checks are linted as well.
+files:
+  - django/camac/settings/django.py
+rule:
+  pattern: $NAME = load_module_settings($$$ARGS)
+constraints:
+  NAME:
+    not:
+      matches: module-settings-name

@@ -1,4 +1,5 @@
 # AST-Grep Rules
 ruleDirs:
-  - ast-grep
-
+  - ast-grep/rules
+utilDirs:
+  - ast-grep/utils

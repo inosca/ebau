@@ -6,6 +6,11 @@ perform automated refactorings.
 The rules here are meant for things that are specific to our own code base,
 where there may not be ready-made `ruff` rules for it.
 
+Rules live in `rules/`, reusable [utility
+rules](https://ast-grep.github.io/guide/rule-config/utility-rule.html) that are
+shared between them live in `utils/`. Both directories are registered in
+`sgconfig.yml` in the project root.
+
 ## Rules Overview
 
 ### Pytest Django DB Migration
@@ -40,9 +45,13 @@ The autofix does not add the import, you have to add it yourself:
 from camac.settings.utils import is_module_enabled
 ```
 
-The bare-truthiness rule only matches the modules registered via
-`load_module_settings(...)` in `camac/settings/django.py`; keep its `MODULE`
-list in sync when adding a module.
+These rules only match the modules registered via `load_module_settings(...)` in
+`camac/settings/django.py`, which are enumerated in the `module-settings-name`
+util rule in `utils/module_settings.yaml`. `ast-grep` can't read that list from
+the Django settings, so a third rule (`register-module-settings-name`) makes
+sure we don't forget to update it: it fails the linting for every
+`load_module_settings(...)` call in `camac/settings/django.py` whose settings
+name is missing from the util rule.
 
 ## Running the fixes
 
