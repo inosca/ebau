@@ -67,4 +67,4 @@ Steps to complete before assigning reviews:
 - [ ] Template is filled out, the `/label` lines are removed if not applicable, and unaffected canton rows (including their `/label` lines) are removed from Canton testing & communication.
 - [ ] Pipeline is green
 - [ ] Commits are meaningful and split up if needed
-- [ ] MR description contains all neccesary information for affected cantons
+- [ ] MR description contains all necessary information for affected cantons
