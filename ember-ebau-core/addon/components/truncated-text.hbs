@@ -4,5 +4,7 @@
   {{/if}}
 </span>
 <UkModal @visible={{this.modalVisible}} @onHide={{this.toggleModal}} as |Modal|>
-  <Modal.body>{{this.content}}</Modal.body>
+  <Modal.body>
+    <div class="multi-line-text">{{this.content}}</div>
+  </Modal.body>
 </UkModal>
