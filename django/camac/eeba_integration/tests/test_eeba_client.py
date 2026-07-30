@@ -20,7 +20,12 @@ def test_missing_uuid(eeba_client):
         eeba_client.make_request("get_resource")
 
 
-def test_get_request(eeba_client, mock_eeba_session, make_eeba_mock_response):
+def test_get_request(
+    eeba_client,
+    mock_eeba_session,
+    make_eeba_mock_response,
+    gr_eeba_integration_settings,
+):
     expected_url = (
         "http://example.com/integrations/35374476-0694-42ed-84d4-8da544d0a60e"
     )
@@ -58,7 +63,9 @@ def test_get_request(eeba_client, mock_eeba_session, make_eeba_mock_response):
     )
     assert response.json() == dummy_get_response_data
     mock_eeba_session.get.assert_called_once_with(
-        expected_url, headers=expected_headers
+        expected_url,
+        headers=expected_headers,
+        timeout=gr_eeba_integration_settings["EEBA_TIMEOUT_SECONDS"],
     )
     assert response.headers.get("Content-Type") == "application/json"
 
@@ -82,7 +89,10 @@ def test_post_request(eeba_client, mock_eeba_session, make_eeba_mock_response):
     response = eeba_client.make_request("create_resource", data=test_data)
     assert response.json() == {}
     mock_eeba_session.post.assert_called_once_with(
-        expected_url, headers=expected_headers, data=json.dumps(test_data)
+        expected_url,
+        headers=expected_headers,
+        data=json.dumps(test_data),
+        timeout=test_data["timeout"],
     )
 
     assert response.headers.get("Location") == location_header
@@ -107,11 +117,19 @@ def test_patch_request(eeba_client, mock_eeba_session, make_eeba_mock_response):
     )
     assert response.json() == {}
     mock_eeba_session.patch.assert_called_once_with(
-        expected_url, headers=expected_headers, data=json.dumps(test_data)
+        expected_url,
+        headers=expected_headers,
+        data=json.dumps(test_data),
+        timeout=test_data["timeout"],
     )
 
 
-def test_extra_headers(eeba_client, mock_eeba_session, make_eeba_mock_response):
+def test_extra_headers(
+    eeba_client,
+    mock_eeba_session,
+    make_eeba_mock_response,
+    gr_eeba_integration_settings,
+):
     extra_headers = {"Custom": "Header"}
     uuid_value = "35374476-0694-42ed-84d4-8da544d0a60e"
     expected_url = f"http://example.com/integrations/{uuid_value}/retry"
@@ -128,7 +146,10 @@ def test_extra_headers(eeba_client, mock_eeba_session, make_eeba_mock_response):
     assert response.json() == {}
     assert response.status_code == 200
     mock_eeba_session.post.assert_called_once_with(
-        expected_url, headers=combined_headers, data=json.dumps(None)
+        expected_url,
+        headers=combined_headers,
+        data=json.dumps(None),
+        timeout=gr_eeba_integration_settings["EEBA_TIMEOUT_SECONDS"],
     )
 
 

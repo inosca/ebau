@@ -71,27 +71,94 @@ class EebaClient:
 
         url = self.base_url + path
 
-        logger.info("EebaClient endpoint info: %s: %s", method, url)
-
         headers = self.default_headers.copy()
         if extra_headers:
             extra_headers = extra_headers.copy()
             headers.update(extra_headers)
 
+        request_timeout = (data or {}).get(
+            "timeout", settings.EEBA_INTEGRATION.get("EEBA_TIMEOUT_SECONDS")
+        )
         method_handlers = {
-            "GET": lambda: self.session.get(url, headers=headers),
+            "GET": lambda: self.session.get(
+                url,
+                headers=headers,
+                timeout=request_timeout,
+            ),
             "POST": lambda: self.session.post(
-                url, headers=headers, data=json.dumps(data)
+                url,
+                headers=headers,
+                data=json.dumps(data),
+                timeout=request_timeout,
             ),
             "PATCH": lambda: self.session.patch(
-                url, headers=headers, data=json.dumps(data)
+                url,
+                headers=headers,
+                data=json.dumps(data),
+                timeout=request_timeout,
             ),
         }
 
         try:
-            response = method_handlers[method]()
+            request = method_handlers[method]
         except KeyError as e:
             raise ValueError(_("Unsupported HTTP method: %s") % method) from e
+
+        logger.info(
+            "eEBA request started: action=%s method=%s url=%s timeout=%ss",
+            action,
+            method,
+            url,
+            request_timeout,
+        )
+        started_at = time.monotonic()
+
+        try:
+            response = request()
+        except requests.exceptions.Timeout:  # pragma: no cover
+            logger.warning(
+                "eEBA request timed out: action=%s method=%s url=%s "
+                "timeout=%ss elapsed=%.3fs",
+                action,
+                method,
+                url,
+                request_timeout,
+                time.monotonic() - started_at,
+                exc_info=True,
+            )
+            raise
+        except requests.exceptions.RequestException:  # pragma: no cover
+            logger.exception(
+                "eEBA request failed: action=%s method=%s url=%s elapsed=%.3fs",
+                action,
+                method,
+                url,
+                time.monotonic() - started_at,
+            )
+            raise
+        except Exception as exc:  # pragma: no cover
+            logger.exception(
+                "Unexpected eEBA request failure: action=%s method=%s url=%s "
+                "elapsed=%.3fs",
+                action,
+                method,
+                url,
+                time.monotonic() - started_at,
+            )
+            raise EebaHandlerServerException("An unexpected error occurred") from exc
+
+        log_response = logger.info if response.ok else logger.warning
+        log_response(
+            "eEBA request finished: action=%s method=%s url=%s "
+            "status_code=%s reason=%s ok=%s elapsed=%.3fs",
+            action,
+            method,
+            url,
+            response.status_code,
+            response.reason,
+            response.ok,
+            time.monotonic() - started_at,
+        )
 
         response.raise_for_status()
         return response
