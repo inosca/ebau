@@ -1,7 +1,8 @@
-from datetime import date
+from datetime import date, timedelta
 
 import pytest
 from caluma.caluma_form.exceptions import CustomFormatValidationError
+from django.utils.timezone import now
 
 from camac.caluma.extensions.format_validators import (
     DateAfterValidator,
@@ -76,3 +77,26 @@ def test_date_after_validator(
     assert (
         str(e.value.detail[0]) == f'Das Datum muss nach "{after_question.label}" liegen'
     )
+
+
+@pytest.mark.django_db
+def test_date_after_today_validator(caluma_document_factory, caluma_question_factory):
+    document = caluma_document_factory()
+    question = caluma_question_factory(meta={"date-after-today": True})
+
+    today = now().date()
+
+    assert (
+        DateAfterValidator.is_valid(today + timedelta(days=1), document, question)
+        is True
+    )
+    assert DateAfterValidator.is_valid(today, document, question) is False
+    assert (
+        DateAfterValidator.is_valid(today - timedelta(days=1), document, question)
+        is False
+    )
+
+    with pytest.raises(CustomFormatValidationError) as e:
+        DateAfterValidator.validate(today, document, question)
+
+    assert str(e.value.detail[0]) == "Das Datum muss nach heute liegen"

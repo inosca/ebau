@@ -2,6 +2,7 @@ from functools import lru_cache
 
 from caluma.caluma_form.format_validators import BaseFormatValidator
 from caluma.caluma_form.models import Question
+from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as _
 
 
@@ -31,29 +32,55 @@ class EEBADeclarationFormatValidator(BaseFormatValidator):
 
 
 class DateAfterValidator(BaseFormatValidator):
+    """Validate that a date is after a reference date.
+
+    The reference date is configured in the meta of the validated question,
+    either as the answer of another date question:
+
+    ```
+    { "date-after-question": "some-date-question" }
+    ```
+
+    or as the current date:
+
+    ```
+    { "date-after-today": true }
+    ```
+    """
+
     slug = "date-after"
     name = _("Date after")
-    error_msg = _('Date must be after "%(after_question)s"')
+    error_msg = _("Date must be after %(after)s")
     allowed_question_types = [Question.TYPE_DATE]
 
     @classmethod
-    def is_valid(cls, value, document, question):
-        after = document.answers.filter(
-            question_id=question.meta["date-after-question"]
-        ).first()
+    def get_after_date(cls, document, question):
+        if question.meta.get("date-after-today"):
+            return now().date()
 
-        if not after:
+        return (
+            document.answers.filter(question_id=question.meta["date-after-question"])
+            .values_list("date", flat=True)
+            .first()
+        )
+
+    @classmethod
+    def is_valid(cls, value, document, question):
+        after = cls.get_after_date(document, question)
+
+        if after is None:
             return False
 
-        return value > after.date
+        return value > after
 
     @classmethod
     def get_error_msg_args(cls, value, document, question):
-        return {
-            "after_question": cls.get_label(
-                question.meta["date-after-question"]
-            ).translate()
-        }
+        if question.meta.get("date-after-today"):
+            return {"after": _("today")}
+
+        label = cls.get_label(question.meta["date-after-question"]).translate()
+
+        return {"after": f'"{label}"'}
 
     @classmethod
     @lru_cache
