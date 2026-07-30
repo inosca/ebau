@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-28 17:45+0200\n"
+"POT-Creation-Date: 2026-07-30 13:28+0200\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -492,8 +492,12 @@ msgstr "Date après"
 
 #: camac/caluma/extensions/format_validators.py
 #, python-format
-msgid "Date must be after \"%(after_question)s\""
-msgstr "La date doit être postérieure à « %(after_question)s »"
+msgid "Date must be after %(after)s"
+msgstr "La date doit être postérieure à %(after)s"
+
+#: camac/caluma/extensions/format_validators.py
+msgid "today"
+msgstr "aujourd'hui"
 
 #: camac/caluma/extensions/validations.py
 msgid "Issue statement on appeal"
