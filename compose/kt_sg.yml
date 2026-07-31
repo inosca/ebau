@@ -58,6 +58,7 @@ services:
       cache_from:
         - acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
       args:
+        DMS_VERSION: 10.0
         APPLICATION: ${APPLICATION}
 
   garage:
@@ -66,3 +67,10 @@ services:
       context: ../garage
       cache_from:
         - acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-master}
+
+  gotenberg:
+    image: acr.run/camac-ng/camac-ng/gotenberg:${CI_COMMIT_TAG:-master}
+    build:
+      context: ../gotenberg
+      cache_from:
+        - acr.run/camac-ng/camac-ng/gotenberg:${CI_COMMIT_TAG:-master}
