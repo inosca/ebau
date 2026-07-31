@@ -82,6 +82,18 @@ mutation InitAdditionalDemandFlow {
   }
 }
 
+mutation InitAdditionalDemandFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "demolition-payment"
+      tasks: ["init-additional-demand"]
+      next: "[\"init-additional-demand\", \"additional-demand\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation AdditionalDemandWorkflow {
   saveWorkflow(
     input: {

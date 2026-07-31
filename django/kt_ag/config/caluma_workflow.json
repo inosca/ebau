@@ -105,6 +105,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "06a6d0e1-0e7c-7655-8000-03f8527cb0ac",
+    "fields": {
+      "created_at": "2026-07-31T21:05:20.905Z",
+      "modified_at": "2026-07-31T21:05:20.905Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"init-additional-demand\", \"additional-demand\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "17f268c4-4038-459c-88ce-45f6de82a878",
     "fields": {
       "created_at": "2025-01-31T14:08:08.922Z",
@@ -884,6 +897,22 @@
       "workflow": "demolition-payment",
       "task": "change-responsible-service",
       "flow": "06a5e49f-0cc0-7b22-8000-c027ae4f5083",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "06a6d0e1-0e85-797a-8000-6730f16c9acc",
+    "fields": {
+      "created_at": "2026-07-31T21:05:20.907Z",
+      "modified_at": "2026-07-31T21:05:20.907Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "demolition-payment",
+      "task": "init-additional-demand",
+      "flow": "06a6d0e1-0e7c-7655-8000-03f8527cb0ac",
       "redoable": null
     }
   },
