@@ -44,6 +44,7 @@ class EebaClient:
             "Authorization": f"Bearer {exchanged}",
             "X-EBAU-EEBA-SECRET": shared_secret,
             "Content-Type": "application/json",
+            "Connection": "close",
         }
 
         self.endpoints = {
