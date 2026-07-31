@@ -143,6 +143,7 @@ instances:
   modification de projet ?'</strong'>"
   demolitionPaymentTitle: ""
   demolitionPaymentText: ""
+  demolitionPaymentError: ""
   rejectionTitle: "Soumettre à nouveau le dossier"
   rejectionTitleSuffix: "(Motifs de rejet)"
   rejectionText: "Vous pouvez traiter et soumettre à nouveau le dossier

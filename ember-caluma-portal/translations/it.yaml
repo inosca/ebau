@@ -135,6 +135,7 @@ instances:
   modificationConfirm: "'<strong'>Sta per iniziare il processo di inserimento in relazione a una modifica del progetto (art. 43 BewD)'</strong'>'<br'>'<br'>Per rispondere a una '<u'>richiesta di precisazioni'</u'> o per procedere al nuovo inoltro di un '<u'>dossier respinto'</u'> '<u'>non è necessario inoltrare una modifica del progetto'</u'>. A questo scopo usare le funzioni eBau (risposta a richiesta di precisazioni o nuovo inoltro del dossier).'<br'>'<br'>'<strong'>Desidera continuare con il rilevamento di una modifica del progetto?'</strong'>"
   demolitionPaymentTitle: ""
   demolitionPaymentText: ""
+  demolitionPaymentError: ""
   rejectionTitle: "Nuovo inoltro del dossier"
   rejectionTitleSuffix: "(Respingimento)"
   rejectionText: "Può elaborare il dossier inoltrato in origine in base ai riscontri dell'autorità direttrice (vedi testo «Motivo del respingimento») e inoltrarlo nuovamente. Per la correzione viene assegnato un nuovo numero di dossier."
