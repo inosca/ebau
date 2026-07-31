@@ -279,9 +279,10 @@
       "name": "{\"de\": \"Auszahlung Abbruchprämie\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {
+        "category": "special-procedure",
         "is-main-form": true
       },
-      "is_published": false,
+      "is_published": true,
       "is_archived": false,
       "source": null
     }
