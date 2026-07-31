@@ -996,6 +996,21 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "abbruchpraemie",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v6.abbruchpraemie-optionale-dokumente",
+    "fields": {
+      "created_at": "2026-07-31T08:34:22.068Z",
+      "modified_at": "2026-07-31T08:34:22.068Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v6",
+      "question": "abbruchpraemie-optionale-dokumente",
       "sort": 1
     }
   },
@@ -1011,7 +1026,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "aus-und-weiterbildungsnachweise-v6",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -1026,7 +1041,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "bericht-zur-umweltvertraeglichkeitspruefung-uvp",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -1041,7 +1056,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "betriebsjournal-bestehende-abfallanlagen-v6",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -1056,7 +1071,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "betriebs-organigramm-ein-mann-v6",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -1071,7 +1086,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "bodenkundliches-fachgutachten",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -1086,7 +1101,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "brandschutzkonzept",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -1101,7 +1116,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "brandschutzplaene",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -1116,7 +1131,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "brandschutzplaene-brandschutzkonzept",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -1131,7 +1146,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "dispositionsplan-heizungsraum",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -1146,7 +1161,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "einfache-brandschutzplaene",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -1161,7 +1176,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "entwaesserungsplan-v6",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -1176,7 +1191,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "feststellungsverfuegung",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -1191,7 +1206,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "gesuch-feuerpolizeiliche-bewilligung",
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -1206,7 +1221,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "gesuch-fuer-eine-bewilligung-v5",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -1221,7 +1236,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "hinweistext-dokumente",
-      "sort": 34
+      "sort": 35
     }
   },
   {
@@ -1236,7 +1251,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "komplexe-erdwaermesonden-diagramm-v2",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -1251,7 +1266,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "komplexe-erdwaermesonden-dimensionierungsberechnung-v2",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -1266,7 +1281,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "messbericht",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -1281,7 +1296,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "projektplaene",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -1296,7 +1311,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "resultate-der-geforderten-bodenuntersuchung",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -1311,7 +1326,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "rodungsgesuchsformular",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -1326,7 +1341,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "schutzraumplaene",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -1341,7 +1356,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "sicherheitsdatenblatt",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -1356,7 +1371,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "tragbarkeitsberechnung",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -1371,7 +1386,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "uebereinstimmungserklaerung-fuer-pv-anlagen",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -1386,7 +1401,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "umweltbezogenes-sicherheits-alarmkonzept-v6",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -1401,7 +1416,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "vereinbarkeit-zweitwohnungsgesetz",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -1416,7 +1431,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "vorablaerungsbericht-tiefbauamt-leitungen",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -1431,7 +1446,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "vorablaerungsbericht-tiefbauamt-naeherbauten",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -1446,7 +1461,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "vorablaerungsbericht-tiefbauamt-strassenreklamen",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -1461,7 +1476,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "waermepumpen-auftragsbestaetigung-hydrogeologische-begleitung-v2",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -1476,7 +1491,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "waermepumpen-standortplan-v2",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -1491,7 +1506,7 @@
       "modified_by_group": null,
       "form": "dokumente-v6",
       "question": "zusatzbewilligung-naturgefahren",
-      "sort": 30
+      "sort": 31
     }
   },
   {
