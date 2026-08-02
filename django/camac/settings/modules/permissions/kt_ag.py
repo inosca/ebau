@@ -263,7 +263,7 @@ def demolition_payment_requested(instance):
 
 
 ACTION_INSTANCE_REQUEST_DEMOLITION_PAYMENT = (
-    RequireWorkItem("complete-instance")
+    RequireWorkItem("decision", "completed")
     & (HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper()))
     & Callback(
         demolition_payment_requested,
