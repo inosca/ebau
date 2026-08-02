@@ -19,6 +19,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung.abbruchpraemie-betrag",
+    "fields": {
+      "created_at": "2026-08-02T21:28:41.144Z",
+      "modified_at": "2026-08-02T21:28:41.144Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung",
+      "question": "abbruchpraemie-betrag",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "kantonale-pruefung.kantonale-pruefung-abschliessen",
     "fields": {
       "created_at": "2025-01-23T15:14:19.513Z",
@@ -44,7 +59,7 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-anlagentyp-uvpv",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -59,7 +74,7 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-bemerkungen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -74,7 +89,7 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -89,7 +104,7 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-frist",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -104,7 +119,7 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-gesuchscodes",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -119,7 +134,7 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-nachtraegliches-baugesuch",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -134,7 +149,7 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-triage-bemerkungen",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -149,7 +164,7 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-verfahrensart",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -164,7 +179,7 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-migriert-von-ebau-extended",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -1712,6 +1727,40 @@
       "is_archived": false,
       "meta": {},
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchpraemie-betrag",
+    "fields": {
+      "created_at": "2026-08-02T21:28:41.085Z",
+      "modified_at": "2026-08-02T21:28:41.085Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Falls Abbruchprämie gesprochen, Betrag\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
     }
   },
   {

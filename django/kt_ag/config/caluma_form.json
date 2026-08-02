@@ -3060,6 +3060,126 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie-subform.iban-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:36:18.530Z",
+      "modified_at": "2026-08-02T21:36:18.530Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "iban-kontoinhaber",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie-subform.nachname-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:34:20.318Z",
+      "modified_at": "2026-08-02T21:34:20.318Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "nachname-kontoinhaber",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie-subform.nummer-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:35:14.789Z",
+      "modified_at": "2026-08-02T21:35:14.789Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "nummer-kontoinhaber",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie-subform.ort-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:35:44.883Z",
+      "modified_at": "2026-08-02T21:35:44.883Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "ort-kontoinhaber",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie-subform.plz-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:35:36.989Z",
+      "modified_at": "2026-08-02T21:35:36.989Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "plz-kontoinhaber",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie-subform.strasse-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:34:59.966Z",
+      "modified_at": "2026-08-02T21:34:59.966Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "strasse-kontoinhaber",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie-subform.titel-angaben-kontoinhaberin",
+    "fields": {
+      "created_at": "2026-08-02T21:32:56.072Z",
+      "modified_at": "2026-08-02T21:32:56.073Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "titel-angaben-kontoinhaberin",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie-subform.vorname-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:33:35.319Z",
+      "modified_at": "2026-08-02T21:33:35.319Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie-subform",
+      "question": "vorname-kontoinhaber",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "auszahlung.dossier-number-reference",
     "fields": {
       "created_at": "2026-06-21T21:29:53.397Z",
@@ -3070,7 +3190,7 @@
       "modified_by_group": null,
       "form": "auszahlung-abbruchpraemie-subform",
       "question": "dossier-number-reference",
-      "sort": 6
+      "sort": 12
     }
   },
   {
@@ -3085,7 +3205,7 @@
       "modified_by_group": null,
       "form": "auszahlung-abbruchpraemie-subform",
       "question": "eigentuemergemeinschaft",
-      "sort": 3
+      "sort": 10
     }
   },
   {
@@ -3100,7 +3220,7 @@
       "modified_by_group": null,
       "form": "auszahlung-abbruchpraemie-subform",
       "question": "gemeinde",
-      "sort": 5
+      "sort": 11
     }
   },
   {
@@ -3115,7 +3235,7 @@
       "modified_by_group": null,
       "form": "auszahlung-abbruchpraemie-subform",
       "question": "hinweis-vollmacht-eigentumergemeinschaft",
-      "sort": 2
+      "sort": 9
     }
   },
   {
@@ -3130,22 +3250,7 @@
       "modified_by_group": null,
       "form": "auszahlung-abbruchpraemie-subform",
       "question": "is-paper",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "auszahlung.zahlungsverbindung",
-    "fields": {
-      "created_at": "2026-06-21T21:29:53.393Z",
-      "modified_at": "2026-06-21T21:29:53.393Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "auszahlung-abbruchpraemie-subform",
-      "question": "zahlungsverbindung",
-      "sort": 4
+      "sort": 13
     }
   },
   {
@@ -26746,6 +26851,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "iban-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:36:18.473Z",
+      "modified_at": "2026-08-02T21:36:18.473Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"IBAN\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "industrie-und-gewerbeabwasser",
     "fields": {
       "created_at": "2023-04-19T13:27:04.363Z",
@@ -28151,6 +28290,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "nachname-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:34:20.256Z",
+      "modified_at": "2026-08-02T21:34:20.256Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachname\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "nettoflaeche-m",
     "fields": {
       "created_at": "2024-11-07T13:59:50.028Z",
@@ -28265,6 +28438,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nummer-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:35:14.721Z",
+      "modified_at": "2026-08-02T21:35:14.721Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -28563,6 +28770,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "ort-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:35:44.836Z",
+      "modified_at": "2026-08-02T21:35:44.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ort\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "pachtland-total-migration",
     "fields": {
       "created_at": "2025-01-23T14:49:55.465Z",
@@ -28714,6 +28955,40 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "personalien",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "plz-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:35:36.950Z",
+      "modified_at": "2026-08-02T21:35:36.950Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"PLZ\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -29746,6 +30021,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "strasse-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:34:59.902Z",
+      "modified_at": "2026-08-02T21:34:59.902Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "strassen-wege",
     "fields": {
       "created_at": "2024-11-07T15:47:14.032Z",
@@ -29896,6 +30205,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "titel-angaben-kontoinhaberin",
+    "fields": {
+      "created_at": "2026-08-02T21:32:56.013Z",
+      "modified_at": "2026-08-02T21:32:56.013Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Titel Angaben Kontoinhaber/in\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Angaben Kontoinhaber/in\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -30911,6 +31251,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "vorname-kontoinhaber",
+    "fields": {
+      "created_at": "2026-08-02T21:33:35.260Z",
+      "modified_at": "2026-08-02T21:33:35.260Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorname\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "waldareal",
     "fields": {
       "created_at": "2023-04-12T07:58:42.402Z",
@@ -31787,40 +32161,6 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "zahlungsverbindung",
-    "fields": {
-      "created_at": "2026-06-21T21:29:53.332Z",
-      "modified_at": "2026-07-23T15:19:15.342Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Zahlungsverbindung (IBAN, Bankname, PC-Konto)\", \"fr\": null, \"it\": null}",
-      "type": "textarea",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Bitte geben Sie die vollständige Bezeichnung des Kontoinhabers / der Kontoinhaberin und die IBAN-Nummer an.\\n\\nBeispiel:\\n```\\nMax und Marianne Muster-Beispiel\\nBeispielstrasse 22\\n5000 Aarau\\nIBAN CH92 0900 0000 3000 0406 7\\nbei der PostFinance AG, Mingerstrasse 20, 3030 Bern\\n```\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
       "meta": {},
       "data_source": null,
       "row_form": null,
