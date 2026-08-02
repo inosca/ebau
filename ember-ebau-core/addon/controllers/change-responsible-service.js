@@ -18,9 +18,7 @@ export default class ChangeResponsibleServiceController extends Controller {
   @tracked selectedService;
 
   get readableServiceGroups() {
-    return mainConfig.changeResponsibleService.serviceGroupsForType[
-      this.model
-    ];
+    return mainConfig.changeResponsibleService.serviceGroupsForType[this.model];
   }
 
   get selectableServiceGroups() {
