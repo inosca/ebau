@@ -44733,7 +44733,7 @@
     "pk": "abbruchvorhaben-komplexitaet",
     "fields": {
       "created_at": "2026-07-06T08:35:40.919Z",
-      "modified_at": "2026-07-31T08:40:03.229Z",
+      "modified_at": "2026-08-03T08:20:14.967Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44746,7 +44746,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"#### b) Komplexität – Wie aufwändig ist der Abbruch?\\n\\nDieser Faktor berücksichtigt den baulichen Aufwand des Abbruchs selbst. \\n\\n- Tief Einfache, offene Konstruktion (z.B. Schopf, Remise, einfache Scheune)\\n- Mittel Mehrgeschossiges Gebäude mit Böden und Zwischendecken\\n- Hoch  Viele kleine Räume, komplizierte Grundrisse und Keller\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"#### b) Komplexität – Wie aufwändig ist der Abbruch?\\n\\nDieser Faktor berücksichtigt den baulichen Aufwand des Abbruchs selbst. \\n\\n- Tief: Einfache, offene Konstruktion (z.B. Schopf, Remise, einfache Scheune)\\n- Mittel: Mehrgeschossiges Gebäude mit Böden und Zwischendecken\\n- Hoch:  Viele kleine Räume, komplizierte Grundrisse und Keller\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
