@@ -1,7 +1,8 @@
 import datetime as dt
+from collections import defaultdict
 from functools import lru_cache
 
-from caluma.caluma_form.models import Answer, DynamicOption
+from caluma.caluma_form.models import Answer, AnswerDocument, DynamicOption, Option
 from caluma.caluma_workflow.models import Case as CalumaCase, WorkItem
 from django.conf import settings
 from django.core.validators import EMPTY_VALUES
@@ -30,7 +31,7 @@ from django.db.models.functions import (
     Replace,
     Trim,
 )
-from django.utils.translation import get_language
+from django.utils.translation import get_language, gettext as _
 from django_filters.rest_framework import BaseInFilter, DateFilter as DFDateFilter
 from rest_framework.filters import BaseFilterBackend
 
@@ -166,6 +167,11 @@ def _exclude_claim_inquiries(qs):
         child_case__document__answers__question_id=status_question,
         child_case__document__answers__value=claim_value,
     )
+
+
+def _label_of_answer(doc_answers, slug, labels):
+    value = doc_answers.get(slug) if slug else None
+    return labels.get(value) if isinstance(value, str) else None
 
 
 class CompletingDateFilter(DFDateFilter):
@@ -717,3 +723,283 @@ class WorkItemFilterBackend(_BaseFilterBackend):
                 **self._work_item_annotations(requested_columns),
             )
         )
+
+
+class RPG2FilterBackend(_BaseFilterBackend):
+    """Export rpg2 dossiers with sealed/unsealed areas."""
+
+    _case_ref = "case"
+    _instance_ref = ""
+
+    @property
+    def _slugs(self):
+        return settings.STATISTICS.slugs
+
+    def _rpg2_answers(self, question_slug):
+        return Answer.objects.filter(
+            question_id=question_slug,
+            document__work_item__task_id=settings.RPG2.task,
+            document__work_item__case__instance=OuterRef(self._instance_pk_ref),
+        )
+
+    def annotate_rpg2_choice_label(self, question_slug):
+        return Subquery(
+            self._rpg2_answers(question_slug)
+            .annotate(
+                option_slug=Replace(
+                    Cast("value", output_field=CharField()),
+                    Value('"'),
+                    Value(""),
+                ),
+            )
+            .annotate(
+                option_label=Subquery(
+                    Option.objects.filter(pk=OuterRef("option_slug")).values(
+                        f"label__{get_language()}"
+                    )[:1]
+                ),
+            )
+            .values("option_label")[:1],
+            output_field=CharField(),
+        )
+
+    def annotate_rpg2_integer(self, question_slug):
+        return Subquery(
+            self._rpg2_answers(question_slug)
+            .annotate(
+                int_value=Cast(
+                    Cast("value", output_field=CharField()),
+                    output_field=IntegerField(),
+                ),
+            )
+            .values("int_value")[:1],
+            output_field=IntegerField(),
+        )
+
+    def annotate_rpg2_approved(self):
+        decision = settings.DECISION
+        answers_map = decision.get("ANSWERS", {}).get("DECISION", {})
+        positive_slugs = [
+            answers_map[key]
+            for key in decision.get("POSITIVE_DECISIONS", [])
+            if key in answers_map
+        ]
+
+        return Subquery(
+            Answer.objects.filter(
+                question_id=decision["QUESTIONS"]["DECISION"],
+                document__work_item__task_id=decision["TASK"],
+                document__work_item__status__in=[
+                    WorkItem.STATUS_COMPLETED,
+                    WorkItem.STATUS_SKIPPED,
+                ],
+                document__work_item__case__instance=OuterRef(self._instance_pk_ref),
+            )
+            .annotate(
+                approved=Case(
+                    When(value__in=positive_slugs, then=Value(str(_("Yes")))),
+                    default=Value(str(_("No"))),
+                    output_field=CharField(),
+                ),
+            )
+            .values("approved")[:1],
+            output_field=CharField(),
+        )
+
+    def annotate_rpg2_positive_afb(self):
+        status_question = settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
+        status_answers = settings.DISTRIBUTION["ANSWERS"]["STATUS"]
+        positive_statuses = [
+            status_answers[key]
+            for key in ("POSITIVE", "POSITIVE_SANCTIONS", "POSITIVE_PARTIALLY")
+            if key in status_answers
+        ]
+        afb_service_id = get_inquiry_service_id()
+
+        return Case(
+            When(
+                Exists(
+                    Inquiry.objects.addressed_to(afb_service_id).filter(
+                        case__family__instance=OuterRef(self._instance_pk_ref),
+                        child_case__document__answers__question_id=status_question,
+                        child_case__document__answers__value__in=positive_statuses,
+                    )
+                ),
+                then=Value(str(_("Yes"))),
+            ),
+            default=Value(None),
+            output_field=CharField(),
+        )
+
+    def _rpg2_annotations(self, requested_columns=None):
+        slugs = self._slugs
+        available = {
+            "dossier_number": lambda: self.annotate_dossier_number(),
+            "form_name": lambda: self.annotate_type(),
+            "rpg2_legal_basis": lambda: self.annotate_rpg2_choice_label(
+                slugs["rpg2_legal_basis"]
+            ),
+            "rpg2_new_buildings": lambda: self.annotate_rpg2_integer(
+                slugs["rpg2_new_buildings"]
+            ),
+            "rpg2_demolished_buildings": lambda: self.annotate_rpg2_integer(
+                slugs["rpg2_demolished_buildings"]
+            ),
+            "rpg2_protected_buildings": lambda: self.annotate_rpg2_integer(
+                slugs["rpg2_protected_buildings"]
+            ),
+            "rpg2_approved": lambda: self.annotate_rpg2_approved(),
+            "rpg2_positive_afb": lambda: self.annotate_rpg2_positive_afb(),
+            "rpg2_realized": lambda: self.annotate_rpg2_choice_label(
+                slugs["rpg2_realized"]
+            ),
+        }
+
+        columns = (
+            requested_columns if requested_columns is not None else available.keys()
+        )
+        return {name: available[name]() for name in columns if name in available}
+
+    def _filtered_instance_pks(self, request, queryset):
+        """Instance PKs with filled building questions or area table rows."""
+        building_question_slugs = [
+            self._slugs["rpg2_new_buildings"],
+            self._slugs["rpg2_demolished_buildings"],
+            self._slugs["rpg2_protected_buildings"],
+        ]
+        building_instance_pks = (
+            Answer.objects.filter(
+                question_id__in=building_question_slugs,
+                value__isnull=False,
+                document__work_item__task_id=settings.RPG2.task,
+            )
+            .exclude(value="")
+            .values_list("document__work_item__case__instance__pk", flat=True)
+            .distinct()
+        )
+
+        return list(
+            Instance.objects.filter(Q(pk__in=building_instance_pks))
+            .order_by()
+            .values_list("pk", flat=True)
+            .distinct()
+        )
+
+    def filter_queryset(self, request, queryset, requested_annotations):
+        requested_columns = requested_annotations
+
+        instance_pks = self._filtered_instance_pks(request, queryset)
+
+        return (
+            Instance.objects.filter(pk__in=instance_pks)
+            .select_related("case")
+            .only(
+                "pk",
+                "instance_state_id",
+                "case__meta",
+                "case__family_id",
+                "case__document_id",
+            )
+            .annotate(**self._rpg2_annotations(requested_columns))
+        )
+
+    # without request and queryset parameter because AfB is the only
+    # service using this rpg2 export
+    def area_rows(self):
+        """Return one row per sealed/unsealed area."""
+        slugs = self._slugs
+
+        row_links_qs = AnswerDocument.objects.filter(
+            answer__question_id=slugs["rpg2_areas_table"],
+            answer__document__work_item__task_id=settings.RPG2.task,
+        )
+        row_links = list(
+            row_links_qs.select_related(
+                "answer__document__work_item__case__instance"
+            ).order_by(
+                "answer__document__work_item__case__instance__pk",
+                "-sort",
+            )
+        )
+        row_document_ids = row_links_qs.values("document_id")
+
+        choice_slugs = [
+            slugs["rpg2_area_type"],
+            slugs["rpg2_area_materialization"],
+            slugs["rpg2_area_usage"],
+            slugs["rpg2_area_sealed_when"],
+        ]
+        # TODO: implement soemmerung for cantons which need it later
+        # if slugs.get("rpg2_area_soemmerung"):
+        #     choice_slugs.append(slugs["rpg2_area_soemmerung"])
+        sub_slugs = [
+            slugs["rpg2_area_size"],
+            slugs["rpg2_area_materialization_description"],
+            *choice_slugs,
+        ]
+
+        answers_by_doc = defaultdict(dict)
+        for answer in Answer.objects.filter(
+            document_id__in=Subquery(row_document_ids),
+            question_id__in=sub_slugs,
+        ).values("document_id", "question_id", "value"):
+            answers_by_doc[answer["document_id"]][answer["question_id"]] = answer[
+                "value"
+            ]
+
+        option_slugs = {
+            value
+            for doc_answers in answers_by_doc.values()
+            for slug in choice_slugs
+            if isinstance((value := doc_answers.get(slug)), str)
+        }
+        labels = dict(
+            Option.objects.filter(pk__in=option_slugs).values_list(
+                "pk", f"label__{get_language()}"
+            )
+        )
+
+        unsealed_prefix = slugs.get("rpg2_area_unsealed_prefix", "")
+
+        rows = []
+        for link in row_links:
+            case = link.answer.document.work_item.case
+            instance = case.instance
+            doc_answers = answers_by_doc.get(link.document_id, {})
+
+            area_type_value = doc_answers.get(slugs["rpg2_area_type"])
+            area_size = doc_answers.get(slugs["rpg2_area_size"])
+            if (
+                area_size is not None
+                and unsealed_prefix
+                and isinstance(area_type_value, str)
+                and area_type_value.startswith(unsealed_prefix)
+            ):
+                area_size = -area_size
+
+            rows.append(
+                {
+                    "dossier_number": (case.meta or {}).get("dossier-number"),
+                    "ebau_number": instance.pk,
+                    "area_type": _label_of_answer(
+                        doc_answers, slugs["rpg2_area_type"], labels
+                    ),
+                    "area_size": area_size,
+                    "area_materialization": _label_of_answer(
+                        doc_answers, slugs["rpg2_area_materialization"], labels
+                    ),
+                    "area_materialization_description": doc_answers.get(
+                        slugs["rpg2_area_materialization_description"]
+                    ),
+                    "area_usage": _label_of_answer(
+                        doc_answers, slugs["rpg2_area_usage"], labels
+                    ),
+                    "area_sealed_when": _label_of_answer(
+                        doc_answers, slugs["rpg2_area_sealed_when"], labels
+                    ),
+                    "area_soemmerung": _label_of_answer(
+                        doc_answers, slugs.get("rpg2_area_soemmerung"), labels
+                    ),
+                }
+            )
+        return rows

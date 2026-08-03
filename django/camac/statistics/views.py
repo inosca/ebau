@@ -19,7 +19,7 @@ from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance, InstanceStateT
 from camac.work_items.models import WorkItemTemplate
 
-from .filters import InstanceFilterBackend, WorkItemFilterBackend
+from .filters import InstanceFilterBackend, RPG2FilterBackend, WorkItemFilterBackend
 
 # Translatable strings used in the filter sheet.
 _FILTER_OVERVIEW_TITLE = _("Filter overview")
@@ -79,18 +79,12 @@ def _resolve_template_path(export_type, role_slug=None, service_group_slug=None)
 
 
 class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
-    """Base class for statistics XLSX exports.
-
-    Subclasses set base_type to control which
-    columns / filter backend / template are used.
-
-    The first worksheet of the template is filled with the queried data.
-    Further worksheets (e.g. pivot tables) are preserved as-is from the
-    template file.
-    """
+    """Base class for statistics XLSX exports."""
 
     # Overridden by concrete subclasses.
     base_type: str  # e.g. "dossier" or "work-items"
+
+    data_sheet_name = "Data"
 
     instance_field = None
     queryset = Instance.objects
@@ -99,12 +93,8 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
     def get_queryset_for_public(self):  # pragma: no cover
         return self.queryset.none()
 
-    def _get_columns(self, request):
-        """Resolve export columns from the statistics module config.
-
-        Resolution order (first match wins): by_service_group, by_role.
-        Raises PermissionDenied if no configuration matches.
-        """
+    def _resolve_columns_config(self, request):
+        """Resolve columns by service group, then role."""
         stats_config = settings.STATISTICS
         columns_config = None
 
@@ -123,7 +113,11 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
         if columns_config is None:
             raise PermissionDenied
 
-        return getattr(columns_config, self.base_type)
+        return columns_config
+
+    def _get_columns(self, request):
+        """Resolve the export columns for this view's base_type."""
+        return getattr(self._resolve_columns_config(request), self.base_type)
 
     def _get_template(self, request):
         """Resolve the XLSX template for the current export."""
@@ -134,11 +128,11 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
 
         return _resolve_template_path(self.base_type, role_slug, sg_slug)
 
-    def _write_data_sheet(self, workbook, header, rows):
-        """Clear and rewrite the "Data" sheet with *header* and *rows*."""
-        if "Data" in workbook.sheetnames:
-            del workbook["Data"]
-        data_sheet = workbook.create_sheet("Data", 0)
+    def _write_grid_sheet(self, workbook, name, index, header, rows):
+        """Clear and rewrite the sheet *name* at *index* with *header* and *rows*."""
+        if name in workbook.sheetnames:
+            del workbook[name]
+        data_sheet = workbook.create_sheet(name, index)
 
         bold_font = Font(bold=True)
         col_widths = [0] * len(header)
@@ -164,6 +158,10 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
         for col_idx, width in enumerate(col_widths):
             col_letter = get_column_letter(col_idx + 1)
             data_sheet.column_dimensions[col_letter].width = min(width + 2, 60)
+
+    def _write_data_sheet(self, workbook, header, rows):
+        """Clear and rewrite the main data sheet with header and rows."""
+        self._write_grid_sheet(workbook, self.data_sheet_name, 0, header, rows)
 
     @staticmethod
     def _set_pivot_refresh(workbook):
@@ -267,35 +265,54 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
         sheet.column_dimensions["B"].width = 30
 
     @staticmethod
-    def _write_template_sheet_metadata(workbook, filters):
+    def _write_template_sheet_metadata(workbook, filters, reserved_sheets=()):
         """Write export metadata into row 2 and 3 of every template sheet."""
         today = timezone.now().date()
         created_text = f"{_EXPORTED_ON_LABEL}: {today.strftime('%d.%m.%Y')}"
         filter_text = "; ".join(f"{label}: {value}" for label, value in filters)
 
         for sheet_name in workbook.sheetnames:
-            if sheet_name in ("Filter", "Data"):
+            if sheet_name in {"Filter", *reserved_sheets}:
                 continue
             sheet = workbook[sheet_name]
             sheet.cell(row=2, column=1, value=created_text)
             sheet.cell(row=3, column=1, value=filter_text)
 
-    def _build_workbook(self, header, rows, template_path, filters=None):
+    def _build_workbook(
+        self,
+        header,
+        rows,
+        template_path,
+        filters=None,
+        extra_sheets=None,
+    ):
         """Return a BytesIO buffer with the finished XLSX workbook."""
         if template_path and os.path.isfile(template_path):
             workbook = openpyxl.load_workbook(template_path)
         else:
             workbook = openpyxl.Workbook()
+            for sheet_name in list(workbook.sheetnames):
+                del workbook[sheet_name]
 
         self._write_data_sheet(workbook, header, rows)
+        for name, index, sheet_header, sheet_rows in extra_sheets or []:
+            self._write_grid_sheet(workbook, name, index, sheet_header, sheet_rows)
         self._write_filter_sheet(workbook, filters or [])
-        self._write_template_sheet_metadata(workbook, filters or [])
+        reserved_sheets = {
+            self.data_sheet_name,
+            *(name for name, *_ in extra_sheets or []),
+        }
+        self._write_template_sheet_metadata(workbook, filters or [], reserved_sheets)
         self._set_pivot_refresh(workbook)
 
         buf = io.BytesIO()
         workbook.save(buf)
         buf.seek(0)
         return buf
+
+    def _get_extra_sheets(self, request):
+        """Additional data sheets to append; overridden by subclasses."""
+        return []
 
     def get(self, request):
         columns = self._get_columns(request)
@@ -312,7 +329,14 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
 
         filters = self._collect_applied_filters(request)
         template_path = self._get_template(request)
-        buf = self._build_workbook(header, rows, template_path, filters)
+        extra_sheets = self._get_extra_sheets(request)
+        buf = self._build_workbook(
+            header,
+            rows,
+            template_path,
+            filters,
+            extra_sheets,
+        )
 
         return FileResponse(
             buf,
@@ -340,3 +364,37 @@ class WorkItemStatisticsExportView(_StatisticsExportBaseView):
 
     def _get_filter_backend(self):
         return WorkItemFilterBackend()
+
+
+class RPG2StatisticsExportView(_StatisticsExportBaseView):
+    """Export rpg2 dossiers and areas."""
+
+    base_type = "rpg2"
+    data_sheet_name = "Dossiers"
+
+    def _get_filter_backend(self):
+        return RPG2FilterBackend()
+
+    def _get_columns(self, request):
+        columns = self._resolve_columns_config(request).rpg2_dossiers
+        if not columns:
+            raise PermissionDenied
+        return columns
+
+    def _get_area_columns(self, request):
+        return self._resolve_columns_config(request).rpg2_areas
+
+    def _get_extra_sheets(self, request):
+        columns = self._get_area_columns(request)
+        if not columns:
+            return []
+
+        backend = self._get_filter_backend()
+        header = [str(label) for _, label in columns]
+        keys = [key for key, _ in columns]
+
+        area_rows = backend.area_rows()
+        rows = [[row.get(key) for key in keys] for row in area_rows]
+
+        # Keep the template pivot tables linked to this sheet.
+        return [("Flächen", 1, header, rows)]

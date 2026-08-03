@@ -170,3 +170,133 @@ def statistics_ag_instance_afb(
     ).update(addressed_groups=[str(afb_service.pk)])
 
     return statistics_ag_instance
+
+
+@pytest.fixture
+def rpg2_data(
+    caluma_document_factory,
+    caluma_work_item_factory,
+    form_utils: FormUtils,
+):
+    """Attach an rpg2 work item with answers to the given instance."""
+
+    def _add(instance, *, sealing="rpg2-versiegelt-oder-entsiegelt-ja"):
+        work_item = caluma_work_item_factory(
+            case=instance.case,
+            task_id="rpg2",
+            status=WorkItem.STATUS_READY,
+            document=caluma_document_factory(form_id="rpg2"),
+        )
+        document = work_item.document
+
+        form_utils.add_answer(
+            document,
+            "rpg2-versiegelt-oder-entsiegelt",
+            sealing,
+            options=[
+                ("rpg2-versiegelt-oder-entsiegelt-ja", "Ja"),
+                ("rpg2-versiegelt-oder-entsiegelt-nein", "Nein"),
+            ],
+        )
+        form_utils.add_answer(
+            document,
+            "rpg2-bewilligungsgrund",
+            "rpg2-bewilligungsgrund-a01",
+            options=[("rpg2-bewilligungsgrund-a01", "A01 Grundlage")],
+        )
+        form_utils.add_answer(document, "rpg2-anzahl-neue-gebaeude", 3)
+        form_utils.add_answer(document, "rpg2-anzahl-gebaeude-abbruch", 1)
+        form_utils.add_answer(document, "rpg2-anzahl-gebaeude-unter-schutz", 2)
+        form_utils.add_answer(
+            document,
+            "rpg2-realisiert",
+            "rpg2-realisiert-ja",
+            options=[
+                ("rpg2-realisiert-ja", "Ja"),
+                ("rpg2-realisiert-nein", "Nein"),
+            ],
+        )
+        form_utils.add_table_answer(
+            document,
+            "rpg2-versiegelte-entsiegelte-flaechen",
+            rows=[
+                {
+                    "rpg2-art-versiegelung-entsiegelung": {
+                        "value": "rpg2-art-versiegelung-entsiegelung-neue-versiegelte-flaechen-gebaeude",
+                        "options": [
+                            (
+                                "rpg2-art-versiegelung-entsiegelung-neue-versiegelte-flaechen-gebaeude",
+                                "Neue versiegelte Fläche Gebäude",
+                            ),
+                        ],
+                    },
+                    "rpg2-flaeche-quadrat-meter": 120.5,
+                    "rpg2-materialisierung-neu-versiegelten-flaechen": {
+                        "value": "rpg2-materialisierung-neu-versiegelten-flaechen-beton",
+                        "options": [
+                            (
+                                "rpg2-materialisierung-neu-versiegelten-flaechen-beton",
+                                "Beton",
+                            ),
+                        ],
+                    },
+                    "rpg2-materialisierung-neu-versiegelten-flaechen-beschreibung": "Ortbeton",
+                    "rpg2-nutzung-versiegelten-flaechen": {
+                        "value": "rpg2-nutzung-versiegelten-flaechen-erschliessung-verkehr-kommunale-und-private-projekte",
+                        "options": [
+                            (
+                                "rpg2-nutzung-versiegelten-flaechen-erschliessung-verkehr-kommunale-und-private-projekte",
+                                "Erschliessung, Verkehr (kommunale und private Projekte)",
+                            ),
+                        ],
+                    },
+                    "rpg2-wann-wurde-flaeche-versiegelt": {
+                        "value": "rpg2-wann-wurde-flaeche-versiegelt-neu",
+                        "options": [
+                            ("rpg2-wann-wurde-flaeche-versiegelt-neu", "Neu"),
+                        ],
+                    },
+                },
+                {
+                    "rpg2-art-versiegelung-entsiegelung": {
+                        "value": "rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-gebaeude",
+                        "options": [
+                            (
+                                "rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-gebaeude",
+                                "Entsiegelt Gebäude",
+                            ),
+                        ],
+                    },
+                    "rpg2-flaeche-quadrat-meter": 40.0,
+                    "rpg2-materialisierung-neu-versiegelten-flaechen": {
+                        "value": "rpg2-materialisierung-neu-versiegelten-flaechen-belag",
+                        "options": [
+                            (
+                                "rpg2-materialisierung-neu-versiegelten-flaechen-belag",
+                                "Belag",
+                            ),
+                        ],
+                    },
+                    "rpg2-materialisierung-neu-versiegelten-flaechen-beschreibung": "Asphalt",
+                    "rpg2-nutzung-versiegelten-flaechen": {
+                        "value": "rpg2-nutzung-versiegelten-flaechen-ausnahmebewilligung-artikel-24ff-rpg",
+                        "options": [
+                            (
+                                "rpg2-nutzung-versiegelten-flaechen-ausnahmebewilligung-artikel-24ff-rpg",
+                                "Ausnahmebewilligung Artikel 24ff RPG",
+                            ),
+                        ],
+                    },
+                    "rpg2-wann-wurde-flaeche-versiegelt": {
+                        "value": "rpg2-wann-wurde-flaeche-versiegelt-neu",
+                        "options": [
+                            ("rpg2-wann-wurde-flaeche-versiegelt-neu", "Neu"),
+                        ],
+                    },
+                },
+            ],
+            row_form_id="rpg2-versiegelte-entsiegelte-flaechen",
+        )
+        return work_item
+
+    return _add

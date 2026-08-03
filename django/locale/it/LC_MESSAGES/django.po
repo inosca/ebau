@@ -249,6 +249,7 @@ msgid "Total (CHF)"
 msgstr "Totale (CHF)"
 
 #: camac/billing/serializers.py camac/instance/export/serializers.py
+#: camac/settings/modules/statistics.py
 msgid "eBau number"
 msgstr "N. eBau"
 
@@ -2135,6 +2136,58 @@ msgid "On time"
 msgstr ""
 
 #: camac/settings/modules/statistics.py
+msgid "Legal basis RPG / RPV"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Number of new buildings > 6 m²"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Number of demolished buildings > 6 m²"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Number of newly protected buildings > 6 m²"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Approved"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Positive AfB assessment"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Realized"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Type of sealing / unsealing"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Area (m²)"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Materialisierung der neu ver- bzw. entsiegelten Flächen"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Beschreibung Materialisierung"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Usage of sealed areas"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "When was the area sealed"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
 msgid "First inquiry date"
 msgstr ""
 
@@ -2157,6 +2210,14 @@ msgstr "Richiesta di ritiro del dossier"
 #: camac/statistics/apps.py
 msgid "Statistics"
 msgstr ""
+
+#: camac/statistics/filters.py camac/user/admin/filters.py
+msgid "Yes"
+msgstr "Sì"
+
+#: camac/statistics/filters.py camac/user/admin/filters.py
+msgid "No"
+msgstr "No"
 
 #: camac/statistics/views.py
 msgid "Filter overview"
@@ -2257,14 +2318,6 @@ msgstr ""
 #: camac/user/admin/filters.py
 msgid "Disabled"
 msgstr "Disattivato"
-
-#: camac/user/admin/filters.py
-msgid "Yes"
-msgstr "Sì"
-
-#: camac/user/admin/filters.py
-msgid "No"
-msgstr "No"
 
 #: camac/user/admin/filters.py
 msgid "Subservice"

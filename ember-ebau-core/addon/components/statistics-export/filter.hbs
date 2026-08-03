@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  {{#if this._filter.exportType}}
+  {{#if (and this._filter.exportType this.availableFilters.length)}}
     <hr />
     <div class="uk-grid uk-grid-small" uk-grid>
       {{#if (includes "submitDateAfter" this.availableFilters)}}
@@ -352,13 +352,15 @@
     </div>
   {{/if}}
 
-  <div class="uk-margin-small">
-    <button
-      type="button"
-      class="uk-button uk-button-default"
-      {{on "click" this.resetFilter}}
-    >
-      {{t "global.reset"}}
-    </button>
-  </div>
+  {{#if this.availableFilters.length}}
+    <div class="uk-margin-small">
+      <button
+        type="button"
+        class="uk-button uk-button-default"
+        {{on "click" this.resetFilter}}
+      >
+        {{t "global.reset"}}
+      </button>
+    </div>
+  {{/if}}
 </div>
