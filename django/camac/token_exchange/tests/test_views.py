@@ -3,9 +3,12 @@ import logging
 
 import pytest
 from django.urls import reverse
+from django.utils import timezone
 from pytest_lazy_fixtures import lf
 from requests import HTTPError
 from rest_framework import status
+
+from camac.token_exchange.conftest import encode_token
 
 
 class FakeResponse:
@@ -102,3 +105,32 @@ def test_token_exchange_token_reuse(jwt_client, jwt_token, mocker):
     assert response1.status_code == status.HTTP_200_OK
     assert response2.status_code == status.HTTP_403_FORBIDDEN
     assert response2.json()["detail"] == "JWT token can't be used twice"
+
+
+@pytest.mark.django_db
+def test_token_exchange_token_expired(caplog, jwt_client, jwt_token_data, settings):
+    now = timezone.now().timestamp()
+
+    # jwcrypto validates `exp` with a default leeway of 60 seconds
+    jwt_token_data["iat"] = now - 120
+    jwt_token_data["nbf"] = now - 120
+    jwt_token_data["exp"] = now - 61
+
+    jwt_token = encode_token(
+        jwt_token_data,
+        settings.TOKEN_EXCHANGE_JWT_SECRET,
+        settings.TOKEN_EXCHANGE_JWE_SECRET,
+    )
+
+    caplog.set_level(logging.ERROR)
+
+    response = jwt_client.post(
+        reverse("token-exchange"),
+        data=json.dumps({"jwt-token": jwt_token}),
+        content_type="application/json",
+    )
+
+    assert response.status_code == status.HTTP_403_FORBIDDEN
+    assert response.json()["detail"] == "Token expired"
+    # expired tokens are expected, so nothing is logged (and no error mail sent)
+    assert caplog.text == ""

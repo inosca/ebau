@@ -5,6 +5,7 @@ from hashlib import md5
 from django.core.cache import cache
 from django.utils import timezone
 from jwcrypto.common import JWException
+from jwcrypto.jwt import JWTExpired
 from requests import HTTPError, JSONDecodeError
 from rest_framework import exceptions, response, status
 from rest_framework.parsers import JSONParser
@@ -52,6 +53,8 @@ class TokenExchangeView(APIView):
                 message = e.response.text
             logger.exception(message)
             raise exceptions.AuthenticationFailed("Token could not be exchanged") from e
+        except JWTExpired as e:
+            raise exceptions.AuthenticationFailed("Token expired") from e
         except JWException as e:
             logger.exception(e)
             raise exceptions.AuthenticationFailed("Invalid token") from e
