@@ -52,8 +52,9 @@ export default class StatisticsExportComponent extends Component {
         }
       }
 
-      const endpoint =
-        this.filter.exportType === "work-items" ? "work-items" : "dossiers";
+      const endpoint = this.filter.exportType?.includes("dossiers")
+        ? "dossiers"
+        : this.filter.exportType;
       const query = params.size ? `?${params.toString()}` : "";
       const response = yield this.fetch.fetch(
         `/api/v1/statistics/${endpoint}${query}`,

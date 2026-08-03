@@ -25,5 +25,5 @@ export default {
     "role",
   ],
   billings: ["submitDateAfter", "submitDateBefore", "form"],
-  rpg2: ["submitDateAfter", "submitDateBefore"],
+  rpg2: [],
 };

@@ -255,6 +255,7 @@ msgid "Total (CHF)"
 msgstr "Total (CHF)"
 
 #: camac/billing/serializers.py camac/instance/export/serializers.py
+#: camac/settings/modules/statistics.py
 msgid "eBau number"
 msgstr "eBau-Nr."
 
@@ -2157,6 +2158,58 @@ msgid "On time"
 msgstr "Fristgerecht"
 
 #: camac/settings/modules/statistics.py
+msgid "Legal basis RPG / RPV"
+msgstr "Rechtliche Grundlage RPG / RPV"
+
+#: camac/settings/modules/statistics.py
+msgid "Number of new buildings > 6 m²"
+msgstr "Anzahl neue Gebäude > 6 m² (neu erstellte Bauten)"
+
+#: camac/settings/modules/statistics.py
+msgid "Number of demolished buildings > 6 m²"
+msgstr "Anzahl Gebäude > 6 m² die abgebrochen werden"
+
+#: camac/settings/modules/statistics.py
+msgid "Number of newly protected buildings > 6 m²"
+msgstr "Anzahl Gebäude > 6 m² die neu unter Schutz gestellt wurden"
+
+#: camac/settings/modules/statistics.py
+msgid "Approved"
+msgstr "Bewilligt"
+
+#: camac/settings/modules/statistics.py
+msgid "Positive AfB assessment"
+msgstr "Positive Beurteilung AfB"
+
+#: camac/settings/modules/statistics.py
+msgid "Realized"
+msgstr "Realisiert"
+
+#: camac/settings/modules/statistics.py
+msgid "Type of sealing / unsealing"
+msgstr "Art der Ver- bzw. Entsiegelung"
+
+#: camac/settings/modules/statistics.py
+msgid "Area (m²)"
+msgstr "Fläche (m²)"
+
+#: camac/settings/modules/statistics.py
+msgid "Materialisierung der neu ver- bzw. entsiegelten Flächen"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Beschreibung Materialisierung"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Usage of sealed areas"
+msgstr "Nutzung der versiegelten Flächen"
+
+#: camac/settings/modules/statistics.py
+msgid "When was the area sealed"
+msgstr "Wann wurde die Fläche versiegelt?"
+
+#: camac/settings/modules/statistics.py
 msgid "First inquiry date"
 msgstr "Eingegangen"
 
@@ -2179,6 +2232,14 @@ msgstr "Rückzug beantragt"
 #: camac/statistics/apps.py
 msgid "Statistics"
 msgstr ""
+
+#: camac/statistics/filters.py camac/user/admin/filters.py
+msgid "Yes"
+msgstr "Ja"
+
+#: camac/statistics/filters.py camac/user/admin/filters.py
+msgid "No"
+msgstr "Nein"
 
 #: camac/statistics/views.py
 msgid "Filter overview"
@@ -2281,14 +2342,6 @@ msgstr "Nachforderungen"
 #: camac/user/admin/filters.py
 msgid "Disabled"
 msgstr "Deaktiviert"
-
-#: camac/user/admin/filters.py
-msgid "Yes"
-msgstr "Ja"
-
-#: camac/user/admin/filters.py
-msgid "No"
-msgstr "Nein"
 
 #: camac/user/admin/filters.py
 msgid "Subservice"

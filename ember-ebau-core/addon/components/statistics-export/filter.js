@@ -68,8 +68,8 @@ export default class StatisticsExportFilterComponent extends Component {
     if (!role && !serviceGroup) return [];
 
     const allowedExportTypes =
-      statExportCfg?.exportTypes?.byRoles?.[role] ??
       statExportCfg?.exportTypes?.byServiceGroups?.[serviceGroup] ??
+      statExportCfg?.exportTypes?.byRoles?.[role] ??
       [];
 
     return allowedExportTypes.map((type) => {

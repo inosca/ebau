@@ -7,11 +7,12 @@ from unittest.mock import MagicMock
 import openpyxl
 import pyexcel
 import pytest
-from caluma.caluma_form.models import Form
+from caluma.caluma_form.models import Form, Option
 from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
+from camac.caluma.models import Inquiry
 from camac.conftest import parse_xlsx_response
 from camac.statistics.filters import (
     InstanceFilterBackend,
@@ -19,13 +20,14 @@ from camac.statistics.filters import (
 )
 from camac.statistics.views import (
     DossierStatisticsExportView,
+    RPG2StatisticsExportView,
     _resolve_template_path,
 )
 from camac.work_items.models import WorkItemTemplate
 
 STATISTICS_URL = reverse("statistics-dossiers")
 WORK_ITEMS_URL = reverse("statistics-work-items")
-EXPECTED_WORK_ITEM_COLUMNS = 15
+RPG2_URL = reverse("statistics-rpg2")
 
 
 @pytest.mark.parametrize(
@@ -115,7 +117,7 @@ def test_work_items_export(
 
     # Header + 1 completed inquiry (decision + other tasks are excluded)
     assert len(sheet) == 2
-    assert len(sheet[0]) == EXPECTED_WORK_ITEM_COLUMNS
+    assert len(sheet[0]) == 15
 
     assert sheet == snapshot
 
@@ -323,6 +325,13 @@ def test_work_item_annotations_all_columns(ag_statistics_settings, snapshot):
     assert sorted(annotations.keys()) == snapshot
 
 
+def test_rpg2_export_no_area_columns():
+    view = RPG2StatisticsExportView()
+    view._get_area_columns = lambda request: []
+
+    assert view._get_extra_sheets(None) == []
+
+
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_filter_sheet(
     admin_client,
@@ -413,3 +422,211 @@ def test_filter_sheet_work_items(
     )
     assert fs.cell(row=5, column=1).value == "Aufgabe erstellt von"
     assert fs.cell(row=5, column=2).value == "01.01.2025"
+
+
+@pytest.mark.parametrize("role__name", ["Service"])
+def test_rpg2_export(
+    admin_client,
+    statistics_ag_instance_afb,
+    ag_rpg2_settings,
+    ag_distribution_settings,
+    rpg2_data,
+    form_utils,
+    group,
+):
+    """The rpg2 export returns one row per dossier with rpg2 form data."""
+    rpg2_data(statistics_ag_instance_afb)
+
+    inquiry = (
+        Inquiry.objects.for_instance(statistics_ag_instance_afb)
+        .addressed_to(group.service)
+        .first()
+    )
+    form_utils.add_answer(
+        inquiry.child_case.document,
+        "inquiry-answer-status",
+        "inquiry-answer-status-positive",
+        options=[("inquiry-answer-status-positive", "Positiv")],
+    )
+
+    response = admin_client.get(RPG2_URL, {"form": "unrelated-form"})
+
+    assert response.status_code == status.HTTP_200_OK
+    assert (
+        response["Content-Type"]
+        == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
+
+    book = parse_xlsx_response(response)
+    sheet = book.get_dict()["Dossiers"]
+
+    assert len(sheet) == 2  # header + 1 data row
+    assert len(sheet[0]) == 9
+
+    legal_basis_label = str(Option.objects.get(pk="rpg2-bewilligungsgrund-a01").label)
+
+    data_row = sheet[1]
+    assert data_row[2] == legal_basis_label
+    assert data_row[3] == 3
+    assert data_row[4] == 1
+    assert data_row[5] == 2
+    assert data_row[6] == "Ja"  # decision is APPROVED
+    assert data_row[7] == "Ja"  # positive AfB inquiry
+    assert data_row[8] == "Ja"
+
+
+EXPECTED_RPG2_AREAS_COLUMNS = 8
+
+
+@pytest.mark.parametrize("role__name", ["Service"])
+def test_rpg2_export_areas_sheet(
+    admin_client,
+    statistics_ag_instance_afb,
+    ag_rpg2_settings,
+    rpg2_data,
+):
+    """The rpg2 export adds a "Flächen" sheet with one row per area."""
+    rpg2_data(statistics_ag_instance_afb)
+
+    response = admin_client.get(RPG2_URL, {"form": "unrelated-form"})
+
+    assert response.status_code == status.HTTP_200_OK
+
+    book = parse_xlsx_response(response)
+    sheet = book.get_dict()["Flächen"]
+
+    assert len(sheet) == 3  # header + 2 area rows
+    assert len(sheet[0]) == EXPECTED_RPG2_AREAS_COLUMNS
+    assert sheet[0][4] == "Materialisierung der neu ver- bzw. entsiegelten Flächen"
+    assert sheet[0][5] == "Beschreibung Materialisierung"
+
+    sealed_type = str(
+        Option.objects.get(
+            pk="rpg2-art-versiegelung-entsiegelung-neue-versiegelte-flaechen-gebaeude"
+        ).label
+    )
+    unsealed_type = str(
+        Option.objects.get(
+            pk="rpg2-art-versiegelung-entsiegelung-entsiegelte-renaturierte-flaechen-gebaeude"
+        ).label
+    )
+    sealed_materialization = str(
+        Option.objects.get(
+            pk="rpg2-materialisierung-neu-versiegelten-flaechen-beton"
+        ).label
+    )
+    unsealed_materialization = str(
+        Option.objects.get(
+            pk="rpg2-materialisierung-neu-versiegelten-flaechen-belag"
+        ).label
+    )
+
+    sealed_row, unsealed_row = sheet[1], sheet[2]
+
+    # dossier number, ebau number (instance pk)
+    assert sealed_row[1] == statistics_ag_instance_afb.pk
+    # type label, size (sealed positive)
+    assert sealed_row[2] == sealed_type
+    assert sealed_row[3] == 120.5
+    assert sealed_row[4] == sealed_materialization
+    assert sealed_row[5] == "Ortbeton"
+    # unsealed area size is negated
+    assert unsealed_row[2] == unsealed_type
+    assert unsealed_row[3] == -40.0
+    assert unsealed_row[4] == unsealed_materialization
+    assert unsealed_row[5] == "Asphalt"
+
+
+@pytest.mark.parametrize("role__name", ["Service"])
+def test_rpg2_export_filters_dossiers_by_filled_building_answers(
+    admin_client,
+    statistics_ag_instance_afb,
+    ag_rpg2_settings,
+    rpg2_data,
+    application_settings,
+):
+    """Dossiers with filled building answers are exported regardless of sealing."""
+    application_settings["SHORT_NAME"] = "ag"
+    rpg2_data(
+        statistics_ag_instance_afb,
+        sealing="rpg2-versiegelt-oder-entsiegelt-nein",
+    )
+
+    response = admin_client.get(RPG2_URL)
+
+    assert response.status_code == status.HTTP_200_OK
+
+    content = b"".join(response.streaming_content)
+    workbook = openpyxl.load_workbook(io.BytesIO(content))
+    sheet = list(workbook["Dossiers"].values)
+
+    assert len(sheet) == 2  # header + data row
+    assert "Auswertung" not in workbook.sheetnames
+
+
+@pytest.mark.parametrize("role__name", ["Service"])
+def test_rpg2_export_includes_no_dossiers_with_area_rows_without_building_answers(
+    admin_client,
+    statistics_ag_instance_afb,
+    ag_rpg2_settings,
+    rpg2_data,
+):
+    """Dossiers without building answers are not included when they have area rows."""
+    work_item = rpg2_data(statistics_ag_instance_afb)
+    work_item.document.answers.filter(
+        question_id__in=[
+            "rpg2-anzahl-neue-gebaeude",
+            "rpg2-anzahl-gebaeude-abbruch",
+            "rpg2-anzahl-gebaeude-unter-schutz",
+        ]
+    ).delete()
+
+    response = admin_client.get(RPG2_URL)
+
+    assert response.status_code == status.HTTP_200_OK
+
+    workbook = openpyxl.load_workbook(io.BytesIO(b"".join(response.streaming_content)))
+    sheet = list(workbook["Dossiers"].values)
+
+    assert len(sheet) == 1  # header row from area table
+
+
+@pytest.mark.parametrize("role__name", ["Service"])
+def test_rpg2_export_excludes_dossiers_without_building_answers_or_area_rows(
+    admin_client,
+    statistics_ag_instance_afb,
+    ag_rpg2_settings,
+    rpg2_data,
+):
+    """Dossiers without building answers and area rows are excluded."""
+    work_item = rpg2_data(statistics_ag_instance_afb)
+    work_item.document.answers.filter(
+        question_id__in=[
+            "rpg2-anzahl-neue-gebaeude",
+            "rpg2-anzahl-gebaeude-abbruch",
+            "rpg2-anzahl-gebaeude-unter-schutz",
+            "rpg2-versiegelte-entsiegelte-flaechen",
+        ]
+    ).delete()
+
+    response = admin_client.get(RPG2_URL)
+
+    assert response.status_code == status.HTTP_200_OK
+
+    workbook = openpyxl.load_workbook(io.BytesIO(b"".join(response.streaming_content)))
+    sheet = list(workbook["Dossiers"].values)
+
+    assert len(sheet) == 1  # header only, no data rows
+    assert "Auswertung" not in workbook.sheetnames
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_rpg2_export_forbidden_for_non_afb(
+    admin_client,
+    statistics_ag_instance,
+    ag_rpg2_settings,
+):
+    """The rpg2 export is only available for services with rpg2 columns (AfB)."""
+    response = admin_client.get(RPG2_URL)
+
+    assert response.status_code == status.HTTP_403_FORBIDDEN
