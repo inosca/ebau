@@ -2,6 +2,7 @@ import json
 
 import pytest
 from caluma.caluma_form.models import Question
+from django.core.management import call_command
 from django.urls import reverse
 from rest_framework import status
 
@@ -15,6 +16,8 @@ def ech0206_data_sources(
     caluma_option_factory,
     settings,
 ):
+    call_command("loaddata", settings.ROOT_DIR("kt_gr/config/gis.json"))
+
     gis_questions = [
         ("egid-nr", Question.TYPE_TEXT),
         (
@@ -127,7 +130,10 @@ def ech0206_data_sources(
 
 
 @pytest.fixture
-def ech0206__config(gis_data_source_factory, caluma_question_factory):
+def ech0206__config(ech0206_data_sources, gis_data_source_factory):
+    # Remove/disable configs that are handled in test_kt_gr.py
+    ech0206_data_sources.filter(client__contains="GisClient").update(disabled=True)
+
     gis_data_source_factory(
         client=GISDataSource.CLIENT_KT_GR,
         config=[
@@ -138,86 +144,8 @@ def ech0206__config(gis_data_source_factory, caluma_question_factory):
                 ],
             },
         ],
-    )
-    gis_data_source_factory(
-        client=GISDataSource.CLIENT_ECH_0206,
-        config=[
-            {
-                "properties": [
-                    {
-                        "question": "energie-waermequelle-heizung",
-                        "propertyName": "thermotechnicalDeviceForHeating1.energySourceHeating",
-                    },
-                    {
-                        "question": "weitere-energie-waermequelle-heizung",
-                        "propertyName": "thermotechnicalDeviceForHeating2.energySourceHeating",
-                    },
-                    {
-                        "question": "waermeerzeuger-heizung",
-                        "propertyName": "thermotechnicalDeviceForHeating1.heatGeneratorHeating",
-                    },
-                    {
-                        "question": "weitere-waermeerzeuger-heizung",
-                        "propertyName": "thermotechnicalDeviceForHeating2.heatGeneratorHeating",
-                    },
-                    {
-                        "question": "energie-waermequelle-warmwasser",
-                        "propertyName": "thermotechnicalDeviceForWarmWater1.energySourceHeating",
-                    },
-                    {
-                        "question": "weitere-energie-waermequelle-warmwasser",
-                        "propertyName": "thermotechnicalDeviceForWarmWater2.energySourceHeating",
-                    },
-                    {
-                        "question": "waermeerzeuger-warmwasser",
-                        "propertyName": "thermotechnicalDeviceForWarmWater1.heatGeneratorHotWater",
-                    },
-                    {
-                        "question": "weitere-waermeerzeuger-warmwasser",
-                        "propertyName": "thermotechnicalDeviceForWarmWater2.heatGeneratorHotWater",
-                    },
-                ]
-            },
-            {
-                "properties": [
-                    {
-                        "question": "amtliche-gebaeudenummer",
-                        "propertyName": "officialBuildingNo",
-                    }
-                ]
-            },
-            {
-                "properties": [
-                    {"question": "gwr-gebaeudevolumen", "propertyName": "volume"}
-                ]
-            },
-            {
-                "properties": [
-                    {
-                        "question": "energiebezugsflaeche",
-                        "propertyName": "energyRelevantSurface",
-                    }
-                ]
-            },
-            {
-                "properties": [
-                    {
-                        "hidden": True,
-                        "mapper": "heat_surface",
-                        "question": "werden-flaechen-beheizt",
-                    }
-                ]
-            },
-            {
-                "properties": [
-                    {
-                        "hidden": True,
-                        "mapper": "warm_water_connection",
-                        "question": "ist-ein-warmwasseranschluss-geplant",
-                    }
-                ]
-            },
-        ],
+        # Make sure the configs are loaded in the right order
+        sort=0,
     )
 
 
@@ -264,7 +192,6 @@ def test_ech0206_client(
     celery_fake_worker,
     query_x,
     query_y,
-    ech0206_data_sources,
 ):
     query = {"markers": [{"x": query_x, "y": query_y}], "geometry": "POINT"}
     task_response = admin_client.get(

@@ -79,7 +79,7 @@
         'value': 'Chur',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
@@ -187,7 +187,7 @@
         'value': 'Roveredo (GR)',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
@@ -279,7 +279,7 @@
         'value': 'Haldenstein',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
@@ -385,7 +385,7 @@
         'value': 'Chur',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
@@ -502,7 +502,7 @@
         'value': 'Chur',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
@@ -617,7 +617,7 @@
         'value': 'Chur',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
@@ -686,7 +686,7 @@
         'value': 'Roveredo (GR)',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
@@ -783,7 +783,7 @@
         'value': 'Roveredo (GR)',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
@@ -913,7 +913,7 @@
         'value': 'Chur',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
@@ -1088,7 +1088,7 @@
         'value': 'Roveredo (GR)',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
@@ -1181,7 +1181,7 @@
         'value': 'Chur',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
@@ -1257,7 +1257,7 @@
         'value': 'Chur',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
@@ -1333,7 +1333,7 @@
         'value': 'Chur',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
@@ -1453,7 +1453,7 @@
         'value': 'Chur',
       }),
       'parzelle': dict({
-        'form': 'but-near-attack',
+        'form': 'song-kid-owner-car',
         'hidden': False,
         'label': 'parzelle',
         'value': list([
