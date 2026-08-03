@@ -423,10 +423,8 @@ class ResourceView(ReadOnlyModelViewSet):
         # If we have more use cases for dynamic resource visibility, extract this
         # into something more generic.
         service = self.request.group.service
-        if (
-            service
-            and service.service_group.name == "municipality-light"
-            or service.uses_ech_api
+        if service and (
+            service.service_group.name == "municipality-light" or service.uses_ech_api
         ):
             return self._get_queryset().exclude(
                 Q(template__contains="gwr-global")
