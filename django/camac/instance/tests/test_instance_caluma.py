@@ -3473,6 +3473,7 @@ def test_instance_submit_so_canton(
     assert bab_exam.addressed_groups == [str(canton_service.pk)]
 
 
+@pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
     ("has_permission", "expect_status"),
@@ -3489,6 +3490,7 @@ def test_instance_delete_permissions_module(
     applicant_factory,
     expect_status,
     has_permission,
+    set_application_so,
     so_instance,
     so_permissions_settings,
 ):
@@ -3509,11 +3511,12 @@ def test_instance_delete_permissions_module(
     assert response.status_code == expect_status
 
 
+@pytest.mark.parametrize("role__name", ["applicant"])
+@pytest.mark.parametrize("instance_state__name", ["rejected"])
 @pytest.mark.parametrize(
     ("has_permission", "expected_status"),
     [(True, status.HTTP_201_CREATED), (False, status.HTTP_403_FORBIDDEN)],
 )
-@pytest.mark.parametrize("instance_state__name", ["rejected"])
 @pytest.mark.django_db
 def test_copy_rejected_instance(
     admin_client,
@@ -3701,6 +3704,7 @@ def test_copy_rejected_extend_validity_instance(
         )
 
 
+@pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize(
     ("has_permission", "expected_status"),
     [(True, status.HTTP_201_CREATED), (False, status.HTTP_403_FORBIDDEN)],
@@ -3763,6 +3767,7 @@ def test_copy_instance_modification(
     assert response.status_code == expected_status
 
 
+@pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize(
     ("has_permission", "expected_status"),
     [
@@ -3824,6 +3829,7 @@ def test_convert_building_permit(
         assert new_instance.copy_source == be_instance
 
 
+@pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize(
     ("is_admin", "is_correct_form", "requested_payment", "expected_status"),
     [

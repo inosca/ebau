@@ -105,6 +105,7 @@ def test_condition_require_work_item_addressed_to_current_service(
     )
 
 
+@pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
     ("applicant_role", "roles", "expected_result"),
     [

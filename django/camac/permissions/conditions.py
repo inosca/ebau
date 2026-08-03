@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING
 
 from django.conf import ImproperlyConfigured
 
+from camac.user.permissions import get_role_name
 from camac.utils import call_with_accepted_kwargs, get_unversioned_slug
 
 if TYPE_CHECKING:
@@ -352,11 +353,14 @@ class HasApplicantRole(Check):
     roles: list[str]
 
     def apply(self, userinfo, context: PermissionContext):
+        if get_role_name(userinfo.role) != "applicant":
+            return False
+
         applicant = context.instance.involved_applicants.filter(
             invitee=userinfo.user
         ).first()
 
-        if not applicant:
+        if not applicant:  # pragma: no cover
             return False
 
         return applicant.role in self.roles

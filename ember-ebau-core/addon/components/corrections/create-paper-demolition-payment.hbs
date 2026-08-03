@@ -1,0 +1,13 @@
+<p class="uk-text-large">{{t
+    "corrections.create-paper-demolition-payment.title"
+  }}</p>
+<p>{{t
+    "corrections.create-paper-demolition-payment.description"
+    htmlSafe=true
+  }}</p>
+<UkButton
+  @color="primary"
+  @label={{t "corrections.create-paper-demolition-payment.button"}}
+  @onClick={{perform this.createDossier}}
+  @disabled={{this.createDossier.isRunning}}
+/>

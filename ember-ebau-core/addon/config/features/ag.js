@@ -39,6 +39,7 @@ export default {
     correctForm: true,
     withdrawInstance: false,
     deleteInternalInstance: true,
+    createPaperDemolitionPayment: true,
   },
   internalCaseCreation: true,
   cases: {

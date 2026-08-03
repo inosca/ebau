@@ -74,3 +74,8 @@ corrections:
       <strong>Achtung:</strong> Das Formular dieses Dossiers ist nun nicht mehr
       vollständig ausgefüllt. Sie können die fehlenden Daten mithilfe der
       Funktion "Dossier korrigieren" ergänzen.
+  create-paper-demolition-payment:
+    title: "Auszahlung Abbruchprämie"
+    description: "Hier können Sie einen Antrag auf Auszahlung der Abbruchprämie als Papierdossier erfassen."
+    button: "Auszahlung Abbruchprämie erfassen"
+    error: "Fehler beim Erstellen des Dossiers"

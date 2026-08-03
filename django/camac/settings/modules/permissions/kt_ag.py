@@ -264,7 +264,7 @@ def demolition_payment_requested(instance):
 
 ACTION_INSTANCE_REQUEST_DEMOLITION_PAYMENT = (
     RequireWorkItem("complete-instance")
-    & HasApplicantRole(["ADMIN"])
+    & (HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper()))
     & Callback(
         demolition_payment_requested,
         allow_caching=True,
@@ -382,6 +382,10 @@ AG_PERMISSIONS_SETTINGS = {
             ),
             ("history-read", MODULE_HISTORY),
             ("instance-read-responsible-service", MODULE_RESPONSIBLE_SERVICE_READ),
+            (
+                "instance-request-demolition-payment",
+                ACTION_INSTANCE_REQUEST_DEMOLITION_PAYMENT,
+            ),
             ("instance-change-responsible-service", MODULE_RESPONSIBLE_SERVICE_WRITE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-mark-write", ACTION_INSTANCE_MARK),
