@@ -2364,6 +2364,7 @@ APPLICATIONS = {
             ],
             "FORM_PERMISSIONS_MAPPING": {
                 "form-einwendungen-write": "legal-submissions-write",
+                "form-vorlaeufige-pruefung-write": "audit-write",
             },
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,

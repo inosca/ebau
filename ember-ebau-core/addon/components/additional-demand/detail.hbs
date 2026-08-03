@@ -58,7 +58,7 @@
       </div>
     {{/if}}
   {{/each}}
-  {{#if (can "cancel additional-demand" this.demand)}}
+  {{#if (await (can "cancel additional-demand" this.demand))}}
     <WorkItemButton
       @mutation="cancel"
       @workItemId={{this.demand.id}}

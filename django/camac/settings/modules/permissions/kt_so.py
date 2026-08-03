@@ -217,7 +217,10 @@ SO_PERMISSIONS_SETTINGS = {
     "ACCESS_LEVELS": {
         "applicant": [
             ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
-            ("additional-demands-write", MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE),
+            (
+                "additional-demands-applicant-write",
+                MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE,
+            ),
             ("applicant-add", MODULE_PORTAL_APPLICANTS),
             ("applicant-read", MODULE_PORTAL_APPLICANTS),
             ("applicant-remove", MODULE_PORTAL_APPLICANTS),
@@ -251,7 +254,7 @@ SO_PERMISSIONS_SETTINGS = {
         ],
         "distribution-service": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
-            ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
+            ("additional-demands-internal-write", MODULE_ADDITIONAL_DEMANDS),
             ("appeal-read", MODULE_APPEAL),
             ("billing-read", MODULE_BILLING),
             ("billing-write", MODULE_BILLING),
@@ -284,7 +287,7 @@ SO_PERMISSIONS_SETTINGS = {
         ],
         "lead-authority": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
-            ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
+            ("additional-demands-internal-write", MODULE_ADDITIONAL_DEMANDS),
             ("appeal-read", MODULE_APPEAL),
             ("billing-read", MODULE_BILLING),
             ("billing-write", MODULE_BILLING),

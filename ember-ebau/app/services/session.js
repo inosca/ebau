@@ -5,6 +5,7 @@ import { getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import { query } from "ember-data-resources";
 import mainConfig from "ember-ebau-core/config/main";
+import { cantonAware } from "ember-ebau-core/decorators";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
 import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
@@ -22,10 +23,10 @@ export default class CustomSession extends Session {
   @service store;
   @service intl;
   @service router;
+  @service ebauModules;
   @service("esa-oidc-config") config;
 
   @tracked enforcePublicAccess = false;
-  @tracked currentInstanceId;
 
   @localCopy("data.language") _language;
   @localCopy("data.group") _group;
@@ -105,7 +106,28 @@ export default class CustomSession extends Session {
     );
   }
 
+  get currentInstanceId() {
+    return this.ebauModules.instanceId;
+  }
+
+  @cantonAware
   get isReadOnlyRole() {
+    return this.role?.slug?.endsWith("-read");
+  }
+
+  get isReadOnlyRoleAG() {
+    // In Kt. AG, services using eCH API are always readonly, except for
+    // the "auszahlung abbruchpraemie" form (which is not part of the eCH API).
+    if (this.service.usesEchApi) {
+      if (!this.currentInstanceId) {
+        return true;
+      }
+      const instance = this.store.peekRecord(
+        "instance",
+        this.currentInstanceId,
+      );
+      return instance.calumaForm !== "auszahlung-abbruchpraemie";
+    }
     return this.role?.slug?.endsWith("-read");
   }
 

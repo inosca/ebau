@@ -8,7 +8,13 @@ export default class AdditionalDemandAbility extends Ability {
   @service session;
   @service permissions;
 
-  get canCreate() {
+  async canCreate() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.ebauModules.instanceId,
+        "additional-demands-internal-write",
+      );
+    }
     return this.session.isInternal && !this.session.isReadOnlyRole;
   }
 
@@ -29,17 +35,26 @@ export default class AdditionalDemandAbility extends Ability {
     }
 
     if (this.model.task.slug === "fill-additional-demand") {
+      // fill as applicant
       if (this.permissions.fullyEnabled) {
-        return (
-          this.ebauModules.isApplicant &&
-          (await this.permissions.hasAll(
-            this.instanceId,
-            "additional-demands-write",
-          ))
+        return await this.permissions.hasAll(
+          this.ebauModules.instanceId,
+          "additional-demands-applicant-write",
         );
       }
 
       return this.ebauModules.isApplicant;
+    }
+
+    // fill from internal area (municipality, canton)
+    if (this.permissions.fullyEnabled) {
+      return (
+        this.model.isAddressedToCurrentService &&
+        (await this.permissions.hasAll(
+          this.ebauModules.instanceId,
+          "additional-demands-internal-write",
+        ))
+      );
     }
 
     return (
@@ -47,11 +62,23 @@ export default class AdditionalDemandAbility extends Ability {
     );
   }
 
-  get canCancel() {
+  async canCancel() {
     const checkWorkItem = this.model.childCase.workItems.find(
       (workItem) =>
         workItem.task.slug === "check-additional-demand" && workItem.isReady,
     );
+
+    if (this.permissions.fullyEnabled) {
+      return (
+        this.model.isReady &&
+        this.model.isAddressedToCurrentService &&
+        !checkWorkItem &&
+        (await this.permissions.hasAll(
+          this.ebauModules.instanceId,
+          "additional-demands-internal-write",
+        ))
+      );
+    }
 
     return (
       this.session.isInternal &&

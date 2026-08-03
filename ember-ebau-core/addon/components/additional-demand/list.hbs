@@ -3,7 +3,10 @@
     <li class="uk-text-center"><UkSpinner @ratio={{2}} /></li>
   {{else}}
     {{#if
-      (and (can "create additional-demand") this.additionalDemand.initWorkItem)
+      (and
+        (await (can "create additional-demand"))
+        this.additionalDemand.initWorkItem
+      )
     }}
       <li class="uk-margin-small uk-text-center">
         <WorkItemButton

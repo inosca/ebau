@@ -33,7 +33,7 @@ mutation CreateFormalExamTask {
       addressGroups: "[\"municipality\"]|groups"
       controlGroups: "[\"municipality\"]|groups"
       leadTime: 1728000 # 20 days
-      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]},\"writePermissionKey\": \"audit-write\"}"
     }
   ) {
     clientMutationId

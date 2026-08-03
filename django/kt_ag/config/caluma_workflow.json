@@ -527,7 +527,8 @@
           "route": "cases.detail.task-form",
           "models": ["INSTANCE_ID", "TASK_SLUG"]
         },
-        "redirectToWorkItemsAfterCompletion": true
+        "redirectToWorkItemsAfterCompletion": true,
+        "writePermissionKey": "audit-write"
       },
       "address_groups": "[\"municipality\"]|groups",
       "control_groups": "[\"municipality\"]|groups",

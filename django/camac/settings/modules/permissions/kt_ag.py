@@ -18,6 +18,13 @@ BAUGESUCH_FORMS = ag_constants.BAUGESUCH_FORMS
 PGV_GAS_FORMS = ag_constants.PGV_GAS_FORMS
 PGV_FORMS = ag_constants.PGV_FORMS
 
+# Custom primitives
+USES_ECH_API = Callback(
+    lambda userinfo: userinfo.service.uses_ech_api,
+    allow_caching=True,
+    name="uses_ech_api",
+)
+
 # Instance state rules
 STATES_ALL = RequireInstanceState(
     [
@@ -38,8 +45,11 @@ STATES_ALL = RequireInstanceState(
 NO_CORRECTION = ~RequireInstanceState(["correction"])
 
 # Role rules
-ROLES_NO_READONLY = ~HasRole(
-    ["municipality-read", "service-read", "trusted-service-read"]
+
+## eCH-API using municipalities only have readonly access, except for dossiers
+## of type demolition payment (Auszahlung Abbruchprämie)
+READONLY = HasRole(["municipality-read", "service-read", "trusted-service-read"]) | (
+    USES_ECH_API & ~IsForm(["auszahlung-abbruchpraemie"])
 )
 ROLES_MUNICIPALITY = HasRole(["municipality-lead", "municipality-clerk"])
 
@@ -56,15 +66,31 @@ ROLES_AFB = IsServiceGroup(["service-afb"]) & HasRole(
 # 2. Form rules
 # 3. Role rules
 # 4. Other
-MODULE_ADDITIONAL_DEMANDS = (
+MODULE_ADDITIONAL_DEMANDS_READ = (
     NO_CORRECTION
     & RequireWorkItem("init-additional-demand")
     & ~IsServiceGroup(["municipality-light"])
 )
+MODULE_ADDITIONAL_DEMANDS_WRITE = MODULE_ADDITIONAL_DEMANDS_READ & ~READONLY
 
-MODULE_AUDIT = NO_CORRECTION & (
+MODULE_AUDIT_READ = NO_CORRECTION & (
     (RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY)
     | (RequireWorkItem("formal-exam", "completed"))
+)
+MODULE_AUDIT_WRITE = (
+    RequireWorkItem("formal-exam")
+    & ROLES_MUNICIPALITY
+    & ~READONLY
+    & ~RequireInstanceState(
+        [
+            "finished",
+            "construction-monitoring",
+            "rejected",
+            "withdrawn",
+            "to-finish",
+            "decided",
+        ]
+    )
 )
 MODULE_AUDIT_DEMOLITION = NO_CORRECTION & (
     (RequireWorkItem("formal-exam-demolition-payment") & ROLES_MUNICIPALITY)
@@ -72,7 +98,7 @@ MODULE_AUDIT_DEMOLITION = NO_CORRECTION & (
 )
 MODULE_BILLING = (
     STATES_ALL
-    & ROLES_NO_READONLY
+    & ~READONLY
     & IsServiceGroup(
         ["municipality", "service-cantonal", "service-afb", "authority-pgv"]
     )
@@ -84,40 +110,20 @@ MODULE_CANTONAL_EXAM = RequireWorkItem("cantonal-exam") & (
         name="is_afb",
     )
 )
-MODULE_COMMUNICATIONS = STATES_ALL & ROLES_NO_READONLY
-MODULE_COMPLETE_INSTANCE = (
-    RequireWorkItem("complete-instance", "ready") & ROLES_NO_READONLY
-)
+MODULE_COMMUNICATIONS = STATES_ALL & ~READONLY
+MODULE_COMPLETE_INSTANCE = RequireWorkItem("complete-instance", "ready") & ~READONLY
 MODULE_CONSTRUCTION_MONITORING = (
-    RequireWorkItem("init-construction-monitoring") & ROLES_NO_READONLY
+    RequireWorkItem("init-construction-monitoring") & ~READONLY
 )
-MODULE_CORRECTIONS = (
-    STATES_ALL | RequireInstanceState(["correction"])
-) & ROLES_NO_READONLY
+MODULE_CORRECTIONS = (STATES_ALL | RequireInstanceState(["correction"])) & ~READONLY
 MODULE_DECISION = NO_CORRECTION & (
     (RequireWorkItem("decision") & (ROLES_MUNICIPALITY | ROLES_AFB))
     | RequireWorkItem("decision", "completed")
 )
 MODULE_DISTRIBUTION = NO_CORRECTION & RequireWorkItem("distribution")
-MODULE_DMS_GENERATE = (
-    STATES_ALL & ROLES_NO_READONLY & ~IsServiceGroup(["municipality-light"])
-)
+MODULE_DMS_GENERATE = STATES_ALL & ~READONLY & ~IsServiceGroup(["municipality-light"])
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL | RequireInstanceState(["correction"])
-MODULE_FORMAL_EXAM = (
-    RequireWorkItem("formal-exam")
-    & ~RequireInstanceState(
-        [
-            "finished",
-            "construction-monitoring",
-            "rejected",
-            "withdrawn",
-            "to-finish",
-            "decided",
-        ]
-    )
-    & ROLES_MUNICIPALITY
-)
 MODULE_HISTORY = STATES_ALL & ~IsServiceGroup(["municipality-light"])
 MODULE_INFORMATION_OF_NEIGHBORS = (
     NO_CORRECTION
@@ -128,7 +134,7 @@ MODULE_INFORMATION_OF_NEIGHBORS = (
     & ~IsServiceGroup(["municipality-light"])
 )
 MODULE_JOURNAL_READ = STATES_ALL & ~IsServiceGroup(["municipality-light"])
-MODULE_JOURNAL_WRITE = MODULE_JOURNAL_READ & ROLES_NO_READONLY
+MODULE_JOURNAL_WRITE = MODULE_JOURNAL_READ & ~READONLY
 MODULE_RESPONSIBLE_SERVICE_READ = (
     ROLES_MUNICIPALITY
     & IsForm(["auszahlung-abbruchpraemie"])
@@ -144,6 +150,7 @@ MODULE_PERMISSIONS = (
     STATES_ALL
     & HasRole(["municipality-lead"])
     & ~IsServiceGroup(["municipality-light"])
+    & ~READONLY
 )
 MODULE_PUBLICATION = (
     NO_CORRECTION
@@ -153,10 +160,8 @@ MODULE_PUBLICATION = (
 MODULE_REJECTION = RequireInstanceState(["subm", "rejected"]) & ~IsServiceGroup(
     ["municipality-light"]
 )
-MODULE_RESPONSIBLE = STATES_ALL & ROLES_NO_READONLY
-MODULE_WORK_ITEMS = (
-    STATES_ALL & ROLES_NO_READONLY & ~IsServiceGroup(["municipality-light"])
-)
+MODULE_RESPONSIBLE = STATES_ALL & ~READONLY
+MODULE_WORK_ITEMS = STATES_ALL & ~READONLY & ~IsServiceGroup(["municipality-light"])
 
 ROLES_DEADLINES_WRITE = (
     IsServiceGroup(["municipality"]) & (HasRole(["municipality-lead"]))
@@ -182,7 +187,7 @@ MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
 
 MODULE_RPG2_READ = RequireWorkItem("rpg2") & IsService(["afb"])
 
-MODULE_RPG2_WRITE = MODULE_RPG2_READ & ROLES_NO_READONLY
+MODULE_RPG2_WRITE = MODULE_RPG2_READ & ~READONLY
 
 MODULE_PORTAL_APPLICANTS = HasApplicantRole(["ADMIN"])
 MODULE_PORTAL_COMMUNICATIONS_READ = ~RequireInstanceState(["new"])
@@ -280,7 +285,10 @@ AG_PERMISSIONS_SETTINGS = {
     "ACCESS_LEVELS": {
         "applicant": [
             ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
-            ("additional-demands-write", MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE),
+            (
+                "additional-demands-applicant-write",
+                MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE,
+            ),
             ("applicant-add", MODULE_PORTAL_APPLICANTS),
             ("applicant-read", MODULE_PORTAL_APPLICANTS),
             ("applicant-remove", MODULE_PORTAL_APPLICANTS),
@@ -347,10 +355,11 @@ AG_PERMISSIONS_SETTINGS = {
             ),
         ],
         "lead-authority": [
-            ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
-            ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
-            ("audit-read", MODULE_AUDIT),
+            ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS_READ),
+            ("additional-demands-internal-write", MODULE_ADDITIONAL_DEMANDS_WRITE),
+            ("audit-read", MODULE_AUDIT_READ),
             ("audit-demolition-read", MODULE_AUDIT_DEMOLITION),
+            ("audit-write", MODULE_AUDIT_WRITE),
             ("billing-read", MODULE_BILLING),
             ("billing-write", MODULE_BILLING),
             ("billing-charge", MODULE_BILLING),
@@ -373,7 +382,6 @@ AG_PERMISSIONS_SETTINGS = {
             ("form-kantonale-pruefung-write", MODULE_CANTONAL_EXAM),
             ("form-rpg2-read", MODULE_RPG2_READ),
             ("form-rpg2-write", MODULE_RPG2_WRITE),
-            ("form-vorlaeufige-pruefung-write", MODULE_FORMAL_EXAM),
             ("form-read", MODULE_FORM),
             (
                 "form-write",
@@ -421,8 +429,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("instance-delete", ACTION_INSTANCE_DELETE),
         ],
         "involved-authority": [
-            ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
-            ("audit-read", MODULE_AUDIT),
+            ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS_READ),
+            ("audit-read", MODULE_AUDIT_READ),
             ("audit-demolition-read", MODULE_AUDIT_DEMOLITION),
             ("billing-read", MODULE_BILLING),
             ("billing-charge", MODULE_BILLING),

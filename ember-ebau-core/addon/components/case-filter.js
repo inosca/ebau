@@ -104,15 +104,18 @@ export default class CaseFilterComponent extends Component {
     const roleSlug = this.session.role?.slug;
     const serviceGroupSlug = this.session.serviceGroup?.slug;
 
-    return mainConfig.displayedForms
-      .map((section) => section.forms)
-      .flat()
-      .some(
-        (form) =>
-          form.roles?.includes(roleSlug) ||
-          (form.roles || []).length === 0 ||
-          form.serviceGroups?.includes(serviceGroupSlug),
-      );
+    return (
+      !this.session.isReadOnlyRole &&
+      mainConfig.displayedForms
+        .map((section) => section.forms)
+        .flat()
+        .some(
+          (form) =>
+            form.roles?.includes(roleSlug) ||
+            (form.roles || []).length === 0 ||
+            form.serviceGroups?.includes(serviceGroupSlug),
+        )
+    );
   }
   get showNewCaseButton() {
     return (
