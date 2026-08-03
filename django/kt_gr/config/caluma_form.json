@@ -44306,7 +44306,7 @@
     "pk": "abbruchvorhaben",
     "fields": {
       "created_at": "2026-07-06T08:23:23.969Z",
-      "modified_at": "2026-07-06T11:10:45.583Z",
+      "modified_at": "2026-08-03T08:31:44.720Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44318,7 +44318,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Beschreiben Sie welche Baute oder Anlage abgebrochen wird.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Beschreiben Sie, welche Baute oder Anlage abgebrochen wird.\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -45449,7 +45449,7 @@
     "pk": "abbruchvorhaben-zufahrtssituation",
     "fields": {
       "created_at": "2026-07-06T08:34:36.592Z",
-      "modified_at": "2026-07-06T11:13:55.510Z",
+      "modified_at": "2026-08-03T08:30:07.637Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -45461,7 +45461,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Beschreiben Sie die konkrete Situation: Wie weit ist der nächste befestigte Weg? Welche Fahrzeuge können zu fahren? Gibt es saisonale Einschränkungen? Falls nur mit Seilbahn oder Helikopter erreichbar: bitte begründen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Beschreiben Sie die konkrete Situation: Wie weit ist der nächste befestigte Weg entfernt? Welche Fahrzeuge können zufahren? Gibt es saisonale Einschränkungen? Falls nur mit Seilbahn oder Helikopter erreichbar: bitte begründen.\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
