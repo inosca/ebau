@@ -738,7 +738,7 @@ class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
             )
 
         if not permissions_api.PermissionManager.from_request(self.request).has_all(
-            self.instance, "additional-demands-write"
+            self.instance, "additional-demands-internal-write"
         ):
             return (
                 False,

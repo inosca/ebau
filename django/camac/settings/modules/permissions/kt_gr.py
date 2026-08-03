@@ -222,7 +222,10 @@ GR_PERMISSIONS_SETTINGS = {
     "ACCESS_LEVELS": {
         "applicant": [
             ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
-            ("additional-demands-write", MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE),
+            (
+                "additional-demands-applicant-write",
+                MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE,
+            ),
             (
                 "additional-demands-correction-document-upload",
                 MODULE_PORTAL_ADDITIONAL_DEMAND_CHANGES,
@@ -267,7 +270,10 @@ GR_PERMISSIONS_SETTINGS = {
         ],
         "distribution-service": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
-            ("additional-demands-write", ACTION_INSTANCE_CREATE_ADDITIONAL_DEMAND),
+            (
+                "additional-demands-internal-write",
+                ACTION_INSTANCE_CREATE_ADDITIONAL_DEMAND,
+            ),
             (
                 "additional-demands-correction-request",
                 ADDITIONAL_DEMAND_REQUEST_CHANGES,
@@ -307,7 +313,10 @@ GR_PERMISSIONS_SETTINGS = {
         ],
         "lead-authority": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
-            ("additional-demands-write", ACTION_INSTANCE_CREATE_ADDITIONAL_DEMAND),
+            (
+                "additional-demands-internal-write",
+                ACTION_INSTANCE_CREATE_ADDITIONAL_DEMAND,
+            ),
             (
                 "additional-demands-correction-request",
                 ADDITIONAL_DEMAND_REQUEST_CHANGES,

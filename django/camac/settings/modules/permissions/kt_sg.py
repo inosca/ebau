@@ -120,7 +120,10 @@ SG_PERMISSIONS_SETTINGS = {
     "ACCESS_LEVELS": {
         "applicant": [
             ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
-            ("additional-demands-write", MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE),
+            (
+                "additional-demands-applicant-write",
+                MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE,
+            ),
             ("applicant-confirmation-cancel", ACTION_APPLICANT_CONFIRMATION_ADMIN),
             ("applicant-confirmation-confirm", ACTION_APPLICANT_CONFIRMATION_CONFIRM),
             ("applicant-confirmation-invalidate", ACTION_APPLICANT_CONFIRMATION_ADMIN),
@@ -171,7 +174,7 @@ SG_PERMISSIONS_SETTINGS = {
         ],
         "lead-authority": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
-            ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
+            ("additional-demands-internal-write", MODULE_ADDITIONAL_DEMANDS),
             ("applicant-confirmation-read", Static()),
             ("billing-read", MODULE_BILLING),
             ("billing-write", MODULE_BILLING),

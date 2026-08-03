@@ -757,7 +757,7 @@ BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS = BE_BASE_AUTHORITY_PERMISSIONS + [
         BE_MUNICIPALITY_ACCESSIBLE_STATES & RequireWorkItem("init-additional-demand"),
     ),
     (
-        "additional-demands-write",
+        "additional-demands-internal-write",
         BE_MUNICIPALITY_ACCESSIBLE_STATES
         & RequireWorkItem("init-additional-demand")
         & HasRole(["municipality-lead"]),
@@ -827,7 +827,10 @@ BE_PERMISSIONS_SETTINGS = {
         ],
         "applicant": [
             ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
-            ("additional-demands-write", MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE),
+            (
+                "additional-demands-applicant-write",
+                MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE,
+            ),
             # TODO: alexandria-read permission
             ("alexandria-write", MODULE_PORTAL_ALEXANDRIA_WRITE),
             ("applicant-add", MODULE_PORTAL_APPLICANTS),
@@ -870,7 +873,7 @@ BE_PERMISSIONS_SETTINGS = {
         ],
         "lead-authority": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS_READ),
-            ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS_WRITE),
+            ("additional-demands-internal-write", MODULE_ADDITIONAL_DEMANDS_WRITE),
             # TODO: alexandria-read permission
             ("alexandria-write", MODULE_DOCUMENTS_WRITE),
             # TODO: Use permissions module for form-write permission on appeal
