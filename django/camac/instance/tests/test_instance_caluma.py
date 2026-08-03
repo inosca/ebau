@@ -3891,7 +3891,11 @@ def test_request_demolition_payment(
     ag_instance.involved_applicants.all().delete()
     role = ROLE_CHOICES.ADMIN.value if is_admin else ROLE_CHOICES.READ_ONLY.value
     applicant_factory(instance=ag_instance, invitee=admin_user, role=role)
-    caluma_work_item_factory(case=ag_instance.case, task_id="complete-instance")
+    caluma_work_item_factory(
+        case=ag_instance.case,
+        task_id="decision",
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+    )
 
     permissions_api.grant(
         ag_instance,

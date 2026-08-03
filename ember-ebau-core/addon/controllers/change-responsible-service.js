@@ -17,8 +17,15 @@ export default class ChangeResponsibleServiceController extends Controller {
 
   @tracked selectedService;
 
-  get relevantServiceGroups() {
+  get readableServiceGroups() {
     return mainConfig.changeResponsibleService.serviceGroupsForType[this.model];
+  }
+
+  get selectableServiceGroups() {
+    const config = mainConfig.changeResponsibleService;
+    const serviceGroupConfig =
+      config.selectableServiceGroupsForType || config.serviceGroupsForType;
+    return serviceGroupConfig[this.model];
   }
 
   get activeService() {
@@ -38,7 +45,7 @@ export default class ChangeResponsibleServiceController extends Controller {
 
   activeServices = query(this, "public-service", () => ({
     filter: {
-      service_group_name: this.relevantServiceGroups.join(","),
+      service_group_name: this.readableServiceGroups.join(","),
       has_parent: false,
       is_active_service_for_instance: this.ebauModules.instanceId,
     },
@@ -51,13 +58,13 @@ export default class ChangeResponsibleServiceController extends Controller {
     return (services ?? []).filter(
       (service) =>
         service.id !== this.activeService?.id &&
-        this.relevantServiceGroups.includes(service.get("serviceGroup.slug")),
+        this.readableServiceGroups.includes(service.get("serviceGroup.slug")),
     );
   });
 
   selectableServices = query(this, "public-service", () => ({
     filter: {
-      service_group_name: this.relevantServiceGroups.join(","),
+      service_group_name: this.selectableServiceGroups.join(","),
       has_parent: false,
     },
   }));

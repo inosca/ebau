@@ -136,9 +136,10 @@ export default {
   },
   changeResponsibleService: {
     serviceGroupsForType: {
-      // This should match the "ACTIVE_SERVICE" configuration in the django
-      // settings
       municipality: ["municipality", "municipality-light", "service-afb"],
+    },
+    selectableServiceGroupsForType: {
+      municipality: ["service-afb"],
     },
   },
   alexandria: {

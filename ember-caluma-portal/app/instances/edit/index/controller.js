@@ -61,26 +61,30 @@ export default class InstancesEditIndexController extends Controller {
 
   @dropTask
   *createDemolitionPayment() {
-    const response = yield this.fetch.fetch(`/api/v1/instances`, {
-      method: "POST",
-      body: JSON.stringify({
-        data: {
-          attributes: {
-            "caluma-form": "auszahlung-abbruchpraemie",
-            "copy-source": this.editController.model,
-            "copy-type": "demolition_payment",
+    try {
+      const response = yield this.fetch.fetch(`/api/v1/instances`, {
+        method: "POST",
+        body: JSON.stringify({
+          data: {
+            attributes: {
+              "caluma-form": "auszahlung-abbruchpraemie",
+              "copy-source": this.editController.model,
+              "copy-type": "demolition_payment",
+            },
+            type: "instances",
           },
-          type: "instances",
-        },
-      }),
-    });
-    const { data } = yield response.json();
+        }),
+      });
+      const { data } = yield response.json();
 
-    yield this.router.transitionTo(
-      "instances.edit.form",
-      data.id,
-      "auszahlung-abbruchpraemie",
-    );
+      yield this.router.transitionTo(
+        "instances.edit.form",
+        data.id,
+        "auszahlung-abbruchpraemie",
+      );
+    } catch {
+      this.notification.danger(this.intl.t("instances.demolitionPaymentError"));
+    }
   }
 
   @dropTask
