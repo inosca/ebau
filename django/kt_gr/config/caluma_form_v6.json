@@ -1001,21 +1001,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-v6.abbruchpraemie-optionale-dokumente",
-    "fields": {
-      "created_at": "2026-07-31T08:34:22.068Z",
-      "modified_at": "2026-07-31T08:34:22.068Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v6",
-      "question": "abbruchpraemie-optionale-dokumente",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente-v6.aus-und-weiterbildungsnachweise-v6",
     "fields": {
       "created_at": "2026-01-14T08:14:44.792Z",

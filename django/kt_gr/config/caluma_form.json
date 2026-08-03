@@ -19598,14 +19598,14 @@
     "pk": "abbruchpraemie-optional-amtliche-schaetzung-soweit-vorhanden",
     "fields": {
       "created_at": "2026-07-06T10:38:59.893Z",
-      "modified_at": "2026-07-31T08:37:48.162Z",
+      "modified_at": "2026-08-03T12:13:35.913Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"(Optional) Amtliche Schätzung (soweit vorhanden)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
-      "is_archived": true,
+      "is_archived": false,
       "meta": {},
       "source": null
     }
@@ -19615,14 +19615,14 @@
     "pk": "abbruchpraemie-optional-bei-bekannten-schadstoffen-schadstoffgutachten-oder-voruntersuchungsbericht",
     "fields": {
       "created_at": "2026-07-06T10:38:59.907Z",
-      "modified_at": "2026-07-31T08:37:48.180Z",
+      "modified_at": "2026-08-03T12:13:35.907Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"(Optional) Bei bekannten Schadstoffen: Schadstoffgutachten oder Voruntersuchungsbericht\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
-      "is_archived": true,
+      "is_archived": false,
       "meta": {},
       "source": null
     }
@@ -19632,80 +19632,12 @@
     "pk": "abbruchpraemie-optional-bei-denkmalgeschuetzten-oder-inventarisierten-objekten-stellungnahme-denkmalpflege-gr",
     "fields": {
       "created_at": "2026-07-06T10:40:39.969Z",
-      "modified_at": "2026-07-31T08:37:48.197Z",
+      "modified_at": "2026-08-03T12:13:35.919Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"(Optional) Bei denkmalgeschützten oder inventarisierten Objekten: Stellungnahme Denkmalpflege GR\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "abbruchpraemie-optionale-dokumente-amtliche-schaetzung-soweit-vorhanden",
-    "fields": {
-      "created_at": "2026-07-31T08:34:21.964Z",
-      "modified_at": "2026-07-31T08:34:21.964Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Amtliche Schätzung (soweit vorhanden)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "abbruchpraemie-optionale-dokumente-bei-bekannten-schadstoffen-schadstoffgutachten-oder-voruntersuchungsbericht",
-    "fields": {
-      "created_at": "2026-07-31T08:34:21.956Z",
-      "modified_at": "2026-07-31T08:34:21.956Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bei bekannten Schadstoffen: Schadstoffgutachten oder Voruntersuchungsbericht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "abbruchpraemie-optionale-dokumente-bei-denkmalgeschuetzten-oder-inventarisierten-objekten-stellungnahme-denkmalpflege-gr",
-    "fields": {
-      "created_at": "2026-07-31T08:34:21.978Z",
-      "modified_at": "2026-07-31T08:34:21.978Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bei denkmalgeschützten oder inventarisierten Objekten: Stellungnahme Denkmalpflege GR\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "abbruchpraemie-optionale-dokumente-keine",
-    "fields": {
-      "created_at": "2026-07-31T08:35:16.502Z",
-      "modified_at": "2026-07-31T08:35:45.980Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"keine optionalen Dokumente hochgeladen\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -44244,43 +44176,12 @@
     "pk": "abbruchpraemie",
     "fields": {
       "created_at": "2026-07-06T10:34:11.372Z",
-      "modified_at": "2026-07-31T08:37:48.311Z",
+      "modified_at": "2026-08-03T12:13:36.097Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Abzubrechende Bauten und Anlagen (Abbruchprämie)\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "!(\"wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird\"|answer == \"wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird-ja\")",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "abbruchpraemie-optionale-dokumente",
-    "fields": {
-      "created_at": "2026-07-31T08:34:22.020Z",
-      "modified_at": "2026-07-31T08:35:46.035Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Abbruchprämie optionale Dokumente\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "!(\"wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird\"|answer == \"wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird-ja\")",
@@ -85802,8 +85703,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-fotodokumentation-objekt-jeweils-von-allen-4-seiten-und-saemtliche-innenansichten",
     "fields": {
-      "created_at": "2026-07-31T08:37:48.337Z",
-      "modified_at": "2026-07-31T08:37:48.337Z",
+      "created_at": "2026-08-03T12:13:36.121Z",
+      "modified_at": "2026-08-03T12:13:36.121Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85817,8 +85718,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-grundriss-und-schnittplaene",
     "fields": {
-      "created_at": "2026-07-31T08:37:48.342Z",
-      "modified_at": "2026-07-31T08:37:48.342Z",
+      "created_at": "2026-08-03T12:13:36.130Z",
+      "modified_at": "2026-08-03T12:13:36.130Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85832,8 +85733,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-ja",
     "fields": {
-      "created_at": "2026-07-31T08:37:48.359Z",
-      "modified_at": "2026-07-31T08:37:48.359Z",
+      "created_at": "2026-08-03T12:13:36.144Z",
+      "modified_at": "2026-08-03T12:13:36.144Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85847,8 +85748,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-kubische-berechnung-kubaturnachweis",
     "fields": {
-      "created_at": "2026-07-31T08:37:48.353Z",
-      "modified_at": "2026-07-31T08:37:48.353Z",
+      "created_at": "2026-08-03T12:13:36.140Z",
+      "modified_at": "2026-08-03T12:13:36.140Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85862,8 +85763,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-optional-amtliche-schaetzung-soweit-vorhanden",
     "fields": {
-      "created_at": "2026-07-31T08:37:48.330Z",
-      "modified_at": "2026-07-31T08:37:48.330Z",
+      "created_at": "2026-08-03T12:13:36.117Z",
+      "modified_at": "2026-08-03T12:13:36.117Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85877,8 +85778,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-optional-bei-bekannten-schadstoffen-schadstoffgutachten-oder-voruntersuchungsbericht",
     "fields": {
-      "created_at": "2026-07-31T08:37:48.326Z",
-      "modified_at": "2026-07-31T08:37:48.326Z",
+      "created_at": "2026-08-03T12:13:36.112Z",
+      "modified_at": "2026-08-03T12:13:36.112Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85892,8 +85793,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-optional-bei-denkmalgeschuetzten-oder-inventarisierten-objekten-stellungnahme-denkmalpflege-gr",
     "fields": {
-      "created_at": "2026-07-31T08:37:48.318Z",
-      "modified_at": "2026-07-31T08:37:48.318Z",
+      "created_at": "2026-08-03T12:13:36.107Z",
+      "modified_at": "2026-08-03T12:13:36.107Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85907,8 +85808,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-situationsplan-uebersichtsplan",
     "fields": {
-      "created_at": "2026-07-31T08:37:48.348Z",
-      "modified_at": "2026-07-31T08:37:48.348Z",
+      "created_at": "2026-08-03T12:13:36.135Z",
+      "modified_at": "2026-08-03T12:13:36.135Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85916,66 +85817,6 @@
       "question": "abbruchpraemie",
       "option": "abbruchpraemie-situationsplan-uebersichtsplan",
       "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "abbruchpraemie-optionale-dokumente.abbruchpraemie-optionale-dokumente-amtliche-schaetzung-soweit-vorhanden",
-    "fields": {
-      "created_at": "2026-07-31T08:35:46.044Z",
-      "modified_at": "2026-07-31T08:35:46.044Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "abbruchpraemie-optionale-dokumente",
-      "option": "abbruchpraemie-optionale-dokumente-amtliche-schaetzung-soweit-vorhanden",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "abbruchpraemie-optionale-dokumente.abbruchpraemie-optionale-dokumente-bei-bekannten-schadstoffen-schadstoffgutachten-oder-voruntersuchungsbericht",
-    "fields": {
-      "created_at": "2026-07-31T08:35:46.042Z",
-      "modified_at": "2026-07-31T08:35:46.042Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "abbruchpraemie-optionale-dokumente",
-      "option": "abbruchpraemie-optionale-dokumente-bei-bekannten-schadstoffen-schadstoffgutachten-oder-voruntersuchungsbericht",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "abbruchpraemie-optionale-dokumente.abbruchpraemie-optionale-dokumente-bei-denkmalgeschuetzten-oder-inventarisierten-objekten-stellungnahme-denkmalpflege-gr",
-    "fields": {
-      "created_at": "2026-07-31T08:35:46.040Z",
-      "modified_at": "2026-07-31T08:35:46.040Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "abbruchpraemie-optionale-dokumente",
-      "option": "abbruchpraemie-optionale-dokumente-bei-denkmalgeschuetzten-oder-inventarisierten-objekten-stellungnahme-denkmalpflege-gr",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "abbruchpraemie-optionale-dokumente.abbruchpraemie-optionale-dokumente-keine",
-    "fields": {
-      "created_at": "2026-07-31T08:35:46.038Z",
-      "modified_at": "2026-07-31T08:35:46.038Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "abbruchpraemie-optionale-dokumente",
-      "option": "abbruchpraemie-optionale-dokumente-keine",
-      "sort": 1
     }
   },
   {
