@@ -365,7 +365,7 @@ def test_dynamic_group_schnurgeruestabnahme_uri(
     construction_monitoring_settings,
 ):
     service = service_factory()
-    ur_instance.responsible_service = mocker.PropertyMock(return_value=service)
+    mocker.patch.object(ur_instance, "responsible_service", return_value=service)
 
     planning_work_item = caluma_work_item_factory(
         case=ur_instance.case,
@@ -427,9 +427,7 @@ def test_dynamic_group_building_commission(
     building_commission.save()
 
     # Mock the implementation details of the municipality property on the instance
-    type(ur_instance).municipality = mocker.PropertyMock(
-        return_value=municipality_service
-    )
+    mocker.patch.object(ur_instance, "municipality", municipality_service)
 
     assert CustomDynamicGroups().resolve("building-commission")(
         None, ur_instance.case, None, None, None
