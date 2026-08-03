@@ -118,7 +118,7 @@ export default class CustomSession extends Session {
   get isReadOnlyRoleAG() {
     // In Kt. AG, services using eCH API are always readonly, except for
     // the "auszahlung abbruchpraemie" form (which is not part of the eCH API).
-    if (this.service.usesEchApi) {
+    if (this.service?.usesEchApi) {
       if (!this.currentInstanceId) {
         return true;
       }
