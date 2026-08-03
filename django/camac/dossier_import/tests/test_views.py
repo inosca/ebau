@@ -36,6 +36,7 @@ def test_api_get_views(
     archive_file,
     result_count,
     application_settings,
+    dossier_import_settings,
 ):
     application_settings["ROLE_PERMISSIONS"] = settings.APPLICATIONS[config][
         "ROLE_PERMISSIONS"
@@ -71,7 +72,7 @@ def test_imported_instance_be_get_name(
 
 
 @pytest.mark.freeze_time("2021-12-12")
-@pytest.mark.parametrize("role__name", ["Gemeinde", "municipality-lead"])
+@pytest.mark.parametrize("role__name", ["Municpality", "Support"])
 @pytest.mark.parametrize(
     ("import_file", "config", "location_id", "expected_status"),
     [
@@ -266,6 +267,7 @@ def test_file_validation(
         "action",
         "host",
         "role__name",
+        "application_name",
         "status_before",
         "expected_response_code",
         "status_after",
@@ -275,30 +277,52 @@ def test_file_validation(
             "start",
             "test",
             "Municipality",
+            None,
             DossierImport.Status.VALIDATION_SUCCESSFUL,
-            status.HTTP_200_OK,
+            status.HTTP_204_NO_CONTENT,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
+        ),
+        (
+            "start",
+            "test",
+            "Support",
+            None,
+            DossierImport.Status.VALIDATION_SUCCESSFUL,
+            status.HTTP_204_NO_CONTENT,
             DossierImport.Status.IMPORT_IN_PROGRESS,
         ),
         (
             "start",
             "prod",
             "Municipality",
+            None,
             DossierImport.Status.VALIDATION_SUCCESSFUL,
             status.HTTP_404_NOT_FOUND,
             None,
         ),
         (
             "start",
+            "prod",
+            "Support",
+            None,
+            DossierImport.Status.VALIDATION_SUCCESSFUL,
+            status.HTTP_204_NO_CONTENT,
+            DossierImport.Status.IMPORT_IN_PROGRESS,
+        ),
+        (
+            "start",
             "test",
             "Municipality",
+            None,
             DossierImport.Status.VALIDATION_FAILED,
-            status.HTTP_400_BAD_REQUEST,
+            status.HTTP_403_FORBIDDEN,
             None,
         ),
         (
             "confirm",
             "test",
             "Municipality",
+            None,
             DossierImport.Status.IMPORTED,
             status.HTTP_204_NO_CONTENT,
             DossierImport.Status.CONFIRMED,
@@ -307,22 +331,25 @@ def test_file_validation(
             "confirm",
             "test",
             "Municipality",
+            None,
             DossierImport.Status.VALIDATION_SUCCESSFUL,
-            status.HTTP_400_BAD_REQUEST,
+            status.HTTP_403_FORBIDDEN,
             None,
         ),
         (
             "transmit",
             "test",
             "Support",
+            None,
             DossierImport.Status.CONFIRMED,
-            status.HTTP_200_OK,
+            status.HTTP_204_NO_CONTENT,
             DossierImport.Status.TRANSMITTING,
         ),
         (
             "transmit",
             "prod",
             "Support",
+            None,
             DossierImport.Status.CONFIRMED,
             status.HTTP_403_FORBIDDEN,
             None,
@@ -331,6 +358,7 @@ def test_file_validation(
             "transmit",
             "test",
             "Municipality",
+            None,
             DossierImport.Status.CONFIRMED,
             status.HTTP_403_FORBIDDEN,
             None,
@@ -339,38 +367,52 @@ def test_file_validation(
             "transmit",
             "test",
             "Support",
+            None,
             DossierImport.Status.IMPORTED,
-            status.HTTP_400_BAD_REQUEST,
+            status.HTTP_403_FORBIDDEN,
             None,
         ),
         (
             "undo",
             "test",
             "Support",
+            None,
             DossierImport.Status.IMPORTED,
-            status.HTTP_200_OK,
+            status.HTTP_204_NO_CONTENT,
             DossierImport.Status.UNDO_IN_PROGRESS,
         ),
         (
             "undo",
             "test",
             "Municipality",
+            None,
             DossierImport.Status.IMPORTED,
-            status.HTTP_200_OK,
+            status.HTTP_204_NO_CONTENT,
             DossierImport.Status.UNDO_IN_PROGRESS,
         ),
         (
             "undo",
             "prod",
             "Support",
+            None,
             DossierImport.Status.IMPORTED,
-            status.HTTP_200_OK,
+            status.HTTP_403_FORBIDDEN,
+            DossierImport.Status.UNDO_IN_PROGRESS,
+        ),
+        (  # Undo in prod is allowed in Kt. SO
+            "undo",
+            "prod",
+            "Support",
+            "kt_so",
+            DossierImport.Status.IMPORTED,
+            status.HTTP_204_NO_CONTENT,
             DossierImport.Status.UNDO_IN_PROGRESS,
         ),
         (
             "undo",
             "prod",
             "Municipality",
+            None,
             DossierImport.Status.IMPORTED,
             status.HTTP_404_NOT_FOUND,
             None,
@@ -392,8 +434,14 @@ def test_state_transitions(
     mailoutbox,
     be_dossier_import_settings,
     celery_fake_worker,
+    application_name,
 ):
     settings.INTERNAL_BASE_URL = f"https://{host}.example.com"
+
+    if application_name is not None:
+        # We only ever specifically set the application name if there's a
+        # cantonal special case to test
+        settings.APPLICATION_NAME = application_name
 
     dossier_import = dossier_import_factory(
         status=status_before,
@@ -410,7 +458,7 @@ def test_state_transitions(
     )
     assert resp.status_code == expected_response_code
     dossier_import.refresh_from_db()
-    if expected_response_code == status.HTTP_200_OK:
+    if expected_response_code == status.HTTP_204_NO_CONTENT:
         assert dossier_import.status == status_after
     if action == "confirm" and dossier_import.status == DossierImport.Status.CONFIRMED:
         assert len(mailoutbox) == 1
@@ -450,24 +498,40 @@ def test_download_import(
     assert resp.getvalue() == file.read()
 
 
-@pytest.mark.parametrize("role__name", ["Support"])
+@pytest.mark.parametrize(
+    ("role__name", "is_prod", "expected_status"),
+    [
+        ("Municipality", False, status.HTTP_403_FORBIDDEN),
+        ("Municipality", True, status.HTTP_404_NOT_FOUND),
+        ("Support", False, status.HTTP_403_FORBIDDEN),
+        ("Support", True, status.HTTP_204_NO_CONTENT),
+    ],
+)
 @pytest.mark.django_db
-def test_clean_import(admin_client, archive_file, dossier_import_factory):
+def test_clean_import(
+    admin_client, archive_file, dossier_import_factory, expected_status, is_prod, mocker
+):
+    mocker.patch("camac.dossier_import.views.is_prod", return_value=is_prod)
     dossier_import = dossier_import_factory(
         source_file=archive_file("import-example.zip"),
         group=admin_client.user.groups.first(),
+        status=DossierImport.Status.IMPORTED,
     )
     resp = admin_client.post(reverse("dossier-import-clean", args=(dossier_import.pk,)))
-    assert resp.status_code == status.HTTP_204_NO_CONTENT
-    dossier_import.refresh_from_db()
-    assert not dossier_import.source_file
+    assert resp.status_code == expected_status
+    if expected_status == status.HTTP_204_NO_CONTENT:
+        dossier_import.refresh_from_db()
+        assert not dossier_import.source_file
 
 
 @pytest.mark.parametrize(
     ("has_case", "expected_status"),
     [(False, status.HTTP_204_NO_CONTENT), (True, status.HTTP_400_BAD_REQUEST)],
 )
-@pytest.mark.parametrize("role__name", ["Support"])
+@pytest.mark.parametrize(("role__name"), ["Municipality", "Support"])
+@pytest.mark.parametrize(
+    "dossier_import__status", [DossierImport.Status.VALIDATION_SUCCESSFUL]
+)
 @pytest.mark.django_db
 def test_delete_import(
     admin_client,

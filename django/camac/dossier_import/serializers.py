@@ -43,10 +43,6 @@ class DossierImportSerializer(serializers.ModelSerializer):
         "location": "camac.user.serializers.LocationSerializer",
     }
 
-    def __init__(self, *args, **kwargs):
-        self._warnings = []
-        super().__init__(*args, **kwargs)
-
     def validate_source_file(self, source_file):
         return verify_source_file(source_file)
 
@@ -59,8 +55,6 @@ class DossierImportSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         dossier_import = super().create(validated_data)
-        dossier_import.status = dossier_import.Status.IMPORT_IN_PROGRESS
-        dossier_import.save()
         try:
             return validate_zip_archive_structure(str(dossier_import.pk))
         except InvalidImportDataError as e:

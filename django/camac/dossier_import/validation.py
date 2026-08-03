@@ -436,7 +436,6 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     dossier_import.messages["validation"]["completed"] = timezone.localtime().strftime(
         "%Y-%m-%dT%H:%M:%S%z"
     )
-    dossier_import.save()
 
     dossier_import.status = dossier_import.Status.VALIDATION_SUCCESSFUL
     if dossier_import.messages["validation"]["summary"]["error"]:
