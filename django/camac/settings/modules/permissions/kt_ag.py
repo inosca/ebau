@@ -157,18 +157,21 @@ MODULE_PUBLICATION = (
     & (RequireWorkItem("create-publication") | RequireWorkItem("fill-publication"))
     & ~IsServiceGroup(["municipality-light"])
 )
-MODULE_REJECTION = RequireInstanceState(["subm", "rejected"]) & ~IsServiceGroup(
-    ["municipality-light"]
+MODULE_REJECTION = (
+    RequireInstanceState(["subm", "rejected"])
+    & ~IsServiceGroup(["municipality-light"])
+    & ~READONLY
 )
 MODULE_RESPONSIBLE = STATES_ALL & ~READONLY
 MODULE_WORK_ITEMS = STATES_ALL & ~READONLY & ~IsServiceGroup(["municipality-light"])
 
 ROLES_DEADLINES_WRITE = (
-    IsServiceGroup(["municipality"]) & (HasRole(["municipality-lead"]))
-) | ROLES_AFB
+    (IsServiceGroup(["municipality"]) & HasRole(["municipality-lead"])) | ROLES_AFB
+) & ~READONLY
 
 ROLES_DEADLINES_READ = (
-    ROLES_DEADLINES_WRITE
+    (IsServiceGroup(["municipality"]) & (HasRole(["municipality-lead"])))
+    | ROLES_AFB
     | IsServiceGroup(["service-cantonal"])
     | HasRole(["subservice"])
 )
@@ -212,6 +215,7 @@ MODULE_RELATED_GWR_PROJECTS = (
     STATES_ALL
     & IsForm([*BAUGESUCH_FORMS, "baugesuch-migration"])
     & ~IsServiceGroup(["municipality-light"])
+    & ~USES_ECH_API
 )
 
 ACTION_INSTANCE_CREATE_MODIFICATION = (
