@@ -217,12 +217,17 @@ def test_recipient_involved_in_distribution_except_gvg(
 
     involved_service = service_factory()
     gvg_service = service_factory(email="test@gvg.ch")
+    service_without_email = service_factory(email=None)
 
     not_involved_service = service_factory()
 
     for inquiry, option in [
         (active_inquiry_factory(addressed_service=involved_service), involved_option),
         (active_inquiry_factory(addressed_service=gvg_service), involved_option),
+        (
+            active_inquiry_factory(addressed_service=service_without_email),
+            involved_option,
+        ),
         (
             active_inquiry_factory(addressed_service=not_involved_service),
             not_involved_option,
@@ -255,4 +260,5 @@ def test_recipient_involved_in_distribution_except_gvg(
 
     assert involved_service.email in recipients
     assert gvg_service.email not in recipients
+    assert service_without_email.email not in recipients
     assert not_involved_service.email not in recipients
