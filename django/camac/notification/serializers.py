@@ -1543,7 +1543,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _get_recipients_involved_in_distribution_except_gvg(self, instance):
         recipients = self._get_recipients_involved_in_distribution(instance)
         return [
-            recipient for recipient in recipients if "@gvg.ch" not in recipient["to"]
+            recipient
+            for recipient in recipients
+            if recipient.get("to") and "@gvg.ch" not in recipient["to"]
         ]
 
     def _get_recipients_unanswered_inquiries(self, instance):
