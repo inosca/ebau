@@ -47,7 +47,7 @@ export default {
     changeForm: true,
     convertModification: false,
     correctForm: true,
-    withdrawInstance: true,
+    withdrawInstance: false,
     applicantCorrection: true,
   },
   workItems: {
