@@ -32,4 +32,5 @@ export default {
     journal: true,
     communications: true,
   },
+  useInstanceIdentifier: true,
 };

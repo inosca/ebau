@@ -2,6 +2,8 @@ import { service } from "@ember/service";
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { queryManager } from "ember-apollo-client";
 
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+
 export default class InstanceModel extends Model {
   @queryManager apollo;
 
@@ -66,6 +68,8 @@ export default class InstanceModel extends Model {
   }
 
   get displayName() {
-    return `${this.name} (${this.dossierNumber})`;
+    return hasFeature("useInstanceIdentifier")
+      ? this.identifier
+      : `${this.name} (${this.dossierNumber})`;
   }
 }
