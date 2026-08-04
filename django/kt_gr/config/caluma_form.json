@@ -1319,7 +1319,22 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben",
-      "sort": 25
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie.abbruchvorhaben-adresse",
+    "fields": {
+      "created_at": "2026-07-31T08:42:50.575Z",
+      "modified_at": "2026-07-31T08:42:50.575Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie",
+      "question": "abbruchvorhaben-adresse",
+      "sort": 3
     }
   },
   {
@@ -1334,7 +1349,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-art-und-umfang-der-schadstoffe",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -1349,7 +1364,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-bauweise",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -1364,7 +1379,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-bauweise-text",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -1379,7 +1394,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-beschreibung-der-abzubrechenden-bauten-und-anlagen",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -1394,7 +1409,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-beschreibung-der-bauweise-bitte-ausfuehren",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -1409,7 +1424,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-beschreibung-der-geplanten-renaturierungsmassnahmen",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -1424,7 +1439,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-beschreibung-komplexitaet",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -1454,7 +1469,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-ist-nach-dem-abbruch-ein-neubau-oder-eine-andere-bodenversiegelung-geplant",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -1469,7 +1484,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-komplexitaet",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -1484,7 +1499,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-komplexitaet-2",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -1499,7 +1514,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-kontoinhaber-in",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -1514,7 +1529,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-korrekturfaktoren",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -1529,7 +1544,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-rekultivierung-text",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -1544,7 +1559,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-schadstoffe-und-altlasten",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -1559,7 +1574,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-schadstoffe-und-altlasten-chocie",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -1574,7 +1589,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-sind-unterirdische-bauteile-vorhanden",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -1589,7 +1604,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-text-1",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -1604,7 +1619,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-unterirdische-bauteile",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -1619,7 +1634,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-unterirdische-bauteile-text",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -1634,7 +1649,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-verkehrslage",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -1649,7 +1664,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-zahlungsverbindung",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -1664,7 +1679,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-zufahrtssituation",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -1679,7 +1694,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "abbruchvorhaben-zu-renaturierende-flaeche-m",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -19583,7 +19598,7 @@
     "pk": "abbruchpraemie-optional-amtliche-schaetzung-soweit-vorhanden",
     "fields": {
       "created_at": "2026-07-06T10:38:59.893Z",
-      "modified_at": "2026-07-06T10:48:27.417Z",
+      "modified_at": "2026-08-03T12:13:35.913Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -19600,7 +19615,7 @@
     "pk": "abbruchpraemie-optional-bei-bekannten-schadstoffen-schadstoffgutachten-oder-voruntersuchungsbericht",
     "fields": {
       "created_at": "2026-07-06T10:38:59.907Z",
-      "modified_at": "2026-07-06T10:48:27.421Z",
+      "modified_at": "2026-08-03T12:13:35.907Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -19617,7 +19632,7 @@
     "pk": "abbruchpraemie-optional-bei-denkmalgeschuetzten-oder-inventarisierten-objekten-stellungnahme-denkmalpflege-gr",
     "fields": {
       "created_at": "2026-07-06T10:40:39.969Z",
-      "modified_at": "2026-07-06T10:48:27.393Z",
+      "modified_at": "2026-08-03T12:13:35.919Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -19821,12 +19836,12 @@
     "pk": "abbruchvorhaben-sind-unterirdische-bauteile-vorhanden-ja",
     "fields": {
       "created_at": "2026-07-06T08:43:05.519Z",
-      "modified_at": "2026-07-06T08:43:05.519Z",
+      "modified_at": "2026-07-31T08:43:11.840Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ja – unterirdische Bauteile vorhanden.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Ja – unterirdische Bauteile vorhanden\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -44161,7 +44176,7 @@
     "pk": "abbruchpraemie",
     "fields": {
       "created_at": "2026-07-06T10:34:11.372Z",
-      "modified_at": "2026-07-06T10:48:27.478Z",
+      "modified_at": "2026-08-03T12:13:36.097Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44192,7 +44207,7 @@
     "pk": "abbruchvorhaben",
     "fields": {
       "created_at": "2026-07-06T08:23:23.969Z",
-      "modified_at": "2026-07-06T11:10:45.583Z",
+      "modified_at": "2026-08-03T08:31:44.720Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44204,7 +44219,41 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Beschreiben Sie welche Baute oder Anlage abgebrochen wird.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Beschreiben Sie, welche Baute oder Anlage abgebrochen wird.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abbruchvorhaben-adresse",
+    "fields": {
+      "created_at": "2026-07-31T08:42:50.532Z",
+      "modified_at": "2026-07-31T09:50:48.612Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Adresse Kontoinhaber/-in\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -44260,7 +44309,7 @@
     "pk": "abbruchvorhaben-bauweise",
     "fields": {
       "created_at": "2026-07-06T08:49:29.930Z",
-      "modified_at": "2026-07-08T08:00:26.895Z",
+      "modified_at": "2026-07-31T08:44:14.623Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44272,7 +44321,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Dieser Faktor berücksichtigt die Abbruchkosten je nach verwendetem Baumaterial.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -44325,7 +44374,7 @@
     "pk": "abbruchvorhaben-bauweise-text",
     "fields": {
       "created_at": "2026-07-06T11:01:27.278Z",
-      "modified_at": "2026-07-08T14:32:17.181Z",
+      "modified_at": "2026-07-31T08:41:37.533Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44338,7 +44387,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"##### c) Bauweise – Aus welchem Material besteht das Gebäude?\\n\\n Dieser Faktor berücksichtigt die Abbruchkosten je nach verwendetem Baumaterial. \\n\\n\\n\\n- **Leicht:** Holz, Blech, Folie oder andere Leichtbaukonstruktionen\\n- **Mittel:** Kombination aus Holz und Mauerwerk\\n- **Schwer:** Mauerwerk, Stahlbeton oder ähnliche schwere Bauweisen\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"#### c) Bauweise – Aus welchem Material besteht das Gebäude?\\n\\n Dieser Faktor berücksichtigt die Abbruchkosten je nach verwendetem Baumaterial. \\n\\n\\n\\n- Leicht: Holz, Blech, Folie oder andere Leichtbaukonstruktionen\\n- Mittel: Kombination aus Holz und Mauerwerk\\n- Massiv: Mauerwerk, Stahlbeton oder ähnliche schwere Bauweisen\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44356,7 +44405,7 @@
     "pk": "abbruchvorhaben-beschreibung-der-abzubrechenden-bauten-und-anlagen",
     "fields": {
       "created_at": "2026-07-06T08:29:37.420Z",
-      "modified_at": "2026-07-06T11:11:28.722Z",
+      "modified_at": "2026-07-31T08:42:09.824Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44367,7 +44416,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Pro Baute oder Anlage ist eine separate Beschreibung zu erfassen. Mehrere Bauten oder Anlagen können mit dem Symbol \\\"+\\\" erfasst werden.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"Bitte alle abzubrechenden Objekte einzeln aufführen. Für jedes Objekt ist eine eigene Zeile auszufüllen mit Angaben zur Kubatur (m³) oder der Fläche (m²).\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -44520,12 +44569,12 @@
     "pk": "abbruchvorhaben-iban",
     "fields": {
       "created_at": "2026-07-06T11:05:58.721Z",
-      "modified_at": "2026-07-06T11:06:06.430Z",
+      "modified_at": "2026-07-31T08:38:53.495Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"IBAN\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"IBAN (International Bank Account Number)\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "true",
       "is_hidden": "false",
@@ -44585,7 +44634,7 @@
     "pk": "abbruchvorhaben-komplexitaet",
     "fields": {
       "created_at": "2026-07-06T08:35:40.919Z",
-      "modified_at": "2026-07-08T14:18:56.437Z",
+      "modified_at": "2026-08-03T08:20:14.967Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44598,7 +44647,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"##### b) Komplexität – Wie aufwändig ist der Abbruch?\\n\\nDieser Faktor berücksichtigt den baulichen Aufwand des Abbruchs selbst. \\n\\n- **Tief:** Einfache, offene Konstruktion (z.B. Schopf, Remise, einfache Scheune)\\n- **Mittel:** Mehrgeschossiges Gebäude mit Böden und Zwischendecken\\n- **Hoch:**  Viele kleine Räume, komplizierte Grundrisse und Keller\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"#### b) Komplexität – Wie aufwändig ist der Abbruch?\\n\\nDieser Faktor berücksichtigt den baulichen Aufwand des Abbruchs selbst. \\n\\n- Tief: Einfache, offene Konstruktion (z.B. Schopf, Remise, einfache Scheune)\\n- Mittel: Mehrgeschossiges Gebäude mit Böden und Zwischendecken\\n- Hoch:  Viele kleine Räume, komplizierte Grundrisse und Keller\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44681,7 +44730,7 @@
     "pk": "abbruchvorhaben-korrekturfaktoren",
     "fields": {
       "created_at": "2026-07-06T08:32:34.137Z",
-      "modified_at": "2026-07-06T11:13:13.173Z",
+      "modified_at": "2026-07-31T08:39:40.586Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44694,7 +44743,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"#### Korrekturfaktoren – Selbstdeklaration\\n\\nDie Abbruchprämie wird nach einem Pauschalrichtwert pro m³ bzw. m² berechnet. Dieser Richtwert wird durch drei Korrekturfaktoren angepasst, die den tatsächlichen Abbruchaufwand widerspiegeln: Verkehrslage, Komplexität und Bauweise der Baute. Bitte beschreiben Sie die Situation Ihres Objekts in eigenen Worten. Das ARE bewertet die Angaben und setzt die Faktoren definitiv fest.\\n\\n##### a) Verkehrslage – Wie ist das Objekt erreichbar?\\n\\nDieser Faktor berücksichtigt den Mehraufwand für Transport und Logistik bei schlechter Erschliessung.\\n\\n- **Gut erschlossen:** Ein Lastwagen kann das Grundstück direkt anfahren.\\n- **Mässig erschlossen:** Die Zufahrt ist nur mit einem Traktor oder kleinen Fahrzeugen möglich (z.B. enger Feldweg).\\n- **Schwer zugänglich:** Ort nur via Materialseilbahn/Helikopter erreichbar.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"#### Korrekturfaktoren – Selbstdeklaration\\n\\nDie Abbruchprämie wird nach einem Pauschalrichtwert pro m³ bzw. m² berechnet. Dieser Richtwert wird durch drei Korrekturfaktoren angepasst, die den tatsächlichen Abbruchaufwand widerspiegeln: Verkehrslage, Komplexität und Bauweise der Baute. Bitte beschreiben Sie die Situation Ihres Objekts in eigenen Worten. Das ARE bewertet die Angaben und setzt die Faktoren definitiv fest.\\n\\n#### a) Verkehrslage – Wie ist das Objekt erreichbar?\\n\\nDieser Faktor berücksichtigt den Mehraufwand für Transport und Logistik bei schlechter Erschliessung.\\n\\n- Gut erschlossen: Ein Lastwagen kann das Grundstück direkt anfahren.\\n- Mässig erschlossen: Die Zufahrt ist nur mit einem Traktor oder kleinen Fahrzeugen möglich (z.B. enger Feldweg).\\n- Schwer zugänglich: Ort nur via Materialseilbahn/Helikopter erreichbar.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44743,7 +44792,7 @@
     "pk": "abbruchvorhaben-schadstoffe-und-altlasten",
     "fields": {
       "created_at": "2026-07-06T08:57:31.744Z",
-      "modified_at": "2026-07-06T11:03:37.905Z",
+      "modified_at": "2026-07-31T09:52:59.653Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44756,7 +44805,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"#### Schadstoffe und Altlasten\\n\\nKosten für die Entsorgung von Schadstoffen (Asbest, PCB, Blei, Altlasten) sind NICHT Bestandteil der Abbruchprä\\nmie und gehen zu Lasten der Grundeigentümerschaft (Art. 5a Abs. 1 RPG).\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"#### Schadstoffe und Altlasten\\n\\nKosten für die Entsorgung von Schadstoffen (Asbest, PCB, Blei, Altlasten) sind NICHT Bestandteil der Abbruchprämie  und gehen zu Lasten der Grundeigentümerschaft (Art. 5a Abs. 1 RPG).\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44805,10 +44854,10 @@
     "pk": "abbruchvorhaben-sind-unterirdische-bauteile-vorhanden",
     "fields": {
       "created_at": "2026-07-06T08:43:05.578Z",
-      "modified_at": "2026-07-06T08:43:05.578Z",
+      "modified_at": "2026-07-31T08:43:11.895Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Sind unterirdische Bauteile vorhanden?\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -44816,8 +44865,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -45105,7 +45154,7 @@
     "pk": "abbruchvorhaben-unterirdische-bauteile-text",
     "fields": {
       "created_at": "2026-07-06T08:46:23.779Z",
-      "modified_at": "2026-07-06T11:00:49.369Z",
+      "modified_at": "2026-07-31T08:40:30.845Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -45118,7 +45167,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"##### Unterirdische Bauteile\\n\\nBitte alle unterirdischen Bauteile (Keller, Fundamente, Leitungen, Tanks, Güllegruben usw.) separat aufführen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"##### **Unterirdische Bauteile**\\n\\nBitte alle unterirdischen Bauteile (Keller, Fundamente, Leitungen, Tanks, Güllegruben usw.) separat aufführen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -45301,7 +45350,7 @@
     "pk": "abbruchvorhaben-zufahrtssituation",
     "fields": {
       "created_at": "2026-07-06T08:34:36.592Z",
-      "modified_at": "2026-07-06T11:13:55.510Z",
+      "modified_at": "2026-08-03T08:30:07.637Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -45313,7 +45362,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Beschreiben Sie die konkrete Situation: Wie weit ist der nächste befestigte Weg? Welche Fahrzeuge können zu fahren? Gibt es saisonale Einschränkungen? Falls nur mit Seilbahn oder Helikopter erreichbar: bitte begründen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Beschreiben Sie die konkrete Situation: Wie weit ist der nächste befestigte Weg entfernt? Welche Fahrzeuge können zufahren? Gibt es saisonale Einschränkungen? Falls nur mit Seilbahn oder Helikopter erreichbar: bitte begründen.\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -84481,7 +84530,7 @@
     "pk": "wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird",
     "fields": {
       "created_at": "2026-07-06T10:44:42.827Z",
-      "modified_at": "2026-07-07T13:58:11.890Z",
+      "modified_at": "2026-08-03T14:22:51.126Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -84489,7 +84538,7 @@
       "label": "{\"de\": \"Wird eine Baute oder Anlage abgebrochen, für welche eine Abbruchprämie geltend gemacht wird?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "!(\"entsorgung-triage\"|answer == \"entsorgung-triage-yes\" && \"ausserhalb-bauzone\"|answer == \"ausserhalb-bauzone-ja\")",
+      "is_hidden": "(!(\"entsorgung-triage\"|answer == \"entsorgung-triage-yes\" && \"ausserhalb-bauzone\"|answer == \"ausserhalb-bauzone-ja\")) || !(\"baugesuch\" in info.case.root.form)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Nach Art. 5a RPG erhalten Eigentümer von Bauten und Anlagen, die ausserhalb der Bauzone liegen, bei deren Abbruch eine Abbruchprämie in der Höhe der Abbruchkosten unter Ausschluss allfälliger Aufwendungen für die Entsorgung von Spezialabfällen oder Altlasten [...]. Bei der Beseitigung von Bauten und Anlagen ohne landwirschaftliche oder touristische Nutzung wird die Abbruchprämie nur ausgerichtet, wenn kein Ersatzneubau erstellt wird.\", \"fr\": null, \"it\": null}",
@@ -85654,8 +85703,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-fotodokumentation-objekt-jeweils-von-allen-4-seiten-und-saemtliche-innenansichten",
     "fields": {
-      "created_at": "2026-07-06T10:48:27.483Z",
-      "modified_at": "2026-07-06T10:48:27.483Z",
+      "created_at": "2026-08-03T12:13:36.121Z",
+      "modified_at": "2026-08-03T12:13:36.121Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85669,8 +85718,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-grundriss-und-schnittplaene",
     "fields": {
-      "created_at": "2026-07-06T10:48:27.484Z",
-      "modified_at": "2026-07-06T10:48:27.484Z",
+      "created_at": "2026-08-03T12:13:36.130Z",
+      "modified_at": "2026-08-03T12:13:36.130Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85684,8 +85733,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-ja",
     "fields": {
-      "created_at": "2026-07-06T10:48:27.487Z",
-      "modified_at": "2026-07-06T10:48:27.487Z",
+      "created_at": "2026-08-03T12:13:36.144Z",
+      "modified_at": "2026-08-03T12:13:36.144Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85699,8 +85748,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-kubische-berechnung-kubaturnachweis",
     "fields": {
-      "created_at": "2026-07-06T10:48:27.485Z",
-      "modified_at": "2026-07-06T10:48:27.485Z",
+      "created_at": "2026-08-03T12:13:36.140Z",
+      "modified_at": "2026-08-03T12:13:36.140Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85714,8 +85763,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-optional-amtliche-schaetzung-soweit-vorhanden",
     "fields": {
-      "created_at": "2026-07-06T10:48:27.482Z",
-      "modified_at": "2026-07-06T10:48:27.482Z",
+      "created_at": "2026-08-03T12:13:36.117Z",
+      "modified_at": "2026-08-03T12:13:36.117Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85729,8 +85778,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-optional-bei-bekannten-schadstoffen-schadstoffgutachten-oder-voruntersuchungsbericht",
     "fields": {
-      "created_at": "2026-07-06T10:48:27.481Z",
-      "modified_at": "2026-07-06T10:48:27.481Z",
+      "created_at": "2026-08-03T12:13:36.112Z",
+      "modified_at": "2026-08-03T12:13:36.112Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85744,8 +85793,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-optional-bei-denkmalgeschuetzten-oder-inventarisierten-objekten-stellungnahme-denkmalpflege-gr",
     "fields": {
-      "created_at": "2026-07-06T10:48:27.480Z",
-      "modified_at": "2026-07-06T10:48:27.480Z",
+      "created_at": "2026-08-03T12:13:36.107Z",
+      "modified_at": "2026-08-03T12:13:36.107Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85759,8 +85808,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchpraemie.abbruchpraemie-situationsplan-uebersichtsplan",
     "fields": {
-      "created_at": "2026-07-06T10:48:27.485Z",
-      "modified_at": "2026-07-06T10:48:27.485Z",
+      "created_at": "2026-08-03T12:13:36.135Z",
+      "modified_at": "2026-08-03T12:13:36.135Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85774,8 +85823,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchvorhaben-bauweise.abbruchvorhaben-bauweise-leicht",
     "fields": {
-      "created_at": "2026-07-08T08:00:26.901Z",
-      "modified_at": "2026-07-08T08:00:26.901Z",
+      "created_at": "2026-07-31T08:44:14.629Z",
+      "modified_at": "2026-07-31T08:44:14.629Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85789,8 +85838,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchvorhaben-bauweise.abbruchvorhaben-bauweise-massiv",
     "fields": {
-      "created_at": "2026-07-08T08:00:26.898Z",
-      "modified_at": "2026-07-08T08:00:26.898Z",
+      "created_at": "2026-07-31T08:44:14.626Z",
+      "modified_at": "2026-07-31T08:44:14.626Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85804,8 +85853,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchvorhaben-bauweise.abbruchvorhaben-bauweise-mittel",
     "fields": {
-      "created_at": "2026-07-08T08:00:26.899Z",
-      "modified_at": "2026-07-08T08:00:26.899Z",
+      "created_at": "2026-07-31T08:44:14.628Z",
+      "modified_at": "2026-07-31T08:44:14.628Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85924,8 +85973,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchvorhaben-sind-unterirdische-bauteile-vorhanden.abbruchvorhaben-sind-unterirdische-bauteile-vorhanden-ja",
     "fields": {
-      "created_at": "2026-07-06T08:43:05.581Z",
-      "modified_at": "2026-07-06T08:43:05.581Z",
+      "created_at": "2026-07-31T08:43:11.898Z",
+      "modified_at": "2026-07-31T08:43:11.898Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85939,8 +85988,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruchvorhaben-sind-unterirdische-bauteile-vorhanden.abbruchvorhaben-sind-unterirdische-bauteile-vorhanden-nein",
     "fields": {
-      "created_at": "2026-07-06T08:43:05.582Z",
-      "modified_at": "2026-07-06T08:43:05.582Z",
+      "created_at": "2026-07-31T08:43:11.899Z",
+      "modified_at": "2026-07-31T08:43:11.899Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -105484,8 +105533,8 @@
     "model": "caluma_form.questionoption",
     "pk": "wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird.wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird-ja",
     "fields": {
-      "created_at": "2026-07-07T13:58:11.899Z",
-      "modified_at": "2026-07-07T13:58:11.899Z",
+      "created_at": "2026-08-03T14:22:51.143Z",
+      "modified_at": "2026-08-03T14:22:51.143Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -105499,8 +105548,8 @@
     "model": "caluma_form.questionoption",
     "pk": "wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird.wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird-nein",
     "fields": {
-      "created_at": "2026-07-07T13:58:11.896Z",
-      "modified_at": "2026-07-07T13:58:11.896Z",
+      "created_at": "2026-08-03T14:22:51.137Z",
+      "modified_at": "2026-08-03T14:22:51.137Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
