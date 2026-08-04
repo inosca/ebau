@@ -7,6 +7,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.timezone import make_aware
+from freezegun import freeze_time
 from rest_framework import status
 
 from camac.conftest import parse_xlsx_response
@@ -664,13 +665,15 @@ def test_bab_statistics_export_file(
     ]
 
 
+@freeze_time("2025-06-01 12:00:00")
 @pytest.mark.django_db
 def test_bab_statistics_request(
     admin_client,
     data_for_bab_statistics_export,
 ):
     start_date = "2024-01-01T00:00:00Z"
-    end_date = "2026-01-01T00:00:00Z"
+    end_date = "2025-12-31T23:59:59Z"
+
     url = reverse("bab-statistics-export")
     response = admin_client.post(
         url, data={"data": "instances", "from": start_date, "to": end_date}
@@ -678,12 +681,17 @@ def test_bab_statistics_request(
 
     assert response.status_code == status.HTTP_200_OK
 
-    book = parse_xlsx_response(response)
-    sheet = book.get_dict()["pyexcel sheet"]
-    row = sheet[1]
+    book_dict = parse_xlsx_response(response).get_dict()
 
-    assert len(sheet) == 3  # two instance because of two table rows plus header row
-    assert len(row) == 25  # number of expected columns
+    sheet_name = list(book_dict.keys())[0]
+    sheet = book_dict[sheet_name]
+
+    # Header + 2 data rows
+    assert len(sheet) == 3
+
+    # Check that the first data row has the expected number of columns
+    data_row = sheet[1]
+    assert len(data_row) == 25
 
 
 @pytest.mark.parametrize(
