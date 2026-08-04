@@ -1437,6 +1437,7 @@
       "allow_all_forms": false,
       "start_tasks": ["submit"],
       "allow_forms": [
+        "antrag-auf-auszahlung",
         "baupolizeiliches-verfahren-v3",
         "benuetzung-oeffentlichem-terrain-meldung",
         "heat-generator",

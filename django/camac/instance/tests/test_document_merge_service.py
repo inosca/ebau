@@ -83,6 +83,7 @@ def test_document_merge_service_snapshot(
         "config/caluma_appeal_form.json",
         "config/caluma_geometer_form.json",
         "config/caluma_meldung_solareignung_form.json",
+        "config/caluma_antrag_auf_auszahlung_form.json",
         # load test data as well
         "data/caluma_form.json",
         "data/caluma_workflow.json",

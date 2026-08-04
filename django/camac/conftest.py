@@ -251,6 +251,7 @@ CALUMA_FORM_TYPES_SLUGS = [
     "reklamegesuch",
     "benuetzung-oeffentlichem-terrain-meldung",
     "solareignung-meldung",
+    "antrag-auf-auszahlung",
 ]
 
 CALUMA_VERSIONED_FORM_TYPES_SLUGS_SO = [

@@ -160,6 +160,7 @@ DMS = {
                     "reklamegesuch",
                     "benuetzung-oeffentlichem-terrain-meldung",
                     "solareignung-meldung",
+                    "antrag-auf-auszahlung",
                 ],
                 "template": "form",
                 "personalien": "personalien",

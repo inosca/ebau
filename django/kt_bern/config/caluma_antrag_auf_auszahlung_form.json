@@ -1,0 +1,1222 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "antrag-auf-auszahlung",
+    "fields": {
+      "created_at": "2026-07-22T16:46:49.212Z",
+      "modified_at": "2026-08-06T13:32:15.339Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Antrag auf Auszahlung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Antrag auf Auszahlung\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "is-creatable": false,
+        "is-main-form": true
+      },
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "antrag-auf-auszahlung-allgemeine-informationen",
+    "fields": {
+      "created_at": "2026-08-05T12:33:59.495Z",
+      "modified_at": "2026-08-05T12:33:59.495Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen (Antrag auf Auszahlung)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Allgemeine Informationen (Antrag auf Auszahlung)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "antrag-auf-auszahlung-bestaetigung",
+    "fields": {
+      "created_at": "2026-07-23T18:41:12.331Z",
+      "modified_at": "2026-07-23T18:41:12.331Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bestätigung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Antrag auf Auszahlung > Bestätigung\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "antrag-auf-auszahlung-dokumente",
+    "fields": {
+      "created_at": "2026-07-23T16:29:48.378Z",
+      "modified_at": "2026-07-23T16:29:48.378Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Antrag auf Auszahlung > Dokumente\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "antrag-auf-auszahlung-form",
+    "fields": {
+      "created_at": "2026-07-23T16:02:20.216Z",
+      "modified_at": "2026-07-23T16:06:07.616Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Auszahlung Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Auszahlung Abbruchprämie Formular\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung.8-freigabequittung",
+    "fields": {
+      "created_at": "2026-07-23T19:25:56.122Z",
+      "modified_at": "2026-07-23T19:25:56.122Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung",
+      "question": "8-freigabequittung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-allgemeine-informationen.gemeinde",
+    "fields": {
+      "created_at": "2026-08-05T12:36:01.824Z",
+      "modified_at": "2026-08-05T12:36:01.824Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-allgemeine-informationen",
+      "question": "gemeinde",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-allgemeine-informationen.is-paper",
+    "fields": {
+      "created_at": "2026-08-05T12:36:36.966Z",
+      "modified_at": "2026-08-05T12:36:36.966Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-allgemeine-informationen",
+      "question": "is-paper",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung.antrag-auf-auszahlung-allgemeine-informationen",
+    "fields": {
+      "created_at": "2026-08-05T12:36:02.934Z",
+      "modified_at": "2026-08-05T12:36:02.934Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung",
+      "question": "antrag-auf-auszahlung-allgemeine-informationen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung.antrag-auf-auszahlung-bestaetigung",
+    "fields": {
+      "created_at": "2026-07-23T19:14:30.645Z",
+      "modified_at": "2026-07-23T19:14:30.645Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung",
+      "question": "antrag-auf-auszahlung-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung.antrag-auf-auszahlung-dokumente",
+    "fields": {
+      "created_at": "2026-07-23T18:33:07.060Z",
+      "modified_at": "2026-07-23T18:33:07.060Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung",
+      "question": "antrag-auf-auszahlung-dokumente",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung.antrag-auf-auszahlung-form",
+    "fields": {
+      "created_at": "2026-07-23T16:04:18.265Z",
+      "modified_at": "2026-07-23T16:04:18.265Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung",
+      "question": "antrag-auf-auszahlung-form",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-bestaetigung.antrag-auf-auszahlung-bestaetigung-eigentuemer-abgebrochenen-bauten-anlagen",
+    "fields": {
+      "created_at": "2026-07-23T19:24:53.301Z",
+      "modified_at": "2026-07-23T19:24:53.301Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-bestaetigung",
+      "question": "antrag-auf-auszahlung-bestaetigung-eigentuemer-abgebrochenen-bauten-anlagen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-dokumente.antrag-auf-auszahlung-entsorgungsnachweis-dokument",
+    "fields": {
+      "created_at": "2026-07-23T16:44:01.918Z",
+      "modified_at": "2026-07-23T16:44:01.918Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-dokumente",
+      "question": "antrag-auf-auszahlung-entsorgungsnachweis-dokument",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-dokumente.antrag-auf-auszahlung-entsorgungsnachweis-dokument-begruendung",
+    "fields": {
+      "created_at": "2026-07-23T16:49:16.752Z",
+      "modified_at": "2026-07-23T16:49:16.752Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-dokumente",
+      "question": "antrag-auf-auszahlung-entsorgungsnachweis-dokument-begruendung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-dokumente.antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument",
+    "fields": {
+      "created_at": "2026-07-27T05:03:01.313Z",
+      "modified_at": "2026-07-27T05:03:01.313Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-dokumente",
+      "question": "antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-dokumente.antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument-begruendung",
+    "fields": {
+      "created_at": "2026-07-27T05:05:11.952Z",
+      "modified_at": "2026-07-27T05:05:11.952Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-dokumente",
+      "question": "antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument-begruendung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-dokumente.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2026-07-23T16:30:18.938Z",
+      "modified_at": "2026-07-23T16:30:18.938Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-dokumente",
+      "question": "dokumente-platzhalter",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-dokumente.infotext-pflichtdokumente-v5",
+    "fields": {
+      "created_at": "2026-07-23T18:29:37.379Z",
+      "modified_at": "2026-07-23T18:29:37.379Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-dokumente",
+      "question": "infotext-pflichtdokumente-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-form.antrag-auf-auszahlung-dossiernummer-gesuch",
+    "fields": {
+      "created_at": "2026-07-23T16:09:16.786Z",
+      "modified_at": "2026-07-23T16:09:16.786Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-form",
+      "question": "antrag-auf-auszahlung-dossiernummer-gesuch",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-form.antrag-auf-auszahlung-iban-nr",
+    "fields": {
+      "created_at": "2026-07-23T16:23:01.772Z",
+      "modified_at": "2026-07-23T16:23:01.772Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-form",
+      "question": "antrag-auf-auszahlung-iban-nr",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-form.antrag-auf-auszahlung-institut-name-der-bank",
+    "fields": {
+      "created_at": "2026-07-23T16:24:07.043Z",
+      "modified_at": "2026-07-23T16:24:07.043Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-form",
+      "question": "antrag-auf-auszahlung-institut-name-der-bank",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-form.antrag-auf-auszahlung-institut-postleitzahl-und-ort",
+    "fields": {
+      "created_at": "2026-07-30T14:05:52.043Z",
+      "modified_at": "2026-07-30T14:05:52.043Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-form",
+      "question": "antrag-auf-auszahlung-institut-postleitzahl-und-ort",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-form.antrag-auf-auszahlung-institut-strasse-und-nummer",
+    "fields": {
+      "created_at": "2026-07-30T14:04:32.371Z",
+      "modified_at": "2026-07-30T14:04:32.371Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-form",
+      "question": "antrag-auf-auszahlung-institut-strasse-und-nummer",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-form.antrag-auf-auszahlung-postleitzahl-und-ort",
+    "fields": {
+      "created_at": "2026-07-23T16:22:17.687Z",
+      "modified_at": "2026-07-23T16:22:17.687Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-form",
+      "question": "antrag-auf-auszahlung-postleitzahl-und-ort",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-form.antrag-auf-auszahlung-strasse-und-nummer",
+    "fields": {
+      "created_at": "2026-07-23T16:20:51.626Z",
+      "modified_at": "2026-07-23T16:20:51.626Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-form",
+      "question": "antrag-auf-auszahlung-strasse-und-nummer",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-form.antrag-auf-auszahlung-vor-und-nachname",
+    "fields": {
+      "created_at": "2026-07-23T16:19:39.132Z",
+      "modified_at": "2026-07-23T16:19:39.132Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-form",
+      "question": "antrag-auf-auszahlung-vor-und-nachname",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-form.antrag-auf-auszahlung-zahlungsverbindung-titel",
+    "fields": {
+      "created_at": "2026-07-23T16:18:13.245Z",
+      "modified_at": "2026-07-23T16:18:13.245Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-form",
+      "question": "antrag-auf-auszahlung-zahlungsverbindung-titel",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung.personalien-kurz-formular",
+    "fields": {
+      "created_at": "2026-07-23T02:15:52.913Z",
+      "modified_at": "2026-07-23T02:15:52.913Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung",
+      "question": "personalien-kurz-formular",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "antrag-auf-auszahlung-bestaetigung-eigentuemer-abgebrochenen-bauten-anlagen-ja",
+    "fields": {
+      "created_at": "2026-07-23T19:24:43.106Z",
+      "modified_at": "2026-07-23T19:24:43.106Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Der Gesuchsteller bestätigt, dass er der Eigentümer der abgebrochenen Bauten und Anlagen ist.\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "antrag-auf-auszahlung-entsorgungsnachweis-dokument-ja",
+    "fields": {
+      "created_at": "2026-07-23T16:43:36.900Z",
+      "modified_at": "2026-07-23T18:28:15.722Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hochgeladen\", \"fr\": \"Téléchargé\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "antrag-auf-auszahlung-entsorgungsnachweis-dokument-nein",
+    "fields": {
+      "created_at": "2026-07-23T16:43:36.902Z",
+      "modified_at": "2026-07-23T18:28:15.725Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas nécessaire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument-ja",
+    "fields": {
+      "created_at": "2026-07-27T05:02:51.148Z",
+      "modified_at": "2026-07-27T05:08:39.152Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hochgeladen\", \"fr\": \"Téléchargé\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument-nein",
+    "fields": {
+      "created_at": "2026-07-27T05:02:51.146Z",
+      "modified_at": "2026-07-27T05:08:39.150Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas nécessaire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-allgemeine-informationen",
+    "fields": {
+      "created_at": "2026-08-05T12:35:57.846Z",
+      "modified_at": "2026-08-05T12:35:57.846Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen (Antrag auf Auszahlung)\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "true",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "antrag-auf-auszahlung-allgemeine-informationen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-bestaetigung",
+    "fields": {
+      "created_at": "2026-07-23T19:14:25.567Z",
+      "modified_at": "2026-07-23T19:14:25.567Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestätigung\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "antrag-auf-auszahlung-bestaetigung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-bestaetigung-eigentuemer-abgebrochenen-bauten-anlagen",
+    "fields": {
+      "created_at": "2026-07-23T19:24:48.198Z",
+      "modified_at": "2026-07-23T19:24:48.198Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Der Gesuchsteller bestätigt, dass er der Eigentümer der abgebrochenen Bauten und Anlagen ist.\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-dokumente",
+    "fields": {
+      "created_at": "2026-07-23T18:33:01.971Z",
+      "modified_at": "2026-08-04T07:23:51.942Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "'is-paper'|answer == 'is-paper-yes'? 13 : 1"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "antrag-auf-auszahlung-dokumente",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-dossiernummer-gesuch",
+    "fields": {
+      "created_at": "2026-07-23T16:09:11.721Z",
+      "modified_at": "2026-07-30T14:58:04.522Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dossiernummer\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null,
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "widgetOverride": "be-disabled-input"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-entsorgungsnachweis-dokument",
+    "fields": {
+      "created_at": "2026-07-23T16:43:46.947Z",
+      "modified_at": "2026-07-23T18:28:20.821Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgungsnachweis\", \"fr\": \"Entsorgungsnachweis\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "vertical": "true",
+        "documentCategory": "gesuchsunterlagen"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-entsorgungsnachweis-dokument-begruendung",
+    "fields": {
+      "created_at": "2026-07-23T16:49:11.459Z",
+      "modified_at": "2026-07-23T16:51:24.929Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": \"Justification\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('antrag-auf-auszahlung-entsorgungsnachweis-dokument-nein' in 'antrag-auf-auszahlung-entsorgungsnachweis-dokument'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "documentCategory": "gesuchsunterlagen"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-form",
+    "fields": {
+      "created_at": "2026-07-23T16:04:13.182Z",
+      "modified_at": "2026-07-23T16:04:13.182Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Auszahlung Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "antrag-auf-auszahlung-form",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-iban-nr",
+    "fields": {
+      "created_at": "2026-07-23T16:22:56.688Z",
+      "modified_at": "2026-07-30T14:00:35.367Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"IBAN-Nr\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Beispiel: CH92 0900 0000 3000 0406 7\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-institut-name-der-bank",
+    "fields": {
+      "created_at": "2026-07-23T16:24:01.959Z",
+      "modified_at": "2026-07-30T14:00:17.105Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Institut (Name der Bank)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Beispiel: PostFinance AG\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-institut-postleitzahl-und-ort",
+    "fields": {
+      "created_at": "2026-07-30T14:05:46.969Z",
+      "modified_at": "2026-07-30T14:05:46.969Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Postleitzahl und Ort\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Beispiel: 3030 Bern\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-institut-strasse-und-nummer",
+    "fields": {
+      "created_at": "2026-07-30T14:04:27.292Z",
+      "modified_at": "2026-07-30T14:04:27.292Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse und Nummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Beispiel: Mingerstrasse 20\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-postleitzahl-und-ort",
+    "fields": {
+      "created_at": "2026-07-23T16:22:12.604Z",
+      "modified_at": "2026-07-30T14:01:01.220Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Postleitzahl und Ort\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Beispiel: 3011 Bern\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-strasse-und-nummer",
+    "fields": {
+      "created_at": "2026-07-23T16:20:46.540Z",
+      "modified_at": "2026-07-30T14:01:22.457Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse und Nummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Beispiel: Beispielstrasse 22\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-vor-und-nachname",
+    "fields": {
+      "created_at": "2026-07-23T16:19:34.064Z",
+      "modified_at": "2026-07-30T14:01:47.509Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vor- und Nachname\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Beispiel: Max und Marianne Muster-Beispiel\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument",
+    "fields": {
+      "created_at": "2026-07-27T05:02:56.224Z",
+      "modified_at": "2026-07-27T05:08:49.164Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere Unterlagen (z.B. Fotodokumentation)\", \"fr\": \"Weitere Unterlagen (z.B. Fotodokumentation)\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "vertical": "true",
+        "documentCategory": "gesuchsunterlagen"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument-begruendung",
+    "fields": {
+      "created_at": "2026-07-27T05:05:06.881Z",
+      "modified_at": "2026-07-27T05:07:56.277Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": \"Justification\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument-nein' in 'antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "documentCategory": "gesuchsunterlagen"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "antrag-auf-auszahlung-zahlungsverbindung-titel",
+    "fields": {
+      "created_at": "2026-07-23T16:18:08.164Z",
+      "modified_at": "2026-07-23T16:18:08.164Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zahlungsverbindung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"**Zahlungsverbindung** \\n***\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "antrag-auf-auszahlung-bestaetigung-eigentuemer-abgebrochenen-bauten-anlagen.antrag-auf-auszahlung-bestaetigung-eigentuemer-abgebrochenen-bauten-anlagen-ja",
+    "fields": {
+      "created_at": "2026-07-23T19:24:48.202Z",
+      "modified_at": "2026-07-23T19:24:48.202Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "antrag-auf-auszahlung-bestaetigung-eigentuemer-abgebrochenen-bauten-anlagen",
+      "option": "antrag-auf-auszahlung-bestaetigung-eigentuemer-abgebrochenen-bauten-anlagen-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "antrag-auf-auszahlung-entsorgungsnachweis-dokument.antrag-auf-auszahlung-entsorgungsnachweis-dokument-ja",
+    "fields": {
+      "created_at": "2026-07-23T18:28:20.826Z",
+      "modified_at": "2026-07-23T18:28:20.826Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "antrag-auf-auszahlung-entsorgungsnachweis-dokument",
+      "option": "antrag-auf-auszahlung-entsorgungsnachweis-dokument-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "antrag-auf-auszahlung-entsorgungsnachweis-dokument.antrag-auf-auszahlung-entsorgungsnachweis-dokument-nein",
+    "fields": {
+      "created_at": "2026-07-23T18:28:20.824Z",
+      "modified_at": "2026-07-23T18:28:20.824Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "antrag-auf-auszahlung-entsorgungsnachweis-dokument",
+      "option": "antrag-auf-auszahlung-entsorgungsnachweis-dokument-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument.antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument-ja",
+    "fields": {
+      "created_at": "2026-07-27T05:08:49.170Z",
+      "modified_at": "2026-07-27T05:08:49.170Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument",
+      "option": "antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument.antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument-nein",
+    "fields": {
+      "created_at": "2026-07-27T05:08:49.168Z",
+      "modified_at": "2026-07-27T05:08:49.168Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument",
+      "option": "antrag-auf-auszahlung-weitere-unterlagen-zb-fotodokumentation-dokument-nein",
+      "sort": 1
+    }
+  }
+]

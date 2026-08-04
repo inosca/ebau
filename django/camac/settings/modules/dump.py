@@ -535,6 +535,9 @@ DUMP = {
                 "caluma_benuetzung_oeffentlichem_terrain_form": generate_form_dump_config(
                     regex=r"^(benuetzung-oeffentlichem-terrain-meldung|benuetzung-oeffentlichem-terrain-bestaetigung|benuetzung-oeffentlichem-terrain-dokumente|benuetzung-oeffentlichem-terrain-form)",
                 ),
+                "caluma_antrag_auf_auszahlung_form": generate_form_dump_config(
+                    regex=r"^antrag-auf-auszahlung"
+                ),
                 "caluma_legal_submission_form": generate_form_dump_config(
                     r"^legal-submission"
                 ),

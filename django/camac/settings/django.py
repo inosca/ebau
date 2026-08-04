@@ -3184,6 +3184,7 @@ DOCUMENT_MERGE_SERVICE_URL = build_url(
 ECH_EXCLUDED_WORKFLOWS = ["internal"]
 ECH_EXCLUDED_FORMS = [
     "verlaengerung-geltungsdauer",
+    "antrag-auf-auszahlung",
     "migriertes-dossier",
     "baupolizeiliches-verfahren",
     "baupolizeiliches-verfahren-v2",
