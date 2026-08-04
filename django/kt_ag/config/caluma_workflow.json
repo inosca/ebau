@@ -74,7 +74,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "[\"after-submit-demolition-payment\"]|tasks"
+      "next": "[\"create-manual-workitems\",\"init-additional-demand\",\"formal-exam-demolition-payment\"]|tasks"
     }
   },
   {
@@ -527,8 +527,8 @@
           "route": "cases.detail.task-form",
           "models": ["INSTANCE_ID", "TASK_SLUG"]
         },
-        "redirectToWorkItemsAfterCompletion": true,
-        "writePermissionKey": "audit-write"
+        "writePermissionKey": "audit-write",
+        "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "[\"municipality\"]|groups",
       "control_groups": "[\"municipality\"]|groups",
