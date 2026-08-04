@@ -53,6 +53,7 @@
       {{! "Bodenbedeckung" layer that is not really visible in the OEREB layer but
   is better visible in the AV collection }}
       <map.wms-tile
+        @zIndex={{100}}
         @format="image/png"
         @version="1.3.0"
         @layers={{array "LCSF" "Hoheitsgrenzen"}}
@@ -63,6 +64,7 @@
       {{! Main background map that is rendered transparent in order to show the
   "Bodenbedeckung" underneath }}
       <map.wms-tile
+        @zIndex={{200}}
         @transparent={{true}}
         @format="image/png"
         @version="1.3.0"
@@ -73,6 +75,7 @@
       />
       {{! Extra WMS layer for Gebäudeadressen that is not part of the main background map. }}
       <map.wms-tile
+        @zIndex={{300}}
         @transparent={{true}}
         @format="image/png"
         @version="1.3.0"
@@ -84,6 +87,7 @@
       {{! Non tiled layers for labels that are otherwise cut-off in the background
   map. This loads one single image in the size of the map widget. }}
       <map.non-tiled-wms
+        @zIndex={{100}}
         @transparent={{true}}
         @format="image/png"
         @version="1.3.0"
