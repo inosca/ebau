@@ -12,7 +12,9 @@ from camac.constants.kt_bern import (
     ECH_BASE_DELIVERY,
     ECH_CHANGE_RESPONSIBILITY,
     ECH_CLAIM,
+    ECH_CONFIRMED_WITHDRAWAL_PLANNING_PERMISSION_APPLICATION,
     ECH_FILE_SUBSEQUENTLY,
+    ECH_REQUESTED_WITHDRAWAL_PLANNING_PERMISSION_APPLICATION,
     ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN,
     ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG,
     ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN,
@@ -26,7 +28,6 @@ from camac.constants.kt_bern import (
     ECH_TASK_SB1_SUBMITTED,
     ECH_TASK_SB2_SUBMITTED,
     ECH_TASK_STELLUNGNAHME,
-    ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
 )
 from camac.settings.env import env
 
@@ -95,7 +96,7 @@ ECH0211 = {
                     "spec": "3.1",
                     "example": ("file_subsequently", "xml/get/file_subsequently.xml"),
                 },
-                ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
+                ECH_CONFIRMED_WITHDRAWAL_PLANNING_PERMISSION_APPLICATION: {
                     "type": "WithdrawPlanningPermissionApplication",
                     "desc": "Baugesuch zurückgezogen",
                     "spec": "3.3.7",
@@ -683,7 +684,7 @@ ECH0211 = {
                 ECH_FILE_SUBSEQUENTLY: {
                     "desc": "Nachforderung beantwortet",
                 },
-                ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
+                ECH_CONFIRMED_WITHDRAWAL_PLANNING_PERMISSION_APPLICATION: {
                     "desc": "Baugesuch zurückgezogen (⏳ noch in Entwicklung)",
                 },
                 ECH_CLAIM: {"desc": "Nachforderung"},
@@ -733,7 +734,11 @@ ECH0211 = {
             },
             {
                 "new_state": "withdrawn",
-                "type": ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
+                "type": ECH_CONFIRMED_WITHDRAWAL_PLANNING_PERMISSION_APPLICATION,
+            },
+            {
+                "new_state": "withdrawal",
+                "type": ECH_REQUESTED_WITHDRAWAL_PLANNING_PERMISSION_APPLICATION,
             },
         ],
         "TASK_MAP": {
@@ -785,6 +790,15 @@ ECH0211 = {
                     "desc": "Zirkulation abgeschlossen",
                 },
                 ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
+                ECH_REQUESTED_WITHDRAWAL_PLANNING_PERMISSION_APPLICATION: {
+                    "type": "StatusNotification",
+                    "desc": "Rückzug angefordert",
+                    "spec": "",
+                    "example": (
+                        "status_notification",
+                        "xml/get/status_notification.xml",
+                    ),
+                },
             },
             "POST_TABLE_DATA": {
                 "5200115": {"disabled": True},  # Claim
@@ -999,7 +1013,7 @@ ECH0211 = {
                 ECH_FILE_SUBSEQUENTLY: {
                     "desc": "Nachforderung beantwortet",
                 },
-                ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
+                ECH_CONFIRMED_WITHDRAWAL_PLANNING_PERMISSION_APPLICATION: {
                     "desc": "Baugesuch zurückgezogen",
                 },
                 ECH_CLAIM: {"disabled": True},

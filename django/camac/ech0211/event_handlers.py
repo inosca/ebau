@@ -19,9 +19,9 @@ from camac.constants.kt_bern import (
     ECH_ACCOMPANYING_REPORT,
     ECH_CHANGE_RESPONSIBILITY,
     ECH_CLAIM,
+    ECH_CONFIRMED_WITHDRAWAL_PLANNING_PERMISSION_APPLICATION,
     ECH_FILE_SUBSEQUENTLY,
     ECH_SUBMIT,
-    ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
 )
 from camac.document.models import Attachment
 from camac.settings.utils import is_module_enabled
@@ -218,7 +218,7 @@ class StatusNotificationEventHandler(BaseEventHandler):
 
 class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
     event_type = "withdraw planning permission application"
-    message_type = ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION
+    message_type = ECH_CONFIRMED_WITHDRAWAL_PLANNING_PERMISSION_APPLICATION
 
     def get_xml(self):
         try:
