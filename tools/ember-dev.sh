@@ -15,10 +15,10 @@ dev_enable()
 		sed -re 's|^(\s*proxy_pass\s+http://)ember-camac-ng(.+)|\1host.docker.internal:4300\2|g' -i "$PROXY_CONFIG"
 		echo "Set base URL to 'host.docker.local:4300' in proxy config"
 	else
-		grep -q INTERNAL_URL .env || echo INTERNAL_URL=http://localhost:4400 >> .env
+		grep -q '^INTERNAL_URL=' .env || echo INTERNAL_URL=http://localhost:4400 >> .env
 		echo "Added local INTERNAL_URL to .env."
 	fi
-	grep -q PORTAL_URL .env || echo PORTAL_URL=http://localhost:4200 >> .env
+	grep -q '^PORTAL_URL=' .env || echo PORTAL_URL=http://localhost:4200 >> .env
 	echo "Added local PORTAL_URL to .env."
 }
 
@@ -37,8 +37,8 @@ dev_reset()
 		sed -re 's|^(\s*proxy_pass\s+http://)host\.docker\.internal:4300(.+)|\1ember-camac-ng\2|g' -i "$PROXY_CONFIG"
 		echo "Set base URL to 'ember-camac-ng' in proxy config"
 	fi
-	sed -i '/PORTAL_URL/d' .env
-	sed -i '/INTERNAL_URL/d' .env
+	sed -i '/^PORTAL_URL=/d' .env
+	sed -i '/^INTERNAL_URL=/d' .env
 	echo "Removed PORTAL_URL and INTERNAL_URL from .env."
 }
 
