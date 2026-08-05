@@ -1,5 +1,5 @@
 from camac.permissions.conditions import (
-    Always,
+    Callback,
     HasRole,
     RequireInstanceState,
     RequireRunningCase,
@@ -46,6 +46,15 @@ MODULE_FORM = STATES_ALL_INTERNAL
 MODULE_INTEGRITY_DASHBOARD = STATES_ALL_INTERNAL & ~RequireInstanceState(["subm"])
 
 MODULE_WORK_ITEMS = STATES_ALL_INTERNAL
+
+IS_ARE_GESCHAEFT = Callback(
+    lambda instance: (
+        instance.case.workflow.slug == "internal-document"
+        and instance.case.document.form.slug == "are-geschaeft"
+    ),
+    allow_caching=True,
+    name="is_are_geschaeft",
+)
 
 
 # Access level config part
@@ -94,17 +103,17 @@ SZ_PERMISSIONS_SETTINGS = {
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "are-service": [
-            ("form-view-internal", Always()),
-            ("form-read", Always()),
-            ("form-write", RequireRunningCase()),
-            ("documents-view-internal", Always()),
-            ("documents-read", Always()),
-            ("documents-write", RequireRunningCase()),
-            ("work-items-view-internal", Always()),
-            ("work-items-read", Always()),
-            ("journal-view-internal", Always()),
-            ("journal-read", Always()),
-            ("journal-write", Always()),
+            ("form-view-internal", IS_ARE_GESCHAEFT),
+            ("form-read", IS_ARE_GESCHAEFT),
+            ("form-write", IS_ARE_GESCHAEFT & RequireRunningCase()),
+            ("documents-view-internal", IS_ARE_GESCHAEFT),
+            ("documents-read", IS_ARE_GESCHAEFT),
+            ("documents-write", IS_ARE_GESCHAEFT & RequireRunningCase()),
+            ("work-items-view-internal", IS_ARE_GESCHAEFT),
+            ("work-items-read", IS_ARE_GESCHAEFT),
+            ("journal-view-internal", IS_ARE_GESCHAEFT),
+            ("journal-read", IS_ARE_GESCHAEFT),
+            ("journal-write", IS_ARE_GESCHAEFT),
         ],
     },
     "ENABLED": True,
