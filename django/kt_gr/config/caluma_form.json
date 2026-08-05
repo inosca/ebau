@@ -84538,7 +84538,7 @@
       "label": "{\"de\": \"Wird eine Baute oder Anlage abgebrochen, für welche eine Abbruchprämie geltend gemacht wird?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "(!(\"entsorgung-triage\"|answer == \"entsorgung-triage-yes\" && \"ausserhalb-bauzone\"|answer == \"ausserhalb-bauzone-ja\")) || !(\"baugesuch\" in info.case.root.form)",
+      "is_hidden": "(!(\"entsorgung-triage\"|answer == \"entsorgung-triage-yes\" && \"ausserhalb-bauzone\"|answer == \"ausserhalb-bauzone-ja\")) || !(\"baugesuch\" in info.root.form)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Nach Art. 5a RPG erhalten Eigentümer von Bauten und Anlagen, die ausserhalb der Bauzone liegen, bei deren Abbruch eine Abbruchprämie in der Höhe der Abbruchkosten unter Ausschluss allfälliger Aufwendungen für die Entsorgung von Spezialabfällen oder Altlasten [...]. Bei der Beseitigung von Bauten und Anlagen ohne landwirschaftliche oder touristische Nutzung wird die Abbruchprämie nur ausgerichtet, wenn kein Ersatzneubau erstellt wird.\", \"fr\": null, \"it\": null}",
