@@ -1085,6 +1085,13 @@ def test_dynamic_task_after_complete_check_ur(
         question=caluma_question_factory(slug="oereb-thema"),
         value="oereb-thema-gnp" if should_generate_rpg_task else "oereb-thema-kpz",
     )
+    caluma_answer_factory(
+        document=caluma_case.document,
+        question=caluma_question_factory(slug="typ-des-verfahrens"),
+        value="typ-des-verfahrens-inkraftsetzung"
+        if should_generate_rpg_task
+        else "typ-des-verfahrens-aufhebung",
+    )
 
     result = CustomDynamicTasks().resolve_after_complete_check_ur(
         caluma_case, caluma_admin_user, work_item, None

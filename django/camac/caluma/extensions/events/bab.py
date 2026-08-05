@@ -45,6 +45,7 @@ def suspend_rpg_work_item(sender, work_item, user, context=None, **kwargs):
 @transaction.atomic
 def resume_rpg_work_item(sender, work_item, user, context=None, **kwargs):
     rpg_work_item = WorkItem.objects.filter(
+        case=work_item.case.family,
         task_id="rpg",
         status=WorkItem.STATUS_SUSPENDED,
     ).first()

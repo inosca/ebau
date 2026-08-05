@@ -246,16 +246,23 @@ class CustomDynamicTasks(BaseDynamicTasks):
         tasks = []
 
         # Stabilisierungsziel RPG
-        oereb_gnp_answer = case.document.answers.filter(
-            question_id="oereb-thema"
-        ).first()
+        if not case.meta.get("oereb_copy"):
+            answers = dict(
+                case.document.answers.filter(
+                    question_id__in=["oereb-thema", "typ-des-verfahrens"]
+                ).values_list("question_id", "value")
+            )
 
-        if (
-            oereb_gnp_answer
-            and oereb_gnp_answer.value == "oereb-thema-gnp"
-            and not case.meta.get("oereb_copy", False)
-        ):
-            tasks.append("rpg")
+            is_valid_topic = answers.get("oereb-thema") in {
+                "oereb-thema-gnp",
+                "oereb-thema-knp",
+            }
+            is_legally_binding = (
+                answers.get("typ-des-verfahrens") == "typ-des-verfahrens-inkraftsetzung"
+            )
+
+            if is_valid_topic and is_legally_binding:
+                tasks.append("rpg")
 
         # Additional demand
         complete_check_document = case.work_items.get(task="complete-check").document
