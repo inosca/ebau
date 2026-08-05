@@ -219,7 +219,7 @@
     }),
   })
 # ---
-# name: test_gr_client[query10-baugesuch]
+# name: test_gr_client[query10-baugesuch-v3]
   dict({
     'data': dict({
       'art-gewaesserschutzbereich': dict({
@@ -311,7 +311,99 @@
     }),
   })
 # ---
-# name: test_gr_client[query11-baugesuch]
+# name: test_gr_client[query11-baugesuch-v6]
+  dict({
+    'data': dict({
+      'art-gewaesserschutzbereich': dict({
+        'displayValue': 'au',
+        'hidden': False,
+        'label': 'art-gewaesserschutzbereich',
+        'value': 'art-gewaesserschutzbereich-au',
+      }),
+      'das-bauvorhaben-befindet-sich-in': dict({
+        'hidden': False,
+        'label': 'das-bauvorhaben-befindet-sich-in',
+        'value': list([
+          dict({
+            'displayValue': 'gewaesserschutzbereich',
+            'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich',
+          }),
+        ]),
+      }),
+      'gemeinde': dict({
+        'displayValue': 'Chur',
+        'hidden': False,
+        'label': 'gemeinde',
+        'value': '1',
+      }),
+      'gis-map': dict({
+        'hidden': True,
+        'label': 'gis-map',
+        'value': '{"markers": [{"x": 2757567.75, "y": 1192209.3312499998}], "geometry": "POINT"}',
+      }),
+      'grundwasserschutzzone': dict({
+        'displayValue': 'nicht-betroffen',
+        'hidden': False,
+        'label': 'grundwasserschutzzone',
+        'value': 'grundwasserschutzzone-nicht-betroffen',
+      }),
+      'kantonsstrassen': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'kantonsstrassen',
+        'value': 'kantonsstrassen-nein',
+      }),
+      'lageranlagen-gewaesserschutzbereich-v2': dict({
+        'displayValue': 'au-v2',
+        'hidden': True,
+        'label': 'lageranlagen-gewaesserschutzbereich',
+        'value': 'lageranlagen-gewaesserschutzbereich-au-v2',
+      }),
+      'lageranlagen-grundwasserschutzzone-v2': dict({
+        'displayValue': 'nicht-betroffen-v2',
+        'hidden': True,
+        'label': 'lageranlagen-grundwasserschutzzone',
+        'value': 'lageranlagen-grundwasserschutzzone-nicht-betroffen-v2',
+      }),
+      'ort-grundstueck': dict({
+        'hidden': False,
+        'label': 'ort-grundstueck',
+        'value': 'Haldenstein',
+      }),
+      'parzelle': dict({
+        'form': 'song-kid-owner-car',
+        'hidden': False,
+        'label': 'parzelle',
+        'value': list([
+          dict({
+            'e-grid-nr': dict({
+              'hidden': False,
+              'label': 'e-grid-nr',
+              'value': 'CH427965866853',
+            }),
+            'parzellennummer': dict({
+              'hidden': False,
+              'label': 'parzellennummer',
+              'value': '31778',
+            }),
+          }),
+        ]),
+      }),
+      'waldareal': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'waldareal',
+        'value': 'waldareal-nein',
+      }),
+      'zonenplan': dict({
+        'hidden': False,
+        'label': 'zonenplan',
+        'value': 'Gewässerraumzone, Zone übriges Gemeindegebiet (Gewässer), Keine Gefahrenzone',
+      }),
+    }),
+  })
+# ---
+# name: test_gr_client[query12-baugesuch]
   dict({
     'data': dict({
       'art-gewaesserschutzbereich': dict({
@@ -417,7 +509,7 @@
     }),
   })
 # ---
-# name: test_gr_client[query12-baugesuch]
+# name: test_gr_client[query13-baugesuch]
   dict({
     'data': dict({
       'art-gewaesserschutzbereich': dict({
@@ -546,7 +638,7 @@
     }),
   })
 # ---
-# name: test_gr_client[query13-baugesuch]
+# name: test_gr_client[query14-baugesuch]
   dict({
     'data': dict({
       'art-gewaesserschutzbereich': dict({

@@ -190,17 +190,25 @@
                 "baugesuch",
                 "baugesuch-v2",
                 "baugesuch-v3",
+                "vorlaeufige-beurteilung",
+                "vorlaeufige-beurteilung-v3"
+              ],
+              "hidden": true,
+              "mapper": "gewaesserschutzbereich",
+              "question": "lageranlagen-gewaesserschutzbereich",
+              "propertyName": "typ"
+            },
+            {
+              "forms": [
                 "baugesuch-v4",
                 "baugesuch-v5",
                 "baugesuch-v6",
-                "vorlaeufige-beurteilung",
-                "vorlaeufige-beurteilung-v3",
                 "vorlaeufige-beurteilung-v4",
                 "vorlaeufige-beurteilung-v6"
               ],
               "hidden": true,
               "mapper": "gewaesserschutzbereich",
-              "question": "lageranlagen-gewaesserschutzbereich",
+              "question": "lageranlagen-gewaesserschutzbereich-v2",
               "propertyName": "typ"
             }
           ]
@@ -230,17 +238,25 @@
                 "baugesuch",
                 "baugesuch-v2",
                 "baugesuch-v3",
+                "vorlaeufige-beurteilung",
+                "vorlaeufige-beurteilung-v3"
+              ],
+              "hidden": true,
+              "mapper": "grundwasserschutzzone",
+              "question": "lageranlagen-grundwasserschutzzone",
+              "propertyName": "typ"
+            },
+            {
+              "forms": [
                 "baugesuch-v4",
                 "baugesuch-v5",
                 "baugesuch-v6",
-                "vorlaeufige-beurteilung",
-                "vorlaeufige-beurteilung-v3",
                 "vorlaeufige-beurteilung-v4",
                 "vorlaeufige-beurteilung-v6"
               ],
               "hidden": true,
               "mapper": "grundwasserschutzzone",
-              "question": "lageranlagen-grundwasserschutzzone",
+              "question": "lageranlagen-grundwasserschutzzone-v2",
               "propertyName": "typ"
             }
           ]

@@ -11,7 +11,7 @@ interactions:
       User-Agent:
       - python-requests/2.31.0
     method: GET
-    uri: https://wps.geo.gr.ch/?service=WPS&version=1.0.0&request=Execute&storeExecuteResponse=false&lineage=false&status=false&identifier=get_info_ebbv&datainputs=geometry=LINESTRING(2757239.7999999993%201191422.925,2757141.7999999993%201191215.725)
+    uri: https://wps.geo.gr.ch/?service=WPS&version=1.0.0&request=Execute&storeExecuteResponse=false&lineage=false&status=false&identifier=get_info_ebbv&datainputs=geometry=POINT(2759143.4499999997%201190625.23125)
   response:
     body:
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wps:ExecuteResponse xmlns:wps=\"http://www.opengis.net/wps/1.0.0\"
@@ -21,7 +21,7 @@ interactions:
         serviceInstance=\"http://wps.geo.gr.ch/?request=GetCapabilities&amp;amp;service=WPS\"
         statusLocation=\"\">\n    <wps:Process wps:processVersion=\"1.0.0\">\n        <ows:Identifier>get_info_ebbv</ows:Identifier>\n
         \       <ows:Title>Diverse Layer-Informationen fuer eBBV anhand Geometrie</ows:Title>\n
-        \       <ows:Abstract></ows:Abstract>\n\t</wps:Process>\n    <wps:Status creationTime=\"2023-10-16T10:48:39Z\">\n
+        \       <ows:Abstract></ows:Abstract>\n\t</wps:Process>\n    <wps:Status creationTime=\"2023-10-16T10:48:37Z\">\n
         \       <wps:ProcessSucceeded>PyWPS Process Diverse Layer-Informationen fuer
         eBBV anhand Geometrie finished</wps:ProcessSucceeded>\n\t</wps:Status>\n\t<wps:ProcessOutputs>\n\t\t<wps:Output>\n
         \           <ows:Identifier>folgeplanung_bau_niveaulinienplaene</ows:Identifier>\n
@@ -32,7 +32,39 @@ interactions:
         \           <ows:Identifier>folgeplanung_quartierplaene</ows:Identifier>\n
         \           <ows:Title>Folgeplanung - Quartierplaene</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
-        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;NUPNr type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code
+        type=&#34;int&#34;&gt;51958&lt;/Code&gt;&lt;Bezeichnung type=&#34;str&#34;&gt;Quartierplan
+        Welschd\xF6rfli 4&lt;/Bezeichnung&gt;&lt;Artikel type=&#34;str&#34;&gt;88
+        BauG ; 51ff KRG&lt;/Artikel&gt;&lt;Verbindlichkeit type=&#34;str&#34;&gt;hinweisend&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
+        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
+        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
+        type=&#34;str&#34;&gt;19.GDE660&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
+        type=&#34;str&#34;&gt;2019-09-24&lt;/Genehmigungsdatum&gt;&lt;Darstellung
+        type=&#34;str&#34;&gt;Quartierplan&lt;/Darstellung&gt;&lt;Beschrieb type=&#34;null&#34;&gt;&lt;/Beschrieb&gt;&lt;Bemerkung
+        type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Festsetzungstyp type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene
+        type=&#34;str&#34;&gt;PLI_Planungsinhalt_F&lt;/Ebene&gt;&lt;Darstellungscode
+        type=&#34;str&#34;&gt;513F05&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;5195&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
+        type=&#34;str&#34;&gt;Quartierplan rechtskr\xE4ftig&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
+        type=&#34;int&#34;&gt;61&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
+        type=&#34;str&#34;&gt;Bereiche_rechtsgueltiger_Sondernutzungsplaene&lt;/CH_Hauptnutzung_Name&gt;&lt;PlanungsinhaltTypGemeinde
+        type=&#34;str&#34;&gt;CH39010000148479&lt;/PlanungsinhaltTypGemeinde&gt;&lt;Dokumente
+        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/4283.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;item&gt;&lt;NUPNr
+        type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code type=&#34;int&#34;&gt;51960&lt;/Code&gt;&lt;Bezeichnung
+        type=&#34;str&#34;&gt;G\xDCP Welschd\xF6rfli West&lt;/Bezeichnung&gt;&lt;Artikel
+        type=&#34;str&#34;&gt;100 BauG&lt;/Artikel&gt;&lt;Verbindlichkeit type=&#34;str&#34;&gt;hinweisend&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
+        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
+        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
+        type=&#34;str&#34;&gt;99.GDEf3&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
+        type=&#34;str&#34;&gt;1999-11-11&lt;/Genehmigungsdatum&gt;&lt;Darstellung
+        type=&#34;str&#34;&gt;Quartierplan&lt;/Darstellung&gt;&lt;Beschrieb type=&#34;null&#34;&gt;&lt;/Beschrieb&gt;&lt;Bemerkung
+        type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Festsetzungstyp type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene
+        type=&#34;str&#34;&gt;PLI_Planungsinhalt_F&lt;/Ebene&gt;&lt;Darstellungscode
+        type=&#34;str&#34;&gt;513F05&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;5196&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
+        type=&#34;str&#34;&gt;Quartierplan rechtskr\xE4ftig&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
+        type=&#34;int&#34;&gt;61&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
+        type=&#34;str&#34;&gt;Bereiche_rechtsgueltiger_Sondernutzungsplaene&lt;/CH_Hauptnutzung_Name&gt;&lt;PlanungsinhaltTypGemeinde
+        type=&#34;str&#34;&gt;CH39010000148653&lt;/PlanungsinhaltTypGemeinde&gt;&lt;Dokumente
+        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/2759.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
         \           <ows:Identifier>folgeplanung_arealplaene</ows:Identifier>\n            <ows:Title>Folgeplanung
         - Arealplaene</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
@@ -115,24 +147,7 @@ interactions:
         \           <ows:Identifier>gep_verkehr_radwege</ows:Identifier>\n            <ows:Title>GEP
         - Verkehr Radwege</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
-        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;NUPNr type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code
-        type=&#34;int&#34;&gt;61332&lt;/Code&gt;&lt;Bezeichnung type=&#34;str&#34;&gt;Fuss-
-        / Radweg Nebenverbindung&lt;/Bezeichnung&gt;&lt;Artikel type=&#34;null&#34;&gt;&lt;/Artikel&gt;&lt;Verbindlichkeit
-        type=&#34;str&#34;&gt;Nutzungsplanfestlegung&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
-        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
-        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
-        type=&#34;str&#34;&gt;07.813&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
-        type=&#34;str&#34;&gt;2007-07-03&lt;/Genehmigungsdatum&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Realisierungsstand
-        type=&#34;str&#34;&gt;bestehend&lt;/Realisierungsstand&gt;&lt;Festsetzungstyp
-        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;GEP_Verkehr_L&lt;/Ebene&gt;&lt;Darstellungscodebestehend
-        type=&#34;str&#34;&gt;622L16&lt;/Darstellungscodebestehend&gt;&lt;Darstellungscodegeplant
-        type=&#34;str&#34;&gt;622L66&lt;/Darstellungscodegeplant&gt;&lt;Darstellungscode
-        type=&#34;str&#34;&gt;622L16&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;6133&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
-        type=&#34;str&#34;&gt;Radweg/Mountainbikerouten mit Verbindungscharakter&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
-        type=&#34;int&#34;&gt;79&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
-        type=&#34;str&#34;&gt;weitere_linienbezogene_Festlegungen&lt;/CH_Hauptnutzung_Name&gt;&lt;ErschliessungTypGemeinde
-        type=&#34;str&#34;&gt;CH39010000000032&lt;/ErschliessungTypGemeinde&gt;&lt;Dokumente
-        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1628.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
         \           <ows:Identifier>gep_verkehr_fuss_wanderwege</ows:Identifier>\n
         \           <ows:Title>GEP - Verkehr Fuss- und Wanderwege</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
@@ -140,28 +155,28 @@ interactions:
         \           <ows:Identifier>gep_verkehr_strassen_und_wege</ows:Identifier>\n
         \           <ows:Title>GEP - Verkehr Strassen und Wege</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
-        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;NUPNr type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code
-        type=&#34;int&#34;&gt;61310&lt;/Code&gt;&lt;Bezeichnung type=&#34;str&#34;&gt;Forst-
-        und Landwirtschaftsweg&lt;/Bezeichnung&gt;&lt;Artikel type=&#34;null&#34;&gt;&lt;/Artikel&gt;&lt;Verbindlichkeit
-        type=&#34;str&#34;&gt;Nutzungsplanfestlegung&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
-        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
-        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
-        type=&#34;str&#34;&gt;13.1000&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
-        type=&#34;str&#34;&gt;2013-10-21&lt;/Genehmigungsdatum&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Realisierungsstand
-        type=&#34;str&#34;&gt;bestehend&lt;/Realisierungsstand&gt;&lt;Festsetzungstyp
-        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;GEP_Verkehr_L&lt;/Ebene&gt;&lt;Darstellungscodebestehend
-        type=&#34;str&#34;&gt;613L01&lt;/Darstellungscodebestehend&gt;&lt;Darstellungscodegeplant
-        type=&#34;str&#34;&gt;613L51&lt;/Darstellungscodegeplant&gt;&lt;Darstellungscode
-        type=&#34;str&#34;&gt;613L01&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;6131&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
-        type=&#34;str&#34;&gt;Land- und Forstwirtschaftsweg&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
-        type=&#34;int&#34;&gt;79&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
-        type=&#34;str&#34;&gt;weitere_linienbezogene_Festlegungen&lt;/CH_Hauptnutzung_Name&gt;&lt;ErschliessungTypGemeinde
-        type=&#34;str&#34;&gt;CH39010000017268&lt;/ErschliessungTypGemeinde&gt;&lt;Dokumente
-        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/3193.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
         \           <ows:Identifier>gep_verkehr_flaechenobjekte</ows:Identifier>\n
         \           <ows:Title>GEP - Verkehr Flaechenobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
-        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;NUPNr type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code
+        type=&#34;int&#34;&gt;61145&lt;/Code&gt;&lt;Bezeichnung type=&#34;str&#34;&gt;Parkierung
+        Gebiete B&lt;/Bezeichnung&gt;&lt;Artikel type=&#34;null&#34;&gt;&lt;/Artikel&gt;&lt;Verbindlichkeit
+        type=&#34;str&#34;&gt;Nutzungsplanfestlegung&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
+        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
+        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
+        type=&#34;str&#34;&gt;07.813&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
+        type=&#34;str&#34;&gt;2007-07-03&lt;/Genehmigungsdatum&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Realisierungsstand
+        type=&#34;str&#34;&gt;bestehend&lt;/Realisierungsstand&gt;&lt;Festsetzungstyp
+        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;GEP_Verkehr_F&lt;/Ebene&gt;&lt;Darstellungscodebestehend
+        type=&#34;str&#34;&gt;210F11&lt;/Darstellungscodebestehend&gt;&lt;Darstellungscodegeplant
+        type=&#34;null&#34;&gt;&lt;/Darstellungscodegeplant&gt;&lt;Darstellungscode
+        type=&#34;str&#34;&gt;210F11&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;6114&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
+        type=&#34;str&#34;&gt;Parkierung&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
+        type=&#34;int&#34;&gt;69&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
+        type=&#34;str&#34;&gt;weitere_flaechenbezogene_Festlegungen&lt;/CH_Hauptnutzung_Name&gt;&lt;ErschliessungTypGemeinde
+        type=&#34;str&#34;&gt;CH39010000000019&lt;/ErschliessungTypGemeinde&gt;&lt;Dokumente
+        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1628.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
         \           <ows:Identifier>ggp_plaene_in_pdf_form_ggp</ows:Identifier>\n
         \           <ows:Title>GGP - Plaene in PDF-Form GGP</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
@@ -180,7 +195,23 @@ interactions:
         \           <ows:Title>GGP - Allgemeine Planungsinhalte Flaechenobjekte GGP</ows:Title>\n
         \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
         \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
-        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        ?&gt;&lt;root&gt;&lt;item&gt;&lt;NUPNr type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code
+        type=&#34;int&#34;&gt;51310&lt;/Code&gt;&lt;Bezeichnung type=&#34;str&#34;&gt;Quartierplan
+        (QP)&lt;/Bezeichnung&gt;&lt;Artikel type=&#34;str&#34;&gt;74, 88 BauG ; 51
+        KRG&lt;/Artikel&gt;&lt;Verbindlichkeit type=&#34;str&#34;&gt;Nutzungsplanfestlegung&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
+        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
+        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
+        type=&#34;str&#34;&gt;07.813&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
+        type=&#34;str&#34;&gt;2007-07-03&lt;/Genehmigungsdatum&gt;&lt;Darstellung
+        type=&#34;str&#34;&gt;Genereller Gestaltungsplan&lt;/Darstellung&gt;&lt;Beschrieb
+        type=&#34;null&#34;&gt;&lt;/Beschrieb&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Festsetzungstyp
+        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;PLI_Planungsinhalt_F&lt;/Ebene&gt;&lt;Darstellungscode
+        type=&#34;str&#34;&gt;211F13&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;5131&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
+        type=&#34;str&#34;&gt;Quartierplanpflicht&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
+        type=&#34;int&#34;&gt;62&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
+        type=&#34;str&#34;&gt;Bereiche_mit_Sondernutzungsplanungspflicht&lt;/CH_Hauptnutzung_Name&gt;&lt;PlanungsinhaltTypGemeinde
+        type=&#34;str&#34;&gt;CH39010000003779&lt;/PlanungsinhaltTypGemeinde&gt;&lt;Dokumente
+        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1628.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
         \           <ows:Identifier>ggp_gestaltungsanweisung_punktobjekte</ows:Identifier>\n
         \           <ows:Title>GGP - Gestaltungsanweisung Punktobjekte</ows:Title>\n
         \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
@@ -239,22 +270,7 @@ interactions:
         \           <ows:Identifier>zp_gewaesserschutzzonen</ows:Identifier>\n            <ows:Title>ZP
         - Gewaesserschutzzonen</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
-        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;NUPNr type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code
-        type=&#34;int&#34;&gt;87510&lt;/Code&gt;&lt;Bezeichnung type=&#34;str&#34;&gt;Grundwasser-
-        und Quellschutzzone&lt;/Bezeichnung&gt;&lt;Abkuerzung type=&#34;str&#34;&gt;GS&lt;/Abkuerzung&gt;&lt;Artikel
-        type=&#34;str&#34;&gt;56 BauG ; 37 KRG&lt;/Artikel&gt;&lt;Verbindlichkeit
-        type=&#34;str&#34;&gt;Nutzungsplanfestlegung&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
-        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
-        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
-        type=&#34;str&#34;&gt;10.351&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
-        type=&#34;str&#34;&gt;2010-04-27&lt;/Genehmigungsdatum&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Festsetzungstyp
-        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;ZP_Gewaesserschutz&lt;/Ebene&gt;&lt;Darstellungscode
-        type=&#34;str&#34;&gt;875F13&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;8751&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
-        type=&#34;str&#34;&gt;Grundwasser- und Quellschutzzone&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
-        type=&#34;int&#34;&gt;52&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
-        type=&#34;str&#34;&gt;Ueberlagernde_Schutzzonen_fuer_Lebensraeume_und_Landschaften&lt;/CH_Hauptnutzung_Name&gt;&lt;ZonenTypGemeinde
-        type=&#34;str&#34;&gt;CH39010000000105&lt;/ZonenTypGemeinde&gt;&lt;Dokumente
-        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1625.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
         \           <ows:Identifier>zp_gefahrenzonen</ows:Identifier>\n            <ows:Title>ZP
         - Gefahrenzonen</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
@@ -288,7 +304,21 @@ interactions:
         \           <ows:Title>ZP - Ortsbild- und Kulturgueterschutzzonen</ows:Title>\n
         \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
         \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
-        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        ?&gt;&lt;root&gt;&lt;item&gt;&lt;NUPNr type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code
+        type=&#34;int&#34;&gt;87210&lt;/Code&gt;&lt;Bezeichnung type=&#34;str&#34;&gt;Arch\xE4ologiezone&lt;/Bezeichnung&gt;&lt;Abkuerzung
+        type=&#34;str&#34;&gt;AR&lt;/Abkuerzung&gt;&lt;Artikel type=&#34;str&#34;&gt;56
+        BauG ; 36 KRG&lt;/Artikel&gt;&lt;Verbindlichkeit type=&#34;str&#34;&gt;Nutzungsplanfestlegung&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
+        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
+        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
+        type=&#34;str&#34;&gt;07.813&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
+        type=&#34;str&#34;&gt;2007-07-03&lt;/Genehmigungsdatum&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Festsetzungstyp
+        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;ZP_OrtsbildKulturgueterschutz&lt;/Ebene&gt;&lt;Darstellungscode
+        type=&#34;str&#34;&gt;872F13&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;8721&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
+        type=&#34;str&#34;&gt;Arch\xE4ologiezone&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
+        type=&#34;int&#34;&gt;51&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
+        type=&#34;str&#34;&gt;Ueberlagernde_Ortsbildschutzzonen&lt;/CH_Hauptnutzung_Name&gt;&lt;ZonenTypGemeinde
+        type=&#34;str&#34;&gt;CH39010000000102&lt;/ZonenTypGemeinde&gt;&lt;Dokumente
+        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1628.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
         \           <ows:Identifier>zp_schutzzonen_fuer_besondere_zwecke</ows:Identifier>\n
         \           <ows:Title>ZP - Schutzzonen fuer besondere Zwecke</ows:Title>\n
         \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
@@ -303,104 +333,30 @@ interactions:
         - Grundnutzung</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
         encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;NUPNr type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code
-        type=&#34;int&#34;&gt;46230&lt;/Code&gt;&lt;Bezeichnung type=&#34;str&#34;&gt;Wald&lt;/Bezeichnung&gt;&lt;Abkuerzung
-        type=&#34;str&#34;&gt;WA&lt;/Abkuerzung&gt;&lt;Artikel type=&#34;null&#34;&gt;&lt;/Artikel&gt;&lt;Verbindlichkeit
-        type=&#34;str&#34;&gt;orientierend&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
+        type=&#34;int&#34;&gt;11350&lt;/Code&gt;&lt;Bezeichnung type=&#34;str&#34;&gt;Wohnzone
+        5&lt;/Bezeichnung&gt;&lt;Abkuerzung type=&#34;str&#34;&gt;W5&lt;/Abkuerzung&gt;&lt;Artikel
+        type=&#34;str&#34;&gt;44 BauG&lt;/Artikel&gt;&lt;Verbindlichkeit type=&#34;str&#34;&gt;Nutzungsplanfestlegung&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
         type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
         Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
         type=&#34;str&#34;&gt;07.813&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
         type=&#34;str&#34;&gt;2007-07-03&lt;/Genehmigungsdatum&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Festsetzungstyp
         type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;ZP_Grundnutzung&lt;/Ebene&gt;&lt;Darstellungscode
-        type=&#34;str&#34;&gt;462F03&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;4623&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
-        type=&#34;str&#34;&gt;Wald&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
-        type=&#34;int&#34;&gt;44&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
-        type=&#34;str&#34;&gt;Wald&lt;/CH_Hauptnutzung_Name&gt;&lt;ZonenTypGemeinde
-        type=&#34;str&#34;&gt;CH39010000000098&lt;/ZonenTypGemeinde&gt;&lt;Dokumente
-        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1628.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;item&gt;&lt;NUPNr
-        type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code type=&#34;int&#34;&gt;49110&lt;/Code&gt;&lt;Bezeichnung
-        type=&#34;str&#34;&gt;\xDCbriges Gemeindegebiet&lt;/Bezeichnung&gt;&lt;Abkuerzung
-        type=&#34;str&#34;&gt;\xDCG&lt;/Abkuerzung&gt;&lt;Artikel type=&#34;str&#34;&gt;52
-        BauG ; 41 KRG&lt;/Artikel&gt;&lt;Verbindlichkeit type=&#34;str&#34;&gt;Nutzungsplanfestlegung&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
-        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
-        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
-        type=&#34;str&#34;&gt;07.813&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
-        type=&#34;str&#34;&gt;2007-07-03&lt;/Genehmigungsdatum&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Festsetzungstyp
-        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;ZP_Grundnutzung&lt;/Ebene&gt;&lt;Darstellungscode
-        type=&#34;str&#34;&gt;491F01&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;4911&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
-        type=&#34;str&#34;&gt;Zone \xFCbriges Gemeindegebiet&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
-        type=&#34;int&#34;&gt;49&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
-        type=&#34;str&#34;&gt;weitere_Zonen_nach_Art_18_Abs_1_RPG_ausserhalb_der_Bauzonen&lt;/CH_Hauptnutzung_Name&gt;&lt;ZonenTypGemeinde
-        type=&#34;str&#34;&gt;CH39010000000096&lt;/ZonenTypGemeinde&gt;&lt;Dokumente
-        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1628.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;item&gt;&lt;NUPNr
-        type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code type=&#34;int&#34;&gt;49110&lt;/Code&gt;&lt;Bezeichnung
-        type=&#34;str&#34;&gt;\xDCbriges Gemeindegebiet&lt;/Bezeichnung&gt;&lt;Abkuerzung
-        type=&#34;str&#34;&gt;\xDCG&lt;/Abkuerzung&gt;&lt;Artikel type=&#34;str&#34;&gt;52
-        BauG ; 41 KRG&lt;/Artikel&gt;&lt;Verbindlichkeit type=&#34;str&#34;&gt;Nutzungsplanfestlegung&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
-        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
-        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
-        type=&#34;str&#34;&gt;07.813&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
-        type=&#34;str&#34;&gt;2007-07-03&lt;/Genehmigungsdatum&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Festsetzungstyp
-        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;ZP_Grundnutzung&lt;/Ebene&gt;&lt;Darstellungscode
-        type=&#34;str&#34;&gt;491F01&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;4911&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
-        type=&#34;str&#34;&gt;Zone \xFCbriges Gemeindegebiet&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
-        type=&#34;int&#34;&gt;49&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
-        type=&#34;str&#34;&gt;weitere_Zonen_nach_Art_18_Abs_1_RPG_ausserhalb_der_Bauzonen&lt;/CH_Hauptnutzung_Name&gt;&lt;ZonenTypGemeinde
-        type=&#34;str&#34;&gt;CH39010000000096&lt;/ZonenTypGemeinde&gt;&lt;Dokumente
-        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1628.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;item&gt;&lt;NUPNr
-        type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code type=&#34;int&#34;&gt;49110&lt;/Code&gt;&lt;Bezeichnung
-        type=&#34;str&#34;&gt;\xDCbriges Gemeindegebiet&lt;/Bezeichnung&gt;&lt;Abkuerzung
-        type=&#34;str&#34;&gt;\xDCG&lt;/Abkuerzung&gt;&lt;Artikel type=&#34;str&#34;&gt;52
-        BauG ; 41 KRG&lt;/Artikel&gt;&lt;Verbindlichkeit type=&#34;str&#34;&gt;Nutzungsplanfestlegung&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
-        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
-        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
-        type=&#34;str&#34;&gt;07.813&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
-        type=&#34;str&#34;&gt;2007-07-03&lt;/Genehmigungsdatum&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Festsetzungstyp
-        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;ZP_Grundnutzung&lt;/Ebene&gt;&lt;Darstellungscode
-        type=&#34;str&#34;&gt;491F01&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;4911&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
-        type=&#34;str&#34;&gt;Zone \xFCbriges Gemeindegebiet&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
-        type=&#34;int&#34;&gt;49&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
-        type=&#34;str&#34;&gt;weitere_Zonen_nach_Art_18_Abs_1_RPG_ausserhalb_der_Bauzonen&lt;/CH_Hauptnutzung_Name&gt;&lt;ZonenTypGemeinde
-        type=&#34;str&#34;&gt;CH39010000000096&lt;/ZonenTypGemeinde&gt;&lt;Dokumente
-        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1628.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;item&gt;&lt;NUPNr
-        type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code type=&#34;int&#34;&gt;46230&lt;/Code&gt;&lt;Bezeichnung
-        type=&#34;str&#34;&gt;Wald&lt;/Bezeichnung&gt;&lt;Abkuerzung type=&#34;str&#34;&gt;WA&lt;/Abkuerzung&gt;&lt;Artikel
-        type=&#34;null&#34;&gt;&lt;/Artikel&gt;&lt;Verbindlichkeit type=&#34;str&#34;&gt;orientierend&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
-        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
-        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
-        type=&#34;str&#34;&gt;07.813&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
-        type=&#34;str&#34;&gt;2007-07-03&lt;/Genehmigungsdatum&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Festsetzungstyp
-        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;ZP_Grundnutzung&lt;/Ebene&gt;&lt;Darstellungscode
-        type=&#34;str&#34;&gt;462F03&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;4623&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
-        type=&#34;str&#34;&gt;Wald&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
-        type=&#34;int&#34;&gt;44&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
-        type=&#34;str&#34;&gt;Wald&lt;/CH_Hauptnutzung_Name&gt;&lt;ZonenTypGemeinde
-        type=&#34;str&#34;&gt;CH39010000000098&lt;/ZonenTypGemeinde&gt;&lt;Dokumente
+        type=&#34;str&#34;&gt;113F07&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;1135&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
+        type=&#34;str&#34;&gt;Wohnzone 5&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
+        type=&#34;int&#34;&gt;11&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
+        type=&#34;str&#34;&gt;Wohnzonen&lt;/CH_Hauptnutzung_Name&gt;&lt;ZonenTypGemeinde
+        type=&#34;str&#34;&gt;CH39010000000084&lt;/ZonenTypGemeinde&gt;&lt;Dokumente
         type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1628.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
         \           <ows:Identifier>zp_wald_puffer</ows:Identifier>\n            <ows:Title>ZP
         - Wald-Puffer</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
-        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;Wald_Puffer type=&#34;str&#34;&gt;Ja&lt;/Wald_Puffer&gt;&lt;/item&gt;&lt;item&gt;&lt;Wald_Puffer
-        type=&#34;str&#34;&gt;Ja&lt;/Wald_Puffer&gt;&lt;/item&gt;&lt;item&gt;&lt;Wald_Puffer
-        type=&#34;str&#34;&gt;Ja&lt;/Wald_Puffer&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
         \           <ows:Identifier>erdwaermenutzung_zulaessigkeit</ows:Identifier>\n
         \           <ows:Title>Erdwaermenutzung Zulaessigkeit</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
-        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;zulaessigkeit type=&#34;str&#34;&gt;nicht
-        zul\xE4ssig&lt;/zulaessigkeit&gt;&lt;begruendung type=&#34;str&#34;&gt;S3,
-        Areal, geogene Gef\xE4hrdung&lt;/begruendung&gt;&lt;bemerkung type=&#34;null&#34;&gt;&lt;/bemerkung&gt;&lt;auflagen_spezielle
-        type=&#34;str&#34;&gt;Rheintal&lt;/auflagen_spezielle&gt;&lt;auflagen_spezielle_link
-        type=&#34;null&#34;&gt;&lt;/auflagen_spezielle_link&gt;&lt;bohrtiefe_max type=&#34;null&#34;&gt;&lt;/bohrtiefe_max&gt;&lt;/item&gt;&lt;item&gt;&lt;zulaessigkeit
-        type=&#34;str&#34;&gt;nicht zul\xE4ssig&lt;/zulaessigkeit&gt;&lt;begruendung
-        type=&#34;str&#34;&gt;S2, geogene Gef\xE4hrdung&lt;/begruendung&gt;&lt;bemerkung
-        type=&#34;null&#34;&gt;&lt;/bemerkung&gt;&lt;auflagen_spezielle type=&#34;str&#34;&gt;Rheintal&lt;/auflagen_spezielle&gt;&lt;auflagen_spezielle_link
-        type=&#34;null&#34;&gt;&lt;/auflagen_spezielle_link&gt;&lt;bohrtiefe_max type=&#34;null&#34;&gt;&lt;/bohrtiefe_max&gt;&lt;/item&gt;&lt;item&gt;&lt;zulaessigkeit
-        type=&#34;str&#34;&gt;nicht zul\xE4ssig&lt;/zulaessigkeit&gt;&lt;begruendung
-        type=&#34;str&#34;&gt;S3, Areal, geogene Gef\xE4hrdung&lt;/begruendung&gt;&lt;bemerkung
-        type=&#34;null&#34;&gt;&lt;/bemerkung&gt;&lt;auflagen_spezielle type=&#34;str&#34;&gt;Rheintal&lt;/auflagen_spezielle&gt;&lt;auflagen_spezielle_link
-        type=&#34;null&#34;&gt;&lt;/auflagen_spezielle_link&gt;&lt;bohrtiefe_max type=&#34;null&#34;&gt;&lt;/bohrtiefe_max&gt;&lt;/item&gt;&lt;item&gt;&lt;zulaessigkeit
-        type=&#34;str&#34;&gt;nicht zul\xE4ssig&lt;/zulaessigkeit&gt;&lt;begruendung
-        type=&#34;str&#34;&gt;S2, Areal, geogene Gef\xE4hrdung&lt;/begruendung&gt;&lt;bemerkung
-        type=&#34;null&#34;&gt;&lt;/bemerkung&gt;&lt;auflagen_spezielle type=&#34;str&#34;&gt;Rheintal&lt;/auflagen_spezielle&gt;&lt;auflagen_spezielle_link
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;zulaessigkeit type=&#34;str&#34;&gt;zul\xE4ssig&lt;/zulaessigkeit&gt;&lt;begruendung
+        type=&#34;null&#34;&gt;&lt;/begruendung&gt;&lt;bemerkung type=&#34;null&#34;&gt;&lt;/bemerkung&gt;&lt;auflagen_spezielle
+        type=&#34;null&#34;&gt;&lt;/auflagen_spezielle&gt;&lt;auflagen_spezielle_link
         type=&#34;null&#34;&gt;&lt;/auflagen_spezielle_link&gt;&lt;bohrtiefe_max type=&#34;null&#34;&gt;&lt;/bohrtiefe_max&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
         \           <ows:Identifier>gewaesserschutzbereiche</ows:Identifier>\n            <ows:Title>Gewaesserschutzbereiche</ows:Title>\n
         \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
@@ -410,16 +366,7 @@ interactions:
         \           <ows:Identifier>grundwasserschutzzonen</ows:Identifier>\n            <ows:Title>Grundwasserschutzzonen</ows:Title>\n
         \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
         \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
-        ?&gt;&lt;root&gt;&lt;item&gt;&lt;typ type=&#34;str&#34;&gt;S3&lt;/typ&gt;&lt;kantonaletypbezeichnung
-        type=&#34;str&#34;&gt;Grundwasserschutzzone S3&lt;/kantonaletypbezeichnung&gt;&lt;rechtsstatus
-        type=&#34;str&#34;&gt;inKraft&lt;/rechtsstatus&gt;&lt;rb_nr type=&#34;str&#34;&gt;1142&lt;/rb_nr&gt;&lt;rechtskraftdatum
-        type=&#34;str&#34;&gt;2011-12-20&lt;/rechtskraftdatum&gt;&lt;/item&gt;&lt;item&gt;&lt;typ
-        type=&#34;str&#34;&gt;S3&lt;/typ&gt;&lt;kantonaletypbezeichnung type=&#34;str&#34;&gt;Grundwasserschutzzone
-        S3&lt;/kantonaletypbezeichnung&gt;&lt;rechtsstatus type=&#34;str&#34;&gt;inKraft&lt;/rechtsstatus&gt;&lt;rb_nr
-        type=&#34;str&#34;&gt;1142&lt;/rb_nr&gt;&lt;rechtskraftdatum type=&#34;str&#34;&gt;2011-12-20&lt;/rechtskraftdatum&gt;&lt;/item&gt;&lt;item&gt;&lt;typ
-        type=&#34;str&#34;&gt;S2&lt;/typ&gt;&lt;kantonaletypbezeichnung type=&#34;str&#34;&gt;Grundwasserschutzzone
-        S2&lt;/kantonaletypbezeichnung&gt;&lt;rechtsstatus type=&#34;str&#34;&gt;inKraft&lt;/rechtsstatus&gt;&lt;rb_nr
-        type=&#34;str&#34;&gt;1142&lt;/rb_nr&gt;&lt;rechtskraftdatum type=&#34;str&#34;&gt;2011-12-20&lt;/rechtskraftdatum&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
         \           <ows:Identifier>grundwasserfassungen_und_quellen</ows:Identifier>\n
         \           <ows:Title>Grundwasserfassungen und Quellen</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
@@ -431,12 +378,8 @@ interactions:
         \           <ows:Identifier>liegenschaften</ows:Identifier>\n            <ows:Title>Liegenschaften</ows:Title>\n
         \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
         \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
-        ?&gt;&lt;root&gt;&lt;item&gt;&lt;nummer type=&#34;str&#34;&gt;1844&lt;/nummer&gt;&lt;egris_egrid
-        type=&#34;str&#34;&gt;CH916888867745&lt;/egris_egrid&gt;&lt;gueltigkeit type=&#34;str&#34;&gt;rechtskraeftig&lt;/gueltigkeit&gt;&lt;vollstaendigkeit
-        type=&#34;str&#34;&gt;Vollstaendig&lt;/vollstaendigkeit&gt;&lt;art type=&#34;str&#34;&gt;Liegenschaft&lt;/art&gt;&lt;bfsnr
-        type=&#34;int&#34;&gt;3901&lt;/bfsnr&gt;&lt;gdename type=&#34;str&#34;&gt;Chur&lt;/gdename&gt;&lt;/item&gt;&lt;item&gt;&lt;nummer
-        type=&#34;str&#34;&gt;4308&lt;/nummer&gt;&lt;egris_egrid type=&#34;str&#34;&gt;CH738677680776&lt;/egris_egrid&gt;&lt;gueltigkeit
-        type=&#34;str&#34;&gt;rechtskraeftig&lt;/gueltigkeit&gt;&lt;vollstaendigkeit
+        ?&gt;&lt;root&gt;&lt;item&gt;&lt;nummer type=&#34;str&#34;&gt;2733&lt;/nummer&gt;&lt;egris_egrid
+        type=&#34;str&#34;&gt;CH776877828620&lt;/egris_egrid&gt;&lt;gueltigkeit type=&#34;str&#34;&gt;rechtskraeftig&lt;/gueltigkeit&gt;&lt;vollstaendigkeit
         type=&#34;str&#34;&gt;Vollstaendig&lt;/vollstaendigkeit&gt;&lt;art type=&#34;str&#34;&gt;Liegenschaft&lt;/art&gt;&lt;bfsnr
         type=&#34;int&#34;&gt;3901&lt;/bfsnr&gt;&lt;gdename type=&#34;str&#34;&gt;Chur&lt;/gdename&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
         \           <ows:Identifier>projliegenschaften</ows:Identifier>\n            <ows:Title>Projektierte
@@ -446,7 +389,10 @@ interactions:
         \           <ows:Identifier>selbstrecht</ows:Identifier>\n            <ows:Title>Selbst\xE4ndiges
         Recht</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
-        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;nummer type=&#34;str&#34;&gt;12768&lt;/nummer&gt;&lt;egris_egrid
+        type=&#34;str&#34;&gt;CH907068848655&lt;/egris_egrid&gt;&lt;gueltigkeit type=&#34;str&#34;&gt;rechtskraeftig&lt;/gueltigkeit&gt;&lt;vollstaendigkeit
+        type=&#34;str&#34;&gt;Vollstaendig&lt;/vollstaendigkeit&gt;&lt;art type=&#34;str&#34;&gt;SelbstRecht.Baurecht&lt;/art&gt;&lt;bfsnr
+        type=&#34;int&#34;&gt;3901&lt;/bfsnr&gt;&lt;gdename type=&#34;str&#34;&gt;Chur&lt;/gdename&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
         \           <ows:Identifier>projselbstrecht</ows:Identifier>\n            <ows:Title>Projektiertes
         selbst\xE4ndiges Recht</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
         \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
@@ -463,11 +409,11 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '44430'
+      - '38512'
       Content-Type:
       - text/xml; charset=utf-8
       Date:
-      - Mon, 16 Oct 2023 08:48:39 GMT
+      - Mon, 16 Oct 2023 08:48:37 GMT
     status:
       code: 200
       message: OK

@@ -53,6 +53,12 @@ def gr_data_sources(
             ["au", "nicht-betroffen"],
         ),
         (
+            "lageranlagen-gewaesserschutzbereich",
+            Question.TYPE_CHOICE,
+            ["au", "nicht-betroffen"],
+            "v2",
+        ),
+        (
             "grundwasserschutzzone",
             Question.TYPE_CHOICE,
             ["s1", "s2", "s3", "sh", "sm", "s-kantonaleart", "nicht-betroffen"],
@@ -62,17 +68,28 @@ def gr_data_sources(
             Question.TYPE_CHOICE,
             ["s1", "s2", "s3", "sh", "sm", "s-kantonaleart", "nicht-betroffen"],
         ),
+        (
+            "lageranlagen-grundwasserschutzzone",
+            Question.TYPE_CHOICE,
+            ["s1", "s2", "s3", "sh", "sm", "s-kantonaleart", "nicht-betroffen"],
+            "v2",
+        ),
     ]
 
     for config in gis_questions:
         slug = config[0]
+        version = f"-{config[3]}" if len(config) == 4 else ""
         question_type = config[1]
-        question = caluma_question_factory(slug=slug, type=question_type, label=slug)
-        if len(config) == 3:
+        question = caluma_question_factory(
+            slug=f"{slug}{version}", type=question_type, label=slug
+        )
+        if len(config) > 2:
             for i, option in enumerate(reversed(config[2])):
                 caluma_question_option_factory(
                     question=question,
-                    option=caluma_option_factory(slug=f"{slug}-{option}", label=option),
+                    option=caluma_option_factory(
+                        slug=f"{slug}-{option}{version}", label=option + version
+                    ),
                     sort=i,
                 )
 
@@ -192,8 +209,15 @@ def gr_config(gr_data_sources):
                 "markers": [{"x": 2757567.75, "y": 1192209.3312499998}],
                 "geometry": "POINT",
             },
-            "baugesuch",
+            "baugesuch-v3",
         ),  # Gewässerschutzbereich
+        (
+            {
+                "markers": [{"x": 2757567.75, "y": 1192209.3312499998}],
+                "geometry": "POINT",
+            },
+            "baugesuch-v6",
+        ),  # Gewässerschutzbereich-v2
         (
             {
                 "markers": [{"x": 2757771.4499999997, "y": 1192182.0312499998}],
