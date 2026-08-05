@@ -144,7 +144,10 @@ MODULE_RESPONSIBLE_SERVICE_WRITE = (
     MODULE_RESPONSIBLE_SERVICE_READ
     & RequireInstanceState(["init-distribution", "decision"])
 )
-MODULE_LINKED_INSTANCES = STATES_ALL
+MODULE_LINKED_INSTANCES_READ = STATES_ALL
+MODULE_LINKED_INSTANCES_WRITE = (
+    STATES_ALL & (ROLES_MUNICIPALITY | IsService(["afb"])) & ~READONLY
+)
 MODULE_LEGAL_SUBMISSIONS = NO_CORRECTION & RequireWorkItem("objections")
 MODULE_PERMISSIONS = (
     STATES_ALL
@@ -345,7 +348,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("instance-mark-write", ACTION_INSTANCE_MARK),
             ("journal-read", MODULE_JOURNAL_READ),
             ("journal-write", MODULE_JOURNAL_WRITE),
-            ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("linked-instances-read", MODULE_LINKED_INSTANCES_READ),
+            ("linked-instances-write", MODULE_LINKED_INSTANCES_WRITE),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("responsible-write", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
@@ -406,7 +410,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("journal-write", MODULE_JOURNAL_WRITE),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("legal-submissions-write", MODULE_LEGAL_SUBMISSIONS),
-            ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("linked-instances-read", MODULE_LINKED_INSTANCES_READ),
+            ("linked-instances-write", MODULE_LINKED_INSTANCES_WRITE),
             ("permissions-grant-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),
             ("permissions-read", MODULE_PERMISSIONS),
@@ -460,7 +465,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("journal-read", MODULE_JOURNAL_READ),
             ("journal-write", MODULE_JOURNAL_WRITE),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
-            ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("linked-instances-read", MODULE_LINKED_INSTANCES_READ),
+            ("linked-instances-write", MODULE_LINKED_INSTANCES_WRITE),
             ("permissions-grant-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),
             ("permissions-read", MODULE_PERMISSIONS),
@@ -495,7 +501,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("applicant-remove", Always()),
             ("documents-read", Always()),
             ("documents-write", Always()),
-            ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("linked-instances-read", MODULE_LINKED_INSTANCES_READ),
             ("form-read", Always()),
             ("form-write", Always()),
             ("history-read", Always()),

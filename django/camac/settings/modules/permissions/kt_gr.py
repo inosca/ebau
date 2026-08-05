@@ -365,6 +365,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("legal-appeals-read", MODULE_LEGAL_APPEALS),
             ("legal-appeals-write", MODULE_LEGAL_APPEALS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("linked-instances-write", MODULE_LINKED_INSTANCES),
             ("permissions-grant-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),
             ("permissions-read", MODULE_PERMISSIONS),

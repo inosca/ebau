@@ -442,18 +442,25 @@ class InstanceView(
     def _has_object_change_form_permission_for_support(self, instance):
         return True
 
-    @permission_aware
+    @canton_aware
     def has_object_link_permission(self, instance):
-        if settings.APPLICATION_NAME == "kt_uri":
-            # For UR, we don't intend to use permissions yet:
-            return False
         return self._has_object_link_unlink_permission(instance)
 
-    def has_object_link_permission_for_municipality(self, instance):
+    @permission_aware
+    def has_object_link_permission_sz(self, instance):
+        return self._has_object_link_unlink_permission(instance)
+
+    def has_object_link_permission_sz_for_municipality(self, instance):
         return True
 
-    # only UR
-    def has_object_link_permission_for_coordination(self, instance):
+    @permission_aware
+    def has_object_link_permission_ur(self, instance):
+        return False
+
+    def has_object_link_permission_ur_for_municipality(self, instance):
+        return True
+
+    def has_object_link_permission_ur_for_coordination(self, instance):
         user = self.request.user
 
         return user.groups.filter(
@@ -463,18 +470,6 @@ class InstanceView(
                 ur_constants.KOOR_AFE_GROUP_ID,
             ]
         )
-
-    @canton_aware
-    def has_object_link_permission_for_service(self, instance):
-        return self._has_object_link_unlink_permission(instance)
-
-    def has_object_link_permission_for_service_ag(self, instance):
-        return self.request.user.groups.filter(
-            service__slug="afb"
-        ).exists() or self._has_object_link_unlink_permission(instance)
-
-    def has_object_link_permission_for_service_ur(self, instance):
-        return False
 
     def has_object_unlink_permission(self, instance):
         return self.has_object_link_permission(instance)

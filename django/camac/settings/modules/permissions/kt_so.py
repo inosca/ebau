@@ -328,6 +328,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("legal-submissions-write", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("linked-instances-write", MODULE_LINKED_INSTANCES),
             ("material-exam-read", MODULE_MATERIAL_EXAM),
             ("material-exam-bab-read", MODULE_MATERIAL_EXAM_BAB),
             ("permissions-grant-read", MODULE_PERMISSIONS),
