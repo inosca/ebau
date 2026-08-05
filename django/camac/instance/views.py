@@ -64,7 +64,7 @@ from camac.user.permissions import (
     PublicationPermission,
     permission_aware,
 )
-from camac.utils import DocxRenderer, get_paper_settings
+from camac.utils import DocxRenderer, get_dict_item, get_paper_settings
 
 from . import (
     document_merge_service,
@@ -444,11 +444,15 @@ class InstanceView(
 
     @permission_aware
     def has_object_link_permission(self, instance):
-        return False
+        if settings.APPLICATION_NAME == "kt_uri":
+            # For UR, we don't intend to use permissions yet:
+            return False
+        return self._has_object_link_unlink_permission(instance)
 
     def has_object_link_permission_for_municipality(self, instance):
         return True
 
+    # only UR
     def has_object_link_permission_for_coordination(self, instance):
         user = self.request.user
 
@@ -462,13 +466,29 @@ class InstanceView(
 
     @canton_aware
     def has_object_link_permission_for_service(self, instance):
-        return False
+        return self._has_object_link_unlink_permission(instance)
 
-    def has_object_link_permission_for_service_ag(self, instance):  # pragma: no cover
-        return self.request.user.groups.filter(service__slug="afb").exists()
+    def has_object_link_permission_for_service_ag(self, instance):
+        return self.request.user.groups.filter(
+            service__slug="afb"
+        ).exists() or self._has_object_link_unlink_permission(instance)
+
+    def has_object_link_permission_for_service_ur(self, instance):
+        return False
 
     def has_object_unlink_permission(self, instance):
         return self.has_object_link_permission(instance)
+
+    def _has_object_link_unlink_permission(self, instance):
+        if (
+            link_to := get_dict_item(
+                self.request.data, "data.attributes.link-to", default=None
+            )
+        ) and not self.get_queryset().filter(pk=link_to).exists():
+            return False
+
+        manager = permissions_api.PermissionManager.from_request(self.request)
+        return manager.has_all(instance, "linked-instances-write")
 
     @permission_aware
     def has_object_convert_modification_permission(self, instance):

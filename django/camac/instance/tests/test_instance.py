@@ -24,6 +24,7 @@ from camac.instance.filters import (
 )
 from camac.instance.models import FormField, Instance, InstanceGroup, InstanceState
 from camac.permissions import api as permissions_api
+from camac.permissions.conditions import Always
 from camac.tests.form_utils import FormUtils
 
 
@@ -1009,6 +1010,122 @@ def test_involved_services(
     }
 
 
+@pytest.mark.parametrize("role__name", ["Service", "Municipality"])
+@pytest.mark.parametrize(
+    (
+        "permissions_on_this_instance",
+        "permissions_on_other_instance",
+        "expected_status_link",
+        "expected_status_unlink",
+    ),
+    [
+        # linked-instances-write on this instance and seeing the other is sufficient:
+        (
+            ["linked-instances-write"],
+            ["foobar"],
+            status.HTTP_200_OK,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        # not seeing the other is not sufficient:
+        (
+            ["linked-instances-write"],
+            None,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        # linked-instances-read is not sufficient:
+        (
+            ["linked-instances-read"],
+            ["foobar"],
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        # ... even if we have linked-instances-write on the other:
+        (
+            ["linked-instances-read"],
+            ["linked-instances-write"],
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+    ],
+)
+@pytest.mark.django_db
+def test_instance_group_link_unlink(
+    access_level_factory,
+    admin_client,
+    instance_acl_factory,
+    instance_factory,
+    group,
+    permissions_settings,
+    role,
+    service,
+    # parameters:
+    permissions_on_this_instance,
+    permissions_on_other_instance,
+    expected_status_link,
+    expected_status_unlink,
+):
+    access_level_for_this = access_level_factory(
+        slug="access-level-for-this",
+        name="Access level for this instance",
+        required_grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+    )
+    if permissions_on_this_instance:
+        access_level_for_other = access_level_factory(
+            slug="access-level-for-other",
+            name="Access level for the other instance",
+            required_grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        )
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level_for_this.pk: [
+            (permission, Always()) for permission in permissions_on_this_instance
+        ],
+        **(
+            {
+                access_level_for_other.pk: [
+                    (permission, Always())
+                    for permission in permissions_on_other_instance
+                ],
+            }
+            if permissions_on_other_instance
+            else {}
+        ),
+    }
+
+    def create_acl(instance, access_level):
+        instance_acl_factory(
+            instance=instance,
+            grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+            service=service,
+            access_level=access_level,
+        )
+
+    this_instance = instance_factory()
+    create_acl(this_instance, access_level_for_this)
+
+    other_instance = instance_factory()
+    if permissions_on_other_instance:
+        create_acl(other_instance, access_level_for_other)
+
+    # Test linking:
+    url = reverse("instance-link", args=[this_instance.pk])
+    data = {
+        "data": {
+            "type": "instances",
+            "attributes": {"link-to": other_instance.pk},
+        }
+    }
+    response = admin_client.patch(
+        url, data=json.dumps(data), content_type="application/json"
+    )
+    assert response.status_code == expected_status_link
+
+    # Test unlinking:
+    url = reverse("instance-unlink", args=[this_instance.pk])
+    response = admin_client.patch(url)
+    assert response.status_code == expected_status_unlink
+
+
 @pytest.mark.parametrize("main_instance_has_group", [False, True])
 @pytest.mark.parametrize("other_instance_has_group", [False, True])
 @pytest.mark.parametrize(
@@ -1021,16 +1138,22 @@ def test_involved_services(
         ("Canton", status.HTTP_403_FORBIDDEN),
     ],
 )
-def test_instance_group_link(
+def test_instance_group_link_ur(
     admin_client,
+    application_settings,
     instance,
     instance_factory,
     instance_group_factory,
+    mocker,
+    settings,
+    # parameters:
     main_instance_has_group,
     other_instance_has_group,
     expected_status,
-    mocker,
 ):
+    settings.APPLICATION_NAME = "kt_uri"
+    application_settings["SHORT_NAME"] = "ur"
+
     mocker.patch(
         "camac.constants.kt_uri.KOOR_BG_GROUP_ID", admin_client.user.groups.first().pk
     )
@@ -1101,16 +1224,20 @@ def test_instance_group_link(
 
 @pytest.mark.parametrize("more_than_one_other_group", [False, True])
 @pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
-def test_instance_group_unlink(
+def test_instance_group_unlink_ur(
     admin_client,
-    ur_instance,
+    application_settings,
     instance_factory,
     instance_group_factory,
-    more_than_one_other_group,
-    mocker,
-    application_settings,
     instance_state_factory,
+    mocker,
+    settings,
+    ur_instance,
+    # parameters:
+    more_than_one_other_group,
 ):
+    settings.APPLICATION_NAME = "kt_uri"
+    application_settings["SHORT_NAME"] = "ur"
     application_settings["FORM_BACKEND"] = "caluma"
 
     main_instance = ur_instance
