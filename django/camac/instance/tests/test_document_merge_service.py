@@ -95,13 +95,13 @@ def test_document_merge_service_snapshot(
     )
 
     for kwargs, expected_queries in [
-        ({"instance_id": 1}, 37),
-        ({"instance_id": 3, "form_slug": "sb1"}, 39),
-        ({"instance_id": 3, "form_slug": "sb2"}, 41),
+        ({"instance_id": 1}, 34),
+        ({"instance_id": 3, "form_slug": "sb1"}, 30),
+        ({"instance_id": 3, "form_slug": "sb2"}, 32),
         (
             # mp-form
             {"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"},
-            35,
+            30,
         ),
     ]:
         with django_assert_num_queries(expected_queries):
@@ -637,6 +637,7 @@ def test_print_meta_attributes(
     dms_settings["FORM"] = {"baugesuch": {"forms": ["print-form"]}}
 
     so_instance.case.document.form = caluma_form_factory(slug="print-form")
+    so_instance.case.document.save()
 
     caluma_form_question_factory(
         form_id="print-form",

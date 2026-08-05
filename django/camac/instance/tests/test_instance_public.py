@@ -170,7 +170,7 @@ def test_public_caluma_instance_ur(
 @pytest.mark.parametrize(
     ("is_oereb_form", "instance_state__name", "num_queries", "is_visible"),
     [
-        (True, "comm", 21, True),
+        (True, "comm", 16, True),
         (False, "comm", 1, False),
         (True, "new", 3, False),
         (True, "new_portal", 3, False),

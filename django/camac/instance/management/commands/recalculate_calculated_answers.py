@@ -1,6 +1,6 @@
 from caluma.caluma_form import validators
+from caluma.caluma_form.calc_questions import recalculate_field
 from caluma.caluma_form.models import Answer, Document, Question
-from caluma.caluma_form.utils import recalculate_field
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import Exists, OuterRef
