@@ -52,8 +52,8 @@ ARG APPLICATION=demo
 ENV APPLICATION=$APPLICATION
 
 # Release version (mix.exs reads EBAU_VERSION). Set by CI from the canton tag;
-# defaults to "0.0.0-master" for dev/demo/branch builds.
-ARG EBAU_VERSION=0.0.0-master
+# defaults to "0.0.0-main" for dev/demo/branch builds.
+ARG EBAU_VERSION=0.0.0-main
 ENV EBAU_VERSION=$EBAU_VERSION
 
 COPY lib lib

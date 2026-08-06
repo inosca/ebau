@@ -15,7 +15,7 @@
 
 
 ## Testing 
-**[What to test?](https://git.adfinis.com/camac-ng/camac-ng/-/blob/master/CONTRIBUTING.md)**
+**[What to test?](https://git.adfinis.com/camac-ng/camac-ng/-/blob/main/CONTRIBUTING.md)**
 - [ ] I tested the change locally in the UI and with the test suite
 - [ ] If this MR includes database migrations, they have been tested against existing data
 

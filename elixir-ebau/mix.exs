@@ -4,7 +4,7 @@ defmodule Ebau.MixProject do
   def project do
     [
       app: :ebau,
-      version: System.get_env("EBAU_VERSION", "0.0.0-master"),
+      version: System.get_env("EBAU_VERSION", "0.0.0-main"),
       elixir: "~> 1.19",
       elixirc_paths: elixirc_paths(Mix.env()),
       consolidate_protocols: Mix.env() != :test,

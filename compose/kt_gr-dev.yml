@@ -46,7 +46,7 @@ services:
       - pg15data:/var/lib/postgresql/data
 
   django: &django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     depends_on:
       - db
       - garage
@@ -103,13 +103,13 @@ services:
       - ../dummy-eeba-server:/app
 
   ember-caluma-portal:
-    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:main
     build:
       args:
         - ENABLE_WATERMARK=true
 
   ember-ebau:
-    image: acr.run/camac-ng/camac-ng/ember-ebau:master
+    image: acr.run/camac-ng/camac-ng/ember-ebau:main
     build:
       args:
         - ENABLE_WATERMARK=true
@@ -142,7 +142,7 @@ services:
       - MP_WEBROOT=mailpit
 
   document-merge-service:
-    image: acr.run/camac-ng/camac-ng/document-merge-service:master
+    image: acr.run/camac-ng/camac-ng/document-merge-service:main
     depends_on:
       - db
     cap_add:
@@ -198,7 +198,7 @@ services:
 
   celery:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     ports:
       - "6899:6899" # celery rdb
       - "5679:5679" # debugpy
@@ -209,7 +209,7 @@ services:
 
   celery-import:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     environment:
       <<: *django_env
       CELERY_QUEUE: import
@@ -220,7 +220,7 @@ services:
 
   celery-tika:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     environment:
       <<: *django_env
       CELERY_QUEUE: tika
@@ -231,7 +231,7 @@ services:
 
   celery-beat:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     ports: []
     command: celery-beat-dev
 

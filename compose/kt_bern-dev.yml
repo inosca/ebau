@@ -48,7 +48,7 @@ services:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
 
   django: &django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     depends_on:
       - cache
       - db
@@ -112,11 +112,11 @@ services:
 
   django-webdav:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     build:
       context: ../django
       cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
+        - acr.run/camac-ng/camac-ng/django:main
       args:
         REQUIREMENTS: requirements-dev.txt
     command: webdav
@@ -124,11 +124,11 @@ services:
 
   django-webdav-alexandria:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     build:
       context: ../django
       cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
+        - acr.run/camac-ng/camac-ng/django:main
       args:
         REQUIREMENTS: requirements-dev.txt
     environment:
@@ -142,11 +142,11 @@ services:
 
   celery:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     build:
       context: ../django
       cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
+        - acr.run/camac-ng/camac-ng/django:main
       args:
         REQUIREMENTS: requirements-dev.txt
     depends_on:
@@ -177,7 +177,7 @@ services:
 
 
   keycloak:
-    image: acr.run/camac-ng/camac-ng/keycloak:master
+    image: acr.run/camac-ng/camac-ng/keycloak:main
     depends_on:
       - db
     build:
@@ -185,7 +185,7 @@ services:
       args:
         VERSION: 26.2
       cache_from:
-        - acr.run/camac-ng/camac-ng/keycloak:master
+        - acr.run/camac-ng/camac-ng/keycloak:main
     volumes:
       - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json
       - ../keycloak/themes/src/main/resources/theme/ebau-be-2.1.1:/opt/keycloak/themes/ebau-be-dev
@@ -222,7 +222,7 @@ services:
       - "3310:3310"
 
   document-merge-service:
-    image: acr.run/camac-ng/camac-ng/document-merge-service:master
+    image: acr.run/camac-ng/camac-ng/document-merge-service:main
     depends_on:
       - db
       - cache
