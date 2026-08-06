@@ -114,6 +114,87 @@ def test_inquiry_visibility_gr(
     assert len(ids) == expected_count
 
 
+@pytest.mark.parametrize(
+    ("role__name", "expected_visible"),
+    [
+        (
+            "subservice",
+            {
+                "own-addressed",
+                "own-controlled",
+                "sibling-addressed",
+                "parent-addressed",
+                "parent-controlled",
+            },
+        ),
+        ("uso", {"own-addressed", "own-controlled"}),
+        ("municipality-lead", {"own-addressed", "own-controlled"}),
+        ("service-lead", {"own-addressed", "own-controlled"}),
+    ],
+)
+@pytest.mark.django_db
+def test_inquiry_visibility_gr_parent_and_siblings(
+    active_inquiry_factory,
+    gr_instance,
+    group,
+    group_factory,
+    role,
+    service,
+    service_factory,
+    settings,
+    expected_visible,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+
+    parent = service_factory()
+    service.service_parent = parent
+    service.save(update_fields=["service_parent"])
+
+    sibling = service_factory(service_parent=parent)
+    uso_sibling = service_factory(service_parent=parent)
+    group_factory(service=uso_sibling, role__name="uso")
+    unrelated = service_factory()
+
+    inquiries = {
+        "own-addressed": active_inquiry_factory(
+            controlling_service=parent, addressed_service=service
+        ),
+        "own-controlled": active_inquiry_factory(
+            controlling_service=service, addressed_service=parent
+        ),
+        "sibling-addressed": active_inquiry_factory(
+            controlling_service=unrelated, addressed_service=sibling
+        ),
+        "parent-addressed": active_inquiry_factory(
+            controlling_service=unrelated, addressed_service=parent
+        ),
+        "parent-controlled": active_inquiry_factory(
+            controlling_service=parent, addressed_service=unrelated
+        ),
+        "parent-controlled-uso-addressed": active_inquiry_factory(
+            controlling_service=parent, addressed_service=uso_sibling
+        ),
+        "uso-sibling-addressed": active_inquiry_factory(
+            controlling_service=unrelated, addressed_service=uso_sibling
+        ),
+        "unrelated": active_inquiry_factory(
+            controlling_service=unrelated,
+            addressed_service=service_factory(),
+        ),
+    }
+
+    visible_ids = set(
+        WorkItem.objects.filter(
+            visible_inquiries_expression(group),
+            pk__in=[inquiry.pk for inquiry in inquiries.values()],
+        ).values_list("pk", flat=True)
+    )
+
+    assert {
+        name for name, inquiry in inquiries.items() if inquiry.pk in visible_ids
+    } == expected_visible
+
+
 @pytest.fixture
 def so_inquiries(
     service_factory, active_inquiry_factory, user_group_factory, admin_user, gr_instance

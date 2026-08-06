@@ -13,6 +13,7 @@ from django.conf import settings
 from django.contrib.auth.models import AnonymousUser as AnonymousCamacUser
 from django.contrib.postgres.fields import ArrayField
 from django.db.models import (
+    BooleanField,
     Case,
     Exists,
     Expression,
@@ -244,11 +245,28 @@ def get_additional_inquiries_filters(group: Group) -> Expression | Subquery | Q:
                 Q(service_parent__isnull=True) | Q(service_parent_id=current_service.pk)
             )
         case "kt_gr" if group.role.name == "subservice":
-            # Subservices can see "adjecent" subservices inquiries
-            return work_item_by_addressed_service_condition(
-                Q(service_parent_id=current_service.service_parent_id)
-                & ~Q(groups__role__name="uso"),
+            # Subservices can see inquiries involving their parent and inquiries
+            # addressed to adjacent non-USO subservices.
+            addressed_to_uso = work_item_by_addressed_service_condition(
+                Q(groups__role__name="uso")
             )
+            addressed_to_parent = work_item_by_addressed_service_condition(
+                Q(pk=current_service.service_parent_id)
+            )
+            controlled_by_parent = (
+                Q(controlling_groups__contains=[current_service.service_parent_id])
+                & ~addressed_to_uso
+            )
+            addressed_to_sibling = (
+                work_item_by_addressed_service_condition(
+                    Q(service_parent_id=current_service.service_parent_id)
+                )
+                & ~addressed_to_uso
+            )
+
+            return addressed_to_parent | controlled_by_parent | addressed_to_sibling
+        case "kt_gr":
+            return Value(False)
         case "kt_so":
             filters = (
                 # Inquiries of child services of the current service
@@ -399,6 +417,7 @@ def visible_inquiries_expression(group: Group) -> Q | Expression:
             then=additional_inquiries_filter,
         ),
         default=True,
+        output_field=BooleanField(),
     ) & Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
 
 
