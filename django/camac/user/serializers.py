@@ -586,7 +586,7 @@ class UserGroupSerializer(serializers.ModelSerializer):
 
     def validate_email(self, value):
         try:
-            models.User.objects.internal_users().get(email=value)
+            models.User.objects.only_active().internal_users().get(email=value)
         except models.User.DoesNotExist as e:
             raise ValidationError(
                 _(
@@ -609,8 +609,10 @@ class UserGroupSerializer(serializers.ModelSerializer):
             else None
         )
 
-        user = models.User.objects.internal_users().get(
-            email=validated_data.pop("email")
+        user = (
+            models.User.objects.only_active()
+            .internal_users()
+            .get(email=validated_data.pop("email"))
         )
 
         if models.UserGroup.objects.filter(group=group, user=user).exists():
