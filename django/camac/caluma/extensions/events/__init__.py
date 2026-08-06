@@ -15,6 +15,7 @@ from . import (  # noqa: F401
     direct_inquiry,
     distribution,
     distribution_ag_afb_specific,
+    distribution_sg_ksb_specific,
     ebau_number,
     formal_exam,
     general,

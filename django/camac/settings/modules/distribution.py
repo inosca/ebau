@@ -588,6 +588,14 @@ DISTRIBUTION = {
             "REOPEN_TASKS": ["check-inquiry", "revise-inquiry"],
             "COMPLETE_TASKS": ["revise-inquiry"],
         },
+        "QUESTIONS": {
+            "TYPE": "inquiry-type",
+        },
+        "ANSWERS": {
+            "TYPE": {
+                "FIRST_WEEK": "inquiry-type-first-week",
+            }
+        },
         "AVAILABLE_SERVICES_FOR_INQUIRY": {
             "authority": [
                 {

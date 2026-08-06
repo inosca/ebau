@@ -170,6 +170,35 @@ def distribution_case_ag(
 
 
 @pytest.fixture
+def distribution_case_sg(
+    sg_instance,
+    caluma_admin_user,
+    instance_state_factory,
+    sg_distribution_settings,
+    set_application_sg,
+    # eCH-0211 is not configured for SG
+    disable_ech0211_settings,
+    service,
+    mocker,
+):
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service,
+    )
+
+    instance_state_factory(name="distribution")
+
+    case = sg_instance.case
+
+    for task in ["submit", "formal-exam"]:
+        skip_work_item(
+            work_item=case.work_items.get(task_id=task), user=caluma_admin_user
+        )
+
+    return case
+
+
+@pytest.fixture
 def distribution_child_case_be(distribution_case_be, be_distribution_settings):
     return distribution_case_be.work_items.get(
         task_id=be_distribution_settings["DISTRIBUTION_TASK"]
@@ -194,6 +223,13 @@ def distribution_child_case_sz(distribution_case_sz, sz_distribution_settings):
 def distribution_child_case_ag(distribution_case_ag, ag_distribution_settings):
     return distribution_case_ag.work_items.get(
         task_id=ag_distribution_settings["DISTRIBUTION_TASK"]
+    ).child_case
+
+
+@pytest.fixture
+def distribution_child_case_sg(distribution_case_sg, sg_distribution_settings):
+    return distribution_case_sg.work_items.get(
+        task_id=sg_distribution_settings["DISTRIBUTION_TASK"]
     ).child_case
 
 
@@ -280,6 +316,28 @@ def inquiry_factory_ag(
             user=caluma_admin_user,
             distribution_child_case=distribution_child_case_ag,
             distribution_settings=ag_distribution_settings,
+        )
+
+    return factory
+
+
+@pytest.fixture
+def inquiry_factory_sg(
+    sg_distribution_settings,
+    caluma_admin_user,
+    distribution_child_case_sg,
+    service_factory,
+    service,
+):
+    def factory(to_service=None, from_service=service, sent=False):
+        to_service = to_service or service_factory()
+        return make_inquiry(
+            to_service=to_service,
+            from_service=from_service,
+            sent=sent,
+            user=caluma_admin_user,
+            distribution_child_case=distribution_child_case_sg,
+            distribution_settings=sg_distribution_settings,
         )
 
     return factory

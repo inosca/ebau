@@ -1,0 +1,9 @@
+<span
+  class="uk-text-bold uk-text-{{@status.color}}"
+  {{uk-tooltip
+    (concat (t "distribution.first-week.long") @status.label)
+    pos=@tooltipPos
+  }}
+>
+  {{t "distribution.first-week.short"}}
+</span>

@@ -32,6 +32,10 @@ distribution:
     open-suspensions: ""
     deadline-expired: ""
 
+  first-week:
+    short: ""
+    long: ""
+
 # Override default text of @projectcaluma/ember-distribution
 caluma:
   distribution:
