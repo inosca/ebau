@@ -71,6 +71,8 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
   - `uuid` diese UUID kann in anderen eCH Meldungen referenziert werden
   - `owner` enthält die Organisations-ID oder `APPLICANT`, wenn der Gesuchsteller das Dokument hochgeladen hat
 
+- Für Kt. GR, muss der Dokument `owner` immer geprüft werden. Wenn der Wert `APPLICANT` ist, dürfen die Gesuchstellenden keine Möglichkeit haben, Dokumente zu verschieben oder zu löschen.
+
 - In einer `application` wird immer der Status `6701` gesetzt. Der korrekte Status aus dem eBau findet sich unter `namedMetaData.status`. Bei einer `statusNotification` wird immer der Status `in progress` gesetzt. Der korrekte Status findet sich im `remark`.
 
 - `buildingCategory` wird immer auf `1040` gesetzt.
