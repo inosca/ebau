@@ -55004,7 +55004,7 @@
     "pk": "bestaetigung-abbruchpraemie",
     "fields": {
       "created_at": "2026-07-06T11:21:01.010Z",
-      "modified_at": "2026-07-06T11:21:34.473Z",
+      "modified_at": "2026-08-06T08:17:15.622Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55012,7 +55012,7 @@
       "label": "{\"de\": \"bestaetigung-abbruchprämie\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\"wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird\"|answer == \"wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird-ja\")",
+      "is_hidden": "info.root.form in [\n    \"baugesuch\",\n    \"baugesuch-v2\",\n    \"baugesuch-v3\"\n  ] ||\n  !(\"wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird\"|answer == \"wird-eine-baute-oder-anlage-abgebrochen-fuer-welche-eine-abbruchpraemie-geltend-gemacht-wird-ja\")",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
