@@ -17,7 +17,7 @@ instances:
 
 support:
   technical: |-
-    Bei technischen Problemen mit eBau prüfen Sie bitte die <a href="static-content/portal-faq">FAQ Seite</a>. Falls Sie weitere Fragen haben, wenden Sie sich an den Support über das <a target="_blank" href="https://www.ag.ch/de/smartserviceportal/hilfe-infos/kontaktformular?dataRef=txtBetreff=eBau+Aargau">Kontaktformular</a>.
+    Bei technischen Problemen mit eBau prüfen Sie bitte die <a href="static-content/portal-faq">FAQ Seite</a>. Falls Sie weitere Fragen haben, wenden Sie sich an den Support über das <a target="_blank" href="https://ag.ch/de/smartserviceportal/prozesse/svc0000134?dienstleistung=8bdaa7e2-cc06-4dd6-8147-de5e8d6be91d_de&anliegen=eserviceanfrage&themensuche=nein">Kontaktformular</a>.
   selectMunicipality: "Wählen Sie die zuständige Gemeinde aus"
   infoText: "Die zuständige Leitbehörde wird Ihnen gerne weiterhelfen:"
   phone: "Telefon:"
