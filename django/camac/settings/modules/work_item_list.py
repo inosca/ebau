@@ -46,6 +46,7 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
             "service-afb": [
                 "check-pa",
                 "cantonal-exam",
+                "check-additional-demand",
                 "check-document-supplement",
                 "decision",
                 "trigger-billing",
