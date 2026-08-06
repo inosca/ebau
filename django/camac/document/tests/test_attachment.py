@@ -645,8 +645,6 @@ def test_accesslevel_based_attachment_update_permission(
     admin_user,
     ur_instance,
     attachment,
-    attachment_section,
-    service,
     has_permission,
     mocker,
     expectation,
@@ -675,8 +673,8 @@ def test_attachment_download_404(admin_client, attachment):
 
 
 @pytest.mark.parametrize(
-    ("role__name", "instance__user", "instance_state__name", "acl_mode"),
-    [("Applicant", lf("admin_user"), "new", permissions.AdminPermission)],
+    ("role__name", "instance__user", "instance_state__name"),
+    [("Applicant", lf("admin_user"), "new")],
 )
 @pytest.mark.parametrize("multi", [False, True])
 @pytest.mark.parametrize("document", ["multiple-pages.pdf", "important.docx"])
@@ -686,7 +684,6 @@ def test_attachment_download(
     instance,
     attachment_factory,
     attachment_section,
-    acl_mode,
     document,
     multi,
     mocker,
@@ -702,7 +699,7 @@ def test_attachment_download(
     # fix permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"test": {"applicant": {acl_mode: [attachment_section.pk]}}},
+        {"test": {"applicant": {permissions.AdminPermission: [attachment_section.pk]}}},
     )
 
     test_path = "/".join(str(attachment1.path).split("/")[3:])
@@ -857,7 +854,13 @@ def test_attachment_update(
     assert response.status_code == status_code
 
 
-@pytest.mark.parametrize("instance_state__name", [("finished")])
+@pytest.mark.parametrize(
+    (
+        "instance_state__name",
+        "attachment_section__allowed_mime_types",
+    ),
+    [("finished", [])],
+)
 @pytest.mark.parametrize(
     (
         "attachment__context",
@@ -866,7 +869,6 @@ def test_attachment_update(
         "status_code",
         "is_active_service",
         "role__name",
-        "attachment_section__allowed_mime_types",
     ),
     [
         # attachment is in no writable section: ok
@@ -877,7 +879,6 @@ def test_attachment_update(
             status.HTTP_200_OK,
             False,
             "Canton",
-            [],
         ),
         # change context, but not active service: forbidden
         (
@@ -887,7 +888,6 @@ def test_attachment_update(
             status.HTTP_403_FORBIDDEN,
             False,
             "Canton",
-            [],
         ),
         # change context as active service: ok
         (
@@ -897,7 +897,6 @@ def test_attachment_update(
             status.HTTP_200_OK,
             True,
             "Canton",
-            [],
         ),
         # no change (field not filled): ok
         (
@@ -907,7 +906,6 @@ def test_attachment_update(
             status.HTTP_200_OK,
             False,
             "Canton",
-            [],
         ),
         # no change (field filled but with same value): ok
         (
@@ -917,7 +915,6 @@ def test_attachment_update(
             status.HTTP_200_OK,
             False,
             "Canton",
-            [],
         ),
         # change of isDecision after instance's decision has been enacted
         (
@@ -927,7 +924,6 @@ def test_attachment_update(
             status.HTTP_400_BAD_REQUEST,
             True,
             "Canton",
-            [],
         ),
         # change of isDecision after instance's decision has been enacted with support role
         (
@@ -937,7 +933,6 @@ def test_attachment_update(
             status.HTTP_200_OK,
             False,
             "Support",
-            [],
         ),
         # change of document name for attachment in internal attachment section, not active service
         (
@@ -947,13 +942,13 @@ def test_attachment_update(
             status.HTTP_200_OK,
             False,
             "Canton",
-            [],
         ),
     ],
 )
 def test_attachment_update_context(
     admin_client,
-    admin_user,
+    role,
+    service,
     application_settings,
     instance_state,
     attachment_section,
@@ -982,11 +977,7 @@ def test_attachment_update_context(
 
     mocker.patch(
         "camac.instance.models.Instance.responsible_service",
-        return_value=(
-            admin_user.groups.first().service
-            if is_active_service
-            else group_factory().service
-        ),
+        return_value=(service if is_active_service else group_factory().service),
     )
 
     aasa.instance.save()
@@ -994,13 +985,7 @@ def test_attachment_update_context(
     # fix permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {
-            "test": {
-                admin_user.groups.first().role.name.lower(): {
-                    permission: [attachment_section.pk]
-                }
-            }
-        },
+        {"test": {role.name.lower(): {permission: [attachment_section.pk]}}},
     )
 
     data = {
@@ -1025,14 +1010,22 @@ def test_attachment_update_context(
 
 @pytest.mark.parametrize(
     (
+        "role__name",
+        "attachment_section__allowed_mime_types",
+    ),
+    [
+        (
+            "Canton",
+            [],
+        )
+    ],
+)
+@pytest.mark.parametrize(
+    (
         "attachment__context",
         "new_context",
         "attachment__mime_type",
-        "permission",
         "status_code",
-        "is_active_service",
-        "role__name",
-        "attachment_section__allowed_mime_types",
     ),
     [
         # change of isDecision to True with allowed mime_type
@@ -1040,58 +1033,39 @@ def test_attachment_update_context(
             {"isDecision": False},
             {"isDecision": True},
             "application/pdf",
-            permissions.WritePermission,
             status.HTTP_200_OK,
-            True,
-            "Canton",
-            [],
         ),
         # change of isDecision to False with any mime_type
         (
             {"isDecision": True},
             {"isDecision": False},
             "application/xml",
-            permissions.WritePermission,
             status.HTTP_200_OK,
-            True,
-            "Canton",
-            [],
         ),
         (
             {"isDecision": True},
             {"isDecision": False},
             "application/pdf",
-            permissions.WritePermission,
             status.HTTP_200_OK,
-            True,
-            "Canton",
-            [],
         ),
         # change of isDecision to True with not allowed mime_type
         (
             {"isDecision": False},
             {"isDecision": True},
             "application/xml",
-            permissions.WritePermission,
             status.HTTP_400_BAD_REQUEST,
-            True,
-            "Canton",
-            [],
         ),
     ],
 )
 def test_attachment_update_context_be(
     admin_client,
-    admin_user,
+    service,
     application_settings,
     attachment_section,
     attachment_attachment_sections,
-    group_factory,
     status_code,
-    is_active_service,
     new_context,
     mocker,
-    permission,
 ):
     application_settings["DECISION_DOCUMENT_MIMETYPES"] = deepcopy(
         settings.APPLICATIONS["kt_bern"]["DECISION_DOCUMENT_MIMETYPES"]
@@ -1101,11 +1075,7 @@ def test_attachment_update_context_be(
 
     mocker.patch(
         "camac.instance.models.Instance.responsible_service",
-        return_value=(
-            admin_user.groups.first().service
-            if is_active_service
-            else group_factory().service
-        ),
+        return_value=(service),
     )
 
     aasa.instance.save()
@@ -1113,13 +1083,7 @@ def test_attachment_update_context_be(
     # fix permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {
-            "test": {
-                admin_user.groups.first().role.name.lower(): {
-                    permission: [attachment_section.pk]
-                }
-            }
-        },
+        {"test": {"canton": {permissions.WritePermission: [attachment_section.pk]}}},
     )
 
     data = {
@@ -1176,9 +1140,7 @@ def test_attachment_detail(
 @pytest.mark.parametrize(
     ("role__name", "instance__user"), [("Applicant", lf("admin_user"))]
 )
-def test_attachment_loosen_filter(
-    admin_client, role, mocker, instance, attachment_section, attachment
-):
+def test_attachment_loosen_filter(admin_client, role, mocker, attachment):
     url = reverse("attachment-list")
 
     # permissons: Our user has no permission
@@ -1215,7 +1177,6 @@ def test_attachment_loosen_filter(
         "instance__location",
         "activation__service",
         "instance__group",
-        "acl_mode",
     ),
     [
         (
@@ -1225,7 +1186,6 @@ def test_attachment_loosen_filter(
             lf("location"),  # instance__location
             lf("service"),  # activation__service
             lf("group"),  # instance__group
-            permissions.AdminPermission,  # mode
         )
     ],
 )
@@ -1248,7 +1208,6 @@ def test_attachment_mime_type(
     activation,
     filename,
     status_code,
-    acl_mode,
     role,
     mocker,
 ):
@@ -1368,7 +1327,6 @@ def test_attachment_section_filters(
 @pytest.mark.django_db
 def test_attachment_public_access(
     client,
-    instance_factory,
     attachment_attachment_section_factory,
     publication_entry_factory,
     publication_settings,
@@ -1457,10 +1415,10 @@ def test_attachment_public_access(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("attachment__path", [django_file("no-thumbnail.txt")])
 @pytest.mark.parametrize(
     (
         "instance_state__name",
-        "attachment__path",
         "attachment__service",
         "acl_mode",
         "has_running_inquiry",
@@ -1469,7 +1427,6 @@ def test_attachment_public_access(
     [
         (
             "circulation",
-            django_file("no-thumbnail.txt"),
             lfc("service_factory"),
             permissions.AdminBeforeDecisionPermission,
             False,
@@ -1477,7 +1434,6 @@ def test_attachment_public_access(
         ),
         (
             "finished",
-            django_file("no-thumbnail.txt"),
             lfc("service_factory"),
             permissions.AdminBeforeDecisionPermission,
             False,
@@ -1485,7 +1441,6 @@ def test_attachment_public_access(
         ),
         (
             "finished",
-            django_file("no-thumbnail.txt"),
             lfc("service_factory"),
             permissions.AdminServiceBeforeDecisionPermission,
             False,
@@ -1493,7 +1448,6 @@ def test_attachment_public_access(
         ),
         (
             "finished",
-            django_file("no-thumbnail.txt"),
             lf("service"),
             permissions.AdminServiceBeforeDecisionPermission,
             False,
@@ -1501,7 +1455,6 @@ def test_attachment_public_access(
         ),
         (
             "circulation",
-            django_file("no-thumbnail.txt"),
             lf("service"),
             permissions.AdminServiceRunningInquiryPermission,
             True,
@@ -1509,7 +1462,6 @@ def test_attachment_public_access(
         ),
         (
             "circulation",
-            django_file("no-thumbnail.txt"),
             lf("service"),
             permissions.AdminServiceRunningInquiryPermission,
             False,
@@ -1596,7 +1548,6 @@ def test_attachment_update_section(
     admin_client,
     application_settings,
     mocker,
-    instance_state,
     attachment,
     attachment_section_factory,
     attachment_attachment_section_factory,
@@ -1753,8 +1704,8 @@ def test_attachment_update_custom_permissions(
 
 
 @pytest.mark.parametrize(
-    ("role__name", "instance__user", "instance_state__name", "acl_mode"),
-    [("Applicant", lf("admin_user"), "new", permissions.AdminPermission)],
+    ("role__name", "instance__user", "instance_state__name"),
+    [("Applicant", lf("admin_user"), "new")],
 )
 def test_convert_docx_to_pdf(
     admin_client,
@@ -1762,14 +1713,13 @@ def test_convert_docx_to_pdf(
     instance,
     attachment_factory,
     attachment_section,
-    acl_mode,
     mocker,
     requests_mock,
 ):
     # fix permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"test": {"applicant": {acl_mode: [attachment_section.pk]}}},
+        {"test": {"applicant": {permissions.AdminPermission: [attachment_section.pk]}}},
     )
 
     attachments = []
@@ -1821,7 +1771,11 @@ def test_convert_docx_to_pdf(
         "this is a file.docx",
     }
 
-    url = reverse("attachment-convert", args=[attachments[0].pk])
+    url = reverse(
+        "attachment-convert",
+        args=[attachments[0].pk],
+        query={"section": attachment_section.pk},
+    )
     response = admin_client.post(url)
 
     # Test conversion with existing pdf
@@ -1844,7 +1798,11 @@ def test_convert_docx_to_pdf(
         "this is a file.docx",
     }
 
-    url = reverse("attachment-convert", args=[attachments[3].pk])
+    url = reverse(
+        "attachment-convert",
+        args=[attachments[3].pk],
+        query={"section": attachment_section.pk},
+    )
     response = admin_client.post(url)
 
     # Test conversion with invalid display name
@@ -1869,7 +1827,11 @@ def test_convert_docx_to_pdf(
         "this is a file.docx",
     }
 
-    url = reverse("attachment-convert", args=[attachments[1].pk])
+    url = reverse(
+        "attachment-convert",
+        args=[attachments[1].pk],
+        query={"section": attachment_section.pk},
+    )
     response = admin_client.post(url)
 
     # Test conversion with display name = None
@@ -1895,7 +1857,11 @@ def test_convert_docx_to_pdf(
         "this is a file.docx",
     }
 
-    url = reverse("attachment-convert", args=[attachments[4].pk])
+    url = reverse(
+        "attachment-convert",
+        args=[attachments[4].pk],
+        query={"section": attachment_section.pk},
+    )
     response = admin_client.post(url)
 
     # Test conversion of file with spaces (valid display name) to pdf
@@ -1922,6 +1888,88 @@ def test_convert_docx_to_pdf(
         "this is a file.docx",
         "this is a file.pdf",
     }
+
+
+@pytest.mark.parametrize(
+    ("test_case", "expects_overwrite"),
+    [("multiple_sections", False), ("different_group", False), ("normal", True)],
+)
+@pytest.mark.parametrize(
+    ("role__name", "instance__user", "instance_state__name"),
+    [("Applicant", lf("admin_user"), "new")],
+)
+def test_convert_docx_to_pdf_overwrite(
+    admin_client,
+    group,
+    group_factory,
+    instance,
+    attachment_factory,
+    attachment_section_factory,
+    mocker,
+    requests_mock,
+    test_case,
+    expects_overwrite,
+):
+    attachment_section = attachment_section_factory(name="attachment section")
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"test": {"applicant": {permissions.AdminPermission: [attachment_section.pk]}}},
+    )
+
+    attachment_docx = attachment_factory(
+        name="important.docx",
+        instance=instance,
+        group=group,
+        path=django_file("important.docx"),
+    )
+
+    attachment_pdf = attachment_factory(
+        name="important.pdf",
+        instance=instance,
+        group=group,
+        path=django_file("important.pdf"),
+    )
+
+    attachment_section.attachments.set([attachment_docx, attachment_pdf])
+
+    expected_count = models.Attachment.objects.all().count()
+    expected_count += 0 if expects_overwrite else 1
+
+    requests_mock.register_uri(
+        "POST",
+        build_url(settings.DOCUMENT_MERGE_SERVICE_URL, "/convert"),
+        content=b"A pdf",
+    )
+
+    url = reverse(
+        "attachment-convert",
+        args=[attachment_docx.pk],
+        query={"section": attachment_section.pk},
+    )
+
+    # Test preventing overwrite with more than one section
+    if test_case == "multiple_sections":
+        attachment_section_new = attachment_section_factory(
+            name="attachment section new"
+        )
+
+        attachment_section_new.attachments.set([attachment_pdf])
+    # Test preventing overwrite with a different group
+    elif test_case == "different_group":
+        group_new = group_factory(name="new group")
+
+        attachment_docx.group_id = group_new.pk
+        attachment_docx.save()
+    # Test proper overwrite
+    else:
+        pass
+
+    response = admin_client.post(url)
+
+    assert response.status_code == status.HTTP_201_CREATED
+    assert models.Attachment.objects.all().count() == expected_count
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

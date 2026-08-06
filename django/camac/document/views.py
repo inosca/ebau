@@ -8,7 +8,7 @@ from functools import reduce
 
 from django.conf import settings
 from django.core.exceptions import operator
-from django.db.models import Q
+from django.db.models import Count, Q
 from django.db.models.constants import LOOKUP_SEP
 from django.http import FileResponse, HttpResponse
 from django.utils.module_loading import import_string
@@ -355,9 +355,18 @@ class AttachmentView(
 
         filename_as_pdf = attachment.name.replace(".docx", ".pdf")
 
-        existing_pdf_copy = models.Attachment.objects.filter(
-            name=filename_as_pdf, instance=attachment.instance
-        ).first()
+        existing_pdf_copy = (
+            models.Attachment.objects.annotate(Count("attachment_sections"))
+            .filter(
+                name=filename_as_pdf,
+                instance=attachment.instance,
+                group_id=attachment.group_id,
+                # check that the existing copy is only linked to this section
+                attachment_sections__in=[request.query_params.get("section")],
+                attachment_sections__count=1,
+            )
+            .first()
+        )
 
         if existing_pdf_copy:
             existing_pdf_copy.delete()
