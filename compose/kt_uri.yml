@@ -24,7 +24,7 @@ services:
       context: ../
       dockerfile: ./Dockerfile.ember
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-camac-ng:master
+        - acr.run/camac-ng/camac-ng/ember-camac-ng:main
       args:
         - APPLICATION=${APPLICATION}
         - ENABLE_WATERMARK=${ENABLE_WATERMARK:-false}
@@ -36,7 +36,7 @@ services:
     build:
       context: ../django
       cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
+        - acr.run/camac-ng/camac-ng/django:main
       args:
         - APPLICATION=${APPLICATION}
     depends_on:
@@ -75,11 +75,11 @@ services:
 
   celery:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     build:
       context: ../django
       cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
+        - acr.run/camac-ng/camac-ng/django:main
       args:
         REQUIREMENTS: requirements-dev.txt
     depends_on:
@@ -111,7 +111,7 @@ services:
       context: ../
       dockerfile: ./Dockerfile.ember
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+        - acr.run/camac-ng/camac-ng/ember-caluma-portal:main
       args:
         - APPLICATION=${APPLICATION}
         - ENABLE_WATERMARK=${ENABLE_WATERMARK:-false}
@@ -135,7 +135,7 @@ services:
       args:
         VERSION: 26.5.3
       cache_from:
-        - acr.run/camac-ng/camac-ng/keycloak:master
+        - acr.run/camac-ng/camac-ng/keycloak:main
     environment:
       - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
 
@@ -145,7 +145,7 @@ services:
     build:
       context: ../document-merge-service
       cache_from:
-        - acr.run/camac-ng/camac-ng/document-merge-service:master
+        - acr.run/camac-ng/camac-ng/document-merge-service:main
       args:
         APPLICATION: ${APPLICATION}
         CACHE_LOCATION: cache:11211
@@ -154,11 +154,11 @@ services:
       - ../document-merge-service/kt_uri:/data/document-merge-service
 
   garage:
-    image: acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-master}
+    image: acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-main}
     build:
       context: ../garage
       cache_from:
-        - acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-master}
+        - acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-main}
 
 volumes:
   djangomedia:

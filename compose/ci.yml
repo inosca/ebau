@@ -26,13 +26,13 @@ services:
     command: -c fsync=off -c full_page_writes=off -c synchronous_commit=off -c wal_level=minimal -c max_wal_senders=0 -c archive_mode=off -c max_locks_per_transaction=128
 
   django: &django
-    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG:-master}
+    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG:-main}
     # in CI mode, don't migrate, and don't start a dev server either
     command: ["noop"]
     build:
       context: ../django
       cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
+        - acr.run/camac-ng/camac-ng/django:main
       args:
         REQUIREMENTS: ${REQUIREMENTS:-requirements.txt}
         APPLICATION: ${APPLICATION}
@@ -76,12 +76,12 @@ services:
       - ../artifacts:/app/artifacts
 
   ember:
-    image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG:-master}
+    image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG:-main}
     build:
       context: ../
       dockerfile: ./Dockerfile.ember
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember:master
+        - acr.run/camac-ng/camac-ng/ember:main
       args:
         WORKSPACE: ember
       target: prod
@@ -91,12 +91,12 @@ services:
       - ENV=docker
 
   ember-caluma-portal:
-    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG:-master}
+    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG:-main}
     build:
       context: ../
       dockerfile: ./Dockerfile.ember
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+        - acr.run/camac-ng/camac-ng/ember-caluma-portal:main
       args:
         WORKSPACE: ember-caluma-portal
       target: prod
@@ -107,23 +107,23 @@ services:
       - ENV=docker
 
   ember-camac-ng:
-    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG:-master}
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG:-main}
     build:
       context: ../
       dockerfile: ./Dockerfile.ember
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-camac-ng:master
+        - acr.run/camac-ng/camac-ng/ember-camac-ng:main
       args:
         WORKSPACE: ember-camac-ng
       target: prod
 
   ember-ebau:
-    image: acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_REF_SLUG:-master}
+    image: acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_REF_SLUG:-main}
     build:
       context: ../
       dockerfile: ./Dockerfile.ember
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-ebau:master
+        - acr.run/camac-ng/camac-ng/ember-ebau:main
       args:
         WORKSPACE: ember-ebau
       target: prod
@@ -138,11 +138,11 @@ services:
     image: zrrrzzt/docker-unoconv-webservice:8.9.4
 
   keycloak:
-    image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_REF_SLUG:-master}
+    image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_REF_SLUG:-main}
     build:
       context: ../keycloak
       cache_from:
-        - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_REF_SLUG:-master}
+        - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_REF_SLUG:-main}
     volumes:
       - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json:ro
     environment:
@@ -154,11 +154,11 @@ services:
       - KEYCLOAK_ADMIN_PASSWORD=camac
 
   document-merge-service:
-    image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_REF_SLUG:-master}
+    image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_REF_SLUG:-main}
     build:
       context: ../document-merge-service
       cache_from:
-        - acr.run/camac-ng/camac-ng/document-merge-service:master
+        - acr.run/camac-ng/camac-ng/document-merge-service:main
       args:
         APPLICATION: ${APPLICATION}
     depends_on:
@@ -177,11 +177,11 @@ services:
       - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django,APPLICATION=${APPLICATION}
 
   garage:
-    image: acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_REF_SLUG:-master}
+    image: acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_REF_SLUG:-main}
     build:
       context: ../garage
       cache_from:
-        - acr.run/camac-ng/camac-ng/garage:master
+        - acr.run/camac-ng/camac-ng/garage:main
     volumes:
       - garage_meta:/var/lib/garage/meta/
       - garage_data:/var/lib/garage/data/
@@ -190,29 +190,29 @@ services:
       - ../garage/compose-env/dev-garage.conf
 
   housing-stat-proxy:
-    image: acr.run/camac-ng/camac-ng/housing-stat-proxy:${CI_COMMIT_REF_SLUG:-master}
+    image: acr.run/camac-ng/camac-ng/housing-stat-proxy:${CI_COMMIT_REF_SLUG:-main}
     build:
       context: ../housing-stat-proxy
       cache_from:
-        - acr.run/camac-ng/camac-ng/housing-stat-proxy:master
+        - acr.run/camac-ng/camac-ng/housing-stat-proxy:main
 
   elixir:
-    image: acr.run/camac-ng/camac-ng/elixir-ebau:${CI_COMMIT_REF_SLUG:-master}
+    image: acr.run/camac-ng/camac-ng/elixir-ebau:${CI_COMMIT_REF_SLUG:-main}
     build:
       context: ../elixir-ebau
       target: final
       cache_from:
-        - acr.run/camac-ng/camac-ng/elixir-ebau:master
+        - acr.run/camac-ng/camac-ng/elixir-ebau:main
       args:
         APPLICATION: ${APPLICATION}
-        EBAU_VERSION: ${EBAU_VERSION:-0.0.0-master}
+        EBAU_VERSION: ${EBAU_VERSION:-0.0.0-main}
 
   gotenberg:
-    image: acr.run/camac-ng/camac-ng/gotenberg:${CI_COMMIT_TAG:-master}
+    image: acr.run/camac-ng/camac-ng/gotenberg:${CI_COMMIT_TAG:-main}
     build:
       context: ../gotenberg
       cache_from:
-        - acr.run/camac-ng/camac-ng/gotenberg:${CI_COMMIT_TAG:-master}
+        - acr.run/camac-ng/camac-ng/gotenberg:${CI_COMMIT_TAG:-main}
 
 volumes:
   pg15data:

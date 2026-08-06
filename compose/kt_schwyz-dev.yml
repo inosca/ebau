@@ -97,7 +97,7 @@ services:
 
   celery:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     depends_on:
       - valkey
     ports:

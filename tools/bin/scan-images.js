@@ -50,7 +50,7 @@ const images = await checkbox({
 
 const tag = await input({
   message: "Enter image tag",
-  default: "master",
+  default: "main",
   required: true,
 });
 

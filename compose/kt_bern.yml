@@ -1,20 +1,20 @@
 services:
   django:
-    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
+    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-main}
     build:
       context: ../django
       cache_from:
-        - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
+        - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-main}
       args:
         APPLICATION: ${APPLICATION}
 
   ember-camac-ng:
-    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_TAG:-master}
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_TAG:-main}
     build:
       context: ../
       dockerfile: ./Dockerfile.ember
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_TAG:-master}
+        - acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_TAG:-main}
       args:
         APPLICATION: ${APPLICATION}
         APP_ENV: ${APP_ENV:-production}
@@ -24,12 +24,12 @@ services:
       target: prod-env
 
   ember-caluma-portal:
-    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}
+    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-main}
     build:
       context: ../
       dockerfile: ./Dockerfile.ember
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}
+        - acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-main}
       target: prod-env
       args:
         APPLICATION: ${APPLICATION}
@@ -42,25 +42,25 @@ services:
 
 
   document-merge-service:
-    image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
+    image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-main}
     build:
       context: ../document-merge-service
       cache_from:
-        - acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
+        - acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-main}
       args:
         APPLICATION: ${APPLICATION}
         DMS_VERSION: 10.0.1
 
   gotenberg:
-    image: acr.run/camac-ng/camac-ng/gotenberg:${CI_COMMIT_TAG:-master}
+    image: acr.run/camac-ng/camac-ng/gotenberg:${CI_COMMIT_TAG:-main}
     build:
       context: ../gotenberg
       cache_from:
-        - acr.run/camac-ng/camac-ng/gotenberg:${CI_COMMIT_TAG:-master}
+        - acr.run/camac-ng/camac-ng/gotenberg:${CI_COMMIT_TAG:-main}
 
   garage:
-    image: acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-master}
+    image: acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-main}
     build:
       context: ../garage
       cache_from:
-        - acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-master}
+        - acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-main}

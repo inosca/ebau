@@ -27,7 +27,7 @@ services:
     build:
       context: ../django
       cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
+        - acr.run/camac-ng/camac-ng/django:main
       args:
         APPLICATION: ${APPLICATION}
     depends_on:
@@ -64,7 +64,7 @@ services:
       context: ../
       dockerfile: ./Dockerfile.ember
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+        - acr.run/camac-ng/camac-ng/ember-caluma-portal:main
       args:
         - APPLICATION=${APPLICATION}
         - WORKSPACE=ember-caluma-portal
@@ -75,7 +75,7 @@ services:
       context: ../
       dockerfile: ./Dockerfile.ember
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-ebau:master
+        - acr.run/camac-ng/camac-ng/ember-ebau:main
       args:
         - APPLICATION=${APPLICATION}
         - WORKSPACE=ember-ebau
@@ -85,13 +85,13 @@ services:
     image: axllent/mailpit
 
   keycloak:
-    image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
+    image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-main}
     depends_on:
       - db
     build:
       context: ../keycloak
       cache_from:
-        - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
+        - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-main}
 
   document-merge-service:
     image: ghcr.io/adfinis/document-merge-service:5.0.5

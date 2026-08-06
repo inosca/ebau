@@ -25,7 +25,7 @@ services:
       - "host.docker.internal:host-gateway"
 
   ember-camac-ng:
-    image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:main
 
   clamav:
     profiles:
@@ -45,7 +45,7 @@ services:
       - pg15data:/var/lib/postgresql/data
 
   django: &django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     build:
       args:
         REQUIREMENTS: requirements-dev.txt
@@ -85,17 +85,17 @@ services:
     command: devserver
 
   ember-caluma-portal:
-    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:main
     environment:
       ENABLE_WATERMARK: true
 
   celery:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     build:
       context: ../django
       cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
+        - acr.run/camac-ng/camac-ng/django:main
       args:
         REQUIREMENTS: requirements-dev.txt
     depends_on:
@@ -153,7 +153,7 @@ services:
       ]
 
   document-merge-service:
-    image: acr.run/camac-ng/camac-ng/document-merge-service:master
+    image: acr.run/camac-ng/camac-ng/document-merge-service:main
     cap_add:
       - CAP_SYS_ADMIN
     security_opt:

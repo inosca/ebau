@@ -46,7 +46,7 @@ services:
       - mailpit
       - garage
       - tika
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     build:
       context: ../django
       args:

@@ -112,11 +112,11 @@ services:
 
   celery:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     build:
       context: ../django
       cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
+        - acr.run/camac-ng/camac-ng/django:main
       args:
         REQUIREMENTS: requirements-dev.txt
     ports:
@@ -126,11 +126,11 @@ services:
 
   celery-beat:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
+    image: acr.run/camac-ng/camac-ng/django:main
     build:
       context: ../django
       cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
+        - acr.run/camac-ng/camac-ng/django:main
       args:
         REQUIREMENTS: requirements-dev.txt
     ports: []
