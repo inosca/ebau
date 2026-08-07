@@ -1608,7 +1608,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Bitte tragen Sie die Adresse Ihres Bauvorhabens in die Zeile ein oder klicken Sie in die nachfolgende Karte um die Lage des Bauvorhabens in der Karte zu verorten. \\n\\nSie können ein Punkt, eine Linie oder eine Fläche in der Karte zeichnen.\", \"fr\": null, \"it\": \"Indicare l'indirizzo del progetto di costruzione nell'apposita riga in basso o cliccare sulla cartina successiva per indicare la posizione esatta del progetto. \\n\\nSulla cartina è possibile disegnare un punto, una linea o una superficie.\"}",
+      "info_text": "{\"de\": \"Bitte tragen Sie die Adresse Ihres Bauvorhabens in die Zeile ein oder klicken Sie in die nachfolgende Karte um die Lage des Bauvorhabens in der Karte zu verorten.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
