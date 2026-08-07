@@ -16,7 +16,7 @@
         ({{linkedInstance.dossierNumber}})
       </LinkTo>
     {{/if}}
-    {{#if (can "link dossiers to instance" @currentInstance)}}
+    {{#if (await (can "link dossiers to instance" @currentInstance))}}
       <button
         class="uk-button-link uk-flex"
         ratio="0.8"
