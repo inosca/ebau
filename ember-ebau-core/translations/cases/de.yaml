@@ -152,6 +152,7 @@ cases:
     unLinkInstance: "Verknüpfung löschen"
     unLinkInstanceSuccess: "Die Verknüpfung der Dossiers wurde erfolgreich gelöscht"
     unLinkInstanceError: "Beim Löschen der Verknüpfung ist etwas schief gelaufen"
+    thisInstance: "dieses Dossier"
     enterDossierNumber: "Dossiernummer eingeben"
     showAll: "Alle anzeigen"
     modalTitle: "Alle Dossiers auf Parzelle"
