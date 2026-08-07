@@ -488,20 +488,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return tasks
 
-    @register_dynamic_task("after-submit-demolition-payment")
-    def resolve_after_submit_demolition_payment(
-        self, case, user, prev_work_item, context
-    ):
-        tasks = ["create-manual-workitems", "init-additional-demand"]
-
-        authority_service_group = case.instance.responsible_service().service_group.name
-        if authority_service_group == "municipality-light":
-            tasks.append("change-responsible-service")
-        else:
-            tasks.append("formal-exam-demolition-payment")
-
-        return tasks
-
     def resolve_after_submit_ag(self, case, user, prev_work_item, context):
         tasks = ["create-manual-workitems"]
 

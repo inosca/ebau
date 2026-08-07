@@ -26,7 +26,7 @@ export default class CorrectionsCreatePaperDemolitionPayment extends Component {
         }),
       });
       const { data } = await response.json();
-      this.ebauModules.redirectToInstance(data.id);
+      this.ebauModules.redirectToInstanceForm(data.id);
     } catch {
       this.notification.danger(
         this.intl.t("corrections.create-paper-demolition-payment.error"),
