@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-31 08:30+0200\n"
+"POT-Creation-Date: 2026-08-10 10:31+0200\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2184,6 +2184,14 @@ msgstr "Positive Beurteilung AfB"
 #: camac/settings/modules/statistics.py
 msgid "Realized"
 msgstr "Realisiert"
+
+#: camac/settings/modules/statistics.py camac/statistics/tests/test_views.py
+msgid "X coordinate"
+msgstr "X-Koordinate"
+
+#: camac/settings/modules/statistics.py camac/statistics/tests/test_views.py
+msgid "Y coordinate"
+msgstr "Y-Koordinate"
 
 #: camac/settings/modules/statistics.py
 msgid "Type of sealing / unsealing"

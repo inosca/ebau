@@ -37,6 +37,8 @@ DEFAULT_RPG2_DOSSIER_COLUMNS = [
     ("rpg2_approved", _("Approved")),
     ("rpg2_positive_afb", _("Positive AfB assessment")),
     ("rpg2_realized", _("Realized")),
+    ("coordinate_x", _("X coordinate")),
+    ("coordinate_y", _("Y coordinate")),
 ]
 
 DEFAULT_RPG2_AREAS_COLUMNS = [
@@ -79,6 +81,7 @@ AG_AFB_COLUMN_CONFIG = ExportColumnsConfig(
 )
 
 DEFAULT_SLUGS = {
+    "gis_coordinates": "gis-map",
     "rpg2_legal_basis": "rpg2-bewilligungsgrund",
     "rpg2_new_buildings": "rpg2-anzahl-neue-gebaeude",
     "rpg2_demolished_buildings": "rpg2-anzahl-gebaeude-abbruch",

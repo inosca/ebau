@@ -12,8 +12,10 @@ from django.db.models import (
     DateField,
     Exists,
     F,
+    FloatField,
     Func,
     IntegerField,
+    JSONField,
     Min,
     OuterRef,
     Q,
@@ -22,7 +24,7 @@ from django.db.models import (
     Value,
     When,
 )
-from django.db.models.fields.json import KeyTextTransform
+from django.db.models.fields.json import KeyTextTransform, KeyTransform
 from django.db.models.functions import (
     Cast,
     Coalesce,
@@ -37,7 +39,7 @@ from rest_framework.filters import BaseFilterBackend
 
 from camac.caluma.models import Inquiry
 from camac.deadlines.models import InstanceDeadline
-from camac.instance.export.filters import StringAggSubquery
+from camac.instance.export.filters import JsonbText, StringAggSubquery
 from camac.instance.models import Instance, InstanceStateT
 from camac.responsible.models import ResponsibleService
 from camac.user.models import Service, ServiceT, User
@@ -776,6 +778,31 @@ class RPG2FilterBackend(_BaseFilterBackend):
             output_field=IntegerField(),
         )
 
+    def annotate_coordinate(self, axis):
+        coordinates = Cast(
+            NullIf(JsonbText(F("value")), Value("")), output_field=JSONField()
+        )
+        marker = KeyTransform("0", KeyTransform("markers", coordinates))
+
+        return Subquery(
+            Answer.objects.filter(
+                question_id=self._slugs["gis_coordinates"],
+                document__family=OuterRef(self._document_id_ref),
+                value__isnull=False,
+            )
+            .annotate(
+                coordinate=Cast(
+                    NullIf(
+                        KeyTextTransform(axis, marker),
+                        Value(""),
+                    ),
+                    output_field=FloatField(),
+                )
+            )
+            .values("coordinate")[:1],
+            output_field=FloatField(),
+        )
+
     def annotate_rpg2_approved(self):
         decision = settings.DECISION
         answers_map = decision.get("ANSWERS", {}).get("DECISION", {})
@@ -853,6 +880,8 @@ class RPG2FilterBackend(_BaseFilterBackend):
             "rpg2_realized": lambda: self.annotate_rpg2_choice_label(
                 slugs["rpg2_realized"]
             ),
+            "coordinate_x": lambda: self.annotate_coordinate("x"),
+            "coordinate_y": lambda: self.annotate_coordinate("y"),
         }
 
         columns = (
