@@ -59,7 +59,7 @@
       "modified_by_group": null,
       "form": "entscheid",
       "question": "entscheid-entscheid",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -89,7 +89,7 @@
       "modified_by_group": null,
       "form": "entscheid",
       "question": "entscheid-hinweistext",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -120,6 +120,21 @@
       "form": "entscheid",
       "question": "entscheid-verfuegen-submit-demolition-payment",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.hinweis-rueckzug-abschreibung",
+    "fields": {
+      "created_at": "2026-08-07T09:14:57.877Z",
+      "modified_at": "2026-08-07T09:14:57.877Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "hinweis-rueckzug-abschreibung",
+      "sort": 6
     }
   },
   {
@@ -518,6 +533,37 @@
       "meta": {
         "widgetOverride": "decision/submit-button"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-rueckzug-abschreibung",
+    "fields": {
+      "created_at": "2026-08-07T09:14:57.816Z",
+      "modified_at": "2026-08-07T09:17:01.280Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Rückzug Abschreibung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"entscheid-entscheid\"|answer in [\"entscheid-entscheid-rueckzug\", \"entscheid-entscheid-abschreibung\"])",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<span style=\\\"color:red\\\">**Achtung:** Falls die Abteilung für Baubewilligungen am Dossier beteiligt ist, muss diese vor Verfügung nochmals zur Zirkulation eingeladen werden.</span>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
