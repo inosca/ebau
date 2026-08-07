@@ -425,7 +425,18 @@ def get_unversioned_slug(form_slug: str) -> str:
     ... )
     'form-slug'
     """
-    return re.sub(r"(-v\d+$)", "", form_slug)
+    return extract_slug_version(form_slug)[0]
+
+
+def extract_slug_version(slug: str) -> tuple[str, str]:
+    parts = re.split(r"(-v\d+$)", slug)
+    unversioned_slug = parts[0]
+    version = ""
+
+    if unversioned_slug != slug:
+        version = parts[1]
+
+    return (unversioned_slug, version)
 
 
 def is_support(request):

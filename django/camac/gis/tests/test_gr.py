@@ -2,6 +2,7 @@ import json
 
 import pytest
 from caluma.caluma_form.models import Question
+from django.core.management import call_command
 from django.urls import reverse
 from rest_framework import status
 
@@ -13,8 +14,11 @@ def gr_data_sources(
     caluma_question_factory,
     caluma_question_option_factory,
     caluma_option_factory,
+    settings,
     mock_municipalities,
 ):
+    call_command("loaddata", settings.ROOT_DIR("kt_gr/config/gis.json"))
+
     gis_questions = [
         ("gemeinde", Question.TYPE_DYNAMIC_CHOICE),
         ("parzelle", Question.TYPE_TABLE),
@@ -49,6 +53,12 @@ def gr_data_sources(
             ["au", "nicht-betroffen"],
         ),
         (
+            "lageranlagen-gewaesserschutzbereich",
+            Question.TYPE_CHOICE,
+            ["au", "nicht-betroffen"],
+            "v2",
+        ),
+        (
             "grundwasserschutzzone",
             Question.TYPE_CHOICE,
             ["s1", "s2", "s3", "sh", "sm", "s-kantonaleart", "nicht-betroffen"],
@@ -58,17 +68,28 @@ def gr_data_sources(
             Question.TYPE_CHOICE,
             ["s1", "s2", "s3", "sh", "sm", "s-kantonaleart", "nicht-betroffen"],
         ),
+        (
+            "lageranlagen-grundwasserschutzzone",
+            Question.TYPE_CHOICE,
+            ["s1", "s2", "s3", "sh", "sm", "s-kantonaleart", "nicht-betroffen"],
+            "v2",
+        ),
     ]
 
     for config in gis_questions:
         slug = config[0]
+        version = f"-{config[3]}" if len(config) == 4 else ""
         question_type = config[1]
-        question = caluma_question_factory(slug=slug, type=question_type, label=slug)
-        if len(config) == 3:
+        question = caluma_question_factory(
+            slug=f"{slug}{version}", type=question_type, label=slug
+        )
+        if len(config) > 2:
             for i, option in enumerate(reversed(config[2])):
                 caluma_question_option_factory(
                     question=question,
-                    option=caluma_option_factory(slug=f"{slug}-{option}", label=option),
+                    option=caluma_option_factory(
+                        slug=f"{slug}-{option}{version}", label=option + version
+                    ),
                     sort=i,
                 )
 
@@ -79,163 +100,22 @@ def gr_data_sources(
 
 
 @pytest.fixture
-def gr_config(gis_data_source_factory, caluma_question_factory):
-    gis_data_source_factory(
-        client=GISDataSource.CLIENT_PARAM,
-        config=[{"hidden": True, "question": "gis-map", "parameterName": "query"}],
-    )
-    gis_data_source_factory(
-        client=GISDataSource.CLIENT_KT_GR,
-        config=[
-            {
-                "identifier": "liegenschaften",
-                "properties": [
-                    {
-                        "question": "gemeinde",
-                        "propertyName": "gdename",
-                        "forms": [
-                            "baugesuch",
-                            "bauanzeige",
-                            "solaranlage",
-                            "vorlaeufige-beurteilung",
-                        ],
-                    },
-                ],
-            },
-            {
-                "identifier": "gebaeudeadressen_av",
-                "properties": [
-                    {
-                        "question": "street-and-housenumber",
-                        "mapper": "street_and_housenumber",
-                        "forms": [
-                            "baugesuch",
-                            "bauanzeige",
-                            "solaranlage",
-                            "vorlaeufige-beurteilung",
-                        ],
-                    },
-                ],
-            },
-            {
-                "identifier": "zp_wald_puffer",
-                "properties": [
-                    {
-                        "question": "waldareal",
-                        "mapper": "near_forest",
-                        "forms": ["baugesuch"],
-                    },
-                ],
-            },
-            {
-                "identifier": "zp_grundnutzung",
-                "properties": [
-                    {
-                        "question": "ausserhalb-bauzone",
-                        "propertyName": "Kt_Code",
-                        "mapper": "ausserhalb_bauzone",
-                        "forms": ["baugesuch"],
-                    },
-                    {
-                        "question": "waldareal",
-                        "propertyName": "Kt_Code",
-                        "mapper": "in_forest",
-                        "forms": ["baugesuch"],
-                    },
-                    {
-                        "question": "das-bauvorhaben-befindet-sich-in",
-                        "propertyName": "Kt_Code",
-                        "mapper": "archaeologiezone",
-                        "forms": ["baugesuch"],
-                    },
-                ],
-            },
-            {
-                "identifier": "kantonales_strassennetz",
-                "properties": [
-                    {
-                        "question": "kantonsstrassen",
-                        "mapper": "yes_or_no",
-                        "forms": ["baugesuch"],
-                    },
-                ],
-            },
-            {
-                "identifier": "zp_gefahrenzonen",
-                "properties": [
-                    {
-                        "question": "das-bauvorhaben-befindet-sich-in",
-                        "propertyName": "Kt_Code",
-                        "mapper": "gefahrenzone",
-                        "forms": ["baugesuch"],
-                    },
-                ],
-            },
-            {
-                "identifier": "gewaesserschutzbereiche",
-                "properties": [
-                    {
-                        "question": "das-bauvorhaben-befindet-sich-in",
-                        "propertyName": "typ",
-                        "mapper": "bauvorhaben_gewaesser",
-                        "forms": ["baugesuch"],
-                    },
-                    {
-                        "question": "art-gewaesserschutzbereich",
-                        "propertyName": "typ",
-                        "mapper": "gewaesserschutzbereich",
-                        "forms": ["baugesuch"],
-                    },
-                    {
-                        "question": "lageranlagen-gewaesserschutzbereich",
-                        "propertyName": "typ",
-                        "mapper": "gewaesserschutzbereich",
-                        "forms": ["baugesuch"],
-                        "hidden": True,
-                    },
-                ],
-            },
-            {
-                "identifier": "grundwasserschutzzonen",
-                "properties": [
-                    {
-                        "question": "grundwasserschutzzone",
-                        "propertyName": "typ",
-                        "mapper": "grundwasserschutzzone",
-                        "forms": ["baugesuch"],
-                    },
-                    {
-                        "question": "lageranlagen-grundwasserschutzzone",
-                        "propertyName": "typ",
-                        "mapper": "grundwasserschutzzone",
-                        "forms": ["baugesuch"],
-                        "hidden": True,
-                    },
-                ],
-            },
-            {
-                "identifier": "zp_ortsbild_und_kulturgueterschutzzonen",
-                "properties": [
-                    {
-                        "question": "das-bauvorhaben-befindet-sich-in",
-                        "propertyName": "Kt_Code",
-                        "mapper": "archaeologiezone_2",
-                        "forms": ["baugesuch"],
-                    },
-                ],
-            },
-            {
-                "identifier": "ortschaftsname",
-                "properties": [
-                    {
-                        "question": "ort-grundstueck",
-                        "propertyName": "ortschaftsname",
-                        "forms": ["baugesuch", "bauanzeige"],
-                    },
-                ],
-            },
-        ],
-    )
+def gr_config(gr_data_sources):
+    # Remove/disable configs that are handled in test_ech0206.py
+    ds_grclient = gr_data_sources.get(client__contains="GrGisClient")
+
+    for conf in ds_grclient.config:
+        if conf["identifier"] == "gebaeudeadressen_av":
+            conf["properties"] = [
+                prop for prop in conf["properties"] if prop["question"] != "egid-nr"
+            ]
+            break
+
+    ds_grclient.save()
+
+    ds_ech0206 = gr_data_sources.get(client__contains="Ech0206")
+    ds_ech0206.disabled = True
+    ds_ech0206.save()
 
 
 @pytest.mark.parametrize(
@@ -329,8 +209,15 @@ def gr_config(gis_data_source_factory, caluma_question_factory):
                 "markers": [{"x": 2757567.75, "y": 1192209.3312499998}],
                 "geometry": "POINT",
             },
-            "baugesuch",
+            "baugesuch-v3",
         ),  # Gewässerschutzbereich
+        (
+            {
+                "markers": [{"x": 2757567.75, "y": 1192209.3312499998}],
+                "geometry": "POINT",
+            },
+            "baugesuch-v6",
+        ),  # Gewässerschutzbereich-v2
         (
             {
                 "markers": [{"x": 2757771.4499999997, "y": 1192182.0312499998}],
@@ -367,7 +254,6 @@ def test_gr_client(
     gr_config,
     query,
     form,
-    gr_data_sources,
 ):
     response_0 = admin_client.get(
         reverse("gis-data"),

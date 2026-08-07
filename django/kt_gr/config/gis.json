@@ -38,7 +38,11 @@
                 "baugesuch-v3",
                 "baugesuch-v4",
                 "baugesuch-v5",
-                "baugesuch-v6"
+                "baugesuch-v6",
+                "vorlaeufige-beurteilung",
+                "vorlaeufige-beurteilung-v3",
+                "vorlaeufige-beurteilung-v4",
+                "vorlaeufige-beurteilung-v6"
               ],
               "mapper": "near_forest",
               "question": "waldareal"
@@ -72,7 +76,11 @@
                 "baugesuch-v3",
                 "baugesuch-v4",
                 "baugesuch-v5",
-                "baugesuch-v6"
+                "baugesuch-v6",
+                "vorlaeufige-beurteilung",
+                "vorlaeufige-beurteilung-v3",
+                "vorlaeufige-beurteilung-v4",
+                "vorlaeufige-beurteilung-v6"
               ],
               "mapper": "in_forest",
               "question": "waldareal",
@@ -85,7 +93,11 @@
                 "baugesuch-v3",
                 "baugesuch-v4",
                 "baugesuch-v5",
-                "baugesuch-v6"
+                "baugesuch-v6",
+                "vorlaeufige-beurteilung",
+                "vorlaeufige-beurteilung-v3",
+                "vorlaeufige-beurteilung-v4",
+                "vorlaeufige-beurteilung-v6"
               ],
               "mapper": "archaeologiezone",
               "question": "das-bauvorhaben-befindet-sich-in",
@@ -103,7 +115,11 @@
                 "baugesuch-v3",
                 "baugesuch-v4",
                 "baugesuch-v5",
-                "baugesuch-v6"
+                "baugesuch-v6",
+                "vorlaeufige-beurteilung",
+                "vorlaeufige-beurteilung-v3",
+                "vorlaeufige-beurteilung-v4",
+                "vorlaeufige-beurteilung-v6"
               ],
               "mapper": "yes_or_no",
               "question": "kantonsstrassen"
@@ -120,7 +136,11 @@
                 "baugesuch-v3",
                 "baugesuch-v4",
                 "baugesuch-v5",
-                "baugesuch-v6"
+                "baugesuch-v6",
+                "vorlaeufige-beurteilung",
+                "vorlaeufige-beurteilung-v3",
+                "vorlaeufige-beurteilung-v4",
+                "vorlaeufige-beurteilung-v6"
               ],
               "mapper": "gefahrenzone",
               "question": "das-bauvorhaben-befindet-sich-in",
@@ -138,7 +158,11 @@
                 "baugesuch-v3",
                 "baugesuch-v4",
                 "baugesuch-v5",
-                "baugesuch-v6"
+                "baugesuch-v6",
+                "vorlaeufige-beurteilung",
+                "vorlaeufige-beurteilung-v3",
+                "vorlaeufige-beurteilung-v4",
+                "vorlaeufige-beurteilung-v6"
               ],
               "mapper": "bauvorhaben_gewaesser",
               "question": "das-bauvorhaben-befindet-sich-in",
@@ -151,7 +175,11 @@
                 "baugesuch-v3",
                 "baugesuch-v4",
                 "baugesuch-v5",
-                "baugesuch-v6"
+                "baugesuch-v6",
+                "vorlaeufige-beurteilung",
+                "vorlaeufige-beurteilung-v3",
+                "vorlaeufige-beurteilung-v4",
+                "vorlaeufige-beurteilung-v6"
               ],
               "mapper": "gewaesserschutzbereich",
               "question": "art-gewaesserschutzbereich",
@@ -162,13 +190,25 @@
                 "baugesuch",
                 "baugesuch-v2",
                 "baugesuch-v3",
-                "baugesuch-v4",
-                "baugesuch-v5",
-                "baugesuch-v6"
+                "vorlaeufige-beurteilung",
+                "vorlaeufige-beurteilung-v3"
               ],
               "hidden": true,
               "mapper": "gewaesserschutzbereich",
               "question": "lageranlagen-gewaesserschutzbereich",
+              "propertyName": "typ"
+            },
+            {
+              "forms": [
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6",
+                "vorlaeufige-beurteilung-v4",
+                "vorlaeufige-beurteilung-v6"
+              ],
+              "hidden": true,
+              "mapper": "gewaesserschutzbereich",
+              "question": "lageranlagen-gewaesserschutzbereich-v2",
               "propertyName": "typ"
             }
           ]
@@ -183,7 +223,11 @@
                 "baugesuch-v3",
                 "baugesuch-v4",
                 "baugesuch-v5",
-                "baugesuch-v6"
+                "baugesuch-v6",
+                "vorlaeufige-beurteilung",
+                "vorlaeufige-beurteilung-v3",
+                "vorlaeufige-beurteilung-v4",
+                "vorlaeufige-beurteilung-v6"
               ],
               "mapper": "grundwasserschutzzone",
               "question": "grundwasserschutzzone",
@@ -194,13 +238,25 @@
                 "baugesuch",
                 "baugesuch-v2",
                 "baugesuch-v3",
-                "baugesuch-v4",
-                "baugesuch-v5",
-                "baugesuch-v6"
+                "vorlaeufige-beurteilung",
+                "vorlaeufige-beurteilung-v3"
               ],
               "hidden": true,
               "mapper": "grundwasserschutzzone",
               "question": "lageranlagen-grundwasserschutzzone",
+              "propertyName": "typ"
+            },
+            {
+              "forms": [
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6",
+                "vorlaeufige-beurteilung-v4",
+                "vorlaeufige-beurteilung-v6"
+              ],
+              "hidden": true,
+              "mapper": "grundwasserschutzzone",
+              "question": "lageranlagen-grundwasserschutzzone-v2",
               "propertyName": "typ"
             }
           ]
@@ -215,7 +271,11 @@
                 "baugesuch-v3",
                 "baugesuch-v4",
                 "baugesuch-v5",
-                "baugesuch-v6"
+                "baugesuch-v6",
+                "vorlaeufige-beurteilung",
+                "vorlaeufige-beurteilung-v3",
+                "vorlaeufige-beurteilung-v4",
+                "vorlaeufige-beurteilung-v6"
               ],
               "mapper": "archaeologiezone_2",
               "question": "das-bauvorhaben-befindet-sich-in",

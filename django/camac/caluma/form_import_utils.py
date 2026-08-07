@@ -8,6 +8,8 @@ from caluma.caluma_form.models import Document, Option, Question
 from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_user.models import BaseUser
 
+from camac.utils import extract_slug_version
+
 
 class FormImportWriter:
     """
@@ -138,18 +140,37 @@ class FormImportLabeler(ABC):
             entry["value"] = slug
             entry["displayValue"] = label
 
+    def build_versioned_option_slugs(self, question: Question, value: str) -> set[str]:
+        """Return {option-slug-variations, ...} for a given question and value."""
+        unversioned_slug, version = extract_slug_version(question.slug)
+
+        return {
+            # Versioned question option slugs are not standardized,
+            # and can have different variations that need to be checked
+            f"{unversioned_slug}{version}-{value}",
+            f"{unversioned_slug}-{value}{version}",
+        }
+
     def lookup_choice(self, question: Question, value: str) -> tuple[str, Option]:
         """Return (slug, Option) for a TYPE_CHOICE answer."""
-        option = question.options.filter(slug=f"{question.slug}-{value}").first()
+        option_slugs = self.build_versioned_option_slugs(question, value)
+
+        option = question.options.filter(slug__in=option_slugs).first()
         return option.slug, option
 
     def lookup_multiple_choice(
         self, question: Question, value: list[str]
     ) -> list[tuple[str, Option]]:
         """Return [(slug, Option), ...] for a TYPE_MULTIPLE_CHOICE answer."""
-        options = question.options.filter(
-            slug__in=[f"{question.slug}-{v}" for v in value]
-        ).order_by("-questionoption__sort")
+        option_slugs = [
+            slug
+            for v in value
+            for slug in self.build_versioned_option_slugs(question, v)
+        ]
+
+        options = question.options.filter(slug__in=option_slugs).order_by(
+            "-questionoption__sort"
+        )
         return [(option.slug, option) for option in options]
 
     @abstractmethod
