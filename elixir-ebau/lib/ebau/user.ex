@@ -23,6 +23,7 @@ defmodule Ebau.User do
       define :read_users, action: :read
       define :get_user, get_by: :id, action: :read
       define :get_user_by_email, get_by: :email, action: :read
+      define :get_user_by_username, get_by: :username, action: :read
       define :set_default_language, args: [:language]
     end
 

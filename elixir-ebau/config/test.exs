@@ -24,6 +24,7 @@ config :ebau, :keycloak,
   url: "http://localhost:1/",
   realm: "test",
   email_claim: "email",
+  username_claim: "sub",
   scopes: "openid"
 
 # Use the dummy Keycloak adapter in tests; token is just the user id

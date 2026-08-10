@@ -8,17 +8,23 @@ defmodule EbauWeb.Components.Navbar do
 
   use Phoenix.Component
 
-  import EbauWeb.Components.Watermark
-
   slot :left
   slot :right
 
   def navbar(assigns) do
+    config = Application.get_env(:ebau, :watermark)
+
+    assigns =
+      assigns
+      |> assign(:watermark_enabled?, Keyword.get(config, :enabled))
+      |> assign(:watermark_text, Keyword.get(config, :text))
+
     ~H"""
     <script :type={Phoenix.LiveView.ColocatedHook} name=".NavbarSync">
       export default {
         mounted() { this.sync() },
         updated() { this.sync() },
+
         sync() {
           try {
             localStorage.setItem("ebau-navbar", this.el.outerHTML)
@@ -27,7 +33,7 @@ defmodule EbauWeb.Components.Navbar do
       }
     </script>
     <nav id="main-navbar" phx-hook=".NavbarSync" class="main-navigation uk-navbar-container">
-      <.watermark />
+      <.watermark text={@watermark_text} enabled?={@watermark_enabled?} />
       <div class="uk-padding-small uk-padding-remove-vertical">
         <div class="uk-navbar">
           <div :if={@left != []} class="uk-navbar-left uk-flex-nowrap">
@@ -113,6 +119,18 @@ defmodule EbauWeb.Components.Navbar do
   def drop_parent_icon(assigns) do
     ~H"""
     <span uk-drop-parent-icon=""></span>
+    """
+  end
+
+  attr :text, :string
+  attr :enabled?, :boolean
+  attr :rest, :global
+
+  def watermark(assigns) do
+    ~H"""
+    <header :if={@enabled?} class="watermark watermark--internal" {@rest}>
+      {@text}
+    </header>
     """
   end
 end

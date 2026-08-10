@@ -46,9 +46,7 @@ if config_env() != :test do
 end
 
 config :ebau, :watermark,
-  enabled:
-    config_env() == :dev or
-      String.downcase(System.get_env("ENABLE_WATERMARK", "false")) in ~w(true 1),
+  enabled: config_env() == :dev or System.get_env("ENABLE_WATERMARK", "false") == "true",
   text: System.get_env("WATERMARK", "dev")
 
 if config_env() != :test do
