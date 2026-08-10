@@ -150,6 +150,13 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     return this.instance?.get("instanceState.uppercaseName");
   }
 
+  get intent() {
+    if (this.document.form.name === "Gebäudetechnik") {
+      return this.document.form.name;
+    }
+    return this.getAnswerDisplayValue(mainConfig.intentSlugs);
+  }
+
   get circulationInitializerServices() {
     return this.instance?.involvedBy?.map((service) => service.name).join(", ");
   }
