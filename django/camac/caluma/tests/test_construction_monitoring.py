@@ -6,10 +6,10 @@ from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_workflow.api import complete_work_item
 from caluma.caluma_workflow.models import Case, Task, WorkItem
 from django.core import mail
+from pytest_lazy_fixtures import lf
 
 from camac.caluma.extensions.dynamic_tasks import CustomDynamicTasks
 from camac.caluma.extensions.events.construction_monitoring import (
-    can_perform_construction_monitoring,
     clear_init_construction_monitoring_deadline,
     post_complete_construction_control,
     post_create_complete_construction_monitoring,
@@ -19,9 +19,115 @@ from camac.caluma.extensions.events.construction_monitoring import (
     set_construction_monitoring_deadlines_after_decision,
 )
 from camac.caluma.extensions.visibilities import CustomVisibility
+from camac.instance.domain_logic.construction_monitoring import (
+    can_perform_construction_monitoring,
+    maybe_start_construction_monitoring_after_construction_step,
+    maybe_start_construction_monitoring_after_decision,
+)
 from camac.instance.models import InstanceState
 from camac.permissions.models import InstanceACL
 from camac.tests.form_utils import FormUtils
+
+
+@pytest.mark.parametrize(
+    ("construction_settings", "instance_state__name", "should_start"),
+    [
+        (lf("disable_construction_monitoring_settings"), "decided", False),
+        (lf("gr_construction_monitoring_settings"), "other", False),
+        (lf("gr_construction_monitoring_settings"), "decided", True),
+    ],
+)
+@pytest.mark.django_db
+def test_maybe_start_construction_monitoring_after_construction_step(
+    admin_user,
+    caluma_admin_user,
+    gr_instance,
+    mocker,
+    request,
+    set_application_gr,
+    construction_settings,
+    should_start,
+):
+    start = mocker.patch(
+        "camac.instance.domain_logic.construction_monitoring.start_construction_monitoring"
+    )
+
+    maybe_start_construction_monitoring_after_construction_step(
+        gr_instance, caluma_admin_user, admin_user
+    )
+
+    if should_start:
+        start.assert_called_once_with(
+            gr_instance,
+            caluma_admin_user,
+            admin_user,
+            sender="post_complete_construction_step_work_item",
+        )
+    else:
+        start.assert_not_called()
+
+
+@pytest.mark.parametrize(
+    (
+        "construction_settings",
+        "instance_state__name",
+        "init_status",
+        "should_start",
+    ),
+    [
+        (lf("disable_construction_monitoring_settings"), "decided", None, False),
+        (lf("construction_monitoring_settings"), "decided", None, False),
+        (lf("gr_construction_monitoring_settings"), "other", None, False),
+        (
+            lf("gr_construction_monitoring_settings"),
+            "decided",
+            WorkItem.STATUS_READY,
+            False,
+        ),
+        (
+            lf("gr_construction_monitoring_settings"),
+            "decided",
+            WorkItem.STATUS_COMPLETED,
+            True,
+        ),
+    ],
+)
+@pytest.mark.django_db
+def test_maybe_start_construction_monitoring_after_decision(
+    admin_user,
+    caluma_admin_user,
+    caluma_work_item_factory,
+    gr_instance,
+    init_status,
+    mocker,
+    request,
+    set_application_gr,
+    construction_settings,
+    should_start,
+):
+    if init_status:
+        caluma_work_item_factory(
+            case=gr_instance.case,
+            task_id=construction_settings["INIT_CONSTRUCTION_MONITORING_TASK"],
+            status=init_status,
+        )
+    start = mocker.patch(
+        "camac.instance.domain_logic.construction_monitoring.start_construction_monitoring"
+    )
+
+    maybe_start_construction_monitoring_after_decision(
+        gr_instance, caluma_admin_user, admin_user
+    )
+
+    if should_start:
+        start.assert_called_once_with(
+            gr_instance,
+            caluma_admin_user,
+            admin_user,
+            sender="post_complete_decision",
+        )
+    else:
+        start.assert_not_called()
 
 
 @pytest.mark.django_db
@@ -412,6 +518,7 @@ def test_complete_construction_monitoring(
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.parametrize("state_matches", [True, False])
 @pytest.mark.django_db
 def test_complete_construction_step_work_item(
     sz_instance,
@@ -422,6 +529,7 @@ def test_complete_construction_step_work_item(
     form_utils: FormUtils,
     notification_template,
     mocker,
+    state_matches,
 ):
     ech_signal_mock = mocker.patch(
         "camac.ech0211.signals.construction_monitoring_started.send"
@@ -442,7 +550,11 @@ def test_complete_construction_step_work_item(
     }
 
     sz_instance.instance_state = InstanceState.objects.get(
-        name=sz_construction_monitoring_settings["PREVIOUS_INSTANCE_STATE"]
+        name=sz_construction_monitoring_settings[
+            "PREVIOUS_INSTANCE_STATE"
+            if state_matches
+            else "CONSTRUCTION_MONITORING_INSTANCE_STATE"
+        ]
     )
     sz_instance.save()
 
@@ -471,7 +583,10 @@ def test_complete_construction_step_work_item(
     )
     assert len(mail.outbox) == 1
     assert sz_instance.group.service.email in mail.outbox[0].recipients()
-    ech_signal_mock.assert_called_once()
+    if state_matches:
+        ech_signal_mock.assert_called_once()
+    else:
+        ech_signal_mock.assert_not_called()
 
 
 def test_construction_monitoring_work_item_visibility_coordination(mocker):
@@ -583,22 +698,27 @@ def test_construction_monitoring_work_item_visibility_service_gvg_gr(
 
 
 @pytest.mark.parametrize(
-    ("allow_forms_setting", "should_be_allowed"),
+    ("module_settings", "allow_forms_setting", "should_be_allowed"),
     [
-        (None, True),
-        (["building-permit-camac"], True),
-        (["no-building-permits-allowed-camac"], False),
+        (lf("disable_construction_monitoring_settings"), None, False),
+        (lf("construction_monitoring_settings"), None, True),
+        (lf("construction_monitoring_settings"), ["building-permit-camac"], True),
+        (
+            lf("construction_monitoring_settings"),
+            ["no-building-permits-allowed-camac"],
+            False,
+        ),
     ],
 )
 @pytest.mark.django_db
 def test_can_perform_construction_monitoring_allow_forms(
     instance,
-    construction_monitoring_settings,
     caluma_case_factory,
     caluma_document_factory,
     form_factory,
     # parametrize fixtures
     allow_forms_setting,
+    module_settings,
     should_be_allowed,
     application_settings,
 ):
@@ -611,7 +731,7 @@ def test_can_perform_construction_monitoring_allow_forms(
     )
     instance.save()
 
-    construction_monitoring_settings["ALLOW_FORMS"] = allow_forms_setting
+    module_settings["ALLOW_FORMS"] = allow_forms_setting
 
     assert can_perform_construction_monitoring(instance) == should_be_allowed
 
@@ -993,6 +1113,12 @@ def test_skip_construction_monitoring_after_decision(
     """
 
     construction_monitoring_settings["START_AFTER_SUBMIT"] = True
+    construction_monitoring_settings["PREVIOUS_INSTANCE_STATE"] = (
+        sg_instance.instance_state.name
+    )
+    construction_monitoring_settings["CONSTRUCTION_MONITORING_INSTANCE_STATE"] = (
+        "construction-monitoring"
+    )
 
     mocker.patch("camac.instance.models.Instance.set_instance_state")
     mocker.patch(

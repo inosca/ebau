@@ -79,9 +79,12 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
     camac_user = User.objects.get(username=user.username)
     workflow = work_item.case.workflow_id
 
+    will_continue_after_decision = False
     if workflow == "building-permit":
-        domain_logic.DecisionLogic.post_complete_decision_building_permit(
-            instance, work_item, user, camac_user
+        will_continue_after_decision = (
+            domain_logic.DecisionLogic.post_complete_decision_building_permit(
+                instance, work_item, user, camac_user
+            )
         )
 
     elif workflow == "preliminary-clarification":
@@ -130,6 +133,11 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
     # create history entry
     if not context or not context.get("no-history"):
         create_history_entry(instance, camac_user, history_text)
+
+    if will_continue_after_decision and is_module_enabled("CONSTRUCTION_MONITORING"):
+        domain_logic.maybe_start_construction_monitoring_after_decision(
+            instance, user, camac_user
+        )
 
 
 @on(post_create_work_item, raise_exception=True)

@@ -22,17 +22,17 @@ from camac.caluma.event_utils import (
     if_module_enabled,
     setting,
 )
-from camac.caluma.models import Inquiry
 from camac.caluma.utils import date_to_deadline
 from camac.core.translations import get_translation_in
 from camac.core.utils import create_history_entry
-from camac.ech0211.signals import construction_monitoring_started
-from camac.instance.models import Instance
+from camac.instance.domain_logic.construction_monitoring import (
+    maybe_start_construction_monitoring_after_construction_step,
+)
 from camac.notification.utils import send_mail_without_request
 from camac.permissions.events import core as permissions_events
 from camac.permissions.events.core import Trigger
 from camac.settings.utils import is_module_enabled
-from camac.user.models import Service, User
+from camac.user.models import User
 
 from .general import get_instance
 
@@ -97,65 +97,6 @@ def is_last_construction_step_item(work_item: WorkItem) -> bool:
             + 1,
         }
     ).exists()
-
-
-def can_perform_construction_monitoring(instance: Instance) -> bool:
-    """Check whether the construction monitoring process should be started.
-
-    The construction monitoring process should not be included for all
-    instances. For instance, a preliminary clarification (Vorabklärung) is an
-    informal inquiry and should never cause a construction monitoring process.
-
-    In Kt. UR, the necessity for a construction monitoring process is decided by
-    answering the question "Baubewilligungspflichtig" with "Ja" in the
-    "complete-check" form.
-
-    In all the other cantons, we check whether the root form is in the
-    construction monitorings `ALLOW_FORMS` config. If there are none configured (which is the default),
-    all instance will get a construction monitoring process.
-
-    WARNING: `ALLOW_FORMS` does not contain Caluma form slugs but CAMAC form
-    names. Kt. SZ is the only canton actually still using those.
-    """
-
-    if not is_module_enabled("CONSTRUCTION_MONITORING"):  # pragma: no cover
-        return False
-
-    if settings.APPLICATION_NAME == "kt_uri":
-        complete_check_work_item = instance.case.work_items.get(
-            task_id="complete-check"
-        )
-
-        if complete_check_work_item.meta.get("migrated"):  # pragma: no cover
-            # If an instance was migrated we don't know if the construction
-            # monitoring is required.
-            # In this case we always start the construction monitoring (which
-            # can be skipped if not required)
-            return True
-
-        # In Uri we need to check the "complete-check" work item because not all
-        # forms always require a construction monitoring process
-        return complete_check_work_item.document.answers.filter(
-            question_id="complete-check-baubewilligungspflichtig",
-            value="complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
-        ).exists()
-
-    allow_forms = settings.CONSTRUCTION_MONITORING.get("ALLOW_FORMS")
-    if not allow_forms:
-        return True
-
-    # get the form slug based on the form backend configuration.
-    # for camac-ng (e.g. kt_schwyz) we use the form family name if available,
-    # otherwise the form name.
-    # for caluma we rely on the form_id of the case document.
-    if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
-        form_slug = (
-            instance.form.family.name if instance.form.family else instance.form.name
-        )
-    else:
-        form_slug = instance.case.document.form_id
-
-    return form_slug in allow_forms
 
 
 def set_complete_construction_monitoring_deadline(case: Case):
@@ -295,42 +236,12 @@ def post_complete_construction_step_work_item(
         == settings.CONSTRUCTION_MONITORING[
             "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
         ]
-        and instance.instance_state.name
-        == settings.CONSTRUCTION_MONITORING["PREVIOUS_INSTANCE_STATE"]
     ):
-        history_text = gettext_noop("Construction monitoring started")
-        create_history_entry(instance, camac_user, history_text)
-
-        instance.set_instance_state(
-            settings.CONSTRUCTION_MONITORING["CONSTRUCTION_MONITORING_INSTANCE_STATE"],
+        maybe_start_construction_monitoring_after_construction_step(
+            instance,
+            user,
             camac_user,
         )
-
-        if settings.ECH0211.get("API_LEVEL") == "full":
-            construction_monitoring_started.send(
-                sender="post_complete_construction_step_work_item",
-                instance=instance,
-                user_pk=camac_user.pk,
-                group_pk=user.camac_group,
-            )
-
-            # In Kt. GR status message for "construction-monitoring" should also be
-            # created with ARE as receiver, if ARE is inquired.
-            if settings.APPLICATION_NAME == "kt_gr":
-                service_are = Service.objects.get(slug="are")
-                if (
-                    Inquiry.objects.for_instance(instance)
-                    .addressed_to(service_are)
-                    .only_active()
-                    .exists()
-                ):
-                    construction_monitoring_started.send(
-                        sender="post_complete_construction_step_work_item",
-                        instance=instance,
-                        user_pk=camac_user.pk,
-                        group_pk=service_are.pk,
-                        message_receiver=service_are,
-                    )
 
     notifications = settings.CONSTRUCTION_MONITORING["NOTIFICATIONS"].get(
         work_item.task.pk, []
