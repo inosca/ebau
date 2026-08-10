@@ -1091,7 +1091,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
                 else:
                     parts.append(_("migrated"))
 
-        if not migrated and paper and not ech:
+        if not migrated and paper and not ech and settings.APPLICATION_NAME != "kt_uri":
             parts.append(_("paper"))
 
         if not migrated and ech:
