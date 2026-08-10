@@ -22,24 +22,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "antrag-auf-auszahlung-allgemeine-informationen",
-    "fields": {
-      "created_at": "2026-08-05T12:33:59.495Z",
-      "modified_at": "2026-08-05T12:33:59.495Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Allgemeine Informationen (Antrag auf Auszahlung)\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"Allgemeine Informationen (Antrag auf Auszahlung)\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "antrag-auf-auszahlung-bestaetigung",
     "fields": {
       "created_at": "2026-07-23T18:41:12.331Z",
@@ -105,51 +87,6 @@
       "form": "antrag-auf-auszahlung",
       "question": "8-freigabequittung",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "antrag-auf-auszahlung-allgemeine-informationen.gemeinde",
-    "fields": {
-      "created_at": "2026-08-05T12:36:01.824Z",
-      "modified_at": "2026-08-05T12:36:01.824Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "antrag-auf-auszahlung-allgemeine-informationen",
-      "question": "gemeinde",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "antrag-auf-auszahlung-allgemeine-informationen.is-paper",
-    "fields": {
-      "created_at": "2026-08-05T12:36:36.966Z",
-      "modified_at": "2026-08-05T12:36:36.966Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "antrag-auf-auszahlung-allgemeine-informationen",
-      "question": "is-paper",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "antrag-auf-auszahlung.antrag-auf-auszahlung-allgemeine-informationen",
-    "fields": {
-      "created_at": "2026-08-05T12:36:02.934Z",
-      "modified_at": "2026-08-05T12:36:02.934Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "antrag-auf-auszahlung",
-      "question": "antrag-auf-auszahlung-allgemeine-informationen",
-      "sort": 5
     }
   },
   {
@@ -329,7 +266,7 @@
       "modified_by_group": null,
       "form": "antrag-auf-auszahlung-form",
       "question": "antrag-auf-auszahlung-iban-nr",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -344,7 +281,7 @@
       "modified_by_group": null,
       "form": "antrag-auf-auszahlung-form",
       "question": "antrag-auf-auszahlung-institut-name-der-bank",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -359,7 +296,7 @@
       "modified_by_group": null,
       "form": "antrag-auf-auszahlung-form",
       "question": "antrag-auf-auszahlung-institut-postleitzahl-und-ort",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -374,7 +311,7 @@
       "modified_by_group": null,
       "form": "antrag-auf-auszahlung-form",
       "question": "antrag-auf-auszahlung-institut-strasse-und-nummer",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -389,7 +326,7 @@
       "modified_by_group": null,
       "form": "antrag-auf-auszahlung-form",
       "question": "antrag-auf-auszahlung-postleitzahl-und-ort",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -404,7 +341,7 @@
       "modified_by_group": null,
       "form": "antrag-auf-auszahlung-form",
       "question": "antrag-auf-auszahlung-strasse-und-nummer",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -419,7 +356,7 @@
       "modified_by_group": null,
       "form": "antrag-auf-auszahlung-form",
       "question": "antrag-auf-auszahlung-vor-und-nachname",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -434,7 +371,37 @@
       "modified_by_group": null,
       "form": "antrag-auf-auszahlung-form",
       "question": "antrag-auf-auszahlung-zahlungsverbindung-titel",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-form.gemeinde",
+    "fields": {
+      "created_at": "2026-08-10T11:14:52.133Z",
+      "modified_at": "2026-08-10T11:14:52.133Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-form",
+      "question": "gemeinde",
       "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung-form.is-paper",
+    "fields": {
+      "created_at": "2026-08-10T11:15:56.443Z",
+      "modified_at": "2026-08-10T11:15:56.443Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung-form",
+      "question": "is-paper",
+      "sort": 1
     }
   },
   {
@@ -535,37 +502,6 @@
       "is_archived": false,
       "meta": {},
       "source": null
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "antrag-auf-auszahlung-allgemeine-informationen",
-    "fields": {
-      "created_at": "2026-08-05T12:35:57.846Z",
-      "modified_at": "2026-08-05T12:35:57.846Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Allgemeine Informationen (Antrag auf Auszahlung)\", \"fr\": null, \"it\": null}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "true",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "antrag-auf-auszahlung-allgemeine-informationen",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
     }
   },
   {
