@@ -8,6 +8,8 @@ defmodule EbauWeb.Components.Navbar do
 
   use Phoenix.Component
 
+  import EbauWeb.Components.Watermark
+
   slot :left
   slot :right
 
@@ -25,6 +27,7 @@ defmodule EbauWeb.Components.Navbar do
       }
     </script>
     <nav id="main-navbar" phx-hook=".NavbarSync" class="main-navigation uk-navbar-container">
+      <.watermark />
       <div class="uk-padding-small uk-padding-remove-vertical">
         <div class="uk-navbar">
           <div :if={@left != []} class="uk-navbar-left uk-flex-nowrap">

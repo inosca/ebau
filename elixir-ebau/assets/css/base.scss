@@ -13,6 +13,7 @@ $main-navigation-background: $global-primary-background !default;
 $mandatory-asterisk-color: $text-danger-color !default;
 
 @import "components/main-navigation";
+@import "components/watermark";
 
 .main-content {
   margin-top: $main-nav-height;
