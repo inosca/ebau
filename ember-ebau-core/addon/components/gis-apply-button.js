@@ -1,5 +1,4 @@
 import { service } from "@ember/service";
-import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
@@ -7,6 +6,7 @@ import { dropTask, task, timeout } from "ember-concurrency";
 
 import { EEBA_ANSWER_QUESTIONS } from "ember-ebau-core/config/eeba";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 
 export default class GisApplyButtonComponent extends Component {
   @service intl;
@@ -122,7 +122,7 @@ export default class GisApplyButtonComponent extends Component {
       this.args.document.findField(slug)?.refreshAnswer.linked().perform(),
     );
 
-    if (macroCondition(getOwnConfig().application === "gr")) {
+    if (isApplication("gr")) {
       // trigger EEBA update on the confirmation field to set the EEBA isDirty flag.
       const isDirtyField = this.args.document.findField(
         EEBA_ANSWER_QUESTIONS.IS_DIRTY,

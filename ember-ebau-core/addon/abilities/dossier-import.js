@@ -1,15 +1,11 @@
 import { service } from "@ember/service";
-import { getOwnConfig } from "@embroider/macros";
 import { Ability } from "ember-can";
 
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import isProd from "ember-ebau-core/utils/is-prod";
 
 export default class extends Ability {
   @service ebauModules;
-
-  get isSO() {
-    return getOwnConfig().application === "so";
-  }
 
   get canStart() {
     return (
@@ -23,7 +19,7 @@ export default class extends Ability {
   }
 
   get canTransmit() {
-    if (this.isSO) {
+    if (isApplication("so")) {
       return false;
     }
 
@@ -35,7 +31,7 @@ export default class extends Ability {
   }
 
   get canUndo() {
-    if (isProd() && !this.isSO) {
+    if (isProd() && !isApplication("so")) {
       return false;
     }
     if (this.ebauModules.isSupportRole) {

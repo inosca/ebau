@@ -1,5 +1,4 @@
 const config = {
-  name: "sg",
   languages: ["de"],
   fallbackLanguage: "de",
   prodUrl: "ebau.sg.ch",

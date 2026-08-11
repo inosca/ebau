@@ -3,6 +3,7 @@ import { service } from "@ember/service";
 import { dropTask, task } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import { getAnswerDisplayValue } from "ember-ebau-core/utils/get-answer";
 import { confirm } from "ember-uikit";
 
@@ -26,7 +27,7 @@ export default class InstancesEditIndexController extends Controller {
 
   get showSubmitTechnischeBewilligung() {
     return (
-      config.APPLICATION.name === "ur" &&
+      isApplication("ur") &&
       parseInt(this.editController.instance?.get("instanceState.id")) ===
         config.APPLICATION.instanceStates.finished &&
       this.editController.instance?.calumaForm === "building-permit"

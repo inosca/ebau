@@ -1,6 +1,5 @@
 import { service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
-import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
@@ -11,6 +10,7 @@ import { saveAs } from "file-saver";
 import caseTableConfig from "ember-ebau-core/config/case-table";
 import caseInstanceIdsQuery from "ember-ebau-core/gql/queries/case-instance-ids.graphql";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import {
   getCalumaFilters,
   getCamacFilters,
@@ -142,7 +142,7 @@ export default class CaseTableComponent extends Component {
 
     const instanceIds = cases.map((_case) => _case.meta["camac-instance-id"]);
 
-    if (macroCondition(getOwnConfig().application === "ur")) {
+    if (isApplication("ur")) {
       if (this.isService) {
         await this.store.query("responsible-service", {
           include: "responsible_user",
@@ -155,26 +155,22 @@ export default class CaseTableComponent extends Component {
       instance_id: instanceIds.join(","),
       include: [
         "instance_state",
-        ...(macroCondition(getOwnConfig().application === "ur")
-          ? ["user"]
-          : []),
-        ...(macroCondition(getOwnConfig().application === "sz")
-          ? ["form", "user"]
-          : []),
+        ...(isApplication("ur") ? ["user"] : []),
+        ...(isApplication("sz") ? ["form", "user"] : []),
         ...(hasFeature("instanceMarks") ? ["instance_marks"] : []),
       ].join(","),
-      ...(macroCondition(getOwnConfig().application === "be")
+      ...(isApplication("be")
         ? {
             "fields[instances]":
               "id,name,decision,decision_date,involved_at,instance_state,is_paper,ebau_number",
           }
         : {}),
-      ...(macroCondition(getOwnConfig().application === "gr")
+      ...(isApplication("gr")
         ? {
             "fields[instances]": "id,name,decision,instance_state,involved_at",
           }
         : {}),
-      ...(macroCondition(getOwnConfig().application === "so")
+      ...(isApplication("so")
         ? {
             "fields[instances]": "id,name,decision,instance_state,is_paper",
           }

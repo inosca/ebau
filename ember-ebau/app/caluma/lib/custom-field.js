@@ -1,7 +1,7 @@
 import { service } from "@ember/service";
-import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Field from "@projectcaluma/ember-form/lib/field";
 import { didCancel, dropTask } from "ember-concurrency";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import { removeVersion } from "ember-ebau-core/utils/form-filters";
 import { trackedTask } from "reactiveweb/ember-concurrency";
 
@@ -35,7 +35,7 @@ export default class CustomField extends Field {
   }
 
   get hidden() {
-    if (macroCondition(getOwnConfig().application === "gr")) {
+    if (isApplication("gr")) {
       if (["fuer-gvg-freigeben", "info-gvg"].includes(this.question.slug)) {
         const formName = this.caseInformation?.value?.form ?? "";
 
@@ -70,7 +70,7 @@ export default class CustomField extends Field {
   }
 
   get enabledOptions() {
-    if (macroCondition(getOwnConfig().application === "gr")) {
+    if (isApplication("gr")) {
       if (this.question.slug !== "decision-decision") {
         return null;
       }
@@ -126,7 +126,7 @@ export default class CustomField extends Field {
           "decision-decision-positive-with-reservation",
         ];
       }
-    } else if (macroCondition(getOwnConfig().application === "so")) {
+    } else if (isApplication("so")) {
       if (this.question.slug !== "entscheid-entscheid") {
         return null;
       }
@@ -179,7 +179,7 @@ export default class CustomField extends Field {
    * Override parent afterSave hook to perform a refresh after specific questions are saved.
    */
   async afterSave(response) {
-    if (macroCondition(getOwnConfig().application !== "gr")) {
+    if (!isApplication("gr")) {
       return;
     }
 

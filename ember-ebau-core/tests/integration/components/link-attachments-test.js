@@ -1,16 +1,17 @@
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { module } from "qunit";
+import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
-import { testBE } from "dummy/tests/helpers/scenarios";
+import { setupConfig } from "ember-ebau-core/test-support";
 
 module("Integration | Component | link-attachments", function (hooks) {
   setupRenderingTest(hooks);
+  setupConfig(hooks, "be");
   setupMirage(hooks);
 
-  testBE("it renders", async function (assert) {
+  test("it renders", async function (assert) {
     const instance = this.server.create("instance");
     const section = this.server.create("attachment-section");
     const attachments = this.server.createList("attachment", 5, {

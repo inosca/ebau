@@ -1,7 +1,7 @@
 import { action } from "@ember/object";
 import Service, { service } from "@ember/service";
-import { getOwnConfig, macroCondition } from "@embroider/macros";
 import mainConfig from "ember-ebau-core/config/main";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 
 import ENV from "camac-ng/config/environment";
 
@@ -49,11 +49,11 @@ export default class GwrConfigService extends Service {
     return instances.map(({ id, identifier, dossierNumber, ebauNumber }) => ({
       localId: id,
       // TODO consider moving this to the backend and/or use "specialId"
-      identifier: macroCondition(getOwnConfig().application === "be")
+      identifier: isApplication("be")
         ? ebauNumber
-        : macroCondition(getOwnConfig().application === "sz")
+        : isApplication("sz")
           ? identifier
-          : macroCondition(getOwnConfig().application === "ur")
+          : isApplication("ur")
             ? dossierNumber
             : "-",
       hostLink: `/index/redirect-to-instance-resource/instance-id/${id}?instance-resource-name=gwr&ember-hash=/gwr/${id}`,

@@ -1,0 +1,51 @@
+id: use-is-application
+language: javascript
+severity: error
+ignores:
+  - "**/ember-ebau-core/addon/config/**"
+  - "**/ember-ebau-core/addon/caluma-query/models/case.js"
+message: "Use `isApplication()` for checking the application name"
+note: |
+  Import it with `import { isApplication } from "ember-ebau-core/helpers/is-application";`,
+  or use the `is-application` helper in templates.
+rule:
+  any:
+    - pattern: macroCondition($NAME === $APP)
+    - all:
+        - pattern: $NAME === $APP
+        - not:
+            inside:
+              pattern: macroCondition($$$ARGS)
+              stopBy: end
+constraints:
+  NAME:
+    any:
+      - pattern: getOwnConfig().application
+      - pattern: mainConfig.name
+fix: isApplication($APP)
+---
+id: use-is-application-negated
+language: javascript
+severity: error
+ignores:
+  - "**/ember-ebau-core/addon/config/**"
+  - "**/ember-ebau-core/addon/caluma-query/models/case.js"
+message: "Use `isApplication()` for checking the application name"
+note: |
+  Import it with `import { isApplication } from "ember-ebau-core/helpers/is-application";`,
+  or use the `is-application` helper in templates.
+rule:
+  any:
+    - pattern: macroCondition($NAME !== $APP)
+    - all:
+        - pattern: $NAME !== $APP
+        - not:
+            inside:
+              pattern: macroCondition($$$ARGS)
+              stopBy: end
+constraints:
+  NAME:
+    any:
+      - pattern: getOwnConfig().application
+      - pattern: mainConfig.name
+fix: "!isApplication($APP)"

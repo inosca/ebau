@@ -1,26 +1,47 @@
 import mainConfig from "ember-ebau-core/config/main";
+import workItemListConfig from "ember-ebau-core/config/work-item-list";
 
-export default function setupConfig(hooks) {
-  const originalConfig = { ...mainConfig };
+class ConfigManager {
+  #mutableConfigObject = null;
+  #originalConfigObject = null;
+  #changedKeys = [];
 
+  constructor(config) {
+    this.#mutableConfigObject = config;
+    this.#originalConfigObject = { ...config };
+  }
+
+  set(key, value) {
+    this.#mutableConfigObject[key] = value;
+    this.#changedKeys.push(key);
+  }
+
+  reset() {
+    this.#changedKeys.forEach((key) => {
+      if (Object.keys(this.#originalConfigObject).includes(key)) {
+        this.#mutableConfigObject[key] = this.#originalConfigObject[key];
+      } else {
+        delete this.#mutableConfigObject[key];
+      }
+    });
+  }
+}
+
+export default function setupConfig(hooks, applicationName = null) {
   hooks.beforeEach(function () {
-    this.config = {
-      _changedKeys: [],
+    this.config = new ConfigManager(mainConfig);
+    this.workItemListConfig = new ConfigManager(workItemListConfig);
 
-      set(key, value) {
-        mainConfig[key] = value;
-        this._changedKeys.push(key);
-      },
-    };
+    // Add custom method for the main config
+    this.setApplication = (value) => this.config.set("name", value);
+
+    if (applicationName) {
+      this.setApplication(applicationName);
+    }
   });
 
   hooks.afterEach(function () {
-    this.config._changedKeys.forEach((key) => {
-      if (Object.keys(originalConfig).includes(key)) {
-        mainConfig[key] = originalConfig[key];
-      } else {
-        delete mainConfig[key];
-      }
-    });
+    this.config.reset();
+    this.workItemListConfig.reset();
   });
 }

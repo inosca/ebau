@@ -1,5 +1,4 @@
 export default {
-  name: "ur",
   languages: ["de"],
   fallbackLanguage: "de",
   prodUrl: "urec.ur.ch",

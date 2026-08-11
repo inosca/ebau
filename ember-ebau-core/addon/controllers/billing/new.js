@@ -2,12 +2,12 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { camelize } from "@ember/string";
-import { getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { findAll } from "ember-data-resources";
 
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 
 const TAX_MODES = ["exempt", "inclusive", "exclusive"];
 
@@ -50,10 +50,7 @@ export default class BillingNewController extends Controller {
   get calculations() {
     const calculations = ["flat", "hourly", "percentage"];
 
-    if (
-      getOwnConfig().application === "ag" &&
-      this.ebauModules.serviceSlug === "afb"
-    ) {
+    if (isApplication("ag") && this.ebauModules.serviceSlug === "afb") {
       calculations.push("ag_processing_fee");
     }
 

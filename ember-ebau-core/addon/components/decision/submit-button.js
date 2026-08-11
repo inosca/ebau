@@ -1,6 +1,5 @@
 import { action } from "@ember/object";
 import { service } from "@ember/service";
-import { macroCondition, getOwnConfig } from "@embroider/macros";
 import CfFieldInputActionButtonComponent from "@projectcaluma/ember-form/components/cf-field/input/action-button";
 import { queryManager } from "ember-apollo-client";
 import { trackedFunction } from "reactiveweb/function";
@@ -8,6 +7,7 @@ import { trackedFunction } from "reactiveweb/function";
 import mainConfig from "ember-ebau-core/config/main";
 import getCaseMetaQuery from "ember-ebau-core/gql/queries/get-case-meta.graphql";
 import getCopiesQuery from "ember-ebau-core/gql/queries/get-copies.graphql";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import { removeVersion } from "ember-ebau-core/utils/form-filters";
 
 export default class DecisionSubmitButtonComponent extends CfFieldInputActionButtonComponent {
@@ -42,7 +42,7 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
   }
 
   get isPreliminaryClarification() {
-    if (macroCondition(getOwnConfig().application === "so")) {
+    if (isApplication("so")) {
       return ["voranfrage", "meldung", "meldung-pv"].includes(
         removeVersion(this.caseInfo.value?.form),
       );

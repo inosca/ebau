@@ -41,4 +41,4 @@ export const sharedConfig = {
   },
 };
 
-export default { ...sharedConfig, ...config.default };
+export default { ...sharedConfig, ...(config?.default ?? {}) };

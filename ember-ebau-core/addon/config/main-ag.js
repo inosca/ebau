@@ -1,5 +1,4 @@
 export default {
-  name: "ag",
   languages: ["de"],
   fallbackLanguage: "de",
   prodUrl: "diba.ag.ch",
