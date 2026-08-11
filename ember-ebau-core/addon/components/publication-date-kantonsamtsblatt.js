@@ -13,7 +13,7 @@ export default class PublicationDateKantonsamtsblatt extends CfFieldInputDateCom
   }
 
   get allowPastDates() {
-    if (macroCondition(getOwnConfig().application === "gr")) {
+    if (isApplication("gr")) {
       return true;
     }
 
