@@ -63,7 +63,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "beginn-publikation-kantonsamtsblatt",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -78,7 +78,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "beginn-publikationsorgan-gemeinde",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -93,7 +93,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "ende-publikation-kantonsamtsblatt",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -108,7 +108,22 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "ende-publikationsorgan-gemeinde",
-      "sort": 8
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.hinweis-publikation-kantonsamtsblatt",
+    "fields": {
+      "created_at": "2026-08-05T09:04:06.301Z",
+      "modified_at": "2026-08-05T09:04:06.301Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "publikation",
+      "question": "hinweis-publikation-kantonsamtsblatt",
+      "sort": 7
     }
   },
   {
@@ -123,7 +138,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "hinweis-publikationsdokumente",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -138,7 +153,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "oeffentliche-auflage",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -153,7 +168,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "oeffentliche-auflage-informieren",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -168,7 +183,37 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-text",
-      "sort": 5
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.titel-publikation-kantonsamtsblatt",
+    "fields": {
+      "created_at": "2026-08-11T12:03:58.725Z",
+      "modified_at": "2026-08-11T12:03:58.725Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "publikation",
+      "question": "titel-publikation-kantonsamtsblatt",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.titel-publikationsorgan-der-gemeinde",
+    "fields": {
+      "created_at": "2026-08-11T12:03:32.841Z",
+      "modified_at": "2026-08-11T12:03:32.841Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "publikation",
+      "question": "titel-publikationsorgan-der-gemeinde",
+      "sort": 11
     }
   },
   {
@@ -344,6 +389,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-publikation-kantonsamtsblatt",
+    "fields": {
+      "created_at": "2026-08-05T09:04:06.246Z",
+      "modified_at": "2026-08-05T09:08:56.453Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Publikation Kantonsamtsblatt\", \"fr\": null, \"it\": \"Hinweis Publikation Kantonsamtsblatt\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">BAB-Gesuche werden durch das Amt für Raumentwicklung (ARE) jeweils am Donnerstag im Kantonsamtsblatt publiziert. Damit ein Gesuch am entsprechenden Datum veröffentlicht wird, ist das Publikationsformular bis spätestens am vorhergehenden Freitag per E-Mail beim ARE einzureichen (info@are.gr.ch).</div>\", \"fr\": \"\", \"it\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">L'Ufficio per lo sviluppo del territorio (UST) pubblica le domande EFZ ogni giovedì nel Foglio ufficiale cantonale. Affinché una domanda possa essere pubblicata nella data corrispondente, il modulo di pubblicazione va inoltrato per e-mail all'UST entro il venerdì precedente (info@are.gr.ch).</div>\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-publikationsdokumente",
     "fields": {
       "created_at": "2023-10-27T09:30:39.587Z",
@@ -462,6 +540,68 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "titel-publikation-kantonsamtsblatt",
+    "fields": {
+      "created_at": "2026-08-11T12:03:58.668Z",
+      "modified_at": "2026-08-11T14:04:25.949Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Titel Publikation Kantonsamtsblatt\", \"fr\": null, \"it\": \"Titel Publikation Kantonsamtsblatt\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Publikation Kantonsamtsblatt\", \"fr\": \"\", \"it\": \"### Foglio ufficiale cantonale\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "titel-publikationsorgan-der-gemeinde",
+    "fields": {
+      "created_at": "2026-08-11T12:03:32.778Z",
+      "modified_at": "2026-08-11T14:04:05.137Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Titel Publikationsorgan der Gemeinde\", \"fr\": null, \"it\": \"Titel Publikationsorgan der Gemeinde\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Publikationsorgan der Gemeinde\", \"fr\": \"\", \"it\": \"### Organo di pubblicazione del comune\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
