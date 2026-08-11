@@ -48,6 +48,10 @@
     <ns2:extension>
       <!-- ID der eingeladenen Organisation. -->
       <organisationId>23</organisationId>
+	  <!-- (Nur Kt. GR) Eingabequittung korrekt in der vorläufigen Prüfung? -->
+	  <verfahrensart><!-- (Nur Kt. GR) gültige Werte: "vereinfachtes" oder "ordentliches" --></verfahrensart>
+	  <!-- (Nur Kt. GR) Eingabequittung korrekt in der vorläufigen Prüfung? -->
+	  <eingabequittungKorrekt><!-- (Nur Kt. GR) gültige Werte: "ja" oder "nein" --></eingabequittungKorrekt>
     </ns2:extension>
   </ns2:eventRequest>
 </ns2:delivery>

@@ -894,13 +894,24 @@ def test_task_send_handler(
 
 
 @pytest.mark.django_db
-def test_task_send_handler_gr_skips_formal_exam(
+@pytest.mark.parametrize(
+    ("test_case", "expected_status"),
+    [
+        ("fill_formal_exam", WorkItem.STATUS_COMPLETED),
+        ("fill_formal_exam_incorrect", WorkItem.STATUS_SKIPPED),
+        ("not_filled", WorkItem.STATUS_SKIPPED),
+    ],
+)
+def test_task_send_handler_gr(
     admin_user,
     caluma_admin_user,
     ech_instance_gr,
     instance_state_factory,
     notification_template_factory,
+    caluma_form_question_factory,
     service_factory,
+    test_case,
+    expected_status,
     set_application_gr,
     gr_distribution_settings,
     gr_ech0211_settings,
@@ -912,6 +923,7 @@ def test_task_send_handler_gr_skips_formal_exam(
     notification_template_factory(slug="zirkulation-abgebrochen")
 
     state = instance_state_factory(name="subm")
+    instance_state_factory(name="init-distribution")
     instance_state_factory(name="circulation")
     ech_instance_gr.instance_state = state
     ech_instance_gr.save()
@@ -925,12 +937,37 @@ def test_task_send_handler_gr_skips_formal_exam(
         work_item=ech_instance_gr.case.work_items.first(),  # submit work item
         user=caluma_admin_user,
     )
+    formal_exam = ech_instance_gr.case.work_items.get(task_id="formal-exam")
+
+    caluma_form_question_factory(
+        form_id=formal_exam.document.form.pk,
+        question__pk="verfahrensart",
+        question__type=Question.TYPE_TEXT,
+        question__is_required="true",
+    )
+    caluma_form_question_factory(
+        form_id=formal_exam.document.form.pk,
+        question__pk="eingabequittung-korrekt",
+        question__type=Question.TYPE_TEXT,
+        question__is_required="true",
+    )
 
     xml = xml_data("task")
     xml = xml.replace(
         "<organisationId>23</organisationId>",
         f"<organisationId>{target_service.pk}</organisationId>",
     )
+    if test_case == "fill_formal_exam" or test_case == "fill_formal_exam_incorrect":
+        xml = xml.replace(
+            '<verfahrensart><!-- (Nur Kt. GR) gültige Werte: "vereinfachtes" oder "ordentliches" --></verfahrensart>',
+            "<verfahrensart>ordentliches</verfahrensart>"
+            if test_case == "fill_formal_exam"
+            else "<verfahrensart>incorrect</verfahrensart>",
+        )
+        xml = xml.replace(
+            '<eingabequittungKorrekt><!-- (Nur Kt. GR) gültige Werte: "ja" oder "nein" --></eingabequittungKorrekt>',
+            "<eingabequittungKorrekt>ja</eingabequittungKorrekt>",
+        )
     data = CreateFromDocument(xml)
 
     handler = TaskSendHandler(
@@ -947,7 +984,7 @@ def test_task_send_handler_gr_skips_formal_exam(
 
     assert (
         ech_instance_gr.case.work_items.get(task_id="formal-exam").status
-        == WorkItem.STATUS_SKIPPED
+        == expected_status
     )
 
 
