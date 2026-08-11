@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-10 10:31+0200\n"
+"POT-Creation-Date: 2026-08-10 14:22+0200\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -398,10 +398,6 @@ msgstr "Schlussabnahme Projekt"
 #: camac/caluma/extensions/events/construction_monitoring.py
 msgid "Construction monitoring skipped"
 msgstr "Baubegleitung übersprungen"
-
-#: camac/caluma/extensions/events/construction_monitoring.py
-msgid "Construction monitoring started"
-msgstr "Baubegleitung gestartet"
 
 #: camac/caluma/extensions/events/construction_monitoring.py
 #, python-format
@@ -1471,6 +1467,10 @@ msgstr "Keine Druckvorlage für das Caluma Formular %(form_slug)s spezifiziert."
 #: camac/user/authentication.py
 msgid "Signature has expired."
 msgstr "Signatur ist abgelaufen."
+
+#: camac/instance/domain_logic/construction_monitoring.py
+msgid "Construction monitoring started"
+msgstr "Baubegleitung gestartet"
 
 #: camac/instance/domain_logic/rejection.py
 msgid "Instance can't be rejected while there is an open circulation"

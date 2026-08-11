@@ -11,6 +11,10 @@ from caluma.caluma_workflow.events import post_complete_work_item, post_create_w
 from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 from django.core.management import call_command
 
+from camac.constants.kt_bern import (
+    ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG,
+    ECH_STATUS_NOTIFICATION_ENTSCHIEDEN,
+)
 from camac.core.models import HistoryActionConfig
 from camac.ech0211.models import Message
 from camac.instance.domain_logic import DecisionLogic
@@ -157,6 +161,87 @@ def test_complete_decision_gr(
     assert Message.objects.filter(
         instance=gr_instance, receiver=str(are_service.pk)
     ).count() == (1 if expected_are_message else 0)
+
+
+@pytest.mark.django_db
+def test_complete_decision_starts_initialized_construction_monitoring_gr(
+    application_settings,
+    caluma_admin_user,
+    caluma_document_factory,
+    caluma_form_factory,
+    caluma_work_item_factory,
+    decision_settings,
+    gr_construction_monitoring_settings,
+    gr_decision_settings,
+    gr_ech0211_settings,
+    gr_instance,
+    instance_state_factory,
+    mocker,
+    service,
+    service_factory,
+    set_application_gr,
+    form_utils: FormUtils,
+):
+    service_factory(slug="are")
+    gr_instance.case.document.form = caluma_form_factory(slug="baugesuch")
+    gr_instance.case.document.save()
+    gr_instance.case.workflow = Workflow.objects.get(pk="building-permit")
+    gr_instance.case.save()
+
+    instance_state_factory(name="construction-acceptance")
+    instance_state_factory(name="decided")
+    application_settings["NOTIFICATIONS"] = {}
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service", return_value=service
+    )
+
+    caluma_work_item_factory(
+        case=gr_instance.case,
+        task_id=gr_construction_monitoring_settings[
+            "INIT_CONSTRUCTION_MONITORING_TASK"
+        ],
+        status=WorkItem.STATUS_COMPLETED,
+    )
+    decision_work_item = caluma_work_item_factory(
+        case=gr_instance.case,
+        task_id=decision_settings["TASK"],
+        status=WorkItem.STATUS_COMPLETED,
+        document=caluma_document_factory(form_id="decision"),
+    )
+    form_utils.add_answer(
+        document=decision_work_item.document,
+        question=decision_settings["QUESTIONS"]["DECISION"],
+        value=decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
+    )
+
+    send_event(
+        post_complete_work_item,
+        sender="post_complete_work_item",
+        work_item=decision_work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    gr_instance.refresh_from_db()
+    assert gr_instance.instance_state.name == "construction-acceptance"
+    assert list(
+        HistoryEntryT.objects.filter(
+            history_entry__instance=gr_instance,
+            language="de",
+            title__in=["Bauentscheid verfügt", "Baubegleitung gestartet"],
+        )
+        .order_by("history_entry__created_at")
+        .values_list("title", flat=True)
+    ) == ["Bauentscheid verfügt", "Baubegleitung gestartet"]
+
+    service_messages = list(
+        Message.objects.filter(instance=gr_instance, receiver=str(service.pk)).order_by(
+            "created_at"
+        )
+    )
+    assert len(service_messages) == 2
+    assert ECH_STATUS_NOTIFICATION_ENTSCHIEDEN in service_messages[0].body
+    assert ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG in service_messages[1].body
 
 
 @pytest.mark.parametrize(

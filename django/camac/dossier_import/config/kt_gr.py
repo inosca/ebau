@@ -4,9 +4,6 @@ from caluma.caluma_form import api as form_api
 from caluma.caluma_form.models import Question
 from django.conf import settings
 
-from camac.caluma.extensions.events.construction_monitoring import (
-    can_perform_construction_monitoring,
-)
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.utils import mark_work_items_as_imported
 from camac.dossier_import.validation import TargetStatus
@@ -17,6 +14,9 @@ from camac.dossier_import.writers import (
     CalumaTableAnswerWriter,
     DossierWriter,
     SubmitDateWriter,
+)
+from camac.instance.domain_logic.construction_monitoring import (
+    can_perform_construction_monitoring,
 )
 from camac.instance.models import Instance, InstanceState
 from camac.settings.utils import is_module_enabled

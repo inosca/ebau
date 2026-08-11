@@ -6,9 +6,6 @@ from caluma.caluma_workflow.api import cancel_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 
-from camac.caluma.extensions.events.construction_monitoring import (
-    can_perform_construction_monitoring,
-)
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.validation import TargetStatus
 from camac.dossier_import.writers import (
@@ -23,6 +20,9 @@ from camac.dossier_import.writers import (
     WorkflowEntryDateWriter,
 )
 from camac.instance.domain_logic import CreateInstanceLogic
+from camac.instance.domain_logic.construction_monitoring import (
+    can_perform_construction_monitoring,
+)
 from camac.instance.models import Form, FormField, Instance, InstanceState
 from camac.permissions.events import core as permissions_events
 from camac.user.models import Location

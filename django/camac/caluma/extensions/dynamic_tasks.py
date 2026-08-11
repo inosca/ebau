@@ -14,13 +14,15 @@ from django.utils.timezone import now
 
 from camac.caluma.extensions.events.construction_monitoring import (
     can_continue_construction_step,
-    can_perform_construction_monitoring,
 )
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import date_to_deadline
 from camac.constants import kt_ag as ag_constants, kt_gr as gr_constants
 from camac.core.utils import canton_aware
 from camac.instance import domain_logic
+from camac.instance.domain_logic.construction_monitoring import (
+    can_perform_construction_monitoring,
+)
 from camac.instance.master_data import MasterData
 from camac.instance.utils import (
     be_should_prevent_process_step_for_deactivated_municipality,

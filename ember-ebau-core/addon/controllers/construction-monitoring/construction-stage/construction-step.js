@@ -136,6 +136,12 @@ export default class ConstructionMonitoringConstructionStageConstructionStepCont
         },
       });
 
+      if (workItem.task.slug === "construction-step-plan-construction-stage") {
+        // reload instance for case header updates (instance state can switch from
+        // decided to construction monitoring after completing the planning stage).
+        yield this.store.findRecord("instance", this.ebauModules.instanceId);
+      }
+
       yield this.refetchConstructionStep();
       yield this.constructionMonitoring.refetchConstructionStages();
     } catch (e) {

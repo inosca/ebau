@@ -10,13 +10,13 @@ from caluma.caluma_workflow.api import (
 )
 from django.conf import settings
 
-from camac.caluma.extensions.events.construction_monitoring import (
-    can_perform_construction_monitoring,
-)
 from camac.constants import kt_gr as gr_constants
 from camac.core.utils import canton_aware, generate_sort_key
 from camac.ech0211.signals import withdrawn
 from camac.instance.domain_logic import CreateInstanceLogic
+from camac.instance.domain_logic.construction_monitoring import (
+    can_perform_construction_monitoring,
+)
 from camac.instance.models import Instance
 from camac.instance.utils import (
     be_should_prevent_process_step_for_deactivated_municipality,
@@ -34,7 +34,15 @@ class DecisionLogic:
     @classmethod
     def post_complete_decision_building_permit(
         cls, instance, work_item, user, camac_user
-    ):
+    ) -> bool:
+        """Handle the workflow after a decision on a building permit.
+
+        This method will return a boolean indicating whether the workflow should
+        continue after the decision or not, decided before actually processing
+        the decision. This is important because the logic for deciding this result
+        can potentially be different after processing the decision, depending
+        on the canton.
+        """
         if cls.should_continue_after_decision(instance, work_item):
             if settings.APPLICATION_NAME == "kt_bern":
                 if be_should_prevent_process_step_for_deactivated_municipality(
@@ -60,7 +68,7 @@ class DecisionLogic:
                     camac_user,
                 )
             cls.handle_appeal_decision(instance, work_item, user, camac_user)
-            return
+            return True
 
         is_withdrawal_state = bool(
             is_module_enabled("WITHDRAWAL")
@@ -72,7 +80,7 @@ class DecisionLogic:
                 settings.WITHDRAWAL["INSTANCE_STATE_CONFIRMED"], camac_user
             )
             cls.handle_appeal_decision(instance, work_item, user, camac_user)
-            return
+            return False
 
         is_kt_so_special_form = bool(
             settings.APPLICATION_NAME == "kt_so"
@@ -83,7 +91,7 @@ class DecisionLogic:
             cls.cancel_manual_work_items(instance, user)
             instance.set_instance_state("finished", camac_user)
             cls.handle_appeal_decision(instance, work_item, user, camac_user)
-            return
+            return False
 
         is_light_withdrawal = bool(
             is_module_enabled("WITHDRAWAL")
@@ -108,6 +116,8 @@ class DecisionLogic:
         )
         cls.handle_appeal_decision(instance, work_item, user, camac_user)
         cls.maybe_skip_construction_monitoring(instance, user)
+
+        return False
 
     @classmethod
     @canton_aware
