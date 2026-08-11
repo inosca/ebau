@@ -2604,21 +2604,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "parkierung.belueftung-der-sammel-tiefgarage",
-    "fields": {
-      "created_at": "2026-05-20T07:29:11.363Z",
-      "modified_at": "2026-05-20T07:29:11.363Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "parkierung",
-      "question": "belueftung-der-sammel-tiefgarage",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "parkierung.ist-die-tiefgarage-groesser-als-2000-m2",
     "fields": {
       "created_at": "2026-05-20T07:27:58.535Z",
@@ -4971,40 +4956,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "belueftung-der-sammel-tiefgarage-mechanisch",
-    "fields": {
-      "created_at": "2026-05-20T07:29:11.147Z",
-      "modified_at": "2026-05-20T07:29:11.147Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"mechanische Belüftung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "belueftung-der-sammel-tiefgarage-natuerlich",
-    "fields": {
-      "created_at": "2026-05-20T07:29:11.143Z",
-      "modified_at": "2026-05-20T07:29:11.143Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"natürliche Belüftung\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -8072,14 +8023,14 @@
     "pk": "ausgeloester-mehrverkehr-lkw",
     "fields": {
       "created_at": "2026-05-20T07:27:12.936Z",
-      "modified_at": "2026-07-01T07:29:32.959Z",
+      "modified_at": "2026-08-11T12:41:39.473Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Durch Vorhaben ausgelöster Mehrverkehr (LKW pro Tag)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "\"zusaetzliche-parkplaetze-oder-mehrverkehr\"|answer != \"zusaetzliche-parkplaetze-oder-mehrverkehr-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -8108,14 +8059,14 @@
     "pk": "ausgeloester-mehrverkehr-pkw",
     "fields": {
       "created_at": "2026-05-20T07:26:52.307Z",
-      "modified_at": "2026-07-01T07:29:29.076Z",
+      "modified_at": "2026-08-11T12:41:08.797Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Durch Vorhaben ausgelöster Mehrverkehr (PKW pro Tag)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "\"zusaetzliche-parkplaetze-oder-mehrverkehr\"|answer != \"zusaetzliche-parkplaetze-oder-mehrverkehr-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -8290,37 +8241,6 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "bauvorhaben",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "belueftung-der-sammel-tiefgarage",
-    "fields": {
-      "created_at": "2026-05-20T07:29:11.257Z",
-      "modified_at": "2026-05-20T07:31:19.821Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Belüftung der Sammel-/Tiefgarage\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "\"zusaetzliche-parkplaetze-oder-mehrverkehr\"|answer != \"zusaetzliche-parkplaetze-oder-mehrverkehr-ja\"",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -15242,36 +15162,6 @@
       "question": "bauvisiere",
       "option": "bauvisiere-nein",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "belueftung-der-sammel-tiefgarage.belueftung-der-sammel-tiefgarage-mechanisch",
-    "fields": {
-      "created_at": "2026-05-20T07:31:19.828Z",
-      "modified_at": "2026-05-20T07:31:19.828Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "belueftung-der-sammel-tiefgarage",
-      "option": "belueftung-der-sammel-tiefgarage-mechanisch",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "belueftung-der-sammel-tiefgarage.belueftung-der-sammel-tiefgarage-natuerlich",
-    "fields": {
-      "created_at": "2026-05-20T07:31:19.832Z",
-      "modified_at": "2026-05-20T07:31:19.832Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "belueftung-der-sammel-tiefgarage",
-      "option": "belueftung-der-sammel-tiefgarage-natuerlich",
-      "sort": 2
     }
   },
   {
