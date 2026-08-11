@@ -66846,7 +66846,7 @@
     "pk": "hinweis-einzelfeuerung",
     "fields": {
       "created_at": "2024-06-24T05:47:06.504Z",
-      "modified_at": "2025-12-17T15:09:52.349Z",
+      "modified_at": "2026-08-10T13:56:32.919Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66859,7 +66859,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Für die Erstellung einer Einzelfeuerung für feste Brennstoffe oder Öl muss das Formular [Gesuch für eine Bewilligung sowie Übereinstimmungserklärung für eine Einzelfeuerung für feste Brennstoffe oder Öl](https://gvg.gr.ch/de/downloads) der Gebäudeversicherung Graubünden, Brandschutz, vom Errichter der Anlage unterzeichnet, eingereicht werden.\", \"fr\": \"\", \"it\": \"Chi intende realizzare un impianto di combustione singolo per combustibili solidi oppure a olio deve firmare e inoltrare il modulo [Domanda di permesso per impianti di combustione singoli a combustibili solidi e olio](https://gvg.gr.ch/it/download) dell'Assicurazione fabbricati dei Grigioni, protezione antincendio.\"}",
+      "static_content": "{\"de\": \"Für die Erstellung einer Einzelfeuerung für feste Brennstoffe oder Öl muss das Formular [Gesuch für eine Bewilligung sowie Übereinstimmungserklärung für eine Einzelfeuerung für feste Brennstoffe oder Öl](https://gvg.gr.ch/de/formulare-und-gesuche) der Gebäudeversicherung Graubünden, Brandschutz, vom Errichter der Anlage unterzeichnet, eingereicht werden.\", \"fr\": \"\", \"it\": \"Chi intende realizzare un impianto di combustione singolo per combustibili solidi oppure a olio deve firmare e inoltrare il modulo [Domanda di permesso per impianti di combustione singoli a combustibili solidi e olio](https://gvg.gr.ch/it/moduli-e-richieste) dell'Assicurazione fabbricati dei Grigioni, protezione antincendio.\"}",
       "configuration": {
         "max_length": null,
         "min_length": null
