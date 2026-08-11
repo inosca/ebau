@@ -1,14 +1,15 @@
 import { render, click, waitFor } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
-import { module } from "qunit";
+import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
 import setupPermissions from "dummy/tests/helpers/permissions";
-import { testBE } from "dummy/tests/helpers/scenarios";
 import mainConfig from "ember-ebau-core/config/main";
+import { setupConfig } from "ember-ebau-core/test-support";
 
 module("Integration | Component | corrections/copy-instance", function (hooks) {
   setupRenderingTest(hooks);
+  setupConfig(hooks, "be");
   setupPermissions(hooks);
 
   hooks.beforeEach(function () {
@@ -48,7 +49,7 @@ module("Integration | Component | corrections/copy-instance", function (hooks) {
     };
   });
 
-  testBE.each(
+  test.each(
     "it renders",
     [
       // state, role, hasButton
@@ -74,35 +75,29 @@ module("Integration | Component | corrections/copy-instance", function (hooks) {
     },
   );
 
-  testBE(
-    "it disables the button without instance-copy permission",
-    async function (assert) {
-      await this.initialize("new", "support");
+  test("it disables the button without instance-copy permission", async function (assert) {
+    await this.initialize("new", "support");
 
-      await render(
-        hbs`<Corrections::CopyInstance @instance={{this.instance}} />`,
-      );
+    await render(
+      hbs`<Corrections::CopyInstance @instance={{this.instance}} />`,
+    );
 
-      assert.dom("button").isDisabled();
-    },
-  );
+    assert.dom("button").isDisabled();
+  });
 
-  testBE(
-    "it enables the button with instance-copy permission",
-    async function (assert) {
-      await this.initialize("archived", "support");
-      this.owner.lookup("service:permissions").fullyEnabled = true;
-      this.permissions.grant(parseInt(this.instance.id), ["instance-copy"]);
+  test("it enables the button with instance-copy permission", async function (assert) {
+    await this.initialize("archived", "support");
+    this.owner.lookup("service:permissions").fullyEnabled = true;
+    this.permissions.grant(parseInt(this.instance.id), ["instance-copy"]);
 
-      await render(
-        hbs`<Corrections::CopyInstance @instance={{this.instance}} />`,
-      );
+    await render(
+      hbs`<Corrections::CopyInstance @instance={{this.instance}} />`,
+    );
 
-      assert.dom("button").isNotDisabled();
-    },
-  );
+    assert.dom("button").isNotDisabled();
+  });
 
-  testBE("it redirects after successful copy", async function (assert) {
+  test("it redirects after successful copy", async function (assert) {
     await this.initialize("finished");
     this.owner.lookup("service:permissions").fullyEnabled = true;
     this.permissions.grant(parseInt(this.instance.id), ["instance-copy"]);

@@ -1,15 +1,17 @@
 import { visit, click } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { module } from "qunit";
+import { module, test } from "qunit";
 
 import { setupApplicationTest } from "dummy/tests/helpers";
-import { test } from "dummy/tests/helpers/scenarios";
+import { setupConfig } from "ember-ebau-core/test-support";
 
 module("Acceptance | workitem-list", function (hooks) {
   setupApplicationTest(hooks);
+  setupConfig(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(async function () {
+    this.case = this.server.create("case");
     this.workItemsTask1 = this.server.createList("workItem", 3, {
       addressedGroups: ["1"],
       status: "READY",
@@ -18,6 +20,7 @@ module("Acceptance | workitem-list", function (hooks) {
         name: "task-1",
         slug: "task-1",
       }),
+      case: this.case,
     });
     this.workItemsTask2 = this.server.createList("workItem", 3, {
       addressedGroups: ["1"],
@@ -27,6 +30,14 @@ module("Acceptance | workitem-list", function (hooks) {
         name: "task-2",
         slug: "task-2",
       }),
+      case: this.case,
+    });
+
+    this.workItemListConfig.set("showTaskFilter", true);
+    this.workItemListConfig.set("availableTasks", {
+      roles: {},
+      services: {},
+      default: ["task-1", "task-2"],
     });
   });
 
