@@ -65,6 +65,8 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
   Deprecated: Das bisherige Tag `serviceId` wurde mit `organisationId` ersetzt. `serviceId` wird aber weiterhin unterstützt.
 
+  In dieser Anfrage kann auch die Vorläufige Prüfung abgeschlossen werden, indem `verfahrensart` (`ordentliches` oder `vereinfachtes`) und `eingabequittungKorrekt` (`ja` oder `nein`) in der Extension des Tasks mitgegeben werden.
+
 - Bei Dokumenten, welche in ausgehenden Meldungen referenziert werden, gilt zu beachten:
   - `documentKind` enthält den Namen der `Category`
   - `keywords` enthält alle Tags (zB: `vollmacht-dokument`)

@@ -46,6 +46,19 @@ from .signals import ruling
 from .utils import judgement_to_decision
 
 
+def get_extension_wildcard(node, tag_name):
+    wildcard_elements = node.extension.wildcardElements() if node.extension else []
+
+    return next(
+        (
+            el.firstChild.value.strip()
+            for el in wildcard_elements
+            if el.tagName == tag_name and el.firstChild
+        ),
+        None,
+    )
+
+
 class SendHandlerException(Exception):
     def __init__(self, message, status=400):
         super().__init__(message)
@@ -564,13 +577,11 @@ class AccompanyingReportSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
         if extensions := settings.ECH0211["ACCOMPANYING_REPORT"].get(
             "EXTENSION_MAPPING"
         ):
-            elements = self.data.eventAccompanyingReport.extension.wildcardElements()
-
             for slug, mapping in extensions.items():
-                el = next(el for el in elements if el.tagName == mapping["tag"])
+                text_value = get_extension_wildcard(
+                    self.data.eventAccompanyingReport, mapping["tag"]
+                )
                 question = Question.objects.get(pk=slug)
-
-                text_value = el.firstChild.value.strip()
 
                 value = text_value
                 # map values for choice questions
@@ -695,9 +706,10 @@ class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
 
     def _get_service(self):
         try:
-            service_id = self.data.eventRequest.extension.wildcardElements()[
-                0
-            ].firstChild.value
+            # try `organisationId``, but fallback to deprecated `serviceId`.
+            service_id = get_extension_wildcard(
+                self.data.eventRequest, "organisationId"
+            ) or get_extension_wildcard(self.data.eventRequest, "serviceId")
             return Service.objects.get(pk=int(service_id))
         except (ValueError, Service.DoesNotExist) as e:
             raise SendHandlerException("Unknown service!") from e
@@ -786,20 +798,16 @@ class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
         )
 
         # check extension to allow dossierkorrektur and save as an answer in the form.
-        if is_module_enabled("TIMELINES"):
-            elements = (
-                self.data.eventRequest.extension.wildcardElements()
-                if self.data.eventRequest.extension
-                else []
+        if (
+            is_module_enabled("TIMELINES")
+            and get_extension_wildcard(self.data.eventRequest, "allowFormChanges")
+            == "true"
+        ):
+            save_answer(
+                document=additional_demand_send.document,
+                question=Question.objects.get(pk="additional-demand-allow-changes"),
+                value=["additional-demand-allow-changes"],
             )
-            el = next((el for el in elements if el.tagName == "allowFormChanges"), None)
-
-            if el and el.firstChild.value.strip() == "true":
-                save_answer(
-                    document=additional_demand_send.document,
-                    question=Question.objects.get(pk="additional-demand-allow-changes"),
-                    value=["additional-demand-allow-changes"],
-                )
 
         # store alexandria documents and link to additional demand document
         self.convert_xml_to_alexandria_documents(
@@ -847,6 +855,40 @@ class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
             raise SendHandlerException(
                 "Services can't create inquiries for themselves!"
             )
+
+        if settings.APPLICATION_NAME == "kt_gr":
+            verfahrensart = get_extension_wildcard(
+                self.data.eventRequest, "verfahrensart"
+            )
+            eingabequittung_korrekt = get_extension_wildcard(
+                self.data.eventRequest, "eingabequittungKorrekt"
+            )
+
+            if (
+                verfahrensart in ["ordentliches", "vereinfachtes"]
+                and eingabequittung_korrekt in ["ja", "nein"]
+                and (
+                    formal_exam := self.instance.case.work_items.filter(
+                        task_id="formal-exam",
+                        status=WorkItem.STATUS_READY,
+                    ).first()
+                )
+            ):
+                save_answer(
+                    document=formal_exam.document,
+                    question=Question.objects.get(slug="verfahrensart"),
+                    value=f"verfahrensart-{verfahrensart}-baubewilligungsverfahren",
+                )
+                save_answer(
+                    document=formal_exam.document,
+                    question=Question.objects.get(slug="eingabequittung-korrekt"),
+                    value=f"eingabequittung-korrekt-{eingabequittung_korrekt}",
+                )
+                workflow_api.complete_work_item(
+                    work_item=formal_exam,
+                    user=self.caluma_user,
+                    context={"addressed_groups": [str(self.group.service.pk)]},
+                )
 
         if settings.ECH0211.get("TASK_SEND"):
             for setting_key, fun in (

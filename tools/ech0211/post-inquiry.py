@@ -6,6 +6,11 @@ instance_id = 12
 special_id = "2026-1"
 service_id = 19
 
+verfahrensart = "ordentliches"  # for Kt. GR, formal exam verfahrensart is "ordentliches" or "vereinfachtes"
+eingabequittung_korrekt = (
+    "ja"  # for Kt. GR, formal exam eingabequittung_korrekt is "ja" or "nein"
+)
+
 xml_payload = f"""<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
 <ns16:delivery xmlns:ns2="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0044/4" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0008/3" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns13="http://www.ech.ch/xmlns/eCH-0046/1" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns12="http://www.ech.ch/xmlns/eCH-0044/1" xmlns:ns11="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns10="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns16="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns15="http://www.ech.ch/xmlns/eCH-0058/3" xmlns:ns14="http://www.ech.ch/xmlns/eCH-0010/3">
@@ -56,6 +61,10 @@ xml_payload = f"""<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <ns2:extension>
             <!-- ID der eingeladenen Organisation. -->
             <serviceId>{service_id}</serviceId>
+            <!-- (Nur Kt. GR) Eingabequittung korrekt in der vorläufigen Prüfung? -->
+            <verfahrensart>{verfahrensart}</verfahrensart>
+            <!-- (Nur Kt. GR) Eingabequittung korrekt in der vorläufigen Prüfung? -->
+            <eingabequittungKorrekt>{eingabequittung_korrekt}</eingabequittungKorrekt>
         </ns2:extension>
     </ns2:eventRequest>
 </ns16:delivery>
