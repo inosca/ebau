@@ -53,6 +53,40 @@ sure we don't forget to update it: it fails the linting for every
 `load_module_settings(...)` call in `camac/settings/django.py` whose settings
 name is missing from the util rule.
 
+### Application name checks (frontend)
+
+These rules enforce using `isApplication("xy")` for checking which canton the
+frontend runs as, instead of comparing the name by hand.
+
+- `=== "xy"` is replaced by `isApplication("xy")`
+- `!== "xy"` is replaced by `!isApplication("xy")`
+
+Both apply whether or not the comparison is wrapped in a `macroCondition(...)`,
+which is dropped along the way.
+
+Which reads count as the application name is defined by the `application-name`
+util rule in `utils/application_name.yaml`: the `@embroider/macros` own config
+and `ember-ebau-core/config/main`, the two sources `isApplication` itself
+resolves. Reads of an app's own `config/environment` are left alone, since that
+is a different configuration object: `ember-caluma-portal/tests/helpers/test-if.js`
+deliberately checks `config.APPLICATION.name`.
+
+`macroCondition` on the application is still legitimate in
+`ember-ebau-core/addon/config` and in
+`ember-ebau-core/addon/caluma-query/models/case.js`, where it pairs with
+`importSync` to pick a single canton config module at build time. Converting
+those would bundle every canton into every build, so both paths are ignored by
+the rules.
+
+The autofix does not add the import, you have to add it yourself:
+
+```js
+import { isApplication } from "ember-ebau-core/helpers/is-application";
+```
+
+In templates, use the `is-application` helper instead. The rules only cover
+`.js` files, `ast-grep` cannot parse `.hbs`.
+
 ## Running the fixes
 
 If CI reports violations of these rules, you can automatically apply the
