@@ -5430,3 +5430,74 @@ def sg_work_item_list_settings(
         canton="kt_sg",
         disable=False,
     )
+
+
+@pytest.fixture
+def work_item_overdue_notifications_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for work item overdue notifications (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        settings_name="WORK_ITEM_OVERDUE_NOTIFICATIONS",
+        import_path="camac.settings.modules.work_item_overdue_notifications.WORK_ITEM_OVERDUE_NOTIFICATIONS",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_work_item_overdue_notifications_settings(
+    request,
+    settings,
+    work_item_overdue_notifications_settings,
+):
+    """Disable the work item overdue notifications module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=work_item_overdue_notifications_settings,
+        settings_name="WORK_ITEM_OVERDUE_NOTIFICATIONS",
+        import_path="camac.settings.modules.work_item_overdue_notifications.WORK_ITEM_OVERDUE_NOTIFICATIONS",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def so_work_item_overdue_notifications_settings(
+    request,
+    settings,
+    work_item_overdue_notifications_settings,
+):
+    """Module-specific settings for work item overdue notifications (canton SO)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=work_item_overdue_notifications_settings,
+        settings_name="WORK_ITEM_OVERDUE_NOTIFICATIONS",
+        import_path="camac.settings.modules.work_item_overdue_notifications.WORK_ITEM_OVERDUE_NOTIFICATIONS",
+        canton="kt_so",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def gr_work_item_overdue_notifications_settings(
+    request,
+    settings,
+    work_item_overdue_notifications_settings,
+):
+    """Module-specific settings for work item overdue notifications (canton GR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=work_item_overdue_notifications_settings,
+        settings_name="WORK_ITEM_OVERDUE_NOTIFICATIONS",
+        import_path="camac.settings.modules.work_item_overdue_notifications.WORK_ITEM_OVERDUE_NOTIFICATIONS",
+        canton="kt_gr",
+        disable=False,
+    )
