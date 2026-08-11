@@ -1,12 +1,12 @@
 import Controller from "@ember/controller";
 import { service } from "@ember/service";
-import { getOwnConfig, macroCondition } from "@embroider/macros";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { query, findRecord } from "ember-data-resources";
 import constructionMonitoringConfig from "ember-ebau-core/config/construction-monitoring";
 import mainConfig from "ember-ebau-core/config/main";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import apolloQuery from "ember-ebau-core/resources/apollo";
 
 import config from "caluma-portal/config/environment";
@@ -126,7 +126,7 @@ export default class InstancesEditController extends Controller {
   // In Kt. BE the sb1 task form has been versioned,
   // so depending on the case, the work-item can either
   // have a sb1 or sb1-v2 form.
-  #workItemForms = macroCondition(getOwnConfig().application === "be")
+  #workItemForms = isApplication("be")
     ? apolloQuery(
         this,
         () => ({

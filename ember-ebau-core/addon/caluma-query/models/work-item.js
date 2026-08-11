@@ -9,6 +9,7 @@ import CustomCaseModel from "ember-ebau-core/caluma-query/models/case";
 import mainConfig from "ember-ebau-core/config/main";
 import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.graphql";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import { getAnswerDisplayValue } from "ember-ebau-core/utils/get-answer";
 import { getApplicants } from "ember-ebau-core/utils/get-applicants";
 
@@ -142,7 +143,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get isCalumaBackend() {
-    return mainConfig.name === "sz"
+    return isApplication("sz")
       ? this.case?.meta["form-backend"] === "caluma"
       : true;
   }

@@ -1,5 +1,4 @@
 export default {
-  name: "be",
   languages: ["de", "fr"],
   fallbackLanguage: "de",
   prodUrl: "www.ebau.apps.be.ch",

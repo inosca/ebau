@@ -1,8 +1,8 @@
-import { getOwnConfig, macroCondition } from "@embroider/macros";
 import { DateTime } from "luxon";
 
 import caseTableConfig from "ember-ebau-core/config/case-table";
 import mainConfig from "ember-ebau-core/config/main";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 
 export function hasFilterValue(value) {
   return Array.isArray(value)
@@ -85,7 +85,7 @@ export function getCalumaFilters(filter, casesBackend) {
           },
         ],
       },
-      ...(macroCondition(getOwnConfig().application !== "ur")
+      ...(!isApplication("ur")
         ? {
             municipality: {
               hasAnswer: [
@@ -207,12 +207,12 @@ export function getCamacFilters({
     inquiry_answer: filter.inquiryAnswer,
     is_suspended: filter.suspended,
     is_bab: filter.bab,
-    ...(macroCondition(getOwnConfig().application === "ag")
+    ...(isApplication("ag")
       ? {
           municipality_multiselect: filter.municipalityMultiselect,
         }
       : {}),
-    ...(macroCondition(getOwnConfig().application === "ur")
+    ...(isApplication("ur")
       ? {
           location: filter.municipality,
         }

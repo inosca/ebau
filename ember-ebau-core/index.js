@@ -8,6 +8,7 @@ const ENV_MAP = {
   kt_so: "so",
   kt_ag: "ag",
   kt_sg: "sg",
+  demo: "demo",
   test: "test",
 };
 

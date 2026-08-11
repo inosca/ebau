@@ -1,4 +1,4 @@
-import { getOwnConfig, macroCondition } from "@embroider/macros";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 
 export default {
   address: { type: "input" },
@@ -34,7 +34,7 @@ export default {
     valueField: "value",
     labelField: "name",
   },
-  municipalityMultiselect: macroCondition(getOwnConfig().application === "ag")
+  municipalityMultiselect: isApplication("ag")
     ? {
         type: "select-multiple",
         options: "municipalitiesFromCaluma",
@@ -43,14 +43,14 @@ export default {
         showWithoutOptions: true,
       }
     : {},
-  municipality: macroCondition(getOwnConfig().application === "ur")
+  municipality: isApplication("ur")
     ? {
         type: "select-multiple",
         options: "municipalities",
         valueField: "id",
         labelField: "name",
       }
-    : macroCondition(getOwnConfig().application === "sz")
+    : isApplication("sz")
       ? {
           type: "select",
           options: "municipalities",
@@ -68,20 +68,16 @@ export default {
     type: "select-multiple",
     options: "instanceStates",
     valueField: "id",
-    labelField: macroCondition(getOwnConfig().application === "ur")
+    labelField: isApplication("ur")
       ? "uppercaseName"
-      : macroCondition(getOwnConfig().application === "sz")
+      : isApplication("sz")
         ? "description"
         : "name",
-    showWithoutOptions: macroCondition(getOwnConfig().application === "sz")
-      ? false
-      : true,
+    showWithoutOptions: !isApplication("sz"),
   },
   service: {
     type: "select",
-    options: macroCondition(getOwnConfig().application === "sz")
-      ? "servicesSZ"
-      : "services",
+    options: isApplication("sz") ? "servicesSZ" : "services",
     valueField: "id",
     labelField: "name",
   },
@@ -112,9 +108,7 @@ export default {
     options: "responsibleServiceUsers",
     valueField: "id",
     labelField: "fullName",
-    showWithoutOptions: macroCondition(getOwnConfig().application === "sz")
-      ? false
-      : true,
+    showWithoutOptions: !isApplication("sz"),
   },
   type: {
     type: "select",
@@ -122,7 +116,7 @@ export default {
     valueField: "id",
     labelField: "description",
   },
-  form: macroCondition(getOwnConfig().application === "sz")
+  form: isApplication("sz")
     ? {
         type: "select",
         options: "formOptions",
@@ -146,9 +140,7 @@ export default {
     type: "async-select-multiple",
     options: "selectedKeywords",
     search: "searchKeywords",
-    valueField: macroCondition(getOwnConfig().application === "be")
-      ? "name"
-      : "id",
+    valueField: isApplication("be") ? "name" : "id",
     labelField: "name",
     showWithoutOptions: true,
   },

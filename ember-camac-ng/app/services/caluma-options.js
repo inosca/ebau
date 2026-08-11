@@ -1,7 +1,7 @@
 import { service } from "@ember/service";
-import { macroCondition, getOwnConfig } from "@embroider/macros";
 import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-options";
 import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import { cached } from "tracked-toolbox";
 
 const DISTRIBUTION_NEW_INQUIRY_GROUP_TYPES_MAPPING = {
@@ -114,10 +114,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     const result = await types.reduce(async (typed, type) => {
       let filters = this._getFilter(this.distribution.new.types[type]);
 
-      if (macroCondition(getOwnConfig().application === "sz")) {
+      if (isApplication("sz")) {
         filters = { ...filters, available_in_distribution: true };
       }
-      if (macroCondition(getOwnConfig().application === "ur")) {
+      if (isApplication("ur")) {
         filters = {
           ...filters,
           available_in_distribution:
@@ -161,7 +161,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       postCompleteDistribution: () => this.redirectToInstanceResource(),
     };
 
-    if (macroCondition(getOwnConfig().application === "be")) {
+    if (isApplication("be")) {
       return {
         ui: { stack: true, small: true, readonly: this.shoebox.isReadOnlyRole },
         inquiry: {
@@ -229,7 +229,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         inquiryReminderNotificationTemplateSlug:
           "05-meldung-fristuberschreitung-fachstelle",
       };
-    } else if (macroCondition(getOwnConfig().application === "sz")) {
+    } else if (isApplication("sz")) {
       const config = {
         ui: { readonly: this.shoebox.isReadOnlyRole },
         inquiry: {
@@ -410,7 +410,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
             }, {}),
         },
       };
-    } else if (macroCondition(getOwnConfig().application === "ur")) {
+    } else if (isApplication("ur")) {
       // TODO: Enable when ember-caluma is bumped
       const SERVICES_ALLOWED_TO_CREATE_SUB_CIRCULATIONS = {
         2: "Fachstellen Baudirektion",

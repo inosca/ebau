@@ -3,6 +3,7 @@ import { Ability } from "ember-can";
 import { hasInstanceState } from "ember-ebau-core/abilities/instance";
 import mainConfig from "ember-ebau-core/config/main";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import { removeVersion } from "ember-ebau-core/utils/form-filters";
 
 import config from "caluma-portal/config/environment";
@@ -191,7 +192,7 @@ export default class InstanceAbility extends Ability {
 
   get canDownloadReceipt() {
     if (
-      config.APPLICATION.name === "so" &&
+      isApplication("so") &&
       removeVersion(this.model?.calumaForm) === "voranfrage"
     ) {
       return false;
@@ -246,8 +247,7 @@ export default class InstanceAbility extends Ability {
       // in the portal (or embedded in the internal form), even though they
       // may have the communications-read permissions, which is needed for the
       // communications module in the internal area.
-      const isVisible =
-        config.APPLICATION.name === "be" ? !this.session.isInternal : true;
+      const isVisible = isApplication("be") ? !this.session.isInternal : true;
 
       return (
         isVisible &&
@@ -289,7 +289,7 @@ export default class InstanceAbility extends Ability {
       ) &&
       (!this.session.isInternal ||
         this.model.isPaper ||
-        (this.session.isSupport && config.APPLICATION.name === "ur"))
+        (this.session.isSupport && isApplication("ur")))
     );
   }
 

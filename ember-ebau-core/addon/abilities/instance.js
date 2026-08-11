@@ -1,9 +1,9 @@
 import { service } from "@ember/service";
-import { getOwnConfig, macroCondition } from "@embroider/macros";
 import { Ability } from "ember-can";
 
 import mainConfig from "ember-ebau-core/config/main";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 
 export function hasInstanceState(instance, instanceState) {
   const instanceStates = Array.isArray(instanceState)
@@ -99,7 +99,7 @@ export default class InstanceAbility extends Ability {
       return await this.permissions.hasAll(this.model?.id, "form-write");
     }
 
-    if (macroCondition(getOwnConfig().application === "sz")) {
+    if (isApplication("sz")) {
       return (
         (this.model.meta?.editable || []).includes("form") ||
         (await this.permissions.hasAll(this.model.id, "form-write"))
@@ -110,7 +110,7 @@ export default class InstanceAbility extends Ability {
 
   // GR & SO & BE
   get canCorrect() {
-    if (macroCondition(getOwnConfig().application === "be")) {
+    if (isApplication("be")) {
       return (
         (this.ebauModules.isSupportRole ||
           this.ebauModules.isMunicipalityLeadRole) &&
@@ -133,7 +133,7 @@ export default class InstanceAbility extends Ability {
   }
 
   get canFinishCorrect() {
-    if (macroCondition(getOwnConfig().application === "be")) {
+    if (isApplication("be")) {
       return (
         ((this.ebauModules.isSupportRole ||
           this.ebauModules.isMunicipalityLeadRole) &&
@@ -175,7 +175,7 @@ export default class InstanceAbility extends Ability {
   // instance acls
   // TODO: if complexity increases or more use cases arise, please move to instance-acl ability.
   get canEditAcl() {
-    if (macroCondition(getOwnConfig().application === "be")) {
+    if (isApplication("be")) {
       return (
         isInstanceService(this.model, this.ebauModules.serviceId) &&
         ["municipality-lead", "municipality-clerk"].includes(
@@ -183,7 +183,7 @@ export default class InstanceAbility extends Ability {
         )
       );
     }
-    if (macroCondition(getOwnConfig().application === "ur")) {
+    if (isApplication("ur")) {
       return (
         this.ebauModules.isTrustedServiceRole ||
         this.ebauModules.isCoordinationRole ||

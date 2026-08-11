@@ -1,10 +1,10 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
-import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import apolloQuery from "ember-ebau-core/resources/apollo";
 import { removeVersion } from "ember-ebau-core/utils/form-filters";
 import { trackedFunction } from "reactiveweb/function";
@@ -41,7 +41,7 @@ export default class InstancesNewController extends Controller {
 
   @action
   translationKey(group, category) {
-    if (macroCondition(getOwnConfig().application !== "ur")) {
+    if (!isApplication("ur")) {
       return `instances.new.${category}.info`;
     }
 

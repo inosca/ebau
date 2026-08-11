@@ -1,9 +1,9 @@
 import { service } from "@ember/service";
-import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask, restartableTask, task } from "ember-concurrency";
 import attachmentsConfig from "ember-ebau-core/config/attachments";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 
 import config from "caluma-portal/config/environment";
 
@@ -24,7 +24,7 @@ export default class BeDocumentsFormComponent extends Component {
   placeholderSlug = "dokumente-platzhalter";
 
   get requiredQuestionTypes() {
-    if (macroCondition(getOwnConfig().application === "ur")) {
+    if (isApplication("ur")) {
       return ["MultipleChoiceQuestion"];
     }
     return ["MultipleChoiceQuestion", "TextareaQuestion"];

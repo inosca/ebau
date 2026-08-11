@@ -1,9 +1,9 @@
 import { service } from "@ember/service";
-import { getOwnConfig } from "@embroider/macros";
 import { Ability } from "ember-can";
 
 import mainConfig from "ember-ebau-core/config/main";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 
 export default class extends Ability {
   @service ebauModules;
@@ -47,7 +47,7 @@ export default class extends Ability {
       );
     }
 
-    const readOnlyCanCreate = getOwnConfig().application === "sz";
+    const readOnlyCanCreate = isApplication("sz");
     return (
       (!this.ebauModules.isReadOnlyRole || readOnlyCanCreate) &&
       !this.ebauModules.isSupportRole

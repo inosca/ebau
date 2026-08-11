@@ -1,9 +1,9 @@
 import { service } from "@ember/service";
 import Model, { attr, belongsTo } from "@ember-data/model";
-import { getOwnConfig, macroCondition } from "@embroider/macros";
 import { DateTime } from "luxon";
 import { trackedFunction } from "reactiveweb/function";
 
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import { fetchSingleIfNotCached } from "ember-ebau-core/utils/fetch-if-not-cached";
 
 export const AVAILABLE_GRANT_TYPES = [
@@ -198,7 +198,7 @@ export default class InstanceAclModel extends Model {
      * rather than doing an approximation like this.
      */
     let canRevoke = this.createdByEvent === EVENT_TYPES.MANUAL_CREATION;
-    if (macroCondition(getOwnConfig().application === "sz")) {
+    if (isApplication("sz")) {
       canRevoke |= this.accessLevel.id === "are-service";
     }
     return canRevoke && this.status !== "expired";

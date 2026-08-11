@@ -1,6 +1,5 @@
 import { getOwner } from "@ember/application";
 import { service } from "@ember/service";
-import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { parseDocument } from "@projectcaluma/ember-form/lib/parsers";
 import { queryManager } from "ember-apollo-client";
@@ -10,6 +9,7 @@ import { trackedFunction } from "reactiveweb/function";
 
 import getActiveDistributionQuery from "ember-ebau-core/gql/queries/get-active-distribution.graphql";
 import getDocumentQuery from "ember-ebau-core/gql/queries/get-document.graphql";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 
 export default class CorrectionsDocument extends Component {
   @service fetch;
@@ -81,7 +81,7 @@ export default class CorrectionsDocument extends Component {
 
     // TODO: Remove this as soon as kt. Bern translations are available
     // Disable confirm finish dialog for kt. Bern
-    if (macroCondition(getOwnConfig().application !== "be")) {
+    if (!isApplication("be")) {
       if (
         !(await confirm(this.intl.t("corrections.document.confirm-finish")))
       ) {

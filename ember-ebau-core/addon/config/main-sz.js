@@ -1,5 +1,4 @@
 export default {
-  name: "sz",
   languages: ["de"],
   fallbackLanguage: "de",
   prodUrl: "behoerden.ebau-sz.ch",

@@ -1,6 +1,7 @@
 import { service } from "@ember/service";
-import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { Ability } from "ember-can";
+
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 
 export default class extends Ability {
   @service ebauModules;
@@ -24,7 +25,7 @@ export default class extends Ability {
       );
     }
 
-    const readOnlyCanSend = getOwnConfig().application === "sz";
+    const readOnlyCanSend = isApplication("sz");
     if (
       !this.topic ||
       (this.ebauModules.isReadOnlyRole && !readOnlyCanSend) ||
@@ -73,7 +74,7 @@ export default class extends Ability {
       );
     }
 
-    if (macroCondition(getOwnConfig().application === "be")) {
+    if (isApplication("be")) {
       return this.ebauModules.isSupportRole;
     }
     return false;

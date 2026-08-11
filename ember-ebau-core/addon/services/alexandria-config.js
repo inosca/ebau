@@ -1,10 +1,11 @@
 import { action, get } from "@ember/object";
 import { service } from "@ember/service";
-import { getOwnConfig, macroCondition } from "@embroider/macros";
+import { getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import AlexandriaConfigService from "ember-alexandria/services/alexandria-config";
 
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
 
 const allowedWebDAVMimeTypes = () => {
@@ -34,7 +35,7 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   constructor(...args) {
     super(...args);
 
-    if (macroCondition(getOwnConfig().application === "gr")) {
+    if (isApplication("gr")) {
       this.enableMoveCopyFallback = false;
     }
   }
@@ -47,7 +48,7 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
 
   get categoryQueryParameters() {
     const params = {};
-    if (macroCondition(getOwnConfig().application === "gr")) {
+    if (isApplication("gr")) {
       if (this.instanceId) {
         params["camac-instance-id"] = String(this.instanceId);
       }
@@ -199,7 +200,7 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
       });
     }
 
-    if (macroCondition(getOwnConfig().application === "be")) {
+    if (isApplication("be")) {
       label = instance.ebauNumber;
     }
 

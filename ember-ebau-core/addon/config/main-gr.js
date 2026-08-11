@@ -1,5 +1,4 @@
 export default {
-  name: "gr",
   languages: ["de", "it"],
   fallbackLanguage: "de",
   prodUrl: "ebau.admin.gr.ch",

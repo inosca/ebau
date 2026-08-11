@@ -1,7 +1,6 @@
 import { removeVersion } from "ember-ebau-core/utils/form-filters";
 
 const config = {
-  name: "so",
   languages: ["de"],
   fallbackLanguage: "de",
   prodUrl: "ebau.so.ch",

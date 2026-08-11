@@ -1,10 +1,11 @@
-import { macroCondition, getOwnConfig } from "@embroider/macros";
 import CfFieldInputDateComponent from "@projectcaluma/ember-form/components/cf-field/input/date";
 import { DateTime } from "luxon";
 
+import { isApplication } from "ember-ebau-core/helpers/is-application";
+
 export default class PublicationDateKantonsamtsblatt extends CfFieldInputDateComponent {
   get publicationOnThursday() {
-    if (macroCondition(getOwnConfig().application === "ur")) {
+    if (isApplication("ur")) {
       // In UR publications only can be made on friday
       return false;
     }

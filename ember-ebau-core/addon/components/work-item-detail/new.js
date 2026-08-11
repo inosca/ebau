@@ -1,6 +1,5 @@
 import { action } from "@ember/object";
 import { service } from "@ember/service";
-import { macroCondition, getOwnConfig } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
@@ -13,6 +12,7 @@ import { DateTime } from "luxon";
 import mainConfig from "ember-ebau-core/config/main";
 import createWorkItem from "ember-ebau-core/gql/mutations/create-work-item.graphql";
 import allCases from "ember-ebau-core/gql/queries/all-cases.graphql";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import WorkItemFormValidations from "ember-ebau-core/validations/work-item-form";
 
 export default class WorkItemDetailNewComponent extends Component {
@@ -119,7 +119,7 @@ export default class WorkItemDetailNewComponent extends Component {
 
     // In Uri we always set a controlling group because otherwise no
     // notifications are sent for manual work-items.
-    if (macroCondition(getOwnConfig().application === "ur")) {
+    if (isApplication("ur")) {
       extra.controllingGroups = [this.args.serviceId.toString()];
     }
 

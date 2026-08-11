@@ -1,7 +1,8 @@
 import { getOwner } from "@ember/application";
-import { getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import { confirm } from "ember-uikit";
+
+import mainConfig from "ember-ebau-core/config/main";
 
 export function loadingTask(target, property, desc) {
   const gen = desc.value;
@@ -94,12 +95,10 @@ export function confirmTask(textOrKey) {
 }
 
 export function cantonAware(target, property, desc) {
-  const application = getOwnConfig().application;
-
   return (
     Object.getOwnPropertyDescriptor(
       target,
-      `${property}${application.toUpperCase()}`,
+      `${property}${mainConfig.name.toUpperCase()}`,
     ) ?? desc
   );
 }
