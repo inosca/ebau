@@ -11,8 +11,17 @@ export default class PublicationDateKantonsamtsblatt extends CfFieldInputDateCom
     return true;
   }
 
+  get allowPastDates() {
+    if (macroCondition(getOwnConfig().application === "gr")) {
+      return true;
+    }
+
+    return false;
+  }
+
   // Selectable are always Thursdays until Friday of the previous week
   enableDates = (date) => {
+    const allowPastDates = this.allowPastDates;
     const luxonDate = DateTime.fromJSDate(date).startOf("day");
     const now = DateTime.now();
 
@@ -23,11 +32,16 @@ export default class PublicationDateKantonsamtsblatt extends CfFieldInputDateCom
       return false;
     }
 
+    if (allowPastDates) {
+      return true;
+    }
+
     if (isThursdayMode) {
       const deadline = luxonDate.minus({ days: 6 }).endOf("day");
 
       return now <= deadline;
     }
+
     const deadline = luxonDate
       .minus({ days: 2 })
       .set({ hour: 12, minute: 0, second: 0, millisecond: 0 });
