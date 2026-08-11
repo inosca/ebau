@@ -78,7 +78,6 @@ GR_CALUMA_SIMPLE_WORKFLOW_SETTINGS = CalumaSimpleWorkflowConfig(
             "completed": [
                 EventConfig(
                     history_text=_("Additional demand was answered"),
-                    ech_event="camac.ech0211.signals.file_subsequently",
                     notifications=[
                         NotificationConfig(
                             template_slug="fill-additional-demand",
