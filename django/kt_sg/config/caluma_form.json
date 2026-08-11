@@ -1564,7 +1564,22 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "abfall-titel",
-      "sort": 11
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.abflusslose-grube-titel",
+    "fields": {
+      "created_at": "2026-08-11T13:07:17.968Z",
+      "modified_at": "2026-08-11T13:07:17.968Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "abflusslose-grube-titel",
+      "sort": 7
     }
   },
   {
@@ -1579,7 +1594,37 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "abwasser-titel",
-      "sort": 6
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.anlagenbeschrieb-typ-hersteller",
+    "fields": {
+      "created_at": "2026-08-11T13:15:02.600Z",
+      "modified_at": "2026-08-11T13:15:02.600Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "anlagenbeschrieb-typ-hersteller",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.anlagengroesse-einwohnergleichwerte",
+    "fields": {
+      "created_at": "2026-08-11T13:15:35.576Z",
+      "modified_at": "2026-08-11T13:15:35.576Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "anlagengroesse-einwohnergleichwerte",
+      "sort": 14
     }
   },
   {
@@ -1594,7 +1639,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant",
-      "sort": 4
+      "sort": 18
     }
   },
   {
@@ -1609,7 +1654,37 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.besteht-ein-abnahmevertrag-mit-gemeindeabwasserverband",
+    "fields": {
+      "created_at": "2026-08-11T13:12:45.068Z",
+      "modified_at": "2026-08-11T13:12:45.068Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "besteht-ein-abnahmevertrag-mit-gemeindeabwasserverband",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.besteht-eine-landwirtschaftliche-verwertung",
+    "fields": {
+      "created_at": "2026-08-11T13:13:12.414Z",
+      "modified_at": "2026-08-11T13:13:12.414Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "besteht-eine-landwirtschaftliche-verwertung",
+      "sort": 4
     }
   },
   {
@@ -1624,7 +1699,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "entsorgung-titel",
-      "sort": 12
+      "sort": 26
     }
   },
   {
@@ -1639,7 +1714,22 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "ist-der-standort-im-pruefgebiet-bodenverschiebungen",
-      "sort": 8
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.kleinklaeranlage-titel",
+    "fields": {
+      "created_at": "2026-08-11T13:06:39.386Z",
+      "modified_at": "2026-08-11T13:06:39.386Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "kleinklaeranlage-titel",
+      "sort": 16
     }
   },
   {
@@ -1655,6 +1745,36 @@
       "form": "entsorgung",
       "question": "regenwasser",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.regenwasser-titel",
+    "fields": {
+      "created_at": "2026-08-11T13:06:09.742Z",
+      "modified_at": "2026-08-11T13:06:09.742Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "regenwasser-titel",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.stapelung-volumen",
+    "fields": {
+      "created_at": "2026-08-11T13:12:09.658Z",
+      "modified_at": "2026-08-11T13:12:09.658Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "stapelung-volumen",
+      "sort": 6
     }
   },
   {
@@ -1684,7 +1804,37 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "umgang-mit-schmutzabwasser",
-      "sort": 3
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter",
+    "fields": {
+      "created_at": "2026-08-11T13:16:16.801Z",
+      "modified_at": "2026-08-11T13:16:16.801Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.verfuegt-die-kleinklaeranlage-ueber-eine-versickerung",
+    "fields": {
+      "created_at": "2026-08-11T13:18:27.702Z",
+      "modified_at": "2026-08-11T13:18:27.702Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "verfuegt-die-kleinklaeranlage-ueber-eine-versickerung",
+      "sort": 10
     }
   },
   {
@@ -1699,7 +1849,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen",
-      "sort": 10
+      "sort": 24
     }
   },
   {
@@ -1714,7 +1864,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "wird-boden-ausserhalb-des-standortes-entsorgtverwertet",
-      "sort": 7
+      "sort": 21
     }
   },
   {
@@ -1729,6 +1879,66 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.x-koordinate-einleitstelle",
+    "fields": {
+      "created_at": "2026-08-11T13:17:48.834Z",
+      "modified_at": "2026-08-11T13:17:48.834Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "x-koordinate-einleitstelle",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.x-koordinate-versickerungsstelle",
+    "fields": {
+      "created_at": "2026-08-11T13:18:58.520Z",
+      "modified_at": "2026-08-11T13:18:58.520Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "x-koordinate-versickerungsstelle",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.y-koordinate-einleitstelle",
+    "fields": {
+      "created_at": "2026-08-11T13:17:14.467Z",
+      "modified_at": "2026-08-11T13:17:14.467Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "y-koordinate-einleitstelle",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.y-koordinate-versickerungsstelle",
+    "fields": {
+      "created_at": "2026-08-11T13:18:50.372Z",
+      "modified_at": "2026-08-11T13:18:50.372Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "y-koordinate-versickerungsstelle",
       "sort": 9
     }
   },
@@ -5015,6 +5225,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "besteht-ein-abnahmevertrag-mit-gemeindeabwasserverband-ja",
+    "fields": {
+      "created_at": "2026-08-11T13:12:44.979Z",
+      "modified_at": "2026-08-11T13:12:44.979Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besteht-ein-abnahmevertrag-mit-gemeindeabwasserverband-nein",
+    "fields": {
+      "created_at": "2026-08-11T13:12:44.976Z",
+      "modified_at": "2026-08-11T13:12:44.976Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besteht-eine-landwirtschaftliche-verwertung-ja",
+    "fields": {
+      "created_at": "2026-08-11T13:13:12.323Z",
+      "modified_at": "2026-08-11T13:13:12.323Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besteht-eine-landwirtschaftliche-verwertung-nein",
+    "fields": {
+      "created_at": "2026-08-11T13:13:12.325Z",
+      "modified_at": "2026-08-11T13:13:12.325Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "betriebskonzept-verpflegungskonzept-ja",
     "fields": {
       "created_at": "2026-06-05T07:43:34.813Z",
@@ -6582,12 +6860,12 @@
     "pk": "umgang-mit-regenabwasser-einleitung-mischabwasserkanalisation",
     "fields": {
       "created_at": "2026-05-20T07:08:02.687Z",
-      "modified_at": "2026-05-20T07:08:02.687Z",
+      "modified_at": "2026-08-11T13:05:31.664Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Einleitung in die Mischabwasserkanalisation der Gemeinde\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Einleitung in die Schmutz- / Mischwasserkanalisation der Gemeinde\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -6650,14 +6928,14 @@
     "pk": "umgang-mit-schmutzabwasser-einleitung-schmutz-mischabwasserkanalisation",
     "fields": {
       "created_at": "2026-05-20T07:06:37.006Z",
-      "modified_at": "2026-05-20T07:14:24.010Z",
+      "modified_at": "2026-08-11T12:56:53.217Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Einleitung in die Schmutz- / Mischabwasserkanalisation der Gemeinde\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -6724,6 +7002,74 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ummauerung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter-ja",
+    "fields": {
+      "created_at": "2026-08-11T13:16:16.700Z",
+      "modified_at": "2026-08-11T13:16:16.700Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter-nein",
+    "fields": {
+      "created_at": "2026-08-11T13:16:16.702Z",
+      "modified_at": "2026-08-11T13:16:16.702Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verfuegt-die-kleinklaeranlage-ueber-eine-versickerung-ja",
+    "fields": {
+      "created_at": "2026-08-11T13:18:27.618Z",
+      "modified_at": "2026-08-11T13:18:27.618Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verfuegt-die-kleinklaeranlage-ueber-eine-versickerung-nein",
+    "fields": {
+      "created_at": "2026-08-11T13:18:27.617Z",
+      "modified_at": "2026-08-11T13:18:27.617Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -7443,6 +7789,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "abflusslose-grube-titel",
+    "fields": {
+      "created_at": "2026-08-11T13:07:17.927Z",
+      "modified_at": "2026-08-11T13:07:17.927Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abflusslose Grube Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"#### Abflusslose Grube\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "abgasanlage",
     "fields": {
       "created_at": "2026-06-03T14:45:25.968Z",
@@ -7624,6 +8001,74 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anlagenbeschrieb-typ-hersteller",
+    "fields": {
+      "created_at": "2026-08-11T13:15:02.561Z",
+      "modified_at": "2026-08-11T13:15:02.561Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagenbeschrieb (Typ, Hersteller)\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anlagengroesse-einwohnergleichwerte",
+    "fields": {
+      "created_at": "2026-08-11T13:15:35.532Z",
+      "modified_at": "2026-08-11T13:15:35.532Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagengrösse (Einwohnergleichwerte)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -8397,6 +8842,68 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"### Bestätigung\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "besteht-ein-abnahmevertrag-mit-gemeindeabwasserverband",
+    "fields": {
+      "created_at": "2026-08-11T13:12:45.023Z",
+      "modified_at": "2026-08-11T13:12:45.023Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Besteht ein Abnahmevertrag mit Gemeinde/Abwasserverband?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "besteht-eine-landwirtschaftliche-verwertung",
+    "fields": {
+      "created_at": "2026-08-11T13:13:12.365Z",
+      "modified_at": "2026-08-11T13:13:12.365Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Besteht eine landwirtschaftliche Verwertung?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -9977,6 +10484,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "kleinklaeranlage-titel",
+    "fields": {
+      "created_at": "2026-08-11T13:06:39.345Z",
+      "modified_at": "2026-08-11T13:06:39.345Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kleinkläranlage Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"#### Kleinkläranlage\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "kondensatableitung-in-kanalisation",
     "fields": {
       "created_at": "2026-06-04T08:15:53.722Z",
@@ -11427,6 +11965,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "regenwasser-titel",
+    "fields": {
+      "created_at": "2026-08-11T13:06:09.700Z",
+      "modified_at": "2026-08-11T13:06:09.700Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Regenwasser Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"#### Regenwasser\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "schutzraum-und-ersatzbeitraege-form",
     "fields": {
       "created_at": "2026-06-05T07:41:01.991Z",
@@ -11979,6 +12548,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "stapelung-volumen",
+    "fields": {
+      "created_at": "2026-08-11T13:12:09.599Z",
+      "modified_at": "2026-08-11T13:12:09.599Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stapelung Volumen (m³)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "stromerzeugungsanlage-art",
     "fields": {
       "created_at": "2026-07-03T08:54:59.217Z",
@@ -12344,7 +12947,7 @@
     "pk": "umgang-mit-regenabwasser",
     "fields": {
       "created_at": "2026-05-20T07:08:02.806Z",
-      "modified_at": "2026-05-20T07:13:09.107Z",
+      "modified_at": "2026-08-11T13:05:31.711Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -12375,7 +12978,7 @@
     "pk": "umgang-mit-schmutzabwasser",
     "fields": {
       "created_at": "2026-05-20T07:06:37.228Z",
-      "modified_at": "2026-05-20T07:14:24.119Z",
+      "modified_at": "2026-08-11T12:56:53.263Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -12383,7 +12986,7 @@
       "label": "{\"de\": \"Umgang mit Schmutzabwasser\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "\"anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant\"|answer != \"anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant-ja\"",
+      "is_hidden": "\"anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant\"|answer != \"anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant-nein\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -12455,6 +13058,68 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter",
+    "fields": {
+      "created_at": "2026-08-11T13:16:16.749Z",
+      "modified_at": "2026-08-11T13:16:16.749Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfügt die Kleinkläranlage über einen Vorfluter?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verfuegt-die-kleinklaeranlage-ueber-eine-versickerung",
+    "fields": {
+      "created_at": "2026-08-11T13:18:27.655Z",
+      "modified_at": "2026-08-11T13:18:27.655Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfügt die Kleinkläranlage über eine Versickerung?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -14180,6 +14845,142 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "x-koordinate-einleitstelle",
+    "fields": {
+      "created_at": "2026-08-11T13:17:48.796Z",
+      "modified_at": "2026-08-11T13:28:03.529Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"x-Koordinate Einleitstelle\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter\"|answer != \"verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "x-koordinate-versickerungsstelle",
+    "fields": {
+      "created_at": "2026-08-11T13:18:58.467Z",
+      "modified_at": "2026-08-11T13:30:56.087Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"x-Koordinate Versickerungsstelle\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"verfuegt-die-kleinklaeranlage-ueber-eine-versickerung\"|answer != \"verfuegt-die-kleinklaeranlage-ueber-eine-versickerung-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "y-koordinate-einleitstelle",
+    "fields": {
+      "created_at": "2026-08-11T13:17:14.427Z",
+      "modified_at": "2026-08-11T13:27:45.326Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"y-Koordinate Einleitstelle\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter\"|answer != \"verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "y-koordinate-versickerungsstelle",
+    "fields": {
+      "created_at": "2026-08-11T13:18:50.331Z",
+      "modified_at": "2026-08-11T13:28:35.762Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"y-Koordinate Versickerungsstelle\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"verfuegt-die-kleinklaeranlage-ueber-eine-versickerung\"|answer != \"verfuegt-die-kleinklaeranlage-ueber-eine-versickerung-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "zimmer-pro-wohnung",
     "fields": {
       "created_at": "2026-06-05T11:02:48.363Z",
@@ -15206,6 +16007,66 @@
       "modified_by_group": null,
       "question": "bestaetigung-komplett",
       "option": "bestaetigung-komplett-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besteht-ein-abnahmevertrag-mit-gemeindeabwasserverband.besteht-ein-abnahmevertrag-mit-gemeindeabwasserverband-ja",
+    "fields": {
+      "created_at": "2026-08-11T13:12:45.028Z",
+      "modified_at": "2026-08-11T13:12:45.028Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "besteht-ein-abnahmevertrag-mit-gemeindeabwasserverband",
+      "option": "besteht-ein-abnahmevertrag-mit-gemeindeabwasserverband-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besteht-ein-abnahmevertrag-mit-gemeindeabwasserverband.besteht-ein-abnahmevertrag-mit-gemeindeabwasserverband-nein",
+    "fields": {
+      "created_at": "2026-08-11T13:12:45.026Z",
+      "modified_at": "2026-08-11T13:12:45.026Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "besteht-ein-abnahmevertrag-mit-gemeindeabwasserverband",
+      "option": "besteht-ein-abnahmevertrag-mit-gemeindeabwasserverband-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besteht-eine-landwirtschaftliche-verwertung.besteht-eine-landwirtschaftliche-verwertung-ja",
+    "fields": {
+      "created_at": "2026-08-11T13:13:12.370Z",
+      "modified_at": "2026-08-11T13:13:12.370Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "besteht-eine-landwirtschaftliche-verwertung",
+      "option": "besteht-eine-landwirtschaftliche-verwertung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besteht-eine-landwirtschaftliche-verwertung.besteht-eine-landwirtschaftliche-verwertung-nein",
+    "fields": {
+      "created_at": "2026-08-11T13:13:12.367Z",
+      "modified_at": "2026-08-11T13:13:12.367Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "besteht-eine-landwirtschaftliche-verwertung",
+      "option": "besteht-eine-landwirtschaftliche-verwertung-nein",
       "sort": 1
     }
   },
@@ -16578,8 +17439,8 @@
     "model": "caluma_form.questionoption",
     "pk": "umgang-mit-regenabwasser.umgang-mit-regenabwasser-einleitung-gewaesser",
     "fields": {
-      "created_at": "2026-05-20T07:13:09.124Z",
-      "modified_at": "2026-05-20T07:13:09.124Z",
+      "created_at": "2026-08-11T13:05:31.715Z",
+      "modified_at": "2026-08-11T13:05:31.715Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -16593,8 +17454,8 @@
     "model": "caluma_form.questionoption",
     "pk": "umgang-mit-regenabwasser.umgang-mit-regenabwasser-einleitung-mischabwasserkanalisation",
     "fields": {
-      "created_at": "2026-05-20T07:13:09.118Z",
-      "modified_at": "2026-05-20T07:13:09.118Z",
+      "created_at": "2026-08-11T13:05:31.714Z",
+      "modified_at": "2026-08-11T13:05:31.714Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -16608,8 +17469,8 @@
     "model": "caluma_form.questionoption",
     "pk": "umgang-mit-regenabwasser.umgang-mit-regenabwasser-einleitung-regenabwasserkanalisation",
     "fields": {
-      "created_at": "2026-05-20T07:13:09.130Z",
-      "modified_at": "2026-05-20T07:13:09.130Z",
+      "created_at": "2026-08-11T13:05:31.716Z",
+      "modified_at": "2026-08-11T13:05:31.716Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -16623,8 +17484,8 @@
     "model": "caluma_form.questionoption",
     "pk": "umgang-mit-regenabwasser.umgang-mit-regenabwasser-versickerung",
     "fields": {
-      "created_at": "2026-05-20T07:13:09.134Z",
-      "modified_at": "2026-05-20T07:13:09.134Z",
+      "created_at": "2026-08-11T13:05:31.716Z",
+      "modified_at": "2026-08-11T13:05:31.716Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -16638,8 +17499,8 @@
     "model": "caluma_form.questionoption",
     "pk": "umgang-mit-schmutzabwasser.umgang-mit-schmutzabwasser-abflusslose-grube",
     "fields": {
-      "created_at": "2026-05-20T07:14:24.128Z",
-      "modified_at": "2026-05-20T07:14:24.128Z",
+      "created_at": "2026-08-11T12:56:53.265Z",
+      "modified_at": "2026-08-11T12:56:53.265Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -16653,8 +17514,8 @@
     "model": "caluma_form.questionoption",
     "pk": "umgang-mit-schmutzabwasser.umgang-mit-schmutzabwasser-einleitung-schmutz-mischabwasserkanalisation",
     "fields": {
-      "created_at": "2026-05-20T07:14:24.134Z",
-      "modified_at": "2026-05-20T07:14:24.134Z",
+      "created_at": "2026-08-11T12:56:53.266Z",
+      "modified_at": "2026-08-11T12:56:53.266Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -16668,8 +17529,8 @@
     "model": "caluma_form.questionoption",
     "pk": "umgang-mit-schmutzabwasser.umgang-mit-schmutzabwasser-kleinklaeranlage",
     "fields": {
-      "created_at": "2026-05-20T07:14:24.131Z",
-      "modified_at": "2026-05-20T07:14:24.131Z",
+      "created_at": "2026-08-11T12:56:53.266Z",
+      "modified_at": "2026-08-11T12:56:53.266Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -16722,6 +17583,66 @@
       "question": "ummantelung",
       "option": "ummantelung-ummauerung",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter.verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter-ja",
+    "fields": {
+      "created_at": "2026-08-11T13:16:16.753Z",
+      "modified_at": "2026-08-11T13:16:16.753Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter",
+      "option": "verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter.verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter-nein",
+    "fields": {
+      "created_at": "2026-08-11T13:16:16.752Z",
+      "modified_at": "2026-08-11T13:16:16.752Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter",
+      "option": "verfuegt-die-kleinklaeranlage-ueber-einen-vorfluter-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verfuegt-die-kleinklaeranlage-ueber-eine-versickerung.verfuegt-die-kleinklaeranlage-ueber-eine-versickerung-ja",
+    "fields": {
+      "created_at": "2026-08-11T13:18:27.661Z",
+      "modified_at": "2026-08-11T13:18:27.661Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "verfuegt-die-kleinklaeranlage-ueber-eine-versickerung",
+      "option": "verfuegt-die-kleinklaeranlage-ueber-eine-versickerung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verfuegt-die-kleinklaeranlage-ueber-eine-versickerung.verfuegt-die-kleinklaeranlage-ueber-eine-versickerung-nein",
+    "fields": {
+      "created_at": "2026-08-11T13:18:27.659Z",
+      "modified_at": "2026-08-11T13:18:27.659Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "verfuegt-die-kleinklaeranlage-ueber-eine-versickerung",
+      "option": "verfuegt-die-kleinklaeranlage-ueber-eine-versickerung-nein",
+      "sort": 1
     }
   },
   {
