@@ -9,6 +9,7 @@ import pyexcel
 import pytest
 from caluma.caluma_form.models import Form, Option
 from django.urls import reverse
+from django.utils.translation import gettext
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
@@ -436,6 +437,11 @@ def test_rpg2_export(
 ):
     """The rpg2 export returns one row per dossier with rpg2 form data."""
     rpg2_data(statistics_ag_instance_afb)
+    form_utils.add_answer(
+        statistics_ag_instance_afb.case.document,
+        "gis-map",
+        '{"markers": [{"x": 2640123.45, "y": 1240678.9}]}',
+    )
 
     inquiry = (
         Inquiry.objects.for_instance(statistics_ag_instance_afb)
@@ -461,7 +467,8 @@ def test_rpg2_export(
     sheet = book.get_dict()["Dossiers"]
 
     assert len(sheet) == 2  # header + 1 data row
-    assert len(sheet[0]) == 9
+    assert len(sheet[0]) == 11
+    assert sheet[0][-2:] == [gettext("X coordinate"), gettext("Y coordinate")]
 
     legal_basis_label = str(Option.objects.get(pk="rpg2-bewilligungsgrund-a01").label)
 
@@ -473,6 +480,7 @@ def test_rpg2_export(
     assert data_row[6] == "Ja"  # decision is APPROVED
     assert data_row[7] == "Ja"  # positive AfB inquiry
     assert data_row[8] == "Ja"
+    assert data_row[9:] == [2640123.45, 1240678.9]
 
 
 EXPECTED_RPG2_AREAS_COLUMNS = 8

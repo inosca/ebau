@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-31 08:30+0200\n"
+"POT-Creation-Date: 2026-08-10 10:31+0200\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2162,6 +2162,14 @@ msgstr ""
 
 #: camac/settings/modules/statistics.py
 msgid "Realized"
+msgstr ""
+
+#: camac/settings/modules/statistics.py camac/statistics/tests/test_views.py
+msgid "X coordinate"
+msgstr ""
+
+#: camac/settings/modules/statistics.py camac/statistics/tests/test_views.py
+msgid "Y coordinate"
 msgstr ""
 
 #: camac/settings/modules/statistics.py
