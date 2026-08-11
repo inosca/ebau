@@ -3739,7 +3739,7 @@
       "modified_by_group": null,
       "form": "werbeanlagen-tabelle",
       "question": "werbeanlage-beschreibung",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -3774,6 +3774,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "werbeanlagen-tabelle.werbeanlage-farbe-logo",
+    "fields": {
+      "created_at": "2026-08-11T11:41:06.130Z",
+      "modified_at": "2026-08-11T11:41:06.130Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werbeanlagen-tabelle",
+      "question": "werbeanlage-farbe-logo",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "werbeanlagen-tabelle.werbeanlage-grundfarbe",
     "fields": {
       "created_at": "2026-06-15T09:21:28.932Z",
@@ -3784,7 +3799,7 @@
       "modified_by_group": null,
       "form": "werbeanlagen-tabelle",
       "question": "werbeanlage-grundfarbe",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -3849,21 +3864,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "werbeanlagen-tabelle.werbeanlage-logo-signet-foto",
-    "fields": {
-      "created_at": "2026-06-15T09:20:49.167Z",
-      "modified_at": "2026-06-15T09:20:49.167Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "werbeanlagen-tabelle",
-      "question": "werbeanlage-logo-signet-foto",
-      "sort": 19
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "werbeanlagen-tabelle.werbeanlage-masse-format",
     "fields": {
       "created_at": "2026-06-15T09:21:15.034Z",
@@ -3874,15 +3874,15 @@
       "modified_by_group": null,
       "form": "werbeanlagen-tabelle",
       "question": "werbeanlage-masse-format",
-      "sort": 17
+      "sort": 18
     }
   },
   {
     "model": "caluma_form.formquestion",
     "pk": "werbeanlagen-tabelle.werbeanlage-material",
     "fields": {
-      "created_at": "2026-06-15T09:22:25.273Z",
-      "modified_at": "2026-06-15T09:22:25.273Z",
+      "created_at": "2026-08-11T11:42:57.095Z",
+      "modified_at": "2026-08-11T11:42:57.095Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -3919,7 +3919,7 @@
       "modified_by_group": null,
       "form": "werbeanlagen-tabelle",
       "question": "werbeanlage-schriftfarbe",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -7164,108 +7164,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "werbeanlage-logo-signet-foto-ja",
-    "fields": {
-      "created_at": "2026-06-15T09:20:48.862Z",
-      "modified_at": "2026-06-15T09:20:48.862Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "werbeanlage-logo-signet-foto-nein",
-    "fields": {
-      "created_at": "2026-06-15T09:20:48.870Z",
-      "modified_at": "2026-06-15T09:20:48.870Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "werbeanlage-material-aluminium",
-    "fields": {
-      "created_at": "2026-06-15T09:22:24.910Z",
-      "modified_at": "2026-06-15T09:22:24.910Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Aluminium\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "werbeanlage-material-holz",
-    "fields": {
-      "created_at": "2026-06-15T09:22:24.959Z",
-      "modified_at": "2026-06-15T09:22:24.959Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Holz\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "werbeanlage-material-kunststoff",
-    "fields": {
-      "created_at": "2026-06-15T09:22:24.915Z",
-      "modified_at": "2026-06-15T09:22:24.915Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Kunststoff\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "werbeanlage-material-metall",
-    "fields": {
-      "created_at": "2026-06-15T09:22:24.909Z",
-      "modified_at": "2026-06-15T09:22:24.909Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Metall\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -13369,15 +13267,49 @@
     "pk": "werbeanlage-dimmbar-von-bis",
     "fields": {
       "created_at": "2026-06-15T09:28:04.940Z",
-      "modified_at": "2026-06-15T09:28:04.940Z",
+      "modified_at": "2026-08-11T11:44:45.604Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dimmbar Uhrzeit (von-bis)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"werbeanlage-dimmbar\"|answer != \"werbeanlage-dimmbar-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werbeanlage-farbe-logo",
+    "fields": {
+      "created_at": "2026-08-11T11:41:06.086Z",
+      "modified_at": "2026-08-11T11:41:06.086Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Dimmbar (von-bis)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Farbe Logo/Signet\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "\"werbeanlage-dimmbar\"|answer != \"werbeanlage-dimmbar-ja\"",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -13570,37 +13502,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "werbeanlage-logo-signet-foto",
-    "fields": {
-      "created_at": "2026-06-15T09:20:49.007Z",
-      "modified_at": "2026-06-15T09:20:49.007Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Zeigt die Werbeanlage ein Logo, Signet oder ein Foto?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "werbeanlage-masse-format",
     "fields": {
       "created_at": "2026-06-15T09:21:14.910Z",
@@ -13637,14 +13538,14 @@
     "model": "caluma_form.question",
     "pk": "werbeanlage-material",
     "fields": {
-      "created_at": "2026-06-15T09:22:25.092Z",
-      "modified_at": "2026-06-15T09:22:25.092Z",
+      "created_at": "2026-08-11T11:42:57.053Z",
+      "modified_at": "2026-08-11T11:42:57.053Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Material\", \"fr\": null, \"it\": null}",
-      "type": "choice",
+      "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
@@ -13652,7 +13553,10 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -17273,96 +17177,6 @@
       "question": "werbeanlage-dimmbar",
       "option": "werbeanlage-dimmbar-nein",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "werbeanlage-logo-signet-foto.werbeanlage-logo-signet-foto-ja",
-    "fields": {
-      "created_at": "2026-06-15T09:20:49.026Z",
-      "modified_at": "2026-06-15T09:20:49.026Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "werbeanlage-logo-signet-foto",
-      "option": "werbeanlage-logo-signet-foto-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "werbeanlage-logo-signet-foto.werbeanlage-logo-signet-foto-nein",
-    "fields": {
-      "created_at": "2026-06-15T09:20:49.016Z",
-      "modified_at": "2026-06-15T09:20:49.016Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "werbeanlage-logo-signet-foto",
-      "option": "werbeanlage-logo-signet-foto-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "werbeanlage-material.werbeanlage-material-aluminium",
-    "fields": {
-      "created_at": "2026-06-15T09:22:25.109Z",
-      "modified_at": "2026-06-15T09:22:25.109Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "werbeanlage-material",
-      "option": "werbeanlage-material-aluminium",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "werbeanlage-material.werbeanlage-material-holz",
-    "fields": {
-      "created_at": "2026-06-15T09:22:25.100Z",
-      "modified_at": "2026-06-15T09:22:25.100Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "werbeanlage-material",
-      "option": "werbeanlage-material-holz",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "werbeanlage-material.werbeanlage-material-kunststoff",
-    "fields": {
-      "created_at": "2026-06-15T09:22:25.105Z",
-      "modified_at": "2026-06-15T09:22:25.105Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "werbeanlage-material",
-      "option": "werbeanlage-material-kunststoff",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "werbeanlage-material.werbeanlage-material-metall",
-    "fields": {
-      "created_at": "2026-06-15T09:22:25.114Z",
-      "modified_at": "2026-06-15T09:22:25.114Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "werbeanlage-material",
-      "option": "werbeanlage-material-metall",
-      "sort": 4
     }
   },
   {
