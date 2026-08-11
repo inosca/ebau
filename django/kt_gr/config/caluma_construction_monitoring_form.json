@@ -1553,23 +1553,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "construction-step-kanalisationsabnahme-is-approved-no-accepted-deviations",
-    "fields": {
-      "created_at": "2026-05-21T11:09:36.096Z",
-      "modified_at": "2026-05-21T11:09:36.096Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein (Abweichungen sind akzeptiert)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "construction-step-kanalisationsabnahme-is-approved-yes",
     "fields": {
       "created_at": "2024-01-17T09:00:35.160Z",
@@ -1697,7 +1680,24 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Nein (Abnahme mit Abweichungen)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Nein (Abnahme mit Abweichungen, Rückweisung an Gesuchstellende)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schlussabnahme-gebaeude-is-approved-no-accepted-deviations",
+    "fields": {
+      "created_at": "2026-05-21T11:09:36.096Z",
+      "modified_at": "2026-05-21T11:09:36.096Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein (Abweichungen sind akzeptiert)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -1757,23 +1757,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "construction-step-schlussabnahme-projekt-is-approved-nachkontrolle",
-    "fields": {
-      "created_at": "2024-05-15T15:40:57.481Z",
-      "modified_at": "2024-05-15T15:40:57.481Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nachkontrolle notwendig\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "construction-step-schlussabnahme-projekt-is-approved-no",
     "fields": {
       "created_at": "2024-01-17T09:57:45.158Z",
@@ -1782,7 +1765,24 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Nein (Abnahme mit Abweichungen)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Nein (Abnahme mit Abweichungen, Rückweisung an Gesuchstellende)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schlussabnahme-projekt-is-approved-no-accepted-deviations",
+    "fields": {
+      "created_at": "2024-05-15T15:40:57.481Z",
+      "modified_at": "2024-05-15T15:40:57.481Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein (Abweichungen sind akzeptiert)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -1851,23 +1851,6 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein (Abnahme mit Abweichungen, Rückweisung an Gesuchstellende)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "construction-step-schnurgeruestabnahme-is-approved-no-accepted-deviations",
-    "fields": {
-      "created_at": "2026-05-21T11:07:57.242Z",
-      "modified_at": "2026-05-21T11:08:10.553Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein (Abweichungen sind akzeptiert)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -2657,7 +2640,7 @@
     "pk": "construction-step-kanalisationsabnahme-is-approved",
     "fields": {
       "created_at": "2024-01-17T09:00:35.247Z",
-      "modified_at": "2026-05-21T11:10:29.369Z",
+      "modified_at": "2026-08-04T13:23:59Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -2672,9 +2655,7 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "approved-answers": ["yes", "no-accepted-deviations"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -3107,7 +3088,9 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "approved-answers": ["yes", "no-accepted-deviations"]
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -3340,7 +3323,9 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "approved-answers": ["yes", "no-accepted-deviations"]
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -3558,7 +3543,7 @@
     "pk": "construction-step-schnurgeruestabnahme-is-approved",
     "fields": {
       "created_at": "2024-01-17T09:23:04.826Z",
-      "modified_at": "2026-05-21T11:17:36.820Z",
+      "modified_at": "2026-08-04T13:23:59Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -3573,9 +3558,7 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "approved-answers": ["yes", "no-accepted-deviations"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -4038,8 +4021,8 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-step-kanalisationsabnahme-is-approved.construction-step-kanalisationsabnahme-is-approved-no",
     "fields": {
-      "created_at": "2026-05-21T11:10:29.372Z",
-      "modified_at": "2026-05-21T11:10:29.372Z",
+      "created_at": "2026-08-04T13:23:59Z",
+      "modified_at": "2026-08-04T13:23:59Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -4051,32 +4034,17 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "construction-step-kanalisationsabnahme-is-approved.construction-step-kanalisationsabnahme-is-approved-no-accepted-deviations",
-    "fields": {
-      "created_at": "2026-05-21T11:10:29.374Z",
-      "modified_at": "2026-05-21T11:10:29.374Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "construction-step-kanalisationsabnahme-is-approved",
-      "option": "construction-step-kanalisationsabnahme-is-approved-no-accepted-deviations",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "construction-step-kanalisationsabnahme-is-approved.construction-step-kanalisationsabnahme-is-approved-yes",
     "fields": {
-      "created_at": "2026-05-21T11:10:29.375Z",
-      "modified_at": "2026-05-21T11:10:29.375Z",
+      "created_at": "2026-08-04T13:23:59Z",
+      "modified_at": "2026-08-04T13:23:59Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-step-kanalisationsabnahme-is-approved",
       "option": "construction-step-kanalisationsabnahme-is-approved-yes",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -4156,6 +4124,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "construction-step-schlussabnahme-gebaeude-is-approved.construction-step-schlussabnahme-gebaeude-is-approved-no-accepted-deviations",
+    "fields": {
+      "created_at": "2026-05-21T11:10:29.374Z",
+      "modified_at": "2026-05-21T11:10:29.374Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "construction-step-schlussabnahme-gebaeude-is-approved",
+      "option": "construction-step-schlussabnahme-gebaeude-is-approved-no-accepted-deviations",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "construction-step-schlussabnahme-gebaeude-is-approved.construction-step-schlussabnahme-gebaeude-is-approved-yes",
     "fields": {
       "created_at": "2024-02-05T12:25:46.289Z",
@@ -4166,7 +4149,7 @@
       "modified_by_group": null,
       "question": "construction-step-schlussabnahme-gebaeude-is-approved",
       "option": "construction-step-schlussabnahme-gebaeude-is-approved-yes",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -4186,21 +4169,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "construction-step-schlussabnahme-projekt-is-approved.construction-step-schlussabnahme-projekt-is-approved-nachkontrolle",
-    "fields": {
-      "created_at": "2024-08-22T09:34:37.060Z",
-      "modified_at": "2024-08-22T09:34:37.060Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "construction-step-schlussabnahme-projekt-is-approved",
-      "option": "construction-step-schlussabnahme-projekt-is-approved-nachkontrolle",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "construction-step-schlussabnahme-projekt-is-approved.construction-step-schlussabnahme-projekt-is-approved-no",
     "fields": {
       "created_at": "2024-08-22T09:34:37.064Z",
@@ -4211,6 +4179,21 @@
       "modified_by_group": null,
       "question": "construction-step-schlussabnahme-projekt-is-approved",
       "option": "construction-step-schlussabnahme-projekt-is-approved-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-schlussabnahme-projekt-is-approved.construction-step-schlussabnahme-projekt-is-approved-no-accepted-deviations",
+    "fields": {
+      "created_at": "2024-08-22T09:34:37.060Z",
+      "modified_at": "2024-08-22T09:34:37.060Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "construction-step-schlussabnahme-projekt-is-approved",
+      "option": "construction-step-schlussabnahme-projekt-is-approved-no-accepted-deviations",
       "sort": 2
     }
   },
@@ -4248,8 +4231,8 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-step-schnurgeruestabnahme-is-approved.construction-step-schnurgeruestabnahme-is-approved-no",
     "fields": {
-      "created_at": "2026-05-21T11:17:36.824Z",
-      "modified_at": "2026-05-21T11:17:36.824Z",
+      "created_at": "2026-08-04T13:23:59Z",
+      "modified_at": "2026-08-04T13:23:59Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -4261,32 +4244,17 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "construction-step-schnurgeruestabnahme-is-approved.construction-step-schnurgeruestabnahme-is-approved-no-accepted-deviations",
-    "fields": {
-      "created_at": "2026-05-21T11:17:36.825Z",
-      "modified_at": "2026-05-21T11:17:36.825Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "construction-step-schnurgeruestabnahme-is-approved",
-      "option": "construction-step-schnurgeruestabnahme-is-approved-no-accepted-deviations",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "construction-step-schnurgeruestabnahme-is-approved.construction-step-schnurgeruestabnahme-is-approved-yes",
     "fields": {
-      "created_at": "2026-05-21T11:17:36.825Z",
-      "modified_at": "2026-05-21T11:17:36.825Z",
+      "created_at": "2026-08-04T13:23:59Z",
+      "modified_at": "2026-08-04T13:23:59Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-step-schnurgeruestabnahme-is-approved",
       "option": "construction-step-schnurgeruestabnahme-is-approved-yes",
-      "sort": 3
+      "sort": 2
     }
   },
   {
