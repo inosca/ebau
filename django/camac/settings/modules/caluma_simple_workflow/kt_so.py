@@ -61,7 +61,6 @@ SO_CALUMA_SIMPLE_WORKFLOW_SETTINGS = CalumaSimpleWorkflowConfig(
         "fill-additional-demand": {
             "completed": [
                 EventConfig(
-                    ech_event="camac.ech0211.signals.file_subsequently",
                     notifications=[
                         NotificationConfig(
                             template_slug="nachforderung-beantwortet",
