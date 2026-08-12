@@ -533,14 +533,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_submit_gr(self, case, user, prev_work_item, context):
         tasks = ["create-manual-workitems", "formal-exam", "init-additional-demand"]
 
-        # todo: once withdrawal light is activated this part can be removed again.
-        if (
-            is_module_enabled("WITHDRAWAL")
-            and settings.WITHDRAWAL["TYPE"] == "light"
-            and case.instance.involved_applicants.exists()
-        ):  # pragma: no cover
-            tasks.append("withdrawal-request")
-
         if can_perform_construction_monitoring(case.instance):
             tasks.append("init-construction-monitoring")
 
