@@ -2026,6 +2026,11 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("SUBMITTED_PLANS")],
         description=_("All submitted plans"),
     )
+    dokumente_nachforderungen = fields.AlexandriaDocumentField(
+        category="nachforderung",
+        aliases=[_("ADDITIONAL_DEMAND_DOCUMENTS")],
+        description=_("All documents from additional demands"),
+    )
     nutzungsplanung_grundnutzung = fields.MasterDataField(
         source="land_use_planning_land_use",
         aliases=[_("LAND_USE_PLANNING_LAND_USE")],
