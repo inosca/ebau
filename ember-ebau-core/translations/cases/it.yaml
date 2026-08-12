@@ -216,8 +216,8 @@ cases:
       success: "La domanda è stata creata con successo."
 
   copy:
-    title: “Copia il link negli appunti”.
-    success: “Il link è stato copiato negli appunti”.
+    title: "Copia il link negli appunti"
+    success: "Il link è stato copiato negli appunti"
 
   instanceMarks:
     save:
