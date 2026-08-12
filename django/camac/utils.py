@@ -396,6 +396,14 @@ def not_send_for_migrated_publications(work_item) -> bool:
     return not work_item.case.meta.get("migrated-publication", False)
 
 
+def send_only_for_oereb_dossiers(work_item) -> bool:
+    # UR: Check if it's an oereb form.
+    return work_item.case.document.form.slug in [
+        "oereb-verfahren",
+        "oereb-verfahren-gemeinde",
+    ]
+
+
 def retry(fn, number_of_tries=2, sleep_between_tries=0):
     """Retry the given function a given amount of times.
 

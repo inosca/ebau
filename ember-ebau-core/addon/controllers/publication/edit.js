@@ -13,9 +13,15 @@ import mainConfig from "ember-ebau-core/config/main";
 import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.graphql";
 import getPublication from "ember-ebau-core/gql/queries/get-publication.graphql";
 import getPublications from "ember-ebau-core/gql/queries/get-publications.graphql";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 
 const getAnswerString = (edges, slug) =>
   edges?.find((answer) => answer.node.question.slug === slug)?.node.value;
+
+const OEREB_FORM_SLUGS = new Set([
+  "oereb-verfahren",
+  "oereb-verfahren-gemeinde",
+]);
 
 export default class PublicationEditController extends Controller {
   @service emailNotification;
@@ -114,7 +120,28 @@ export default class PublicationEditController extends Controller {
         },
       });
 
+      if (isApplication("ur")) {
+        // In UR there are special recipients for the cancellation of OEREB dossiers
+        const formSlug = this.publication.value.case.family.document.form.slug;
+        const isOerebForm = OEREB_FORM_SLUGS.has(formSlug);
+
+        const { cancelNotification, cancelNotificationOereb } =
+          mainConfig.publication;
+
+        const activeNotification = isOerebForm
+          ? cancelNotificationOereb
+          : cancelNotification;
+
+        if (activeNotification) {
+          yield this.emailNotification.send(
+            this.model.instanceId,
+            activeNotification.templateSlug,
+            activeNotification.recipientTypes,
+          );
+        }
+      }
       const notification = mainConfig.publication.cancelNotification;
+
       if (notification) {
         yield this.emailNotification.send(
           this.model.instanceId,
