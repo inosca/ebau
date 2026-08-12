@@ -23,87 +23,117 @@
         @color="primary"
         @disabled={{not this.selectedSearchResult}}
         @label={{t "gis.select"}}
-        @onClick={{fn
-          this.setPoint
-          this.selectedSearchResult.value.lat
-          this.selectedSearchResult.value.lng
-        }}
+        @onClick={{this.addSearchResultMarker}}
       />
     </div>
   </div>
 {{/unless}}
 
-<LeafletMap
-  @lat={{this.center.lat}}
-  @lng={{this.center.lng}}
-  @zoom={{this.zoom}}
-  @minZoom={{this.zoomMin}}
-  @maxZoom={{this.zoomMax}}
-  @onClick={{this.setMapPoint}}
-  @onLoad={{this.initMap}}
-  @crs={{this.crs}}
-  class="uk-width-1-1 uk-height-large uk-margin"
-  data-test-map
-  as |map|
->
-  <map.tile
-    @url="{{macroGetOwnConfig
-      'soGisUrl'
-    }}/api/wmts/1.0.0/ch.so.agi.hintergrundkarte_sw/default/2056/{z}/{y}/{x}"
-  />
-  <map.wms-tile
-    @transparent={{true}}
-    @format="image/png"
-    @version="1.3.0"
-    @layers="ch.so.agi.av.gebaeudeadressen.gebaeudeeingaenge,ch.so.arp.nutzungsplanung.grundnutzung"
-    @url="{{macroGetOwnConfig 'soGisUrl'}}/api/wms"
-  />
-  {{#if this.point}}
-    <map.marker @lat={{this.point.lat}} @lng={{this.point.lng}} />
-  {{/if}}
-</LeafletMap>
+<div class="map uk-margin-small-top">
+  {{#unless @disabled}}
+    {{#if this.showGeometrySwitch}}
+      <div class="leaflet-touch">
+        <div class="draw-polygon-line leaflet-touch leaflet-bar">
+          <button
+            class="polygon-icon {{if this.isPolygon 'is-active'}}"
+            type="button"
+            {{on "click" (fn this.setGeometry "POLYGON")}}
+          ><FaIcon @icon="draw-polygon" @size="1x" /></button>
+
+          <button
+            type="button"
+            class="line-icon {{unless this.isPolygon 'is-active'}}"
+            {{on "click" (fn this.setGeometry "LINESTRING")}}
+          ><FaIcon @icon="minus" @size="1x" /></button>
+        </div>
+      </div>
+    {{/if}}
+  {{/unless}}
+
+  <div class="map-wrapper">
+    <LeafletMap
+      @lat={{this.center.lat}}
+      @lng={{this.center.lng}}
+      @zoom={{this.zoom}}
+      @minZoom={{this.zoomMin}}
+      @maxZoom={{this.zoomMax}}
+      @onClick={{unless @disabled this.setMapPoint}}
+      @onLoad={{this.initMap}}
+      @crs={{this.crs}}
+      class="uk-width-1-1 uk-height-large uk-margin"
+      data-test-map
+      as |map|
+    >
+      <map.tile
+        @url="{{macroGetOwnConfig
+          'soGisUrl'
+        }}/api/wmts/1.0.0/ch.so.agi.hintergrundkarte_sw/default/2056/{z}/{y}/{x}"
+      />
+      <map.wms-tile
+        @transparent={{true}}
+        @format="image/png"
+        @version="1.3.0"
+        @layers="ch.so.agi.av.gebaeudeadressen.gebaeudeeingaenge,ch.so.arp.nutzungsplanung.grundnutzung"
+        @url="{{macroGetOwnConfig 'soGisUrl'}}/api/wms"
+      />
+
+      {{#each this.markers as |point index|}}
+        <map.marker
+          @lat={{point.lat}}
+          @lng={{point.lng}}
+          @draggable={{not @disabled}}
+          @onDragend={{fn this.updateDragged index}}
+        />
+      {{/each}}
+
+      {{#if this.isPolygon}}
+        <map.polygon @locations={{this.markers}} @color="red" />
+      {{else if (gt this.markers.length 1)}}
+        <map.polyline @locations={{this.markers}} @color="red" />
+      {{/if}}
+    </LeafletMap>
+
+    {{#unless @disabled}}
+      <div class="reset-button">
+        {{#if this.showResetButton}}
+          <UkButton @onClick={{this.resetMarkers}}><FaIcon
+              @icon="rotate-left"
+              @size="1x"
+            />
+            {{t "gis.reset"}}</UkButton>
+        {{/if}}
+      </div>
+    {{/unless}}
+  </div>
+</div>
 
 <div class="uk-grid uk-grid-small uk-child-width-1-3">
   <div>
     {{#unless @disabled}}
       <GisApplyButton
         @document={{@field.document}}
-        @disabled={{not this.point}}
-        @params={{hash x=this.point.x y=this.point.y applied="ja"}}
+        @disabled={{not this.markers.length}}
+        @params={{hash query=this.query applied="ja"}}
         @instanceId={{@context.instanceId}}
+        @onApplied={{this.markApplied}}
       />
     {{/unless}}
   </div>
 
   <div class="uk-flex uk-flex-middle">
-    {{#if this.point}}
+    {{#if this.centerCoordinate}}
       {{t "gis.centeredCoordinates"}}:
-      {{format-coordinate this.point}}
+      {{format-coordinate this.centerCoordinate}}
     {{/if}}
   </div>
 
   <div class="uk-flex uk-flex-column uk-flex-bottom uk-flex-center">
-    {{#if this.egrids.length}}
-      {{#each this.egrids as |egrid|}}
-        <p class="uk-margin-remove">
-          {{t "gis.oereb"}}
-          <a
-            href="{{macroGetOwnConfig 'soGisUrl'}}/map/?oereb_egrid={{egrid}}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{t "gis.gis-portal"}}
-          </a>
-          |
-          <a
-            href="{{macroGetOwnConfig
-              'soGisUrl'
-            }}/api/oereb/extract/pdf/?EGRID={{egrid}}"
-          >
-            {{t "gis.pdf"}}
-          </a>
-        </p>
-      {{/each}}
-    {{/if}}
+    <SoGis::OerebPlots @plots={{this.oerebPlots}} />
   </div>
 </div>
+{{#if this.isDirty}}
+  <div class="uk-alert-warning" uk-alert>
+    <button type="button" class="uk-alert-close" uk-close></button>
+    <p>{{t "gis.not-applied"}}</p>
+  </div>
+{{/if}}

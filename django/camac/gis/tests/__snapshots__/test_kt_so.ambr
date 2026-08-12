@@ -12,6 +12,11 @@
       'label': 'Elise Täsche',
       'value': 2601,
     }),
+    'gis-karte': dict({
+      'hidden': True,
+      'label': 'Magarete Gieß MBA.',
+      'value': '{"markers": [{"x": 2607345, "y": 1228110}], "geometry": "POINT"}',
+    }),
     'nutzungsplanung-grundnutzung': dict({
       'hidden': False,
       'label': 'Sinaida Siering-Christoph',
@@ -66,12 +71,12 @@
           'lagekoordinaten-nord': dict({
             'hidden': True,
             'label': 'Traugott Kaul',
-            'value': 1228110.0,
+            'value': 1228131.367,
           }),
           'lagekoordinaten-ost': dict({
             'hidden': True,
             'label': 'Ilona Henck B.Eng.',
-            'value': 2607345.0,
+            'value': 2607341.863,
           }),
           'parzellennummer': dict({
             'hidden': False,

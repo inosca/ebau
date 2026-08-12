@@ -1,0 +1,36 @@
+{{#if (gt @plots.length 1)}}
+  <div class="uk-margin-remove">
+    {{t "gis.oereb"}}
+    <button
+      type="button"
+      class="uk-button uk-button-link"
+      data-test-oereb-plots
+    >
+      {{t "gis.oereb-plot-count" count=@plots.length}}
+      <FaIcon @icon="chevron-down" @size="xs" />
+    </button>
+    <div
+      uk-dropdown="mode: click; pos: bottom-right"
+      class="uk-padding-small uk-width-medium uk-height-max-medium"
+      uk-overflow-auto
+    >
+      <ul class="uk-list uk-margin-remove oereb-plot-list">
+        {{#each @plots as |plot|}}
+          <li
+            class="uk-flex uk-flex-middle uk-flex-between"
+            title={{plot.egrid}}
+            data-test-oereb-plot
+          >
+            <span>{{t "gis.oereb-plot" number=plot.number}}</span>
+            <SoGis::OerebLinks @egrid={{plot.egrid}} />
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+{{else if @plots.length}}
+  <p class="uk-margin-remove" data-test-oereb-plot>
+    {{t "gis.oereb"}}
+    <SoGis::OerebLinks @egrid={{get @plots "0.egrid"}} />
+  </p>
+{{/if}}

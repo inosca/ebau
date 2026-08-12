@@ -1373,10 +1373,6 @@ msgstr "Cache für den Schlüssel %(key)s existiert nicht"
 msgid "Required parameter %(parameter)s was not passed"
 msgstr "Erforderlicher Parameter %(parameter)s wurde nicht übergeben"
 
-#: camac/gis/utils.py
-msgid "Coordinates must be floats"
-msgstr "Koordinaten müssen Gleitkommazahlen sein"
-
 #: camac/instance/document_merge_service.py
 msgid "Plots"
 msgstr "Parzelle(n)"

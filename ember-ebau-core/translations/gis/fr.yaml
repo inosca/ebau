@@ -26,3 +26,10 @@ gis:
     detail: "Valeur originale issue du SIG :"
     row-added: "{count, plural, one {# ligne ajoutée} other {# lignes ajoutées}}"
     row-removed: "{count, plural, one {# ligne supprimée} other {# lignes supprimées}}"
+
+  oereb-plot-count: ""
+  oereb-plot: ""
+  not-applied: ""
+  oereb: ""
+  gis-portal: ""
+  pdf: "PDF"

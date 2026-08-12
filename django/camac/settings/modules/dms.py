@@ -400,6 +400,7 @@ DMS = {
                     "dokumente",
                     "einreichen",
                     # Questions
+                    "gis-karte",
                     "is-paper",
                     "projektaenderung",
                     "nutzungsplanung-grundnutzung-kanton",

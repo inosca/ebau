@@ -11,6 +11,27 @@ from camac.gis_export.so_schema import (
 
 MODEL_TAG = re.compile(r"<ns\d+:(\w+)")
 
+# Point, line and polygon are a mutually exclusive choice: a Geschaeft carries
+# exactly one of them.
+GEOMETRY_VARIANTS = {"Geometrie_Punkt", "Geometrie_Linie", "Geometrie_Flaeche"}
+
+DRAWN_POINT = {
+    "markers": [{"x": 2607000.5, "y": 1228500.5}],
+    "geometry": "POINT",
+}
+DRAWN_LINE = {
+    "markers": [{"x": 2607000.5, "y": 1228500.5}, {"x": 2607100.5, "y": 1228600.5}],
+    "geometry": "LINESTRING",
+}
+DRAWN_POLYGON = {
+    "markers": [
+        {"x": 2607000.5, "y": 1228500.5},
+        {"x": 2607100.5, "y": 1228500.5},
+        {"x": 2607100.5, "y": 1228600.5},
+    ],
+    "geometry": "POLYGON",
+}
+
 
 def _export(sogis_client):
     """Run the endpoint and return the streamed XTF."""
@@ -52,12 +73,18 @@ def test_export_two_full_instances(
     sogis_client, instance_factory, instance_with_case, setup_so_instance, snapshot
 ):
     """Every attribute that has a Caluma source is answered."""
+    # `gis-karte` is a Caluma source too, so a full dossier draws a geometry.
     for number in ("2601-2026-1", "2601-2026-2"):
         setup_so_instance(
-            instance_with_case(instance_factory()), number, full=True, parcels=2
+            instance_with_case(instance_factory()),
+            number,
+            full=True,
+            parcels=2,
+            gis_karte=DRAWN_POLYGON,
         )
 
     xml = _export(sogis_client)
+    emitted = set(MODEL_TAG.findall(xml))
 
     assert xml.count("<ns2:Geschaeft ") == 2
     # Two parcels per dossier, one wrapper element each.
@@ -65,15 +92,41 @@ def test_export_two_full_instances(
 
     # A snapshot cannot see an attribute the regenerated bindings added but
     # nobody mapped, because the output simply stays the same. Compare
-    # against the schema instead.
+    # against the schema instead. The geometry variants are excluded: they are a
+    # mutually exclusive choice covered by test_export_emits_only_the_drawn_geometry.
     declared = {name.localName() for name in so_schema.GeschaeftType._ElementMap}
-    assert declared - set(MODEL_TAG.findall(xml)) == {
-        # The only two the mapping marks as not implemented.
-        "Geometrie_Linie",
-        "Geometrie_Flaeche",
-    }
+    assert declared - GEOMETRY_VARIANTS - emitted == set()
+    assert emitted & GEOMETRY_VARIANTS == {"Geometrie_Flaeche"}
 
-    snapshot.assert_match(sorted(set(MODEL_TAG.findall(xml))))
+    snapshot.assert_match(sorted(emitted))
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize(
+    ("gis_karte", "expected"),
+    [
+        (None, "Geometrie_Punkt"),  # no map answer: the plot-table fallback
+        (DRAWN_POINT, "Geometrie_Punkt"),
+        (DRAWN_LINE, "Geometrie_Linie"),
+        (DRAWN_POLYGON, "Geometrie_Flaeche"),
+    ],
+)
+def test_export_emits_only_the_drawn_geometry(
+    sogis_client,
+    instance_factory,
+    instance_with_case,
+    setup_so_instance,
+    gis_karte,
+    expected,
+):
+    """A dossier carries exactly one of point, line or polygon, never several."""
+    setup_so_instance(
+        instance_with_case(instance_factory()), "2601-2026-1", gis_karte=gis_karte
+    )
+
+    emitted = set(MODEL_TAG.findall(_export(sogis_client)))
+
+    assert emitted & GEOMETRY_VARIANTS == {expected}
 
 
 @pytest.mark.django_db
@@ -116,7 +169,7 @@ def test_export_reports_invalid_dossiers_but_delivers_the_valid_ones(
     assert len(errors) == 1
     message = errors[0].getMessage()
     assert "Gesuchsteller" in message
-    assert "no geometry set" in message
+    assert "no usable geometry" in message
     assert "BFSNr does not accept 99999" in message
 
     assert SOGISExport.objects.get(identifikator="2601-2026-0").exported_at is not None

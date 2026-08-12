@@ -1,3 +1,5 @@
+import json
+
 import pytest
 from django.conf import settings
 from django.utils.timezone import now
@@ -29,7 +31,7 @@ def test_sync_annotates_every_field(
 
     assert export.gesuchsteller["natuerliche_person"]["name"]
     assert export.gesuchsteller["adresse"]["ortschaft"]
-    assert export.geometrie_punkt == {"ost": "2607000.5", "nord": "1228500.5"}
+    assert export.plot_point == {"ost": "2607000.5", "nord": "1228500.5"}
     assert sorted(plot["nummer"] for plot in export.grundstuecke) == ["1234", "1235"]
     assert export.bauprojekt["beschreibung"] == "Neubau Mehrfamilienhaus"
     assert export.bauprojekt["bauwerk_art"] == ["Hochbaute", "Tiefbaute"]
@@ -52,6 +54,51 @@ def test_sync_annotates_every_field(
     assert export.entscheid["entscheid"] == "entscheid-entscheid-zustimmung"
     assert export.publikation["startdatum"]
     assert export.publikation["enddatum"]
+
+
+@pytest.mark.django_db
+def test_stores_the_drawn_geometry_and_the_plot_fallback(
+    instance_factory, instance_with_case, setup_so_instance
+):
+    """The formatter derives the geometry, so sync only has to store its inputs."""
+    drawn = {"markers": [{"x": 2600000.5, "y": 1200000.5}], "geometry": "POINT"}
+    setup_so_instance(
+        instance_with_case(instance_factory()), "2601-2026-1", gis_karte=drawn
+    )
+
+    SOGISExport.objects.sync()
+
+    export = SOGISExport.objects.get()
+    assert json.loads(export.gis_geometry) == drawn
+    # Kept even with a drawn geometry, so the two are hashed independently.
+    assert export.plot_point == {"ost": "2607000.5", "nord": "1228500.5"}
+
+
+@pytest.mark.django_db
+def test_stores_no_drawn_geometry_for_dossiers_predating_the_map(
+    instance_factory, instance_with_case, setup_so_instance
+):
+    setup_so_instance(instance_with_case(instance_factory()), "2601-2026-1", parcels=2)
+
+    SOGISExport.objects.sync()
+
+    export = SOGISExport.objects.get()
+    assert export.gis_geometry is None
+    assert export.plot_point == {"ost": "2607000.5", "nord": "1228500.5"}
+
+
+@pytest.mark.django_db
+def test_stores_an_unreadable_map_answer_verbatim(
+    instance_factory, instance_with_case, setup_so_instance
+):
+    """Parsing belongs to the formatter, where one bad dossier stays isolated."""
+    setup_so_instance(
+        instance_with_case(instance_factory()), "2601-2026-1", gis_karte="not json"
+    )
+
+    SOGISExport.objects.sync()
+
+    assert SOGISExport.objects.get().gis_geometry == "not json"
 
 
 @pytest.mark.django_db

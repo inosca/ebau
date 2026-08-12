@@ -24,13 +24,25 @@ def test_to_query():
     )
 
 
-def test_get_bbox():
-    assert utils.get_bbox(100.123, 200.234) == "100.123,200.234,100.123,200.234"
-    assert utils.get_bbox(100.123, 200.234, 50) == "75.123,175.234,125.123,225.234"
-    assert utils.get_bbox("1.1", "2.2") == "1.1,2.2,1.1,2.2"
+@pytest.mark.parametrize(
+    ("geometry_type", "markers", "expected"),
+    [
+        ("POINT", [(100.123, 200.234)], "Point"),
+        ("LINESTRING", [(0, 0), (10, 10)], "LineString"),
+        ("POLYGON", [(0, 0), (10, 0), (10, 10)], "Polygon"),
+    ],
+)
+def test_build_shape(geometry_type, markers, expected):
+    shape = utils.build_shape([{"x": x, "y": y} for x, y in markers], geometry_type)
 
-    with pytest.raises(ValueError, match="Koordinaten müssen Gleitkommazahlen sein"):
-        utils.get_bbox("abc", "def")
+    assert shape.geom_type == expected
+
+
+def test_buffered_spends_half_the_buffer_on_each_side():
+    point = utils.build_shape([{"x": 100.123, "y": 200.234}], "POINT")
+
+    assert utils.buffered(point).bounds == (100.123, 200.234, 100.123, 200.234)
+    assert utils.buffered(point, 50).bounds == (75.123, 175.234, 125.123, 225.234)
 
 
 def test_concat_values():

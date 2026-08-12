@@ -48,6 +48,9 @@ gis:
     row-added: "{count, plural, one {# Zeile} other {# Zeilen}} hinzugefügt"
     row-removed: "{count, plural, one {# Zeile} other {# Zeilen}} entfernt"
 
+  not-applied: "Die Änderungen auf der Karte wurden noch nicht übernommen."
   oereb: "ÖREB-Kataster:"
   gis-portal: "Geoportal"
   pdf: "PDF"
+  oereb-plot-count: "{count, plural, one {# Parzelle} other {# Parzellen}}"
+  oereb-plot: "Parzelle {number}"

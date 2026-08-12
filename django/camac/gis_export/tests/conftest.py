@@ -1,3 +1,4 @@
+import json
 from datetime import date
 
 import pytest
@@ -71,7 +72,9 @@ def setup_so_instance(  # noqa: C901
     ]
     distribution_service = access_level_factory(slug="distribution-service")
 
-    def setup(instance, dossier_number, *, full=False, parcels=2, buildings=2):
+    def setup(
+        instance, dossier_number, *, full=False, parcels=2, buildings=2, gis_karte=None
+    ):
         document = instance.case.document
 
         instance.instance_state = submitted
@@ -80,6 +83,14 @@ def setup_so_instance(  # noqa: C901
         instance.save()
 
         form_utils.add_answer(document, "gemeindenummer-bfs", 2601)
+
+        if gis_karte is not None:
+            # A str goes in verbatim so tests can produce an unreadable answer.
+            form_utils.add_answer(
+                document,
+                "gis-karte",
+                gis_karte if isinstance(gis_karte, str) else json.dumps(gis_karte),
+            )
 
         form_utils.add_table_answer(document, "parzellen", _parzellen_rows(parcels))
         form_utils.add_table_answer(

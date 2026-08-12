@@ -67,6 +67,15 @@
   position: relative;
 }
 
+.oereb-plot-list > li {
+  gap: 1rem;
+  white-space: nowrap;
+}
+
+.oereb-plot-list > li + li {
+  margin-top: 0.25rem;
+}
+
 .sg-gis-map {
   height: 600px;
 }

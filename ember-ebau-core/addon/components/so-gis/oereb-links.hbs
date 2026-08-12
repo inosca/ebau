@@ -1,0 +1,19 @@
+<span class="oereb-links">
+  <a
+    href="{{macroGetOwnConfig 'soGisUrl'}}/map/?oereb_egrid={{@egrid}}"
+    target="_blank"
+    rel="noopener noreferrer"
+    data-test-oereb-portal
+  >
+    {{t "gis.gis-portal"}}
+  </a>
+  |
+  <a
+    href="{{macroGetOwnConfig
+      'soGisUrl'
+    }}/api/oereb/extract/pdf/?EGRID={{@egrid}}"
+    data-test-oereb-pdf
+  >
+    {{t "gis.pdf"}}
+  </a>
+</span>

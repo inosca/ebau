@@ -1,3 +1,4 @@
+import json
 from collections.abc import Iterable
 from typing import Any, NamedTuple
 
@@ -19,6 +20,11 @@ SENDER = "eBauSO"
 
 _SO = so_schema.Namespace
 _ILI = INTERLIS.Namespace
+
+# The LV95 extent of Switzerland. The generated XSD dropped the domain from
+# `GeometryCHLV95_V2.coord` so the schema would serialize invalid coordinates.
+LV95_EAST = (2460000, 2870000)
+LV95_NORTH = (1045000, 1310000)
 
 
 def _child_type(parent_type: type, namespace: Namespace, local_name: str) -> type:
@@ -234,9 +240,52 @@ def _coordinates(data: dict[str, Any] | None) -> tuple[float, float] | None:
         return None
 
     try:
-        return float(data["ost"]), float(data["nord"])
+        east, north = float(data["ost"]), float(data["nord"])
     except (KeyError, TypeError, ValueError):
         return None
+
+    if not (
+        LV95_EAST[0] <= east <= LV95_EAST[1] and LV95_NORTH[0] <= north <= LV95_NORTH[1]
+    ):
+        return None
+
+    return east, north
+
+
+def _drawn_geometry(
+    export: SOGISExport,
+) -> tuple[str | None, list[dict[str, Any]]] | None:
+    """Return the geometry to export as `(type, points)`.
+
+    This will be 1:1 the json from the `gis-karte` answer unless the dossier
+    predates the multi point change. There, we return the annotated point
+    from the first entry of `parzellen` table.
+
+    Only a missing answer falls back that way. An answer that cannot be read is
+    a data problem for this dossier, so it yields nothing and gets reported
+    rather than exporting a point the user never drew.
+    """
+    if export.gis_geometry:
+        try:
+            drawn = json.loads(export.gis_geometry)
+        except json.JSONDecodeError:
+            return None
+
+        markers = drawn.get("markers") if isinstance(drawn, dict) else None
+
+        if not isinstance(markers, list) or not all(
+            isinstance(marker, dict) for marker in markers
+        ):
+            return None
+
+        return drawn.get("geometry"), [
+            {"ost": marker.get("x"), "nord": marker.get("y")} for marker in markers
+        ]
+
+    if export.plot_point:
+        return "POINT", [export.plot_point]
+
+    return None
 
 
 def _geometrie_punkt(
@@ -250,6 +299,65 @@ def _geometrie_punkt(
     coord = geometry.CoordType(c1=east, c2=north)
 
     return GeometryCHLV95_V2.MultiPoint(multicoord=geometry.MultiCoordType(coord=coord))
+
+
+def _coord_pairs(
+    data: list[dict[str, Any]] | None,
+) -> list[tuple[float, float]] | None:
+    """Return the points as float pairs, or None when any is unusable.
+
+    One unusable point would silently reshape the line or polygon, so the
+    whole geometry is dropped and reported rather than exported malformed.
+    """
+    if not data:
+        return None
+
+    pairs = []
+    for point in data:
+        coordinates = _coordinates(point)
+        if coordinates is None:
+            return None
+        pairs.append(coordinates)
+
+    return pairs
+
+
+def _polyline(pairs: list[tuple[float, float]]) -> geometry.PolylineType:
+    return geometry.PolylineType(
+        coord=[geometry.CoordType(c1=east, c2=north) for east, north in pairs]
+    )
+
+
+def _geometrie_linie(
+    data: list[dict[str, Any]] | None,
+) -> GeometryCHLV95_V2.MultiLine | None:
+    pairs = _coord_pairs(data)
+    if pairs is None or len(pairs) < 2:
+        return None
+
+    return GeometryCHLV95_V2.MultiLine(
+        multipolyline=geometry.MultiPolylineType(polyline=_polyline(pairs))
+    )
+
+
+def _geometrie_flaeche(
+    data: list[dict[str, Any]] | None,
+) -> GeometryCHLV95_V2.MultiSurface | None:
+    pairs = _coord_pairs(data)
+    if pairs is None or len(pairs) < 3:
+        return None
+
+    # An INTERLIS surface boundary is a closed ring, so the last coordinate has
+    # to return to the first.
+    ring = pairs if pairs[0] == pairs[-1] else [*pairs, pairs[0]]
+
+    return GeometryCHLV95_V2.MultiSurface(
+        multisurface=geometry.MultiSurfaceType(
+            surface=geometry.SurfaceType(
+                exterior=[geometry.BoundaryType(polyline=_polyline(ring))]
+            )
+        )
+    )
 
 
 def _grundstuecke(data: list[dict[str, Any]] | None) -> list[Any]:
@@ -348,6 +456,33 @@ def _zustaendige_personen(data: dict[str, Any] | None) -> Any | None:
     return ZUSTAENDIGE_PERSONEN_WRAPPER(Zustaendigkeit=_zustaendigkeit(data))
 
 
+def _geometrie(export: SOGISExport) -> tuple[str, Any]:
+    """Return the INTERLIS field and value for the dossier's geometry.
+
+    Exactly one of the three can apply. Raises rather than returning nothing, so
+    callers past `_validate` do not have to re-check what it already rejected.
+    """
+    match _drawn_geometry(export):
+        case "POINT", [point, *_]:
+            field, value = "Geometrie_Punkt", _geometrie_punkt(point)
+        case "LINESTRING", points:
+            field, value = "Geometrie_Linie", _geometrie_linie(points)
+        case "POLYGON", points:
+            field, value = "Geometrie_Flaeche", _geometrie_flaeche(points)
+        case _:
+            field, value = None, None
+
+    if field is None or value is None:
+        raise ExportValidationError(
+            f"no usable geometry in {export.gis_geometry!r} / "
+            f"{export.plot_point!r}, violating MANDATORY CONSTRAINT "
+            "DEFINED(Geometrie_Punkt) OR DEFINED(Geometrie_Linie) "
+            "OR DEFINED(Geometrie_Flaeche)"
+        )
+
+    return field, value
+
+
 def _validate(export: SOGISExport) -> None:
     """Check the .ili rules the generated XSD cannot express.
 
@@ -356,21 +491,10 @@ def _validate(export: SOGISExport) -> None:
     """
     errors = []
 
-    has_punkt = _coordinates(export.geometrie_punkt) is not None
-
-    # A point that lost one of its coordinates would silently drop out of the
-    # export, so report it instead of letting it count as "no point".
-    if export.geometrie_punkt and not has_punkt:
-        errors.append(
-            f"Geometrie_Punkt {export.geometrie_punkt!r} has no usable coordinates"
-        )
-
-    if not has_punkt and not export.geometrie_linie and not export.geometrie_flaeche:
-        errors.append(
-            "no geometry set, violating MANDATORY CONSTRAINT "
-            "DEFINED(Geometrie_Punkt) OR DEFINED(Geometrie_Linie) "
-            "OR DEFINED(Geometrie_Flaeche)"
-        )
+    try:
+        _geometrie(export)
+    except ExportValidationError as e:
+        errors.append(str(e))
 
     if _map_status(export.status) not in STATUS_VALUES:
         errors.append(f"Status {export.status!r} is not a Status_Geschaeft value")
@@ -407,11 +531,8 @@ def _build_geschaeft(export: SOGISExport, tid: str) -> so_schema.GeschaeftType:
     geschaeft.eBau_Link = export.ebau_link
     geschaeft.ausserhalb_Bauzone = export.ausserhalb_bauzone
 
-    geometrie_punkt = _geometrie_punkt(export.geometrie_punkt)
-    if geometrie_punkt is not None:
-        geschaeft.Geometrie_Punkt = geometrie_punkt
-
     for schema_field, value in (
+        _geometrie(export),
         (
             "Gesuchsteller",
             _person_adresse(GESUCHSTELLER_WRAPPER, export.gesuchsteller),

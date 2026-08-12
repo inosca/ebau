@@ -17,6 +17,7 @@ from django.db.models import (
     Manager,
     OuterRef,
     Q,
+    QuerySet,
     Subquery,
     Value,
     When,
@@ -579,13 +580,14 @@ class InstanceManagerSO(Manager["InstanceProxySO"]):
             )
         )
 
-    def annotate_geometrie_linie(self):
-        # Not yet implemented in form
-        return Value(None, output_field=models.JSONField())
+    def annotate_gis_geometry(self) -> QuerySet:
+        """Return the geometry drawn on the `gis-karte` map, as its raw answer.
 
-    def annotate_geometrie_flaeche(self):
-        # Not yet implemented in form
-        return Value(None, output_field=models.JSONField())
+        The so-gis widget persists it as a JSON string
+        `{"markers": [{"x", "y"}], "geometry": "POINT"|"LINESTRING"|"POLYGON"}`.
+        Dossiers created before the map stored its geometry have no such answer.
+        """
+        return caluma_answer("gis-karte")
 
     def annotate_ausserhalb_bauzone(self):
         return Case(
@@ -655,7 +657,8 @@ class InstanceManagerSO(Manager["InstanceProxySO"]):
     def annotate_gesuchsteller(self):
         return self._annotate_personen_adresse("bauherrin")
 
-    def annotate_geometrie_punkt(self):
+    def annotate_plot_point(self) -> Subquery:
+        """Return the clicked point, which older dossiers only have on their plots."""
         return Subquery(
             AnswerDocument.objects.filter(
                 answer__question_id="parzellen",
@@ -714,9 +717,8 @@ class InstanceManagerSO(Manager["InstanceProxySO"]):
                 zustaendige_person=self.annotate_zustaendige_person(),
                 ebau_link=self.annotate_ebau_link(),
                 lokalisation=self.annotate_lokalisation(),
-                geometrie_punkt=self.annotate_geometrie_punkt(),
-                geometrie_linie=self.annotate_geometrie_linie(),
-                geometrie_flaeche=self.annotate_geometrie_flaeche(),
+                gis_geometry=self.annotate_gis_geometry(),
+                plot_point=self.annotate_plot_point(),
             )
             .select_related("case", "case__document", "case__document__form")
             .only(
@@ -797,9 +799,8 @@ class InstanceProxySO(InstanceProxy, Instance):
         "zustaendige_person",
         "ebau_link",
         "lokalisation",
-        "geometrie_punkt",
-        "geometrie_linie",
-        "geometrie_flaeche",
+        "gis_geometry",
+        "plot_point",
     ]
     fields = ["instance_id", *fields_for_update]
 
@@ -949,9 +950,17 @@ class SOGISExport(GISExport):
     zustaendige_person = models.JSONField(blank=True, null=True)
     ebau_link = models.CharField()
     lokalisation = models.JSONField(blank=True, null=True)
-    geometrie_punkt = models.JSONField(blank=True, null=True)
-    geometrie_linie = models.JSONField(blank=True, null=True)
-    geometrie_flaeche = models.JSONField(blank=True, null=True)
+    # Every other column mirrors an attribute of the .ili `Geschaeft`, but
+    # `Geometrie_Punkt`, `Geometrie_Linie` and `Geometrie_Flaeche` deliberately
+    # have none. Deriving them in SQL meant re-inlining the `gis-karte` answer
+    # subquery ten times per row, once for every place a `Case` referenced it,
+    # and a malformed answer aborted the whole batch on the `::jsonb` cast.
+    #
+    # So we pass the raw `gis-karte` value to the formatter and the first
+    # plot in case the form is pre `gis-karte` refactoring.
+    gis_geometry = models.TextField(blank=True, null=True)
+    plot_point = models.JSONField(blank=True, null=True)
+
     exported_at = models.DateTimeField(blank=True, null=True, db_index=True)
 
     objects = SOGISExportManager()

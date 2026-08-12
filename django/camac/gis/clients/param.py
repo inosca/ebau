@@ -1,13 +1,18 @@
+from typing import TYPE_CHECKING, Any
+
 from camac.gis.clients.base import GISBaseClient
 from camac.gis.utils import cast
+
+if TYPE_CHECKING:  # pragma: no cover
+    from camac.gis.models import GISDataSource
 
 
 class ParamGisClient(GISBaseClient):
     @staticmethod
-    def get_required_params(data_source):
+    def get_required_params(data_source: "GISDataSource") -> list[str]:
         return [param_config["parameterName"] for param_config in data_source.config]
 
-    def process_data_source(self, config: dict, _intermediate_data) -> dict:
+    def process_data_source(self, config: list, _intermediate_data: Any) -> dict:
         """Process param data source.
 
         This is used to put data that the frontend already has into the same
@@ -17,8 +22,8 @@ class ParamGisClient(GISBaseClient):
 
         Example config:
         [
-            { "parameterName": "x", "question": "pathto.coordinate-x", "hidden":False }
-            { "parameterName": "y", "question": "pathto.coordinate-y", "hidden":False }
+            { "parameterName": "query", "question": "gis-map", "hidden": True }
+            { "parameterName": "applied", "question": "pathto.applied", "hidden": True }
         ]
         """
         data = {}
@@ -34,5 +39,5 @@ class ParamGisClient(GISBaseClient):
         return data
 
     @staticmethod
-    def get_hidden_questions(config: dict):
+    def get_hidden_questions(config: list) -> list[str]:
         return [param["question"] for param in config if param.get("hidden")]
