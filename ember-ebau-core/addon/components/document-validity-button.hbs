@@ -1,6 +1,9 @@
 <DocumentValidity
   @document={{@field.document}}
-  @validateOnEnter={{and (not @disabled) @validateOnEnter}}
+  @validateOnEnter={{and
+    (or (not @disabled) @validateWhileDisabled)
+    @validateOnEnter
+  }}
   as |isValid validateFn|
 >
   {{#if this.showError}}
