@@ -50,25 +50,19 @@ MODULE_CONSTRUCTION_MONITORING_COMPLETE = (
     & RequireInstanceState(["decided", "construction-monitoring"])
 )
 MODULE_CONSTRUCTION_MONITORING_SKIP = MODULE_CONSTRUCTION_MONITORING_COMPLETE
-MODULE_DECISION = (RequireWorkItem("decision") & ROLES_MUNICIPALITY) | RequireWorkItem(
-    "decision", "completed"
-)
+MODULE_DECISION = RequireWorkItem("decision")
 MODULE_DISTRIBUTION = RequireWorkItem("distribution")
 MODULE_DMS_GENERATE = STATES_ALL
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL
-MODULE_FORMAL_EXAM = (
-    RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY
-) | RequireWorkItem("formal-exam", "completed")
+MODULE_FORMAL_EXAM = RequireWorkItem("formal-exam")
 MODULE_HISTORY = STATES_ALL
 MODULE_INFORMATION_OF_NEIGHBORS = RequireWorkItem(
     "create-information-of-neighbors"
 ) | RequireWorkItem("fill-information-of-neighbors")
 MODULE_JOURNAL = STATES_ALL
 MODULE_LINKED_INSTANCES = STATES_ALL
-MODULE_MATERIAL_EXAM = (
-    RequireWorkItem("material-exam") & ROLES_MUNICIPALITY
-) | RequireWorkItem("material-exam", "completed")
+MODULE_MATERIAL_EXAM = RequireWorkItem("material-exam")
 MODULE_PERMISSIONS = STATES_ALL & ROLES_MUNICIPALITY
 MODULE_PUBLICATION = RequireWorkItem("create-publication") | RequireWorkItem(
     "fill-publication"
@@ -150,11 +144,13 @@ SG_PERMISSIONS_SETTINGS = {
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
         ],
         "distribution-service": [
+            ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
             ("billing-read", MODULE_BILLING),
             ("billing-write", MODULE_BILLING),
             ("billing-charge", MODULE_BILLING),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
+            ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("dms-generate-read", MODULE_DMS_GENERATE),
@@ -164,10 +160,12 @@ SG_PERMISSIONS_SETTINGS = {
             ("formal-exam-read", MODULE_FORMAL_EXAM),
             ("material-exam-read", MODULE_MATERIAL_EXAM),
             ("history-read", MODULE_HISTORY),
+            ("information-of-neighbors-read", MODULE_INFORMATION_OF_NEIGHBORS),
             ("instance-mark-write", ACTION_INSTANCE_MARK),
             ("journal-read", MODULE_JOURNAL),
             ("journal-write", MODULE_JOURNAL),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("publication-read", MODULE_PUBLICATION),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("responsible-write", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
