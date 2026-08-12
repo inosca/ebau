@@ -266,7 +266,6 @@ GR_PERMISSIONS_SETTINGS = {
                 "additional-demand-changes-submit",
                 MODULE_PORTAL_ADDITIONAL_DEMAND_CHANGES,
             ),
-            ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
         ],
         "distribution-service": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
@@ -359,7 +358,6 @@ GR_PERMISSIONS_SETTINGS = {
                 ACTION_INSTANCE_DOWNLOAD_FORM_AS_PDF,
             ),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
-            ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
             ("journal-read", MODULE_JOURNAL),
             ("journal-write", MODULE_JOURNAL),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),

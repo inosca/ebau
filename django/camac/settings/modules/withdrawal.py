@@ -38,21 +38,25 @@ WITHDRAWAL = {
     },
     "kt_gr": {
         "ENABLED": True,
-        "TYPE": "light",
-        "REQUEST_TASK": "withdrawal-request",
+        "PROCESS_WORK_ITEMS": [
+            # Exams
+            ("formal-exam", "skip"),
+            # Distribution
+            ("complete-distribution", "complete"),
+            # Additional demands
+            ("init-additional-demand", "cancel"),
+            ("additional-demand", "cancel"),
+            # Publication
+            ("create-publication", "cancel"),
+            ("fill-publication", "cancel"),
+            ("publication", "cancel"),
+        ],
         "NOTIFICATIONS": [
             {
-                "template_slug": "rueckzug-gesuchsteller",
-                "recipient_types": ["applicant"],
-            },
-            {
-                "template_slug": "rueckzug-behoerden",
-                "recipient_types": ["leitbehoerde"],
-            },
+                "template_slug": "rueckzug",
+                "recipient_types": ["leitbehoerde", "involved_in_distribution"],
+            }
         ],
-        "HISTORY_ENTRIES": {
-            "REQUESTED": _("Withdrawal requested"),
-        },
     },
     "kt_ag": {
         "ENABLED": True,

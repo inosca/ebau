@@ -47,15 +47,12 @@ export default {
     changeForm: true,
     convertModification: false,
     correctForm: true,
-    withdrawInstance: false,
+    withdrawInstance: true,
     applicantCorrection: true,
   },
   workItems: {
     v2: true,
     targetDeadlineDate: true,
-  },
-  withdrawal: {
-    light: true,
   },
   changeGeometer: {
     enabled: false,

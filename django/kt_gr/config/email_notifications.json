@@ -504,6 +504,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 43,
+    "fields": {
+      "slug": "rueckzug",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -861,6 +873,18 @@
       "purpose": "Rückzug beantragt (Leitbehörde)",
       "subject": "Rückzug beantragt (Dossier-Nr. {{ DOSSIER_NR }}) / Richiesta di ritiro (dossier n. {{ DOSSIER_NR }})",
       "body": "Guten Tag\r\n\r\nIn eBau wurde für das Dossier Nr. {{ DOSSIER_NR }} ein Rückzug beantragt.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nIn eBau è stato richiesto il ritiro del dossier n. {{ DOSSIER_NR }}.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 51,
+    "fields": {
+      "template": 43,
+      "template_slug": "rueckzug",
+      "language": "de",
+      "purpose": "Rückzug ausgelöst / Ritiro innescato",
+      "subject": "Rückzug ausgelöst (Dossier-Nummer {{ DOSSIER_NR }}) / Ritiro innescato (dossier n. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nIm eBau wurde das Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} zurückgezogen.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nil dossier n. {{ DOSSIER_NR }} è stato ritirato da eBau.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti"
     }
   },
   {
