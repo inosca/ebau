@@ -50661,7 +50661,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"GIS Karte\", \"fr\": null, \"it\": null}",
-      "type": "static",
+      "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
@@ -50669,8 +50669,12 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {
+        "hideLabel": true,
         "widgetOverride": "so-gis"
       },
       "data_source": null,

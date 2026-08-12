@@ -1,19 +1,64 @@
+import json
+
 import requests
 from django.conf import settings
 from django.utils.translation import gettext as _
+from shapely import Polygon
 
 from camac.gis.clients.base import GISBaseClient
-from camac.gis.utils import cast, concat_values, get_bbox, to_query
+from camac.gis.utils import (
+    buffered,
+    build_shape,
+    cast,
+    concat_values,
+    to_query,
+)
 from camac.utils import build_url
 
 
 class AdminGisClient(GISBaseClient):
-    required_params = ["x", "y"]
+    required_params = ["query"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.session: requests.Session = requests.Session()
+
+    def _build_spatial_param(
+        self, markers: list[dict], geometry_type: str, buffer: int
+    ) -> dict:
+        """Build the spatial filter parameter for the geo admin API.
+
+        A point goes as an envelope, buffered or not, which is what this API has
+        always been sent for it. A buffered line or polygon has an area, so it
+        goes as a ring. An unbuffered line goes as a polyline: a ring would make
+        `identify` match everything the line encloses rather than what it
+        crosses.
+
+        The API's own `tolerance` cannot be used instead - it is in pixels and
+        needs a real `mapExtent`/`imageDisplay` to convert.
+        """
+        drawn = buffered(build_shape(markers, geometry_type), buffer)
+
+        if geometry_type == "POINT":
+            return {
+                "geometryType": "esriGeometryEnvelope",
+                "geometry": ",".join(map(str, drawn.bounds)),
+            }
+
+        if isinstance(drawn, Polygon):
+            return {
+                "geometryType": "esriGeometryPolygon",
+                # Only the outline. `identify` rejects a `rings` array that does
+                # not hold exactly one ring, so a hole cannot be sent. A line
+                # drawn back onto itself reports what it encloses as covered.
+                "geometry": json.dumps({"rings": [list(drawn.exterior.coords)]}),
+            }
+
+        return {
+            "geometryType": "esriGeometryPolyline",
+            "geometry": json.dumps({"paths": [list(drawn.coords)]}),
+        }
 
     def process_data_source(self, config: dict, _intermediate_data) -> dict:
         """Process admin GIS data source.
@@ -34,6 +79,10 @@ class AdminGisClient(GISBaseClient):
             "/rest/services/api/MapServer/identify",
         )
 
+        query_data = json.loads(self.params["query"])
+        markers = query_data["markers"]
+        geometry_type = query_data["geometry"]
+
         query = to_query(
             {
                 "returnGeometry": False,
@@ -42,19 +91,14 @@ class AdminGisClient(GISBaseClient):
                 "tolerance": 0,
                 "imageDisplay": "0,0,0",
                 "layers": "all:" + ",".join(config["layers"]),
-                "geometryType": "esriGeometryEnvelope",
-                "geometry": get_bbox(
-                    self.params["x"],
-                    self.params["y"],
-                    config.get("buffer", 0),
+                **self._build_spatial_param(
+                    markers, geometry_type, config.get("buffer", 0)
                 ),
             }
         )
 
-        response = self.session.get(
-            f"{base_url}?{query}",
-            verify=settings.ADMIN_GIS_VERIFY_SSL,
-        )
+        url = f"{base_url}?{query}"
+        response = self.session.get(url, verify=settings.ADMIN_GIS_VERIFY_SSL)
 
         try:
             response.raise_for_status()

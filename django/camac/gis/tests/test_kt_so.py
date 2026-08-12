@@ -1,3 +1,6 @@
+import json
+from urllib.parse import urlencode
+
 import pytest
 import requests
 from caluma.caluma_form.models import Question
@@ -6,9 +9,17 @@ from django.http import QueryDict
 from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
+from shapely import Point, Polygon
 
 from camac.gis.clients.sogis import SoGisClient
 from camac.gis.models import GISDataSource
+
+
+def make_client(x=2607345, y=1228110, geometry="POINT"):
+    query = json.dumps({"markers": [{"x": x, "y": y}], "geometry": geometry})
+
+    return SoGisClient(QueryDict(urlencode({"query": query})))
+
 
 TEST_SCENARIOS = [
     {
@@ -22,6 +33,7 @@ TEST_SCENARIOS = [
             "plz",
             "ort",
             "parzellen",
+            "gis-karte",
             "nutzungsplanung-grundnutzung",
             "nutzungsplanung-grundnutzung-kanton",
             "nutzungsplanung-weitere-festlegungen",
@@ -135,6 +147,10 @@ def so_data_sources(
         ("denkmalschutz", Question.TYPE_TEXTAREA),
         ("archaeologie", Question.TYPE_TEXTAREA),
         ("bundesinventare", Question.TYPE_TEXTAREA),
+        # Keep new questions at the end: the factory consumes the (seeded)
+        # faker sequence, so inserting one re-labels every question after it
+        # and churns all snapshots.
+        ("gis-karte", Question.TYPE_TEXT),
     ]
 
     for slug, question_type in gis_questions:
@@ -170,7 +186,11 @@ def test_sogis_client(
 ):
     x, y = scenario["coords"]
     response = admin_client.get(
-        reverse("gis-data"), data={"x": x, "y": y, "applied": "ja"}
+        reverse("gis-data"),
+        data={
+            "query": json.dumps({"markers": [{"x": x, "y": y}], "geometry": "POINT"}),
+            "applied": "ja",
+        },
     )
 
     assert response.status_code == status.HTTP_200_OK
@@ -249,9 +269,12 @@ def test_sogis_client_errors(
     gis_snapshot,
     vcr_config,
 ):
+    x, y = TEST_SCENARIOS[0]["coords"]
     response_0 = admin_client.get(
         reverse("gis-data"),
-        data={"x": TEST_SCENARIOS[0]["coords"][0], "y": TEST_SCENARIOS[0]["coords"][1]},
+        data={
+            "query": json.dumps({"markers": [{"x": x, "y": y}], "geometry": "POINT"}),
+        },
     )
 
     celery_fake_worker.run_tasks()
@@ -274,7 +297,7 @@ def test_sogis_client_string_concat_concatenates_multiple_matching_features(
 ):
     caluma_question_factory(slug="archaeologie", type=Question.TYPE_TEXTAREA)
 
-    client = SoGisClient(QueryDict("x=100&y=200"))
+    client = make_client(x=100, y=200)
     response = mocker.Mock()
     response.raise_for_status.return_value = None
     response.json.return_value = {
@@ -314,7 +337,7 @@ def test_sogis_client_string_concat_concatenates_multiple_matching_features(
 
 @pytest.mark.django_db
 def test_sogis_client_process_list_data_source(caluma_question_factory, mocker):
-    client = SoGisClient(QueryDict("x=2607345&y=1228110"))
+    client = make_client()
     caluma_question_factory(slug="gemeinde", type=Question.TYPE_TEXT)
     caluma_question_factory(slug="gemeindenummer-bfs", type=Question.TYPE_INTEGER)
 
@@ -400,7 +423,7 @@ def test_sogis_client_process_list_data_source(caluma_question_factory, mocker):
 
 
 def test_sogis_client_matches_topic():
-    client = SoGisClient(QueryDict("x=2607345&y=1228110"))
+    client = make_client()
 
     properties = {
         "thema": "ch.SO.NutzungsplanungGrundnutzung",
@@ -446,7 +469,7 @@ def test_sogis_client_process_data_source_filters_by_topic(
     settings.SO_GIS_BASE_URL = "https://example.com"
     settings.SO_GIS_VERIFY_SSL = True
 
-    client = SoGisClient(QueryDict("x=2607345&y=1228110"))
+    client = make_client()
 
     requests_mock.get(
         "https://example.com/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_flaechen.data/?bbox=2607345.0,1228110.0,2607345.0,1228110.0",
@@ -527,7 +550,7 @@ def test_sogis_client_process_list_data_source_skips_empty_values(mocker):
         },
     ]
 
-    client = SoGisClient(QueryDict("x=2607345&y=1228110"))
+    client = make_client()
     response = mocker.Mock()
     response.raise_for_status.return_value = None
     response.json.return_value = {"features": features}
@@ -542,7 +565,7 @@ def test_sogis_client_process_list_data_source_skips_empty_values(mocker):
 
 
 def test_sogis_client_get_data_raises_runtime_error_on_http_error(mocker):
-    client = SoGisClient(QueryDict("x=2607345&y=1228110"))
+    client = make_client()
 
     response = mocker.Mock()
     response.status_code = 500
@@ -571,3 +594,144 @@ def test_sogis_client_get_hidden_questions():
             ]
         }
     ) == ["hidden-question"]
+
+
+def test_sogis_client_writes_a_coordinate_per_feature():
+    """Every parcel gets its own coordinate, and it lies on that parcel."""
+    l_shaped = [
+        [2607000.0, 1228000.0],
+        [2607100.0, 1228000.0],
+        [2607100.0, 1228100.0],
+        [2607060.0, 1228100.0],
+        [2607060.0, 1228040.0],
+        [2607000.0, 1228040.0],
+        [2607000.0, 1228000.0],
+    ]
+
+    data = make_client().process_list_data_source(
+        {
+            "properties": [
+                {"geometry": "east", "question": "parzellen.lagekoordinaten-ost"},
+                {"geometry": "north", "question": "parzellen.lagekoordinaten-nord"},
+                {"question": "parzellen.e-grid", "propertyName": "egrid"},
+            ]
+        },
+        [
+            {
+                "geometry": {"type": "Polygon", "coordinates": [l_shaped]},
+                "properties": {"egrid": "CH123"},
+            },
+            {
+                "geometry": {"type": "Point", "coordinates": [2606000.5, 1227000.5]},
+                "properties": {"egrid": "CH456"},
+            },
+            {"geometry": None, "properties": {"egrid": "CH789"}},
+        ],
+    )
+
+    rows = data["parzellen"]
+    parcel = Polygon(l_shaped)
+    minx, miny, maxx, maxy = parcel.bounds
+
+    assert not parcel.covers(Point((minx + maxx) / 2, (miny + maxy) / 2)), (
+        "the bounding box center is off this parcel, which is the point"
+    )
+    assert parcel.covers(
+        Point(rows[0]["lagekoordinaten-ost"], rows[0]["lagekoordinaten-nord"])
+    )
+    assert rows[1] == {
+        "lagekoordinaten-ost": 2606000.5,
+        "lagekoordinaten-nord": 1227000.5,
+        "e-grid": "CH456",
+    }
+    assert rows[2] == {
+        "lagekoordinaten-ost": None,
+        "lagekoordinaten-nord": None,
+        "e-grid": "CH789",
+    }
+
+
+@pytest.mark.parametrize(
+    "geometry",
+    [
+        # shapely raises for each of these, and one bad feature must not take
+        # the whole GIS lookup down.
+        {"type": "Polygon"},
+        {"type": "Polygon", "coordinates": 5},
+        {"type": "Blah", "coordinates": [[0, 0]]},
+    ],
+)
+def test_sogis_client_ignores_an_unusable_feature_geometry(geometry):
+    client = make_client()
+
+    assert client.get_representative_point(geometry) is None
+
+
+def test_sogis_client_ignores_an_unknown_geometry_axis():
+    point = make_client().get_representative_point(
+        {"type": "Point", "coordinates": [2607000.5, 1228500.5]}
+    )
+
+    assert point is not None
+    assert make_client().get_axis(point, "up") is None
+
+
+def _spatial_param(geometry, markers, buffer=0):
+    return SoGisClient._build_spatial_param(
+        SoGisClient, [{"x": x, "y": y} for x, y in markers], geometry, buffer
+    )
+
+
+def test_sogis_client_sends_a_point_as_a_bbox():
+    assert _spatial_param("POINT", [(2607345, 1228110)], buffer=20) == {
+        "bbox": "2607335.0,1228100.0,2607355.0,1228120.0"
+    }
+
+
+@pytest.mark.parametrize("geometry", ["LINESTRING", "POLYGON"])
+def test_sogis_client_sends_a_shape_as_filter_geom(geometry):
+    markers = [(2607000, 1228000), (2607100, 1228000), (2607100, 1228100)]
+
+    geojson = json.loads(_spatial_param(geometry, markers)["filter_geom"])
+
+    assert geojson["crs"] == {"type": "name", "properties": {"name": "EPSG:2056"}}
+
+    if geometry == "POLYGON":
+        ring = geojson["coordinates"][0]
+        assert geojson["type"] == "Polygon"
+        assert ring[0] == ring[-1], "the ring has to be closed"
+    else:
+        assert geojson["type"] == "LineString"
+        assert geojson["coordinates"] == [list(m) for m in markers]
+
+
+def _bounds(geojson: dict) -> tuple[float, float, float, float]:
+    points = geojson["coordinates"]
+    while not isinstance(points[0][0], (int, float)):
+        points = points[0]
+
+    xs = [x for x, _ in points]
+    ys = [y for _, y in points]
+
+    return min(xs), min(ys), max(xs), max(ys)
+
+
+@pytest.mark.parametrize("geometry", ["LINESTRING", "POLYGON"])
+def test_sogis_client_widens_a_shape_by_the_buffer(geometry):
+    """How far it widens is `test_buffered_spends_half_the_buffer_on_each_side`."""
+    markers = [(2607000, 1228000), (2607100, 1228000), (2607100, 1228100)]
+
+    plain = json.loads(_spatial_param(geometry, markers)["filter_geom"])
+    widened = json.loads(_spatial_param(geometry, markers, buffer=50)["filter_geom"])
+
+    # A line has no area of its own, so without the buffer it only matches what
+    # it crosses exactly.
+    assert widened["type"] == "Polygon"
+
+    left, bottom, right, top = _bounds(widened)
+    plain_left, plain_bottom, plain_right, plain_top = _bounds(plain)
+
+    assert left < plain_left
+    assert bottom < plain_bottom
+    assert right > plain_right
+    assert top > plain_top

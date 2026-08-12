@@ -269,6 +269,7 @@ class InstanceExportFilterBackend(BaseFilterBackend):
                     )
                 )
             )
+            .order_by("pk")
             .values("name")[:1]
         )
 

@@ -38,3 +38,10 @@ gis:
     detail: "Valore originale da SIG:"
     row-added: "{count, plural, one {# Zeile} other {# Zeilen}} aggiunto"
     row-removed: "{count, plural, one {# Zeile} other {# Zeilen}} rimosso"
+
+  oereb-plot-count: ""
+  oereb-plot: ""
+  not-applied: "Le modifiche apportate sulla mappa non sono ancora state applicate."
+  oereb: ""
+  gis-portal: ""
+  pdf: "PDF"

@@ -134,6 +134,11 @@ export default class GisApplyButtonComponent extends Component {
       }
     }
 
-    return await Promise.all(promises);
+    const value = await Promise.all(promises);
+
+    // After the write, so a failed apply leaves the caller's state untouched.
+    this.args.onApplied?.();
+
+    return value;
   }
 }

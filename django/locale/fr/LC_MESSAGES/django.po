@@ -1331,10 +1331,6 @@ msgstr ""
 msgid "Required parameter %(parameter)s was not passed"
 msgstr ""
 
-#: camac/gis/utils.py
-msgid "Coordinates must be floats"
-msgstr ""
-
 #: camac/instance/document_merge_service.py
 msgid "Plots"
 msgstr "Parcelle(s)"

@@ -7,16 +7,9 @@
       "client": "camac.gis.clients.param.ParamGisClient",
       "config": [
         {
-          "cast": "float",
           "hidden": true,
-          "question": "parzellen.lagekoordinaten-ost",
-          "parameterName": "x"
-        },
-        {
-          "cast": "float",
-          "hidden": true,
-          "question": "parzellen.lagekoordinaten-nord",
-          "parameterName": "y"
+          "question": "gis-karte",
+          "parameterName": "query"
         },
         {
           "hidden": true,
@@ -510,6 +503,16 @@
       "config": {
         "layer": "ch.so.dsbjd.ebauso_lokalisation_grundstueck.data",
         "properties": [
+          {
+            "hidden": true,
+            "geometry": "east",
+            "question": "parzellen.lagekoordinaten-ost"
+          },
+          {
+            "hidden": true,
+            "geometry": "north",
+            "question": "parzellen.lagekoordinaten-nord"
+          },
           {
             "question": "gemeinde",
             "propertyName": "gemeinde"
