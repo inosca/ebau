@@ -337,6 +337,10 @@ class CreateInstanceLogic:
     ) -> form_models.Document:
         target_document = target_instance.case.document
 
+        if config.link_source_document:
+            target_document.source = source_document
+            target_document.save()
+
         for answer in source_document.answers.filter(
             question_id__in=config.simple_questions
         ):
@@ -356,6 +360,30 @@ class CreateInstanceLogic:
                 source_document,
                 target_document,
             )
+
+        for entry in config.conditional_table_questions:
+            answer = source_document.answers.filter(
+                question_id__in=entry.condition_questions,
+                value__isnull=False,
+            ).first()
+
+            source_slugs = (
+                entry.sources_by_answer.get(
+                    answer.value, entry.default_source_questions
+                )
+                if answer
+                else entry.default_source_questions
+            )
+
+            # source_slugs is a list in order to account for versioning of the sources
+            # copy_table_answer only copies from sources with answers
+            for source_slug in source_slugs:
+                caluma_api.copy_table_answer(
+                    source_slug,
+                    entry.target_question,
+                    source_document,
+                    target_document,
+                )
 
         return target_document
 

@@ -6,5 +6,8 @@ info-table-errors:
 instances:
   downloadFormAsPdf: "Télécharger le formulaire de demande"
   downloadFormAsPdfText: "Vous pouvez télécharger à nouveau le formulaire de demande ici."
+  demolitionPaymentTitle: ""
+  demolitionPaymentText: ""
+  demolitionPaymentButton: ""
   instance-id: "Numéro de dossier"
   special-id: "Numéro eBau"

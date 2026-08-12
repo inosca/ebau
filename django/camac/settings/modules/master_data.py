@@ -700,6 +700,21 @@ MASTER_DATA = {
                     }
                 },
             ),
+            "demolition_payment_requested": (
+                "answer",
+                "abbruchpraemie-beantragt-v7",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "abbruchpraemie-beantragt-v7-ja": True,
+                                "abbruchpraemie-beantragt-v7-nein": False,
+                            }
+                        },
+                    )
+                },
+            ),
             "dossier_number": ("case_meta", "ebau-number"),
             "project": ("answer", "baubeschrieb", {"value_parser": "option"}),
             "water_protection_area": (

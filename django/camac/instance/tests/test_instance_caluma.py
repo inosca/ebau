@@ -3831,12 +3831,13 @@ def test_convert_building_permit(
 
 @pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize(
-    ("is_admin", "is_correct_form", "requested_payment", "expected_status"),
+    ("is_admin", "form_slug", "requested_payment", "expected_status"),
     [
-        (True, True, True, status.HTTP_201_CREATED),
-        (False, True, True, status.HTTP_403_FORBIDDEN),
-        (True, False, True, status.HTTP_400_BAD_REQUEST),
-        (True, True, False, status.HTTP_403_FORBIDDEN),
+        (True, "auszahlung-abbruchpraemie", True, status.HTTP_201_CREATED),
+        (True, None, True, status.HTTP_201_CREATED),
+        (False, "auszahlung-abbruchpraemie", True, status.HTTP_403_FORBIDDEN),
+        (True, "some-other-form", True, status.HTTP_400_BAD_REQUEST),
+        (True, "auszahlung-abbruchpraemie", False, status.HTTP_403_FORBIDDEN),
     ],
 )
 @pytest.mark.django_db
@@ -3847,7 +3848,7 @@ def test_request_demolition_payment(
     application_settings,
     expected_status,
     is_admin,
-    is_correct_form,
+    form_slug,
     requested_payment,
     instance_state_factory,
     caluma_work_item_factory,
@@ -3859,15 +3860,25 @@ def test_request_demolition_payment(
     ag_permissions_settings,
     ag_instance_copy_settings,
     caluma_question_option_factory,
-    caluma_option_factory,
 ):
     """Make sure the permission 'instance-request-demolition-payment' is checked."""
 
     instance_state_factory(name="new")
-    if is_correct_form:
-        form = caluma_form_models.Form.objects.get(pk="auszahlung-abbruchpraemie")
-    else:
-        form = caluma_form_factory()
+
+    demolition_payment_form_slug = (
+        ag_instance_copy_settings.demolition_payment.form_slug
+    )
+    demolition_payment_form = caluma_form_models.Form.objects.get(
+        pk=demolition_payment_form_slug
+    )
+
+    is_wrong_form = form_slug is not None and form_slug != demolition_payment_form_slug
+    form = (
+        caluma_form_factory(slug=form_slug)
+        if is_wrong_form
+        else demolition_payment_form
+    )
+
     caluma_form_question_factory(
         question__slug=ag_instance_copy_settings.demolition_payment.special_id_slug,
         question__type="text",
@@ -3904,29 +3915,27 @@ def test_request_demolition_payment(
         user=admin_user,
     )
 
+    attributes = {
+        "copy-source": str(ag_instance.pk),
+        "copy-type": "demolition_payment",
+    }
+    if form_slug:
+        attributes["caluma-form"] = form.slug
+
     response = admin_client.post(
         reverse("instance-list"),
-        {
-            "data": {
-                "type": "instances",
-                "attributes": {
-                    "caluma-form": form.slug,
-                    "copy-source": str(ag_instance.pk),
-                    "copy-type": "demolition_payment",
-                },
-            }
-        },
+        {"data": {"type": "instances", "attributes": attributes}},
     )
 
     assert response.status_code == expected_status
-    if not is_correct_form:
+    if is_wrong_form:
         assert response.json()["errors"][0]["detail"] == (
-            "'demolition_payment' copy is only allowed for "
-            "'auszahlung-abbruchpraemie' form"
+            f"'demolition_payment' copy is only allowed for '{demolition_payment_form_slug}' form"
         )
     if response.status_code == status.HTTP_201_CREATED:
         new_instance = Instance.objects.get(pk=response.json()["data"]["id"])
         assert new_instance.copy_source == ag_instance
+        assert new_instance.case.document.form_id == demolition_payment_form_slug
 
 
 @pytest.mark.parametrize("allow_notification", [True, False])

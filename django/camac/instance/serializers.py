@@ -1173,6 +1173,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             except ValueError as exc:  # pragma: no cover
                 raise exceptions.ValidationError(str(exc)) from exc
 
+            if not caluma_form and copy_config.form_slug:
+                caluma_form = copy_config.form_slug
+
             allowed_form_slug = copy_config.form_slug
             if allowed_form_slug and caluma_form != allowed_form_slug:
                 raise exceptions.ValidationError(

@@ -135,6 +135,7 @@ instances:
   mit der Erfassung einer Projektänderung fortfahren?'</strong'>"
   demolitionPaymentTitle: "Auszahlung der Abbruchprämie beantragen"
   demolitionPaymentText: "Bitte beachten Sie, dass der Antrag auf Auszahlung der Abbruchprämie erst nach erfolgtem Abbruch gestellt werden kann."
+  demolitionPaymentButton: "Auszahlung der Abbruchprämie beantragen"
   demolitionPaymentError: "Bei der Erstellung des Dossiers ist ein Fehler aufgetreten."
   rejectionTitle: "Dossier neu einreichen"
   rejectionTitleSuffix: "(Rückweisung)"
