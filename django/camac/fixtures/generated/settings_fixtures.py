@@ -203,6 +203,59 @@ def gr_address_assignment_settings(
 
 
 @pytest.fixture
+def agsmartservice_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for agsmartservice (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        settings_name="AGSMARTSERVICE",
+        import_path="camac.settings.modules.agsmartservice.AGSMARTSERVICE",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_agsmartservice_settings(
+    request,
+    settings,
+    agsmartservice_settings,
+):
+    """Disable the agsmartservice module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=agsmartservice_settings,
+        settings_name="AGSMARTSERVICE",
+        import_path="camac.settings.modules.agsmartservice.AGSMARTSERVICE",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def ag_agsmartservice_settings(
+    request,
+    settings,
+    agsmartservice_settings,
+):
+    """Module-specific settings for agsmartservice (canton AG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=agsmartservice_settings,
+        settings_name="AGSMARTSERVICE",
+        import_path="camac.settings.modules.agsmartservice.AGSMARTSERVICE",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def alexandria_settings(
     request,
     settings,

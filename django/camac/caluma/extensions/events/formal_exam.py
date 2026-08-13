@@ -2,6 +2,7 @@ from caluma.caluma_core.events import on
 from caluma.caluma_workflow.events import post_complete_work_item
 from django.db import transaction
 
+from camac.agsmartservice import api as ag_smartservice
 from camac.caluma.event_utils import filter_by_task
 from camac.permissions.events.core import Trigger
 
@@ -10,4 +11,7 @@ from camac.permissions.events.core import Trigger
 @filter_by_task("formal-exam")
 @transaction.atomic
 def post_complete_formal_exam(sender, work_item, user, context=None, **kwargs):
-    Trigger.formal_exam_completed(None, work_item.case.family.instance, work_item)
+    instance = work_item.case.family.instance
+
+    Trigger.formal_exam_completed(None, instance, work_item)
+    ag_smartservice.complete_preliminary_check(instance)

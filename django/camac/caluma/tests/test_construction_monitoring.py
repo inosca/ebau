@@ -12,6 +12,8 @@ from camac.caluma.extensions.dynamic_tasks import CustomDynamicTasks
 from camac.caluma.extensions.events.construction_monitoring import (
     clear_init_construction_monitoring_deadline,
     post_complete_construction_control,
+    post_complete_construction_monitoring,
+    post_complete_init_construction_monitoring,
     post_create_complete_construction_monitoring,
     post_create_construction_control,
     post_create_gvg_work_item,
@@ -515,6 +517,64 @@ def test_complete_construction_monitoring(
     ).first()
     assert complete_instance.status == WorkItem.STATUS_READY
     assert complete_instance.addressed_groups == [str(service.pk)]
+
+
+@pytest.mark.django_db
+def test_complete_construction_monitoring_schedules_ag_smartservice_done(
+    ag_construction_monitoring_settings,
+    ag_instance,
+    caluma_admin_user,
+    caluma_work_item_factory,
+    mocker,
+):
+    construction_stage = caluma_work_item_factory(
+        case=ag_instance.case,
+        task_id=ag_construction_monitoring_settings["CONSTRUCTION_STAGE_TASK"],
+        status=WorkItem.STATUS_READY,
+    )
+    complete_construction_monitoring = caluma_work_item_factory(
+        case=ag_instance.case,
+        task_id=ag_construction_monitoring_settings[
+            "COMPLETE_CONSTRUCTION_MONITORING_TASK"
+        ],
+        status=WorkItem.STATUS_COMPLETED,
+    )
+    complete = mocker.patch("camac.agsmartservice.api.complete")
+
+    post_complete_construction_monitoring(
+        None,
+        work_item=complete_construction_monitoring,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    construction_stage.refresh_from_db()
+    assert construction_stage.status == WorkItem.STATUS_SKIPPED
+    complete.assert_called_once_with(ag_instance)
+
+
+@pytest.mark.django_db
+def test_skip_construction_monitoring_schedules_ag_smartservice_done(
+    ag_construction_monitoring_settings,
+    ag_instance,
+    caluma_admin_user,
+    caluma_work_item_factory,
+    mocker,
+):
+    work_item = caluma_work_item_factory(
+        case=ag_instance.case,
+        task_id=ag_construction_monitoring_settings[
+            "INIT_CONSTRUCTION_MONITORING_TASK"
+        ],
+        status=WorkItem.STATUS_COMPLETED,
+    )
+    complete = mocker.patch("camac.agsmartservice.api.complete")
+
+    post_complete_init_construction_monitoring(
+        None, work_item=work_item, user=caluma_admin_user, context={"skip": True}
+    )
+
+    complete.assert_called_once_with(ag_instance)
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])

@@ -27,6 +27,7 @@ from rest_framework import exceptions, response, status
 from rest_framework_json_api import relations, serializers
 
 from camac import request_cache
+from camac.agsmartservice import api as ag_smartservice
 from camac.applicants.models import Applicant
 from camac.caluma.api import CalumaApi
 from camac.caluma.models import Inquiry, Instance
@@ -1988,6 +1989,13 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if instance.case.document.form_id == "internes-dossier":
             instance.set_instance_state("to-finish", self.context["request"].user)
 
+    def _ag_smartservice_submit(self, instance):
+        if settings.APPLICATION_NAME != "kt_ag":
+            return
+
+        request = self.context["request"]
+        ag_smartservice.submit(instance, request.user.username)
+
     def _answer_submit_button_question(
         self,
         document: form_models.Document,
@@ -2102,6 +2110,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 user_pk=self.context["request"].user.pk,
                 group_pk=group.pk,
             )
+            self._ag_smartservice_submit(instance)
 
             self._send_notifications(case)
 

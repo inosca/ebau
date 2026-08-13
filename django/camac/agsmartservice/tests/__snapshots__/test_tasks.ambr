@@ -1,0 +1,86 @@
+# serializer version: 1
+# name: test_complete_preliminary_check_task
+  dict({
+    'actions': list([
+    ]),
+    'status': dict({
+      'action': dict({
+        'deadline': None,
+        'required': False,
+      }),
+      'details': dict({
+        'id': 'decided',
+        'name': 'Im Verfahren',
+        'text': 'Ihr Dossier befindet sich im Verfahren.',
+      }),
+      'id': 'IN_PROGRESS',
+    }),
+    'title': 'Baugesuch EB-123 (Aarau): Umbau',
+  })
+# ---
+# name: test_complete_procedure_task
+  dict({
+    'actions': list([
+    ]),
+    'status': dict({
+      'action': dict({
+        'deadline': None,
+        'required': False,
+      }),
+      'details': dict({
+        'id': 'done',
+        'name': 'Abgeschlossen',
+        'text': 'Ihr Dossier ist abgeschlossen.',
+      }),
+      'id': 'DONE',
+    }),
+    'title': 'Baugesuch EB-123 (Aarau): Umbau',
+  })
+# ---
+# name: test_start_construction_monitoring_task
+  dict({
+    'actions': list([
+    ]),
+    'status': dict({
+      'action': dict({
+        'deadline': None,
+        'required': False,
+      }),
+      'details': dict({
+        'id': 'decided',
+        'name': 'In Baubegleitung',
+        'text': 'Ihr Dossier befindet sich in der Baubegleitung.',
+      }),
+      'id': 'IN_PROGRESS',
+    }),
+    'title': 'Baugesuch EB-123 (Aarau): Umbau',
+  })
+# ---
+# name: test_submit_procedure_task
+  dict({
+    'actions': list([
+      dict({
+        'title': 'Zu eBau',
+        'type': 'openUrl',
+        'url': 'https://portal.example.url/instances/INSTANCEID',
+      }),
+    ]),
+    'assignment': dict({
+      'id': 'N123456',
+      'roles': None,
+    }),
+    'status': dict({
+      'action': dict({
+        'deadline': None,
+        'required': False,
+      }),
+      'details': dict({
+        'id': 'submitted',
+        'name': 'Eingereicht',
+        'text': 'Ihr Dossier wurde erfolgreich eingereicht.',
+      }),
+      'id': 'SUBMITTED',
+    }),
+    'title': 'Baugesuch EB-123 (Aarau): Umbau',
+  })
+# ---
