@@ -3,7 +3,7 @@ from camac.permissions.conditions import (
     HasApplicantConfirmationRound,
     HasApplicantRole,
     HasRole,
-    IsServiceGroup,
+    IsService,
     RequireInstanceState,
     RequireWorkItem,
     Static,
@@ -30,6 +30,7 @@ STATES_ALL = RequireInstanceState(
 APPLICANT_ADMIN = HasApplicantRole(["ADMIN"])
 APPLICANT_WRITE = HasApplicantRole(["ADMIN", "EDITOR"])
 ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
+ROLES_COORDINATION = HasRole(["service-lead"]) & IsService(["coordination"])
 
 # Module rules
 #
@@ -63,7 +64,7 @@ MODULE_INFORMATION_OF_NEIGHBORS = RequireWorkItem(
 MODULE_JOURNAL = STATES_ALL
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_MATERIAL_EXAM = RequireWorkItem("material-exam")
-MODULE_PERMISSIONS = STATES_ALL & ROLES_MUNICIPALITY
+MODULE_PERMISSIONS = STATES_ALL & (ROLES_MUNICIPALITY | ROLES_COORDINATION)
 MODULE_PUBLICATION = RequireWorkItem("create-publication") | RequireWorkItem(
     "fill-publication"
 )
@@ -98,7 +99,7 @@ ACTION_APPLICANT_CONFIRMATION_ADMIN = (
 ACTION_APPLICANT_CONFIRMATION_CONFIRM = RequireWorkItem("submit", "ready")
 
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & APPLICANT_ADMIN
-ACTION_INSTANCE_MARK = IsServiceGroup(["coordination"])
+ACTION_INSTANCE_MARK = ROLES_COORDINATION
 ACTION_INSTANCE_SUBMIT = (
     RequireWorkItem("submit", "ready")
     & APPLICANT_ADMIN
@@ -165,6 +166,10 @@ SG_PERMISSIONS_SETTINGS = {
             ("journal-read", MODULE_JOURNAL),
             ("journal-write", MODULE_JOURNAL),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("permissions-grant-read", MODULE_PERMISSIONS),
+            ("permissions-read", MODULE_PERMISSIONS),
+            ("permissions-read-any", MODULE_PERMISSIONS),
+            ("permissions-revoke-read", MODULE_PERMISSIONS),
             ("publication-read", MODULE_PUBLICATION),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("responsible-write", MODULE_RESPONSIBLE),
