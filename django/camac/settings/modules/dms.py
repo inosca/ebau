@@ -7,6 +7,14 @@ DMS = {
         "ADD_ADDRESS_DATA": False,
         "ADD_HEADER_DATA": True,
         "USE_NUMBER_SEPARATOR": False,
+        "FORMAT_HEADER_DATA": {
+            "date_format": "dd.MM.Y",
+            "time_format": "%H:%M",
+            "generatedAt": _("Generated %(date)s at %(time)s"),
+            "createdAt": _("Created %(date)s at %(time)s"),
+            "uploadedAt": _("Uploaded %(date)s at %(time)s"),
+            "modifiedAt": _("Modified %(date)s at %(time)s"),
+        },
     },
     "demo": {
         "ENABLED": True,
@@ -550,4 +558,21 @@ DMS = {
         },
     },
     "kt_schwyz": {"ENABLED": True},
+    "kt_sg": {
+        "ENABLED": True,
+        "ALEXANDRIA_DOCUMENT_CATEGORIES": [
+            "beilagen-zum-gesuch-grundstuecksangaben",
+            "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+            "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+            "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+        ],
+        "FORMAT_HEADER_DATA": {
+            "date_format": "d. MMMM Y",
+            "time_format": "%H.%M",
+            "generatedAt": _("%(date)s"),
+            "createdAt": _("%(date)s, %(time)s o'clock"),
+        },
+        "ADD_CONFIRMATIONS": True,
+        "ADD_INVOLVED_APPLICANTS": True,
+    },
 }

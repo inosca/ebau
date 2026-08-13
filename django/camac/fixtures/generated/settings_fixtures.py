@@ -2221,6 +2221,24 @@ def sz_dms_settings(
 
 
 @pytest.fixture
+def sg_dms_settings(
+    request,
+    settings,
+    dms_settings,
+):
+    """Module-specific settings for dms (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=dms_settings,
+        settings_name="DMS",
+        import_path="camac.settings.modules.dms.DMS",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def dossier_import_settings(
     request,
     settings,

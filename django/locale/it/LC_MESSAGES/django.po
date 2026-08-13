@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-10 14:22+0200\n"
+"POT-Creation-Date: 2026-08-10 14:56+0200\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -84,6 +84,22 @@ msgid "Mark \"%(mark)s\" can not be combined with public marks."
 msgstr ""
 "La demarcazione \"%(mark)s\" non può essere combinata con demarcazioni "
 "pubbliche."
+
+#: camac/applicants/models.py
+msgid "Project owner"
+msgstr ""
+
+#: camac/applicants/models.py
+msgid "Admin"
+msgstr ""
+
+#: camac/applicants/models.py
+msgid "Editor"
+msgstr ""
+
+#: camac/applicants/models.py
+msgid "Read only"
+msgstr ""
 
 #: camac/applicants/serializers.py
 #, python-format
@@ -1394,26 +1410,6 @@ msgstr "Luogo e data"
 
 #: camac/instance/document_merge_service.py
 #, python-format
-msgid "Generated %(date)s at %(time)s"
-msgstr "Generato il %(date)s alle %(time)s"
-
-#: camac/instance/document_merge_service.py
-#, python-format
-msgid "Modified %(date)s at %(time)s"
-msgstr "Modificato il %(date)s alle %(time)s"
-
-#: camac/instance/document_merge_service.py
-#, python-format
-msgid "Created %(date)s at %(time)s"
-msgstr "Creato il %(date)s alle %(time)s"
-
-#: camac/instance/document_merge_service.py
-#, python-format
-msgid "Uploaded %(date)s at %(time)s"
-msgstr "Caricato il %(date)s alle %(time)s"
-
-#: camac/instance/document_merge_service.py
-#, python-format
 msgid "None or multiple caluma Documents found for instance: %(instance)s"
 msgstr ""
 "Per il dossier %(instance)s non è stato trovato nessun documento/sono stati "
@@ -2075,12 +2071,42 @@ msgid "Circulation reopened"
 msgstr "Circolazione riaperta"
 
 #: camac/settings/modules/dms.py
+#, python-format
+msgid "Generated %(date)s at %(time)s"
+msgstr "Generato il %(date)s alle %(time)s"
+
+#: camac/settings/modules/dms.py
+#, python-format
+msgid "Created %(date)s at %(time)s"
+msgstr "Creato il %(date)s alle %(time)s"
+
+#: camac/settings/modules/dms.py
+#, python-format
+msgid "Uploaded %(date)s at %(time)s"
+msgstr "Caricato il %(date)s alle %(time)s"
+
+#: camac/settings/modules/dms.py
+#, python-format
+msgid "Modified %(date)s at %(time)s"
+msgstr "Modificato il %(date)s alle %(time)s"
+
+#: camac/settings/modules/dms.py
 msgid "Receipt"
 msgstr "Ricevuta"
 
 #: camac/settings/modules/dms.py
 msgid "Form"
 msgstr "Modulo"
+
+#: camac/settings/modules/dms.py
+#, python-format
+msgid "%(date)s"
+msgstr ""
+
+#: camac/settings/modules/dms.py
+#, python-format
+msgid "%(date)s, %(time)s o'clock"
+msgstr ""
 
 #: camac/settings/modules/ech0211.py
 msgid "Inquiry sent"

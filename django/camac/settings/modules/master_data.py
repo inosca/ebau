@@ -3483,6 +3483,11 @@ MASTER_DATA = {
                 "grundeigentuemerin",
                 {"column_mapping": SG_PERSONAL_DATA_MAPPING},
             ),
+            "invoice_recipients": (
+                "table",
+                "rechnungsempfaengerin",
+                {"column_mapping": SG_PERSONAL_DATA_MAPPING},
+            ),
             "construction_costs": ("answer", "gesamtkosten"),
             "publication_required": (
                 "answer",

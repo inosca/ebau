@@ -633,6 +633,8 @@
     'dossier_number': '2026-99',
     'final_approval_date': None,
     'information_of_neighbors_required': True,
+    'invoice_recipients': list([
+    ]),
     'joined_street_and_number': True,
     'landowners': list([
       dict({

@@ -14,6 +14,7 @@ from django.utils.timezone import make_aware
 from django.utils.translation import gettext as _
 from rest_framework import exceptions, status
 
+from camac.applicants import models
 from camac.instance.document_merge_service import DMSClient, DMSHandler, DMSVisitor
 from camac.tags.factories import KeywordFactory, TagFactory
 from camac.tests.form_utils import FormUtils
@@ -34,6 +35,7 @@ def test_document_merge_service_snapshot(
     django_assert_num_queries,
     be_dms_settings,
     service,
+    user_factory,
     snapshot,
     be_master_data_settings,
 ):
@@ -95,6 +97,7 @@ def test_document_merge_service_snapshot(
         "loaddata", *[Path(settings.ROOT_DIR) / "kt_bern" / path for path in paths]
     )
 
+    request_user = user_factory()
     for kwargs, expected_queries in [
         ({"instance_id": 1}, 34),
         ({"instance_id": 3, "form_slug": "sb1"}, 30),
@@ -110,7 +113,7 @@ def test_document_merge_service_snapshot(
             instance, root_document = handler.get_instance_and_document(**kwargs)
 
             snapshot.assert_match(
-                handler.get_meta_data(instance, root_document, service)
+                handler.get_meta_data(instance, root_document, service, request_user)
             )
 
             visitor = DMSVisitor(root_document, instance, BaseUser())
@@ -153,6 +156,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
     be_instance,
     group,
     user_factory,
+    admin_user,
     snapshot,
     application_settings,
     master_data_is_visible_mock,
@@ -263,7 +267,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
 
     snapshot.assert_match(
         DMSHandler().get_meta_data(
-            be_instance, be_instance.case.document, group.service
+            be_instance, be_instance.case.document, group.service, admin_user
         )
     )
 
@@ -275,6 +279,7 @@ def test_document_merge_service_cover_sheet_without_header_values(
     be_instance,
     group,
     snapshot,
+    admin_user,
     application_settings,
     be_master_data_settings,
     form_utils: FormUtils,
@@ -300,7 +305,7 @@ def test_document_merge_service_cover_sheet_without_header_values(
 
     snapshot.assert_match(
         DMSHandler().get_meta_data(
-            be_instance, be_instance.case.document, group.service
+            be_instance, be_instance.case.document, group.service, admin_user
         )
     )
 
@@ -312,6 +317,7 @@ def test_eingabebestaetigung_gr(
     settings,
     gr_instance,
     service_factory,
+    admin_user,
     group,
     snapshot,
     freezer,
@@ -461,7 +467,11 @@ def test_eingabebestaetigung_gr(
 
     snapshot.assert_match(
         DMSHandler().get_data(
-            gr_instance, gr_instance.case.document, BaseUser(), group.service
+            gr_instance,
+            gr_instance.case.document,
+            BaseUser(),
+            group.service,
+            admin_user,
         )
     )
 
@@ -689,6 +699,7 @@ def test_is_draft(
     dms_settings,
     be_instance,
     group,
+    admin_user,
     check_validity_for_draft,
     is_valid,
     is_post_submit,
@@ -714,7 +725,11 @@ def test_is_draft(
     )
 
     data = DMSHandler().get_data(
-        be_instance, be_instance.case.document, BaseUser(), group.service
+        be_instance,
+        be_instance.case.document,
+        BaseUser(),
+        group.service,
+        admin_user,
     )
     assert data["draft"] == expected_draft_output
 
@@ -723,6 +738,7 @@ def test_is_draft(
 def test_header_keywords_ag(
     ag_dms_settings,
     service_factory,
+    admin_user,
     ag_instance,
     group,
 ):
@@ -741,7 +757,7 @@ def test_header_keywords_ag(
     keyword2.instances.add(ag_instance)
 
     meta_data = DMSHandler().get_meta_data(
-        ag_instance, ag_instance.case.document, municipality
+        ag_instance, ag_instance.case.document, municipality, admin_user
     )
 
     assert meta_data["tagHeader"] == "keyword 1, keyword 2"
@@ -752,6 +768,7 @@ def test_header_tags_be(
     be_dms_settings,
     be_tags_settings,
     service_factory,
+    admin_user,
     be_instance,
     group,
 ):
@@ -767,7 +784,74 @@ def test_header_tags_be(
     TagFactory(name="tag2", instance=be_instance, service=municipality)
 
     meta_data = DMSHandler().get_meta_data(
-        be_instance, be_instance.case.document, municipality
+        be_instance, be_instance.case.document, municipality, admin_user
     )
 
     assert meta_data["tagHeader"] == "tag1, tag2"
+
+
+@pytest.mark.django_db
+def test_sg_placeholders(
+    sg_dms_settings,
+    sg_instance,
+    applicant_factory,
+    applicant_confirmation_factory,
+    applicant_confirmation_round_factory,
+    caluma_question_factory,
+    service,
+    admin_user,
+    form_utils: FormUtils,
+):
+
+    applicant = sg_instance.involved_applicants.first()
+    applicant_2 = applicant_factory(instance=sg_instance)
+
+    # first applicant confirmation round - canceled
+    round_1 = applicant_confirmation_round_factory(
+        instance=sg_instance, status=models.ApplicantConfirmationRound.Status.CANCELED
+    )
+    applicant_confirmation_factory(
+        applicant=applicant,
+        round=round_1,
+        status=models.ApplicantConfirmation.Status.CANCELED,
+    )
+
+    # second applicant confirmation round - completed
+    round_2 = applicant_confirmation_round_factory(
+        instance=sg_instance, status=models.ApplicantConfirmationRound.Status.COMPLETED
+    )
+    confirmation = applicant_confirmation_factory(
+        applicant=applicant,
+        round=round_2,
+        status=models.ApplicantConfirmation.Status.CONFIRMED,
+    )
+    confirmation.source_questions.set(
+        [
+            caluma_question_factory(label="Applicant"),
+            caluma_question_factory(label="Landowner"),
+        ]
+    )
+
+    meta_data = DMSHandler().get_meta_data(
+        sg_instance, sg_instance.case.document, service, admin_user
+    )
+
+    assert meta_data["involved_applicants"] == [
+        {
+            "full_name": applicant.user.get_full_name(),
+            "username": applicant.user.username,
+            "permission": "Administrator/in",
+        },
+        {
+            "full_name": applicant_2.invitee.get_full_name(),
+            "username": applicant_2.invitee.username,
+            "permission": "Administrator/in",
+        },
+    ]
+
+    assert meta_data["confirmations"][0]["full_name"] == confirmation.display_name
+    assert meta_data["confirmations"][0]["username"] == applicant.invitee.username
+    assert meta_data["confirmations"][0]["roles"] == confirmation.roles
+
+    assert meta_data["generatedBy"]["full_name"] == admin_user.get_full_name()
+    assert meta_data["generatedBy"]["username"] == admin_user.username
