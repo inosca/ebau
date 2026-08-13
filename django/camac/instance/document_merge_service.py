@@ -170,6 +170,11 @@ class DMSHandler:
                 if instance.case.document.pk != document.pk
                 else None
             ),
+            "formSlug": (
+                str(document.form.slug)
+                if instance.case.document.pk != document.pk
+                else None
+            ),
             "dossierNr": graceful_get(master_data, "dossier_number"),
             "municipality": graceful_get(master_data, "municipality_name"),
             "signatureSectionTitle": _("Signatures"),

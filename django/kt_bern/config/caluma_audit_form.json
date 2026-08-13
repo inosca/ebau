@@ -1905,6 +1905,26 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "aa-form",
+    "fields": {
+      "created_at": "2026-07-27T04:03:34.567Z",
+      "modified_at": "2026-07-27T04:03:34.567Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Auszahlung Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Dossierprüfung > Auszahlung Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "is-creatable": true
+      },
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "bab-beilagen",
     "fields": {
       "created_at": "2020-10-23T08:19:32.470Z",
@@ -2225,6 +2245,51 @@
       "is_published": false,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aa-form.aa-validate",
+    "fields": {
+      "created_at": "2026-07-27T06:20:51.734Z",
+      "modified_at": "2026-07-27T06:20:51.734Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aa-form",
+      "question": "aa-validate",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aa-form.auszahlung-abbruchpraemie-bestaetigung-vollstaendigen-abbruch",
+    "fields": {
+      "created_at": "2026-07-27T04:13:28.594Z",
+      "modified_at": "2026-07-27T04:13:28.594Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aa-form",
+      "question": "auszahlung-abbruchpraemie-bestaetigung-vollstaendigen-abbruch",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aa-form.hinweis-auszahlung-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-07-27T04:17:17.665Z",
+      "modified_at": "2026-07-27T04:17:17.665Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aa-form",
+      "question": "hinweis-auszahlung-abbruchpraemie",
+      "sort": 2
     }
   },
   {
@@ -2799,6 +2864,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dossierpruefung.aa-form",
+    "fields": {
+      "created_at": "2026-07-27T04:20:50.024Z",
+      "modified_at": "2026-07-27T04:20:50.024Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dossierpruefung",
+      "question": "aa-form",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dossierpruefung.bab-form",
     "fields": {
       "created_at": "2020-10-13T11:58:43.843Z",
@@ -2809,7 +2889,7 @@
       "modified_by_group": null,
       "form": "dossierpruefung",
       "question": "bab-form",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -2824,7 +2904,7 @@
       "modified_by_group": null,
       "form": "dossierpruefung",
       "question": "fp-form",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -2839,7 +2919,7 @@
       "modified_by_group": null,
       "form": "dossierpruefung",
       "question": "fp-form-v2",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -2854,7 +2934,7 @@
       "modified_by_group": null,
       "form": "dossierpruefung",
       "question": "mp-form",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -8435,6 +8515,23 @@
       "form": "mp-weitere-vorschriften",
       "question": "mp-kinderspielplaetze-ergebnis",
       "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "auszahlung-abbruchpraemie-bestaetigung-vollstaendigen-abbruch-ja",
+    "fields": {
+      "created_at": "2026-07-27T04:13:18.417Z",
+      "modified_at": "2026-07-27T04:13:18.417Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Baupolizeibehörde der Standortgemeinde bestätigt hiermit den vollständigen Abbruch und allfällig die fachgerechte Rekultivierung des Terrains gemäss der Baubewilligung.\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
     }
   },
   {
@@ -18894,6 +18991,103 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "aa-form",
+    "fields": {
+      "created_at": "2026-07-27T04:20:44.953Z",
+      "modified_at": "2026-08-13T07:38:50.766Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Auszahlung Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "aa-form",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "aa-validate",
+    "fields": {
+      "created_at": "2026-07-27T06:20:46.652Z",
+      "modified_at": "2026-07-27T06:20:46.652Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollständigkeit prüfen\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "document-validity-button"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "auszahlung-abbruchpraemie-bestaetigung-vollstaendigen-abbruch",
+    "fields": {
+      "created_at": "2026-07-27T04:13:23.504Z",
+      "modified_at": "2026-07-27T04:13:23.504Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Baupolizeibehörde der Standortgemeinde bestätigt hiermit den vollständigen Abbruch und allfällig die fachgerechte Rekultivierung des Terrains gemäss der Baubewilligung.\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bab-01-07-1972-um-und-ausgebaut",
     "fields": {
       "created_at": "2020-10-14T07:12:49.759Z",
@@ -20854,6 +21048,37 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-margin-remove\\\"><strong>Hinweis:</strong> Bauvorhaben in der Landwirtschaftszone bedürfen in jedem Fall einer Verfügung des Amtes für Gemeinden und Raumordnung hinsichtlich der Zonenkonformität (Art. 16/22 RPG) oder für die Ausnahmebewilligung nach Art. 24 - 24d oder Art. 37a RPG.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-margin-remove\\\"><strong>Remarque :</strong> Les projets de construction dans une zone agricole requièrent dans tous les cas une décision de l'OACOT sur la conformité à l'affectation de la zone (art. 16/22 LAT) ou une dérogation au sens des articles 24 à 24d ou 37a LAT.</div>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-auszahlung-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-07-27T04:17:12.580Z",
+      "modified_at": "2026-07-27T04:17:12.580Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis  Auszahlung Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\"><p>\\nStellt die Gemeinde fest, dass das Formular «Antrag auf Auszahlung» unvollständig oder fehlerhaft ausgefüllt wurde bzw. der Abbruch mit allfälliger Rekultivierung noch nicht vollständig vollzogen ist, soll das Dossier nicht an das AGR weitergeleitet werden. Das Dossier ist in diesem Fall zurückzuweisen.</p>\\n\\n<p>Wenn der Umfang des Abbruchs und die allfällige Rekultivierung nicht mit dem bewilligten Bauvorhaben übereinstimmt, hat die Baupolizeibehörde den Antragsstellenden über das eBau-Kommunikationsmodul aufzufordern, eine Projektänderung einzureichen. Das AGR nimmt aufgrund der Projektänderung eine Neubeurteilung der Abbruchprämie vor.</p></div>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -32129,6 +32354,21 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "auszahlung-abbruchpraemie-bestaetigung-vollstaendigen-abbruch.auszahlung-abbruchpraemie-bestaetigung-vollstaendigen-abbruch-ja",
+    "fields": {
+      "created_at": "2026-07-27T04:13:23.508Z",
+      "modified_at": "2026-07-27T04:13:23.508Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "auszahlung-abbruchpraemie-bestaetigung-vollstaendigen-abbruch",
+      "option": "auszahlung-abbruchpraemie-bestaetigung-vollstaendigen-abbruch-ja",
+      "sort": 1
     }
   },
   {

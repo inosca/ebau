@@ -520,10 +520,10 @@ DUMP = {
                 ),
                 "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
                 "caluma_audit_form": generate_form_dump_config(
-                    regex=r"^(dossierpruefung|mp-|fp-|mp-|bab-)"
+                    regex=r"^(dossierpruefung|mp-|fp-|mp-|bab-|aa-)"
                 ),
                 "caluma_audit_form_v2": generate_form_dump_config(
-                    regex=r"^(dossierpruefung|mp-|fp-|mp-|bab-)",
+                    regex=r"^(dossierpruefung|mp-|fp-|mp-|bab-|aa-)",
                     version=2,
                 ),
                 "caluma_heat_generator_form": generate_form_dump_config(
