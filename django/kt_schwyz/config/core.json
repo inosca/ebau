@@ -3323,6 +3323,22 @@
     }
   },
   {
+    "model": "core.instanceresource",
+    "pk": 98,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 27,
+      "name": "Dokumente generieren",
+      "description": null,
+      "template": "/ember-camac-ng/dms-generate.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 5,
+      "form_group": 1,
+      "require_permission": "dms-generate-view-internal"
+    }
+  },
+  {
     "model": "core.instanceresourceaction",
     "pk": 27,
     "fields": {
@@ -3730,6 +3746,13 @@
   {
     "model": "core.irpage",
     "pk": 97,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 98,
     "fields": {
       "pdf_class": null
     }

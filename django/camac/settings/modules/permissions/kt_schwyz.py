@@ -106,6 +106,8 @@ SZ_PERMISSIONS_SETTINGS = {
             ("form-view-internal", IS_ARE_GESCHAEFT),
             ("form-read", IS_ARE_GESCHAEFT),
             ("form-write", IS_ARE_GESCHAEFT & RequireRunningCase()),
+            ("dms-generate-read", IS_ARE_GESCHAEFT),
+            ("dms-generate-view-internal", IS_ARE_GESCHAEFT),
             ("documents-view-internal", IS_ARE_GESCHAEFT),
             ("documents-read", IS_ARE_GESCHAEFT),
             ("documents-write", IS_ARE_GESCHAEFT & RequireRunningCase()),

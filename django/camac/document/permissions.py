@@ -534,6 +534,7 @@ PERMISSIONS_BY_ACCESSLEVEL = {
         },
         "are-service": {
             AdminPermission: (_has_documents_write_permission, [12]),
+            AdminInternalPermission: (_has_documents_write_permission, [7]),
             ReadPermission: (_allow_always, [12]),
         },
     },
