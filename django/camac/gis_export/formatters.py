@@ -69,14 +69,17 @@ LOKALISATION_WRAPPER = _child_type(so_schema.GeschaeftType, _SO, "Lokalisation")
 BAUPROJEKT_WRAPPER = _child_type(so_schema.GeschaeftType, _SO, "Bauprojekt")
 BAUWERKE_WRAPPER = _child_type(so_schema.Bauprojekt_Type, _SO, "Bauwerke")
 ENTSCHEID_WRAPPER = _child_type(so_schema.GeschaeftType, _SO, "Entscheid_Leitbehoerde")
-PUBLIKATION_WRAPPER = _child_type(so_schema.GeschaeftType, _SO, "Publikation")
+AUFLAGE_WRAPPER = _child_type(so_schema.GeschaeftType, _SO, "Auflage")
 ZIRKULATION_WRAPPER = _child_type(so_schema.GeschaeftType, _SO, "Zirkulation")
 ZUSTAENDIGE_PERSONEN_WRAPPER = _child_type(
     so_schema.GeschaeftType, _SO, "Zustaendige_Personen"
 )
 GESUCHSTELLER_WRAPPER = _child_type(so_schema.GeschaeftType, _SO, "Gesuchsteller")
+GESUCHSTELLER_ADRESSE_WRAPPER = _child_type(
+    so_schema.Gesuchsteller_Type, _SO, "Adresse"
+)
 GESUCHSTELLER_VERTRETUNG_WRAPPER = _child_type(
-    so_schema.GeschaeftType, _SO, "Gesuchsteller_Vertretung"
+    so_schema.Gesuchsteller_Type, _SO, "Vertretung"
 )
 PROJEKTVERFASSER_WRAPPER = _child_type(so_schema.GeschaeftType, _SO, "Projektverfasser")
 RECHNUNGSEMPFAENGER_WRAPPER = _child_type(
@@ -117,11 +120,8 @@ ENTSCHEID_BY_SLUG = {
     "entscheid-entscheid-zustimmung": "Zustimmung",
     "entscheid-entscheid-teilzustimmung": "Teilzustimmung",
     "entscheid-entscheid-rueckzug": "Rueckzug",
-    # Voranfrage / Meldung / Meldung-pv use positiv/negativ instead.
-    # See ember-ebau/app/caluma/lib/custom-field.js:129.
-    # TODO: confirm the positiv/negativ mapping with the customer.
-    "entscheid-entscheid-positiv": "Zustimmung",
-    "entscheid-entscheid-negativ": "Ablehnung",
+    "entscheid-entscheid-positiv": "positiv",
+    "entscheid-entscheid-negativ": "negativ",
 }
 ENTSCHEID_VALUES = frozenset(ENTSCHEID_BY_SLUG.values())
 
@@ -207,7 +207,7 @@ def _adresse(data: dict[str, Any]) -> so_schema.Adresse_Type:
     )
 
 
-def _person_adresse(wrapper: type, data: dict[str, Any] | None) -> Any | None:
+def _person(data: dict[str, Any] | None) -> so_schema.PersonAdresseType | None:
     if not data:
         return None
 
@@ -226,7 +226,35 @@ def _person_adresse(wrapper: type, data: dict[str, Any] | None) -> Any | None:
     if data.get("adresse"):
         person.Adresse = ADRESSE_WRAPPER(Adresse=_adresse(data["adresse"]))
 
+    return person
+
+
+def _person_adresse(wrapper: type, data: dict[str, Any] | None) -> Any | None:
+    person = _person(data)
+    if person is None:
+        return None
+
     return wrapper(PersonAdresse=person)
+
+
+def _gesuchsteller(
+    adresse: dict[str, Any] | None, vertretung: dict[str, Any] | None
+) -> Any | None:
+    applicant = _person(adresse)
+    if applicant is None:
+        return None
+
+    gesuchsteller = so_schema.Gesuchsteller_Type(
+        Adresse=GESUCHSTELLER_ADRESSE_WRAPPER(PersonAdresse=applicant)
+    )
+
+    representation = _person(vertretung)
+    if representation is not None:
+        gesuchsteller.Vertretung = GESUCHSTELLER_VERTRETUNG_WRAPPER(
+            PersonAdresse=representation
+        )
+
+    return GESUCHSTELLER_WRAPPER(Gesuchsteller=gesuchsteller)
 
 
 def _coordinates(data: dict[str, Any] | None) -> tuple[float, float] | None:
@@ -399,7 +427,7 @@ def _bauprojekt(data: dict[str, Any] | None) -> Any | None:
     bauprojekt = so_schema.Bauprojekt_Type(
         Beschreibung=data.get("beschreibung"),
         Bauwerk_Art=data.get("bauwerk_art") or [],
-        Nutzungszweck=data.get("nutzungszweck"),
+        Nutzungszweck=data.get("nutzungszweck") or [],
     )
     bauprojekt.Bauwerke = [
         BAUWERKE_WRAPPER(Bauwerk=_bauwerk(item)) for item in data.get("bauwerke") or []
@@ -422,12 +450,12 @@ def _entscheid(data: dict[str, Any] | None) -> Any | None:
     )
 
 
-def _publikation(data: dict[str, Any] | None) -> Any | None:
+def _auflage(data: dict[str, Any] | None) -> Any | None:
     if not data:
         return None
 
-    return PUBLIKATION_WRAPPER(
-        Publikation=so_schema.Publikation_Type(
+    return AUFLAGE_WRAPPER(
+        Auflage=so_schema.Auflage_Type(
             Startdatum=data.get("startdatum"),
             Enddatum=data.get("enddatum"),
         )
@@ -535,13 +563,7 @@ def _build_geschaeft(export: SOGISExport, tid: str) -> so_schema.GeschaeftType:
         _geometrie(export),
         (
             "Gesuchsteller",
-            _person_adresse(GESUCHSTELLER_WRAPPER, export.gesuchsteller),
-        ),
-        (
-            "Gesuchsteller_Vertretung",
-            _person_adresse(
-                GESUCHSTELLER_VERTRETUNG_WRAPPER, export.gesuchsteller_vertretung
-            ),
+            _gesuchsteller(export.gesuchsteller, export.gesuchsteller_vertretung),
         ),
         (
             "Projektverfasser",
@@ -558,7 +580,7 @@ def _build_geschaeft(export: SOGISExport, tid: str) -> so_schema.GeschaeftType:
         ("Lokalisation", _lokalisation(export.lokalisation)),
         ("Bauprojekt", _bauprojekt(export.bauprojekt)),
         ("Entscheid_Leitbehoerde", _entscheid(export.entscheid)),
-        ("Publikation", _publikation(export.publikation)),
+        ("Auflage", _auflage(export.auflage)),
         ("Zustaendige_Personen", _zustaendige_personen(export.zustaendige_person)),
     ):
         if value is not None:

@@ -101,7 +101,7 @@ def _full_export(instance_id: int) -> SOGISExport:
         bauprojekt={
             "beschreibung": "Neubau Mehrfamilienhaus mit Tiefgarage",
             "bauwerk_art": ["Hochbaute", "Tiefbaute"],
-            "nutzungszweck": "Wohnen, Arbeiten (Gewerbebetrieb)",
+            "nutzungszweck": ["Wohnen", "Arbeiten (Gewerbebetrieb)"],
             "bauwerke": [
                 {
                     "bezeichnung": "MFH A",
@@ -125,7 +125,7 @@ def _full_export(instance_id: int) -> SOGISExport:
         },
         # Only the four form decisions that have an INTERLIS equivalent.
         entscheid={"entscheid": "Teilzustimmung", "datum": "2026-05-01"},
-        publikation={"startdatum": "2026-05-01", "enddatum": "2026-05-31"},
+        auflage={"startdatum": "2026-05-01", "enddatum": "2026-05-31"},
         zirkulation=[
             {"slug": "afu", "name": None, "abteilung": "Amt fuer Umwelt"},
             {"slug": "arp", "name": None, "abteilung": "Amt fuer Raumplanung"},
@@ -176,7 +176,13 @@ def test_build_sogis_transfer_xml_with_all_fields(snapshot):
     snapshot.assert_match(_validated(xml))
 
     # This dossier carries a point, so the line and polygon variants are absent.
-    assert _unserialized(xml) == {"Geometrie_Linie", "Geometrie_Flaeche"}
+    # The representation rides in the nested Gesuchsteller.Vertretung, so the
+    # top-level Gesuchsteller_Vertretung element stays unused.
+    assert _unserialized(xml) == {
+        "Geometrie_Linie",
+        "Geometrie_Flaeche",
+        "Gesuchsteller_Vertretung",
+    }
 
 
 def _build(**overrides) -> None:
@@ -304,9 +310,6 @@ def test_map_status_returns_unknown_states_unchanged():
     "entscheid",
     [
         "Teilrueckzug",
-        # Form decisions without an INTERLIS counterpart.
-        "negativ",
-        "positiv",
         "beschwerde-bestaetigt",
     ],
 )
@@ -363,7 +366,7 @@ def test_validate_reports_every_violation_at_once():
         _build(
             plot_point=None,
             status="not-a-status",
-            entscheid={"entscheid": "positiv"},
+            entscheid={"entscheid": "Teilrueckzug"},
             zirkulation=[{"slug": "not-a-service"}],
             zustaendige_person={"slug": "also-not-a-service"},
         )
@@ -375,7 +378,7 @@ def test_validate_reports_every_violation_at_once():
     for expected in (
         "no usable geometry",
         "Status 'not-a-status'",
-        "Entscheid 'positiv'",
+        "Entscheid 'Teilrueckzug'",
         "service 'not-a-service'",
         "service 'also-not-a-service'",
     ):

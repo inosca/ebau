@@ -1,7 +1,7 @@
 # ../../../camac/gis_export/so_schema/GeometryCHLV95_V2.py
 # -*- coding: utf-8 -*-
 # PyXB bindings for NM:2182de60ee9ca86f75f5a00d2f0d3274f8dea653
-# Generated 2026-07-15 11:48:20.603492 by PyXB version 1.2.6 using Python 3.12.13.final.0
+# Generated 2026-08-13 13:25:16.304648 by PyXB version 1.2.6 using Python 3.13.3.final.0
 # Namespace http://www.interlis.ch/xtf/2.4/GeometryCHLV95_V2 [xmlns:GeometryCHLV95_V2]
 
 from __future__ import unicode_literals
@@ -14,7 +14,7 @@ import pyxb.utils.domutils
 import sys
 import pyxb.utils.six as _six
 # Unique identifier for bindings created at the same time
-_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:32adce28-9fd4-4cfa-a367-c8f7873f934c')
+_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:a2f54d30-8bc1-475c-b11b-e75cb31730ec')
 
 # Version of PyXB used to generate the bindings
 _PyXBVersion = '1.2.6'
@@ -91,7 +91,7 @@ class Orientation (pyxb.binding.datatypes.decimal):
     """An atomic simple type."""
 
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'Orientation')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 135, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 135, 0)
     _Documentation = None
 Orientation._CF_maxInclusive = pyxb.binding.facets.CF_maxInclusive(value=pyxb.binding.datatypes.decimal('359.99999'), value_datatype=Orientation)
 Orientation._CF_minInclusive = pyxb.binding.facets.CF_minInclusive(value=pyxb.binding.datatypes.decimal('0.0'), value_datatype=Orientation)
@@ -106,7 +106,7 @@ class Accuracy (pyxb.binding.datatypes.normalizedString):
     """An atomic simple type."""
 
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'Accuracy')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 141, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 141, 0)
     _Documentation = None
 Accuracy._InitializeFacetMap()
 Namespace.addCategoryObject('typeBinding', 'Accuracy', Accuracy)
@@ -118,7 +118,7 @@ class Method (pyxb.binding.datatypes.normalizedString):
     """An atomic simple type."""
 
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'Method')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 145, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 145, 0)
     _Documentation = None
 Method._InitializeFacetMap()
 Namespace.addCategoryObject('typeBinding', 'Method', Method)
@@ -131,13 +131,13 @@ class Coord2 (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'Coord2')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 25, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 25, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}coord uses Python identifier coord
-    __coord = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'coord'), 'coord', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_Coord2_httpwww_interlis_chgeometry1_0coord', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 28, 2), )
+    __coord = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'coord'), 'coord', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_Coord2_httpwww_interlis_chgeometry1_0coord', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 28, 2), )
 
     
     coord = property(__coord.value, __coord.set, None, None)
@@ -159,13 +159,13 @@ class Coord3 (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'Coord3')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 30, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 30, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}coord uses Python identifier coord
-    __coord = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'coord'), 'coord', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_Coord3_httpwww_interlis_chgeometry1_0coord', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 28, 2), )
+    __coord = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'coord'), 'coord', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_Coord3_httpwww_interlis_chgeometry1_0coord', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 28, 2), )
 
     
     coord = property(__coord.value, __coord.set, None, None)
@@ -187,13 +187,13 @@ class MultiPoint (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'MultiPoint')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 35, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 35, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}multicoord uses Python identifier multicoord
-    __multicoord = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multicoord'), 'multicoord', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiPoint_httpwww_interlis_chgeometry1_0multicoord', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 41, 2), )
+    __multicoord = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multicoord'), 'multicoord', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiPoint_httpwww_interlis_chgeometry1_0multicoord', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 41, 2), )
 
     
     multicoord = property(__multicoord.value, __multicoord.set, None, None)
@@ -215,13 +215,13 @@ class MultiPoint3D (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'MultiPoint3D')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 40, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 40, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}multicoord uses Python identifier multicoord
-    __multicoord = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multicoord'), 'multicoord', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiPoint3D_httpwww_interlis_chgeometry1_0multicoord', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 41, 2), )
+    __multicoord = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multicoord'), 'multicoord', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiPoint3D_httpwww_interlis_chgeometry1_0multicoord', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 41, 2), )
 
     
     multicoord = property(__multicoord.value, __multicoord.set, None, None)
@@ -243,13 +243,13 @@ class Surface (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'Surface')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 45, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 45, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}surface uses Python identifier surface
-    __surface = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), 'surface', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_Surface_httpwww_interlis_chgeometry1_0surface', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2), )
+    __surface = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), 'surface', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_Surface_httpwww_interlis_chgeometry1_0surface', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2), )
 
     
     surface = property(__surface.value, __surface.set, None, None)
@@ -271,13 +271,13 @@ class Area (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'Area')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 50, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 50, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}surface uses Python identifier surface
-    __surface = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), 'surface', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_Area_httpwww_interlis_chgeometry1_0surface', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2), )
+    __surface = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), 'surface', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_Area_httpwww_interlis_chgeometry1_0surface', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2), )
 
     
     surface = property(__surface.value, __surface.set, None, None)
@@ -299,13 +299,13 @@ class Line (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'Line')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 55, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 55, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}polyline uses Python identifier polyline
-    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_Line_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
+    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_Line_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
 
     
     polyline = property(__polyline.value, __polyline.set, None, None)
@@ -327,13 +327,13 @@ class DirectedLine (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'DirectedLine')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 60, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 60, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}polyline uses Python identifier polyline
-    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_DirectedLine_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
+    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_DirectedLine_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
 
     
     polyline = property(__polyline.value, __polyline.set, None, None)
@@ -355,13 +355,13 @@ class LineWithAltitude (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'LineWithAltitude')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 65, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 65, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}polyline uses Python identifier polyline
-    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_LineWithAltitude_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
+    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_LineWithAltitude_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
 
     
     polyline = property(__polyline.value, __polyline.set, None, None)
@@ -383,13 +383,13 @@ class DirectedLineWithAltitude (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'DirectedLineWithAltitude')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 70, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 70, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}polyline uses Python identifier polyline
-    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_DirectedLineWithAltitude_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
+    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_DirectedLineWithAltitude_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
 
     
     polyline = property(__polyline.value, __polyline.set, None, None)
@@ -411,13 +411,13 @@ class MultiLine (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'MultiLine')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 75, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 75, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}multipolyline uses Python identifier multipolyline
-    __multipolyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), 'multipolyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiLine_httpwww_interlis_chgeometry1_0multipolyline', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2), )
+    __multipolyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), 'multipolyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiLine_httpwww_interlis_chgeometry1_0multipolyline', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2), )
 
     
     multipolyline = property(__multipolyline.value, __multipolyline.set, None, None)
@@ -439,13 +439,13 @@ class MultiDirectedLine (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'MultiDirectedLine')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 80, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 80, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}multipolyline uses Python identifier multipolyline
-    __multipolyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), 'multipolyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiDirectedLine_httpwww_interlis_chgeometry1_0multipolyline', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2), )
+    __multipolyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), 'multipolyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiDirectedLine_httpwww_interlis_chgeometry1_0multipolyline', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2), )
 
     
     multipolyline = property(__multipolyline.value, __multipolyline.set, None, None)
@@ -467,13 +467,13 @@ class MultiSurface (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'MultiSurface')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 85, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 85, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}multisurface uses Python identifier multisurface
-    __multisurface = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multisurface'), 'multisurface', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiSurface_httpwww_interlis_chgeometry1_0multisurface', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 128, 2), )
+    __multisurface = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multisurface'), 'multisurface', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiSurface_httpwww_interlis_chgeometry1_0multisurface', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 128, 2), )
 
     
     multisurface = property(__multisurface.value, __multisurface.set, None, None)
@@ -495,13 +495,13 @@ class SurfaceWithoutArcs (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'SurfaceWithoutArcs')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 90, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 90, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}surface uses Python identifier surface
-    __surface = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), 'surface', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_SurfaceWithoutArcs_httpwww_interlis_chgeometry1_0surface', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2), )
+    __surface = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), 'surface', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_SurfaceWithoutArcs_httpwww_interlis_chgeometry1_0surface', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2), )
 
     
     surface = property(__surface.value, __surface.set, None, None)
@@ -523,13 +523,13 @@ class AreaWithoutArcs (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'AreaWithoutArcs')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 95, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 95, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}surface uses Python identifier surface
-    __surface = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), 'surface', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_AreaWithoutArcs_httpwww_interlis_chgeometry1_0surface', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2), )
+    __surface = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), 'surface', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_AreaWithoutArcs_httpwww_interlis_chgeometry1_0surface', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2), )
 
     
     surface = property(__surface.value, __surface.set, None, None)
@@ -551,13 +551,13 @@ class LineWithoutArcs (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'LineWithoutArcs')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 100, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 100, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}polyline uses Python identifier polyline
-    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_LineWithoutArcs_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
+    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_LineWithoutArcs_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
 
     
     polyline = property(__polyline.value, __polyline.set, None, None)
@@ -579,13 +579,13 @@ class DirectedLineWithoutArcs (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'DirectedLineWithoutArcs')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 105, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 105, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}polyline uses Python identifier polyline
-    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_DirectedLineWithoutArcs_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
+    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_DirectedLineWithoutArcs_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
 
     
     polyline = property(__polyline.value, __polyline.set, None, None)
@@ -607,13 +607,13 @@ class LineWithAltitudeWithoutArcs (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'LineWithAltitudeWithoutArcs')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 110, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 110, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}polyline uses Python identifier polyline
-    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_LineWithAltitudeWithoutArcs_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
+    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_LineWithAltitudeWithoutArcs_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
 
     
     polyline = property(__polyline.value, __polyline.set, None, None)
@@ -635,13 +635,13 @@ class DirectedLineWithAltitudeWithoutArcs (pyxb.binding.basis.complexTypeDefinit
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'DirectedLineWithAltitudeWithoutArcs')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 115, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 115, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}polyline uses Python identifier polyline
-    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_DirectedLineWithAltitudeWithoutArcs_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
+    __polyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), 'polyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_DirectedLineWithAltitudeWithoutArcs_httpwww_interlis_chgeometry1_0polyline', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2), )
 
     
     polyline = property(__polyline.value, __polyline.set, None, None)
@@ -663,13 +663,13 @@ class MultiLineWithoutArcs (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'MultiLineWithoutArcs')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 120, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 120, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}multipolyline uses Python identifier multipolyline
-    __multipolyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), 'multipolyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiLineWithoutArcs_httpwww_interlis_chgeometry1_0multipolyline', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2), )
+    __multipolyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), 'multipolyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiLineWithoutArcs_httpwww_interlis_chgeometry1_0multipolyline', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2), )
 
     
     multipolyline = property(__multipolyline.value, __multipolyline.set, None, None)
@@ -691,13 +691,13 @@ class MultiDirectedLineWithoutArcs (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'MultiDirectedLineWithoutArcs')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 125, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 125, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}multipolyline uses Python identifier multipolyline
-    __multipolyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), 'multipolyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiDirectedLineWithoutArcs_httpwww_interlis_chgeometry1_0multipolyline', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2), )
+    __multipolyline = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), 'multipolyline', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiDirectedLineWithoutArcs_httpwww_interlis_chgeometry1_0multipolyline', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2), )
 
     
     multipolyline = property(__multipolyline.value, __multipolyline.set, None, None)
@@ -719,13 +719,13 @@ class MultiSurfaceWithoutArcs (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'MultiSurfaceWithoutArcs')
-    _XSDLocation = pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 130, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 130, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
     # Element {http://www.interlis.ch/geometry/1.0}multisurface uses Python identifier multisurface
-    __multisurface = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multisurface'), 'multisurface', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiSurfaceWithoutArcs_httpwww_interlis_chgeometry1_0multisurface', False, pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 128, 2), )
+    __multisurface = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(_Namespace_geom, 'multisurface'), 'multisurface', '__httpwww_interlis_chxtf2_4GeometryCHLV95_V2_MultiSurfaceWithoutArcs_httpwww_interlis_chgeometry1_0multisurface', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 128, 2), )
 
     
     multisurface = property(__multisurface.value, __multisurface.set, None, None)
@@ -742,7 +742,7 @@ Namespace.addCategoryObject('typeBinding', 'MultiSurfaceWithoutArcs', MultiSurfa
 
 
 
-Coord2._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'coord'), _ImportedBinding_camac_gis_export_so_schema_geometry.CoordType, scope=Coord2, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 28, 2)))
+Coord2._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'coord'), _ImportedBinding_camac_gis_export_so_schema_geometry.CoordType, scope=Coord2, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 28, 2)))
 
 def _BuildAutomaton ():
     # Remove this helper function from the namespace after it is invoked
@@ -753,7 +753,7 @@ def _BuildAutomaton ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(Coord2._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'coord')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 27, 4))
+    symbol = pyxb.binding.content.ElementUse(Coord2._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'coord')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 27, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -764,7 +764,7 @@ Coord2._Automaton = _BuildAutomaton()
 
 
 
-Coord3._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'coord'), _ImportedBinding_camac_gis_export_so_schema_geometry.CoordType, scope=Coord3, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 28, 2)))
+Coord3._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'coord'), _ImportedBinding_camac_gis_export_so_schema_geometry.CoordType, scope=Coord3, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 28, 2)))
 
 def _BuildAutomaton_ ():
     # Remove this helper function from the namespace after it is invoked
@@ -775,7 +775,7 @@ def _BuildAutomaton_ ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(Coord3._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'coord')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 32, 4))
+    symbol = pyxb.binding.content.ElementUse(Coord3._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'coord')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 32, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -786,7 +786,7 @@ Coord3._Automaton = _BuildAutomaton_()
 
 
 
-MultiPoint._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multicoord'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiCoordType, scope=MultiPoint, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 41, 2)))
+MultiPoint._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multicoord'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiCoordType, scope=MultiPoint, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 41, 2)))
 
 def _BuildAutomaton_2 ():
     # Remove this helper function from the namespace after it is invoked
@@ -797,7 +797,7 @@ def _BuildAutomaton_2 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(MultiPoint._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multicoord')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 37, 4))
+    symbol = pyxb.binding.content.ElementUse(MultiPoint._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multicoord')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 37, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -808,7 +808,7 @@ MultiPoint._Automaton = _BuildAutomaton_2()
 
 
 
-MultiPoint3D._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multicoord'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiCoordType, scope=MultiPoint3D, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 41, 2)))
+MultiPoint3D._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multicoord'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiCoordType, scope=MultiPoint3D, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 41, 2)))
 
 def _BuildAutomaton_3 ():
     # Remove this helper function from the namespace after it is invoked
@@ -819,7 +819,7 @@ def _BuildAutomaton_3 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(MultiPoint3D._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multicoord')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 42, 4))
+    symbol = pyxb.binding.content.ElementUse(MultiPoint3D._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multicoord')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 42, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -830,7 +830,7 @@ MultiPoint3D._Automaton = _BuildAutomaton_3()
 
 
 
-Surface._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), _ImportedBinding_camac_gis_export_so_schema_geometry.SurfaceType, scope=Surface, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2)))
+Surface._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), _ImportedBinding_camac_gis_export_so_schema_geometry.SurfaceType, scope=Surface, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2)))
 
 def _BuildAutomaton_4 ():
     # Remove this helper function from the namespace after it is invoked
@@ -841,7 +841,7 @@ def _BuildAutomaton_4 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(Surface._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 47, 4))
+    symbol = pyxb.binding.content.ElementUse(Surface._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 47, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -852,7 +852,7 @@ Surface._Automaton = _BuildAutomaton_4()
 
 
 
-Area._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), _ImportedBinding_camac_gis_export_so_schema_geometry.SurfaceType, scope=Area, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2)))
+Area._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), _ImportedBinding_camac_gis_export_so_schema_geometry.SurfaceType, scope=Area, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2)))
 
 def _BuildAutomaton_5 ():
     # Remove this helper function from the namespace after it is invoked
@@ -863,7 +863,7 @@ def _BuildAutomaton_5 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(Area._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 52, 4))
+    symbol = pyxb.binding.content.ElementUse(Area._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 52, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -874,7 +874,7 @@ Area._Automaton = _BuildAutomaton_5()
 
 
 
-Line._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=Line, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
+Line._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=Line, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
 
 def _BuildAutomaton_6 ():
     # Remove this helper function from the namespace after it is invoked
@@ -885,7 +885,7 @@ def _BuildAutomaton_6 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(Line._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 57, 4))
+    symbol = pyxb.binding.content.ElementUse(Line._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 57, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -896,7 +896,7 @@ Line._Automaton = _BuildAutomaton_6()
 
 
 
-DirectedLine._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=DirectedLine, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
+DirectedLine._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=DirectedLine, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
 
 def _BuildAutomaton_7 ():
     # Remove this helper function from the namespace after it is invoked
@@ -907,7 +907,7 @@ def _BuildAutomaton_7 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(DirectedLine._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 62, 4))
+    symbol = pyxb.binding.content.ElementUse(DirectedLine._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 62, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -918,7 +918,7 @@ DirectedLine._Automaton = _BuildAutomaton_7()
 
 
 
-LineWithAltitude._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=LineWithAltitude, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
+LineWithAltitude._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=LineWithAltitude, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
 
 def _BuildAutomaton_8 ():
     # Remove this helper function from the namespace after it is invoked
@@ -929,7 +929,7 @@ def _BuildAutomaton_8 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(LineWithAltitude._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 67, 4))
+    symbol = pyxb.binding.content.ElementUse(LineWithAltitude._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 67, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -940,7 +940,7 @@ LineWithAltitude._Automaton = _BuildAutomaton_8()
 
 
 
-DirectedLineWithAltitude._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=DirectedLineWithAltitude, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
+DirectedLineWithAltitude._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=DirectedLineWithAltitude, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
 
 def _BuildAutomaton_9 ():
     # Remove this helper function from the namespace after it is invoked
@@ -951,7 +951,7 @@ def _BuildAutomaton_9 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(DirectedLineWithAltitude._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 72, 4))
+    symbol = pyxb.binding.content.ElementUse(DirectedLineWithAltitude._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 72, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -962,7 +962,7 @@ DirectedLineWithAltitude._Automaton = _BuildAutomaton_9()
 
 
 
-MultiLine._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiPolylineType, scope=MultiLine, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2)))
+MultiLine._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiPolylineType, scope=MultiLine, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2)))
 
 def _BuildAutomaton_10 ():
     # Remove this helper function from the namespace after it is invoked
@@ -973,7 +973,7 @@ def _BuildAutomaton_10 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(MultiLine._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 77, 4))
+    symbol = pyxb.binding.content.ElementUse(MultiLine._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 77, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -984,7 +984,7 @@ MultiLine._Automaton = _BuildAutomaton_10()
 
 
 
-MultiDirectedLine._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiPolylineType, scope=MultiDirectedLine, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2)))
+MultiDirectedLine._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiPolylineType, scope=MultiDirectedLine, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2)))
 
 def _BuildAutomaton_11 ():
     # Remove this helper function from the namespace after it is invoked
@@ -995,7 +995,7 @@ def _BuildAutomaton_11 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(MultiDirectedLine._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 82, 4))
+    symbol = pyxb.binding.content.ElementUse(MultiDirectedLine._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 82, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -1006,7 +1006,7 @@ MultiDirectedLine._Automaton = _BuildAutomaton_11()
 
 
 
-MultiSurface._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multisurface'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiSurfaceType, scope=MultiSurface, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 128, 2)))
+MultiSurface._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multisurface'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiSurfaceType, scope=MultiSurface, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 128, 2)))
 
 def _BuildAutomaton_12 ():
     # Remove this helper function from the namespace after it is invoked
@@ -1017,7 +1017,7 @@ def _BuildAutomaton_12 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(MultiSurface._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multisurface')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 87, 4))
+    symbol = pyxb.binding.content.ElementUse(MultiSurface._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multisurface')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 87, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -1028,7 +1028,7 @@ MultiSurface._Automaton = _BuildAutomaton_12()
 
 
 
-SurfaceWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), _ImportedBinding_camac_gis_export_so_schema_geometry.SurfaceType, scope=SurfaceWithoutArcs, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2)))
+SurfaceWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), _ImportedBinding_camac_gis_export_so_schema_geometry.SurfaceType, scope=SurfaceWithoutArcs, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2)))
 
 def _BuildAutomaton_13 ():
     # Remove this helper function from the namespace after it is invoked
@@ -1039,7 +1039,7 @@ def _BuildAutomaton_13 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(SurfaceWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 92, 4))
+    symbol = pyxb.binding.content.ElementUse(SurfaceWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 92, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -1050,7 +1050,7 @@ SurfaceWithoutArcs._Automaton = _BuildAutomaton_13()
 
 
 
-AreaWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), _ImportedBinding_camac_gis_export_so_schema_geometry.SurfaceType, scope=AreaWithoutArcs, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2)))
+AreaWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface'), _ImportedBinding_camac_gis_export_so_schema_geometry.SurfaceType, scope=AreaWithoutArcs, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 116, 2)))
 
 def _BuildAutomaton_14 ():
     # Remove this helper function from the namespace after it is invoked
@@ -1061,7 +1061,7 @@ def _BuildAutomaton_14 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(AreaWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 97, 4))
+    symbol = pyxb.binding.content.ElementUse(AreaWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'surface')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 97, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -1072,7 +1072,7 @@ AreaWithoutArcs._Automaton = _BuildAutomaton_14()
 
 
 
-LineWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=LineWithoutArcs, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
+LineWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=LineWithoutArcs, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
 
 def _BuildAutomaton_15 ():
     # Remove this helper function from the namespace after it is invoked
@@ -1083,7 +1083,7 @@ def _BuildAutomaton_15 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(LineWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 102, 4))
+    symbol = pyxb.binding.content.ElementUse(LineWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 102, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -1094,7 +1094,7 @@ LineWithoutArcs._Automaton = _BuildAutomaton_15()
 
 
 
-DirectedLineWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=DirectedLineWithoutArcs, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
+DirectedLineWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=DirectedLineWithoutArcs, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
 
 def _BuildAutomaton_16 ():
     # Remove this helper function from the namespace after it is invoked
@@ -1105,7 +1105,7 @@ def _BuildAutomaton_16 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(DirectedLineWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 107, 4))
+    symbol = pyxb.binding.content.ElementUse(DirectedLineWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 107, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -1116,7 +1116,7 @@ DirectedLineWithoutArcs._Automaton = _BuildAutomaton_16()
 
 
 
-LineWithAltitudeWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=LineWithAltitudeWithoutArcs, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
+LineWithAltitudeWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=LineWithAltitudeWithoutArcs, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
 
 def _BuildAutomaton_17 ():
     # Remove this helper function from the namespace after it is invoked
@@ -1127,7 +1127,7 @@ def _BuildAutomaton_17 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(LineWithAltitudeWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 112, 4))
+    symbol = pyxb.binding.content.ElementUse(LineWithAltitudeWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 112, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -1138,7 +1138,7 @@ LineWithAltitudeWithoutArcs._Automaton = _BuildAutomaton_17()
 
 
 
-DirectedLineWithAltitudeWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=DirectedLineWithAltitudeWithoutArcs, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
+DirectedLineWithAltitudeWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.PolylineType, scope=DirectedLineWithAltitudeWithoutArcs, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 87, 2)))
 
 def _BuildAutomaton_18 ():
     # Remove this helper function from the namespace after it is invoked
@@ -1149,7 +1149,7 @@ def _BuildAutomaton_18 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(DirectedLineWithAltitudeWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 117, 4))
+    symbol = pyxb.binding.content.ElementUse(DirectedLineWithAltitudeWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'polyline')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 117, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -1160,7 +1160,7 @@ DirectedLineWithAltitudeWithoutArcs._Automaton = _BuildAutomaton_18()
 
 
 
-MultiLineWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiPolylineType, scope=MultiLineWithoutArcs, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2)))
+MultiLineWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiPolylineType, scope=MultiLineWithoutArcs, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2)))
 
 def _BuildAutomaton_19 ():
     # Remove this helper function from the namespace after it is invoked
@@ -1171,7 +1171,7 @@ def _BuildAutomaton_19 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(MultiLineWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 122, 4))
+    symbol = pyxb.binding.content.ElementUse(MultiLineWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 122, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -1182,7 +1182,7 @@ MultiLineWithoutArcs._Automaton = _BuildAutomaton_19()
 
 
 
-MultiDirectedLineWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiPolylineType, scope=MultiDirectedLineWithoutArcs, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2)))
+MultiDirectedLineWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiPolylineType, scope=MultiDirectedLineWithoutArcs, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 103, 2)))
 
 def _BuildAutomaton_20 ():
     # Remove this helper function from the namespace after it is invoked
@@ -1193,7 +1193,7 @@ def _BuildAutomaton_20 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(MultiDirectedLineWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 127, 4))
+    symbol = pyxb.binding.content.ElementUse(MultiDirectedLineWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multipolyline')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 127, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -1204,7 +1204,7 @@ MultiDirectedLineWithoutArcs._Automaton = _BuildAutomaton_20()
 
 
 
-MultiSurfaceWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multisurface'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiSurfaceType, scope=MultiSurfaceWithoutArcs, location=pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/geometry.xsd', 128, 2)))
+MultiSurfaceWithoutArcs._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(_Namespace_geom, 'multisurface'), _ImportedBinding_camac_gis_export_so_schema_geometry.MultiSurfaceType, scope=MultiSurfaceWithoutArcs, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/geometry.xsd', 128, 2)))
 
 def _BuildAutomaton_21 ():
     # Remove this helper function from the namespace after it is invoked
@@ -1215,7 +1215,7 @@ def _BuildAutomaton_21 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(MultiSurfaceWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multisurface')), pyxb.utils.utility.Location('/app/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 132, 4))
+    symbol = pyxb.binding.content.ElementUse(MultiSurfaceWithoutArcs._UseForTag(pyxb.namespace.ExpandedName(_Namespace_geom, 'multisurface')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/GeometryCHLV95_V2.xsd', 132, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []

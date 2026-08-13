@@ -15,6 +15,10 @@ MODEL_TAG = re.compile(r"<ns\d+:(\w+)")
 # exactly one of them.
 GEOMETRY_VARIANTS = {"Geometrie_Punkt", "Geometrie_Linie", "Geometrie_Flaeche"}
 
+# Superseded by the nested Gesuchsteller.Vertretung. The top-level element
+# remains in the model but is deliberately never emitted.
+UNMAPPED = {"Gesuchsteller_Vertretung"}
+
 DRAWN_POINT = {
     "markers": [{"x": 2607000.5, "y": 1228500.5}],
     "geometry": "POINT",
@@ -62,7 +66,7 @@ def test_export_two_minimal_instances(
     assert xml.count("<ns2:Geschaeft ") == 2
     assert SOGISExport.objects.count() == 2
 
-    for absent in ("Bauprojekt", "Lokalisation", "Publikation", "Zirkulation"):
+    for absent in ("Lokalisation", "Auflage", "Zirkulation"):
         assert f"<ns2:{absent}>" not in xml
 
     snapshot.assert_match(sorted(set(MODEL_TAG.findall(xml))))
@@ -95,7 +99,7 @@ def test_export_two_full_instances(
     # against the schema instead. The geometry variants are excluded: they are a
     # mutually exclusive choice covered by test_export_emits_only_the_drawn_geometry.
     declared = {name.localName() for name in so_schema.GeschaeftType._ElementMap}
-    assert declared - GEOMETRY_VARIANTS - emitted == set()
+    assert declared - GEOMETRY_VARIANTS - UNMAPPED - emitted == set()
     assert emitted & GEOMETRY_VARIANTS == {"Geometrie_Flaeche"}
 
     snapshot.assert_match(sorted(emitted))

@@ -36,7 +36,7 @@ def test_sync_annotates_every_field(
     assert export.bauprojekt["beschreibung"] == "Neubau Mehrfamilienhaus"
     assert export.bauprojekt["bauwerk_art"] == ["Hochbaute", "Tiefbaute"]
     # Labels are aggregated in slug order (Option pk), not selection order.
-    assert export.bauprojekt["nutzungszweck"] == "Arbeiten, Wohnen"
+    assert export.bauprojekt["nutzungszweck"] == ["Arbeiten", "Wohnen"]
 
     # Two gebaeude rows aggregate into two Bauwerke, each with its choice labels.
     bauwerke = export.bauprojekt["bauwerke"]
@@ -52,8 +52,9 @@ def test_sync_annotates_every_field(
     assert export.zustaendige_person["group_slug"] == "municipality"
     assert export.zustaendige_person["abteilung"]
     assert export.entscheid["entscheid"] == "entscheid-entscheid-zustimmung"
-    assert export.publikation["startdatum"]
-    assert export.publikation["enddatum"]
+    # The dossier has two publications; the export takes the latest one and reads
+    # both dates off it (conftest seeds May then June).
+    assert export.auflage == {"startdatum": "2026-06-01", "enddatum": "2026-06-30"}
 
 
 @pytest.mark.django_db
