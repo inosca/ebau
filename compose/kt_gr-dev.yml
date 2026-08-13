@@ -261,6 +261,8 @@ services:
       - KEYCLOAK_CLIENT=camac
       - KEYCLOAK_SCOPES=openid email
       - DJANGO_OIDC_EMAIL_CLAIM=email
+      - OIDC_USERNAME_CLAIM=sub
+      - ENABLE_WATERMARK=true
 
 volumes:
   elixir-ebau_build:

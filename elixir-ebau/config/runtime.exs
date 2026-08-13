@@ -45,6 +45,10 @@ if config_env() != :test do
     ]
 end
 
+config :ebau, :watermark,
+  enabled: config_env() == :dev or System.get_env("ENABLE_WATERMARK", "false") == "true",
+  text: System.get_env("WATERMARK", "dev")
+
 if config_env() != :test do
   config :ebau, :keycloak,
     url: System.get_env("KEYCLOAK_URL", "http://ebau-keycloak.localhost/auth/"),
@@ -52,6 +56,8 @@ if config_env() != :test do
     client_id: System.get_env("KEYCLOAK_CLIENT", "camac"),
     scopes: System.get_env("KEYCLOAK_SCOPES", "openid email"),
     email_claim: System.get_env("DJANGO_OIDC_EMAIL_CLAIM", "email"),
+    # Keep in sync with Django's OIDC_USERNAME_CLAIM
+    username_claim: System.get_env("OIDC_USERNAME_CLAIM", "sub"),
     client_secret: System.get_env("KEYCLOAK_CLIENT_SECRET", "NOTNEEDED")
 end
 

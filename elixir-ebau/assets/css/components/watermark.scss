@@ -1,0 +1,24 @@
+$watermark-background-color: #a9a9a9 !default;
+
+.watermark {
+  z-index: 9999;
+  width: 150px;
+  position: absolute;
+  top: 15px;
+  left: -45px;
+  font-size: 1.2em;
+  text-align: center;
+  line-height: 30px;
+  letter-spacing: 1px;
+  color: #fff;
+  font-weight: $base-strong-font-weight;
+  transform: rotate(-45deg);
+  background-color: $watermark-background-color;
+  text-transform: uppercase;
+  box-shadow: 0 0 3px rgb(0 0 0 / 50%);
+  transition: opacity, ease-in, 300ms;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
