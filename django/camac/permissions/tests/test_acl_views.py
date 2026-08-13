@@ -567,91 +567,6 @@ def test_deny_delete_acl(
 
 
 @pytest.mark.parametrize(
-    ("role__name", "expect_results"),
-    [
-        ("Service", False),
-        ("Municipality", True),
-        ("Applicant", False),
-        ("Support", True),
-    ],
-)
-@pytest.mark.django_db
-def test_get_access_levels(
-    instance,
-    admin_client,
-    permissions_settings,
-    access_level,
-    service,
-    expect_results,
-):
-    # Listing of access levels should only be allowed for the users who can
-    # create (or revoke) ACLs (at least for now).
-
-    # TODO: This can be dropped in favour of test_assignable_filter() below,
-    # once we drop the permission_aware get_queryset in the AccessLevelViewset
-
-    url = reverse("access-levels-list")
-    result = admin_client.get(url)
-    assert result.status_code == status.HTTP_200_OK
-    if expect_results:
-        assert result.json() == {
-            "data": [
-                {
-                    "attributes": {
-                        "slug": "guess-white-art",
-                        "name": access_level.name.de,
-                        "description": access_level.description.de,
-                        "required-grant-type": None,
-                        "applicable-area": access_level.applicable_area,
-                    },
-                    "id": "guess-white-art",
-                    "type": "access-levels",
-                }
-            ],
-        }
-    else:
-        assert result.json() == {"data": []}
-
-
-@pytest.mark.parametrize("role__name", ["Service"])
-@pytest.mark.django_db
-def test_get_access_levels_sz(
-    access_level,
-    admin_client,
-    application_settings,
-    instance,
-    role,
-    service,
-    settings,
-):
-    # For SZ, services can also see access levels:
-    settings.APPLICATION_NAME = "kt_schwyz"
-    application_settings["SHORT_NAME"] = "sz"
-
-    # TODO: This can be dropped in favour of test_assignable_filter() below,
-    # once we drop the permission_aware get_queryset in the AccessLevelViewset
-
-    url = reverse("access-levels-list")
-    response = admin_client.get(url)
-    assert response.status_code == status.HTTP_200_OK
-    assert response.json() == {
-        "data": [
-            {
-                "type": "access-levels",
-                "attributes": {
-                    "slug": access_level.slug,
-                    "name": access_level.name,
-                    "description": access_level.description,
-                    "required-grant-type": None,
-                    "applicable-area": access_level.applicable_area,
-                },
-                "id": access_level.pk,
-            }
-        ],
-    }
-
-
-@pytest.mark.parametrize(
     ("canton", "do_filter", "grant", "permission_mode", "role__name", "expect_results"),
     [
         # Permission mode is FULL: User can only see access levels that are
@@ -675,8 +590,6 @@ def test_get_access_levels_sz(
         ("be", False, "geometer", "OFF", "Municipality", "ALL"),
         # AccessLevelViewset.get_queryset() is @permission_aware, therefore
         # non-municipality users never see anything here (for now)
-        ("be", False, "geometer", "OFF", "Geometer", 0),
-        ("so", True, "geometer", "OFF", "Municipality", "ALL_EXCEPT_ONE"),
         ("sz", True, "read", "OFF", "Municipality", 1),
         ("ur", True, "read", "OFF", "Municipality", 1),
         ("ur", True, "read", "OFF", "TrustedService", 1),

@@ -10,7 +10,6 @@ from rest_framework.views import APIView
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
 from camac.core import models as core_models
-from camac.core.utils import canton_aware
 from camac.instance import filters as instance_filters, models as instance_models
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.permissions.switcher import (
@@ -22,7 +21,6 @@ from camac.user.permissions import (
     IsAllowedClientToken,
     get_group,
     get_role_name,
-    permission_aware,
 )
 from camac.utils import get_dict_item
 
@@ -249,32 +247,6 @@ class AccessLevelViewset(ReadOnlyModelViewSet):
     serializer_class = serializers.AccessLevelSerializer
     queryset = models.AccessLevel.objects.all()
     filterset_class = filters.AccessLevelFilterset
-
-    @permission_aware
-    def get_queryset(self):
-        # TODO is this still correct? We're post-Geometer permissions
-        # now, so non-municpality users should likely see the access levels
-        # as well...
-        return super().get_queryset().none()
-
-    def get_queryset_for_municipality(self):
-        return super().get_queryset()
-
-    def get_queryset_for_support(self):
-        return super().get_queryset()
-
-    def get_queryset_for_trusted_service(self):
-        return super().get_queryset()
-
-    def get_queryset_for_coordination(self):
-        return super().get_queryset()
-
-    @canton_aware
-    def get_queryset_for_service(self):
-        return super().get_queryset().none()
-
-    def get_queryset_for_service_sz(self):
-        return super().get_queryset()
 
 
 class PermissionsMetaView(APIView):
