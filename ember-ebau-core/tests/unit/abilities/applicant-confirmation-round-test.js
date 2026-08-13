@@ -2,7 +2,7 @@ import { settled } from "@ember/test-helpers";
 import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-import setupPermissions from "dummy/tests/helpers/permissions";
+import { setupPermissions } from "ember-ebau-core/test-support";
 
 module("Unit | Ability | applicant-confirmation-round", function (hooks) {
   setupTest(hooks);

@@ -2,7 +2,7 @@ import { module, test } from "qunit";
 import { spy, restore } from "sinon";
 
 import { setupTest } from "dummy/tests/helpers";
-import setupPermissions from "dummy/tests/helpers/permissions";
+import { setupPermissions } from "ember-ebau-core/test-support";
 
 module("Unit | Service | permissions", function (hooks) {
   setupTest(hooks);

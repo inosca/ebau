@@ -1,5 +1,4 @@
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { Response } from "miragejs";
 
 class PermissionManager {
   #permissions = new Map();
@@ -41,29 +40,23 @@ class PermissionManager {
   }
 
   getResponse(instanceId) {
-    return new Response(
-      200,
-      {},
-      {
-        data: {
-          id: String(instanceId),
-          type: "instance-permissions",
-          attributes: {
-            permissions: [
-              ...(this.#permissions.get(parseInt(instanceId)) ?? []),
-            ],
-          },
-          relationships: {
-            instance: {
-              data: {
-                id: String(instanceId),
-                type: "instances",
-              },
+    return {
+      data: {
+        id: String(instanceId),
+        type: "instance-permissions",
+        attributes: {
+          permissions: [...(this.#permissions.get(parseInt(instanceId)) ?? [])],
+        },
+        relationships: {
+          instance: {
+            data: {
+              id: String(instanceId),
+              type: "instances",
             },
           },
         },
       },
-    );
+    };
   }
 
   getAll(instanceId) {
