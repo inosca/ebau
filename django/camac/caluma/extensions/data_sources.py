@@ -140,6 +140,37 @@ def per_instance_data_source_cache(timeout: int, per_question: bool = False):
     return decorator
 
 
+class CalumaTableDataSource:
+    """
+    Base class for extracting data source choices from a Caluma document table.
+
+    This class retrieves a Document based on the `instanceId` provided in the
+    context, locates the table specified by `table_question`, and iterates
+    through its rows. It returns a cached list of tuples containing the row's
+    primary key and the answer to the `label_question`.
+
+    Attributes:
+        table_question: The slug of the table question in the document.
+        label_question: The slug of the row question within the table
+            row to use as the display label for the data source.
+    """
+
+    table_question: str
+    label_question: str
+
+    @per_instance_data_source_cache(timeout=5)
+    def get_data(self, user, question, context):
+        document = Document.objects.get(case__instance__pk=context["instanceId"])
+        table_rows = find_answer(document, self.table_question) or []
+
+        return [(row.pk, find_answer(row, self.label_question)) for row in table_rows]
+
+    def on_copy(
+        self, old_answer: Answer, new_answer: Answer, old_value: tuple[str, str]
+    ) -> tuple[str | None, str | None]:
+        return on_copy_from_reference_document(old_answer, new_answer, old_value)
+
+
 class Municipalities(BaseDataSource):
     info = "List of municipalities from Camac"
 
@@ -467,27 +498,22 @@ class PreliminaryClarificationTargets(BaseDataSource):
         return data
 
 
-class Buildings(BaseDataSource):
+class Buildings(CalumaTableDataSource, BaseDataSource):
     info = "Selection of the buildings from the current instance"
+    table_question = "gebaeude"
+    label_question = "gebaeude-bezeichnung"
 
-    @per_instance_data_source_cache(timeout=5)
-    def get_data(self, user, question, context):
-        document = Document.objects.get(case__instance__pk=context["instanceId"])
-        buildings = find_answer(document, "gebaeude")
 
-        return (
-            [
-                (building.pk, find_answer(building, "gebaeude-bezeichnung"))
-                for building in buildings
-            ]
-            if buildings
-            else None
-        )
+class FacilitiesAndProcesses(CalumaTableDataSource, BaseDataSource):
+    info = "Selection of facilities and processes from the current instance"
+    table_question = "beschreibung-der-anlagen-und-prozesse"
+    label_question = "anlage-prozess"
 
-    def on_copy(
-        self, old_answer: Answer, new_answer: Answer, old_value: tuple[str, str]
-    ) -> tuple[str | None, str | None]:
-        return on_copy_from_reference_document(old_answer, new_answer, old_value)
+
+class Materials(CalumaTableDataSource, BaseDataSource):
+    info = "Selection of materials from the current instance"
+    table_question = "stoffe-erzeugnisse"
+    label_question = "stoffbezeichnung"
 
 
 class ServicesForFinalReport(BaseDataSource):
