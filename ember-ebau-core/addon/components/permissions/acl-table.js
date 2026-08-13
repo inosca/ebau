@@ -59,6 +59,10 @@ export default class AclTable extends Component {
     },
   }));
 
+  get availableAccessLevelSlugs() {
+    return this.availableAccessLevels.records?.map((level) => level.id) ?? [];
+  }
+
   @action
   updateStatusFilter(_, value) {
     this.statusFilter = value;
