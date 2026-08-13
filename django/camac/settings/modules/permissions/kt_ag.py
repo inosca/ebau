@@ -20,7 +20,7 @@ PGV_FORMS = ag_constants.PGV_FORMS
 
 # Custom primitives
 USES_ECH_API = Callback(
-    lambda userinfo: userinfo.service.uses_ech_api,
+    lambda userinfo: userinfo.service and userinfo.service.uses_ech_api,
     allow_caching=True,
     name="uses_ech_api",
 )
