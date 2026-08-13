@@ -9,12 +9,12 @@ export default class CasesIndexController extends Controller {
   queryParams = [
     "order",
     "displaySearch",
-    "hasActivation",
+    // "hasActivation",
     "hasPendingBillingEntry",
-    "hasPendingSanction",
-    "workflow",
-    "excludeWorkflow",
-    "isCaluma",
+    // "hasPendingSanction",
+    // "workflow",
+    // "excludeWorkflow",
+    // "isCaluma",
     "instanceStates",
     ...Object.keys(filterConfig),
   ];
@@ -23,6 +23,11 @@ export default class CasesIndexController extends Controller {
     return this.instanceStates?.split(",") ?? [];
   }
 
+  // This is the legacy implementation of taking default filters from the PHP
+  // shoebox. In a non-embedded ember app this is not possible which is why we
+  // currently take only the needed parameters from the URL (exposed in
+  // `django/camac/core/serializers.py::ResourceSerializer.get_link`)
+  //
   // @moduleConfig("cases", "displaySearch", false) displaySearch;
   // @moduleConfig("cases", "hasActivation", null) hasActivation;
   // @moduleConfig("cases", "hasPendingBillingEntry", null) hasPendingBillingEntry;
@@ -36,6 +41,9 @@ export default class CasesIndexController extends Controller {
   caseFilter;
 
   @tracked order = caseTableConfig.defaultOrder;
+  @tracked displaySearch = false;
+  @tracked hasPendingBillingEntry = null;
+  @tracked instanceStates = null;
 
   @tracked isReady = false;
 

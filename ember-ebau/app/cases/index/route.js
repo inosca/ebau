@@ -6,6 +6,7 @@ export default class CasesIndexRoute extends Route {
 
     if (isExiting) {
       controller.caseFilter = {};
+      controller.isReady = false;
     }
   }
 }

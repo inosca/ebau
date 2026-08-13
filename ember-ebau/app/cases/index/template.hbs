@@ -2,24 +2,27 @@
   <CaseFilter
     @onChange={{this.setCaseFilter}}
     @filter={{this.caseFilter}}
-    @hasActivation={{this.hasActivation}}
+    {{! @hasActivation=this.hasActivation }}
     @hasPendingBillingEntry={{this.hasPendingBillingEntry}}
-    @hasPendingSanction={{this.hasPendingSanction}}
-    @workflow={{this.workflow}}
-    @excludeWorkflow={{this.excludeWorkflow}}
+    {{! @hasPendingSanction=this.hasPendingSanction }}
+    {{! @workflow=this.workflow }}
+    {{! @excludeWorkflow=this.excludeWorkflow }}
     @casesBackend={{this.casesBackend}}
     @instanceStates={{this.parsedInstanceStates}}
   />
 {{/if}}
-<CaseTable
-  @filter={{this.caseFilter}}
-  @order={{this.order}}
-  @onSetOrder={{fn (mut this.order)}}
-  @hasActivation={{this.hasActivation}}
-  @hasPendingBillingEntry={{this.hasPendingBillingEntry}}
-  @hasPendingSanction={{this.hasPendingSanction}}
-  @workflow={{this.workflow}}
-  @excludeWorkflow={{this.excludeWorkflow}}
-  @casesBackend={{this.casesBackend}}
-  @instanceStates={{this.parsedInstanceStates}}
-/>
+
+{{#if this.isReady}}
+  <CaseTable
+    @filter={{this.caseFilter}}
+    @order={{this.order}}
+    @onSetOrder={{fn (mut this.order)}}
+    {{! @hasActivation=this.hasActivation }}
+    @hasPendingBillingEntry={{this.hasPendingBillingEntry}}
+    {{! @hasPendingSanction=this.hasPendingSanction }}
+    {{! @workflow=this.workflow }}
+    {{! @excludeWorkflow=this.excludeWorkflow }}
+    @casesBackend={{this.casesBackend}}
+    @instanceStates={{this.parsedInstanceStates}}
+  />
+{{/if}}
