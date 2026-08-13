@@ -393,28 +393,10 @@ class CreateInstanceLogic:
         instance: models.Instance,
         source_instance: models.Instance,
         copy_type: str,
-        is_modification: bool,
         user: BaseUser | None,
-        is_appeal: bool,
-        is_rejected_appeal: bool,
-        is_copy: bool,
     ) -> None:
         target_instance = instance
-        exclude_confirmation_answers = (
-            is_modification and not is_appeal and not is_rejected_appeal and not is_copy
-        )
-
         instance_copy_settings: InstanceCopyConfig = settings.INSTANCE_COPY
-        # todo: we want to get rid of `copy_instance` hack first, after that it will
-        # be easier to refactor the call sites and correctly specify the copy type.
-        # For now we use the `exclude_confirmation_answers` argument.
-        if (
-            copy_type == "full"
-            and exclude_confirmation_answers
-            and instance_copy_settings.has_copy_config("full_without_confirmation")
-        ):
-            copy_type = "full_without_confirmation"
-
         config = instance_copy_settings.get_copy_config(copy_type)
         source_document = source_instance.case.document
 
@@ -466,9 +448,6 @@ class CreateInstanceLogic:
         source_instance,
         copy_type,
         is_modification,
-        is_appeal,
-        is_rejected_appeal,
-        is_copy,
         is_paper,
         group,
         user,
@@ -479,11 +458,7 @@ class CreateInstanceLogic:
                 instance,
                 source_instance,
                 copy_type,
-                is_modification,
                 user,
-                is_appeal,
-                is_rejected_appeal,
-                is_copy,
             )
 
         document = instance.case.document
@@ -567,6 +542,7 @@ class CreateInstanceLogic:
                 source,
                 target,
                 skip_exported_form_attachment=skip_exported_form_attachment,
+                is_modification=is_modification,
             )
         else:
             CreateInstanceLogic.copy_camac_attachments(
@@ -576,26 +552,18 @@ class CreateInstanceLogic:
                 copy_attachments_from=copy_attachments_from,
             )
 
-    @classmethod
-    def copy_attachments_gr(
-        cls,
+    @staticmethod
+    def copy_alexandria_attachments(
         source,
         target,
         skip_exported_form_attachment=False,
         is_modification=False,
-        copy_attachments_from=False,
     ):
-        if is_modification:
+        if is_modification and not settings.ALEXANDRIA.get(
+            "INSTANCE_COPY_ON_MODIFICATION", False
+        ):
             return
 
-        CreateInstanceLogic.copy_alexandria_attachments(
-            source, target, skip_exported_form_attachment=True
-        )
-
-    @staticmethod
-    def copy_alexandria_attachments(
-        source, target, skip_exported_form_attachment=False
-    ):
         categories = settings.ALEXANDRIA.get("INSTANCE_COPY_CATEGORIES", [])
         alexandria_documents = Document.objects.filter(
             Q(
@@ -746,13 +714,17 @@ class CreateInstanceLogic:
             if settings.APPLICATION.get("LINK_INSTANCES_ON_COPY"):
                 link_instances(instance, source_instance)  # pragma: no cover
 
-            CreateInstanceLogic.copy_attachments(
-                source_instance,
-                instance,
-                skip_exported_form_attachment,
-                is_modification,
-                copy_attachments_from,
-            )
+            instance_copy_settings: InstanceCopyConfig = settings.INSTANCE_COPY
+            copy_config = instance_copy_settings.get_copy_config(copy_type)
+
+            if copy_config.copy_attachments:
+                CreateInstanceLogic.copy_attachments(
+                    source_instance,
+                    instance,
+                    skip_exported_form_attachment,
+                    is_modification,
+                    copy_attachments_from,
+                )
 
             if is_module_enabled("TIMELINES"):
                 was_rejected = (
@@ -795,6 +767,27 @@ class CreateInstanceLogic:
         """
         copy_attachments_from = copy_attachments_from or []
         copy_type = data.pop("copy_type", None)
+
+        if source_instance:
+            copy_type = copy_type or "full"
+
+            # todo: we want to get rid of `copy_instance` hack first, after that it will
+            # be easier to refactor the call sites and correctly specify the copy type.
+            # For now we use the `exclude_confirmation_answers` argument.
+            exclude_confirmation_answers = (
+                is_modification
+                and not is_appeal
+                and not is_rejected_appeal
+                and not is_copy
+            )
+            instance_copy_settings: InstanceCopyConfig = settings.INSTANCE_COPY
+            if (
+                copy_type == "full"
+                and exclude_confirmation_answers
+                and instance_copy_settings.has_copy_config("full_without_confirmation")
+            ):
+                copy_type = "full_without_confirmation"
+
         generate_identifier = data.pop("generate_identifier", None)
 
         data = CreateInstanceLogic.handle_archive_forms_ur(data)
@@ -852,9 +845,6 @@ class CreateInstanceLogic:
                 source_instance,
                 copy_type,
                 is_modification,
-                is_appeal,
-                is_rejected_appeal,
-                is_copy,
                 is_paper,
                 group,
                 caluma_user,

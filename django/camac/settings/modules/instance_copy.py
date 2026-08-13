@@ -16,6 +16,10 @@ class BaseCopyFormConfig(EBauConfig):
         description="If this copy type can only be used in combination with a specific target form, it can be validated by setting this field.",
         default=None,
     )
+    copy_attachments: bool = Field(
+        description="If set to True, attachments will be copied as well.",
+        default=True,
+    )
 
 
 class AllowListedCopyFormConfig(BaseCopyFormConfig):
@@ -153,7 +157,9 @@ INSTANCE_COPY = ModuleConfig[InstanceCopyConfig](
     kt_uri=InstanceCopyConfig(),
     kt_gr=InstanceCopyConfig(
         ebbw_next_phase=DenyListedCopyFormConfig(
-            exclude_forms=["dokumente-ohne-pflichtdokumente"]
+            exclude_questions=["einleitung-des-verfahrens"],
+            exclude_forms=["dokumente-ebbw"],
+            copy_attachments=False,
         )
     ),
     kt_so=InstanceCopyConfig(),
