@@ -33,44 +33,48 @@
           </ns2:Lokalisation>
           <ns2:Status>Pruefung.formell</ns2:Status>
           <ns2:Gesuchsteller>
-            <ns2:PersonAdresse>
-              <ns2:Natuerliche_Person>
-                <ns2:Natuerliche_Person>
-                  <ns2:Name>Muster</ns2:Name>
-                  <ns2:Vorname>Reto</ns2:Vorname>
-                </ns2:Natuerliche_Person>
-              </ns2:Natuerliche_Person>
+            <ns2:Gesuchsteller_>
               <ns2:Adresse>
-                <ns2:Adresse_>
-                  <ns2:PLZ>4500</ns2:PLZ>
-                  <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
-                </ns2:Adresse_>
+                <ns2:PersonAdresse>
+                  <ns2:Natuerliche_Person>
+                    <ns2:Natuerliche_Person>
+                      <ns2:Name>Muster</ns2:Name>
+                      <ns2:Vorname>Reto</ns2:Vorname>
+                    </ns2:Natuerliche_Person>
+                  </ns2:Natuerliche_Person>
+                  <ns2:Adresse>
+                    <ns2:Adresse_>
+                      <ns2:PLZ>4500</ns2:PLZ>
+                      <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
+                    </ns2:Adresse_>
+                  </ns2:Adresse>
+                </ns2:PersonAdresse>
               </ns2:Adresse>
-            </ns2:PersonAdresse>
+              <ns2:Vertretung>
+                <ns2:PersonAdresse>
+                  <ns2:Natuerliche_Person>
+                    <ns2:Natuerliche_Person>
+                      <ns2:Name>Vertretung</ns2:Name>
+                      <ns2:Vorname>Vera</ns2:Vorname>
+                    </ns2:Natuerliche_Person>
+                  </ns2:Natuerliche_Person>
+                  <ns2:Juristische_Person>
+                    <ns2:Juristische_Person>
+                      <ns2:Name>Vertretung AG</ns2:Name>
+                    </ns2:Juristische_Person>
+                  </ns2:Juristische_Person>
+                  <ns2:Adresse>
+                    <ns2:Adresse_>
+                      <ns2:Strassenname>Teststrasse</ns2:Strassenname>
+                      <ns2:Hausnummer>12a</ns2:Hausnummer>
+                      <ns2:PLZ>4500</ns2:PLZ>
+                      <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
+                    </ns2:Adresse_>
+                  </ns2:Adresse>
+                </ns2:PersonAdresse>
+              </ns2:Vertretung>
+            </ns2:Gesuchsteller_>
           </ns2:Gesuchsteller>
-          <ns2:Gesuchsteller_Vertretung>
-            <ns2:PersonAdresse>
-              <ns2:Natuerliche_Person>
-                <ns2:Natuerliche_Person>
-                  <ns2:Name>Vertretung</ns2:Name>
-                  <ns2:Vorname>Vera</ns2:Vorname>
-                </ns2:Natuerliche_Person>
-              </ns2:Natuerliche_Person>
-              <ns2:Juristische_Person>
-                <ns2:Juristische_Person>
-                  <ns2:Name>Vertretung AG</ns2:Name>
-                </ns2:Juristische_Person>
-              </ns2:Juristische_Person>
-              <ns2:Adresse>
-                <ns2:Adresse_>
-                  <ns2:Strassenname>Teststrasse</ns2:Strassenname>
-                  <ns2:Hausnummer>12a</ns2:Hausnummer>
-                  <ns2:PLZ>4500</ns2:PLZ>
-                  <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
-                </ns2:Adresse_>
-              </ns2:Adresse>
-            </ns2:PersonAdresse>
-          </ns2:Gesuchsteller_Vertretung>
           <ns2:Projektverfasser>
             <ns2:PersonAdresse>
               <ns2:Natuerliche_Person>
@@ -146,7 +150,8 @@
               <ns2:Beschreibung>Neubau Mehrfamilienhaus mit Tiefgarage</ns2:Beschreibung>
               <ns2:Bauwerk_Art>Hochbaute</ns2:Bauwerk_Art>
               <ns2:Bauwerk_Art>Tiefbaute</ns2:Bauwerk_Art>
-              <ns2:Nutzungszweck>Wohnen, Arbeiten (Gewerbebetrieb)</ns2:Nutzungszweck>
+              <ns2:Nutzungszweck>Wohnen</ns2:Nutzungszweck>
+              <ns2:Nutzungszweck>Arbeiten (Gewerbebetrieb)</ns2:Nutzungszweck>
               <ns2:Bauwerke>
                 <ns2:Bauwerk>
                   <ns2:Bezeichnung>MFH A</ns2:Bezeichnung>
@@ -186,12 +191,12 @@
               <ns2:Datum>2026-05-01</ns2:Datum>
             </ns2:Entscheid_>
           </ns2:Entscheid_Leitbehoerde>
-          <ns2:Publikation>
-            <ns2:Publikation_>
+          <ns2:Auflage>
+            <ns2:Auflage_>
               <ns2:Startdatum>2026-05-01</ns2:Startdatum>
               <ns2:Enddatum>2026-05-31</ns2:Enddatum>
-            </ns2:Publikation_>
-          </ns2:Publikation>
+            </ns2:Auflage_>
+          </ns2:Auflage>
           <ns2:Zirkulation>
             <ns2:Zustaendigkeit>
               <ns2:Fachstelle>AFU</ns2:Fachstelle>
@@ -235,44 +240,48 @@
           </ns2:Lokalisation>
           <ns2:Status>Pruefung.formell</ns2:Status>
           <ns2:Gesuchsteller>
-            <ns2:PersonAdresse>
-              <ns2:Natuerliche_Person>
-                <ns2:Natuerliche_Person>
-                  <ns2:Name>Muster</ns2:Name>
-                  <ns2:Vorname>Reto</ns2:Vorname>
-                </ns2:Natuerliche_Person>
-              </ns2:Natuerliche_Person>
+            <ns2:Gesuchsteller_>
               <ns2:Adresse>
-                <ns2:Adresse_>
-                  <ns2:PLZ>4500</ns2:PLZ>
-                  <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
-                </ns2:Adresse_>
+                <ns2:PersonAdresse>
+                  <ns2:Natuerliche_Person>
+                    <ns2:Natuerliche_Person>
+                      <ns2:Name>Muster</ns2:Name>
+                      <ns2:Vorname>Reto</ns2:Vorname>
+                    </ns2:Natuerliche_Person>
+                  </ns2:Natuerliche_Person>
+                  <ns2:Adresse>
+                    <ns2:Adresse_>
+                      <ns2:PLZ>4500</ns2:PLZ>
+                      <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
+                    </ns2:Adresse_>
+                  </ns2:Adresse>
+                </ns2:PersonAdresse>
               </ns2:Adresse>
-            </ns2:PersonAdresse>
+              <ns2:Vertretung>
+                <ns2:PersonAdresse>
+                  <ns2:Natuerliche_Person>
+                    <ns2:Natuerliche_Person>
+                      <ns2:Name>Vertretung</ns2:Name>
+                      <ns2:Vorname>Vera</ns2:Vorname>
+                    </ns2:Natuerliche_Person>
+                  </ns2:Natuerliche_Person>
+                  <ns2:Juristische_Person>
+                    <ns2:Juristische_Person>
+                      <ns2:Name>Vertretung AG</ns2:Name>
+                    </ns2:Juristische_Person>
+                  </ns2:Juristische_Person>
+                  <ns2:Adresse>
+                    <ns2:Adresse_>
+                      <ns2:Strassenname>Teststrasse</ns2:Strassenname>
+                      <ns2:Hausnummer>12a</ns2:Hausnummer>
+                      <ns2:PLZ>4500</ns2:PLZ>
+                      <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
+                    </ns2:Adresse_>
+                  </ns2:Adresse>
+                </ns2:PersonAdresse>
+              </ns2:Vertretung>
+            </ns2:Gesuchsteller_>
           </ns2:Gesuchsteller>
-          <ns2:Gesuchsteller_Vertretung>
-            <ns2:PersonAdresse>
-              <ns2:Natuerliche_Person>
-                <ns2:Natuerliche_Person>
-                  <ns2:Name>Vertretung</ns2:Name>
-                  <ns2:Vorname>Vera</ns2:Vorname>
-                </ns2:Natuerliche_Person>
-              </ns2:Natuerliche_Person>
-              <ns2:Juristische_Person>
-                <ns2:Juristische_Person>
-                  <ns2:Name>Vertretung AG</ns2:Name>
-                </ns2:Juristische_Person>
-              </ns2:Juristische_Person>
-              <ns2:Adresse>
-                <ns2:Adresse_>
-                  <ns2:Strassenname>Teststrasse</ns2:Strassenname>
-                  <ns2:Hausnummer>12a</ns2:Hausnummer>
-                  <ns2:PLZ>4500</ns2:PLZ>
-                  <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
-                </ns2:Adresse_>
-              </ns2:Adresse>
-            </ns2:PersonAdresse>
-          </ns2:Gesuchsteller_Vertretung>
           <ns2:Projektverfasser>
             <ns2:PersonAdresse>
               <ns2:Natuerliche_Person>
@@ -348,7 +357,8 @@
               <ns2:Beschreibung>Neubau Mehrfamilienhaus mit Tiefgarage</ns2:Beschreibung>
               <ns2:Bauwerk_Art>Hochbaute</ns2:Bauwerk_Art>
               <ns2:Bauwerk_Art>Tiefbaute</ns2:Bauwerk_Art>
-              <ns2:Nutzungszweck>Wohnen, Arbeiten (Gewerbebetrieb)</ns2:Nutzungszweck>
+              <ns2:Nutzungszweck>Wohnen</ns2:Nutzungszweck>
+              <ns2:Nutzungszweck>Arbeiten (Gewerbebetrieb)</ns2:Nutzungszweck>
               <ns2:Bauwerke>
                 <ns2:Bauwerk>
                   <ns2:Bezeichnung>MFH A</ns2:Bezeichnung>
@@ -388,12 +398,12 @@
               <ns2:Datum>2026-05-01</ns2:Datum>
             </ns2:Entscheid_>
           </ns2:Entscheid_Leitbehoerde>
-          <ns2:Publikation>
-            <ns2:Publikation_>
+          <ns2:Auflage>
+            <ns2:Auflage_>
               <ns2:Startdatum>2026-05-01</ns2:Startdatum>
               <ns2:Enddatum>2026-05-31</ns2:Enddatum>
-            </ns2:Publikation_>
-          </ns2:Publikation>
+            </ns2:Auflage_>
+          </ns2:Auflage>
           <ns2:Zirkulation>
             <ns2:Zustaendigkeit>
               <ns2:Fachstelle>AFU</ns2:Fachstelle>
@@ -447,20 +457,24 @@
           </ns2:Geometrie_Punkt>
           <ns2:Status>Pruefung.formell</ns2:Status>
           <ns2:Gesuchsteller>
-            <ns2:PersonAdresse>
-              <ns2:Natuerliche_Person>
-                <ns2:Natuerliche_Person>
-                  <ns2:Name>Muster</ns2:Name>
-                  <ns2:Vorname>Reto</ns2:Vorname>
-                </ns2:Natuerliche_Person>
-              </ns2:Natuerliche_Person>
+            <ns2:Gesuchsteller_>
               <ns2:Adresse>
-                <ns2:Adresse_>
-                  <ns2:PLZ>4500</ns2:PLZ>
-                  <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
-                </ns2:Adresse_>
+                <ns2:PersonAdresse>
+                  <ns2:Natuerliche_Person>
+                    <ns2:Natuerliche_Person>
+                      <ns2:Name>Muster</ns2:Name>
+                      <ns2:Vorname>Reto</ns2:Vorname>
+                    </ns2:Natuerliche_Person>
+                  </ns2:Natuerliche_Person>
+                  <ns2:Adresse>
+                    <ns2:Adresse_>
+                      <ns2:PLZ>4500</ns2:PLZ>
+                      <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
+                    </ns2:Adresse_>
+                  </ns2:Adresse>
+                </ns2:PersonAdresse>
               </ns2:Adresse>
-            </ns2:PersonAdresse>
+            </ns2:Gesuchsteller_>
           </ns2:Gesuchsteller>
           <ns2:Grundstuecke>
             <ns2:Grundstueck>
@@ -484,20 +498,24 @@
           </ns2:Geometrie_Punkt>
           <ns2:Status>Pruefung.formell</ns2:Status>
           <ns2:Gesuchsteller>
-            <ns2:PersonAdresse>
-              <ns2:Natuerliche_Person>
-                <ns2:Natuerliche_Person>
-                  <ns2:Name>Muster</ns2:Name>
-                  <ns2:Vorname>Reto</ns2:Vorname>
-                </ns2:Natuerliche_Person>
-              </ns2:Natuerliche_Person>
+            <ns2:Gesuchsteller_>
               <ns2:Adresse>
-                <ns2:Adresse_>
-                  <ns2:PLZ>4500</ns2:PLZ>
-                  <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
-                </ns2:Adresse_>
+                <ns2:PersonAdresse>
+                  <ns2:Natuerliche_Person>
+                    <ns2:Natuerliche_Person>
+                      <ns2:Name>Muster</ns2:Name>
+                      <ns2:Vorname>Reto</ns2:Vorname>
+                    </ns2:Natuerliche_Person>
+                  </ns2:Natuerliche_Person>
+                  <ns2:Adresse>
+                    <ns2:Adresse_>
+                      <ns2:PLZ>4500</ns2:PLZ>
+                      <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
+                    </ns2:Adresse_>
+                  </ns2:Adresse>
+                </ns2:PersonAdresse>
               </ns2:Adresse>
-            </ns2:PersonAdresse>
+            </ns2:Gesuchsteller_>
           </ns2:Gesuchsteller>
           <ns2:Grundstuecke>
             <ns2:Grundstueck>
@@ -521,20 +539,24 @@
           </ns2:Geometrie_Punkt>
           <ns2:Status>Pruefung.formell</ns2:Status>
           <ns2:Gesuchsteller>
-            <ns2:PersonAdresse>
-              <ns2:Natuerliche_Person>
-                <ns2:Natuerliche_Person>
-                  <ns2:Name>Muster</ns2:Name>
-                  <ns2:Vorname>Reto</ns2:Vorname>
-                </ns2:Natuerliche_Person>
-              </ns2:Natuerliche_Person>
+            <ns2:Gesuchsteller_>
               <ns2:Adresse>
-                <ns2:Adresse_>
-                  <ns2:PLZ>4500</ns2:PLZ>
-                  <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
-                </ns2:Adresse_>
+                <ns2:PersonAdresse>
+                  <ns2:Natuerliche_Person>
+                    <ns2:Natuerliche_Person>
+                      <ns2:Name>Muster</ns2:Name>
+                      <ns2:Vorname>Reto</ns2:Vorname>
+                    </ns2:Natuerliche_Person>
+                  </ns2:Natuerliche_Person>
+                  <ns2:Adresse>
+                    <ns2:Adresse_>
+                      <ns2:PLZ>4500</ns2:PLZ>
+                      <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
+                    </ns2:Adresse_>
+                  </ns2:Adresse>
+                </ns2:PersonAdresse>
               </ns2:Adresse>
-            </ns2:PersonAdresse>
+            </ns2:Gesuchsteller_>
           </ns2:Gesuchsteller>
           <ns2:Grundstuecke>
             <ns2:Grundstueck>

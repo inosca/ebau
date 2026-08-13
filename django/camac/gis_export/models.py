@@ -392,58 +392,43 @@ class InstanceManagerSO(Manager["InstanceProxySO"]):
         )[:1]
 
     def annotate_bauprojekt(self):
-        # TODO This wont work for Form Erdwärmesonde as they dont
-        # have art-der-bauwerke. So we don't export it for now for
-        # these dossiers. Same for is-paper.
-        return Case(
-            When(
-                Exists(
-                    Answer.objects.filter(
-                        question_id="art-der-bauwerke",
-                        document_id=OuterRef("case__document_id"),
-                    )
-                ),
-                then=JSONObject(
-                    beschreibung=caluma_answer("umschreibung-bauprojekt"),
-                    bauwerk_art=ArraySubquery(
-                        self._get_multiple_choice_option_labels("art-der-bauwerke")
-                    ),
-                    nutzungszweck=StringAggSubquery(
-                        self._get_multiple_choice_option_labels("nutzungszwecke"),
-                        column_name=f"label__{get_language()}",
-                        delimiter=", ",
-                    ),
-                    bauwerke=ArraySubquery(
-                        AnswerDocument.objects.filter(
-                            answer__question_id="gebaeude",
-                            answer__document_id=OuterRef("case__document_id"),
-                        )
-                        .order_by("-sort")
-                        .annotate(
-                            data=JSONObject(
-                                bezeichnung=caluma_answer(
-                                    "gebaeude-bezeichnung", "document_id"
-                                ),
-                                bauwerk_typ=self._get_single_choice_option_label(
-                                    "typ-des-bauwerks", "document_id"
-                                ),
-                                egid=caluma_answer("egid", "document_id"),
-                                arbeiten_art=ArraySubquery(
-                                    self._get_multiple_choice_option_labels(
-                                        "art-der-arbeiten", "document_id"
-                                    ),
-                                    column_name=f"label__{get_language()}",
-                                    delimiter=", ",
-                                ),
-                                gebaeudekategorie=self._get_single_choice_option_label(
-                                    "gebaeudekategorie", "document_id"
-                                ),
+        # Every SO dossier form requires `umschreibung-bauprojekt`, so a Bauprojekt
+        # is always produced so we don't need to gate here to prevent an empty dict.
+        return JSONObject(
+            beschreibung=caluma_answer("umschreibung-bauprojekt"),
+            bauwerk_art=ArraySubquery(
+                self._get_multiple_choice_option_labels("art-der-bauwerke")
+            ),
+            nutzungszweck=ArraySubquery(
+                self._get_multiple_choice_option_labels("nutzungszwecke")
+            ),
+            bauwerke=ArraySubquery(
+                AnswerDocument.objects.filter(
+                    answer__question_id="gebaeude",
+                    answer__document_id=OuterRef("case__document_id"),
+                )
+                .order_by("-sort")
+                .annotate(
+                    data=JSONObject(
+                        bezeichnung=caluma_answer(
+                            "gebaeude-bezeichnung", "document_id"
+                        ),
+                        bauwerk_typ=self._get_single_choice_option_label(
+                            "typ-des-bauwerks", "document_id"
+                        ),
+                        egid=caluma_answer("egid", "document_id"),
+                        arbeiten_art=ArraySubquery(
+                            self._get_multiple_choice_option_labels(
+                                "art-der-arbeiten", "document_id"
                             )
-                        )
-                        .values("data")
-                    ),
-                ),
-            )
+                        ),
+                        gebaeudekategorie=self._get_single_choice_option_label(
+                            "gebaeudekategorie", "document_id"
+                        ),
+                    )
+                )
+                .values("data")
+            ),
         )
 
     def _has_completed_work_item(self, task):
@@ -480,19 +465,26 @@ class InstanceManagerSO(Manager["InstanceProxySO"]):
             )
         )
 
-    def annotate_publikation(self):
-        return Case(
-            When(
-                self._has_completed_work_item("fill-publication"),
-                then=JSONObject(
-                    startdatum=self._completed_work_item_answer(
-                        "fill-publication", "publikation-start", "date"
-                    ),
-                    enddatum=self._completed_work_item_answer(
-                        "fill-publication", "publikation-ende", "date"
-                    ),
-                ),
+    def annotate_auflage(self):
+        # The export takes the latest publication and reads both dates so start
+        # and end off that same work item, never come from different publications.
+        return Subquery(
+            WorkItem.objects.filter(
+                task_id="fill-publication",
+                status=WorkItem.STATUS_COMPLETED,
+                case__family=OuterRef("case__family"),
             )
+            .order_by("-created_at")
+            .annotate(
+                data=JSONObject(
+                    startdatum=caluma_answer(
+                        "publikation-start", "document_id", "date"
+                    ),
+                    enddatum=caluma_answer("publikation-ende", "document_id", "date"),
+                )
+            )
+            .values("data")[:1],
+            output_field=models.JSONField(),
         )
 
     def annotate_zirkulation(self):
@@ -553,21 +545,17 @@ class InstanceManagerSO(Manager["InstanceProxySO"]):
         )
 
     def annotate_lokalisation(self):
-        # TODO According to ILI PLZ and ORT are required but
-        # in the form they are not. for now we only export if they
-        # are present but this means missing data if the rest was filled
-        # out.
+        # Export if any of its address fields is answered to prevent empty dict.
         return Case(
             When(
                 Exists(
                     Answer.objects.filter(
-                        question_id="plz",
-                        document_id=OuterRef("case__document_id"),
-                    )
-                )
-                & Exists(
-                    Answer.objects.filter(
-                        question_id="ort",
+                        question_id__in=(
+                            "strasse-flurname",
+                            "strasse-nummer",
+                            "plz",
+                            "ort",
+                        ),
                         document_id=OuterRef("case__document_id"),
                     )
                 ),
@@ -712,7 +700,7 @@ class InstanceManagerSO(Manager["InstanceProxySO"]):
                 bauprojekt=self.annotate_bauprojekt(),
                 grundstuecke=self.annotate_grundstuecke(),
                 entscheid=self.annotate_entscheid(),
-                publikation=self.annotate_publikation(),
+                auflage=self.annotate_auflage(),
                 zirkulation=self.annotate_zirkulation(),
                 zustaendige_person=self.annotate_zustaendige_person(),
                 ebau_link=self.annotate_ebau_link(),
@@ -794,7 +782,7 @@ class InstanceProxySO(InstanceProxy, Instance):
         "bauprojekt",
         "grundstuecke",
         "entscheid",
-        "publikation",
+        "auflage",
         "zirkulation",
         "zustaendige_person",
         "ebau_link",
@@ -945,7 +933,7 @@ class SOGISExport(GISExport):
     bauprojekt = models.JSONField(blank=True, null=True)
     grundstuecke = models.JSONField(blank=True, null=True)
     entscheid = models.JSONField(blank=True, null=True)
-    publikation = models.JSONField(blank=True, null=True)
+    auflage = models.JSONField(blank=True, null=True)
     zirkulation = models.JSONField(blank=True, null=True)
     zustaendige_person = models.JSONField(blank=True, null=True)
     ebau_link = models.CharField()

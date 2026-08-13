@@ -96,6 +96,11 @@ def setup_so_instance(  # noqa: C901
         form_utils.add_table_answer(
             document, "bauherrin", [so_personal_row_factory(has_representation=True)]
         )
+        # Required (and thus present) in every SO dossier form, so even a minimal
+        # dossier produces a Bauprojekt with a Beschreibung.
+        form_utils.add_answer(
+            document, "umschreibung-bauprojekt", "Neubau Mehrfamilienhaus"
+        )
 
         if full:
             _setup_full(instance, document, buildings=buildings)
@@ -106,9 +111,6 @@ def setup_so_instance(  # noqa: C901
         instance.case.meta.update({"is-bab": True})
         instance.case.save()
 
-        form_utils.add_answer(
-            document, "umschreibung-bauprojekt", "Neubau Mehrfamilienhaus"
-        )
         # The gebaeude form is only rendered when Hochbaute is chosen.
         # A Tiefbaute-only project therefore has a Bauprojekt but zero gebaeude.
         bauwerk_arten = [("art-der-bauwerke-tiefbaute", "Tiefbaute")]

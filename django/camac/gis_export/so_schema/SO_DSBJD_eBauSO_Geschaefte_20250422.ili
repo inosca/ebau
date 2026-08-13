@@ -12,284 +12,295 @@ INTERLIS 2.4;
 !!@ title="Elektronische Baugesuchsgeschäfte"
 !!@ technicalContact=mailto:agi@bd.so.ch
 MODEL SO_DSBJD_eBauSO_Geschaefte_20250422 (de)
-  AT "https://bjd.so.ch"
-  VERSION "2025-04-22"
-  =
-  IMPORTS GeometryCHLV95_V2;
+AT "https://bjd.so.ch"
+VERSION "2025-04-22"
+=
+IMPORTS GeometryCHLV95_V2;
 
-  DOMAIN
-    /** Status des Geschäfts. Aufzähltyp, damit nach Status garantiert gefiltert/eingefärbt werden kann.
-     */
-    Status_Geschaeft = (
-      /** ­Das Gesuch wurde im eBau-Portal (Portal für Gesuchsteller) erstellt, ist aber noch nicht bei der Leitbehörde eingereicht und steht nur im eBau-Portal und nicht eBau-intern (Behördenbereich) zur Verfügung.
-       */
-      !!@ ili2db.dispName=neu
-      neu,
-      Pruefung (
-        /** ­Das Gesuch wurde durch den Gesuchstellenden eingereicht und muss durch die Leitbehörde eBau-intern (Behördenbereich) formell geprüft werden.
-         */
-        !!@ ili2db.dispName="formelle Prüfung"
-        formell,
-        /** ­Das Gesuch muss durch die Leitbehörde eBau-intern (Behördenbereich) materiell geprüft werden.
-         */
-        !!@ ili2db.dispName="materielle Prüfung"
-        materiell
-      ),
-      /** ­Die Leitbehörde hat während der formellen und materiellen Prüfung die Möglichkeit Dossiers zu korrigieren.
-       */
-      !!@ ili2db.dispName="in Korrektur"
-      in_Korrektur,
-      /** Die formelle resp. materielle Prüfung hat ergeben, dass das Gesuch erhebliche Mängel aufweist und zurückgewiesen werden muss.
-       */
-      !!@ ili2db.dispName="zur Rückweisung"
-      zur_Rueckweisung,
-      /** ­Das Gesuch wurde durch die Leitbehörde zurückgewiesen. ­Das Gesuch wurde durch die Leitbehörde zurückgewiesen. ­Der Gesuchsteller kann das Gesuch kopieren, die Mängel beheben und neu einreichen (neue Dossier-Nummer).
-       */
-      !!@ ili2db.dispName=zurückgewiesen
-      zurueckgewiesen,
-      /** Der Gesuchsteller zieht das Gesuch selbst zurück.
-       */
-      !!@ ili2db.dispName="zum Rückzug"
-      zum_Rueckzug,
-      /** Die Leitbehörde hat den Rückzug (als Entscheid / Beurteilung) bestätigt.
-       */
-      !!@ ili2db.dispName=zurückgezogen
-      zurueckgezogen,
-      /** ­	Nach der materiellen Prüfung befindet sich das Gesuch im Zustand «Zirkulation initialisiseren». Die Zirkulation kann durch die Leitbehörde auch direkt übersprungen werden
-       */
-      !!@ ili2db.dispName="Zirkulation initialisieren"
-      Zirkulation_initialisieren,
-      /** Falls die Zirkulation durch die Leitbehörde initiiert wird, befindet sich das Gesuch im Status «In Zirkulation».
-       */
-      !!@ ili2db.dispName="in Zirkulation"
-      in_Zirkulation,
-      /** Sobald die Zirkulation angeschlossen wird, ist das Gesuch im Status «Entscheid».
-       */
-      !!@ ili2db.dispName=Entscheid
-      Entscheid,
-      /** Sobald der Entscheid getroffen wurde, befindet sich das Gesuch im Status «entschieden».
-       */
-      !!@ ili2db.dispName=entschieden
-      entschieden,
-      /** ­Nachdem über das Gesuch entschieden wurde, kann der Baubegleitungsprozess gestartet werden.­	Der Baubegleitungsprozess kann auch direkt übersprungen werden.
-       */
-      !!@ ili2db.dispName=Baubegleitung
-      Baubegleitung,
-      /** Zu guter Letzt, kann das Verfahren abgeschlossen werden und das Gesuch erhält den Status «abgeschlossen».
-       */
-      !!@ ili2db.dispName=abgeschlossen
-      abgeschlossen
-    );
-    /** Entscheid resp. Beurteilung des Geschäftes. Aufzähltyp, damit nach Entscheid garantiert gefiltert/eingefärbt werden kann.
-     */
-    Entscheid = (
-      /** Das Baugesuch wurde abgelehnt.
-       */
-      !!@ ili2db.dispName=Ablehnung
-      Ablehnung,
-      /** Die Baugenehmigung wurde erteilt.
-       */
-      !!@ ili2db.dispName=Zustimmung
-      Zustimmung,
-      /** Die Baugenehmigung wurde mit Auflagen erteilt.
-       */
-      !!@ ili2db.dispName=Teilzustimmung
-      Teilzustimmung,
-      /** Das Baugesuch wurde durch die Gesuchstellenden zurückgezogen.
-       */
-      !!@ ili2db.dispName=Rückzug
-      Rueckzug
-    );
-    /** Fachstellen, denen eine Aufgabe zugewiesen werden kann. Die Rolle (z.B. Leitbehörde, Fachstelle BaB) wird damit
-     * nicht agebildet.
-     */
-    Fachstellen = (
-      AFU,
-      ARP,
-      AMB,
-      AWA,
-      AWJF,
-      ADA,
-      GESA,
-      SGV,
-      ALW,
-      AVT,
-      ausserkantonale_Fachstelle,
-      Gemeinde
-    );
-
-  /** Zuständige Person oder zuständige Fachstelle/Amt eines Geschäftes innerhalb der Zirkulation oder bei Leitbehörde.
-   * Abteilung ist als Freitext modelliert. Entsprechend kann sie nicht robust geprüft oder nach ihr gefiltert werden.
-   * Z.B.
-   * ARP, Hans Muster, Kantonale Koordinationsstelle Bauen ausserhalb Bauzone / Fachstelle BaB
-   * AfU, Petra Meier, NULL
+DOMAIN
+/** Status des Geschäfts. Aufzähltyp, damit nach Status garantiert gefiltert/eingefärbt werden kann.
+ */
+Status_Geschaeft = (
+  /** ­Das Gesuch wurde im eBau-Portal (Portal für Gesuchsteller) erstellt, ist aber noch nicht bei der Leitbehörde eingereicht und steht nur im eBau-Portal und nicht eBau-intern (Behördenbereich) zur Verfügung.
    */
-  STRUCTURE Zustaendigkeit =
-    Fachstelle : MANDATORY SO_DSBJD_eBauSO_Geschaefte_20250422.Fachstellen;
-    Name : TEXT*500;
-    Abteilung : TEXT*500;
-  END Zustaendigkeit;
+  !!@ ili2db.dispName=neu
+  neu,
+  Pruefung (
+    /** ­Das Gesuch wurde durch den Gesuchstellenden eingereicht und muss durch die Leitbehörde eBau-intern (Behördenbereich) formell geprüft werden.
+     */
+    !!@ ili2db.dispName="formelle Prüfung"
+    formell,
+    /** ­Das Gesuch muss durch die Leitbehörde eBau-intern (Behördenbereich) materiell geprüft werden.
+     */
+    !!@ ili2db.dispName="materielle Prüfung"
+    materiell
+  ),
+  /** ­Die Leitbehörde hat während der formellen und materiellen Prüfung die Möglichkeit Dossiers zu korrigieren.
+   */
+  !!@ ili2db.dispName="in Korrektur"
+  in_Korrektur,
+  /** Die formelle resp. materielle Prüfung hat ergeben, dass das Gesuch erhebliche Mängel aufweist und zurückgewiesen werden muss.
+   */
+  !!@ ili2db.dispName="zur Rückweisung"
+  zur_Rueckweisung,
+  /** ­Das Gesuch wurde durch die Leitbehörde zurückgewiesen. ­Das Gesuch wurde durch die Leitbehörde zurückgewiesen. ­Der Gesuchsteller kann das Gesuch kopieren, die Mängel beheben und neu einreichen (neue Dossier-Nummer).
+   */
+  !!@ ili2db.dispName=zurückgewiesen
+  zurueckgewiesen,
+  /** Der Gesuchsteller zieht das Gesuch selbst zurück.
+   */
+  !!@ ili2db.dispName="zum Rückzug"
+  zum_Rueckzug,
+  /** Die Leitbehörde hat den Rückzug (als Entscheid / Beurteilung) bestätigt.
+   */
+  !!@ ili2db.dispName=zurückgezogen
+  zurueckgezogen,
+  /** ­	Nach der materiellen Prüfung befindet sich das Gesuch im Zustand «Zirkulation initialisiseren». Die Zirkulation kann durch die Leitbehörde auch direkt übersprungen werden
+   */
+  !!@ ili2db.dispName="Zirkulation initialisieren"
+  Zirkulation_initialisieren,
+  /** Falls die Zirkulation durch die Leitbehörde initiiert wird, befindet sich das Gesuch im Status «In Zirkulation».
+   */
+  !!@ ili2db.dispName="in Zirkulation"
+  in_Zirkulation,
+  /** Sobald die Zirkulation angeschlossen wird, ist das Gesuch im Status «Entscheid».
+   */
+  !!@ ili2db.dispName=Entscheid
+  Entscheid,
+  /** Sobald der Entscheid getroffen wurde, befindet sich das Gesuch im Status «entschieden».
+   */
+  !!@ ili2db.dispName=entschieden
+  entschieden,
+  /** ­Nachdem über das Gesuch entschieden wurde, kann der Baubegleitungsprozess gestartet werden.­	Der Baubegleitungsprozess kann auch direkt übersprungen werden.
+   */
+  !!@ ili2db.dispName=Baubegleitung
+  Baubegleitung,
+  /** Zu guter Letzt, kann das Verfahren abgeschlossen werden und das Gesuch erhält den Status «abgeschlossen».
+   */
+  !!@ ili2db.dispName=abgeschlossen
+  abgeschlossen
+);
+/** Entscheid resp. Beurteilung des Geschäftes. Aufzähltyp, damit nach Entscheid garantiert gefiltert/eingefärbt werden kann.
+ */
+Entscheid = (
+  /** Das Baugesuch wurde abgelehnt.
+   */
+  !!@ ili2db.dispName=Ablehnung
+  Ablehnung,
+  /** Die Baugenehmigung wurde erteilt.
+   */
+  !!@ ili2db.dispName=Zustimmung
+  Zustimmung,
+  /** Die Baugenehmigung wurde mit Auflagen erteilt.
+   */
+  !!@ ili2db.dispName=Teilzustimmung
+  Teilzustimmung,
+  /** Das Baugesuch wurde durch die Gesuchstellenden zurückgezogen.
+   */
+  !!@ ili2db.dispName=Rückzug
+  Rueckzug,
+  /** foo */
+  !!@ ili2db.dispName="positiv"
+  positiv,
+  /** foo */
+  !!@ ili2db.dispName="negativ"
+  negativ
+);
+/** Fachstellen, denen eine Aufgabe zugewiesen werden kann. Die Rolle (z.B. Leitbehörde, Fachstelle BaB) wird damit
+ * nicht agebildet.
+ */
+Fachstellen = (
+  AFU,
+  ARP,
+  AMB,
+  AWA,
+  AWJF,
+  ADA,
+  GESA,
+  SGV,
+  ALW,
+  AVT,
+  ausserkantonale_Fachstelle,
+  Gemeinde
+);
 
-  STRUCTURE Adresse_ =
-    Strassenname : TEXT*200;
-    Hausnummer : TEXT*10;
-    PLZ : MANDATORY 1000 .. 9999;
-    Ortschaft : MANDATORY TEXT*200;
-  END Adresse_;
+/** Zuständige Person oder zuständige Fachstelle/Amt eines Geschäftes innerhalb der Zirkulation oder bei Leitbehörde.
+ * Abteilung ist als Freitext modelliert. Entsprechend kann sie nicht robust geprüft oder nach ihr gefiltert werden.
+ * Z.B.
+ * ARP, Hans Muster, Kantonale Koordinationsstelle Bauen ausserhalb Bauzone / Fachstelle BaB
+ * AfU, Petra Meier, NULL
+ */
+STRUCTURE Zustaendigkeit =
+  Fachstelle : MANDATORY SO_DSBJD_eBauSO_Geschaefte_20250422.Fachstellen;
+  Name : TEXT*500;
+  Abteilung : TEXT*500;
+END Zustaendigkeit;
 
-  STRUCTURE Natuerliche_Person =
-    Name : TEXT*100;
-    Vorname : TEXT*100;
-  END Natuerliche_Person;
+STRUCTURE Adresse_ =
+  Strassenname : TEXT*200;
+  Hausnummer : TEXT*10;
+  PLZ : 1000 .. 9999;
+  Ortschaft : TEXT*200;
+END Adresse_;
 
-  STRUCTURE Juristische_Person =
-    Name : TEXT*200;
-  END Juristische_Person;
+STRUCTURE Natuerliche_Person =
+  Name : TEXT*100;
+  Vorname : TEXT*100;
+END Natuerliche_Person;
 
-  STRUCTURE PersonAdresse =
+STRUCTURE Juristische_Person =
+  Name : TEXT*200;
+END Juristische_Person;
+
+STRUCTURE PersonAdresse =
+  !!@ ili2db.mapping=JSON
+  Natuerliche_Person : MANDATORY SO_DSBJD_eBauSO_Geschaefte_20250422.Natuerliche_Person;
+  !!@ ili2db.mapping=JSON
+  Juristische_Person : SO_DSBJD_eBauSO_Geschaefte_20250422.Juristische_Person;
+  !!@ ili2db.mapping=JSON
+  Adresse : MANDATORY SO_DSBJD_eBauSO_Geschaefte_20250422.Adresse_;
+END PersonAdresse;
+
+STRUCTURE Gesuchsteller_ =
+  Adresse : MANDATORY PersonAdresse;
+  Vertretung : PersonAdresse;
+END Gesuchsteller_;
+
+STRUCTURE Entscheid_ =
+  Entscheid : MANDATORY SO_DSBJD_eBauSO_Geschaefte_20250422.Entscheid;
+  Datum : MANDATORY DATE;
+END Entscheid_;
+
+STRUCTURE Auflage_ =
+  Startdatum : DATE;
+  Enddatum : DATE;
+END Auflage_;
+
+STRUCTURE Grundstueck =
+  Nummer : MANDATORY TEXT*10;
+  EGRID : MANDATORY TEXT*14;
+END Grundstueck;
+
+STRUCTURE Bauwerk =
+  /** Bezeichnung des Gebäudes etc. Z.B. MFH A
+   */
+  Bezeichnung : MANDATORY TEXT*200;
+  /** Typ des Bauwerkes. Abschliessende Liste aber nicht als Aufzähltyp modelliert.
+   */
+  Bauwerk_Typ : MANDATORY TEXT*1000;
+  /** Eidgenössischer Gebäudeidentifikator
+   */
+  EGID : 1 .. 900000000;
+  /** Art der Arbeiten: Neubau, Umbau, Abbruch
+   */
+  !!@ ili2db.mapping=JSON
+  Arbeiten_Art : BAG {1..3} OF TEXT*20;
+  /** Gebäudekategorie
+   */
+  Gebaeudekategorie : MANDATORY TEXT*100;
+END Bauwerk;
+
+STRUCTURE Bauprojekt_ =
+  /** Umschreibung des Bauprojektes
+   */
+  Beschreibung : TEXT;
+  /** Art des Bauwerkes (Hoch- und/oder Tiefbaute). Kann jedoch auch optional sein bei Erdwärmesonde.
+   */
+  !!@ ili2db.mapping=JSON
+  Bauwerk_Art : BAG {0..2} OF TEXT*20;
+  /** Nutzungszweck
+   */
+  Nutzungszweck : BAG {0..*} OF TEXT*200;
+  /** Angaben zu den Bauwerken (falls Hochbaute)
+   */
+  Bauwerke : BAG {0..*} OF SO_DSBJD_eBauSO_Geschaefte_20250422.Bauwerk;
+END Bauprojekt_;
+
+TOPIC Geschaefte =
+
+  /** Elektronische Baugesuchsgeschäfte
+   */
+  CLASS Geschaeft =
+    /** Kantonsweit eindeutiger Identifikator des Geschäfts gemäss eBau-Software.
+     */
+    Identifikator : MANDATORY TEXT*72;
+    /** Gemeindenummer (der politischen Gemeinde)
+     */
+    BFSNr : MANDATORY 0 .. 9999;
+    /** Art des Verfahrens. Es ist eine abschliessende aber ggf. wechselnde Anzahl an Verfahrensarten. (Voranfrage, Baugesuch, Reklamegesuch, Meldung (Anzeige), Meldung PV-Anlage, EWS).
+     */
+    Verfahrensart : MANDATORY TEXT*200;
+    /** Lage des Geschäftes / des Baugesuchs
+     */
+    Geometrie_Punkt : GeometryCHLV95_V2.MultiPoint;
+    /** Lage / Geometrie des Geschäftes / des Baugesuchs
+     */
+    Geometrie_Linie : GeometryCHLV95_V2.MultiLine;
+    /** Geometrie des Geschäftes / des Baugesuchs
+     */
+    Geometrie_Flaeche : GeometryCHLV95_V2.MultiSurface;
+    /** Lokalisation
+     */
     !!@ ili2db.mapping=JSON
-    Natuerliche_Person : MANDATORY SO_DSBJD_eBauSO_Geschaefte_20250422.Natuerliche_Person;
-    !!@ ili2db.mapping=JSON
-    Juristische_Person : SO_DSBJD_eBauSO_Geschaefte_20250422.Juristische_Person;
-    !!@ ili2db.mapping=JSON
-    Adresse : MANDATORY SO_DSBJD_eBauSO_Geschaefte_20250422.Adresse_;
-  END PersonAdresse;
-
-  STRUCTURE Entscheid_ =
-    Entscheid : MANDATORY SO_DSBJD_eBauSO_Geschaefte_20250422.Entscheid;
-    Datum : MANDATORY DATE;
-  END Entscheid_;
-
-  STRUCTURE Publikation_ =
-    Startdatum : DATE;
-    Enddatum : DATE;
-  END Publikation_;
-
-  STRUCTURE Grundstueck =
-    Nummer : MANDATORY TEXT*10;
-    EGRID : MANDATORY TEXT*14;
-  END Grundstueck;
-
-  STRUCTURE Bauwerk =
-    /** Bezeichnung des Gebäudes etc. Z.B. MFH A
+    Lokalisation : SO_DSBJD_eBauSO_Geschaefte_20250422.Adresse_;
+    /** Status des Geschäftes
      */
-    Bezeichnung : MANDATORY TEXT*200;
-    /** Typ des Bauwerkes. Abschliessende Liste aber nicht als Aufzähltyp modelliert.
-     */
-    Bauwerk_Typ : MANDATORY TEXT*1000;
-    /** Eidgenössischer Gebäudeidentifikator
-     */
-    EGID : 1 .. 900000000;
-    /** Art der Arbeiten: Neubau, Umbau, Abbruch
+    Status : MANDATORY SO_DSBJD_eBauSO_Geschaefte_20250422.Status_Geschaeft;
+    /** Gesuchsteller resp. Bauherrschaft inkl. Vertretung
      */
     !!@ ili2db.mapping=JSON
-    Arbeiten_Art : BAG {1..3} OF TEXT*20;
-    /** Gebäudekategorie
-     */
-    Gebaeudekategorie : MANDATORY TEXT*100;
-  END Bauwerk;
-
-  STRUCTURE Bauprojekt_ =
-    /** Umschreibung des Bauprojektes
-     */
-    Beschreibung : TEXT;
-    /** Art des Bauwerkes (Hoch- und/oder Tiefbaute)
+    Gesuchsteller : MANDATORY Gesuchsteller_;
+    /** Vertretung des Gesuchsteller resp. der Bauherrschaft
      */
     !!@ ili2db.mapping=JSON
-    Bauwerk_Art : BAG {1..2} OF TEXT*20;
-    /** Nutzungszweck
+    Gesuchsteller_Vertretung : SO_DSBJD_eBauSO_Geschaefte_20250422.PersonAdresse;
+    /** Projektverfasser
      */
-    Nutzungszweck : TEXT*200;
-    /** Angaben zu den Bauwerken (falls Hochbaute)
+    !!@ ili2db.mapping=JSON
+    Projektverfasser : SO_DSBJD_eBauSO_Geschaefte_20250422.PersonAdresse;
+    /** Rechnungsempfänger
      */
-    Bauwerke : BAG {0..*} OF SO_DSBJD_eBauSO_Geschaefte_20250422.Bauwerk;
-  END Bauprojekt_;
-
-  TOPIC Geschaefte =
-
-    /** Elektronische Baugesuchsgeschäfte
+    !!@ ili2db.mapping=JSON
+    Rechnungsempfaenger : SO_DSBJD_eBauSO_Geschaefte_20250422.PersonAdresse;
+    /** Eigentümer des Grundstückes. Es können zwar mehrere Grundstücke angegeben werden,
+     * aber immer nur einen Eigenümer. Aus diesem Grund hat die Struktur 'Grundstuecke'
+     * (noch) bewusst keinen Eigentümer.
      */
-    CLASS Geschaeft =
-      /** Kantonsweit eindeutiger Identifikator des Geschäfts gemäss eBau-Software.
-       */
-      Identifikator : MANDATORY TEXT*72;
-      /** Gemeindenummer (der politischen Gemeinde)
-       */
-      BFSNr : MANDATORY 0 .. 9999;
-      /** Art des Verfahrens. Es ist eine abschliessende aber ggf. wechselnde Anzahl an Verfahrensarten. (Voranfrage, Baugesuch, Reklamegesuch, Meldung (Anzeige), Meldung PV-Anlage, EWS).
-       */
-      Verfahrensart : MANDATORY TEXT*200;
-      /** Lage des Geschäftes / des Baugesuchs
-       */
-      Geometrie_Punkt : GeometryCHLV95_V2.MultiPoint;
-      /** Lage / Geometrie des Geschäftes / des Baugesuchs
-       */
-      Geometrie_Linie : GeometryCHLV95_V2.MultiLine;
-      /** Geometrie des Geschäftes / des Baugesuchs
-       */
-      Geometrie_Flaeche : GeometryCHLV95_V2.MultiSurface;
-      /** Lokalisation
-       */
-      !!@ ili2db.mapping=JSON
-      Lokalisation : SO_DSBJD_eBauSO_Geschaefte_20250422.Adresse_;
-      /** Status des Geschäftes
-       */
-      Status : MANDATORY SO_DSBJD_eBauSO_Geschaefte_20250422.Status_Geschaeft;
-      /** Gesuchsteller resp. Bauherrschaft
-       */
-      !!@ ili2db.mapping=JSON
-      Gesuchsteller : MANDATORY SO_DSBJD_eBauSO_Geschaefte_20250422.PersonAdresse;
-      /** Vertretung des Gesuchsteller resp. der Bauherrschaft
-       */
-      !!@ ili2db.mapping=JSON
-      Gesuchsteller_Vertretung : SO_DSBJD_eBauSO_Geschaefte_20250422.PersonAdresse;
-      /** Projektverfasser
-       */
-      !!@ ili2db.mapping=JSON
-      Projektverfasser : SO_DSBJD_eBauSO_Geschaefte_20250422.PersonAdresse;
-      /** Rechnungsempfänger
-       */
-      !!@ ili2db.mapping=JSON
-      Rechnungsempfaenger : SO_DSBJD_eBauSO_Geschaefte_20250422.PersonAdresse;
-      /** Eigentümer des Grundstückes. Es können zwar mehrere Grundstücke angegeben werden,
-       * aber immer nur einen Eigenümer. Aus diesem Grund hat die Struktur 'Grundstuecke'
-       * (noch) bewusst keinen Eigentümer.
-       */
-      !!@ ili2db.mapping=JSON
-      Grundeigentuemer : SO_DSBJD_eBauSO_Geschaefte_20250422.PersonAdresse;
-      /** Bauen ausserhalb Bauzone?
-       */
-      ausserhalb_Bauzone : BOOLEAN;
-      /** Informationen zum Bauprojekt. Struktur wird beibehalten.
-       */
-      !!@ ili2db.mapping=JSON
-      Bauprojekt : SO_DSBJD_eBauSO_Geschaefte_20250422.Bauprojekt_;
-      /** Eidgenössischer Grundstücksidentifikator
-       */
-      !!@ ili2db.mapping=JSON
-      Grundstuecke : BAG {1..*} OF SO_DSBJD_eBauSO_Geschaefte_20250422.Grundstueck;
-      /** Entscheid der Leitbehörde.
-       */
-      !!@ ili2db.mapping=JSON
-      Entscheid_Leitbehoerde : SO_DSBJD_eBauSO_Geschaefte_20250422.Entscheid_;
-      /** Start- und Enddatum einer allfälligen Publikation.
-       */
-      !!@ ili2db.mapping=JSON
-      Publikation : SO_DSBJD_eBauSO_Geschaefte_20250422.Publikation_;
-      /** Fachstellen, die in einer Zirkulation involviert sind.
-       */
-      Zirkulation : BAG {0..*} OF SO_DSBJD_eBauSO_Geschaefte_20250422.Zustaendigkeit;
-      /** Verantwortliche Person. Es kann ausserhalb der Zirkulation nur maximal eine Person für ein Geschäft geben.
-       */
-      Zustaendige_Personen : SO_DSBJD_eBauSO_Geschaefte_20250422.Zustaendigkeit;
-      /** URL für die Anzeige des Geschäftes in eBau.
-       */
-      eBau_Link : MANDATORY INTERLIS.URI;
-      /** Es muss mindestens eine Geometrie vorhanden sein. TODO: Ist das so? Oder kann bei einem Status auch was optional sein?
-       */
-      MANDATORY CONSTRAINT DEFINED(Geometrie_Punkt) OR DEFINED(Geometrie_Linie) OR DEFINED(Geometrie_Flaeche);
-    END Geschaeft;
+    !!@ ili2db.mapping=JSON
+    Grundeigentuemer : SO_DSBJD_eBauSO_Geschaefte_20250422.PersonAdresse;
+    /** Bauen ausserhalb Bauzone?
+     */
+    ausserhalb_Bauzone : BOOLEAN;
+    /** Informationen zum Bauprojekt. Struktur wird beibehalten.
+     */
+    !!@ ili2db.mapping=JSON
+    Bauprojekt : SO_DSBJD_eBauSO_Geschaefte_20250422.Bauprojekt_;
+    /** Eidgenössischer Grundstücksidentifikator
+     */
+    !!@ ili2db.mapping=JSON
+    Grundstuecke : BAG {1..*} OF SO_DSBJD_eBauSO_Geschaefte_20250422.Grundstueck;
+    /** Entscheid der Leitbehörde.
+     */
+    !!@ ili2db.mapping=JSON
+    Entscheid_Leitbehoerde : SO_DSBJD_eBauSO_Geschaefte_20250422.Entscheid_;
+    /** Start- und Enddatum einer allfälligen Auflage.
+     */
+    !!@ ili2db.mapping=JSON
+    Auflage : SO_DSBJD_eBauSO_Geschaefte_20250422.Auflage_;
+    /** Fachstellen, die in einer Zirkulation involviert sind.
+     */
+    Zirkulation : BAG {0..*} OF SO_DSBJD_eBauSO_Geschaefte_20250422.Zustaendigkeit;
+    /** Verantwortliche Person. Es kann ausserhalb der Zirkulation nur maximal eine Person für ein Geschäft geben.
+     */
+    Zustaendige_Personen : SO_DSBJD_eBauSO_Geschaefte_20250422.Zustaendigkeit;
+    /** URL für die Anzeige des Geschäftes in eBau.
+     */
+    eBau_Link : MANDATORY INTERLIS.URI;
+    /** Es muss mindestens eine Geometrie vorhanden sein. TODO: Ist das so? Oder kann bei einem Status auch was optional sein?
+     */
+    MANDATORY CONSTRAINT DEFINED(Geometrie_Punkt) OR DEFINED(Geometrie_Linie) OR DEFINED(Geometrie_Flaeche);
+  END Geschaeft;
 
-  END Geschaefte;
+END Geschaefte;
 
 END SO_DSBJD_eBauSO_Geschaefte_20250422.
