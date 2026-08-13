@@ -32,6 +32,8 @@ module.exports = function () {
       "check",
       "play",
       "ellipsis",
+      "link",
+      "link-slash",
     ],
   };
 };

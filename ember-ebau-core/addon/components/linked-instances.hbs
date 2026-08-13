@@ -22,13 +22,12 @@
       <div>
         {{#if (await (can "link dossiers to instance" linkedInstance))}}
           <button
-            class="uk-button-link uk-flex"
-            ratio="0.8"
-            uk-icon="trash"
+            class="uk-button uk-button-link"
             type="button"
             title={{t "cases.miscellaneous.unLinkInstance"}}
             {{on "click" (perform this.unLinkDossier linkedInstance)}}
           >
+            <FaIcon @icon="link-slash" />
           </button>
         {{/if}}
       </div>
@@ -39,13 +38,12 @@
     <div>
       {{#if (await (can "link dossiers to instance" @currentInstance))}}
         <button
-          class="uk-button-link uk-flex"
-          ratio="0.8"
-          uk-icon="trash"
+          class="uk-button uk-button-link"
           type="button"
           title={{t "cases.miscellaneous.unLinkInstance"}}
           {{on "click" (perform this.unLinkDossier @currentInstance)}}
         >
+          <FaIcon @icon="link-slash" />
         </button>
       {{/if}}
     </div>
