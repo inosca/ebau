@@ -25,7 +25,7 @@
             class="uk-button uk-button-link"
             type="button"
             title={{t "cases.miscellaneous.unLinkInstance"}}
-            {{on "click" (perform this.unLinkDossier linkedInstance)}}
+            {{on "click" (fn this.unLinkDossier.perform linkedInstance)}}
           >
             <FaIcon @icon="link-slash" />
           </button>
@@ -41,7 +41,7 @@
           class="uk-button uk-button-link"
           type="button"
           title={{t "cases.miscellaneous.unLinkInstance"}}
-          {{on "click" (perform this.unLinkDossier @currentInstance)}}
+          {{on "click" (fn this.unLinkDossier.perform @currentInstance)}}
         >
           <FaIcon @icon="link-slash" />
         </button>
@@ -72,7 +72,7 @@
       class="uk-button uk-button-small uk-button-primary"
       type="button"
       title={{t "cases.miscellaneous.linkInstance"}}
-      {{on "click" (perform this.searchAndLinkDossier)}}
+      {{on "click" this.searchAndLinkDossier.perform}}
     >
       <UkIcon @icon="plus" />
     </button>
