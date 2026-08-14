@@ -63,11 +63,7 @@ instances:
     special-procedure:
       title: "Weitere Verfahren"
       sekretariat-der-gemeindebaubehorde:
-        info: "**Allgemeiner Hinweis:** Dossiers die von einer Behörde (Gemeinde oder kantonale
-        Verwaltung) im URec erfasst werden, erhalten den Zusatzvermerk (intern erfasst). Auch diese
-        Dossiers werden auf dem URec Portal erfasst und mit Klick auf «EINREICHEN» in den internen
-        Bereich geschickt.\n\n
-        **Archivdossier (intern erfasst):**
+        info: "**Archivdossier:**
         Dieses Formular soll ausschliesslich für die manuelle Erfassung von einzelnen Dossiers
         verwendet werden, die physisch oder allenfalls per E-Mail (im aktuellen Jahr) eingereicht
         wurden, bereits abgeschlossen sind oder am Protokoll abgeschrieben werden und ohne
@@ -77,16 +73,16 @@ instances:
         geeignet. Falls Sie grössere Mengen alter Dossiers im URec mit einer «alten» URec Nummer
         ablegen möchten (z.B. ein Baugesuch aus dem Jahre 2010 digitalisieren, URec Nr. 1201-10
         000) wenden Sie sich bitte an das Amt für Raumentwicklung.\n\n
-        **Einfache Anfrage (intern erfasst):**
+        **Einfache Anfrage:**
         Wenn Sie eine Anfrage zu einem Öreb-Thema (z.B. Siedlungsleitbild) erfassen möchten oder
         wenn Sie Fragen zu einem Verfahren haben oder eine rechtliche Abklärung wünschen,
         können Sie das Formular «Einfache Anfrage» verwenden. Einfache Anfragen werden direkt
         an die Koordinationsstelle Nutzungsplanung weitergeleitet.\n\n
-        **PGV Gemeindestrasse (intern erfasst):**
+        **PGV Gemeindestrasse:**
         Dieses Formular dient ausschliesslich zur Erfassung von Plangenehmigungsverfahren (PGV)
         für Gemeindestrassen Bauprojekte. PGV Dossiers Gemeindestrassen werden beim
         Einreichen direkt an die Baudirektion Uri übermittelt.\n\n
-        **Öreb-Verfahren Gemeinde (intern erfasst):**
+        **Öreb-Verfahren Gemeinde:**
         Mit dem Formular «Öreb-Verfahren Gemeinde» können Dossiers für Gemeindliche
         Planungszonen, Gemeindliche Nutzungsplanungen, Sondernutzungsplanungen (QGP / QP),
         Gemeindliche Baulinien und Dossier für Bausperren erfasst werden. Dossiers die auf dem

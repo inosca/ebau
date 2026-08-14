@@ -141,9 +141,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
       )?.node.label;
     }
 
-    return this.isPaper
-      ? `${label} (${this.intl.t("cases.filters.paper")})`
-      : label;
+    return label;
   }
 
   get instanceState() {
