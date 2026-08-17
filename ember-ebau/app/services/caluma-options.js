@@ -1,12 +1,15 @@
 import { service } from "@ember/service";
 import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-options";
 import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
+import InquiryFirstWeekIconComponent from "ember-ebau-core/components/inquiry-first-week-icon";
 import mainConfig from "ember-ebau-core/config/main";
 import { cantonAware } from "ember-ebau-core/decorators";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
 import { DateTime } from "luxon";
 import { cached } from "tracked-toolbox";
+
 export default class CustomCalumaOptionsService extends CalumaOptionsService {
   @service emailNotification;
   @service ebauModules;
@@ -126,6 +129,14 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     "inquiry-answer-status-rejected": INQUIRY_STATUS.NEGATIVE,
     "inquiry-answer-status-written-off": INQUIRY_STATUS.NEGATIVE,
     "inquiry-answer-status-not-involved": INQUIRY_STATUS.POSITIVE,
+    "inquiry-answer-status-fw-complete": {
+      color: "success",
+      iconComponent: InquiryFirstWeekIconComponent,
+    },
+    "inquiry-answer-status-fw-incomplete": {
+      color: "danger",
+      iconComponent: InquiryFirstWeekIconComponent,
+    },
   };
 
   @cantonAware
@@ -528,5 +539,16 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     }
 
     return "0000-01-01";
+  }
+
+  async distributionInquiryWorkItemMeta() {
+    if (
+      isApplication("sg") &&
+      this.ebauModules.serviceSlug === "coordination"
+    ) {
+      return { createdByKsb: true };
+    }
+
+    return super.distributionInquiryWorkItemMeta();
   }
 }

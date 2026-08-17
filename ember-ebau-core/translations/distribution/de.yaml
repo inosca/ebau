@@ -43,6 +43,10 @@ distribution:
     open-suspensions: "Achtung: Das Dossier ist momentan sistiert."
     deadline-expired: "Achtung: Die Bearbeitungsfrist für das Dossier ist überschritten."
 
+  first-week:
+    short: "W1"
+    long: "Erste Woche: "
+
 # Override default text of @projectcaluma/ember-distribution
 caluma:
   distribution:

@@ -32,6 +32,10 @@ distribution:
     open-suspensions: "Attenzione: Il fascicolo è attualmente sospeso."
     deadline-expired: "Attenzione: Il termine di elaborazione del fascicolo è scaduto."
 
+  first-week:
+    short: ""
+    long: ""
+
 # Override default text of @projectcaluma/ember-distribution
 caluma:
   distribution:
