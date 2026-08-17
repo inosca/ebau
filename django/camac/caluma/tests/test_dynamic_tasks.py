@@ -499,9 +499,10 @@ def test_dynamic_task_after_inquiries_completed(
 
 
 @pytest.mark.parametrize(
-    ("is_appeal", "expected_tasks"),
+    ("form_slug", "is_appeal", "expected_tasks"),
     [
         (
+            "baugesuch",
             False,
             {
                 "distribution",
@@ -513,6 +514,7 @@ def test_dynamic_task_after_inquiries_completed(
             },
         ),
         (
+            "baugesuch",
             True,
             {
                 "distribution",
@@ -524,16 +526,27 @@ def test_dynamic_task_after_inquiries_completed(
                 "appeal",
             },
         ),
+        (
+            "antrag-auf-auszahlung",
+            False,
+            {
+                "distribution",
+                "audit",
+            },
+        ),
     ],
 )
 @pytest.mark.django_db
 def test_dynamic_task_after_ebau_number(
     caluma_admin_user,
     expected_tasks,
+    form_slug,
     is_appeal,
     caluma_case_factory,
 ):
-    case = caluma_case_factory(meta={"is-appeal": True} if is_appeal else {})
+    case = caluma_case_factory(
+        document__form__slug=form_slug, meta={"is-appeal": True} if is_appeal else {}
+    )
 
     tasks = set(
         CustomDynamicTasks().resolve_after_ebau_number(
