@@ -12,6 +12,7 @@ from camac.user.factories import (
     ServiceFactory,
     UserFactory,
 )
+from camac.utils import get_unversioned_slug
 
 from . import models
 
@@ -29,7 +30,27 @@ class FormFactory(DjangoModelFactory):
     name = Faker("name")
     description = Faker("name")
     form_state = SubFactory(FormStateFactory)
-    family = None
+
+    @post_generation
+    def family(self, create, extracted, is_self=False, **kwargs):
+        """Set the family on the form after creation.
+
+        A form must always have a family set. So either set whatever was passed as
+        argument; or (if the name is unversioned or is_self is passed to force this) set
+        itself as family; or create a new form with the unversioned name and set that as
+        family.
+        """
+
+        if extracted:
+            self.family = extracted
+        elif is_self or (family_slug := get_unversioned_slug(self.name)) == self.name:
+            self.family = self
+        else:
+            self.family = FormFactory(name=family_slug, family__is_self=True)
+
+        if create:
+            # https://factoryboy.readthedocs.io/en/stable/reference.html#strategies
+            self.save(update_fields=["family"])
 
     class Meta:
         model = models.Form

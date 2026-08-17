@@ -40,9 +40,6 @@ def test_generate_invoices(
         location=location_factory(name="Schwyz"),
     )
 
-    instance.form.family = instance.form
-    instance.form.save()
-
     billing_entry_1 = billing_v2_entry_factory.create(
         instance=instance,
         released_for_clearing=date.today(),
@@ -113,12 +110,7 @@ def test_generate_models_for_invoice(
     sz_billing_settings: BillingConfig,
 ) -> None:
     form_building_permit = form_factory(name="baugesuch-reklamegesuch")
-    form_building_permit.family = form_building_permit
-    form_building_permit.save()
-
     form_project_change = form_factory(name="projektanderung")
-    form_project_change.family = form_project_change
-    form_project_change.save()
 
     instance_not_used = instance_factory(
         form=form_building_permit, location=location_factory(name="Schwyz")
@@ -176,8 +168,6 @@ def test_generate_models_for_invoice_raise(
     logger = mocker.patch("camac.billing.wilken.domain_logic.log")
     sz_billing_settings.wilken.payment_purpose = "{non_existent_key}"
     form_building_permit = form_factory(name="baugesuch-reklamegesuch")
-    form_building_permit.family = form_building_permit
-    form_building_permit.save()
 
     instance_two_billing_entries = instance_factory(form=form_building_permit)
     billing_v2_entry_factory.create_batch(
@@ -205,12 +195,7 @@ def test_generate_models_for_invoice_verfahrensart(
     sz_billing_settings: BillingConfig,
 ) -> None:
     form_with_verfahrensart = form_factory(name="baumeldung-fur-geringfugiges-vorhaben")
-    form_with_verfahrensart.family = form_with_verfahrensart
-    form_with_verfahrensart.save()
-
     form_without_verfahrensart = form_factory(name="ohne-verfahrensart")
-    form_without_verfahrensart.family = form_without_verfahrensart
-    form_without_verfahrensart.save()
 
     instance_two_billing_entries = instance_factory(
         form=form_with_verfahrensart, location=location_factory(name="Schwyz")

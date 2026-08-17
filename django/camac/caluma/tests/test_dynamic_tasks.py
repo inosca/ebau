@@ -1831,8 +1831,6 @@ def test_resolve_after_decision_abbruchpraemie_sz(
     )
 
     form = form_factory(name="abbruchpraemie")
-    form.family = form
-    form.save()
 
     sz_instance.instance_state = redac_state
     sz_instance.form = form
