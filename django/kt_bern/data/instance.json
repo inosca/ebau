@@ -80,6 +80,26 @@
     }
   },
   {
+    "model": "instance.instance",
+    "pk": 5,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 2,
+      "group": 6,
+      "creation_date": "2026-08-17T13:42:45.926Z",
+      "modification_date": "2026-08-17T13:42:45.926Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "06a830fd-6747-7e31-8000-57b85f4ab729",
+      "instance_group": null,
+      "rejection_feedback": null,
+      "copy_source": null,
+      "instance_marks": []
+    }
+  },
+  {
     "model": "instance.historyentry",
     "pk": 4,
     "fields": {
