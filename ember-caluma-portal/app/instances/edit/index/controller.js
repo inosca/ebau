@@ -68,7 +68,6 @@ export default class InstancesEditIndexController extends Controller {
         body: JSON.stringify({
           data: {
             attributes: {
-              "caluma-form": "auszahlung-abbruchpraemie",
               "copy-source": this.editController.model,
               "copy-type": "demolition_payment",
             },
@@ -76,12 +75,17 @@ export default class InstancesEditIndexController extends Controller {
           },
         }),
       });
-      const { data } = yield response.json();
+      const {
+        data: {
+          id: instanceId,
+          attributes: { "caluma-form": calumaForm },
+        },
+      } = yield response.json();
 
       yield this.router.transitionTo(
         "instances.edit.form",
-        data.id,
-        "auszahlung-abbruchpraemie",
+        instanceId,
+        calumaForm,
       );
     } catch {
       this.notification.danger(this.intl.t("instances.demolitionPaymentError"));

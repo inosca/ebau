@@ -22,6 +22,22 @@ class BaseCopyFormConfig(EBauConfig):
     )
 
 
+class ConditionalTableCopyConfig(EBauConfig):
+    target_question: str = Field(
+        description="Copy target table question slug",
+    )
+    condition_questions: list[str] = Field(
+        description="Versioned single choice question slugs whose answer determines the source.",
+    )
+    sources_by_answer: dict[str, list[str]] = Field(
+        description="Map full option slug value to versioned source table question slugs",
+    )
+    default_source_questions: list[str] = Field(
+        description="Fallback versioned source table question slug when no condition question answer matches",
+        default_factory=list,
+    )
+
+
 class AllowListedCopyFormConfig(BaseCopyFormConfig):
     simple_questions: list[str] = Field(
         description="List of 'simple', i.e. non-table question slugs that should be copied.",
@@ -29,6 +45,14 @@ class AllowListedCopyFormConfig(BaseCopyFormConfig):
     )
     table_questions: list[str] = Field(
         description="List of table question slugs that should be copied.",
+        default_factory=list,
+    )
+    link_source_document: bool = Field(
+        description="Flag for setting the source document on the target document",
+        default=False,
+    )
+    conditional_table_questions: list[ConditionalTableCopyConfig] = Field(
+        description="Table mapping config for tables whose source depends on a condition question answer.",
         default_factory=list,
     )
 
@@ -134,6 +158,29 @@ INSTANCE_COPY = ModuleConfig[InstanceCopyConfig](
                 "personalien-projektverfasserin",
                 "personalien-sb",
                 "parzelle",
+            ],
+        ),
+        demolition_payment=AllowListedCopyFormConfig(
+            instance_id_slug="antrag-auf-auszahlung-dossiernummer-gesuch",
+            form_slug="antrag-auf-auszahlung",
+            link_source_document=True,
+            simple_questions=[
+                "gemeinde",
+            ],
+            conditional_table_questions=[
+                ConditionalTableCopyConfig(
+                    target_question="personalien-gesuchstellerin",
+                    condition_questions=["eigentuemerschaft-identisch-v7"],
+                    sources_by_answer={
+                        "eigentuemerschaft-identisch-v7-ja": [
+                            "personalien-gesuchstellerin"
+                        ],
+                        "eigentuemerschaft-identisch-v7-nein": [
+                            "personalien-eigentuemerin-v7"
+                        ],
+                    },
+                    default_source_questions=["personalien-gesuchstellerin"],
+                )
             ],
         ),
     ),

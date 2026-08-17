@@ -445,3 +445,136 @@ def test_copy_caluma_data_excludes_confirmation_answers_be(
         is expect_confirmation_copied
     )
     assert not copied_answers.filter(question_id="receipt-answer").exists()
+
+
+@pytest.mark.parametrize(
+    ("condition_slug", "condition_value", "expected"),
+    [
+        # applicant same as owner
+        (
+            "eigentuemerschaft-identisch-v7",
+            "eigentuemerschaft-identisch-v7-ja",
+            "applicant",
+        ),
+        # applicant different from owner
+        (
+            "eigentuemerschaft-identisch-v7",
+            "eigentuemerschaft-identisch-v7-nein",
+            "owner",
+        ),
+        # no answer => fallback on applicant
+        (None, None, "applicant"),
+    ],
+)
+@pytest.mark.django_db
+def test_copy_caluma_data_conditional_table_be(
+    be_instance,
+    instance_with_case,
+    instance_factory,
+    be_instance_copy_settings,
+    caluma_question_factory,
+    form_utils: FormUtils,
+    condition_slug,
+    condition_value,
+    expected,
+):
+    target_instance = instance_with_case(instance_factory())
+    caluma_question_factory(
+        slug=be_instance_copy_settings.demolition_payment.instance_id_slug,
+        type="integer",
+    )
+
+    form_utils.add_table_answer(
+        be_instance.case.document,
+        "personalien-gesuchstellerin",
+        [{"vorname": "applicant"}],
+    )
+    form_utils.add_table_answer(
+        be_instance.case.document,
+        "personalien-eigentuemerin-v7",
+        [{"vorname": "owner"}],
+    )
+
+    if condition_slug:
+        form_utils.add_answer(
+            be_instance.case.document,
+            condition_slug,
+            condition_value,
+            options=[f"{condition_slug}-ja", f"{condition_slug}-nein"],
+        )
+
+    CreateInstanceLogic.copy_caluma_data(
+        target_instance,
+        be_instance,
+        copy_type="demolition_payment",
+        user=None,
+    )
+
+    rows = target_instance.case.document.answers.get(
+        question_id="personalien-gesuchstellerin"
+    ).documents
+
+    assert rows.count() == 1
+    assert rows.first().answers.get(question_id="vorname").value == expected
+
+
+@pytest.mark.parametrize("link_source_document", [True, False])
+@pytest.mark.django_db
+def test_copy_caluma_data_link_source_document_be(
+    be_instance,
+    instance_with_case,
+    instance_factory,
+    be_instance_copy_settings,
+    caluma_question_factory,
+    link_source_document,
+):
+    target_instance = instance_with_case(instance_factory())
+    caluma_question_factory(
+        slug=be_instance_copy_settings.demolition_payment.instance_id_slug,
+        type="integer",
+    )
+    be_instance_copy_settings.demolition_payment.link_source_document = (
+        link_source_document
+    )
+
+    CreateInstanceLogic.copy_caluma_data(
+        target_instance,
+        be_instance,
+        copy_type="demolition_payment",
+        user=None,
+    )
+
+    expected_source = be_instance.case.document if link_source_document else None
+    assert target_instance.case.document.source == expected_source
+
+
+@pytest.mark.django_db
+def test_copy_caluma_data_simple_questions_be(
+    be_instance,
+    instance_with_case,
+    instance_factory,
+    be_instance_copy_settings,
+    caluma_question_factory,
+    form_utils: FormUtils,
+):
+    target_instance = instance_with_case(instance_factory())
+    caluma_question_factory(
+        slug=be_instance_copy_settings.demolition_payment.instance_id_slug,
+        type="integer",
+    )
+
+    simple_slug = "allowlisted-simple-question"
+    be_instance_copy_settings.demolition_payment.simple_questions.append(simple_slug)
+    form_utils.add_answer(be_instance.case.document, simple_slug, "test-value")
+
+    CreateInstanceLogic.copy_caluma_data(
+        target_instance,
+        be_instance,
+        copy_type="demolition_payment",
+        user=None,
+    )
+
+    assert (
+        target_instance.case.document.answers.get(question_id=simple_slug).value
+        == "test-value"
+    )

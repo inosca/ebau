@@ -6,6 +6,9 @@ info-table-errors:
 instances:
   downloadFormAsPdf: "Gesuchsformular herunterladen"
   downloadFormAsPdfText: "Hier können Sie das Gesuchsformular erneut herunterladen."
+  demolitionPaymentTitle: "Antrag auf Auszahlung Abbruchprämie"
+  demolitionPaymentText: "Nach erfolgtem Abbruch und allfälliger Rekultivierung können Sie hier den Antrag auf Auszahlung der Abbruchprämie stellen."
+  demolitionPaymentButton: "Auszahlung beantragen"
   instance-id: "Dossier-Nr."
   special-id: "eBau-Nr."
 support:

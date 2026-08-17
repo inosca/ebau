@@ -2,6 +2,7 @@ from django.db.models import Q
 
 from camac.permissions.conditions import (
     Always,
+    Callback,
     HasApplicantRole,
     HasRole,
     IsAppeal,
@@ -136,6 +137,13 @@ STATES_AFTER_DECISION = RequireInstanceState(
 )
 
 BAUGESUCH_FORMS = ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"]
+
+
+def demolition_payment_requested(instance):
+    from camac.instance.master_data import MasterData
+
+    return bool(MasterData.from_case_id(instance.case.pk).demolition_payment_requested)
+
 
 # Note: Additional demands not visible on migrated instances (RSTA) (defined
 # by workflow "migrated", since workflow/tasks for additional-demands are not
@@ -505,6 +513,16 @@ ACTION_PORTAL_PAPER_INSTANCE_EXTEND_VALIDITY = (
 
 ACTION_PORTAL_INSTANCE_DOWNLOAD_AS_PDF = STATES_ALL_INTERNAL
 
+ACTION_PORTAL_INSTANCE_REQUEST_DEMOLITION_PAYMENT = (
+    RequireWorkItem("sb2", [WORK_ITEM_STATUS_COMPLETED, WORK_ITEM_STATUS_SKIPPED])
+    & Callback(
+        demolition_payment_requested,
+        allow_caching=True,
+        name="demolition_payment_requested",
+    )
+    & HasApplicantRole(["ADMIN"])
+)
+
 PORTAL_INSTANCE_SUBMIT_CONDITION = RequireWorkItem("submit", WORK_ITEM_STATUS_READY)
 ACTION_PORTAL_INSTANCE_SUBMIT = PORTAL_INSTANCE_SUBMIT_CONDITION & HasApplicantRole(
     ["ADMIN"]
@@ -868,6 +886,10 @@ BE_PERMISSIONS_SETTINGS = {
             (
                 "instance-extend-validity",
                 ACTION_PORTAL_INSTANCE_EXTEND_VALIDITY,
+            ),
+            (
+                "instance-request-demolition-payment",
+                ACTION_PORTAL_INSTANCE_REQUEST_DEMOLITION_PAYMENT,
             ),
             ("instance-submit", ACTION_PORTAL_INSTANCE_SUBMIT),
         ],
