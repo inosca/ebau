@@ -32,6 +32,7 @@
     'descriptionHeader': 'Bau Einfamilienhaus',
     'descriptionHeaderLabel': 'Beschreibung',
     'dossierNr': '2021-99',
+    'formSlug': None,
     'formType': None,
     'generatedAt': 'Generiert am 07.09.2022 um 14:01',
     'generatedBy': dict({
@@ -86,6 +87,7 @@
     'descriptionHeader': None,
     'descriptionHeaderLabel': 'Beschreibung',
     'dossierNr': None,
+    'formSlug': None,
     'formType': None,
     'generatedAt': 'Generiert am 06.09.2022 um 15:37',
     'generatedBy': dict({
@@ -154,6 +156,7 @@
     'descriptionHeader': 'Testanfrage',
     'descriptionHeaderLabel': 'Beschreibung',
     'dossierNr': None,
+    'formSlug': None,
     'formType': None,
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
     'generatedBy': dict({
@@ -1801,6 +1804,7 @@
     'descriptionHeader': 'Neubad',
     'descriptionHeaderLabel': 'Beschreibung',
     'dossierNr': '2021-1',
+    'formSlug': 'sb1',
     'formType': 'Selbstdeklaration Baukontrolle 1',
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
     'generatedBy': dict({
@@ -2111,6 +2115,7 @@
     'descriptionHeader': 'Neubad',
     'descriptionHeaderLabel': 'Beschreibung',
     'dossierNr': '2021-1',
+    'formSlug': 'sb2',
     'formType': 'Selbstdeklaration Baukontrolle 2',
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
     'generatedBy': dict({
@@ -2480,6 +2485,7 @@
     'descriptionHeader': 'Neubad',
     'descriptionHeaderLabel': 'Beschreibung',
     'dossierNr': '2021-1',
+    'formSlug': 'mp-form',
     'formType': 'Materielle Prüfung',
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
     'generatedBy': dict({
@@ -2640,6 +2646,7 @@
     ]),
     'dossierNr': None,
     'draft': 'Entwurf',
+    'formSlug': None,
     'formType': None,
     'generatedAt': 'Generiert am 07.09.2022 um 14:01',
     'generatedBy': dict({

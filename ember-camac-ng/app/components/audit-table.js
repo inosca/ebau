@@ -5,6 +5,7 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import createDocument from "ember-ebau-core/gql/mutations/create-document.graphql";
 import linkDocument from "ember-ebau-core/gql/mutations/link-document.graphql";
+import { removeVersion } from "ember-ebau-core/utils/form-filters";
 
 import saveAnswerMutation from "camac-ng/gql/mutations/save-answer.graphql";
 import getMainDocumentAnswerQuery from "camac-ng/gql/queries/get-document-answer.graphql";
@@ -17,7 +18,10 @@ export default class AuditTableComponent extends Component {
   @queryManager apollo;
 
   get forms() {
-    return ["fp-form-v2", "mp-form", "bab-form"];
+    return removeVersion(this.args.workItem.caseData.formSlug) ===
+      "antrag-auf-auszahlung"
+      ? ["aa-form"]
+      : ["fp-form-v2", "mp-form", "bab-form"];
   }
 
   @dropTask

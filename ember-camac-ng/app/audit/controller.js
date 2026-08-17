@@ -109,6 +109,7 @@ export default class AuditController extends Controller {
                 caseData: {
                   instanceId: edge.node.meta["camac-instance-id"],
                   form: edge.node.document.form.name,
+                  formSlug: edge.node.document.form.slug,
                 },
               }
             : null;
