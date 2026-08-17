@@ -1,6 +1,7 @@
 decision:
   info:
     geometer: "Questo comune è assegnato alla/al geometra revisora/e <b>{geometer}</b>."
+    demolition-payment: ""
 
   submit:
     preliminary-clarification: "Concludi la valutazione"

@@ -17,6 +17,7 @@ import ConstructionMonitoringGeometerChoiceComponent from "ember-ebau-core/compo
 import CoordinatesPlaceholderComponent from "ember-ebau-core/components/coordinates-placeholder";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
+import DecisionInfoDemolitionPaymentComponent from "ember-ebau-core/components/decision/info-demolition-payment";
 import DecisionInfoGeometerComponent from "ember-ebau-core/components/decision/info-geometer";
 import DecisionInfoMissingGeometerInvolvementComponent from "ember-ebau-core/components/decision/info-missing-geometer-involvement";
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
@@ -394,6 +395,11 @@ export default class ApplicationRoute extends Route {
       label: "RPG2 Import",
       component: "rpg2-import-button",
       componentClass: Rpg2ImportButtonComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Hinweis Antrag auf Auszahlung",
+      component: "decision/info-demolition-payment",
+      componentClass: DecisionInfoDemolitionPaymentComponent,
     });
   }
 }
