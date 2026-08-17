@@ -81,7 +81,7 @@ export default {
     staticKeywords: true,
   },
   deadlines: {
-    enabled: false,
+    enabled: true,
     useEndDate: true,
   },
   snippets: {
