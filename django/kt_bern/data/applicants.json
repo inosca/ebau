@@ -50,5 +50,18 @@
       "username": "",
       "role": "ADMIN"
     }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 5,
+    "fields": {
+      "instance": 5,
+      "user": 2,
+      "invitee": 2,
+      "created": "2026-08-17T13:42:46.494Z",
+      "email": "email@example.ch",
+      "username": "",
+      "role": "ADMIN"
+    }
   }
 ]

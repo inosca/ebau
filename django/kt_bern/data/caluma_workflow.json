@@ -26,6 +26,33 @@
   },
   {
     "model": "caluma_workflow.historicalcase",
+    "pk": "b4dd39d8-7b1d-4c92-b6d3-a731bbe2885b",
+    "fields": {
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2026-08-17T13:42:46.455Z",
+      "modified_at": "2026-08-17T13:42:46.455Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "06a830fd-6747-7e31-8000-57b85f4ab729",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "status": "running",
+      "meta": {
+        "camac-instance-id": 5
+      },
+      "family": "06a830fd-6747-7e31-8000-57b85f4ab729",
+      "workflow": "building-permit",
+      "document": "06a830fd-5f05-7b7c-8000-507579e1edb6",
+      "history_date": "2026-08-17T13:42:46.455Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalcase",
     "pk": "ee1934b6-68b1-4d85-9ea8-493c90ab51b2",
     "fields": {
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -71,6 +98,28 @@
         "camac-instance-id": 4
       },
       "document": "069281a6-11b1-7682-8000-e51bdd1aafaa"
+    }
+  },
+  {
+    "model": "caluma_workflow.case",
+    "pk": "06a830fd-6747-7e31-8000-57b85f4ab729",
+    "fields": {
+      "created_at": "2026-08-17T13:42:46.455Z",
+      "modified_at": "2026-08-17T13:42:46.455Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "06a830fd-6747-7e31-8000-57b85f4ab729",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "workflow": "building-permit",
+      "status": "running",
+      "meta": {
+        "camac-instance-id": 5
+      },
+      "document": "06a830fd-5f05-7b7c-8000-507579e1edb6"
     }
   },
   {
@@ -169,6 +218,43 @@
   },
   {
     "model": "caluma_workflow.historicalworkitem",
+    "pk": "0bef4b84-424c-4160-927e-557471f201af",
+    "fields": {
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2026-08-17T13:42:46.477Z",
+      "modified_at": "2026-08-17T13:42:46.477Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "06a830fd-679e-7b66-8000-d3a5393c4b9d",
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": \"Envoyer la demande\", \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "task": "submit",
+      "case": "06a830fd-6747-7e31-8000-57b85f4ab729",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null,
+      "history_date": "2026-08-17T13:42:46.481Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalworkitem",
     "pk": "1903dd8f-0d51-48e2-ade9-4264abefe065",
     "fields": {
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -202,6 +288,39 @@
       "history_date": "2025-11-27T09:31:14.019Z",
       "history_change_reason": null,
       "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalworkitem",
+    "pk": "28c5594b-5106-4809-a0b9-a7643c76653d",
+    "fields": {
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2026-08-17T13:42:46.477Z",
+      "modified_at": "2026-08-17T13:42:46.477Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "06a830fd-679e-7b66-8000-d3a5393c4b9d",
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": \"Envoyer la demande\", \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "status": "ready",
+      "meta": {},
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "task": "submit",
+      "case": "06a830fd-6747-7e31-8000-57b85f4ab729",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null,
+      "history_date": "2026-08-17T13:42:46.478Z",
+      "history_change_reason": null,
+      "history_type": "+"
     }
   },
   {
@@ -333,6 +452,38 @@
       "controlling_groups": "[]",
       "assigned_users": "[]",
       "case": "069281a6-1fcb-7693-8000-53d79d1acb0d",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "06a830fd-679e-7b66-8000-d3a5393c4b9d",
+    "fields": {
+      "created_at": "2026-08-17T13:42:46.477Z",
+      "modified_at": "2026-08-17T13:42:46.477Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": \"Envoyer la demande\", \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "submit",
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "06a830fd-6747-7e31-8000-57b85f4ab729",
       "child_case": null,
       "document": null,
       "previous_work_item": null
