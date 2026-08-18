@@ -18370,6 +18370,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-gebaeudeart-berechnungsgrundlage",
+    "fields": {
+      "created_at": "2026-07-26T22:30:51.275Z",
+      "modified_at": "2026-07-26T22:30:51.275Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-gebaeudeart-berechnungsgrundlage",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "zivilschutz.zivilschutz-gesuch-aufhebung-schutzraum-titel",
     "fields": {
       "created_at": "2026-01-14T12:18:50.742Z",
@@ -18440,7 +18455,7 @@
       "modified_by_group": null,
       "form": "zivilschutz",
       "question": "zivilschutz-schutzraumbefreiung-titel",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -18470,7 +18485,7 @@
       "modified_by_group": null,
       "form": "zivilschutz",
       "question": "zivilschutz-schutzraumbewilligung-titel",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -18520,7 +18535,22 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "zivilschutz.zivilschutz-total-pflichtschutzplaetze",
+    "pk": "zivilschutz.zivilschutz-total-pflichtschutzplaetze-spitaeler",
+    "fields": {
+      "created_at": "2026-08-11T07:25:04.244Z",
+      "modified_at": "2026-08-11T07:25:04.244Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-total-pflichtschutzplaetze-spitaeler",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-total-pflichtschutzplaetze-wohnungen-und-wohnheime",
     "fields": {
       "created_at": "2026-01-12T11:01:06.479Z",
       "modified_at": "2026-01-12T11:01:06.479Z",
@@ -18529,13 +18559,28 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "zivilschutz",
-      "question": "zivilschutz-total-pflichtschutzplaetze",
+      "question": "zivilschutz-total-pflichtschutzplaetze-wohnungen-und-wohnheime",
       "sort": 24
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "zivilschutz.zivilschutz-total-schutzplaetze",
+    "pk": "zivilschutz.zivilschutz-total-schutzplaetze-spitaeler",
+    "fields": {
+      "created_at": "2026-08-11T07:25:04.244Z",
+      "modified_at": "2026-08-11T07:25:04.244Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-total-schutzplaetze-spitaeler",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-total-schutzplaetze-wohnungen-und-wohnheime",
     "fields": {
       "created_at": "2026-01-12T13:20:50.447Z",
       "modified_at": "2026-01-12T13:20:50.447Z",
@@ -18544,7 +18589,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "zivilschutz",
-      "question": "zivilschutz-total-schutzplaetze",
+      "question": "zivilschutz-total-schutzplaetze-wohnungen-und-wohnheime",
       "sort": 22
     }
   },
@@ -33141,6 +33186,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-gebaeudeart-berechnungsgrundlage-spitaeler-alters-und-pflegeheime",
+    "fields": {
+      "created_at": "2026-07-26T22:30:51.275Z",
+      "modified_at": "2026-07-26T22:30:51.275Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spitäler, Alters- und Pflegeheime (1 Schutzplatz pro Patientenbett)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-gebaeudeart-berechnungsgrundlage-wohnungen-und-wohnheime",
+    "fields": {
+      "created_at": "2026-07-26T22:30:51.275Z",
+      "modified_at": "2026-07-26T22:30:51.275Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohnungen und Wohnheime (2 Schutzplätze pro 3 Zimmer)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -55285,7 +55364,7 @@
       "label": "{\"de\": \"Info Bewilligung oder Befreiung\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "true ||!( \"schutzraum-vorhanden-oder-geplant-ja\" == \"schutzraum-vorhanden-oder-geplant\"|answer || [ \"typ-des-bauwerks-einfamilienhaus\", \"typ-des-bauwerks-doppeleinfamilienhaus\", \"typ-des-bauwerks-mehrfamilienhaus\", \"typ-des-bauwerks-wohn-und-geschaftshaus\", \"typ-des-bauwerks-heim-mit-unterkunft\", \"typ-des-bauwerks-spital\", \"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\" ] intersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\")) || info.root.form in [\"reklamegesuch\", \"reklamegesuch-v2\"]",
+      "is_hidden": "!( \"schutzraum-vorhanden-oder-geplant-ja\" == \"schutzraum-vorhanden-oder-geplant\"|answer || [ \"typ-des-bauwerks-einfamilienhaus\", \"typ-des-bauwerks-doppeleinfamilienhaus\", \"typ-des-bauwerks-mehrfamilienhaus\", \"typ-des-bauwerks-wohn-und-geschaftshaus\", \"typ-des-bauwerks-heim-mit-unterkunft\", \"typ-des-bauwerks-spital\", \"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\" ] intersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\")) || info.root.form in [\"reklamegesuch\", \"reklamegesuch-v2\"]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -63294,7 +63373,7 @@
       "label": "{\"de\": \"Ist in einem der von Ihrem Gesuch betroffenen Gebäude mindestens ein Schutzraum vorhanden oder geplant?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "true ||!([\n\t\"typ-des-bauwerks-industrie\",\n\t\"typ-des-bauwerks-geschaftshaus\",\n\t\"typ-des-bauwerks-garage-oder-carport\",\n\t\"typ-des-bauwerks-parkhaus\",\n\t\"typ-des-bauwerks-bauten-und-anlagen-gastgewerbe\",\n\t\"typ-des-bauwerks-wohnheim-ohne-pflege\",\n\t\"typ-des-bauwerks-schulen\",\n\t\"typ-des-bauwerks-sporthallen\",\n\t\"typ-des-bauwerks-tourismusanlagen\",\n\t\"typ-des-bauwerks-kirchen\",\n\t\"typ-des-bauwerks-kulturbauten\",\n\t\"typ-des-bauwerks-oekonomie-mit-tieren-mit-tieren\",\n\t\"typ-des-bauwerks-oekonomiegebaude\",\n\t\"typ-des-bauwerks-forstwirtschaft\",\n\t\"typ-des-bauwerks-energieholzlager\",\n\t\"typ-des-bauwerks-materiallager\",\n\t\"typ-des-bauwerks-brennstofflager\",\n\t\"typ-des-bauwerks-silo\",\n\t\"typ-des-bauwerks-reklamebauten\",\n\t\"typ-des-bauwerks-kommunikationsanlagen\",\n\t\"typ-des-bauwerks-kehrichtentsorgungsanlagen\",\n\t\"typ-des-bauwerks-andere\"\n] intersects \"gebaeude\"|answer([])|mapby(\"typ-des-bauwerks\") ||\n\tinfo.root.form in [\"reklamegesuch\", \"reklamegesuch-v2\"]\n)",
+      "is_hidden": "!([\n\t\"typ-des-bauwerks-industrie\",\n\t\"typ-des-bauwerks-geschaftshaus\",\n\t\"typ-des-bauwerks-garage-oder-carport\",\n\t\"typ-des-bauwerks-parkhaus\",\n\t\"typ-des-bauwerks-bauten-und-anlagen-gastgewerbe\",\n\t\"typ-des-bauwerks-wohnheim-ohne-pflege\",\n\t\"typ-des-bauwerks-schulen\",\n\t\"typ-des-bauwerks-sporthallen\",\n\t\"typ-des-bauwerks-tourismusanlagen\",\n\t\"typ-des-bauwerks-kirchen\",\n\t\"typ-des-bauwerks-kulturbauten\",\n\t\"typ-des-bauwerks-oekonomie-mit-tieren-mit-tieren\",\n\t\"typ-des-bauwerks-oekonomiegebaude\",\n\t\"typ-des-bauwerks-forstwirtschaft\",\n\t\"typ-des-bauwerks-energieholzlager\",\n\t\"typ-des-bauwerks-materiallager\",\n\t\"typ-des-bauwerks-brennstofflager\",\n\t\"typ-des-bauwerks-silo\",\n\t\"typ-des-bauwerks-reklamebauten\",\n\t\"typ-des-bauwerks-kommunikationsanlagen\",\n\t\"typ-des-bauwerks-kehrichtentsorgungsanlagen\",\n\t\"typ-des-bauwerks-andere\"\n] intersects \"gebaeude\"|answer([])|mapby(\"typ-des-bauwerks\") ||\n\tinfo.root.form in [\"reklamegesuch\", \"reklamegesuch-v2\"]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -68470,8 +68549,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Anzahl Schutzplätze für Spitäler, Alters- und Pflegeheime (1 Schutzplatz pro Patientenbett)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"zivilschutz-befreiung-oder-bewilligung\"|answer != None)",
+      "is_required": "\"zivilschutz-gebaeudeart-berechnungsgrundlage-spitaeler-alters-und-pflegeheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer",
+      "is_hidden": "!(\"zivilschutz-gebaeudeart-berechnungsgrundlage-spitaeler-alters-und-pflegeheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -68491,7 +68570,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[\"zivilschutz-total-pflichtschutzplaetze\"]"
+      "calc_dependents": "[\"zivilschutz-total-pflichtschutzplaetze-spitaeler\"]"
     }
   },
   {
@@ -68542,8 +68621,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Anzahl Schutzplätze für Wohnungen und Wohnheime (2 Schutzplätze pro 3 Zimmer)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"zivilschutz-befreiung-oder-bewilligung\"|answer != None)",
+      "is_required": "\"zivilschutz-gebaeudeart-berechnungsgrundlage-wohnungen-und-wohnheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer",
+      "is_hidden": "!(\"zivilschutz-gebaeudeart-berechnungsgrundlage-wohnungen-und-wohnheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -68563,7 +68642,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[\"zivilschutz-total-pflichtschutzplaetze\"]"
+      "calc_dependents": "[\"zivilschutz-total-pflichtschutzplaetze-wohnungen-und-wohnheime\"]"
     }
   },
   {
@@ -68613,7 +68692,7 @@
       "label": "{\"de\": \"Art des Antrags\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "true ||!( \"schutzraum-vorhanden-oder-geplant-ja\" == \"schutzraum-vorhanden-oder-geplant\"|answer || [ \"typ-des-bauwerks-einfamilienhaus\", \"typ-des-bauwerks-doppeleinfamilienhaus\", \"typ-des-bauwerks-mehrfamilienhaus\", \"typ-des-bauwerks-wohn-und-geschaftshaus\", \"typ-des-bauwerks-heim-mit-unterkunft\", \"typ-des-bauwerks-spital\", \"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\" ] intersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\")) || info.root.form in [\"reklamegesuch\", \"reklamegesuch-v2\"]",
+      "is_hidden": "!( \"schutzraum-vorhanden-oder-geplant-ja\" == \"schutzraum-vorhanden-oder-geplant\"|answer || [ \"typ-des-bauwerks-einfamilienhaus\", \"typ-des-bauwerks-doppeleinfamilienhaus\", \"typ-des-bauwerks-mehrfamilienhaus\", \"typ-des-bauwerks-wohn-und-geschaftshaus\", \"typ-des-bauwerks-heim-mit-unterkunft\", \"typ-des-bauwerks-spital\", \"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\" ] intersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\")) || info.root.form in [\"reklamegesuch\", \"reklamegesuch-v2\"]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -69003,6 +69082,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "zivilschutz-gebaeudeart-berechnungsgrundlage",
+    "fields": {
+      "created_at": "2026-07-26T22:30:51.275Z",
+      "modified_at": "2026-07-26T22:30:51.275Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäudeart und Berechnungsgrundlage\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!(\"zivilschutz-befreiung-oder-bewilligung\"|answer != None)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "zivilschutz-gesuch-aufhebung-schutzraum",
     "fields": {
       "created_at": "2026-01-14T12:18:50.632Z",
@@ -69199,7 +69309,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[\"zivilschutz-total-schutzplaetze\"]"
+      "calc_dependents": "[\"zivilschutz-total-schutzplaetze-wohnungen-und-wohnheime\", \"zivilschutz-total-schutzplaetze-spitaeler\"]"
     }
   },
   {
@@ -69561,7 +69671,40 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "zivilschutz-total-pflichtschutzplaetze",
+    "pk": "zivilschutz-total-pflichtschutzplaetze-spitaeler",
+    "fields": {
+      "created_at": "2026-08-11T07:25:04.244Z",
+      "modified_at": "2026-08-11T07:25:04.244Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Total Pflichtschutzplätze\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!(\"zivilschutz-gebaeudeart-berechnungsgrundlage-spitaeler-alters-und-pflegeheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "\"zivilschutz-anzahl-schutzplaetze-spitaeler\"|answer(0)",
+      "calc_dependents": "[\"zivilschutz-total-schutzplaetze-spitaeler\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-total-pflichtschutzplaetze-wohnungen-und-wohnheime",
     "fields": {
       "created_at": "2026-01-12T11:01:06.373Z",
       "modified_at": "2026-01-12T15:07:53.575Z",
@@ -69572,7 +69715,7 @@
       "label": "{\"de\": \"Total Pflichtschutzplätze\", \"fr\": null, \"it\": null}",
       "type": "calculated_float",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\"zivilschutz-gebaeudeart-berechnungsgrundlage-wohnungen-und-wohnheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -69588,13 +69731,46 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": "\"zivilschutz-anzahl-schutzplaetze-wohnungen\"|answer(0) + \"zivilschutz-anzahl-schutzplaetze-spitaeler\"|answer(0)",
-      "calc_dependents": "[\"zivilschutz-total-schutzplaetze\"]"
+      "calc_expression": "\"zivilschutz-anzahl-schutzplaetze-wohnungen\"|answer(0)",
+      "calc_dependents": "[\"zivilschutz-total-schutzplaetze-wohnungen-und-wohnheime\"]"
     }
   },
   {
     "model": "caluma_form.question",
-    "pk": "zivilschutz-total-schutzplaetze",
+    "pk": "zivilschutz-total-schutzplaetze-spitaeler",
+    "fields": {
+      "created_at": "2026-08-11T07:25:04.244Z",
+      "modified_at": "2026-08-11T07:25:04.244Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Total Schutzplätze\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "(\"zivilschutz-befreiung-oder-bewilligung-bewilligung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer) || !(\"zivilschutz-gebaeudeart-berechnungsgrundlage-spitaeler-alters-und-pflegeheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "\"zivilschutz-total-pflichtschutzplaetze-spitaeler\"|answer(0) + \"zivilschutz-reserve\"|answer(0)",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-total-schutzplaetze-wohnungen-und-wohnheime",
     "fields": {
       "created_at": "2026-01-12T13:20:50.229Z",
       "modified_at": "2026-01-12T13:21:03.947Z",
@@ -69605,7 +69781,7 @@
       "label": "{\"de\": \"Total Schutzplätze\", \"fr\": null, \"it\": null}",
       "type": "calculated_float",
       "is_required": "false",
-      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-bewilligung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_hidden": "(\"zivilschutz-befreiung-oder-bewilligung-bewilligung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer) || !(\"zivilschutz-gebaeudeart-berechnungsgrundlage-wohnungen-und-wohnheime\" == \"zivilschutz-gebaeudeart-berechnungsgrundlage\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -69621,7 +69797,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": "\"zivilschutz-total-pflichtschutzplaetze\"|answer(0) + \"zivilschutz-reserve\"|answer(0)",
+      "calc_expression": "\"zivilschutz-total-pflichtschutzplaetze-wohnungen-und-wohnheime\"|answer(0) + \"zivilschutz-reserve\"|answer(0)",
       "calc_dependents": "[]"
     }
   },
@@ -82849,6 +83025,36 @@
       "modified_by_group": null,
       "question": "zivilschutz-ersatzbeitraege-geleistet",
       "option": "zivilschutz-ersatzbeitraege-geleistet-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-gebaeudeart-berechnungsgrundlage.zivilschutz-gebaeudeart-berechnungsgrundlage-spitaeler-alters-und-pflegeheime",
+    "fields": {
+      "created_at": "2026-07-26T22:30:51.275Z",
+      "modified_at": "2026-07-26T22:30:51.275Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "zivilschutz-gebaeudeart-berechnungsgrundlage",
+      "option": "zivilschutz-gebaeudeart-berechnungsgrundlage-spitaeler-alters-und-pflegeheime",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-gebaeudeart-berechnungsgrundlage.zivilschutz-gebaeudeart-berechnungsgrundlage-wohnungen-und-wohnheime",
+    "fields": {
+      "created_at": "2026-07-26T22:30:51.275Z",
+      "modified_at": "2026-07-26T22:30:51.275Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "zivilschutz-gebaeudeart-berechnungsgrundlage",
+      "option": "zivilschutz-gebaeudeart-berechnungsgrundlage-wohnungen-und-wohnheime",
       "sort": 1
     }
   },
