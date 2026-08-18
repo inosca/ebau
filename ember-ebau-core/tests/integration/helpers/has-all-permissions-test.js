@@ -3,7 +3,7 @@ import { hbs } from "ember-cli-htmlbars";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
-import setupPermissions from "dummy/tests/helpers/permissions";
+import { setupPermissions } from "ember-ebau-core/test-support";
 
 module("Integration | Helper | has-all-permissions", function (hooks) {
   setupRenderingTest(hooks);

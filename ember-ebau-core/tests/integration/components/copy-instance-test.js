@@ -3,9 +3,7 @@ import { hbs } from "ember-cli-htmlbars";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
-import setupPermissions from "dummy/tests/helpers/permissions";
-import mainConfig from "ember-ebau-core/config/main";
-import { setupConfig } from "ember-ebau-core/test-support";
+import { setupConfig, setupPermissions } from "ember-ebau-core/test-support";
 
 module("Integration | Component | corrections/copy-instance", function (hooks) {
   setupRenderingTest(hooks);
@@ -22,11 +20,11 @@ module("Integration | Component | corrections/copy-instance", function (hooks) {
       finishedInternal: this.server.create("instance-state"),
     };
 
-    mainConfig.instanceStates = Object.entries(this.instanceStates).reduce(
-      (obj, [key, state]) => {
+    this.config.set(
+      "instanceStates",
+      Object.entries(this.instanceStates).reduce((obj, [key, state]) => {
         return { ...obj, [key]: parseInt(state.id) };
-      },
-      {},
+      }, {}),
     );
 
     this.initialize = async (state, role = "support") => {
