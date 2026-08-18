@@ -266,71 +266,6 @@ class InstanceManagerSO(Manager["InstanceProxySO"]):
             output_field=models.CharField(),
         )
 
-    def annotate_gesuchsteller_vertretung(self):
-        # TODO The fields Natuerliche_Person and Adresse
-        # are madatory by the ILI Model definition. Since
-        # the form for vertretung has all fields optional,
-        # this mapping cant work.
-        return Subquery(
-            AnswerDocument.objects.filter(
-                answer__question_id="bauherrin",
-                answer__document_id=OuterRef("case__document_id"),
-            )
-            .annotate(
-                vertretung=caluma_answer("vertretung", "document_id"),
-                ist_juristische_person=caluma_answer(
-                    "vertretung-juristische-person", "document_id"
-                ),
-            )
-            .order_by("-sort")
-            .annotate(
-                data=Case(
-                    When(
-                        vertretung="vertretung-ja",
-                        then=JSONObject(
-                            natuerliche_person=JSONObject(
-                                name=caluma_answer(
-                                    "vertretung-nachname", "document_id"
-                                ),
-                                vorname=caluma_answer(
-                                    "vertretung-vorname", "document_id"
-                                ),
-                            ),
-                            juristische_person=Case(
-                                When(
-                                    ist_juristische_person=(
-                                        "vertretung-juristische-person-ja"
-                                    ),
-                                    then=JSONObject(
-                                        name=caluma_answer(
-                                            "vertretung-juristische-person-name",
-                                            "document_id",
-                                        ),
-                                    ),
-                                ),
-                                output_field=models.JSONField(),
-                            ),
-                            adresse=JSONObject(
-                                strassenname=caluma_answer(
-                                    "vertretung-strasse", "document_id"
-                                ),
-                                hausnummer=caluma_answer(
-                                    "vertretung-nummer", "document_id"
-                                ),
-                                plz=caluma_answer("vertretung-plz", "document_id"),
-                                ortschaft=caluma_answer(
-                                    "vertretung-ort", "document_id"
-                                ),
-                            ),
-                        ),
-                    ),
-                    output_field=models.JSONField(),
-                )
-            )
-            .values("data")[:1],
-            output_field=models.JSONField(),
-        )
-
     def annotate_projektverfasser(self):
         return self._annotate_personen_adresse(
             "projektverfasserin", "projektverfasserin-abweichend"
@@ -584,7 +519,46 @@ class InstanceManagerSO(Manager["InstanceProxySO"]):
             output_field=models.BooleanField(),
         )
 
-    def _annotate_personen_adresse(self, table_question, abweichend_question=None):
+    def _person_adresse_data(
+        self,
+        *,
+        ist_juristisch_field: str,
+        juristisch_yes: str,
+        juristisch_name: str,
+        nachname: str,
+        vorname: str,
+        strasse: str,
+        nummer: str,
+        plz: str,
+        ort: str,
+    ) -> JSONObject:
+        """Build a `PersonAdresse`-shaped JSONObject from a row's answer slugs.
+
+        The slugs differ between an applicant and its Vertretung, so every field
+        the structure needs is named explicitly rather than derived from a
+        prefix.
+        """
+        return JSONObject(
+            juristische_person=Case(
+                When(
+                    **{ist_juristisch_field: juristisch_yes},
+                    then=JSONObject(name=caluma_answer(juristisch_name, "document_id")),
+                ),
+                output_field=models.JSONField(),
+            ),
+            natuerliche_person=JSONObject(
+                name=caluma_answer(nachname, "document_id"),
+                vorname=caluma_answer(vorname, "document_id"),
+            ),
+            adresse=JSONObject(
+                strassenname=caluma_answer(strasse, "document_id"),
+                hausnummer=caluma_answer(nummer, "document_id"),
+                plz=caluma_answer(plz, "document_id"),
+                ortschaft=caluma_answer(ort, "document_id"),
+            ),
+        )
+
+    def _annotate_personen_adresse(self, table_question, abweichend_question):
         person = Subquery(
             AnswerDocument.objects.filter(
                 answer__question_id=table_question,
@@ -597,36 +571,21 @@ class InstanceManagerSO(Manager["InstanceProxySO"]):
             )
             .order_by("-sort")
             .annotate(
-                data=JSONObject(
-                    juristische_person=Case(
-                        When(
-                            ist_juristische_person="juristische-person-ja",
-                            then=JSONObject(
-                                name=caluma_answer(
-                                    "juristische-person-name", "document_id"
-                                ),
-                            ),
-                        ),
-                        output_field=models.JSONField(),
-                    ),
-                    natuerliche_person=JSONObject(
-                        name=caluma_answer("nachname", "document_id"),
-                        vorname=caluma_answer("vorname", "document_id"),
-                    ),
-                    adresse=JSONObject(
-                        strassenname=caluma_answer("strasse", "document_id"),
-                        hausnummer=caluma_answer("strasse-nummer", "document_id"),
-                        plz=caluma_answer("plz", "document_id"),
-                        ortschaft=caluma_answer("ort", "document_id"),
-                    ),
+                data=self._person_adresse_data(
+                    ist_juristisch_field="ist_juristische_person",
+                    juristisch_yes="juristische-person-ja",
+                    juristisch_name="juristische-person-name",
+                    nachname="nachname",
+                    vorname="vorname",
+                    strasse="strasse",
+                    nummer="strasse-nummer",
+                    plz="plz",
+                    ort="ort",
                 )
             )
             .values("data")[:1],
             output_field=models.JSONField(),
         )
-
-        if abweichend_question is None:
-            return person
 
         return Case(
             When(
@@ -643,7 +602,57 @@ class InstanceManagerSO(Manager["InstanceProxySO"]):
         )
 
     def annotate_gesuchsteller(self):
-        return self._annotate_personen_adresse("bauherrin")
+        # Gesuchsteller is a BAG {1..*}: every bauherrin row becomes one entry
+        # carrying the applicant (Adresse) and, when present, its Vertretung.
+        return ArraySubquery(
+            AnswerDocument.objects.filter(
+                answer__question_id="bauherrin",
+                answer__document_id=OuterRef("case__document_id"),
+            )
+            .annotate(
+                applicant_ist_juristisch=caluma_answer(
+                    "juristische-person", "document_id"
+                ),
+                vertretung=caluma_answer("vertretung", "document_id"),
+                vertretung_ist_juristisch=caluma_answer(
+                    "vertretung-juristische-person", "document_id"
+                ),
+            )
+            .order_by("-sort")
+            .annotate(
+                data=JSONObject(
+                    adresse=self._person_adresse_data(
+                        ist_juristisch_field="applicant_ist_juristisch",
+                        juristisch_yes="juristische-person-ja",
+                        juristisch_name="juristische-person-name",
+                        nachname="nachname",
+                        vorname="vorname",
+                        strasse="strasse",
+                        nummer="strasse-nummer",
+                        plz="plz",
+                        ort="ort",
+                    ),
+                    vertretung=Case(
+                        When(
+                            vertretung="vertretung-ja",
+                            then=self._person_adresse_data(
+                                ist_juristisch_field="vertretung_ist_juristisch",
+                                juristisch_yes="vertretung-juristische-person-ja",
+                                juristisch_name="vertretung-juristische-person-name",
+                                nachname="vertretung-nachname",
+                                vorname="vertretung-vorname",
+                                strasse="vertretung-strasse",
+                                nummer="vertretung-nummer",
+                                plz="vertretung-plz",
+                                ort="vertretung-ort",
+                            ),
+                        ),
+                        output_field=models.JSONField(),
+                    ),
+                )
+            )
+            .values("data")
+        )
 
     def annotate_plot_point(self) -> Subquery:
         """Return the clicked point, which older dossiers only have on their plots."""
@@ -692,7 +701,6 @@ class InstanceManagerSO(Manager["InstanceProxySO"]):
                 verfahrensart=self.annotate_verfahrensart(),
                 status=self.annotate_status(),
                 gesuchsteller=self.annotate_gesuchsteller(),
-                gesuchsteller_vertretung=self.annotate_gesuchsteller_vertretung(),
                 projektverfasser=self.annotate_projektverfasser(),
                 rechnungsempfaenger=self.annotate_rechnungsempfaenger(),
                 grundeigentuemer=self.annotate_grundeigentuemer(),
@@ -774,7 +782,6 @@ class InstanceProxySO(InstanceProxy, Instance):
         "verfahrensart",
         "status",
         "gesuchsteller",
-        "gesuchsteller_vertretung",
         "projektverfasser",
         "rechnungsempfaenger",
         "grundeigentuemer",
@@ -925,7 +932,6 @@ class SOGISExport(GISExport):
     verfahrensart = models.CharField()
     status = models.CharField()
     gesuchsteller = models.JSONField(blank=True, null=True)
-    gesuchsteller_vertretung = models.JSONField(blank=True, null=True)
     projektverfasser = models.JSONField(blank=True, null=True)
     rechnungsempfaenger = models.JSONField(blank=True, null=True)
     grundeigentuemer = models.JSONField(blank=True, null=True)

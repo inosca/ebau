@@ -42,8 +42,15 @@
                       <ns2:Vorname>Reto</ns2:Vorname>
                     </ns2:Natuerliche_Person>
                   </ns2:Natuerliche_Person>
+                  <ns2:Juristische_Person>
+                    <ns2:Juristische_Person>
+                      <ns2:Name>Muster AG</ns2:Name>
+                    </ns2:Juristische_Person>
+                  </ns2:Juristische_Person>
                   <ns2:Adresse>
                     <ns2:Adresse_>
+                      <ns2:Strassenname>Teststrasse</ns2:Strassenname>
+                      <ns2:Hausnummer>12a</ns2:Hausnummer>
                       <ns2:PLZ>4500</ns2:PLZ>
                       <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
                     </ns2:Adresse_>
@@ -73,6 +80,33 @@
                   </ns2:Adresse>
                 </ns2:PersonAdresse>
               </ns2:Vertretung>
+            </ns2:Gesuchsteller_>
+          </ns2:Gesuchsteller>
+          <ns2:Gesuchsteller>
+            <ns2:Gesuchsteller_>
+              <ns2:Adresse>
+                <ns2:PersonAdresse>
+                  <ns2:Natuerliche_Person>
+                    <ns2:Natuerliche_Person>
+                      <ns2:Name>Beispiel</ns2:Name>
+                      <ns2:Vorname>Bea</ns2:Vorname>
+                    </ns2:Natuerliche_Person>
+                  </ns2:Natuerliche_Person>
+                  <ns2:Juristische_Person>
+                    <ns2:Juristische_Person>
+                      <ns2:Name>Beispiel AG</ns2:Name>
+                    </ns2:Juristische_Person>
+                  </ns2:Juristische_Person>
+                  <ns2:Adresse>
+                    <ns2:Adresse_>
+                      <ns2:Strassenname>Teststrasse</ns2:Strassenname>
+                      <ns2:Hausnummer>12a</ns2:Hausnummer>
+                      <ns2:PLZ>4500</ns2:PLZ>
+                      <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
+                    </ns2:Adresse_>
+                  </ns2:Adresse>
+                </ns2:PersonAdresse>
+              </ns2:Adresse>
             </ns2:Gesuchsteller_>
           </ns2:Gesuchsteller>
           <ns2:Projektverfasser>
@@ -249,8 +283,15 @@
                       <ns2:Vorname>Reto</ns2:Vorname>
                     </ns2:Natuerliche_Person>
                   </ns2:Natuerliche_Person>
+                  <ns2:Juristische_Person>
+                    <ns2:Juristische_Person>
+                      <ns2:Name>Muster AG</ns2:Name>
+                    </ns2:Juristische_Person>
+                  </ns2:Juristische_Person>
                   <ns2:Adresse>
                     <ns2:Adresse_>
+                      <ns2:Strassenname>Teststrasse</ns2:Strassenname>
+                      <ns2:Hausnummer>12a</ns2:Hausnummer>
                       <ns2:PLZ>4500</ns2:PLZ>
                       <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
                     </ns2:Adresse_>
@@ -280,6 +321,33 @@
                   </ns2:Adresse>
                 </ns2:PersonAdresse>
               </ns2:Vertretung>
+            </ns2:Gesuchsteller_>
+          </ns2:Gesuchsteller>
+          <ns2:Gesuchsteller>
+            <ns2:Gesuchsteller_>
+              <ns2:Adresse>
+                <ns2:PersonAdresse>
+                  <ns2:Natuerliche_Person>
+                    <ns2:Natuerliche_Person>
+                      <ns2:Name>Beispiel</ns2:Name>
+                      <ns2:Vorname>Bea</ns2:Vorname>
+                    </ns2:Natuerliche_Person>
+                  </ns2:Natuerliche_Person>
+                  <ns2:Juristische_Person>
+                    <ns2:Juristische_Person>
+                      <ns2:Name>Beispiel AG</ns2:Name>
+                    </ns2:Juristische_Person>
+                  </ns2:Juristische_Person>
+                  <ns2:Adresse>
+                    <ns2:Adresse_>
+                      <ns2:Strassenname>Teststrasse</ns2:Strassenname>
+                      <ns2:Hausnummer>12a</ns2:Hausnummer>
+                      <ns2:PLZ>4500</ns2:PLZ>
+                      <ns2:Ortschaft>Solothurn</ns2:Ortschaft>
+                    </ns2:Adresse_>
+                  </ns2:Adresse>
+                </ns2:PersonAdresse>
+              </ns2:Adresse>
             </ns2:Gesuchsteller_>
           </ns2:Gesuchsteller>
           <ns2:Projektverfasser>

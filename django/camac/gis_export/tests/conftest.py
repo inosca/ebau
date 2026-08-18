@@ -93,8 +93,15 @@ def setup_so_instance(  # noqa: C901
             )
 
         form_utils.add_table_answer(document, "parzellen", _parzellen_rows(parcels))
+        # Bauherrschaft is a BAG {1..*}: a second applicant (without a
+        # representation) exercises the repeating Gesuchsteller mapping.
         form_utils.add_table_answer(
-            document, "bauherrin", [so_personal_row_factory(has_representation=True)]
+            document,
+            "bauherrin",
+            [
+                so_personal_row_factory(has_representation=True),
+                so_personal_row_factory(),
+            ],
         )
         # Required (and thus present) in every SO dossier form, so even a minimal
         # dossier produces a Bauprojekt with a Beschreibung.

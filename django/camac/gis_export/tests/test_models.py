@@ -5,6 +5,7 @@ from django.conf import settings
 from django.utils.timezone import now
 
 from camac.gis_export.models import SOGISExport
+from camac.tests.data import so_personal_row_factory
 
 
 @pytest.mark.django_db
@@ -29,8 +30,15 @@ def test_sync_annotates_every_field(
     assert export.ebau_link == f"{settings.INTERNAL_BASE_URL}/cases/{instance.pk}"
     assert export.hash
 
-    assert export.gesuchsteller["natuerliche_person"]["name"]
-    assert export.gesuchsteller["adresse"]["ortschaft"]
+    # Gesuchsteller is a BAG {1..*}: both bauherrin rows map, each carrying its
+    # applicant under `adresse` and its optional representation under `vertretung`.
+    assert len(export.gesuchsteller) == 2
+    assert all(e["adresse"]["natuerliche_person"]["name"] for e in export.gesuchsteller)
+    assert all(e["adresse"]["adresse"]["ortschaft"] for e in export.gesuchsteller)
+    vertretungen = [e["vertretung"] for e in export.gesuchsteller]
+    assert sum(v is not None for v in vertretungen) == 1  # one row has_representation
+    represented = next(v for v in vertretungen if v is not None)
+    assert represented["natuerliche_person"]["name"]
     assert export.plot_point == {"ost": "2607000.5", "nord": "1228500.5"}
     assert sorted(plot["nummer"] for plot in export.grundstuecke) == ["1234", "1235"]
     assert export.bauprojekt["beschreibung"] == "Neubau Mehrfamilienhaus"
@@ -55,6 +63,40 @@ def test_sync_annotates_every_field(
     # The dossier has two publications; the export takes the latest one and reads
     # both dates off it (conftest seeds May then June).
     assert export.auflage == {"startdatum": "2026-06-01", "enddatum": "2026-06-30"}
+
+
+@pytest.mark.django_db
+def test_gesuchsteller_pairs_each_applicant_with_its_own_vertretung(
+    instance_factory, instance_with_case, setup_so_instance, form_utils
+):
+    """Each entry in the BAG must keep its own Vertretung.
+
+    A represented and an unrepresented applicant in the same dossier must not
+    swap representations, and the unrepresented one must stay without.
+    """
+    instance = setup_so_instance(instance_with_case(instance_factory()), "2601-2026-1")
+
+    represented = so_personal_row_factory(has_representation=True)
+    represented["nachname"] = "Represented"
+    represented["vertretung-nachname"] = "TheRepresentative"
+    unrepresented = so_personal_row_factory()
+    unrepresented["nachname"] = "Unrepresented"
+
+    document = instance.case.document
+    document.answers.filter(question_id="bauherrin").delete()
+    form_utils.add_table_answer(document, "bauherrin", [represented, unrepresented])
+
+    SOGISExport.objects.sync()
+
+    by_applicant = {
+        entry["adresse"]["natuerliche_person"]["name"]: entry
+        for entry in SOGISExport.objects.get().gesuchsteller
+    }
+    assert (
+        by_applicant["Represented"]["vertretung"]["natuerliche_person"]["name"]
+        == "TheRepresentative"
+    )
+    assert by_applicant["Unrepresented"]["vertretung"] is None
 
 
 @pytest.mark.django_db
