@@ -284,7 +284,7 @@ class Suspension(models.Model):
     )
     deadline = models.ForeignKey(
         "InstanceDeadline",
-        models.DO_NOTHING,
+        models.CASCADE,
         related_name="suspensions",
     )
     group = models.ForeignKey(
@@ -406,7 +406,7 @@ class InstanceDeadline(models.Model):
     )
     instance = models.ForeignKey(
         "instance.Instance",
-        models.DO_NOTHING,
+        models.CASCADE,
         related_name="deadlines",
     )
     service = models.ForeignKey("user.Service", models.DO_NOTHING, related_name="+")
