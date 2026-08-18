@@ -15,14 +15,14 @@ def test_instance_mark_list(admin_client, instance_mark_factory):
     assert len(response.json()["data"]) == 3
 
 
-@pytest.mark.parametrize("service_group__name", ["coordination"])
+@pytest.mark.parametrize("service__slug", ["coordination"])
 @pytest.mark.parametrize(
     ("role__name", "access_level_id", "status_code"),
     [
-        ("Municipality", "lead-authority", status.HTTP_200_OK),
-        ("Service", "distribution-service", status.HTTP_200_OK),
-        ("Applicant", "applicant", status.HTTP_403_FORBIDDEN),
-        ("Support", "support", status.HTTP_403_FORBIDDEN),
+        ("municipality-lead", "lead-authority", status.HTTP_403_FORBIDDEN),
+        ("service-lead", "distribution-service", status.HTTP_200_OK),
+        ("applicant", "applicant", status.HTTP_403_FORBIDDEN),
+        ("support", "support", status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_instance_mark_link_to_instance(
