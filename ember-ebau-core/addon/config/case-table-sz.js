@@ -22,6 +22,7 @@ export default {
       "dossierNumber",
       "intent",
       "caseStatus",
+      "responsibleServiceUser",
       "form",
       "caseCreatedDateAfter",
       "caseCreatedDateBefore",
