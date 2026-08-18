@@ -74,4 +74,7 @@ export default {
   snippets: {
     rejection: true,
   },
+  receipt: {
+    download: true,
+  },
 };

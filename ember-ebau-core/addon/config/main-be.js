@@ -245,6 +245,10 @@ export default {
     },
   },
   sbTaskSlugs: ["sb1", "sb2"],
+  receipt: {
+    templateName: () => `form`,
+    customFormSlugs: ["sb1", "sb1-v2", "sb2"],
+  },
   submitComponent: {
     requiredPermissions: {
       submit: ["instance-submit"],
@@ -254,9 +258,7 @@ export default {
     buttonHintEnabled: (session) => session.isSupport,
     export: {
       enabled: (instance) => !instance.isPaper,
-      templateName: () => `form`,
       errorMessage: "dms.downloadError",
-      customFormSlugs: ["sb1", "sb1-v2", "sb2"],
     },
   },
 };

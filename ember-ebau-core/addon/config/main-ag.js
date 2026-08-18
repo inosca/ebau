@@ -148,7 +148,6 @@ export default {
       void: "void",
     },
   },
-  showDownloadReceiptAction: true,
   customDeadlineServiceGroupSlugs: ["service-afb"],
   customDeadlineServiceSlugs: [
     "agv-bs",
@@ -264,9 +263,15 @@ export default {
       ],
     },
   ],
+  receipt: {
+    templateName: (locale) => `eingabequittung-${locale}`,
+  },
   submitComponent: {
     requiredPermissions: {
       submit: ["instance-submit"],
+    },
+    export: {
+      enabled: () => false,
     },
   },
 };

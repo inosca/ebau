@@ -7,7 +7,6 @@ import { trackedFunction } from "reactiveweb/function";
 
 import { hasInstanceState } from "ember-ebau-core/abilities/instance";
 import mainConfig from "ember-ebau-core/config/main";
-import cleanObject from "ember-ebau-core/utils/clean-object";
 
 const PREVENT_SUBMIT_MUNICIPALITY_RESPONSE_CODE = "municipality_not_allowed";
 
@@ -149,7 +148,7 @@ export default class SubmitInstanceComponent extends Component {
 
       if (this.config.export?.enabled(instance)) {
         // Export the form / signature PDF if enabled
-        await this.exportPdf.perform();
+        await this.exportPdf.perform(instance);
       }
 
       // The success notification text may differ depending on the context
@@ -199,20 +198,11 @@ export default class SubmitInstanceComponent extends Component {
     }
   });
 
-  exportPdf = task({ drop: true }, async () => {
+  exportPdf = task({ drop: true }, async (instance) => {
     try {
       const rootFormSlug = this.args.field.fieldset.document.rootForm.slug;
-      const useCustomFormSlug =
-        this.config.export?.customFormSlugs?.includes(rootFormSlug) ?? false;
 
-      const lang = this.intl.primaryLocale.split("-")[0];
-
-      const templatePayload = cleanObject({
-        template: this.config.export?.templateName(lang),
-        "form-slug": useCustomFormSlug ? rootFormSlug : null,
-      });
-
-      await this.dms.generatePdf(this.instanceId, templatePayload);
+      await this.dms.generateReceipt(instance, { rootFormSlug });
     } catch {
       this.notification.danger(this.intl.t("dms.downloadError"));
     }

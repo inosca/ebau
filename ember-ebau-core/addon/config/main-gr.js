@@ -163,7 +163,6 @@ export default {
       void: "void",
     },
   },
-  showDownloadReceiptAction: true,
   customDeadlineServiceGroupSlugs: [
     "authority-bab", // Ausserhalb Bauzone
     "uso", // Umweltschutzorganisationen
@@ -190,6 +189,9 @@ export default {
     ],
     disallowStates: ["new"],
   },
+  receipt: {
+    templateName: (locale) => `eingabequittung-${locale}`,
+  },
   submitComponent: {
     requiredPermissions: {
       submit: ["instance-submit"],
@@ -199,7 +201,6 @@ export default {
       enabled: (instance) =>
         !instance.isPaper &&
         !instance.calumaForm.startsWith("vorlaeufige-beurteilung"),
-      templateName: (locale) => `eingabequittung-${locale}`,
       errorMessage: "dms.downloadError",
     },
   },

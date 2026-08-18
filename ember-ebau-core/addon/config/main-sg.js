@@ -48,13 +48,15 @@ const config = {
     emailRegexp: "^e-mail$",
   },
   intentSlugs: ["beschreibung-bauvorhaben"],
+  receipt: {
+    templateName: () => `eingabequittung`,
+  },
   submitComponent: {
     requiredPermissions: {
       submit: ["instance-submit"],
     },
     export: {
       enabled: () => true,
-      templateName: () => `eingabequittung`,
     },
   },
   communication: {

@@ -161,7 +161,9 @@ const config = {
   constructionMonitoring: {
     instanceStates: ["construction-monitoring", "finished"],
   },
-  showDownloadReceiptAction: true,
+  receipt: {
+    templateName: () => `signatures`,
+  },
   submitComponent: {
     requiredPermissions: {
       submit: ["instance-submit"],
@@ -170,7 +172,6 @@ const config = {
       enabled: (instance) =>
         !instance.isPaper &&
         removeVersion(instance.calumaForm) !== "voranfrage",
-      templateName: () => `signatures`,
     },
   },
   servicePermissions: {
