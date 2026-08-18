@@ -358,8 +358,6 @@ def test_pay_demolition_premium_history_sz(
     done_state = instance_state_factory(name="done")
 
     form = form_factory(name="abbruchpraemie")
-    form.family = form
-    form.save()
 
     sz_instance.instance_state = done_state
     sz_instance.form = form

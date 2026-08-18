@@ -31,11 +31,8 @@ def test_form_list(admin_client, form, form_factory, form_state_factory, amount)
         ("Service", False, 1),
     ],
 )
-def test_form_versioned_filter(
-    admin_client, form, form_factory, forms_all_versions, amount
-):
-    form.family = form
-    form.save()
+def test_form_versioned_filter(admin_client, form_factory, forms_all_versions, amount):
+    form = form_factory(family__is_self=True)
     form_factory(family=form)
     form_factory(family=form)
 

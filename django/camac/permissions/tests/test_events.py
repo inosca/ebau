@@ -20,7 +20,6 @@ from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.tests.form_utils import FormUtils
 from camac.user.models import ServiceRelation
-from camac.utils import get_unversioned_slug
 
 
 @pytest.mark.parametrize("instance_state__name", ["submitted"])
@@ -878,9 +877,7 @@ def test_decision_acls_sz(
     form_slug,
     have_demolition_premium_acl,
 ):
-    form = form_factory(name=form_slug)
-    form.family = form_factory(name=get_unversioned_slug(form_slug))
-    form.save()
+    form = form_factory(name=form_slug)  # family is set correctly by form factory
     sz_instance.form = form
     sz_instance.save()
 

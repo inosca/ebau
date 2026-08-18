@@ -39,9 +39,7 @@ class PermissionEventHandlerSZ(
                 access_level="read",
                 service=tax_admin_service,
             )
-        if (
-            form_family := instance.form.family
-        ) and form_family.name == "abbruchpraemie":
+        if instance.form.family.name == "abbruchpraemie":
             self.manager.grant(
                 instance,
                 grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,

@@ -291,9 +291,9 @@ def test_suggestion_for_instance_filter_camac_ng(
     if suggestions:
         distribution_settings["SUGGESTIONS"] = suggestions
 
-        sz_instance.form = form_factory(name="baugesuch")
-        sz_instance.form.family = sz_instance.form
-        sz_instance.form.save()
+        sz_instance.form = form_factory(
+            name="baugesuch"
+        )  # unversioned slug makes the form its own family
         sz_instance.save()
 
         for question, value in suggestion_answer:

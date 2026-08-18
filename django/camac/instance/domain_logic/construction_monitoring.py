@@ -56,12 +56,10 @@ def can_perform_construction_monitoring(instance: Instance) -> bool:
         return True
 
     # Get the form slug based on the form backend configuration. For camac-ng
-    # (e.g. Kt. SZ), use the form family name if available, otherwise the form
-    # name. For Caluma, rely on the case document's form ID.
+    # (e.g. Kt. SZ), use the form family name. For Caluma, rely on the case document's
+    # form ID.
     if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
-        form_slug = (
-            instance.form.family.name if instance.form.family else instance.form.name
-        )
+        form_slug = instance.form.family.name
     else:
         form_slug = instance.case.document.form_id
 
