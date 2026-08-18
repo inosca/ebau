@@ -48,13 +48,11 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 ## Abweichungen und Besonderheiten
 
 - Der Type `planningPermissionAplicationIdentifier` enthält unter `localId` die kantonale Dossiernummer und unter `dossierIdentification` den technischen Primärschlüssel "Dossier ID" ("Instance id")
-
 - Der Type `localOrganisationId` enthält unter `organisationId` unsere Organisations id. Organisations ids können über den `/api/v1/public-services/` endpoint abgefragt werden.
-
 - Falls bei einer eCH Meldung ein oder mehrere Dokumente mitgegeben werden müssen, kann über den Wert `uuid` ein Dokumente hochgeladen oder referenziert werden.
+
   - Vorhandenes Dokument referenzieren: Es muss die UUID eines in eBau bereits existierenden Dokument mitgesendet werden. In diesem Fall versucht eBau **nicht** das Dokument herunterzuladen, eine allenfalls mitgesendete URL wird ignoriert.
   - Neues Dokument mitsenden: Falls die UUID nur aus 0 besteht (00000000-0000-0000-0000-000000000000) versucht eBau das Dokument über die mitgesendete URL herunterzuladen und im Dossier abzulegen.
-
 - Der von uns empfangene Typ `task`, um Stellungnahmen anzufordern (Spezifikation 3.2) muss zwingend die Organisations id der einzuladenden Stelle im `extension` Typ enthalten:
 
   ```xml
@@ -66,53 +64,42 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
   Deprecated: Das bisherige Tag `serviceId` wurde mit `organisationId` ersetzt. `serviceId` wird aber weiterhin unterstützt.
 
   In dieser Anfrage kann auch die Vorläufige Prüfung abgeschlossen werden, indem `verfahrensart` (`ordentliches` oder `vereinfachtes`) und `eingabequittungKorrekt` (`ja` oder `nein`) in der Extension des Tasks mitgegeben werden.
-
 - Bei Dokumenten, welche in ausgehenden Meldungen referenziert werden, gilt zu beachten:
+
   - `documentKind` enthält den Namen der `Category`
   - `keywords` enthält alle Tags (zB: `vollmacht-dokument`)
   - `uuid` diese UUID kann in anderen eCH Meldungen referenziert werden
   - `owner` enthält die Organisations-ID oder `APPLICANT`, wenn der Gesuchsteller das Dokument hochgeladen hat
-
-- Für Kt. GR, muss der Dokument `owner` immer geprüft werden. Wenn der Wert `APPLICANT` ist, dürfen die Gesuchstellenden keine Möglichkeit haben, Dokumente zu verschieben oder zu löschen.
-
+- Für Kt. GR, muss der Dokument `owner` immer geprüft werden. Wenn der Wert `APPLICANT` ist, darf die Option zum Verschieben oder Löschen von Dokumenten nicht angeboten werden.
 - In einer `application` wird immer der Status `6701` gesetzt. Der korrekte Status aus dem eBau findet sich unter `namedMetaData.status`. Bei einer `statusNotification` wird immer der Status `in progress` gesetzt. Der korrekte Status findet sich im `remark`.
-
 - `buildingCategory` wird immer auf `1040` gesetzt.
-
 - `documentStatusType` wird wie folgt gemappt:
+
   - Standard: `created`
   - Ungültig: `invalidated`
   - Entscheid: `approved`
-
 - `realestateType` wird immer auf `8` gesetzt.
-
 - Properties, die in eCH zwingend sind, in eBau jedoch nicht, werden bei nichtvorhandensein mit `unknown` befüllt.
-
 - In eBau ist es möglich, auch ausländische Adressen zu erfassen. Bei solchen wird die Postleitzahl auf `9999` gesetzt, falls sie nicht vierstellig sein sollte.
-
 - In eCH ist es nicht möglich, Kosten von unter 1000.- zu erfassen. Sollten die in eBau erfassten Kosten tiefer als 1000.- sein, wird `1000` eingetragen.
-
 - Relevante URLs finden sich in den Meldungen im `HeaderType` unter `extension`.
-
 - 4.2 Bauverfahren abschliessen: Bei Voranfragen wird der Prozess mit einem Entscheid (bzw. fachlich einer Beurteilung) abgeschlossen. "close dossier" hat entgegen der Spezifikation für Voranfragen also keine Bedeutung. Stattdessen wird der Prozess mit "notice ruling" abgeschlossen (siehe Kap. 3.2).
-
 - Judgements in `NoticeRuling` werden in eBau wie folgt gemappt:
 
-    - Wenn ein Entscheid über eCH gesendet wird, wird automatisch die GVG auf das Dossier berechtigt, wodurch diese Zugang auf das Dossier erhält.
-    - Wenn die Baubegleitung über eCH abgeschlossen wird, erhält die AIB automatisch Zugang auf das Dossier.
+  - Wenn ein Entscheid über eCH gesendet wird, wird automatisch die GVG auf das Dossier berechtigt, wodurch diese Zugang auf das Dossier erhält.
+  - Wenn die Baubegleitung über eCH abgeschlossen wird, erhält die AIB automatisch Zugang auf das Dossier.
 
-  | Judgement | Descision               | Besonderheiten                     |
-  | --------- | ----------------------- | ---------------------------------- |
-  | 1         | Bewilligt               |                                    |
-  | 2         | Bewilligt mit Vorbehalt | Nicht verfügbar für Baugesuche     |
+  | Judgement | Descision               | Besonderheiten                        |
+  | --------- | ----------------------- | ------------------------------------- |
+  | 1         | Bewilligt               |                                       |
+  | 2         | Bewilligt mit Vorbehalt | Nicht verfügbar für Baugesuche      |
   | 3         | Abgeschrieben           | Nicht verfügbar für Vorabklärungen |
-  | 4         | Abgelehnt               |                                    |
-
+  | 4         | Abgelehnt               |                                       |
 - `relationshipToPerson`: Sollte es sich bei einem Eintrag um eine juristische Person handeln, sieht eCH keine
   Felder vor für Vor- und Nachname der Kontaktperson. Wir füllen diese Namen daher in das Feld
   `organisationAdditionalName` im Format: "Vorname Name".
-
 - `accompanyingReport` hat Werte in `extension` welche zusätzliche Informationen im eBau darstellen.
+
   - `situation`: Sachverhalt
   - `considerations`: Erwägungen
   - `comments`: Bemerkungen
