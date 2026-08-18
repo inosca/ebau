@@ -205,6 +205,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("journal-read", MODULE_JOURNAL),
             ("journal-write", MODULE_JOURNAL),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("linked-instances-write", MODULE_LINKED_INSTANCES),
             ("permissions-grant-read", MODULE_PERMISSIONS),
             ("permissions-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),

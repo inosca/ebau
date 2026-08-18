@@ -142,6 +142,7 @@ cases:
     unLinkInstance: "Elimina collegamento"
     unLinkInstanceSuccess: "Il collegamento dei dossier è stato eliminato con successo."
     unLinkInstanceError: "Durante l'eliminazione del collegamento qualcosa è andato storto."
+    thisInstance: "questo dossier"
     enterDossierNumber: "Inserisci numero del dossier"
     showAll: "Visualizza tutti"
     modalTitle: "Tutti i dossier sulla particella"

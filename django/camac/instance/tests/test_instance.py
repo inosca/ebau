@@ -24,6 +24,7 @@ from camac.instance.filters import (
 )
 from camac.instance.models import FormField, Instance, InstanceGroup, InstanceState
 from camac.permissions import api as permissions_api
+from camac.permissions.conditions import Always
 from camac.tests.form_utils import FormUtils
 
 
@@ -1009,6 +1010,355 @@ def test_involved_services(
     }
 
 
+@pytest.mark.parametrize("role__name", ["Service", "Municipality"])
+@pytest.mark.parametrize(
+    (
+        "permissions_on_this_instance",
+        "permissions_on_other_instance",
+        "expected_status_link",
+        "expected_status_unlink",
+    ),
+    [
+        # linked-instances-write on this instance and seeing the other is sufficient:
+        (
+            ["linked-instances-write"],
+            ["foobar"],
+            status.HTTP_200_OK,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        # not seeing the other is not sufficient:
+        (
+            ["linked-instances-write"],
+            None,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        # linked-instances-read is not sufficient:
+        (
+            ["linked-instances-read"],
+            ["foobar"],
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        # ... even if we have linked-instances-write on the other:
+        (
+            ["linked-instances-read"],
+            ["linked-instances-write"],
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+    ],
+)
+@pytest.mark.django_db
+def test_instance_group_link_unlink(
+    access_level_factory,
+    admin_client,
+    instance_acl_factory,
+    instance_factory,
+    group,
+    permissions_settings,
+    role,
+    service,
+    # parameters:
+    permissions_on_this_instance,
+    permissions_on_other_instance,
+    expected_status_link,
+    expected_status_unlink,
+):
+    access_level_for_this = access_level_factory(
+        slug="access-level-for-this",
+        name="Access level for this instance",
+        required_grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+    )
+    if permissions_on_this_instance:
+        access_level_for_other = access_level_factory(
+            slug="access-level-for-other",
+            name="Access level for the other instance",
+            required_grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        )
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level_for_this.pk: [
+            (permission, Always()) for permission in permissions_on_this_instance
+        ],
+        **(
+            {
+                access_level_for_other.pk: [
+                    (permission, Always())
+                    for permission in permissions_on_other_instance
+                ],
+            }
+            if permissions_on_other_instance
+            else {}
+        ),
+    }
+
+    def create_acl(instance, access_level):
+        instance_acl_factory(
+            instance=instance,
+            grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+            service=service,
+            access_level=access_level,
+        )
+
+    this_instance = instance_factory()
+    create_acl(this_instance, access_level_for_this)
+
+    other_instance = instance_factory()
+    if permissions_on_other_instance:
+        create_acl(other_instance, access_level_for_other)
+
+    # Test linking:
+    url = reverse("instance-link", args=[this_instance.pk])
+    data = {
+        "data": {
+            "type": "instances",
+            "attributes": {"link-to": other_instance.pk},
+        }
+    }
+    response = admin_client.patch(
+        url, data=json.dumps(data), content_type="application/json"
+    )
+    assert response.status_code == expected_status_link
+
+    # Test unlinking:
+    url = reverse("instance-unlink", args=[this_instance.pk])
+    response = admin_client.patch(url)
+    assert response.status_code == expected_status_unlink
+
+
+@pytest.mark.parametrize(
+    (
+        "role__name",
+        "workflow_name",
+        "form_name",
+        "is_lead_authority",
+        "has_acl_on_this_instance",
+        "sees_other_instance",
+        "expected_status_link",
+        "expected_status_unlink",
+    ),
+    [
+        # are-service ACL on internal are-geschaeft should follow permissions rules:
+        (
+            "Fachstelle",
+            "internal-document",
+            "are-geschaeft",
+            False,  # permitted through ACL even if not lead authority
+            True,
+            True,
+            status.HTTP_200_OK,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Fachstelle",
+            "internal-document",
+            "are-geschaeft",
+            False,
+            True,
+            False,
+            status.HTTP_403_FORBIDDEN,  # denied if the other instance is not visible
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Fachstelle",
+            "internal-document",
+            "are-geschaeft",
+            True,
+            True,
+            False,
+            status.HTTP_403_FORBIDDEN,  # still denied, even if lead authority
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Fachstelle",
+            "internal-document",
+            "are-geschaeft",
+            True,
+            False,
+            True,
+            status.HTTP_403_FORBIDDEN,  # denied if no ACL (even if lead authority)
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Fachstelle",
+            "internal-document",
+            "are-geschaeft",
+            False,
+            False,
+            True,
+            status.HTTP_404_NOT_FOUND,  # not visible if neither lead authority nor ACL
+            status.HTTP_404_NOT_FOUND,
+        ),
+        # are-service ACL on anything but internal are-geschaeft has not effect, even if
+        # lead authority:
+        (
+            "Fachstelle",
+            "internal-document",
+            "voranfrage",
+            True,
+            True,
+            True,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Fachstelle",
+            "internal-document",
+            "voranfrage",
+            True,
+            True,
+            False,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Fachstelle",
+            "internal-document",
+            "voranfrage",
+            True,
+            False,
+            True,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Fachstelle",
+            "building-permit",
+            "are-geschaeft",
+            True,
+            True,
+            True,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Fachstelle",
+            "building-permit",
+            "are-geschaeft",
+            True,
+            True,
+            False,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Fachstelle",
+            "building-permit",
+            "are-geschaeft",
+            True,
+            False,
+            True,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        # municipalities may link/unlink on all visible instances:
+        (
+            "Gemeinde",
+            "building-permit",
+            "baugesuch",
+            True,
+            True,
+            True,
+            status.HTTP_200_OK,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Gemeinde",
+            "internal-document",
+            "are-geschaeft",  # also for ARE-Geschäfte
+            True,
+            True,
+            True,
+            status.HTTP_200_OK,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Gemeinde",
+            "building-permit",
+            "baugesuch",
+            False,
+            False,
+            True,
+            status.HTTP_404_NOT_FOUND,  # not visible
+            status.HTTP_404_NOT_FOUND,
+        ),
+    ],
+)
+@pytest.mark.django_db
+def test_instance_group_link_unlink_sz(
+    access_level_factory,
+    admin_client,
+    caluma_workflow_config_sz,
+    instance_acl_factory,
+    instance_factory,
+    group,
+    instance_with_case,
+    role,
+    service,
+    settings,
+    set_application_sz,
+    sz_permissions_settings,
+    # parameters:
+    workflow_name,
+    form_name,
+    is_lead_authority,
+    has_acl_on_this_instance,
+    sees_other_instance,
+    expected_status_link,
+    expected_status_unlink,
+):
+    are_access_level = access_level_factory(
+        slug="are-service",
+        name="ARE service",
+        required_grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+    )
+    read_access_level = access_level_factory(
+        slug="read",
+        name="Read-only",
+        required_grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+    )
+
+    def create_acl(instance, access_level):
+        instance_acl_factory(
+            instance=instance,
+            grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+            service=service,
+            access_level=access_level,
+        )
+
+    # This instance:
+    this_instance = instance_with_case(
+        instance_factory(**({"group": group} if is_lead_authority else {})),
+        workflow=workflow_name,
+        form=form_name,
+    )
+    if has_acl_on_this_instance:
+        create_acl(this_instance, are_access_level)
+
+    # The other instance:
+    other_instance = instance_factory()
+    if sees_other_instance:
+        create_acl(other_instance, read_access_level)
+
+    # Attempt to link the two:
+    url = reverse("instance-link", args=[this_instance.pk])
+    data = {
+        "data": {
+            "type": "instances",
+            "attributes": {"link-to": other_instance.pk},
+        }
+    }
+    response = admin_client.patch(
+        url, data=json.dumps(data), content_type="application/json"
+    )
+    assert response.status_code == expected_status_link
+
+    # Attempt to unlink this instance:
+    url = reverse("instance-unlink", args=[this_instance.pk])
+    response = admin_client.patch(url)
+    assert response.status_code == expected_status_unlink
+
+
 @pytest.mark.parametrize("main_instance_has_group", [False, True])
 @pytest.mark.parametrize("other_instance_has_group", [False, True])
 @pytest.mark.parametrize(
@@ -1021,16 +1371,22 @@ def test_involved_services(
         ("Canton", status.HTTP_403_FORBIDDEN),
     ],
 )
-def test_instance_group_link(
+def test_instance_group_link_ur(
     admin_client,
+    application_settings,
     instance,
     instance_factory,
     instance_group_factory,
+    mocker,
+    settings,
+    # parameters:
     main_instance_has_group,
     other_instance_has_group,
     expected_status,
-    mocker,
 ):
+    settings.APPLICATION_NAME = "kt_uri"
+    application_settings["SHORT_NAME"] = "ur"
+
     mocker.patch(
         "camac.constants.kt_uri.KOOR_BG_GROUP_ID", admin_client.user.groups.first().pk
     )
@@ -1101,16 +1457,20 @@ def test_instance_group_link(
 
 @pytest.mark.parametrize("more_than_one_other_group", [False, True])
 @pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
-def test_instance_group_unlink(
+def test_instance_group_unlink_ur(
     admin_client,
-    ur_instance,
+    application_settings,
     instance_factory,
     instance_group_factory,
-    more_than_one_other_group,
-    mocker,
-    application_settings,
     instance_state_factory,
+    mocker,
+    settings,
+    ur_instance,
+    # parameters:
+    more_than_one_other_group,
 ):
+    settings.APPLICATION_NAME = "kt_uri"
+    application_settings["SHORT_NAME"] = "ur"
     application_settings["FORM_BACKEND"] = "caluma"
 
     main_instance = ur_instance

@@ -85,13 +85,19 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  // GR, UR, AG, SO
-  // service-afb only exists in AG
-  get canLinkDossiers() {
-    return (
-      ["municipality", "coordination"].includes(this.ebauModules.baseRole) ||
-      ["service-afb"].includes(this.ebauModules.serviceGroupSlug)
-    );
+  // GR, UR, AG, SO, SZ
+  async canLinkDossiers() {
+    // SZ doesn't have permissions fully enabled yet, but we already use the
+    // permissions module for this:
+    if (this.permissions.fullyEnabled || isApplication("sz")) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "linked-instances-write",
+      );
+    }
+
+    // UR
+    return ["municipality", "coordination"].includes(this.ebauModules.baseRole);
   }
 
   async canWriteForm() {

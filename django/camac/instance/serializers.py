@@ -422,25 +422,33 @@ class SchwyzInstanceSerializer(InstanceSerializer):
         caluma_form = self.initial_data.get("caluma_form", "baugesuch")
         caluma_workflow = self.initial_data.get("caluma_workflow", "building-permit")
 
-        case = workflow_api.start_case(
+        # Generate the identifier unless it's a building permit (there we only generate
+        # it upon submission).
+        if not (is_building_permit := caluma_workflow == "building-permit"):
+            instance.identifier = domain_logic.CreateInstanceLogic.generate_identifier(
+                instance
+            )
+
+        meta = {
+            "camac-instance-id": instance.pk,
+            "form-backend": "camac-ng" if is_building_permit else "caluma",
+            **(
+                {
+                    "dossier-number": instance.identifier,
+                    "dossier-number-sort": generate_sort_key(instance.identifier),
+                }
+                if not is_building_permit
+                else {}
+            ),
+        }
+        instance.case = workflow_api.start_case(
             workflow=workflow_models.Workflow.objects.get(pk=caluma_workflow),
             form=form_models.Form.objects.get(pk=caluma_form),
             user=self.context["request"].caluma_info.context.user,
-            meta={"camac-instance-id": instance.pk},
+            meta=meta,
             # necessary for resolving dynamic groups
             context={"instance": instance.pk},
         )
-
-        instance.case = case
-
-        # Creation logic for caluma based forms
-        if caluma_workflow != "building-permit":
-            identifier = domain_logic.CreateInstanceLogic.generate_identifier(instance)
-            instance.case.meta["dossier-number"] = identifier
-            instance.case.meta["dossier-number-sort"] = generate_sort_key(identifier)
-            instance.case.meta["form-backend"] = "caluma"
-            instance.case.save()
-            instance.identifier = identifier
 
         instance.save()
         permissions_events.Trigger.instance_created(self.context["request"], instance)
@@ -2608,6 +2616,12 @@ class InstanceSubmitSerializer(InstanceSerializer):
             instance
         )
         instance.save()
+
+        instance.case.meta["dossier-number"] = instance.identifier
+        instance.case.meta["dossier-number-sort"] = generate_sort_key(
+            instance.identifier
+        )
+        instance.case.save()
 
         instance_submitted.send(
             sender=self.__class__,

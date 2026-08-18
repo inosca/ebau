@@ -7,36 +7,36 @@
     {{else}}
       {{#each this.instancesOnSamePlot.value as |instanceOnSamePlot index|}}
         {{#if (lt index 5)}}
-          {{#if (is-legacy-app)}}
-            <a
-              href="/index/redirect-to-instance-resource/instance-id/{{instanceOnSamePlot.id}}"
-            >
-              {{instanceOnSamePlot.name}}
-              ({{instanceOnSamePlot.dossierNumber}})
-            </a>
-          {{else}}
-            <LinkTo
-              @route="cases.detail.linked-instances"
-              @model={{instanceOnSamePlot.id}}
-            >
-              {{instanceOnSamePlot.name}}
-              ({{instanceOnSamePlot.dossierNumber}})
-            </LinkTo>
-          {{/if}}
-          {{#if (can "link dossiers to instance" @currentInstance)}}
-            <LinkInstanceButton
-              @type={{if
-                (includes instanceOnSamePlot this.linkedAndOnSamePlot)
-                "unlink"
-                "link"
-              }}
-              @onLink={{this.linkDossier}}
-              @onUnlink={{this.unLinkDossier}}
-              @instanceOnSamePlot={{instanceOnSamePlot}}
-            />
-          {{else}}
-            <br />
-          {{/if}}
+          <div>
+            {{#if (is-legacy-app)}}
+              <a
+                href="/index/redirect-to-instance-resource/instance-id/{{instanceOnSamePlot.id}}"
+              >
+                {{instanceOnSamePlot.displayName}}
+              </a>
+            {{else}}
+              <LinkTo
+                @route="cases.detail.linked-instances"
+                @model={{instanceOnSamePlot.id}}
+              >
+                {{instanceOnSamePlot.displayName}}
+              </LinkTo>
+            {{/if}}
+          </div>
+          <div>
+            {{#if (can "link dossiers to instance" @currentInstance)}}
+              <LinkInstanceButton
+                @type={{if
+                  (includes instanceOnSamePlot this.linkedAndOnSamePlot)
+                  "unlink"
+                  "link"
+                }}
+                @onLink={{this.linkDossier}}
+                @onUnlink={{this.unLinkDossier}}
+                @instanceOnSamePlot={{instanceOnSamePlot}}
+              />
+            {{/if}}
+          </div>
         {{/if}}
       {{else}}
         <p class="uk-text-meta">{{t

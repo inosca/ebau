@@ -2,6 +2,8 @@ import { isEmpty } from "@ember/utils";
 import { DateTime } from "luxon";
 
 import CustomCaseBaseModel from "ember-ebau-core/caluma-query/models/-case";
+import mainConfig from "ember-ebau-core/config/main";
+import { getAnswerDisplayValue } from "ember-ebau-core/utils/get-answer";
 
 export default class CustomCaseModel extends CustomCaseBaseModel {
   getFormFields(fields) {
@@ -81,6 +83,22 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     return row?.firma || [row?.vorname, row?.name].filter(Boolean).join(" ");
   }
 
+  get plots() {
+    return getAnswerDisplayValue(
+      this.raw.document,
+      mainConfig.answerSlugs.parcelNumber,
+    );
+  }
+
+  get municipalityId() {
+    return this.raw.document.form.slug === "are-geschaeft"
+      ? getAnswerDisplayValue(
+          this.raw.document,
+          mainConfig.answerSlugs.municipality,
+        )
+      : null;
+  }
+
   static fragment = `{
     meta
     id
@@ -89,8 +107,9 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
       form {
         id
         name
+        slug
       }
-      answers(filter: [{ questions: ["voranfrage-vorhaben","are-geschaeft-vorhaben"] }]) {
+      answers(filter: [{ questions: ["voranfrage-vorhaben","are-geschaeft-vorhaben","are-geschaeft-grundstuecknummer","are-geschaeft-ort"] }]) {
         edges {
           node {
             id
