@@ -71,7 +71,6 @@ services:
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/api/v1/
       DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
       DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
-      ECH0211_API_ACTIVE: True
       ENABLE_HISTORICAL_API: true
       ENV: development
       EVENT_RECEIVER_MODULES: camac.caluma.extensions.events

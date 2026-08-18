@@ -1,4 +1,3 @@
-import datetime
 import json
 from unittest.mock import Mock
 
@@ -26,7 +25,6 @@ from camac.ech0211.event_handlers import (
     EventHandlerException,
     StatusNotificationEventHandler,
 )
-from camac.ech0211.formatters import delivery
 from camac.ech0211.models import Message
 from camac.ech0211.schema.ech_0211_2_0 import CreateFromDocument
 from camac.ech0211.send_handlers import (
@@ -34,7 +32,6 @@ from camac.ech0211.send_handlers import (
     NoticeRulingSendHandler,
 )
 from camac.instance.document_merge_service import DMSHandler
-from camac.instance.factories import FormFieldFactory
 
 from .utils import xml_data
 
@@ -572,77 +569,6 @@ def test_send_unknown_instance(
     )
 
     assert response.status_code == 404
-
-
-@pytest.mark.parametrize(
-    ("plot_data", "coordinates", "decision", "site_address"),
-    [
-        (None, None, None, None),
-        (
-            [
-                {
-                    "egrid": "CH123-4-567",
-                    "number": 1234567,
-                    "municipality": "Hintertupfigen",
-                }
-            ],
-            [{"lng": 8.5592041911, "lat": 47.0636626694}],
-            {
-                "date": datetime.datetime(2021, 1, 11),
-                "decicion": "accepted",
-            },
-            {"street": ""},
-        ),
-        (None, None, None, {"street": "Somewhere over the Rainbow 10b"}),
-        (None, None, None, {"street": "Somewhere"}),
-    ],
-)
-@pytest.mark.freeze_time("2020-02-01")
-@pytest.mark.parametrize("application_type", ["Baugesuch", "Vorabklärung"])
-def test_application_retrieve_full_sz(
-    admin_client,
-    set_application_sz,
-    ech_instance_sz,
-    sz_ech0211_settings,
-    application_type,
-    instance_state_factory,
-    plot_data,
-    coordinates,
-    site_address,
-    decision,
-    snapshot,
-    mocker,
-    request,
-    caluma_work_item_factory,
-    master_data_is_visible_mock,
-    reload_ech0211_urls,
-):
-    ech_instance_sz.form.description = application_type
-    ech_instance_sz.form.save()
-    mocker.patch.object(  # make for a deterministic message_id
-        delivery, "__defaults__", (None, None, str(ech_instance_sz.pk), None)
-    )
-    if hasattr(site_address, "values") and site_address.values():
-        addr_field, _ = ech_instance_sz.fields.get_or_create(
-            name="ortsbezeichnung-des-vorhabens",
-            defaults={"value": site_address["street"]},
-        )
-    if plot_data:
-        ech_instance_sz.fields.add(FormFieldFactory(name="parzellen", value=plot_data))
-    if coordinates:
-        ech_instance_sz.fields.add(FormFieldFactory(name="punkte", value=coordinates))
-
-    if decision and decision.get("date"):
-        # determinining decision date in SZ requires a value from
-        # the work_item document of task "building-authority"
-        caluma_work_item_factory(
-            task_id="make-decision",
-            case=ech_instance_sz.case,
-            status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
-        )
-
-    resp = admin_client.get(reverse("application", args=[ech_instance_sz.pk]))
-    assert resp.status_code == status.HTTP_200_OK
 
 
 def test_message_invalid_last(admin_client, set_application_be, reload_ech0211_urls):

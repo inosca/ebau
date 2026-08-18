@@ -25,12 +25,6 @@ from camac.ech0211 import formatters
             lf("be_master_data_settings"),
         ),
         (
-            "kt_schwyz",
-            lf("set_application_sz"),
-            lf("ech_instance_sz"),
-            lf("sz_master_data_settings"),
-        ),
-        (
             "kt_so",
             lf("set_application_so"),
             lf("ech_instance_so"),
@@ -57,11 +51,8 @@ def test_generate_delivery(
 ):
     base_delivery_formatter = formatters.BaseDeliveryFormatter()
 
-    if config == "kt_schwyz":
-        camac_instance.fields.create(name="verfahrensart", value="baubewilligung")
-    else:
-        camac_instance.case.document.form.name = "Einfache Vorabklärung"
-        camac_instance.case.document.form.save()
+    camac_instance.case.document.form.name = "Einfache Vorabklärung"
+    camac_instance.case.document.form.save()
 
     delivery = formatters.delivery(
         camac_instance,

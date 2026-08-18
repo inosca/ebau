@@ -1426,6 +1426,7 @@ def test_instance_submit_sz(
     caluma_workflow_config_sz,
     caluma_admin_user,
     application_settings,
+    disable_ech0211_settings,
 ):
     application_settings["SHORT_NAME"] = "sz"
     application_settings["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
@@ -2279,6 +2280,23 @@ def test_linked_instances_ur(ur_instance, instance_factory, set_application_ur):
 
     ur_instance.refresh_from_db()
     assert list(ur_instance.get_linked_instances()) == [other_instance]
+
+
+@pytest.mark.django_db
+def test_linked_instances_sz(
+    sz_instance, instance_factory, instance_group_factory, set_application_sz
+):
+    instance_group = instance_group_factory()
+    other_instance = instance_factory(instance_group=instance_group)
+
+    assert len(sz_instance.get_linked_instances()) == 0
+
+    sz_instance.instance_group = instance_group
+    sz_instance.identifier = "123-45-67"
+    sz_instance.save()
+
+    sz_instance.refresh_from_db()
+    assert list(sz_instance.get_linked_instances()) == [other_instance]
 
 
 @pytest.mark.django_db
