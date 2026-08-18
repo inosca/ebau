@@ -19,7 +19,7 @@ export function hasInstanceState(instance, instanceState) {
 
 export function isAuthority(instance, serviceId) {
   return (
-    instance &&
+    !!instance &&
     parseInt(instance.belongsTo("activeService").id()) === parseInt(serviceId)
   );
 }
@@ -176,27 +176,6 @@ export default class InstanceAbility extends Ability {
 
   get canChangeGeometer() {
     return this.ebauModules.isSupportRole;
-  }
-
-  // instance acls
-  // TODO: if complexity increases or more use cases arise, please move to instance-acl ability.
-  get canEditAcl() {
-    if (isApplication("be")) {
-      return (
-        isInstanceService(this.model, this.ebauModules.serviceId) &&
-        ["municipality-lead", "municipality-clerk"].includes(
-          this.ebauModules.role,
-        )
-      );
-    }
-    if (isApplication("ur")) {
-      return (
-        this.ebauModules.isTrustedServiceRole ||
-        this.ebauModules.isCoordinationRole ||
-        isAuthority(this.model, this.ebauModules.serviceId)
-      );
-    }
-    return isAuthority(this.model, this.ebauModules.serviceId);
   }
 
   async canWithdraw() {
