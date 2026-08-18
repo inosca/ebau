@@ -10,18 +10,11 @@ from alexandria.core.factories import (
     MarkFactory,
 )
 from alexandria.core.models import Document
-from caluma.caluma_workflow.api import (
-    cancel_work_item,
-    complete_work_item,
-    skip_work_item,
-)
-from django.core.management import call_command
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.document.models import Attachment
 from camac.ech0211 import formatters
-from camac.ech0211.formatters import CantonSpecific
 from camac.ech0211.utils import clean_text_for_xml
 
 logger = logging.getLogger(__name__)
@@ -194,57 +187,6 @@ def test_get_alexandria_documents(
         ) as e:  # pragma: no cover
             logger.error(e.details())
             raise
-
-
-@pytest.mark.freeze_time("2022-01-01")
-@pytest.mark.parametrize(
-    ("skip", "task_id", "work_item_action", "expected_decision", "expected_state"),
-    [
-        (
-            ["submit", "complete-check", "distribution"],
-            "make-decision",
-            cancel_work_item,
-            4,  # negative
-            "denied",
-        ),
-        (
-            ["submit", "complete-check", "distribution"],
-            "make-decision",
-            complete_work_item,
-            1,  # positive
-            "accepted",
-        ),
-        (["submit"], "reject-form", complete_work_item, 3, "negative"),
-    ],
-)
-def test_decision_formatter(
-    ech_instance_sz,
-    instance_state_factory,
-    caluma_config_sz,
-    set_application_sz,
-    skip,
-    task_id,
-    work_item_action,
-    expected_decision,
-    expected_state,
-    caluma_admin_user,
-    construction_monitoring_settings,
-):
-    call_command("loaddata", "/app/kt_schwyz/config/instance.json")
-
-    instance_state_factory(name=expected_state)
-    for task in skip:
-        t = ech_instance_sz.case.work_items.get(task_id=task)
-        skip_work_item(t, caluma_admin_user)
-    work_item_action(
-        ech_instance_sz.case.work_items.get(task_id=task_id),
-        caluma_admin_user,
-        {"no-notification": True},
-    )
-    decision, decision_date = CantonSpecific.determine_decision_state_sz(
-        ech_instance_sz
-    )
-    assert decision == expected_decision
 
 
 @pytest.mark.parametrize(

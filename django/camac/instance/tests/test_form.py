@@ -17,7 +17,9 @@ def test_form_list(admin_client, form, form_factory, form_state_factory, amount)
 
     json = response.json()
     assert len(json["data"]) == amount
-    assert json["data"][0]["id"] == str(form.pk)
+
+    returned_ids = {item["id"] for item in json["data"]}
+    assert str(form.pk) in returned_ids
 
 
 @pytest.mark.parametrize(

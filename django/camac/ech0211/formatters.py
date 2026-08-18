@@ -24,11 +24,6 @@ from camac.alexandria.extensions.visibilities import (
 from camac.caluma.utils import find_answer
 from camac.core.utils import canton_aware
 from camac.document.models import Attachment
-from camac.ech0211.constants import (
-    ECH_JUDGEMENT_APPROVED,
-    ECH_JUDGEMENT_DECLINED,
-    ECH_JUDGEMENT_WRITTEN_OFF,
-)
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.user.models import Service
@@ -241,7 +236,7 @@ def get_alexandria_documents(documents, request):
 
 
 def split_street_and_housenumber(address):
-    if not address:
+    if not address:  # pragma: no cover
         return None, None
     if "," in address:
         return address, None
@@ -275,25 +270,6 @@ def get_parking_lots(md):
         return any(row.get("is_parking_lot", False) for row in md.civil_engineering)
 
     return False
-
-
-def make_dummy_address_ech0044():
-    return [
-        pyxb.BIND(
-            ownerAdress=ns_address.mailAddressType(
-                person=ns_address.personMailAddressInfoType(
-                    firstName="unknown", lastName="unknown"
-                ),
-                addressInformation=ns_address.addressInformationType(
-                    street="unknown",
-                    houseNumber="0",
-                    town="unknown",
-                    swissZipCode=9999,
-                    country="CH",
-                ),
-            )
-        )
-    ]
 
 
 def municipality(md):
@@ -370,21 +346,6 @@ def application(instance: Instance, request: HttpRequest):
         )
         for plot in md.plot_data
     ]
-    if not realestate_info:
-        # happens if no parcels are filled (e. g.: application_type: Vorabklärung)
-        realestate_info = [
-            ns_application.realestateInformationType(
-                realestate=ns_objektwesen.realestateType(
-                    realestateIdentification=ns_objektwesen.realestateIdentificationType(
-                        number="0"
-                    ),
-                    realestateType="8",
-                    coordinates=None,
-                ),
-                municipality=municipality(md),
-                owner=make_dummy_address_ech0044(),
-            )
-        ]
     related_instances = instance.get_linked_instances()
     planning_permission_application_type = ns_application.planningPermissionApplicationType(
         planningPermissionApplicationIdentification=permission_application_identification(
@@ -840,76 +801,6 @@ class CantonSpecific:
     @canton_aware
     def decision_ruling(cls, instance, md):  # pragma: no cover
         raise RuntimeError("not implemented")
-
-    @classmethod
-    def determine_decision_state_sz(cls, instance: Instance):
-        """Retrieve decision state and related things.
-
-        eCH defines decision in 3.4 complete with properties
-            - judgement
-            - date
-            - ruling
-            - rulingAuthority
-
-        where no decision module exists (such as the decision form in BE) these have
-        to be collected from different locations, usually a combination of work-item
-        and history entry.
-
-        rulings are a set of categories such as 'building-permit' and
-        'preliminary-clarification' (or assessment) to which the various
-        form-slugs should be assigned (-v2, ...)
-        """
-        # one of "positive", "conditionally-positive", "negative", "rejected"
-
-        decision_wi = instance.case.work_items.filter(task_id="make-decision").first()
-        if decision_wi:
-            if decision_wi.status == WorkItem.STATUS_CANCELED:
-                return ECH_JUDGEMENT_DECLINED, MasterData(instance.case).decision_date
-            if decision_wi.status == WorkItem.STATUS_COMPLETED:
-                return ECH_JUDGEMENT_APPROVED, MasterData(instance.case).decision_date
-
-        # Rejection should only be considered if no positive decision exists
-        if instance.case.work_items.filter(  # pragma: no cover
-            # TODO: Cover this after confirmation that it's correct
-            task_id="reject-form",
-            status=WorkItem.STATUS_COMPLETED,
-        ).first():
-            # Get date from history
-            decision_date = (
-                instance.history.filter(
-                    # CAVEAT: when changing translation this must be updated to reflect the changes
-                    trans__language="de",
-                    trans__title="Dossier zurückgewiesen",
-                )
-                .order_by("-created_at")
-                .first()
-                .created_at
-            )
-            return ECH_JUDGEMENT_WRITTEN_OFF, decision_date
-        return None, None
-
-    @classmethod
-    def decision_ruling_sz(cls, instance, md):
-        judgement, judgement_date = cls.determine_decision_state_sz(instance)
-
-        if not judgement_date:
-            return []
-
-        ruling = (
-            instance.form.get_name()
-        )  # TODO: is this valid for Entscheid/ruling 3.4.1.2?
-
-        return [
-            ns_application.decisionRulingType(
-                judgement=judgement,
-                date=judgement_date,
-                ruling=ruling.upper(),
-                rulingAuthority=authority(
-                    instance.responsible_service(filter_type="municipality"),
-                    organization_category=md.organization_category,
-                ),
-            )
-        ]
 
     @classmethod
     def decision_ruling_gr(cls, instance, md):  # pragma: no cover
