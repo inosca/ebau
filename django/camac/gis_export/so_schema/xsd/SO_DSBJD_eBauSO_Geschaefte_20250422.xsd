@@ -302,17 +302,10 @@
       </xsd:complexType>
     </xsd:element>
     <xsd:element name="Status" type="Status_Geschaeft"/>
-    <xsd:element name="Gesuchsteller">
+    <xsd:element name="Gesuchsteller" maxOccurs="unbounded">
       <xsd:complexType>
         <xsd:sequence>
           <xsd:element ref="Gesuchsteller_"/>
-        </xsd:sequence>
-      </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="Gesuchsteller_Vertretung" minOccurs="0">
-      <xsd:complexType>
-        <xsd:sequence>
-          <xsd:element ref="PersonAdresse"/>
         </xsd:sequence>
       </xsd:complexType>
     </xsd:element>

@@ -249,11 +249,7 @@ TOPIC Geschaefte =
     /** Gesuchsteller resp. Bauherrschaft inkl. Vertretung
      */
     !!@ ili2db.mapping=JSON
-    Gesuchsteller : MANDATORY Gesuchsteller_;
-    /** Vertretung des Gesuchsteller resp. der Bauherrschaft
-     */
-    !!@ ili2db.mapping=JSON
-    Gesuchsteller_Vertretung : SO_DSBJD_eBauSO_Geschaefte_20250422.PersonAdresse;
+    Gesuchsteller : BAG {1..*} OF Gesuchsteller_;
     /** Projektverfasser
      */
     !!@ ili2db.mapping=JSON
