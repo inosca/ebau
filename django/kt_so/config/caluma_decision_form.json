@@ -104,7 +104,7 @@
       "modified_by_group": null,
       "form": "entscheid",
       "question": "entscheid-geometer",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -134,7 +134,7 @@
       "modified_by_group": null,
       "form": "entscheid",
       "question": "entscheid-hilfetext-beschwerdeverfahren-bestaetigen",
-      "sort": 4
+      "sort": 3
     }
   },
   {
