@@ -2,6 +2,7 @@ import { service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
 import Field from "@projectcaluma/ember-form/lib/field";
 import { dropTask } from "ember-concurrency";
+import { removeVersion } from "ember-ebau-core/utils/form-filters";
 import { trackedTask } from "reactiveweb/ember-concurrency";
 import { cached } from "tracked-toolbox";
 
@@ -123,8 +124,11 @@ export default class CustomField extends Field {
           "decision-decision-assessment-depreciated",
           "decision-decision-assessment-other",
         ];
-      } else if (workflow === "internal") {
-        // Zutrittsermächtigung, Baupolizeiliches Verfahren
+      } else if (
+        workflow === "internal" ||
+        removeVersion(form) === "antrag-auf-auszahlung"
+      ) {
+        // Zutrittsermächtigung, Baupolizeiliches Verfahren, Antrag auf Auszahlung
         return [
           "decision-decision-assessment-positive",
           "decision-decision-assessment-negative",

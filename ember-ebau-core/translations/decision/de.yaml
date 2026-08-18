@@ -5,6 +5,7 @@ decision:
   submit:
     preliminary-clarification: "Beurteilung abschliessen"
     appeal: "Entscheid bestätigen"
+    demolition-payment: "Freigabe zur Auszahlung"
 
   appeal:
     confirmed: |-

@@ -62,9 +62,19 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
     return this.caseInfo.value?.meta["is-appeal"] ?? false;
   }
 
+  get isDemolitionPayment() {
+    if (!isApplication("be")) {
+      return false;
+    }
+    return removeVersion(this.caseInfo.value?.form) === "antrag-auf-auszahlung";
+  }
+
   get label() {
     if (this.isAppeal) {
       return this.intl.t("decision.submit.appeal");
+    }
+    if (this.isDemolitionPayment) {
+      return this.intl.t("decision.submit.demolition-payment");
     } else if (this.isPreliminaryClarification) {
       return this.intl.t("decision.submit.preliminary-clarification");
     }
