@@ -85,4 +85,7 @@ export default {
     communications: true,
     deadlines: true,
   },
+  receipt: {
+    download: true,
+  },
 };

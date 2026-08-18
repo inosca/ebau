@@ -2,6 +2,7 @@ import Service, { service } from "@ember/service";
 import { saveAs } from "file-saver";
 
 import mainConfig from "ember-ebau-core/config/main";
+import cleanObject from "ember-ebau-core/utils/clean-object";
 import { MIME_TYPE_TO_EXTENSION } from "ember-ebau-core/utils/dms";
 export default class DmsService extends Service {
   @service fetch;
@@ -25,6 +26,22 @@ export default class DmsService extends Service {
       .match(/filename="(.*)"/)[1];
 
     saveAs(await response.blob(), filename);
+  }
+
+  async generateReceipt(instance, options = {}) {
+    const lang = this.intl.primaryLocale.split("-")[0];
+    const receiptConfig = mainConfig.receipt;
+    const rootFormSlug = options.rootFormSlug ?? instance.calumaForm;
+
+    return this.generatePdf(
+      instance.id,
+      cleanObject({
+        template: receiptConfig?.templateName?.(lang, instance),
+        "form-slug": receiptConfig?.customFormSlugs?.includes(rootFormSlug)
+          ? rootFormSlug
+          : null,
+      }),
+    );
   }
 
   async processMerge({

@@ -191,6 +191,10 @@ export default class InstanceAbility extends Ability {
   }
 
   get canDownloadReceipt() {
+    if (!hasFeature("receipt.download")) {
+      return false;
+    }
+
     if (
       isApplication("so") &&
       removeVersion(this.model?.calumaForm) === "voranfrage"
@@ -198,10 +202,7 @@ export default class InstanceAbility extends Ability {
       return false;
     }
 
-    return (
-      mainConfig.showDownloadReceiptAction &&
-      this.instanceStateId !== config.APPLICATION.instanceStates.new
-    );
+    return this.instanceStateId !== config.APPLICATION.instanceStates.new;
   }
 
   async canDownloadFormAsPdf() {
