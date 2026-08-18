@@ -761,7 +761,7 @@ def test_dynamic_task_after_create_inquiry(
         ("main-form", "formal-exam", True, False, ["reject"]),
         ("main-form", "material-exam", True, False, ["reject"]),
         ("main-form", "formal-exam", False, False, ["material-exam"]),
-        ("main-form", "formal-exam", False, True, ["material-exam", "geometer"]),
+        ("main-form", "formal-exam", False, True, ["material-exam"]),
         (
             "main-form",
             "material-exam",
@@ -770,7 +770,7 @@ def test_dynamic_task_after_create_inquiry(
             ["distribution", "publication", "fill-publication", "objections"],
         ),
         ("meldung-pv", "formal-exam", False, False, ["material-exam"]),
-        ("meldung-pv", "formal-exam", False, True, ["material-exam", "geometer"]),
+        ("meldung-pv", "formal-exam", False, True, ["material-exam"]),
         ("meldung-pv", "material-exam", False, False, ["distribution"]),
     ],
 )
@@ -811,6 +811,103 @@ def test_dynamic_task_after_exam(
         CustomDynamicTasks().resolve_after_exam(so_instance.case, None, work_item, None)
         == expected_tasks
     )
+
+
+@pytest.mark.parametrize("geometer_required", [True, False])
+@pytest.mark.django_db
+def test_dynamic_task_geometer_after_decision_so(
+    caluma_work_item_factory,
+    geometer_required,
+    mocker,
+    settings,
+    so_instance,
+):
+    settings.CONSTRUCTION_MONITORING = {
+        **settings.CONSTRUCTION_MONITORING,
+        "INIT_CONSTRUCTION_MONITORING_TASK": "init-construction-monitoring",
+    }
+
+    work_item = caluma_work_item_factory(
+        task_id="decision",
+        case=so_instance.case,
+    )
+
+    mocker.patch(
+        "camac.caluma.extensions.dynamic_tasks."
+        "domain_logic.DecisionLogic.should_continue_after_decision",
+        return_value=True,
+    )
+
+    master_data_mock = Mock()
+    master_data_mock.geometer_required = geometer_required
+    mocker.patch(
+        "camac.instance.master_data.MasterData.from_case_id",
+        return_value=master_data_mock,
+    )
+
+    tasks = CustomDynamicTasks().resolve_after_decision_so(
+        so_instance.case,
+        None,
+        work_item,
+        None,
+    )
+
+    assert ("geometer" in tasks) is geometer_required
+
+
+@pytest.mark.django_db
+def test_dynamic_task_no_geometer_after_rejected_appeal_so(
+    caluma_work_item_factory,
+    mocker,
+    settings,
+    so_instance,
+):
+    settings.DECISION = {
+        **settings.DECISION,
+        "QUESTIONS": {
+            **settings.DECISION.get("QUESTIONS", {}),
+            "DECISION": "entscheid-entscheid",
+        },
+    }
+    settings.APPEAL = {
+        **settings.APPEAL,
+        "ANSWERS": {
+            **settings.APPEAL.get("ANSWERS", {}),
+            "DECISION": {"CONFIRMED": "appeal-confirmed"},
+        },
+    }
+
+    so_instance.case.meta = {"is-appeal": True}
+    so_instance.case.save(update_fields=["meta"])
+
+    work_item = caluma_work_item_factory(
+        task_id="decision",
+        case=so_instance.case,
+    )
+
+    mocker.patch(
+        "camac.caluma.extensions.dynamic_tasks."
+        "domain_logic.DecisionLogic.should_continue_after_decision",
+        return_value=False,
+    )
+    mocker.patch(
+        "camac.caluma.extensions.dynamic_tasks."
+        "domain_logic.DecisionLogic.get_decision_answer",
+        return_value="appeal-rejected",
+    )
+    master_data_mock = mocker.patch(
+        "camac.instance.master_data.MasterData.from_case_id"
+    )
+
+    tasks = CustomDynamicTasks().resolve_after_decision_so(
+        so_instance.case,
+        None,
+        work_item,
+        None,
+    )
+
+    assert tasks == []
+    master_data_mock.assert_not_called()
 
 
 @pytest.mark.parametrize(
