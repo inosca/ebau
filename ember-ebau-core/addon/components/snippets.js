@@ -73,7 +73,15 @@ export default class SnippetsComponent extends Component {
 
     const { data } = yield response.json();
 
-    this._inputElement.value = this._inputElement.value + data.attributes.body;
+    const currentInput = this._inputElement.value;
+    const newData = data.attributes.body;
+
+    // use line break for textareas (most common use case) and space for text inputs
+    const textDivider = this._inputElement.type === "textarea" ? "\n" : " ";
+
+    this._inputElement.value = currentInput
+      ? `${currentInput}${textDivider}${newData}`
+      : newData;
     this._inputElement.dispatchEvent(new Event("input"));
   }
 
