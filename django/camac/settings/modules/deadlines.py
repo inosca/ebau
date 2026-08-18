@@ -22,5 +22,6 @@ DEADLINES = ModuleConfig[DeadlinesConfig](
         },
         procedure_type=ProcedureTypeConfig(enabled=True),
     ),
+    kt_so=DeadlinesConfig(enabled=True),
     kt_ag=DeadlinesConfig(enabled=True),
 )

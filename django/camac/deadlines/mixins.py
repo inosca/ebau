@@ -15,6 +15,10 @@ class DeadlinePermissionMixin:
         """In GR, deadlines are also enabled for ARE."""
         return ["municipality", ARE_SERVICE_GROUP]
 
+    def allowed_service_groups_so(self):
+        """In SO, deadlines are also enabled for services handling BAB."""
+        return ["municipality", "service-bab"]
+
     def allowed_service_groups_ag(self):
         """
         In AG, deadlines are also enabled for AfB.
