@@ -98,6 +98,9 @@ ACTION_APPLICANT_CONFIRMATION_ADMIN = (
 )
 ACTION_APPLICANT_CONFIRMATION_CONFIRM = RequireWorkItem("submit", "ready")
 
+ACTION_INSTANCE_COPY_AFTER_REJECTION = (
+    RequireInstanceState(["rejected"]) & APPLICANT_ADMIN
+)
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & APPLICANT_ADMIN
 ACTION_INSTANCE_MARK = ROLES_COORDINATION
 ACTION_INSTANCE_SUBMIT = (
@@ -140,6 +143,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("documents-write", MODULE_PORTAL_DOCUMENTS_WRITE),
             ("form-read", MODULE_PORTAL_FORM_READ),
             ("form-write", MODULE_PORTAL_FORM_WRITE),
+            ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
