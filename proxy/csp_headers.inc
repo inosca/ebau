@@ -54,6 +54,7 @@ set $csp_style_inline   "style-src 'self' 'unsafe-inline'";
 set $csp_img_default    "img-src 'self' data: ${csp_external_img_sources}";
 set $csp_connect_src    "connect-src 'self' ${csp_external_connect_sources}";
 set $csp_object_src     "object-src 'self' ${csp_external_img_sources}";
+set $csp_worker_blob    "worker-src 'self' blob:";
 
 # Connect: We need to be able to connect to KC from anywhere for login / token
 # fetch
@@ -161,10 +162,15 @@ set $csp_header_internal "${csp_header_internal}; ${csp_frame_src}";
 
 # Django
 set $csp_header_django "${csp_default_self}";
-# Django admin sadly also requires some inline CSS and inline scripting to work
-set $csp_header_django "${csp_header_django}; ${csp_script_default} 'unsafe-inline'";
+# Django admin also requires some inline CSS and inline scripting to work.
+# The JSON editor runs its syntax check in a web worker which it creates from a
+# blob URL and which imports its own source from a `data:` URL, both of which
+# need to be allowed as well. `worker-src` falls back to `script-src` if it is
+# not set explicitly.
+set $csp_header_django "${csp_header_django}; ${csp_script_default} 'unsafe-inline' data:";
 set $csp_header_django "${csp_header_django}; ${csp_style_src} 'unsafe-inline'";
 set $csp_header_django "${csp_header_django}; ${csp_img_default}";
+set $csp_header_django "${csp_header_django}; ${csp_worker_blob}";
 
 # Silk
 set $csp_header_silk "${csp_default_self}";

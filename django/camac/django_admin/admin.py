@@ -52,22 +52,12 @@ class CategoryAdmin(
     def formfield_for_dbfield(self, db_field, request, **kwargs):
         formfield = super().formfield_for_dbfield(db_field, request, **kwargs)
 
-        # This makes sure that an empty dict is allowed as metainfo
-        if db_field.name == "metainfo":
+        # This makes sure that an empty dict is allowed for `metainfo` and
+        # `allowed_mime_types`
+        if db_field.name in ["metainfo", "allowed_mime_types"]:
             formfield.required = False
-            formfield.empty_value = None
 
         return formfield
-
-    def save_model(self, request, obj, form, change):
-        super().save_model(request, obj, form, change)
-
-        if not obj.allowed_mime_types:
-            # The frontend handles an empty list as "no mime types allowed"
-            # whilst treating a null value as "all mime types allowed" which is
-            # what we normally want
-            obj.allowed_mime_types = None
-            obj.save()
 
 
 @register(Mark)

@@ -95,9 +95,10 @@ class Command(BaseCommand):
             slug=slug,
             name=name,
             description=description,
-            # allowed mime types: If the list is empty, we set it to
-            # None to avoid disallowing everything
-            allowed_mime_types=section.allowed_mime_types or None,
+            # allowed mime types: alexandria maps each allowed mime type to
+            # the file extensions allowed for it, we don't restrict those. An
+            # empty mapping allows any mime type.
+            allowed_mime_types=dict.fromkeys(section.allowed_mime_types),
             color=self._randcolor(),
             parent=None,
             sort=section.sort,

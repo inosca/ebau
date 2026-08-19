@@ -28,7 +28,8 @@
   {{else}}
     <Dropzone
       @multiple={{true}}
-      @allowedMimetypes={{this.allowedMimetypes}}
+      @accept={{this.category.accept}}
+      @validate={{this.validate}}
       @onFileAdded={{perform this.upload}}
       @onValidationError={{this.onValidationError}}
       class="uk-height-1-1"
