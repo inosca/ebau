@@ -4,6 +4,7 @@ endpoint = "http://ember-ebau.localhost"
 [auth]
 endpoint = "http://ebau-keycloak.localhost"
 group_id = 10035
+realm = "ebau"
 
 [[auth.clients]]
 id = "ech-client"
