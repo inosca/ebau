@@ -1,5 +1,6 @@
 from django.db.models import Q
 
+from camac.constants.kt_bern import DEMOLITION_PAYMENT_FORM_SLUG
 from camac.permissions.conditions import (
     Always,
     Callback,
@@ -120,6 +121,7 @@ ROLES_INTERNAL_NO_READONLY = HasRole(
 ROLES_INTERNAL_LEAD = HasRole(["municipality-lead"])
 
 NO_CORRECTION_IN_PROGRESS = ~RequireInstanceState(["correction"])
+DEMOLITION_PAYMENT = IsUnversionedForm([DEMOLITION_PAYMENT_FORM_SLUG])
 PAPER_CREATED_BY_SERVICE_NO_READONLY = (
     IsPaper() & IsCreatedByService() & ROLES_INTERNAL_NO_READONLY
 )
@@ -188,7 +190,9 @@ MODULE_AUDIT_WRITE = (
     & ROLES_INTERNAL_NO_READONLY
 )
 
-MODULE_BILLING_READ = STATES_INTERNAL_NO_CORRECTION & ROLES_INTERNAL_NO_READONLY
+MODULE_BILLING_READ = (
+    STATES_INTERNAL_NO_CORRECTION & ~DEMOLITION_PAYMENT & ROLES_INTERNAL_NO_READONLY
+)
 MODULE_BILLING_WRITE = MODULE_BILLING_READ & ~STATES_AFTER_DECISION
 
 # Note: Construction control is only involved on building permits with
@@ -229,8 +233,9 @@ MODULE_DECISION_READ = RequireWorkItem(
 MODULE_DECISION_READ_LEAD_AUTHORITIES = MODULE_DECISION_READ | RequireWorkItem(
     "decision", WORK_ITEM_STATUS_READY
 )
-MODULE_DECISION_WRITE = (
-    RequireWorkItem("decision", WORK_ITEM_STATUS_READY, True) & ROLES_INTERNAL_LEAD
+MODULE_DECISION_WRITE = RequireWorkItem("decision", WORK_ITEM_STATUS_READY, True) & (
+    (ROLES_INTERNAL_LEAD & ~DEMOLITION_PAYMENT)
+    | (DEMOLITION_PAYMENT & IsService(["agr-bauen"]) & HasRole(["service-lead"]))
 )
 
 # Note: Distribution not available in internal and migrated (RSTA import)
@@ -308,6 +313,7 @@ MODULE_RELATED_GWR_PROJECTS = (
     STATES_INTERNAL_NO_CORRECTION
     & ~RequireInstanceState(["subm"])
     & IsWorkflow([WORKFLOW_BUILDING_PERMIT, WORKFLOW_PRELIMINARY_CLARIFICATION])
+    & ~DEMOLITION_PAYMENT
     & ROLES_INTERNAL_NO_READONLY
 )
 

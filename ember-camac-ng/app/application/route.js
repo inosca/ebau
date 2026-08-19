@@ -7,6 +7,7 @@ import CfSnippetsTextComponent from "ember-ebau-core/components/cf-snippets-text
 import CfSnippetsTextareaComponent from "ember-ebau-core/components/cf-snippets-textarea";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
+import DecisionInfoDemolitionPaymentComponent from "ember-ebau-core/components/decision/info-demolition-payment";
 import DecisionInfoGeometerComponent from "ember-ebau-core/components/decision/info-geometer";
 import DecisionInfoMissingGeometerInvolvementComponent from "ember-ebau-core/components/decision/info-missing-geometer-involvement";
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
@@ -211,6 +212,12 @@ export default class ApplicationRoute extends Route {
       label: "Berechnetes Publikations-Enddatum",
       component: "calculated-publication-date",
       componentClass: CalculatedPublicationDateComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Hinweis Antrag auf Auszahlung",
+      component: "decision/info-demolition-payment",
+      componentClass: DecisionInfoDemolitionPaymentComponent,
     });
   }
 }

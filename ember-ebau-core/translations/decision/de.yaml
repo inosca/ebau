@@ -1,6 +1,7 @@
 decision:
   info:
     geometer: Dieser Gemeinde ist der Nachführungsgeometer <b>{geometer}</b> zugeordnet.
+    demolition-payment: "Placeholder decision text"
 
   submit:
     preliminary-clarification: "Beurteilung abschliessen"
