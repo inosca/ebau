@@ -2,25 +2,19 @@ import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import { isEmpty } from "@ember/utils";
-import Component from "@glimmer/component";
-import { tracked } from "@glimmer/tracking";
 import { restartableTask, timeout } from "ember-concurrency";
 import fetch from "fetch";
 import L from "leaflet";
 
+import MultiPointGisComponent from "ember-ebau-core/components/multi-point-gis";
 import { LV95, LV95_CRS } from "ember-ebau-core/config/gis";
 
 const BOUNDS_RADIUS = 0.001;
 const CENTER = new L.LatLng(47.31057472, 7.70312002);
 
-export default class SoGisMapComponent extends Component {
+export default class SoGisMapComponent extends MultiPointGisComponent {
   @service intl;
   @service notification;
-
-  @tracked markers = [];
-  @tracked selectedGeometry = "POLYGON";
-  @tracked selectedSearchResult = null;
-  @tracked isDirty = false;
 
   map = null;
   crs = LV95_CRS;
@@ -28,24 +22,6 @@ export default class SoGisMapComponent extends Component {
   zoom = 5;
   zoomMin = 5;
   zoomMax = LV95.resolutions.length - 2;
-
-  get geometry() {
-    if (this.markers.length === 1) return "POINT";
-    if (this.markers.length === 2) return "LINESTRING";
-    return this.selectedGeometry;
-  }
-
-  get isPolygon() {
-    return this.geometry === "POLYGON";
-  }
-
-  get showResetButton() {
-    return this.markers.length > 0;
-  }
-
-  get showGeometrySwitch() {
-    return this.markers.length > 2;
-  }
 
   /**
    * Project WGS84 lat/lng (Leaflet's native CRS) to LV95 (EPSG:2056)
@@ -93,39 +69,6 @@ export default class SoGisMapComponent extends Component {
     });
   }
 
-  updateMarkers(markers) {
-    this.markers = markers;
-    this.isDirty = true;
-  }
-
-  restoreMarkers({ markers, geometry }) {
-    this.markers = markers;
-
-    // A POINT is derived from the marker count, so keeping the default here
-    // means adding a third marker still offers the polygon/line switch.
-    if (["POLYGON", "LINESTRING"].includes(geometry)) {
-      this.selectedGeometry = geometry;
-    }
-  }
-
-  @action
-  markApplied() {
-    this.isDirty = false;
-  }
-
-  @action
-  setMapPoint({ latlng }) {
-    if (this.args.disabled) return;
-
-    const previous = this.markers[this.markers.length - 1];
-
-    // A double-click reports the same latlng twice, which would build a
-    // zero-length segment
-    if (previous?.lat === latlng.lat && previous?.lng === latlng.lng) return;
-
-    this.updateMarkers([...this.markers, { lat: latlng.lat, lng: latlng.lng }]);
-  }
-
   @action
   addSearchResultMarker() {
     if (!this.selectedSearchResult) return;
@@ -136,29 +79,6 @@ export default class SoGisMapComponent extends Component {
     this.fitToPoint({ lat, lng });
 
     this.selectedSearchResult = null;
-  }
-
-  @action
-  updateDragged(index, e) {
-    const { lat, lng } = e.target.getLatLng();
-
-    this.updateMarkers(
-      this.markers.map((marker, i) => (i === index ? { lat, lng } : marker)),
-    );
-  }
-
-  @action
-  setGeometry(geometry, event) {
-    event.preventDefault();
-
-    this.selectedGeometry = geometry;
-    this.isDirty = true;
-  }
-
-  @action
-  resetMarkers() {
-    this.updateMarkers([]);
-    this.selectedGeometry = "POLYGON";
   }
 
   willDestroy(...args) {
