@@ -1696,3 +1696,89 @@ def test_submit_send_handler(
     else:
         with pytest.raises(SendHandlerException):
             handler.apply()
+
+
+@pytest.mark.parametrize(
+    ("plan_status", "has_active_step", "completion_status", "expected_permission"),
+    [
+        ("ready", False, None, True),
+        ("completed", True, "ready", False),
+        ("completed", False, "ready", False),
+        ("completed", False, "completed", True),
+    ],
+)
+@pytest.mark.django_db
+def test_close_dossier_send_handler_construction_monitoring_gr(
+    set_application_gr,
+    ech_instance_gr,
+    gr_ech0211_settings,
+    gr_construction_monitoring_settings,
+    gr_caluma_simple_workflow_settings: CalumaSimpleWorkflowConfig,
+    caluma_work_item_factory,
+    instance_state_factory,
+    admin_user,
+    caluma_admin_user,
+    group,
+    plan_status,
+    has_active_step,
+    completion_status,
+    expected_permission,
+):
+    instance_state_factory(name="finished")
+    decided = instance_state_factory(name="decided")
+
+    # simulate instance in state decided, with a ready
+    # "complete-instance" work item.
+    caluma_work_item_factory(
+        case=ech_instance_gr.case,
+        child_case=None,
+        task_id="complete-instance",
+        status=WorkItem.STATUS_READY,
+    )
+    ech_instance_gr.instance_state = decided
+    ech_instance_gr.save()
+
+    caluma_work_item_factory(
+        case=ech_instance_gr.case,
+        task_id=gr_construction_monitoring_settings[
+            "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
+        ],
+        status=plan_status,
+        meta={"construction-step-id": "construction-step-plan-construction-stage"},
+    )
+    if has_active_step:
+        caluma_work_item_factory(
+            case=ech_instance_gr.case,
+            child_case=None,
+            task_id="construction-step-baubeginn",
+            status=WorkItem.STATUS_READY,
+            meta={"construction-step-id": "construction-step-baubeginn"},
+        )
+    if completion_status:
+        caluma_work_item_factory(
+            case=ech_instance_gr.case,
+            child_case=None,
+            task_id=gr_construction_monitoring_settings[
+                "COMPLETE_CONSTRUCTION_MONITORING_TASK"
+            ],
+            status=completion_status,
+        )
+
+    handler = CloseArchiveDossierSendHandler(
+        data=CreateFromDocument(xml_data("close_dossier")),
+        queryset=Instance.objects,
+        user=admin_user,
+        group=group,
+        auth_header=None,
+        caluma_user=caluma_admin_user,
+        request=None,
+    )
+
+    has_permission, _ = handler.has_permission()
+    assert has_permission is expected_permission
+
+    if expected_permission:
+        handler.apply()
+
+        ech_instance_gr.refresh_from_db()
+        assert ech_instance_gr.instance_state.name == "finished"
