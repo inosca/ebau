@@ -36,8 +36,7 @@
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
         "application/vnd.ms-powerpoint": null,
         "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
-        "application/vnd.ms-outlook": null,
-        ".msg": null
+        "application/vnd.ms-outlook": null
       },
       "color": "#2E8501",
       "parent": null,
@@ -218,8 +217,7 @@
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
         "application/vnd.ms-powerpoint": null,
         "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
-        "application/vnd.ms-outlook": null,
-        ".msg": null
+        "application/vnd.ms-outlook": null
       },
       "color": "#006CD1",
       "parent": null,
@@ -263,8 +261,7 @@
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
         "application/vnd.ms-powerpoint": null,
         "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
-        "application/vnd.ms-outlook": null,
-        ".msg": null
+        "application/vnd.ms-outlook": null
       },
       "color": "#92580D",
       "parent": null,

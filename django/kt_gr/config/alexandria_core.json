@@ -45,8 +45,7 @@
         "image/jpeg": null,
         "image/png": null,
         "image/gif": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#CB68C1",
       "parent": null,
@@ -135,8 +134,7 @@
         "image/jpeg": null,
         "image/png": null,
         "image/gif": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#CB68C1",
       "parent": null,
@@ -188,8 +186,7 @@
         "image/jpeg": null,
         "image/png": null,
         "image/gif": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#9CDD69",
       "parent": null,
@@ -214,8 +211,7 @@
         "image/jpeg": null,
         "image/png": null,
         "image/gif": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
@@ -240,8 +236,7 @@
         "image/jpeg": null,
         "image/png": null,
         "image/gif": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
@@ -266,8 +261,7 @@
         "image/jpeg": null,
         "image/png": null,
         "image/gif": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
@@ -292,8 +286,7 @@
         "image/jpeg": null,
         "image/png": null,
         "image/gif": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
@@ -361,8 +354,7 @@
         "image/jpeg": null,
         "image/png": null,
         "image/gif": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#8791EC",
       "parent": null,
@@ -483,9 +475,7 @@
         "application/vnd.ms-powerpoint": null,
         "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
         "application/vnd.ms-outlook": null,
-        ".msg": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#DB8B72",
       "parent": null,
@@ -536,9 +526,7 @@
         "application/vnd.ms-powerpoint": null,
         "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
         "application/vnd.ms-outlook": null,
-        ".msg": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#af6023",
       "parent": null,
@@ -591,7 +579,6 @@
         "application/vnd.ms-powerpoint": null,
         "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
         "application/vnd.ms-outlook": null,
-        ".msg": null,
         "text/plain": null
       },
       "color": "#000000",
@@ -644,8 +631,7 @@
         "image/jpeg": null,
         "image/png": null,
         "image/gif": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#66CFC9",
       "parent": null,

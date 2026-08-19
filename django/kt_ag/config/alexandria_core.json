@@ -540,8 +540,7 @@
         "image/gif": null,
         "application/vnd.ms-excel": null,
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#CB68C1",
       "parent": null,
@@ -1068,9 +1067,7 @@
         "application/vnd.ms-powerpoint": null,
         "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
         "application/vnd.ms-outlook": null,
-        ".msg": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#66CFC9",
       "parent": null,
@@ -1452,8 +1449,7 @@
         "image/gif": null,
         "application/vnd.ms-excel": null,
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#9CDD69",
       "parent": null,
@@ -1480,8 +1476,7 @@
         "image/gif": null,
         "application/vnd.ms-excel": null,
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
@@ -1542,8 +1537,7 @@
         "image/gif": null,
         "application/vnd.ms-excel": null,
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
@@ -1570,8 +1564,7 @@
         "image/gif": null,
         "application/vnd.ms-excel": null,
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
@@ -1598,8 +1591,7 @@
         "image/gif": null,
         "application/vnd.ms-excel": null,
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
@@ -2291,9 +2283,7 @@
         "application/vnd.ms-excel": null,
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
         "application/vnd.ms-outlook": null,
-        ".msg": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#8791EC",
       "parent": null,
@@ -2423,7 +2413,6 @@
         "application/vnd.ms-powerpoint": null,
         "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
         "application/vnd.ms-outlook": null,
-        ".msg": null,
         "video/mp4": null,
         "video/quicktime": null,
         "video/x-msvideo": null,
@@ -2711,9 +2700,7 @@
         "application/vnd.ms-powerpoint": null,
         "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
         "application/vnd.ms-outlook": null,
-        ".msg": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#DB8B72",
       "parent": null,
@@ -3082,8 +3069,7 @@
         "image/gif": null,
         "application/vnd.ms-excel": null,
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
-        "image/vnd.dwg": null,
-        ".dwg": null
+        "image/vnd.dwg": null
       },
       "color": "#9CDD69",
       "parent": null,
