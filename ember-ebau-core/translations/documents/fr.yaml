@@ -41,5 +41,5 @@ documents:
   uploadErrorVirus: Le fichier n'a pas pu être téléchargé car il a été identifié comme défectueux (virus/malware)
   uploadPlansIndividually:
   uploadSuccess: Le fichier a été téléchargé avec succès
-  wrongMimeType: Ce type de fichier n'est pas autorisé. Les types de fichiers autorisés sont PDF, PNG et JPEG.
+  wrongMimeType: Ce type de fichier n'est pas autorisé. Les types de fichiers autorisés sont pdf, png et jpeg.
   wrongMimeTypeWithAllowed: "Ce type de fichier n'est pas autorisé. Les types de fichiers autorisés sont: {allowed}."
