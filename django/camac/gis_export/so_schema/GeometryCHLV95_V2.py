@@ -1,7 +1,7 @@
 # ../../../camac/gis_export/so_schema/GeometryCHLV95_V2.py
 # -*- coding: utf-8 -*-
 # PyXB bindings for NM:2182de60ee9ca86f75f5a00d2f0d3274f8dea653
-# Generated 2026-08-13 13:25:16.304648 by PyXB version 1.2.6 using Python 3.13.3.final.0
+# Generated 2026-08-18 17:22:41.115335 by PyXB version 1.2.6 using Python 3.13.3.final.0
 # Namespace http://www.interlis.ch/xtf/2.4/GeometryCHLV95_V2 [xmlns:GeometryCHLV95_V2]
 
 from __future__ import unicode_literals
@@ -14,7 +14,7 @@ import pyxb.utils.domutils
 import sys
 import pyxb.utils.six as _six
 # Unique identifier for bindings created at the same time
-_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:a2f54d30-8bc1-475c-b11b-e75cb31730ec')
+_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:664cf9e7-5e6f-473a-b35a-8fac28b73864')
 
 # Version of PyXB used to generate the bindings
 _PyXBVersion = '1.2.6'

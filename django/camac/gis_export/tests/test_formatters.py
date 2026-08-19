@@ -55,10 +55,15 @@ def _mandatory_export(instance_id: int, **overrides) -> SOGISExport:
         "ebau_link": f"https://ebau.example/cases/{instance_id}",
         # Satisfies MANDATORY CONSTRAINT DEFINED(Geometrie_Punkt) OR ...
         "plot_point": {"ost": 2607000.5, "nord": 1228500.5},
-        "gesuchsteller": {
-            "natuerliche_person": {"name": "Muster", "vorname": "Reto"},
-            "adresse": {"plz": "4500", "ortschaft": "Solothurn"},
-        },
+        "gesuchsteller": [
+            {
+                "adresse": {
+                    "natuerliche_person": {"name": "Muster", "vorname": "Reto"},
+                    "adresse": {"plz": "4500", "ortschaft": "Solothurn"},
+                },
+                "vertretung": None,
+            }
+        ],
         "grundstuecke": [{"nummer": "1234", "egrid": "CH807306613464"}],
     }
     fields.update(overrides)
@@ -94,7 +99,17 @@ def _full_export(instance_id: int) -> SOGISExport:
             "plz": "4500",
             "ortschaft": "Solothurn",
         },
-        gesuchsteller_vertretung=_person_adresse("Vertretung", "Vera"),
+        # A BAG {1..*}: the first applicant carries a Vertretung, the second none.
+        gesuchsteller=[
+            {
+                "adresse": _person_adresse("Muster", "Reto"),
+                "vertretung": _person_adresse("Vertretung", "Vera"),
+            },
+            {
+                "adresse": _person_adresse("Beispiel", "Bea"),
+                "vertretung": None,
+            },
+        ],
         projektverfasser=_person_adresse("Verfasser", "Peter"),
         rechnungsempfaenger=_person_adresse("Empfaenger", "Rita"),
         grundeigentuemer=_person_adresse("Eigentuemer", "Greta"),
@@ -176,12 +191,9 @@ def test_build_sogis_transfer_xml_with_all_fields(snapshot):
     snapshot.assert_match(_validated(xml))
 
     # This dossier carries a point, so the line and polygon variants are absent.
-    # The representation rides in the nested Gesuchsteller.Vertretung, so the
-    # top-level Gesuchsteller_Vertretung element stays unused.
     assert _unserialized(xml) == {
         "Geometrie_Linie",
         "Geometrie_Flaeche",
-        "Gesuchsteller_Vertretung",
     }
 
 
@@ -474,6 +486,7 @@ def test_child_type_reports_the_available_elements():
 
 def test_build_lets_an_unhandled_shape_surface_as_a_bug():
     """An input the builders do not handle is a bug, not an invalid dossier."""
-    # `gesuchsteller` as a list is a shape no annotation should produce.
+    # A gesuchsteller entry must be a mapping; a bare string is a shape no
+    # annotation produces.
     with pytest.raises(AttributeError):
         build_sogis_transfer_xml([_mandatory_export(1, gesuchsteller=["Muster"])])

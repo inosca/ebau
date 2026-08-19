@@ -237,24 +237,26 @@ def _person_adresse(wrapper: type, data: dict[str, Any] | None) -> Any | None:
     return wrapper(PersonAdresse=person)
 
 
-def _gesuchsteller(
-    adresse: dict[str, Any] | None, vertretung: dict[str, Any] | None
-) -> Any | None:
-    applicant = _person(adresse)
-    if applicant is None:
-        return None
-
-    gesuchsteller = so_schema.Gesuchsteller_Type(
-        Adresse=GESUCHSTELLER_ADRESSE_WRAPPER(PersonAdresse=applicant)
-    )
-
-    representation = _person(vertretung)
-    if representation is not None:
-        gesuchsteller.Vertretung = GESUCHSTELLER_VERTRETUNG_WRAPPER(
-            PersonAdresse=representation
+def _gesuchsteller(entries: list[dict[str, Any]] | None) -> list[Any] | None:
+    # Gesuchsteller is a BAG {1..*}: one entry per Bauherrschaft row, each with
+    # its applicant (Adresse) and, when present, its Vertretung.
+    applicants = []
+    for entry in entries or []:
+        gesuchsteller = so_schema.Gesuchsteller_Type(
+            Adresse=GESUCHSTELLER_ADRESSE_WRAPPER(
+                PersonAdresse=_person(entry.get("adresse"))
+            )
         )
 
-    return GESUCHSTELLER_WRAPPER(Gesuchsteller=gesuchsteller)
+        representation = _person(entry.get("vertretung"))
+        if representation is not None:
+            gesuchsteller.Vertretung = GESUCHSTELLER_VERTRETUNG_WRAPPER(
+                PersonAdresse=representation
+            )
+
+        applicants.append(GESUCHSTELLER_WRAPPER(Gesuchsteller=gesuchsteller))
+
+    return applicants or None
 
 
 def _coordinates(data: dict[str, Any] | None) -> tuple[float, float] | None:
@@ -561,10 +563,7 @@ def _build_geschaeft(export: SOGISExport, tid: str) -> so_schema.GeschaeftType:
 
     for schema_field, value in (
         _geometrie(export),
-        (
-            "Gesuchsteller",
-            _gesuchsteller(export.gesuchsteller, export.gesuchsteller_vertretung),
-        ),
+        ("Gesuchsteller", _gesuchsteller(export.gesuchsteller)),
         (
             "Projektverfasser",
             _person_adresse(PROJEKTVERFASSER_WRAPPER, export.projektverfasser),

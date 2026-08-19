@@ -1,7 +1,7 @@
 # ../../../camac/gis_export/so_schema/SO_DSBJD_eBauSO_Geschaefte_20250422.py
 # -*- coding: utf-8 -*-
 # PyXB bindings for NM:3da224dfcac20d1ee95f94a3b0ad73a86187cc9b
-# Generated 2026-08-13 13:25:16.304838 by PyXB version 1.2.6 using Python 3.13.3.final.0
+# Generated 2026-08-18 17:22:41.115414 by PyXB version 1.2.6 using Python 3.13.3.final.0
 # Namespace http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422
 
 from __future__ import unicode_literals
@@ -14,7 +14,7 @@ import pyxb.utils.domutils
 import sys
 import pyxb.utils.six as _six
 # Unique identifier for bindings created at the same time
-_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:a2f54d30-8bc1-475c-b11b-e75cb31730ec')
+_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:664cf9e7-5e6f-473a-b35a-8fac28b73864')
 
 # Version of PyXB used to generate the bindings
 _PyXBVersion = '1.2.6'
@@ -397,7 +397,7 @@ class STD_ANON_22 (pyxb.binding.datatypes.anyURI):
     """An atomic simple type."""
 
     _ExpandedName = None
-    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 384, 6)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 377, 6)
     _Documentation = None
 STD_ANON_22._CF_maxLength = pyxb.binding.facets.CF_maxLength(value=pyxb.binding.datatypes.nonNegativeInteger(1023))
 STD_ANON_22._InitializeFacetMap(STD_ANON_22._CF_maxLength)
@@ -1167,19 +1167,19 @@ class CTD_ANON_11 (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = None
-    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 334, 6)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 335, 6)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
-    # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}PersonAdresse uses Python identifier PersonAdresse
-    __PersonAdresse = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'PersonAdresse'), 'PersonAdresse', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_CTD_ANON_11_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422PersonAdresse', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 118, 0), )
+    # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Bauprojekt_ uses Python identifier Bauprojekt
+    __Bauprojekt = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Bauprojekt_'), 'Bauprojekt', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_CTD_ANON_11_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Bauprojekt', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 237, 0), )
 
     
-    PersonAdresse = property(__PersonAdresse.value, __PersonAdresse.set, None, None)
+    Bauprojekt = property(__Bauprojekt.value, __Bauprojekt.set, None, None)
 
     _ElementMap.update({
-        __PersonAdresse.name() : __PersonAdresse
+        __Bauprojekt.name() : __Bauprojekt
     })
     _AttributeMap.update({
         
@@ -1199,14 +1199,14 @@ class CTD_ANON_12 (pyxb.binding.basis.complexTypeDefinition):
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
-    # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Bauprojekt_ uses Python identifier Bauprojekt
-    __Bauprojekt = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Bauprojekt_'), 'Bauprojekt', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_CTD_ANON_12_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Bauprojekt', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 237, 0), )
+    # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Grundstueck uses Python identifier Grundstueck
+    __Grundstueck = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Grundstueck'), 'Grundstueck', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_CTD_ANON_12_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Grundstueck', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 177, 0), )
 
     
-    Bauprojekt = property(__Bauprojekt.value, __Bauprojekt.set, None, None)
+    Grundstueck = property(__Grundstueck.value, __Grundstueck.set, None, None)
 
     _ElementMap.update({
-        __Bauprojekt.name() : __Bauprojekt
+        __Grundstueck.name() : __Grundstueck
     })
     _AttributeMap.update({
         
@@ -1226,14 +1226,14 @@ class CTD_ANON_13 (pyxb.binding.basis.complexTypeDefinition):
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
-    # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Grundstueck uses Python identifier Grundstueck
-    __Grundstueck = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Grundstueck'), 'Grundstueck', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_CTD_ANON_13_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Grundstueck', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 177, 0), )
+    # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Entscheid_ uses Python identifier Entscheid
+    __Entscheid = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Entscheid_'), 'Entscheid', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_CTD_ANON_13_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Entscheid', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 163, 0), )
 
     
-    Grundstueck = property(__Grundstueck.value, __Grundstueck.set, None, None)
+    Entscheid = property(__Entscheid.value, __Entscheid.set, None, None)
 
     _ElementMap.update({
-        __Grundstueck.name() : __Grundstueck
+        __Entscheid.name() : __Entscheid
     })
     _AttributeMap.update({
         
@@ -1253,14 +1253,14 @@ class CTD_ANON_14 (pyxb.binding.basis.complexTypeDefinition):
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
-    # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Entscheid_ uses Python identifier Entscheid
-    __Entscheid = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Entscheid_'), 'Entscheid', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_CTD_ANON_14_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Entscheid', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 163, 0), )
+    # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Auflage_ uses Python identifier Auflage
+    __Auflage = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Auflage_'), 'Auflage', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_CTD_ANON_14_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Auflage', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 170, 0), )
 
     
-    Entscheid = property(__Entscheid.value, __Entscheid.set, None, None)
+    Auflage = property(__Auflage.value, __Auflage.set, None, None)
 
     _ElementMap.update({
-        __Entscheid.name() : __Entscheid
+        __Auflage.name() : __Auflage
     })
     _AttributeMap.update({
         
@@ -1280,14 +1280,14 @@ class CTD_ANON_15 (pyxb.binding.basis.complexTypeDefinition):
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
     
-    # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Auflage_ uses Python identifier Auflage
-    __Auflage = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Auflage_'), 'Auflage', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_CTD_ANON_15_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Auflage', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 170, 0), )
+    # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Zustaendigkeit uses Python identifier Zustaendigkeit
+    __Zustaendigkeit = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Zustaendigkeit'), 'Zustaendigkeit', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_CTD_ANON_15_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Zustaendigkeit', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 33, 0), )
 
     
-    Auflage = property(__Auflage.value, __Auflage.set, None, None)
+    Zustaendigkeit = property(__Zustaendigkeit.value, __Zustaendigkeit.set, None, None)
 
     _ElementMap.update({
-        __Auflage.name() : __Auflage
+        __Zustaendigkeit.name() : __Zustaendigkeit
     })
     _AttributeMap.update({
         
@@ -1320,33 +1320,6 @@ class CTD_ANON_16 (pyxb.binding.basis.complexTypeDefinition):
         
     })
 _module_typeBindings.CTD_ANON_16 = CTD_ANON_16
-
-
-# Complex type [anonymous] with content type ELEMENT_ONLY
-class CTD_ANON_17 (pyxb.binding.basis.complexTypeDefinition):
-    """Complex type [anonymous] with content type ELEMENT_ONLY"""
-    _TypeDefinition = None
-    _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
-    _Abstract = False
-    _ExpandedName = None
-    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 377, 6)
-    _ElementMap = {}
-    _AttributeMap = {}
-    # Base type is pyxb.binding.datatypes.anyType
-    
-    # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Zustaendigkeit uses Python identifier Zustaendigkeit
-    __Zustaendigkeit = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Zustaendigkeit'), 'Zustaendigkeit', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_CTD_ANON_17_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Zustaendigkeit', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 33, 0), )
-
-    
-    Zustaendigkeit = property(__Zustaendigkeit.value, __Zustaendigkeit.set, None, None)
-
-    _ElementMap.update({
-        __Zustaendigkeit.name() : __Zustaendigkeit
-    })
-    _AttributeMap.update({
-        
-    })
-_module_typeBindings.CTD_ANON_17 = CTD_ANON_17
 
 
 # Complex type {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}GeschaeftType with content type ELEMENT_ONLY
@@ -1418,91 +1391,84 @@ class GeschaeftType (pyxb.binding.basis.complexTypeDefinition):
 
     
     # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Gesuchsteller uses Python identifier Gesuchsteller
-    __Gesuchsteller = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Gesuchsteller'), 'Gesuchsteller', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Gesuchsteller', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 305, 4), )
+    __Gesuchsteller = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Gesuchsteller'), 'Gesuchsteller', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Gesuchsteller', True, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 305, 4), )
 
     
     Gesuchsteller = property(__Gesuchsteller.value, __Gesuchsteller.set, None, None)
 
     
-    # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Gesuchsteller_Vertretung uses Python identifier Gesuchsteller_Vertretung
-    __Gesuchsteller_Vertretung = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Gesuchsteller_Vertretung'), 'Gesuchsteller_Vertretung', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Gesuchsteller_Vertretung', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 312, 4), )
-
-    
-    Gesuchsteller_Vertretung = property(__Gesuchsteller_Vertretung.value, __Gesuchsteller_Vertretung.set, None, None)
-
-    
     # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Projektverfasser uses Python identifier Projektverfasser
-    __Projektverfasser = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Projektverfasser'), 'Projektverfasser', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Projektverfasser', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 319, 4), )
+    __Projektverfasser = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Projektverfasser'), 'Projektverfasser', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Projektverfasser', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 312, 4), )
 
     
     Projektverfasser = property(__Projektverfasser.value, __Projektverfasser.set, None, None)
 
     
     # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Rechnungsempfaenger uses Python identifier Rechnungsempfaenger
-    __Rechnungsempfaenger = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Rechnungsempfaenger'), 'Rechnungsempfaenger', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Rechnungsempfaenger', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 326, 4), )
+    __Rechnungsempfaenger = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Rechnungsempfaenger'), 'Rechnungsempfaenger', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Rechnungsempfaenger', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 319, 4), )
 
     
     Rechnungsempfaenger = property(__Rechnungsempfaenger.value, __Rechnungsempfaenger.set, None, None)
 
     
     # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Grundeigentuemer uses Python identifier Grundeigentuemer
-    __Grundeigentuemer = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Grundeigentuemer'), 'Grundeigentuemer', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Grundeigentuemer', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 333, 4), )
+    __Grundeigentuemer = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Grundeigentuemer'), 'Grundeigentuemer', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Grundeigentuemer', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 326, 4), )
 
     
     Grundeigentuemer = property(__Grundeigentuemer.value, __Grundeigentuemer.set, None, None)
 
     
     # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}ausserhalb_Bauzone uses Python identifier ausserhalb_Bauzone
-    __ausserhalb_Bauzone = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'ausserhalb_Bauzone'), 'ausserhalb_Bauzone', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422ausserhalb_Bauzone', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 340, 4), )
+    __ausserhalb_Bauzone = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'ausserhalb_Bauzone'), 'ausserhalb_Bauzone', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422ausserhalb_Bauzone', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 333, 4), )
 
     
     ausserhalb_Bauzone = property(__ausserhalb_Bauzone.value, __ausserhalb_Bauzone.set, None, None)
 
     
     # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Bauprojekt uses Python identifier Bauprojekt
-    __Bauprojekt = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Bauprojekt'), 'Bauprojekt', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Bauprojekt', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 341, 4), )
+    __Bauprojekt = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Bauprojekt'), 'Bauprojekt', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Bauprojekt', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 334, 4), )
 
     
     Bauprojekt = property(__Bauprojekt.value, __Bauprojekt.set, None, None)
 
     
     # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Grundstuecke uses Python identifier Grundstuecke
-    __Grundstuecke = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Grundstuecke'), 'Grundstuecke', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Grundstuecke', True, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 348, 4), )
+    __Grundstuecke = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Grundstuecke'), 'Grundstuecke', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Grundstuecke', True, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 341, 4), )
 
     
     Grundstuecke = property(__Grundstuecke.value, __Grundstuecke.set, None, None)
 
     
     # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Entscheid_Leitbehoerde uses Python identifier Entscheid_Leitbehoerde
-    __Entscheid_Leitbehoerde = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Entscheid_Leitbehoerde'), 'Entscheid_Leitbehoerde', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Entscheid_Leitbehoerde', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 355, 4), )
+    __Entscheid_Leitbehoerde = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Entscheid_Leitbehoerde'), 'Entscheid_Leitbehoerde', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Entscheid_Leitbehoerde', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 348, 4), )
 
     
     Entscheid_Leitbehoerde = property(__Entscheid_Leitbehoerde.value, __Entscheid_Leitbehoerde.set, None, None)
 
     
     # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Auflage uses Python identifier Auflage
-    __Auflage = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Auflage'), 'Auflage', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Auflage', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 362, 4), )
+    __Auflage = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Auflage'), 'Auflage', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Auflage', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 355, 4), )
 
     
     Auflage = property(__Auflage.value, __Auflage.set, None, None)
 
     
     # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Zirkulation uses Python identifier Zirkulation
-    __Zirkulation = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Zirkulation'), 'Zirkulation', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Zirkulation', True, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 369, 4), )
+    __Zirkulation = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Zirkulation'), 'Zirkulation', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Zirkulation', True, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 362, 4), )
 
     
     Zirkulation = property(__Zirkulation.value, __Zirkulation.set, None, None)
 
     
     # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}Zustaendige_Personen uses Python identifier Zustaendige_Personen
-    __Zustaendige_Personen = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Zustaendige_Personen'), 'Zustaendige_Personen', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Zustaendige_Personen', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 376, 4), )
+    __Zustaendige_Personen = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'Zustaendige_Personen'), 'Zustaendige_Personen', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422Zustaendige_Personen', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 369, 4), )
 
     
     Zustaendige_Personen = property(__Zustaendige_Personen.value, __Zustaendige_Personen.set, None, None)
 
     
     # Element {http://www.interlis.ch/xtf/2.4/SO_DSBJD_eBauSO_Geschaefte_20250422}eBau_Link uses Python identifier eBau_Link
-    __eBau_Link = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'eBau_Link'), 'eBau_Link', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422eBau_Link', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 383, 4), )
+    __eBau_Link = pyxb.binding.content.ElementDeclaration(pyxb.namespace.ExpandedName(Namespace, 'eBau_Link'), 'eBau_Link', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422eBau_Link', False, pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 376, 4), )
 
     
     eBau_Link = property(__eBau_Link.value, __eBau_Link.set, None, None)
@@ -1511,7 +1477,7 @@ class GeschaeftType (pyxb.binding.basis.complexTypeDefinition):
     # Attribute {http://www.interlis.ch/xtf/2.4/INTERLIS}tid uses Python identifier tid
     __tid = pyxb.binding.content.AttributeUse(pyxb.namespace.ExpandedName(_Namespace_INTERLIS, 'tid'), 'tid', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaeftType_httpwww_interlis_chxtf2_4INTERLIStid', _ImportedBinding_camac_gis_export_so_schema_INTERLIS.tidType, required=True)
     __tid._DeclarationLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/INTERLIS.xsd', 17, 2)
-    __tid._UseLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 391, 2)
+    __tid._UseLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 384, 2)
     
     tid = property(__tid.value, __tid.set, None, None)
 
@@ -1525,7 +1491,6 @@ class GeschaeftType (pyxb.binding.basis.complexTypeDefinition):
         __Lokalisation.name() : __Lokalisation,
         __Status.name() : __Status,
         __Gesuchsteller.name() : __Gesuchsteller,
-        __Gesuchsteller_Vertretung.name() : __Gesuchsteller_Vertretung,
         __Projektverfasser.name() : __Projektverfasser,
         __Rechnungsempfaenger.name() : __Rechnungsempfaenger,
         __Grundeigentuemer.name() : __Grundeigentuemer,
@@ -1552,7 +1517,7 @@ class GeschaefteType (pyxb.binding.basis.complexTypeDefinition):
     _ContentTypeTag = pyxb.binding.basis.complexTypeDefinition._CT_ELEMENT_ONLY
     _Abstract = False
     _ExpandedName = pyxb.namespace.ExpandedName(Namespace, 'GeschaefteType')
-    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 394, 0)
+    _XSDLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 387, 0)
     _ElementMap = {}
     _AttributeMap = {}
     # Base type is pyxb.binding.datatypes.anyType
@@ -1567,7 +1532,7 @@ class GeschaefteType (pyxb.binding.basis.complexTypeDefinition):
     # Attribute {http://www.interlis.ch/xtf/2.4/INTERLIS}bid uses Python identifier bid
     __bid = pyxb.binding.content.AttributeUse(pyxb.namespace.ExpandedName(_Namespace_INTERLIS, 'bid'), 'bid', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaefteType_httpwww_interlis_chxtf2_4INTERLISbid', _ImportedBinding_camac_gis_export_so_schema_INTERLIS.bidType, required=True)
     __bid._DeclarationLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/INTERLIS.xsd', 21, 2)
-    __bid._UseLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 398, 2)
+    __bid._UseLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 391, 2)
     
     bid = property(__bid.value, __bid.set, None, None)
 
@@ -1575,7 +1540,7 @@ class GeschaefteType (pyxb.binding.basis.complexTypeDefinition):
     # Attribute {http://www.interlis.ch/xtf/2.4/INTERLIS}consistency uses Python identifier consistency
     __consistency = pyxb.binding.content.AttributeUse(pyxb.namespace.ExpandedName(_Namespace_INTERLIS, 'consistency'), 'consistency', '__httpwww_interlis_chxtf2_4SO_DSBJD_eBauSO_Geschaefte_20250422_GeschaefteType_httpwww_interlis_chxtf2_4INTERLISconsistency', _ImportedBinding_camac_gis_export_so_schema_INTERLIS.consistencyType)
     __consistency._DeclarationLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/INTERLIS.xsd', 22, 2)
-    __consistency._UseLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 399, 2)
+    __consistency._UseLocation = pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 392, 2)
     
     consistency = property(__consistency.value, __consistency.set, None, None)
 
@@ -1626,7 +1591,7 @@ Namespace.addCategoryObject('elementBinding', Bauprojekt.name().localName(), Bau
 Geschaeft = pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Geschaeft'), GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 269, 0))
 Namespace.addCategoryObject('elementBinding', Geschaeft.name().localName(), Geschaeft)
 
-Geschaefte = pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Geschaefte'), GeschaefteType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 393, 0))
+Geschaefte = pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Geschaefte'), GeschaefteType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 386, 0))
 Namespace.addCategoryObject('elementBinding', Geschaefte.name().localName(), Geschaefte)
 
 
@@ -2415,7 +2380,7 @@ CTD_ANON_10._Automaton = _BuildAutomaton_21()
 
 
 
-CTD_ANON_11._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'PersonAdresse'), PersonAdresseType, scope=CTD_ANON_11, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 118, 0)))
+CTD_ANON_11._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Bauprojekt_'), Bauprojekt_Type, scope=CTD_ANON_11, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 237, 0)))
 
 def _BuildAutomaton_22 ():
     # Remove this helper function from the namespace after it is invoked
@@ -2426,7 +2391,7 @@ def _BuildAutomaton_22 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(CTD_ANON_11._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'PersonAdresse')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 336, 10))
+    symbol = pyxb.binding.content.ElementUse(CTD_ANON_11._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Bauprojekt_')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 337, 10))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -2437,7 +2402,7 @@ CTD_ANON_11._Automaton = _BuildAutomaton_22()
 
 
 
-CTD_ANON_12._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Bauprojekt_'), Bauprojekt_Type, scope=CTD_ANON_12, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 237, 0)))
+CTD_ANON_12._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Grundstueck'), GrundstueckType, scope=CTD_ANON_12, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 177, 0)))
 
 def _BuildAutomaton_23 ():
     # Remove this helper function from the namespace after it is invoked
@@ -2448,7 +2413,7 @@ def _BuildAutomaton_23 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(CTD_ANON_12._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Bauprojekt_')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 344, 10))
+    symbol = pyxb.binding.content.ElementUse(CTD_ANON_12._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Grundstueck')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 344, 10))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -2459,7 +2424,7 @@ CTD_ANON_12._Automaton = _BuildAutomaton_23()
 
 
 
-CTD_ANON_13._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Grundstueck'), GrundstueckType, scope=CTD_ANON_13, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 177, 0)))
+CTD_ANON_13._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Entscheid_'), Entscheid_Type, scope=CTD_ANON_13, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 163, 0)))
 
 def _BuildAutomaton_24 ():
     # Remove this helper function from the namespace after it is invoked
@@ -2470,7 +2435,7 @@ def _BuildAutomaton_24 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(CTD_ANON_13._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Grundstueck')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 351, 10))
+    symbol = pyxb.binding.content.ElementUse(CTD_ANON_13._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Entscheid_')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 351, 10))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -2481,7 +2446,7 @@ CTD_ANON_13._Automaton = _BuildAutomaton_24()
 
 
 
-CTD_ANON_14._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Entscheid_'), Entscheid_Type, scope=CTD_ANON_14, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 163, 0)))
+CTD_ANON_14._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Auflage_'), Auflage_Type, scope=CTD_ANON_14, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 170, 0)))
 
 def _BuildAutomaton_25 ():
     # Remove this helper function from the namespace after it is invoked
@@ -2492,7 +2457,7 @@ def _BuildAutomaton_25 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(CTD_ANON_14._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Entscheid_')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 358, 10))
+    symbol = pyxb.binding.content.ElementUse(CTD_ANON_14._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Auflage_')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 358, 10))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -2503,7 +2468,7 @@ CTD_ANON_14._Automaton = _BuildAutomaton_25()
 
 
 
-CTD_ANON_15._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Auflage_'), Auflage_Type, scope=CTD_ANON_15, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 170, 0)))
+CTD_ANON_15._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Zustaendigkeit'), ZustaendigkeitType, scope=CTD_ANON_15, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 33, 0)))
 
 def _BuildAutomaton_26 ():
     # Remove this helper function from the namespace after it is invoked
@@ -2514,7 +2479,7 @@ def _BuildAutomaton_26 ():
     counters = set()
     states = []
     final_update = set()
-    symbol = pyxb.binding.content.ElementUse(CTD_ANON_15._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Auflage_')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 365, 10))
+    symbol = pyxb.binding.content.ElementUse(CTD_ANON_15._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Zustaendigkeit')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 365, 10))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -2547,28 +2512,6 @@ CTD_ANON_16._Automaton = _BuildAutomaton_27()
 
 
 
-CTD_ANON_17._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Zustaendigkeit'), ZustaendigkeitType, scope=CTD_ANON_17, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 33, 0)))
-
-def _BuildAutomaton_28 ():
-    # Remove this helper function from the namespace after it is invoked
-    global _BuildAutomaton_28
-    del _BuildAutomaton_28
-    import pyxb.utils.fac as fac
-
-    counters = set()
-    states = []
-    final_update = set()
-    symbol = pyxb.binding.content.ElementUse(CTD_ANON_17._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Zustaendigkeit')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 379, 10))
-    st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
-    states.append(st_0)
-    transitions = []
-    st_0._set_transitionSet(transitions)
-    return fac.Automaton(states, counters, False, containing_state=None)
-CTD_ANON_17._Automaton = _BuildAutomaton_28()
-
-
-
-
 GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Identifikator'), STD_ANON_19, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 272, 4)))
 
 GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'BFSNr'), STD_ANON_20, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 279, 4)))
@@ -2587,34 +2530,32 @@ GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName
 
 GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Gesuchsteller'), CTD_ANON_7, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 305, 4)))
 
-GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Gesuchsteller_Vertretung'), CTD_ANON_8, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 312, 4)))
+GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Projektverfasser'), CTD_ANON_8, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 312, 4)))
 
-GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Projektverfasser'), CTD_ANON_9, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 319, 4)))
+GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Rechnungsempfaenger'), CTD_ANON_9, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 319, 4)))
 
-GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Rechnungsempfaenger'), CTD_ANON_10, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 326, 4)))
+GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Grundeigentuemer'), CTD_ANON_10, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 326, 4)))
 
-GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Grundeigentuemer'), CTD_ANON_11, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 333, 4)))
+GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'ausserhalb_Bauzone'), pyxb.binding.datatypes.boolean, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 333, 4)))
 
-GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'ausserhalb_Bauzone'), pyxb.binding.datatypes.boolean, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 340, 4)))
+GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Bauprojekt'), CTD_ANON_11, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 334, 4)))
 
-GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Bauprojekt'), CTD_ANON_12, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 341, 4)))
+GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Grundstuecke'), CTD_ANON_12, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 341, 4)))
 
-GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Grundstuecke'), CTD_ANON_13, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 348, 4)))
+GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Entscheid_Leitbehoerde'), CTD_ANON_13, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 348, 4)))
 
-GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Entscheid_Leitbehoerde'), CTD_ANON_14, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 355, 4)))
+GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Auflage'), CTD_ANON_14, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 355, 4)))
 
-GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Auflage'), CTD_ANON_15, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 362, 4)))
+GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Zirkulation'), CTD_ANON_15, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 362, 4)))
 
-GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Zirkulation'), CTD_ANON_16, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 369, 4)))
+GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Zustaendige_Personen'), CTD_ANON_16, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 369, 4)))
 
-GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Zustaendige_Personen'), CTD_ANON_17, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 376, 4)))
+GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'eBau_Link'), STD_ANON_22, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 376, 4)))
 
-GeschaeftType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'eBau_Link'), STD_ANON_22, scope=GeschaeftType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 383, 4)))
-
-def _BuildAutomaton_29 ():
+def _BuildAutomaton_28 ():
     # Remove this helper function from the namespace after it is invoked
-    global _BuildAutomaton_29
-    del _BuildAutomaton_29
+    global _BuildAutomaton_28
+    del _BuildAutomaton_28
     import pyxb.utils.fac as fac
 
     counters = set()
@@ -2634,18 +2575,16 @@ def _BuildAutomaton_29 ():
     counters.add(cc_6)
     cc_7 = fac.CounterCondition(min=0, max=1, metadata=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 333, 4))
     counters.add(cc_7)
-    cc_8 = fac.CounterCondition(min=0, max=1, metadata=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 340, 4))
+    cc_8 = fac.CounterCondition(min=0, max=1, metadata=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 334, 4))
     counters.add(cc_8)
-    cc_9 = fac.CounterCondition(min=0, max=1, metadata=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 341, 4))
+    cc_9 = fac.CounterCondition(min=0, max=1, metadata=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 348, 4))
     counters.add(cc_9)
     cc_10 = fac.CounterCondition(min=0, max=1, metadata=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 355, 4))
     counters.add(cc_10)
-    cc_11 = fac.CounterCondition(min=0, max=1, metadata=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 362, 4))
+    cc_11 = fac.CounterCondition(min=0, max=None, metadata=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 362, 4))
     counters.add(cc_11)
-    cc_12 = fac.CounterCondition(min=0, max=None, metadata=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 369, 4))
+    cc_12 = fac.CounterCondition(min=0, max=1, metadata=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 369, 4))
     counters.add(cc_12)
-    cc_13 = fac.CounterCondition(min=0, max=1, metadata=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 376, 4))
-    counters.add(cc_13)
     states = []
     final_update = None
     symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Identifikator')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 272, 4))
@@ -2684,53 +2623,49 @@ def _BuildAutomaton_29 ():
     st_8 = fac.State(symbol, is_initial=False, final_update=final_update, is_unordered_catenation=False)
     states.append(st_8)
     final_update = None
-    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Gesuchsteller_Vertretung')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 312, 4))
+    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Projektverfasser')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 312, 4))
     st_9 = fac.State(symbol, is_initial=False, final_update=final_update, is_unordered_catenation=False)
     states.append(st_9)
     final_update = None
-    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Projektverfasser')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 319, 4))
+    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Rechnungsempfaenger')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 319, 4))
     st_10 = fac.State(symbol, is_initial=False, final_update=final_update, is_unordered_catenation=False)
     states.append(st_10)
     final_update = None
-    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Rechnungsempfaenger')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 326, 4))
+    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Grundeigentuemer')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 326, 4))
     st_11 = fac.State(symbol, is_initial=False, final_update=final_update, is_unordered_catenation=False)
     states.append(st_11)
     final_update = None
-    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Grundeigentuemer')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 333, 4))
+    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'ausserhalb_Bauzone')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 333, 4))
     st_12 = fac.State(symbol, is_initial=False, final_update=final_update, is_unordered_catenation=False)
     states.append(st_12)
     final_update = None
-    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'ausserhalb_Bauzone')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 340, 4))
+    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Bauprojekt')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 334, 4))
     st_13 = fac.State(symbol, is_initial=False, final_update=final_update, is_unordered_catenation=False)
     states.append(st_13)
     final_update = None
-    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Bauprojekt')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 341, 4))
+    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Grundstuecke')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 341, 4))
     st_14 = fac.State(symbol, is_initial=False, final_update=final_update, is_unordered_catenation=False)
     states.append(st_14)
     final_update = None
-    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Grundstuecke')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 348, 4))
+    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Entscheid_Leitbehoerde')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 348, 4))
     st_15 = fac.State(symbol, is_initial=False, final_update=final_update, is_unordered_catenation=False)
     states.append(st_15)
     final_update = None
-    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Entscheid_Leitbehoerde')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 355, 4))
+    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Auflage')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 355, 4))
     st_16 = fac.State(symbol, is_initial=False, final_update=final_update, is_unordered_catenation=False)
     states.append(st_16)
     final_update = None
-    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Auflage')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 362, 4))
+    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Zirkulation')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 362, 4))
     st_17 = fac.State(symbol, is_initial=False, final_update=final_update, is_unordered_catenation=False)
     states.append(st_17)
     final_update = None
-    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Zirkulation')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 369, 4))
+    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Zustaendige_Personen')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 369, 4))
     st_18 = fac.State(symbol, is_initial=False, final_update=final_update, is_unordered_catenation=False)
     states.append(st_18)
-    final_update = None
-    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Zustaendige_Personen')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 376, 4))
+    final_update = set()
+    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'eBau_Link')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 376, 4))
     st_19 = fac.State(symbol, is_initial=False, final_update=final_update, is_unordered_catenation=False)
     states.append(st_19)
-    final_update = set()
-    symbol = pyxb.binding.content.ElementUse(GeschaeftType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'eBau_Link')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 383, 4))
-    st_20 = fac.State(symbol, is_initial=False, final_update=final_update, is_unordered_catenation=False)
-    states.append(st_20)
     transitions = []
     transitions.append(fac.Transition(st_1, [
          ]))
@@ -2792,6 +2727,8 @@ def _BuildAutomaton_29 ():
          ]))
     st_7._set_transitionSet(transitions)
     transitions = []
+    transitions.append(fac.Transition(st_8, [
+         ]))
     transitions.append(fac.Transition(st_9, [
          ]))
     transitions.append(fac.Transition(st_10, [
@@ -2803,8 +2740,6 @@ def _BuildAutomaton_29 ():
     transitions.append(fac.Transition(st_13, [
          ]))
     transitions.append(fac.Transition(st_14, [
-         ]))
-    transitions.append(fac.Transition(st_15, [
          ]))
     st_8._set_transitionSet(transitions)
     transitions = []
@@ -2820,8 +2755,6 @@ def _BuildAutomaton_29 ():
         fac.UpdateInstruction(cc_4, False) ]))
     transitions.append(fac.Transition(st_14, [
         fac.UpdateInstruction(cc_4, False) ]))
-    transitions.append(fac.Transition(st_15, [
-        fac.UpdateInstruction(cc_4, False) ]))
     st_9._set_transitionSet(transitions)
     transitions = []
     transitions.append(fac.Transition(st_10, [
@@ -2834,8 +2767,6 @@ def _BuildAutomaton_29 ():
         fac.UpdateInstruction(cc_5, False) ]))
     transitions.append(fac.Transition(st_14, [
         fac.UpdateInstruction(cc_5, False) ]))
-    transitions.append(fac.Transition(st_15, [
-        fac.UpdateInstruction(cc_5, False) ]))
     st_10._set_transitionSet(transitions)
     transitions = []
     transitions.append(fac.Transition(st_11, [
@@ -2846,8 +2777,6 @@ def _BuildAutomaton_29 ():
         fac.UpdateInstruction(cc_6, False) ]))
     transitions.append(fac.Transition(st_14, [
         fac.UpdateInstruction(cc_6, False) ]))
-    transitions.append(fac.Transition(st_15, [
-        fac.UpdateInstruction(cc_6, False) ]))
     st_11._set_transitionSet(transitions)
     transitions = []
     transitions.append(fac.Transition(st_12, [
@@ -2856,24 +2785,16 @@ def _BuildAutomaton_29 ():
         fac.UpdateInstruction(cc_7, False) ]))
     transitions.append(fac.Transition(st_14, [
         fac.UpdateInstruction(cc_7, False) ]))
-    transitions.append(fac.Transition(st_15, [
-        fac.UpdateInstruction(cc_7, False) ]))
     st_12._set_transitionSet(transitions)
     transitions = []
     transitions.append(fac.Transition(st_13, [
         fac.UpdateInstruction(cc_8, True) ]))
     transitions.append(fac.Transition(st_14, [
         fac.UpdateInstruction(cc_8, False) ]))
-    transitions.append(fac.Transition(st_15, [
-        fac.UpdateInstruction(cc_8, False) ]))
     st_13._set_transitionSet(transitions)
     transitions = []
     transitions.append(fac.Transition(st_14, [
-        fac.UpdateInstruction(cc_9, True) ]))
-    transitions.append(fac.Transition(st_15, [
-        fac.UpdateInstruction(cc_9, False) ]))
-    st_14._set_transitionSet(transitions)
-    transitions = []
+         ]))
     transitions.append(fac.Transition(st_15, [
          ]))
     transitions.append(fac.Transition(st_16, [
@@ -2884,8 +2805,18 @@ def _BuildAutomaton_29 ():
          ]))
     transitions.append(fac.Transition(st_19, [
          ]))
-    transitions.append(fac.Transition(st_20, [
-         ]))
+    st_14._set_transitionSet(transitions)
+    transitions = []
+    transitions.append(fac.Transition(st_15, [
+        fac.UpdateInstruction(cc_9, True) ]))
+    transitions.append(fac.Transition(st_16, [
+        fac.UpdateInstruction(cc_9, False) ]))
+    transitions.append(fac.Transition(st_17, [
+        fac.UpdateInstruction(cc_9, False) ]))
+    transitions.append(fac.Transition(st_18, [
+        fac.UpdateInstruction(cc_9, False) ]))
+    transitions.append(fac.Transition(st_19, [
+        fac.UpdateInstruction(cc_9, False) ]))
     st_15._set_transitionSet(transitions)
     transitions = []
     transitions.append(fac.Transition(st_16, [
@@ -2896,8 +2827,6 @@ def _BuildAutomaton_29 ():
         fac.UpdateInstruction(cc_10, False) ]))
     transitions.append(fac.Transition(st_19, [
         fac.UpdateInstruction(cc_10, False) ]))
-    transitions.append(fac.Transition(st_20, [
-        fac.UpdateInstruction(cc_10, False) ]))
     st_16._set_transitionSet(transitions)
     transitions = []
     transitions.append(fac.Transition(st_17, [
@@ -2906,46 +2835,36 @@ def _BuildAutomaton_29 ():
         fac.UpdateInstruction(cc_11, False) ]))
     transitions.append(fac.Transition(st_19, [
         fac.UpdateInstruction(cc_11, False) ]))
-    transitions.append(fac.Transition(st_20, [
-        fac.UpdateInstruction(cc_11, False) ]))
     st_17._set_transitionSet(transitions)
     transitions = []
     transitions.append(fac.Transition(st_18, [
         fac.UpdateInstruction(cc_12, True) ]))
     transitions.append(fac.Transition(st_19, [
         fac.UpdateInstruction(cc_12, False) ]))
-    transitions.append(fac.Transition(st_20, [
-        fac.UpdateInstruction(cc_12, False) ]))
     st_18._set_transitionSet(transitions)
     transitions = []
-    transitions.append(fac.Transition(st_19, [
-        fac.UpdateInstruction(cc_13, True) ]))
-    transitions.append(fac.Transition(st_20, [
-        fac.UpdateInstruction(cc_13, False) ]))
     st_19._set_transitionSet(transitions)
-    transitions = []
-    st_20._set_transitionSet(transitions)
     return fac.Automaton(states, counters, False, containing_state=None)
-GeschaeftType._Automaton = _BuildAutomaton_29()
+GeschaeftType._Automaton = _BuildAutomaton_28()
 
 
 
 
 GeschaefteType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(Namespace, 'Geschaeft'), GeschaeftType, scope=GeschaefteType, location=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 269, 0)))
 
-def _BuildAutomaton_30 ():
+def _BuildAutomaton_29 ():
     # Remove this helper function from the namespace after it is invoked
-    global _BuildAutomaton_30
-    del _BuildAutomaton_30
+    global _BuildAutomaton_29
+    del _BuildAutomaton_29
     import pyxb.utils.fac as fac
 
     counters = set()
-    cc_0 = fac.CounterCondition(min=0, max=None, metadata=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 395, 2))
+    cc_0 = fac.CounterCondition(min=0, max=None, metadata=pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 388, 2))
     counters.add(cc_0)
     states = []
     final_update = set()
     final_update.add(fac.UpdateInstruction(cc_0, False))
-    symbol = pyxb.binding.content.ElementUse(GeschaefteType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Geschaeft')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 396, 4))
+    symbol = pyxb.binding.content.ElementUse(GeschaefteType._UseForTag(pyxb.namespace.ExpandedName(Namespace, 'Geschaeft')), pyxb.utils.utility.Location('/home/susumo/projects/camac-ng/django/camac/gis_export/so_schema/xsd/SO_DSBJD_eBauSO_Geschaefte_20250422.xsd', 389, 4))
     st_0 = fac.State(symbol, is_initial=True, final_update=final_update, is_unordered_catenation=False)
     states.append(st_0)
     transitions = []
@@ -2953,5 +2872,5 @@ def _BuildAutomaton_30 ():
         fac.UpdateInstruction(cc_0, True) ]))
     st_0._set_transitionSet(transitions)
     return fac.Automaton(states, counters, True, containing_state=None)
-GeschaefteType._Automaton = _BuildAutomaton_30()
+GeschaefteType._Automaton = _BuildAutomaton_29()
 
