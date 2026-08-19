@@ -47,7 +47,7 @@
       @minZoom={{this.minZoom}}
       @onLoad={{this.handleLoad}}
       @onZoomend={{this.onZoomend}}
-      @onClick={{unless @disabled this.updateMarkers}}
+      @onClick={{unless @disabled this.setMapPoint}}
       class="uk-width-1-1 uk-height-large uk-margin"
       as |map|
     >
@@ -118,6 +118,7 @@
           @disabled={{not this.markers}}
           @params={{hash query=this.query form=this.rootForm}}
           @instanceId={{@context.instanceId}}
+          @onApplied={{this.onApplied}}
         />
       </div>
     {{/unless}}
@@ -142,3 +143,9 @@
   </div>
 
 </div>
+{{#if this.isDirty}}
+  <div class="uk-alert-warning" uk-alert>
+    <button type="button" class="uk-alert-close" uk-close></button>
+    <p>{{t "gis.not-applied"}}</p>
+  </div>
+{{/if}}

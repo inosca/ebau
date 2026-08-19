@@ -1,11 +1,10 @@
-import { A } from "@ember/array";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
-import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task, timeout } from "ember-concurrency";
 import html2canvas from "html2canvas";
 
+import MultiPointGisComponent from "ember-ebau-core/components/multi-point-gis";
 import {
   LatLngToEPSG2056,
   EPSG2056toLatLng,
@@ -44,14 +43,11 @@ function addLabel(feature) {
   return { label, ...feature };
 }
 
-export default class GrGisComponent extends Component {
+export default class GrGisComponent extends MultiPointGisComponent {
   @service intl;
   @service store;
 
-  @tracked markers = A([]);
   @tracked searchHighlight;
-  @tracked selectedGeometry = "POLYGON";
-  @tracked selectedSearchResult;
   @tracked zoom = 9;
 
   lat = 46.681363;
@@ -135,7 +131,7 @@ export default class GrGisComponent extends Component {
     } else {
       const coords = EPSG2056toLatLng(feature.geometry.coordinates);
       this.map.setView(coords, 19);
-      this.markers = [coords];
+      this.updateMarkers([coords]);
     }
   }
 
@@ -150,68 +146,29 @@ export default class GrGisComponent extends Component {
     if (!this.args.field.answer.value) {
       return;
     }
-    const { markers, geometry } = JSON.parse(this.args.field.answer.value);
-    this.markers = markers.map((marker) =>
+    const value = JSON.parse(this.args.field.answer.value);
+    const markers = value.markers.map((marker) =>
       EPSG2056toLatLng([marker.x, marker.y]),
     );
-    this.selectedGeometry = geometry;
+    this.restoreMarkers({ markers, geometry: value.geometry });
     map.target.fitBounds(this.markers, { padding: [20, 20] });
   }
 
   @action
-  updateMarkers(e) {
+  setMapPoint(e) {
     this.searchHighlight = null;
-    // Do not use .push here as it breaks reactivity
-    this.markers = [...this.markers, { lat: e.latlng.lat, lng: e.latlng.lng }];
-  }
-
-  get geometry() {
-    if (this.markers.length === 1) {
-      return "POINT";
-    }
-    if (this.markers.length === 2) {
-      return "LINESTRING";
-    }
-    return this.selectedGeometry;
+    super.setMapPoint(e);
   }
 
   @action
-  updateDragged(point, e) {
-    const { lat, lng } = e.target.getLatLng();
-    this.markers[point] = { lat, lng };
-    this.markers = [...this.markers];
-  }
-
-  @action
-  setGeometry(geometry, event) {
-    event.preventDefault();
-    this.selectedGeometry = geometry;
-  }
-
-  get isPolygon() {
-    return this.selectedGeometry === "POLYGON";
-  }
-
-  get showResetButton() {
-    return this.markers.length > 0;
-  }
-
-  get showGeometrySwitch() {
-    return this.markers.length > 2;
-  }
-
-  @action
-  async resetMarkers() {
-    this.markers = [];
+  resetMarkers() {
+    super.resetMarkers();
     this.searchHighlight = [];
-    this.selectedGeometry = "POLYGON";
-    const field = this.args.field;
-    field.answer.value = null;
-    await field.save.perform();
   }
 
   @action
-  async onSelection() {
+  async onApplied() {
+    super.onApplied();
     const currentZoom = this.map.getZoom();
     const targetZoom = this.maxZoom - 1;
 

@@ -1,10 +1,9 @@
-import { A } from "@ember/array";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
-import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task, timeout } from "ember-concurrency";
 
+import MultiPointGisComponent from "ember-ebau-core/components/multi-point-gis";
 import {
   boxToBounds,
   EPSG2056toLatLng,
@@ -43,13 +42,10 @@ function getFormattedLabel(feature) {
   return label;
 }
 
-export default class AgGisComponent extends Component {
+export default class AgGisComponent extends MultiPointGisComponent {
   @service intl;
 
-  @tracked markers = A([]);
   @tracked searchHighlight;
-  @tracked selectedGeometry = "POLYGON";
-  @tracked selectedSearchResult;
   @tracked zoom = 10;
 
   lat = 47.397051;
@@ -115,7 +111,7 @@ export default class AgGisComponent extends Component {
     this.selectedSearchResult = feature;
     const coords = { lat: feature.attrs.lat, lng: feature.attrs.lon };
     this.map.fitBounds(boxToBounds(feature.attrs.geom_st_box2d));
-    this.markers = [coords];
+    this.updateMarkers([coords]);
   }
 
   @action
@@ -129,64 +125,27 @@ export default class AgGisComponent extends Component {
     if (!this.args.field.answer.value) {
       return;
     }
-    const { markers, geometry } = JSON.parse(this.args.field.answer.value);
-    this.markers = markers.map((marker) =>
+    const value = JSON.parse(this.args.field.answer.value);
+    const markers = value.markers.map((marker) =>
       EPSG2056toLatLng([marker.x, marker.y]),
     );
-    this.selectedGeometry = geometry;
+    this.restoreMarkers({ markers, geometry: value.geometry });
     map.target.fitBounds(this.markers, { padding: [20, 20] });
   }
 
   @action
-  updateMarkers(e) {
+  setMapPoint(e) {
     this.searchHighlight = null;
-    this.markers = [];
-    this.markers.push({ lat: e.latlng.lat, lng: e.latlng.lng });
-  }
-
-  get geometry() {
-    if (this.markers.length === 1) {
-      return "POINT";
-    }
-    if (this.markers.length === 2) {
-      return "LINESTRING";
-    }
-    return this.selectedGeometry;
-  }
-
-  @action
-  updateDragged(point, e) {
-    const location = e.target._latlng;
-    this.markers
-      .removeAt(point)
-      .insertAt(point, { lat: location.lat, lng: location.lng });
-  }
-
-  @action
-  setGeometry(geometry, event) {
-    event.preventDefault();
-    this.selectedGeometry = geometry;
-  }
-
-  get isPolygon() {
-    return this.selectedGeometry === "POLYGON";
-  }
-
-  get showResetButton() {
-    return this.markers.length > 0;
-  }
-
-  get showGeometrySwitch() {
-    return this.markers.length > 2;
+    // AG only wants single point but this code is written for
+    // multi point. So we reset before each new point to force
+    // only one point at a time.
+    this.resetMarkers();
+    super.setMapPoint(e);
   }
 
   @action
   async resetMarkers() {
-    this.markers = [];
+    super.resetMarkers();
     this.searchHighlight = [];
-    this.selectedGeometry = "POLYGON";
-    const field = this.args.field;
-    field.answer.value = null;
-    await field.save.perform();
   }
 }
