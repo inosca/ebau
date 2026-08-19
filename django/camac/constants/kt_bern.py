@@ -74,6 +74,7 @@ CAMAC_SUPPORT_GROUP = 10000
 
 # Forms
 DASHBOARD_FORM_SLUG = "dashboard"
+DEMOLITION_PAYMENT_FORM_SLUG = "antrag-auf-auszahlung"
 
 # Questions
 QUESTION_EBAU_NR_EXISTS = 20034

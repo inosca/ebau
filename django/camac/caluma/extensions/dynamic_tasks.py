@@ -17,7 +17,11 @@ from camac.caluma.extensions.events.construction_monitoring import (
 )
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import date_to_deadline
-from camac.constants import kt_ag as ag_constants, kt_gr as gr_constants
+from camac.constants import (
+    kt_ag as ag_constants,
+    kt_bern as bern_constants,
+    kt_gr as gr_constants,
+)
 from camac.core.utils import canton_aware
 from camac.instance import domain_logic
 from camac.instance.domain_logic.construction_monitoring import (
@@ -463,6 +467,12 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     @register_dynamic_task("after-ebau-number")
     def resolve_after_ebau_number(self, case, user, prev_work_item, context):
+        if (
+            get_unversioned_slug(case.document.form_id)
+            == bern_constants.DEMOLITION_PAYMENT_FORM_SLUG
+        ):
+            return ["distribution", "audit"]
+
         tasks = [
             "distribution",
             "audit",
