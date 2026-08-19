@@ -1,6 +1,7 @@
 import json
 import sys
-from typing import Any, Generator
+from collections.abc import Generator
+from typing import Any
 from xml.dom.minidom import parseString
 
 import tomllib
@@ -40,8 +41,10 @@ def login(session: Session, client_id: str, client_secret: str) -> Session:
 
     print(f" > logging in as: {client_id} using secret {client_secret}")
 
+    endpoint = config["auth"]["endpoint"]
+    realm = config["auth"]["realm"]
     response = session.post(
-        f"{config['auth']['endpoint']}/auth/realms/ebau/protocol/openid-connect/token",
+        f"{endpoint}/auth/realms/{realm}/protocol/openid-connect/token",
         data={
             "grant_type": "client_credentials",
             "scope": "openid",
@@ -52,7 +55,9 @@ def login(session: Session, client_id: str, client_secret: str) -> Session:
     )
 
     response.raise_for_status()
-    token = response.json()["access_token"]
+
+    resp_data = response.json()
+    token = resp_data["access_token"]
     session.headers.update(
         {
             "authorization": f"Bearer {token}",
