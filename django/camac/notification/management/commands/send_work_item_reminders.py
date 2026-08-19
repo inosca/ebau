@@ -28,13 +28,13 @@ def render_service_template(
     addressed_overdue, addressed_not_viewed, controlling_overdue, service
 ):
     if settings.APPLICATION.get("IS_MULTILINGUAL"):
-        name = service.trans.filter(language="de").first().name
+        name_de = service.get_name(lang="de")
     else:
-        name = service.name
+        name_de = service.name
 
     text = f"""Guten Tag
 
-Ihre Organisation ({name}) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation ({name_de}) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - {addressed_overdue} überfällige {get_task_trans(addressed_overdue, "de")}
 - {addressed_not_viewed} ungelesene {get_task_trans(addressed_not_viewed, "de")}
@@ -46,7 +46,7 @@ Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 """
 
     if settings.APPLICATION.get("IS_MULTILINGUAL", False):
-        name_fr = service.trans.filter(language="fr").first().name
+        name_fr = service.get_name(lang="fr")
         text = (
             text
             + f"""
