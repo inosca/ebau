@@ -24,9 +24,6 @@ if (macroCondition(getOwnConfig().application === "be")) {
 const sharedConfig = {
   name: getOwnConfig().application,
   maxDossierImportSize: 1500000000, // 1.5GB
-  attachments: {
-    allowedMimetypes: ["image/png", "image/jpeg", "application/pdf"],
-  },
   servicePermissions: {
     includeSubRoutes: [
       { route: "permissions" },
