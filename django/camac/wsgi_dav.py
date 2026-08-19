@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
 
 from camac.wsgi_common import get_dav_application, setup_environment
 
-setup_environment()
+setup_environment(is_dav=True)
 wsgi_dav = get_dav_application()
 
 

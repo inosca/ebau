@@ -11,6 +11,6 @@ from django.core.wsgi import get_wsgi_application
 
 from camac.wsgi_common import setup_environment
 
-setup_environment()
+setup_environment(is_dav=False)
 
 application = get_wsgi_application()
