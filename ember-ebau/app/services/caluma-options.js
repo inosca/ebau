@@ -163,6 +163,9 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           municipality: {
             label: "distribution.municipalities",
           },
+          geometer: {
+            label: "distribution.geometer",
+          },
         };
       }
 
@@ -179,6 +182,9 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         },
         municipality: {
           label: "distribution.municipalities",
+        },
+        geometer: {
+          label: "distribution.geometer",
         },
       };
     }

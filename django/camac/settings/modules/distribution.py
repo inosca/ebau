@@ -2,6 +2,7 @@ from datetime import timedelta
 
 from django.utils.translation import gettext_lazy as _
 
+from camac.settings.env import env
 from camac.utils import (
     has_permission_for_inquiry_answer_document,
     has_permission_for_inquiry_document,
@@ -272,6 +273,14 @@ DISTRIBUTION = {
                                 "service",
                                 "authority-bab",
                                 "uso",
+                                *(
+                                    ["geometer"]
+                                    if env.bool(
+                                        "CONSTRUCTION_MONITORING_ENABLED",
+                                        default=False,
+                                    )
+                                    else []
+                                ),
                             ],
                         )
                     ]
