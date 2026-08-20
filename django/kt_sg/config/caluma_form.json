@@ -240,6 +240,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "dokumente",
+    "fields": {
+      "created_at": "2026-08-20T14:34:29.021Z",
+      "modified_at": "2026-08-20T14:34:32.043Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Dokumente\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "durchgefuehrte-voranfragen",
     "fields": {
       "created_at": "2026-03-17T12:32:52.499Z",
@@ -1789,7 +1807,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "allgemeine-informationen",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -1804,7 +1822,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "bauvorhaben-formular",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -1820,6 +1838,21 @@
       "form": "baugesuch",
       "question": "bestaetigung",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch.dokumente-formular",
+    "fields": {
+      "created_at": "2026-08-20T14:34:54.950Z",
+      "modified_at": "2026-08-20T14:34:54.950Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch",
+      "question": "dokumente-formular",
+      "sort": 3
     }
   },
   {
@@ -1849,7 +1882,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "gewerbe-und-industrie-formular",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -1864,7 +1897,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "spezialformulare-formular",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -2420,6 +2453,21 @@
       "form": "brennstoff-fuer-raumwaerme-tabelle",
       "question": "typenpruefung-kvu-nr",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2026-08-20T14:37:52.602Z",
+      "modified_at": "2026-08-20T14:37:52.602Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "dokumente-platzhalter",
+      "sort": 1
     }
   },
   {
@@ -8495,6 +8543,23 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dokumente-platzhalter-ja",
+    "fields": {
+      "created_at": "2026-08-20T14:37:52.390Z",
+      "modified_at": "2026-08-20T14:37:52.390Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Platzhalter\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -14615,6 +14680,78 @@
         "min_length": null
       },
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-formular",
+    "fields": {
+      "created_at": "2026-08-20T14:34:54.713Z",
+      "modified_at": "2026-08-20T14:36:45.909Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "alexandria-documents-form",
+        "alexandria-categories": [
+          "beilagen-zum-gesuch-grundstuecksangaben",
+          "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+          "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+          "beilagen-zum-gesuch-weitere-gesuchsunterlagen"
+        ]
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-platzhalter",
+    "fields": {
+      "created_at": "2026-08-20T14:37:52.486Z",
+      "modified_at": "2026-08-20T14:37:57.103Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente Platzhalter\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25433,6 +25570,21 @@
       "modified_by_group": null,
       "question": "dampferzeugung",
       "option": "dampferzeugung-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dokumente-platzhalter.dokumente-platzhalter-ja",
+    "fields": {
+      "created_at": "2026-08-20T14:37:57.110Z",
+      "modified_at": "2026-08-20T14:37:57.110Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "dokumente-platzhalter",
+      "option": "dokumente-platzhalter-ja",
       "sort": 1
     }
   },
