@@ -554,7 +554,7 @@
     "pk": "decision-submit",
     "fields": {
       "created_at": "2023-06-21T10:36:14.796Z",
-      "modified_at": "2024-09-11T14:58:33.103Z",
+      "modified_at": "2026-08-20T14:44:22.559Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -565,7 +565,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Haben Sie den Entscheid im Menü \\\"Dokumente\\\" unter der Kategorie “alle Beteiligten” hochgeladen und möchten Sie den Entscheid jetzt verfügen? Dieser Schritt kann nicht rückgängig gemacht werden.\\n<br><br>\\nAnsonsten können Sie unter \\\"Vorlagen\\\" den Entscheid generieren. Nachdem der Entscheid unter \\\"Dokumente\\\" abgelegt wurde, kann dieser verfügt werden.\", \"fr\": null, \"it\": \"Ha caricato la decisione nel menu «Documenti» alla voce «Tutte le persone coinvolte» e ora vuole disporre la decisione? Questo passaggio non può essere annullato.\\n<br><br>\\nAltrimenti può generare la decisione alla voce «Modelli». Dopo che la decisione è stata salvata sotto «Documenti», è possibile disporre la decisione.\"}",
+      "info_text": "{\"de\": \"Bitte prüfen Sie vor dem Verfügen des Entscheids die Vollständigkeit der Dokumente. Stellen Sie sicher, dass unter «Dokumente» → «Alle Beteiligten» alle Dokumente abgelegt sind, die den Gesuchstellenden mit dem Entscheid zur Verfügung gestellt werden müssen. Dazu gehören insbesondere:\\n<br><br>\\n<ul>\\n  <li>die Baubewilligung bzw. der Entscheid der Gemeinde</li>\\n  <li>relevante BAB-Bewilligungen</li>\\n  <li>Zusatzbewilligungen beteiligter Behörden oder Fachstellen</li>\\n  <li>Rechnungen und weitere relevante Dokumente (ausgenommen Entscheiddokumente)</li>\\n</ul>\\nDokumente von beteiligten Behörden müssen bei Bedarf vor dem Verfügen nach «Alle Beteiligten» verschoben werden.\\n<br><br>\\n<strong>Wichtig:</strong> Mit «OK» wird der Entscheid verfügt. Dieser Schritt kann nicht rückgängig gemacht werden. Danach können Dokumente nicht mehr verschoben oder als Entscheiddokumente gekennzeichnet werden.\", \"fr\": null, \"it\": \"Prima di emettere la decisione, si prega di verificare che la documentazione sia completa. Assicurarsi che nella sezione «Documenti» → «Tutte le parti coinvolte» siano archiviati tutti i documenti che devono essere messi a disposizione dei richiedenti insieme alla decisione. Tra questi figurano in particolare:\\n<br><br>\\n<ul>\\n  <li>la licenza edilizia o la decisione del Comune</li>\\n  <li>i permessi BAB pertinenti</li>\\n  <li>autorizzazioni supplementari delle autorità o degli uffici/servizi coinvolti</li>\\n  <li>fatture e altri documenti rilevanti (ad eccezione dei documenti relativi alla decisione)</li>\\n</ul>\\nSe necessario, i documenti delle autorità coinvolte devono essere spostati nella cartella «Tutte le parti coinvolte» prima dell’emissione della decisione.\\n<br><br>\\n<strong>Importante:</strong> cliccando su «OK» si emette la decisione. Questa operazione non può essere annullata. Successivamente non sarà più possibile spostare i documenti né contrassegnarli come documenti relativi alla decisione.\"}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
