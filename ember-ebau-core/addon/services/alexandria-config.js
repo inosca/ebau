@@ -215,4 +215,13 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   enableOriginalDocumentFilename = hasFeature(
     "alexandria.originalDocumentFilename",
   );
+  // Must be kept in sync with the `customMimeTypes` of the alexandria config
+  // service in `ember-caluma-portal`, which doesn't extend this service.
+  customMimeTypes = {
+    "application/vnd.ms-outlook": ["msg"],
+    "application/geopackage+sqlite3": ["gpkg"],
+    // txt needs to be first in order to be the extension that is returned when
+    // calling `mime.getExtension("text/plain")`
+    "text/plain": ["txt", "ili"],
+  };
 }

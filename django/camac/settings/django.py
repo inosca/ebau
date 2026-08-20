@@ -3481,6 +3481,11 @@ ALEXANDRIA_DMS_URL = env.str(
     "ALEXANDRIA_DMS_URL",
     default="http://document-merge-service:8000/document-merge-service/api/v1",
 )
+ALEXANDRIA_CUSTOM_MIME_TYPES = {
+    "application/vnd.ms-outlook": ["msg"],
+    "application/geopackage+sqlite3": ["gpkg"],
+    "text/plain": ["ili"],
+}
 
 
 # Celery

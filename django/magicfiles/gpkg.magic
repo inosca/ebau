@@ -1,0 +1,30 @@
+#------------------------------------------------------------------------------
+# $File: gpkg $
+# gpkg: file(1) magic for OGC GeoPackage -- a SQLite 3 database with a
+# fixed application_id (offset 68, big endian) and the spec version in
+# user_version (offset 60).  Requirement 2 / Requirement 2a of the standard.
+#   "GP10" 0x47503130   GeoPackage 1.0
+#   "GP11" 0x47503131   GeoPackage 1.1
+#   "GPKG" 0x47504B47   GeoPackage 1.2 and later
+# URL:       https://www.geopackage.org/spec/
+# Reference: https://www.iana.org/assignments/media-types/application/geopackage+sqlite3
+#
+0	string		SQLite\ format\ 3
+# beat the generic SQLite 3 entry in Magdir/sql, which has the same magic
+!:strength	+10
+>68	string		GP10		OGC GeoPackage 1.0 database
+!:mime	application/geopackage+sqlite3
+!:ext	gpkg
+>68	string		GP11		OGC GeoPackage 1.1 database
+!:mime	application/geopackage+sqlite3
+!:ext	gpkg
+>68	string		GPKG		OGC GeoPackage
+!:mime	application/geopackage+sqlite3
+!:ext	gpkg
+>>60	ubelong		10200		1.2 database
+>>60	ubelong		10201		1.2.1 database
+>>60	ubelong		10300		1.3 database
+>>60	ubelong		10301		1.3.1 database
+>>60	ubelong		10400		1.4 database
+>>60	default		x		database
+>>>60	ubelong		>0		\b, user version %u

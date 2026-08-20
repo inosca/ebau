@@ -59,9 +59,11 @@ RUN \
   # Fix ImageMagick policy for creating thumbnails
   && sed -i '/<\/policymap>/i \  <policy domain="coder" rights="read | write" pattern="PDF" />' /etc/ImageMagick-7/policy.xml
 
-# Fix magic definitions for MS Office files
-COPY ms_office_magicfile /tmp/ms_office_magicfile
-RUN cat /tmp/ms_office_magicfile >> /etc/magic
+# Fix magic definitions for MS Office files and add detection of GPKG
+COPY magicfiles /tmp/magicfiles
+RUN \
+  cat /tmp/magicfiles/docx.magic >> /etc/magic && \
+  cat /tmp/magicfiles/gpkg.magic >> /etc/magic
 
 WORKDIR $APP_HOME
 

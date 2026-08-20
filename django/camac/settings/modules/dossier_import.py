@@ -162,6 +162,6 @@ DOSSIER_IMPORT = {
             "DONE": "finished",
         },
         "FORM_ID": 1,
-        "ALEXANDRIA_CATEGORY": "intern",
+        "ALEXANDRIA_CATEGORY": "migrierte-dokumente",
     },
 }
