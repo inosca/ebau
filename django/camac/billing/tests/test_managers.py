@@ -96,3 +96,103 @@ def test_billing_entry_manager_ag(
     queryset = BillingV2Entry.objects.visible_for(service)
 
     assert set(queryset.values_list("text", flat=True)) == expected
+
+
+@pytest.mark.parametrize("is_subservice", [False, True])
+@pytest.mark.parametrize(
+    ("service_group_slug", "expected"),
+    [
+        (
+            "municipality",
+            {"own", "own-subservice", "municipality", "municipality-subservice"},
+        ),
+        (
+            "coordination",
+            {
+                "own",
+                "own-subservice",
+                "coordination",
+                "coordination-subservice",
+                "cantonal",
+                "cantonal-subservice",
+            },
+        ),
+        (
+            "service-cantonal",
+            {
+                "own",
+                "own-subservice",
+                "coordination",
+                "coordination-subservice",
+                "cantonal",
+                "cantonal-subservice",
+            },
+        ),
+        ("service-external", {"own", "own-subservice"}),
+        ("service-federal", {"own", "own-subservice"}),
+    ],
+)
+@pytest.mark.django_db
+def test_billing_entry_manager_sg(
+    application_settings,
+    billing_v2_entry_factory,
+    expected,
+    group_factory,
+    is_subservice,
+    service_factory,
+    service_group_factory,
+    service_group_slug,
+    set_application_sg,
+):
+    service_groups = {
+        slug: service_group_factory(slug=slug)
+        for slug in [
+            "municipality",
+            "coordination",
+            "service-cantonal",
+            "service-external",
+            "service-federal",
+        ]
+    }
+
+    def create_service_with_subservice(slug):
+        service = service_factory(service_group=service_groups[slug])
+        return service, service_factory(
+            service_parent=service, service_group=service.service_group
+        )
+
+    service, own_subservice = create_service_with_subservice(service_group_slug)
+    coordination, coordination_subservice = create_service_with_subservice(
+        "coordination"
+    )
+    cantonal, cantonal_subservice = create_service_with_subservice("service-cantonal")
+    municipality, municipality_subservice = create_service_with_subservice(
+        "municipality"
+    )
+    external, external_subservice = create_service_with_subservice("service-external")
+
+    for text, creator in [
+        ("own", service),
+        ("own-subservice", own_subservice),
+        ("coordination", coordination),
+        ("coordination-subservice", coordination_subservice),
+        ("cantonal", cantonal),
+        ("cantonal-subservice", cantonal_subservice),
+        ("municipality", municipality),
+        ("municipality-subservice", municipality_subservice),
+        ("external", external),
+        ("external-subservice", external_subservice),
+    ]:
+        billing_v2_entry_factory(
+            text=text,
+            group=group_factory(service=creator),
+        )
+
+    # Subservices only see their own entries, regardless of their service group
+    viewer = own_subservice if is_subservice else service
+    if is_subservice:
+        expected = {"own-subservice"}
+
+    queryset = BillingV2Entry.objects.visible_for(viewer)
+
+    assert set(queryset.values_list("text", flat=True)) == expected

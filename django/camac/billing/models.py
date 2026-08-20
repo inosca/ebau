@@ -2,6 +2,7 @@ from typing import Self
 from uuid import uuid4
 
 from django.db import models
+from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
 from camac.core.utils import canton_aware
@@ -141,6 +142,44 @@ class BillingV2EntryQuerySet(models.QuerySet["BillingV2Entry"]):
             return self.filter(group__service__service_group__name="municipality")
 
         return self.none()
+
+    def visible_for_sg(self, service: Service | None) -> Self:
+        """Return billing entries visible for a given service (Kt. SG).
+
+        Subservices only ever see their own entries. For all other services
+        the visibility depends on their service group:
+
+        - Coordination (KSB) and cantonal services see all entries of
+          coordination and cantonal services including their subservices.
+        - Municipalities see all entries of municipalities and their
+          subservices.
+        - All other services (currently external and federal ones) only see
+          their own entries and those of their subservices.
+
+        Args:
+            service: The service to return the visible billing entries for.
+
+        Returns:
+            The billing entries visible for the given service.
+        """
+        if not service:  # pragma: no cover
+            return self.none()
+
+        if service.service_parent:
+            return self.filter(group__service=service)
+        elif service.service_group.slug in ["coordination", "service-cantonal"]:
+            return self.filter(
+                group__service__service_group__slug__in=[
+                    "coordination",
+                    "service-cantonal",
+                ]
+            )
+        elif service.service_group.slug == "municipality":
+            return self.filter(group__service__service_group__slug="municipality")
+
+        return self.filter(
+            Q(group__service=service) | Q(group__service__service_parent=service)
+        )
 
 
 class BillingV2Entry(BillingV2CommonEntry):
