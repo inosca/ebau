@@ -4,7 +4,7 @@
     "pk": "06932c9d-af09-7edb-8000-e13653a7e3b4",
     "fields": {
       "created_at": "2025-12-05T12:02:34.940Z",
-      "modified_at": "2026-08-12T06:35:57.925Z",
+      "modified_at": "2026-08-18T12:38:08.330Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -21,7 +21,7 @@
     "pk": "3a9d3dc8-f770-4115-8be8-92ef8cbcecfa",
     "fields": {
       "created_at": "2023-08-04T11:57:21.660Z",
-      "modified_at": "2026-08-12T06:36:13.342Z",
+      "modified_at": "2026-08-18T12:37:37.186Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -255,7 +255,7 @@
     "pk": "beginn-publikation-kantonsamtsblatt",
     "fields": {
       "created_at": "2023-06-26T07:57:48.612Z",
-      "modified_at": "2026-08-12T06:34:31.901Z",
+      "modified_at": "2026-08-18T12:35:46.701Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -266,8 +266,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Die Publikation im Kantonsamtsblatt muss weiterhin ausserhalb eBau ausgeführt werden. Das Datumsfeld dient nur zu Dokumentationszwecken.<br>\\nFür die Publikation im BAB-Verfahren steht unter Vorlagen die <strong>«DE Publikationsvorlage Baugesuch»</strong> zur Verfügung. Dieses Dokument muss anschliessend per E-Mail an die zuständige E-Mail-Adresse versendet werden.\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Die Publikation im Kantonsamtsblatt muss weiterhin ausserhalb eBau ausgeführt werden. Das Datumsfeld dient nur zu Dokumentationszwecken.<br>\\nFür die Publikation im BAB-Verfahren steht unter Vorlagen die <strong>«DE Publikationsvorlage Baugesuch»</strong> zur Verfügung. Dieses Dokument muss anschliessend per E-Mail an die zuständige E-Mail-Adresse versendet werden.\", \"fr\": null, \"it\": \"La pubblicazione nel Foglio ufficiale cantonale deve continuare ad avvenire al di fuori di eBau. Il campo della data serve esclusivamente a scopi di documentazione.\\n<br>\\nPer la pubblicazione nella procedura EFZ, sotto «Modelli», è disponibile il modulo <strong>«IT Modulo di pubblicazione della domanda di costruzione»</strong>. Questo documento deve poi essere inviato per e-mail all'indirizzo e-mail indicato nel modello.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -289,7 +289,7 @@
     "pk": "beginn-publikationsorgan-gemeinde",
     "fields": {
       "created_at": "2023-06-26T07:52:09.957Z",
-      "modified_at": "2026-08-12T06:33:08.463Z",
+      "modified_at": "2026-08-18T12:32:47.919Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -300,8 +300,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Das Eintragen der Daten dient zur Dokumentation. Soll das Baugesuch digital öffentlich aufgelegt werden, kann die Option «Baugesuch inkl. Dokumente in eBau publizieren» angewählt werden.<br>\\nDie Gemeinde kann den Beginn der öffentlichen Auflage festlegen. Dieses Datum definiert den Zeitraum der öffentlichen Auflage auf der eBau-Plattform im Bürgerportal.<br>\\nVor der Veröffentlichung müssen im Dokumentenmodul die relevanten Dokumente mit dem Publikationsstempel definiert werden.<br>\\nLink: [https://ebau.gr.ch/oeffentliche-auflage](https://ebau.gr.ch/oeffentliche-auflage)\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Das Eintragen der Daten dient zur Dokumentation. Soll das Baugesuch digital öffentlich aufgelegt werden, kann die Option «Baugesuch inkl. Dokumente in eBau publizieren» angewählt werden.<br>\\nDie Gemeinde kann den Beginn der öffentlichen Auflage festlegen. Dieses Datum definiert den Zeitraum der öffentlichen Auflage auf der eBau-Plattform im Bürgerportal.<br>\\nVor der Veröffentlichung müssen im Dokumentenmodul die relevanten Dokumente mit dem Publikationsstempel definiert werden.<br>\\nLink: [https://ebau.gr.ch/oeffentliche-auflage](https://ebau.gr.ch/oeffentliche-auflage)\", \"fr\": null, \"it\": \"L'inserimento dei dati serve alla documentazione. Se la domanda di costruzione deve essere esposta pubblicamente in forma digitale, è possibile selezionare l'opzione «Pubblica in eBau la domanda di costruzione incl. documenti».<br>\\nIl Comune può stabilire l'inizio dell'esposizione pubblica. Questa data definisce il periodo dell'esposizione pubblica sulla piattaforma eBau nel portale per i cittadini.<br>\\nPrima della pubblicazione, nel modulo dei documenti devono essere definiti i documenti rilevanti mediante il timbro di pubblicazione.<br>\\nLink: [https://ebau.gr.ch/esposizione-pubblica](https://ebau.gr.ch/esposizione-pubblica)\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -322,7 +322,7 @@
     "pk": "ende-publikation-kantonsamtsblatt",
     "fields": {
       "created_at": "2023-06-26T07:59:59.303Z",
-      "modified_at": "2026-08-12T06:34:56.737Z",
+      "modified_at": "2026-08-18T12:35:13.186Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -333,8 +333,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Dieses Datum definiert das Ende der Publikation im Kantonsamtsblatt. Das Datumsfeld dient nur zu Dokumentationszwecken.\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Dieses Datum definiert das Ende der Publikation im Kantonsamtsblatt. Das Datumsfeld dient nur zu Dokumentationszwecken.\", \"fr\": null, \"it\": \"Questa data definisce la fine della pubblicazione nel Foglio ufficiale cantonale. Il campo della data serve esclusivamente a scopi di documentazione.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -357,7 +357,7 @@
     "pk": "ende-publikationsorgan-gemeinde",
     "fields": {
       "created_at": "2023-06-26T07:54:24.081Z",
-      "modified_at": "2026-08-12T06:33:42.794Z",
+      "modified_at": "2026-08-18T12:33:04.536Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -368,8 +368,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Mit diesem Datum wird die digitale öffentliche Auflage wieder deaktiviert. Das Baugesuch steht danach im Bürgerportal nicht mehr zur Einsicht zur Verfügung.\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Mit diesem Datum wird die digitale öffentliche Auflage wieder deaktiviert. Das Baugesuch steht danach im Bürgerportal nicht mehr zur Einsicht zur Verfügung.\", \"fr\": null, \"it\": \"A questa data l'esposizione pubblica digitale viene nuovamente disattivata. In seguito sul portale per i cittadini non sarà più possibile prendere in visione la domanda di costruzione.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -456,7 +456,7 @@
     "pk": "oeffentliche-auflage",
     "fields": {
       "created_at": "2023-07-19T06:46:14.644Z",
-      "modified_at": "2026-08-12T06:36:13.282Z",
+      "modified_at": "2026-08-18T12:37:37.122Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -467,8 +467,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Mit dieser Option wird die öffentliche Auflage auf der eBau-Plattform im Bürgerportal aktiviert.<br>\\nLink: [https://ebau.gr.ch/oeffentliche-auflage](https://ebau.gr.ch/oeffentliche-auflage)\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Mit dieser Option wird die öffentliche Auflage auf der eBau-Plattform im Bürgerportal aktiviert.<br>\\nLink: [https://ebau.gr.ch/oeffentliche-auflage](https://ebau.gr.ch/oeffentliche-auflage)\", \"fr\": null, \"it\": \"Con questa opzione viene attivata l'esposizione pubblica sulla piattaforma eBau nel portale per i cittadini.<br>\\nLink: [https://ebau.gr.ch/esposizione-pubblica](https://ebau.gr.ch/esposizione-pubblica)\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -489,7 +489,7 @@
     "pk": "oeffentliche-auflage-informieren",
     "fields": {
       "created_at": "2025-12-05T12:02:25.009Z",
-      "modified_at": "2026-08-12T09:45:21.223Z",
+      "modified_at": "2026-08-18T12:38:08.269Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -500,7 +500,7 @@
       "is_hidden": "\"oeffentliche-auflage-ja\" != \"oeffentliche-auflage\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Die gesuchstellende Person sowie zusätzlich auf das Dossier berechtigte Personen werden am ersten Tag der Publikation automatisch über eine E-Mailnotifikationsmeldung informiert.\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"Die gesuchstellende Person sowie zusätzlich auf das Dossier berechtigte Personen werden am ersten Tag der Publikation automatisch über eine E-Mailnotifikationsmeldung informiert.\", \"fr\": null, \"it\": \"Il primo giorno della pubblicazione la persona richiedente e le persone aventi diritto di accedere al dossier vengono informati automaticamente tramite una notifica per e-mail.\"}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -617,8 +617,8 @@
     "model": "caluma_form.questionoption",
     "pk": "oeffentliche-auflage-informieren.oeffentliche-auflage-informieren-ja",
     "fields": {
-      "created_at": "2026-08-12T06:35:57.869Z",
-      "modified_at": "2026-08-12T06:35:57.869Z",
+      "created_at": "2026-08-18T12:38:08.272Z",
+      "modified_at": "2026-08-18T12:38:08.272Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -632,8 +632,8 @@
     "model": "caluma_form.questionoption",
     "pk": "oeffentliche-auflage.oeffentliche-auflage-ja",
     "fields": {
-      "created_at": "2026-08-12T06:36:13.286Z",
-      "modified_at": "2026-08-12T06:36:13.286Z",
+      "created_at": "2026-08-18T12:37:37.127Z",
+      "modified_at": "2026-08-18T12:37:37.127Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
