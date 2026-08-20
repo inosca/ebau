@@ -274,9 +274,9 @@ def setup_dossier_writer(
         dossier_import_settings["FORM_ID"] = form.pk
         dossier_import_settings["ATTACHMENT_SECTION_ID"] = attachment_section.pk
         dossier_import_settings["ALEXANDRIA_CATEGORY"] = alexandria_category_factory(
-            allowed_mime_types=["application/pdf"]
+            allowed_mime_types={"application/pdf": None}
             if config == "kt_so"
-            else ["application/pdf", "text/plain"]
+            else {"application/pdf": None, "text/plain": None}
         ).pk
 
         group.service = service

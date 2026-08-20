@@ -44,5 +44,5 @@ documents:
   uploadErrorVirus:
   uploadPlansIndividually: Si prega di notare che è necessario presentare un documento separato per ogni documento/piano.
   uploadSuccess: Il file è stato caricato con successo.
-  wrongMimeType: "Questo tipo di file non è ammesso. Tipi di file ammessi: PDF, PNG, JPEG."
+  wrongMimeType: "Questo tipo di file non è ammesso. Tipi di file ammessi: pdf, png, jpeg."
   wrongMimeTypeWithAllowed: "Questo tipo di file non è ammesso. Tipi di file ammessi: {allowed}."

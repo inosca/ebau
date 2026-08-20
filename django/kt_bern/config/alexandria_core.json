@@ -31,7 +31,11 @@
       },
       "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"Toutes les parties\", \"it\": \"\"}",
       "description": "{\"de\": \"Hier werden von der Leitbehörde Dokumente hochgeladen, welche für alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter \\\"Rückmeldungen\\\" angezeigt.\", \"fr\": \"C'est là que les documents visibles par toutes les parties impliquées dans la procédure sont téléchargés par l'autorité directrice (par exemple, programme de procédure, permis de construire). Les personnes requérantes peuvent consulter ces documents sur le portail eBau, sous la rubrique \\\"Remarques\\\".\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#009688",
       "parent": null,
       "sort": 13
@@ -50,7 +54,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Amts- und Fachstellenberichte\", \"fr\": \"Documents des offices et services spécialisés\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#009688",
       "parent": "alle-beteiligten",
       "sort": 18
@@ -69,7 +77,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Dokumente der Leitbehörde\", \"fr\": \"Documents de l'autorité directrice\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#009688",
       "parent": "alle-beteiligten",
       "sort": 22
@@ -88,7 +100,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Entscheid\", \"fr\": \"Décision\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#009688",
       "parent": "alle-beteiligten",
       "sort": 23
@@ -107,7 +123,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Grundstücksangaben und Projektbeschrieb\", \"fr\": \"Indications relatives à l'immeuble et description du projet\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#009688",
       "parent": "alle-beteiligten",
       "sort": 14
@@ -126,7 +146,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begründungen, Ausnahmebegehren\", \"fr\": \"Expertises, preuves, justifications, demande de dérogation\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#009688",
       "parent": "alle-beteiligten",
       "sort": 15
@@ -145,7 +169,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Merkblätter\", \"fr\": \"Mémentos\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#009688",
       "parent": "alle-beteiligten",
       "sort": 19
@@ -164,7 +192,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Projektpläne\", \"fr\": \"Plans du projet\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#009688",
       "parent": "alle-beteiligten",
       "sort": 16
@@ -183,7 +215,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Rechtsbegehren (Einsprache, Rechtsverwahrung, Lastenausgleich, usw.)\", \"fr\": \"Conclusions (oppositions, réserve de droit, compensation des charges, etc.)\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#009688",
       "parent": "alle-beteiligten",
       "sort": 20
@@ -202,7 +238,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Stellungnahmen Verfahrensbeteiligte\", \"fr\": \"Prises de position parties à la procédure\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#009688",
       "parent": "alle-beteiligten",
       "sort": 21
@@ -221,7 +261,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"Autres documents de la demande\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#009688",
       "parent": "alle-beteiligten",
       "sort": 17
@@ -261,7 +305,11 @@
       },
       "name": "{\"de\": \"Beilagen SB1\", \"fr\": \"Suppléments DC1\", \"it\": \"\"}",
       "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden im Rahmen der Selbstdeklaration (SB1) hochgeladen.\", \"fr\": \"Ces documents ont été téléchargés par la personne requérante dans le cadre de déclaration spontanée en matière de contrôle des constructions 1 (DC1).\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#388e3c",
       "parent": null,
       "sort": 28
@@ -280,7 +328,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Grundstücksangaben und Projektbeschrieb\", \"fr\": \"Indications relatives à l'immeuble et description du projet\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#388e3c",
       "parent": "beilagen-sb1",
       "sort": 29
@@ -299,7 +351,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begründungen, Ausnahmebegehren\", \"fr\": \"Expertises, preuves, justifications, demande de dérogation\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#388e3c",
       "parent": "beilagen-sb1",
       "sort": 30
@@ -318,7 +374,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Projektpläne\", \"fr\": \"Plans du projet\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#388e3c",
       "parent": "beilagen-sb1",
       "sort": 31
@@ -337,7 +397,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"Autres documents de la demande\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#388e3c",
       "parent": "beilagen-sb1",
       "sort": 32
@@ -375,7 +439,11 @@
       },
       "name": "{\"de\": \"Beilagen SB2\", \"fr\": \"Suppléments DC2\", \"it\": \"\"}",
       "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden im Rahmen der Selbstdeklaration (SB2) hochgeladen.\", \"fr\": \"Ces documents ont été téléchargés par la personne requérante dans le cadre de la déclaration spontanée en matière de contrôle des constructions 2 (DC2).\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#c2185b",
       "parent": null,
       "sort": 33
@@ -394,7 +462,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Grundstücksangaben und Projektbeschrieb\", \"fr\": \"Indications relatives à l'immeuble et description du projet\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#c2185b",
       "parent": "beilagen-sb2",
       "sort": 34
@@ -413,7 +485,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begründungen, Ausnahmebegehren\", \"fr\": \"Expertises, preuves, justifications, demande de dérogation\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#c2185b",
       "parent": "beilagen-sb2",
       "sort": 35
@@ -432,7 +508,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Projektpläne\", \"fr\": \"Plans du projet\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#c2185b",
       "parent": "beilagen-sb2",
       "sort": 36
@@ -451,7 +531,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"Autres documents de la demande\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#c2185b",
       "parent": "beilagen-sb2",
       "sort": 37
@@ -489,7 +573,11 @@
       },
       "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"Pièces jointes à la demande\", \"it\": \"\"}",
       "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind für alle am Verfahren beteiligten Behörden einsehbar.\", \"fr\": \"Ces documents ont été téléchargés par la personne requérante et peuvent être consultés par toutes les autorités impliquées dans la procédure.\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#ea161f",
       "parent": null,
       "sort": 0
@@ -508,7 +596,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Grundstücksangaben und Projektbeschrieb\", \"fr\": \"Indications relatives à l'immeuble et description du projet\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#ea161f",
       "parent": "beilagen-zum-gesuch",
       "sort": 1
@@ -527,7 +619,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begründungen, Ausnahmebegehren\", \"fr\": \"Expertises, preuves, justifications, demande de dérogation\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#ea161f",
       "parent": "beilagen-zum-gesuch",
       "sort": 2
@@ -546,7 +642,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Projektpläne\", \"fr\": \"Plans du projet\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#ea161f",
       "parent": "beilagen-zum-gesuch",
       "sort": 3
@@ -565,7 +665,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"Autres documents de la demande\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#ea161f",
       "parent": "beilagen-zum-gesuch",
       "sort": 4
@@ -600,7 +704,11 @@
       },
       "name": "{\"de\": \"Beteiligte Behörden\", \"fr\": \"Autorités participantes\", \"it\": \"\"}",
       "description": "{\"de\": \"Hier werden die von den beteiligten Behörden erfassten Dokumente (z.B. Verfügungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur für die am Verfahren beteiligten Behörden sichtbar, nicht aber für die Gesuchstellenden.\", \"fr\": \"C'est là que les documents enregistrés par les autorités participantes sont téléchargés (par exemple, les décisions, les rapports officiels et techniques, prises de position). Ces documents ne sont visibles que par les autorités impliquées dans la procédure, mais pas par les personnes requérantes.\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#f1a208",
       "parent": null,
       "sort": 10
@@ -619,7 +727,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Amts- und Fachstellenberichte\", \"fr\": \"Documents des offices et services spécialisés\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#f1a208",
       "parent": "beteiligte-behoerden",
       "sort": 11
@@ -638,7 +750,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Merkblätter\", \"fr\": \"Mémentos\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#f1a208",
       "parent": "beteiligte-behoerden",
       "sort": 12
@@ -675,7 +791,7 @@
       },
       "name": "{\"de\": \"Intern\", \"fr\": \"Interne\", \"it\": \"\"}",
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation sichtbar sein sollen. In diesem Ordner bestehen keine Einschränkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"Ici sont téléchargés des documents qui ne doivent être visibles qu'au sein de la propre organisation. Dans ce dossier, il n'y a aucune restriction concernant les formats de fichiers autorisés.\", \"it\": \"\"}",
-      "allowed_mime_types": null,
+      "allowed_mime_types": {},
       "color": "#7b1fa2",
       "parent": null,
       "sort": 27
@@ -713,7 +829,11 @@
       },
       "name": "{\"de\": \"Nachforderungen\", \"fr\": \"Demandes de complément d’information\", \"it\": \"\"}",
       "description": "{\"de\": \"Diese Dokumente wurden im Rahmen einer Nachforderung vom Gesuchstellenden hochgeladen und sind für alle beteiligten Behörden einsehbar.\", \"fr\": \"Ces documents ont été téléchargés par la personne requérante dans le cadre d'une demande de complément d’information et peuvent être consultés par toutes les autorités concernées.\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#f35b21",
       "parent": null,
       "sort": 5
@@ -732,7 +852,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Grundstücksangaben und Projektbeschrieb\", \"fr\": \"Indications relatives à l'immeuble et description du projet\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#f35b21",
       "parent": "nachforderungen",
       "sort": 6
@@ -751,7 +875,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begründungen, Ausnahmebegehren\", \"fr\": \"Expertises, preuves, justifications, demande de dérogation\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#f35b21",
       "parent": "nachforderungen",
       "sort": 7
@@ -770,7 +898,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Projektpläne\", \"fr\": \"Plans du projet\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#f35b21",
       "parent": "nachforderungen",
       "sort": 8
@@ -789,7 +921,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"Autres documents de la demande\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#f35b21",
       "parent": "nachforderungen",
       "sort": 9
@@ -824,7 +960,11 @@
       },
       "name": "{\"de\": \"Rechtsbegehren\", \"fr\": \"Conclusions\", \"it\": \"\"}",
       "description": "{\"de\": \"Hier werden von der Leitbehörde Dokumente hochgeladen, welche für alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Einsprachen, Rechtsverwahrung, Lastenausgleichsbegehren). Gesuchstellenden werden diese Dokumente im eBau-Portal unter \\\"Rückmeldungen\\\" angezeigt.\", \"fr\": \"C'est là que les documents visibles par toutes les parties impliquées dans la procédure sont téléchargés par l'autorité directrice (par exemple, oppositions, réserves de droit, demandes en compensation des charges). Les personnes requérantes peuvent consulter ces documents sur le portail eBau, sous la rubrique \\\"Remarques\\\".\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#1565c0",
       "parent": null,
       "sort": 24
@@ -843,7 +983,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Rechtsbegehren (Einsprache, Rechtsverwahrung, Lastenausgleich, usw.)\", \"fr\": \"Conclusions (oppositions, réserve de droit, compensation des charges, etc.)\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#1565c0",
       "parent": "rechtsbegehren",
       "sort": 25
@@ -862,7 +1006,11 @@
       "metainfo": {},
       "name": "{\"de\": \"Stellungnahmen Verfahrensbeteiligte\", \"fr\": \"Prises de position parties à la procédure\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "#1565c0",
       "parent": "rechtsbegehren",
       "sort": 26

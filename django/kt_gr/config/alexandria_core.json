@@ -40,7 +40,13 @@
       },
       "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutte le parti coinvolte\"}",
       "description": "{\"de\": \"Hier werden von der Gemeinde Dokumente hochgeladen, welche für alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter *Rückmeldungen* angezeigt.\", \"fr\": \"\", \"it\": \"Qui il comune carica i documenti che devono essere consultabili per tutte le parti coinvolte (ad es. programma della procedura, decisione edilizia). Le persone richiedenti possono visualizzare questi documenti nel portale eBau al menu *Riscontri*.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null,
+        "image/vnd.dwg": null
+      },
       "color": "#CB68C1",
       "parent": null,
       "sort": 7
@@ -74,7 +80,12 @@
       },
       "name": "{\"de\": \"Alle Kanton\", \"fr\": \"\", \"it\": \"Tutti Cantone\"}",
       "description": "{\"de\": \"Diese Kategorie dient dem Dokumentenaustausch zwischen kantonalen Fachstellen. Alle kantonalen Fachstellen haben Zugriff auf hier hochgeladene Dokumente.\", \"fr\": \"\", \"it\": \"Questa categoria serve allo scambio di documenti tra i servizi cantonali. Tutti i servizi cantonali hanno accesso ai documenti caricati.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null
+      },
       "color": "#66CFC9",
       "parent": null,
       "sort": 17
@@ -118,7 +129,13 @@
       },
       "name": "{\"de\": \"Bauabnahme\", \"fr\": \"\", \"it\": \"Collaudo\"}",
       "description": "{\"de\": \"Hier werden von der Gemeinde Dokumente zur Bauabnahme hochgeladen, welche für alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Bauabnahmeprotokoll). Gesuchstellenden werden diese Dokumente im eBau-Portal unter *Rückmeldungen* angezeigt.\", \"fr\": \"\", \"it\": \"Qui il comune carica i documenti per il collaudo che devono essere consultabili per tutte le autorità coinvolte (ad es. protocollo del collaudo). Le persone richiedenti possono visualizzare questi documenti nel portale eBau al menu *Riscontri*.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null,
+        "image/vnd.dwg": null
+      },
       "color": "#CB68C1",
       "parent": null,
       "sort": 12
@@ -164,7 +181,13 @@
       },
       "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"Allegati alla domanda\"}",
       "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind für alle am Verfahren beteiligten Behörden einsehbar.\", \"fr\": \"\", \"it\": \"Questi documenti vengono caricati dalle persone richiedenti e possono essere consultati da tutte le autorità coinvolte nella procedura.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null,
+        "image/vnd.dwg": null
+      },
       "color": "#9CDD69",
       "parent": null,
       "sort": 1
@@ -183,7 +206,13 @@
       "metainfo": {},
       "name": "{\"de\": \"Brandschutz (Feuerpolizei)\", \"fr\": \"\", \"it\": \"Protezione antincendio (polizia del fuoco)\"}",
       "description": "{\"de\": \"Unter die Begriffe Brandschutzdokumente (Feuerpolizei) fallen alle für die feuerpolizeiliche Bewilligung notwendigen Gesuchsunterlagen (Brandschutzpläne [Grundriss, Schnitte, Fassaden etc.], Brandschutzkonzept, evtl. VKF-Zulassungen, Leistungserklärungen etc.).\", \"fr\": \"\", \"it\": \"Con «Protezione antincendio (polizia del fuoco)» si intende tutta la documentazione di domanda necessaria per il permesso di polizia del fuoco (piani antincendio [pianta, sezione, facciate, ecc.], strategia antincendio, ev. omologazioni AICAA, dichiarazioni di prestazione, ecc.).\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null,
+        "image/vnd.dwg": null
+      },
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
       "sort": 4
@@ -202,7 +231,13 @@
       "metainfo": {},
       "name": "{\"de\": \"Grundstücksangaben, Projektpläne und -beschrieb\", \"fr\": \"\", \"it\": \"Indicazioni relative al fondo, piani di progetto e descrizione del progetto\"}",
       "description": "{\"de\": \"Unter die Begriffe Situationspläne, Projektpläne, Projektbeschrieb, Grundstücksangaben fallen Gesuchsunterlagen wie z.B. Kartenausschnitt 1:25'000, Grundbuchauszug und Situationsplan 1:500 oder 1:1'000, Aufnahmepläne (Grundrisse, Schnitte, Ansichten, Längen- und Querprofile, Normalprofile) und fachgerechte Projektpläne (Grundrisse, Schnitte, Ansichten, Längen- und Querprofile, Normalprofile), Umgebungspläne, Kanalisationsplan, Baubeschrieb etc.\", \"fr\": \"\", \"it\": \"Con «piani di situazione», «piani di progetto», «descrizione del progetto», «indicazioni relative al fondo» si intende la documentazione di domanda come ad es. l'estratto della carta in scala 1:25'000, l'estratto del registro fondiario e il piano di situazione in scala 1:500 o 1:1'000, i piani di rilievo (piante, sezioni, viste, profili longitudinali e trasversali, profili normali) e i piani di progetto professionali (piante, sezioni, viste, profili longitudinali e trasversali, profili normali), i piani delle aree circostanti, il piano delle canalizzazioni, la descrizione della costruzione, ecc.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null,
+        "image/vnd.dwg": null
+      },
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
       "sort": 2
@@ -221,7 +256,13 @@
       "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begründungen\", \"fr\": \"\", \"it\": \"Perizie, prove, motivazioni\"}",
       "description": "{\"de\": \"Unter die Begriffe \\\"Gutachten, Nachweise, Begründungen\\\" fallen Gesuchsunterlagen wie z.B. Fotodokumentation der bestehenden Baute/Anlage, Formulare zu Zusatzgesuchen (Rodungsgesuch) etc.\", \"fr\": \"\", \"it\": \"Con «Perizie, prove, motivazioni» si intende la documentazione di domanda come ad es. le fotografie delle costruzioni/degli impianti esistenti, i moduli relativi a domande supplementari (domanda di dissodamento), ecc.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null,
+        "image/vnd.dwg": null
+      },
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
       "sort": 3
@@ -240,7 +281,13 @@
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"Altra documentazione di domanda\"}",
       "description": "{\"de\": \"Unter den Begriff \\\"weitere Gesuchsunterlagen\\\" fallen Gesuchsunterlagen wie z.B. detaillierte Berechnungen der anzuwenden Nutzungsziffern, Lärmschutznachweise, Energienachweise, Bericht zur Umweltvertäglichkeitsprüfung (UVP), Bodenkundliches Fachgutachten, Vorprüfungsentscheid der Gebäudeversicherung.\", \"fr\": \"\", \"it\": \"Con «Altra documentazione di domanda» si intende la documentazione di domanda come ad es. i calcoli dettagliati degli indici di utilizzazione che dovranno essere applicati, gli attestati di protezione fonica, i certificati energetici, il rapporto relativo all'esame dell'impatto sull'ambiente (EIA), la perizia pedologica, la decisione dell'Assicurazione fabbricati relativa all'esame preliminare.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null,
+        "image/vnd.dwg": null
+      },
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
       "sort": 5
@@ -259,7 +306,12 @@
       "metainfo": {},
       "name": "{\"de\": \"Beschwerden\", \"fr\": \"\", \"it\": \"Ricorsi\"}",
       "description": "{\"de\": \"Hier werden Dokumente abgelegt, die beim Erfassen einer Beschwerde hochgeladen wurden. Weiterer Schriftenverkehr zur Beschwerde können Sie auch hier ablegen. Zugriff auf diesen Ordner hat die Gemeinde und deren Unterfachstellen, sowie das ARE im BAB-Verfahren (Leseberechtigung).\", \"fr\": \"\", \"it\": \"Qui vengono salvati i documenti che sono stati caricati al momento della registrazione di un ricorso. Può archiviare anche qui ulteriore scambio di scritti in merito al ricorso. L'accesso a questa cartella è riservato al Comune e ai suoi servizi di rango inferiore, nonché all'ARE nell'ambito della procedura BAB (autorizzazione di lettura).\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null
+      },
       "color": "#E1B422",
       "parent": "einsprachen-beschwerden",
       "sort": 11
@@ -297,7 +349,13 @@
       },
       "name": "{\"de\": \"Beteiligte Behörden\", \"fr\": \"\", \"it\": \"Autorità coinvolte\"}",
       "description": "{\"de\": \"Hier werden die von den beteiligten Behörden erfassten Dokumente (z.B. Verfügungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur für die am Verfahren beteiligten Behörden sichtbar, nicht aber für die Gesuchstellenden.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti compilati dalle autorità coinvolte (ad es. decisioni, rapporti ufficiali e tecnici, prese di posizione). Questi documenti sono visibili solo per le autorità coinvolte nella procedura, ma non per le persone richiedenti.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null,
+        "image/vnd.dwg": null
+      },
       "color": "#8791EC",
       "parent": null,
       "sort": 8
@@ -316,7 +374,12 @@
       "metainfo": {},
       "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"Opposizioni\"}",
       "description": "{\"de\": \"Hier werden Dokumente abgelegt, die beim Erfassen einer Einsprache hochgeladen wurden. Weiterer Schriftenverkehr zur Einsprache können Sie auch hier ablegen. Zugriff auf diesen Ordner hat die Gemeinde und deren Unterfachstellen, sowie das ARE im BAB-Verfahren (Leseberechtigung).\", \"fr\": \"\", \"it\": \"Qui vengono salvati i documenti che sono stati caricati al momento della registrazione di un'opposizione. Può salvare anche qui ulteriore scambio di scritti relativi all'opposizione. L'accesso a questa cartella è riservato al Comune e ai suoi servizi di rango inferiore, nonché all'ARE nell'ambito della procedura BAB (autorizzazione di lettura).\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null
+      },
       "color": "#E1B422",
       "parent": "einsprachen-beschwerden",
       "sort": 10
@@ -351,7 +414,12 @@
       },
       "name": "{\"de\": \"Einsprachen / Beschwerden\", \"fr\": \"\", \"it\": \"Opposizioni / Ricorsi\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null
+      },
       "color": "#E1B422",
       "parent": null,
       "sort": 9
@@ -395,7 +463,20 @@
       },
       "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"A uso interno\"}",
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation (ohne Unterfachstellen) sichtbar sein sollen. In diesem Ordner bestehen keine Einschränkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti che devono essere visibili solo all'interno della propria organizzazione (senza servizi di rango inferiore). In questa cartella non vi sono limitazioni per quanto riguarda i formati di file ammessi.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null,
+        "application/msword": null,
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/vnd.ms-excel": null,
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
+        "application/vnd.ms-powerpoint": null,
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
+        "application/vnd.ms-outlook": null,
+        "image/vnd.dwg": null
+      },
       "color": "#DB8B72",
       "parent": null,
       "sort": 13
@@ -433,7 +514,20 @@
       },
       "name": "{\"de\": \"Intern (mit Unterfachstellen)\", \"fr\": \"\", \"it\": \"A uso interno (con servizi di rango inferiore)\"}",
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche innerhalb der eigenen Organisation (mit Unterfachstellen) sichtbar sein sollen. In diesem Ordner bestehen keine Einschränkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti che devono essere visibili all'interno della propria organizzazione (compresi i servizi di rango inferiore). In questa cartella non vi sono limitazioni per quanto riguarda i formati di file ammessi.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null,
+        "application/msword": null,
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/vnd.ms-excel": null,
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
+        "application/vnd.ms-powerpoint": null,
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
+        "application/vnd.ms-outlook": null,
+        "image/vnd.dwg": null
+      },
       "color": "#af6023",
       "parent": null,
       "sort": 14
@@ -473,7 +567,20 @@
       },
       "name": "{\"de\": \"Migrierte Dokumente\", \"fr\": \"\", \"it\": \"Documenti migrati\"}",
       "description": "{\"de\": \"Diese Kategorie dient der Dateiablage von importierten Baugesuchen. Der Ordner ist für andere Organisationen sichtbar falls Dossier freigegeben (Leseberechtigung, Zirkulation) wird.\", \"fr\": \"\", \"it\": \"Questa categoria serve per l'archiviazione di domande di costruzione importate. La cartella è visibile ad altre organizzazioni qualora il dossier venga condiviso (autorizzazione di lettura, circolazione).\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"text/plain\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null,
+        "application/msword": null,
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/vnd.ms-excel": null,
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
+        "application/vnd.ms-powerpoint": null,
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
+        "application/vnd.ms-outlook": null,
+        "text/plain": null
+      },
       "color": "#000000",
       "parent": null,
       "sort": 19
@@ -519,7 +626,13 @@
       },
       "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"Richiesta di precisazioni\"}",
       "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden und Behörden im Rahmen von Nachforderungen hochgeladen und sind für Gesuchsteller und alle am Verfahren beteiligten Behörden einsehbar.\", \"fr\": \"\", \"it\": \"Questi documenti vengono caricati dalle persone richiedenti nel quadro delle richieste di precisazioni e possono essere consultati da tutte le autorità coinvolte nella procedura.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null,
+        "image/vnd.dwg": null
+      },
       "color": "#66CFC9",
       "parent": null,
       "sort": 6
@@ -554,7 +667,12 @@
       },
       "name": "{\"de\": \"Stellungnahmen ans ARE\", \"fr\": \"\", \"it\": \"Prese di posizione all'UST-GR\"}",
       "description": "{\"de\": \"Hier werden Stellungnahmen, Verfügungen und weitere Dokumente zu Handen des Amts für Raumentwicklung hochgeladen. Die Dokumente sind ausschliesslich für das ARE sichtbar. Andere Fachstellen haben keinen Zugriff auf hier hochgeladene Dokumente.\", \"fr\": \"\", \"it\": \"Qui vengono caricati prese di posizione, decisioni e altri documenti all'attenzione dell'Ufficio per lo sviluppo del territorio (UST-GR). I documenti sono visibili esclusivamente per l'UST-GR. Gli altri servizi non hanno accesso ai documenti caricati in questa cartella.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null
+      },
       "color": "#66CFC9",
       "parent": null,
       "sort": 16
@@ -583,7 +701,9 @@
       },
       "name": "{\"de\": \"Situationsplan\", \"fr\": \"\", \"it\": \"Piano della situazione\"}",
       "description": "{\"de\": \"Hier werden Systemdokumente hochgeladen. Ordner ist nur mit Rolle Support sichtbar.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti di sistema. La cartella è visibile solo con il ruolo Supporto.\"}",
-      "allowed_mime_types": "[\"image/png\"]",
+      "allowed_mime_types": {
+        "image/png": null
+      },
       "color": "#CCCCCC",
       "parent": null,
       "sort": 18
@@ -614,7 +734,12 @@
       },
       "name": "{\"de\": \"Umweltschutzorganisationen\", \"fr\": \"\", \"it\": \"Organizzazioni ambientaliste\"}",
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche Umweltschutzorganisationen zugänglich gemacht werden sollen. Dokumente in dieser Kategorie können vom ARE hochgeladen und von USOs eingesehen werden.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti che devono essere accessibili per le organizzazioni ambientaliste. I documenti in questa categoria possono essere caricati dall'UST-GR ed essere consultati dalle organizzazioni ambientaliste.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "allowed_mime_types": {
+        "application/pdf": null,
+        "image/jpeg": null,
+        "image/png": null,
+        "image/gif": null
+      },
       "color": "#66CFC9",
       "parent": null,
       "sort": 15

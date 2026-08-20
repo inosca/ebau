@@ -34,7 +34,13 @@
       },
       "name": "{\"de\": \"Auflagedokumente\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "video/mp4": null,
+        "video/webm": null
+      },
       "color": "hsl(43 46% 40%)",
       "parent": null,
       "sort": 5
@@ -72,7 +78,13 @@
       },
       "name": "{\"de\": \"Bauentscheid und Merkblätter\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "video/mp4": null,
+        "video/webm": null
+      },
       "color": "hsl(122 86% 40%)",
       "parent": null,
       "sort": 7
@@ -110,7 +122,13 @@
       },
       "name": "{\"de\": \"Baukontrolle und Bauabnahme\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "video/mp4": null,
+        "video/webm": null
+      },
       "color": "hsl(328 23% 40%)",
       "parent": null,
       "sort": 9
@@ -139,7 +157,7 @@
       },
       "name": "{\"de\": \"Dokumente, Dateien und Anhänge\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": null,
+      "allowed_mime_types": {},
       "color": "hsl(279 49% 40%)",
       "parent": null,
       "sort": 11
@@ -180,7 +198,13 @@
       },
       "name": "{\"de\": \"Dokumente des Gesuchstellers\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "video/mp4": null,
+        "video/webm": null
+      },
       "color": "hsl(37 98% 40%)",
       "parent": null,
       "sort": 1
@@ -201,7 +225,13 @@
       },
       "name": "{\"de\": \"Grundstücksangaben\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein. Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\\n\\nUnter den Begriff *Grundstücksangaben* fallen Gesuchsunterlagen wie z. B. Katasterplan, Grundbuchauszug, Dienstbarkeiten.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "video/mp4": null,
+        "video/webm": null
+      },
       "color": "hsl(23 23% 40%)",
       "parent": "dokumente-des-gesuchstellers",
       "sort": 0
@@ -222,7 +252,13 @@
       },
       "name": "{\"de\": \"Gutachten, Nachweise, Begründungen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\\n\\nUnter die Begriffe *Gutachten, Nachweise, Begründungen* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverständnis Nachbarn, Nutzungsberechnungen, energetische Nachweise, Lärmschutznachweise, Brandschutznachweise, Durchflussnachweise.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "video/mp4": null,
+        "video/webm": null
+      },
       "color": "hsl(137 47% 40%)",
       "parent": "dokumente-des-gesuchstellers",
       "sort": 1
@@ -243,7 +279,13 @@
       },
       "name": "{\"de\": \"Projektpläne und Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\\n\\nUnter die Begriffe *Projektpläne und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Situationspläne, Grundrisse, Schnitt- und Fassadenpläne, Kanalisationspläne, Siedlungsentwässerungspläne, Umgebungspläne, Projektbeschrieb, Planverzeichnis.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "video/mp4": null,
+        "video/webm": null
+      },
       "color": "hsl(18 55% 40%)",
       "parent": "dokumente-des-gesuchstellers",
       "sort": 2
@@ -264,7 +306,13 @@
       },
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\\n\\nUnter den Begriff *Weitere Gesuchsunterlagen* fallen Gesuchsunterlagen wie z. B. Anschlussgesuch Elektrizitätswerk, Anschlussgesuch Gas, Anschlussgesuch Wasser, andere Gesuchsunterlagen.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "video/mp4": null,
+        "video/webm": null
+      },
       "color": "hsl(109 80% 40%)",
       "parent": "dokumente-des-gesuchstellers",
       "sort": 3
@@ -302,7 +350,13 @@
       },
       "name": "{\"de\": \"Dokumente für Gesuchsteller\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "video/mp4": null,
+        "video/webm": null
+      },
       "color": "hsl(154 7% 40%)",
       "parent": null,
       "sort": 10
@@ -340,7 +394,13 @@
       },
       "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "video/mp4": null,
+        "video/webm": null
+      },
       "color": "hsl(203 87% 40%)",
       "parent": null,
       "sort": 6
@@ -369,7 +429,7 @@
       },
       "name": "{\"de\": \"Interne Ablage (nur gruppenintern sichtbar)\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": null,
+      "allowed_mime_types": {},
       "color": "hsl(338 58% 40%)",
       "parent": null,
       "sort": 4
@@ -398,7 +458,7 @@
       },
       "name": "{\"de\": \"Interne Ablage (nur gruppenintern sichtbar)\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": null,
+      "allowed_mime_types": {},
       "color": "hsl(279 20% 40%)",
       "parent": null,
       "sort": 3
@@ -436,7 +496,13 @@
       },
       "name": "{\"de\": \"Rechtsmittel\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "video/mp4": null,
+        "video/webm": null
+      },
       "color": "hsl(322 20% 40%)",
       "parent": null,
       "sort": 8
@@ -474,7 +540,14 @@
       },
       "name": "{\"de\": \"Schriftenverkehr\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"video/mp4\", \"video/webm\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "video/mp4": null,
+        "video/webm": null
+      },
       "color": "hsl(131 98% 40%)",
       "parent": null,
       "sort": 2

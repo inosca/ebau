@@ -39,7 +39,7 @@ dms:
   save-error-syntax: 'Le modèle contient une syntaxe non valide. Pour plus d''informations, voir les "Détails techniques".'
   save-error-syntax-placeholder: "Erreur de syntaxe dans le modèle : \" - \" n'est pas autorisé dans les caractères de remplissage."
   save-error: "Erreur lors de la sauvegarde du modèle"
-  validation-error: "Seuls les fichiers .docx et .xlsx peuvent être téléchargés"
+  validation-error: "Seuls les fichiers docx et xlsx peuvent être téléchargés"
 
   docs:
     general-info-title: "Renseignements d'ordre général"

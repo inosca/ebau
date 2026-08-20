@@ -22,7 +22,13 @@
       },
       "name": "{\"de\": \"Dokumente AFJ\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Dokumente der KOOR AFJ\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"text/plain\", \"application/octet-stream\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "text/plain": null,
+        "application/octet-stream": null
+      },
       "color": "hsl(13 7% 40%)",
       "parent": null,
       "sort": 10
@@ -48,7 +54,7 @@
       },
       "name": "{\"de\": \"Dokumente AfU\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Dokumente der AfU Gruppen\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[]",
+      "allowed_mime_types": {},
       "color": "hsl(278 74% 40%)",
       "parent": null,
       "sort": 1
@@ -74,7 +80,7 @@
       },
       "name": "{\"de\": \"Dokumente ARE\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Dokumente der ARE Gruppen\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[]",
+      "allowed_mime_types": {},
       "color": "hsl(180 79% 40%)",
       "parent": null,
       "sort": 0
@@ -118,7 +124,11 @@
       },
       "name": "{\"de\": \"Dokumente Fachstellen Gemeinde\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Dokumente von Gemeindefachstellen\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "hsl(201 97% 40%)",
       "parent": null,
       "sort": 5
@@ -165,7 +175,11 @@
       },
       "name": "{\"de\": \"Dokumente Fachstellen Kanton / Bund\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Rückmeldungen von Fachstellen und Koordinationsstellen (z.B. Stellungnahme)\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "hsl(177 76% 40%)",
       "parent": null,
       "sort": 4
@@ -218,7 +232,11 @@
       },
       "name": "{\"de\": \"Dokumente Gesuchsteller\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Dokumente vom Gesuchsteller\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "hsl(30 54% 40%)",
       "parent": null,
       "sort": 3
@@ -239,7 +257,11 @@
       },
       "name": "{\"de\": \"Grundstücksangaben\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "hsl(257 6% 40%)",
       "parent": "dokumente-gesuchsteller",
       "sort": 0
@@ -260,7 +282,11 @@
       },
       "name": "{\"de\": \"Gutachten, Nachweise, Begründungen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "hsl(0 1% 40%)",
       "parent": "dokumente-gesuchsteller",
       "sort": 1
@@ -281,7 +307,11 @@
       },
       "name": "{\"de\": \"Projektpläne und Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "hsl(229 35% 40%)",
       "parent": "dokumente-gesuchsteller",
       "sort": 2
@@ -302,7 +332,11 @@
       },
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "hsl(282 5% 40%)",
       "parent": "dokumente-gesuchsteller",
       "sort": 3
@@ -349,7 +383,11 @@
       },
       "name": "{\"de\": \"Dokumente Leitbehörde\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Baubewilligungen, Verfügungen usw.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "hsl(144 45% 40%)",
       "parent": null,
       "sort": 6
@@ -384,7 +422,13 @@
       },
       "name": "{\"de\": \"Gebühren\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/msword\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/msword": null
+      },
       "color": "hsl(307 63% 40%)",
       "parent": null,
       "sort": 8
@@ -428,7 +472,7 @@
       },
       "name": "{\"de\": \"Interne Dokumente\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Private Ablage für jeden Service\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[]",
+      "allowed_mime_types": {},
       "color": "hsl(222 16% 40%)",
       "parent": null,
       "sort": 2
@@ -460,7 +504,17 @@
       },
       "name": "{\"de\": \"Lisag\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Nutzungsplandokumente, ITF Dateien\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"text/plain\", \"application/octet-stream\", \"application/zip\", \"application/x-zip-compressed\", \"multipart/x-zip\", \"text/xml\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "text/plain": null,
+        "application/octet-stream": null,
+        "application/zip": null,
+        "application/x-zip-compressed": null,
+        "multipart/x-zip": null,
+        "text/xml": null
+      },
       "color": "hsl(269 54% 40%)",
       "parent": null,
       "sort": 9
@@ -489,7 +543,13 @@
       },
       "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Nachgeforderte Dokumente\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"text/plain\", \"application/octet-stream\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null,
+        "text/plain": null,
+        "application/octet-stream": null
+      },
       "color": "hsl(47 34% 40%)",
       "parent": null,
       "sort": 11
@@ -524,7 +584,11 @@
       },
       "name": "{\"de\": \"Rechtsmitteldokumente\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Einsprachen, Entscheid von Beschwerdeinstanz\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "application/pdf": null
+      },
       "color": "hsl(137 14% 40%)",
       "parent": null,
       "sort": 7

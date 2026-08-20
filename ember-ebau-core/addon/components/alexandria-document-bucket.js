@@ -5,7 +5,6 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask, task, timeout } from "ember-concurrency";
 import { confirm } from "ember-uikit";
-import mime from "mime";
 
 import attachmentsConfig from "ember-ebau-core/config/attachments";
 
@@ -22,6 +21,7 @@ function requiredArgument(_, name) {
 export default class AlexandriaDocumentBucketComponent extends Component {
   @service notification;
   @service intl;
+  @service alexandriaDocuments;
 
   @requiredArgument category;
   @requiredArgument onUpload;
@@ -31,16 +31,6 @@ export default class AlexandriaDocumentBucketComponent extends Component {
   @tracked attachmentLoading = [];
 
   @tracked filesToSave = [];
-
-  get allowedMimetypes() {
-    return this.category.allowedMimeTypes ?? attachmentsConfig.allowedMimetypes;
-  }
-
-  get allowedExtensions() {
-    return this.allowedMimetypes
-      .map((mt) => mime.getExtension(mt))
-      .filter(Boolean);
-  }
 
   get useConfidential() {
     return attachmentsConfig.useConfidential;
@@ -104,10 +94,13 @@ export default class AlexandriaDocumentBucketComponent extends Component {
   onValidationError() {
     this.notification.danger(
       this.intl.t("documents.wrongMimeTypeWithAllowed", {
-        allowed: this.allowedExtensions
-          .map((ext) => ext.toUpperCase())
-          .join(", "),
+        allowed: this.category.allowedExtensions,
       }),
     );
+  }
+
+  @action
+  validate(file) {
+    return this.alexandriaDocuments.validateMimeType(file, this.category);
   }
 }

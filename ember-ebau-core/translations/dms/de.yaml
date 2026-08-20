@@ -39,7 +39,7 @@ dms:
   save-error-syntax: 'Die Vorlage enthält ungültige Syntax. Weitere Informationen finden Sie unter "Technische Details".'
   save-error-syntax-placeholder: 'Syntaxfehler in der Vorlage: "-" ist in Platzhaltern nicht zulässig.'
   save-error: "Fehler beim Speichern der Vorlage"
-  validation-error: "Es können nur .docx und .xlsx Dateien hochgeladen werden"
+  validation-error: "Es können nur docx und xlsx Dateien hochgeladen werden"
 
   error: "Aufgrund von einem unerwarteten Fehler konnte das Vorlagenmodul für
   dieses Dossier nicht geladen werden. Bitte versuchen Sie es später erneut oder

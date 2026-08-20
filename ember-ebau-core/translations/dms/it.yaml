@@ -39,7 +39,7 @@ dms:
   save-error-syntax: "Il modello ha una sintassi non valida. Maggiori informazioni alla voce «Dettagli tecnici»."
   save-error-syntax-placeholder: "Errore di sintassi nel modello: «-» non è consentito nei segnaposto."
   save-error: "Errore nel tentativo di salvare il modello."
-  validation-error: "È possibile caricare solo file .docx e .xlsx"
+  validation-error: "È possibile caricare solo file docx e xlsx"
 
   error: "A causa di un errore imprevisto per questo dossier non è stato possibile caricare la pagina dei modelli. Riprova più tardi o contatta il supporto."
 

@@ -1218,8 +1218,8 @@ msgstr ""
 #: camac/dossier_import/writers.py
 #, python-format
 msgid ""
-"Unallowed mime type for file \"%(filename)s\" (%(mime_type)s) - the file was "
-"not imported"
+"File \"%(filename)s\" (%(mime_type)s) is not allowed in the category - the "
+"file was not imported"
 msgstr ""
 
 #: camac/dossier_import/writers.py

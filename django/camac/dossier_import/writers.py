@@ -1312,23 +1312,23 @@ class DossierWriter:
         """
         from alexandria.core.api import create_document_file, create_file
         from alexandria.core.models import Category, Document as AlexandriaDocument
+        from alexandria.core.utils import get_file_extension
+        from alexandria.core.validations import validate_mime_type
 
         messages = []
         category = Category.objects.get(
             pk=settings.DOSSIER_IMPORT["ALEXANDRIA_CATEGORY"]
         )
 
-        if (
-            category.allowed_mime_types is not None
-            and len(category.allowed_mime_types)
-            and mime_type not in category.allowed_mime_types
-        ):
+        try:
+            validate_mime_type(mime_type, get_file_extension(filename), category)
+        except ValidationError:
             messages.append(
                 Message(
                     level=Severity.WARNING.value,
                     code=MessageCodes.MIME_TYPE_INVALID.value,
                     detail=_(
-                        'Unallowed mime type for file "%(filename)s" (%(mime_type)s) - the file was not imported'
+                        'File "%(filename)s" (%(mime_type)s) is not allowed in the category - the file was not imported'
                     )
                     % {"filename": filename, "mime_type": mime_type},
                 )
