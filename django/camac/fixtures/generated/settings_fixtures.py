@@ -4880,6 +4880,24 @@ def disable_statistics_settings(
 
 
 @pytest.fixture
+def be_statistics_settings(
+    request,
+    settings,
+    statistics_settings,
+):
+    """Module-specific settings for statistics (canton BE)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=statistics_settings,
+        settings_name="STATISTICS",
+        import_path="camac.settings.modules.statistics.STATISTICS",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def ag_statistics_settings(
     request,
     settings,

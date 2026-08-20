@@ -3,12 +3,59 @@ from caluma.caluma_workflow.models import WorkItem
 from rest_framework.request import Request
 
 from camac.instance.models import Instance
-from camac.statistics.filters import InstanceFilterBackend, WorkItemFilterBackend
+from camac.statistics.filters import (
+    InstanceFilterBackend,
+    RPG2FilterBackend,
+    WorkItemFilterBackend,
+)
 
 
 @pytest.fixture
 def instance_qs(statistics_ag_instance_afb):
     return Instance.objects.filter(pk=statistics_ag_instance_afb.pk)
+
+
+def test_rpg2_annotations_be(be_master_data_case, set_application_be):
+    backend = RPG2FilterBackend()
+    instance = be_master_data_case.instance
+
+    numbers = (
+        Instance.objects.filter(pk=instance.pk)
+        .annotate(
+            annotated_instance_id=backend.annotate_instance_id(),
+            special_id=backend.annotate_special_id(),
+            coordinate_x_parcels=backend.annotate_parcel_coordinates("x"),
+            coordinate_y_parcels=backend.annotate_parcel_coordinates("y"),
+        )
+        .values(
+            "annotated_instance_id",
+            "special_id",
+            "coordinate_x_parcels",
+            "coordinate_y_parcels",
+        )
+        .get()
+    )
+
+    assert numbers == {
+        "annotated_instance_id": instance.pk,
+        "special_id": "2021-1",
+        "coordinate_x_parcels": "2599941, 2601995",
+        "coordinate_y_parcels": "1198923, 1201340",
+    }
+
+
+def test_special_id_annotation_default(ag_master_data_case, set_application_ag):
+    backend = RPG2FilterBackend()
+    instance = ag_master_data_case.instance
+
+    special_id = (
+        Instance.objects.filter(pk=instance.pk)
+        .annotate(special_id=backend.annotate_special_id())
+        .values_list("special_id", flat=True)
+        .get()
+    )
+
+    assert special_id == "2025-1"
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -74,9 +121,9 @@ def test_instance_filter_backend_queryset(rf, group, instance_qs):
     request = Request(rf.get("/"))
     request.group = group
     backend = InstanceFilterBackend()
-    result = backend.filter_queryset(request, instance_qs, ["dossier_number"])
+    result = backend.filter_queryset(request, instance_qs, ["special_id"])
     assert result.count() == 1
-    assert hasattr(result.first(), "dossier_number")
+    assert hasattr(result.first(), "special_id")
 
 
 @pytest.mark.parametrize("role__name", ["Service"])
@@ -103,9 +150,7 @@ def test_work_item_filter_backend(
     request = Request(rf.get("/", data=query_params))
     request.group = group
     backend = WorkItemFilterBackend()
-    result = backend.filter_queryset(
-        request, WorkItem.objects.all(), ["dossier_number"]
-    )
+    result = backend.filter_queryset(request, WorkItem.objects.all(), ["special_id"])
     assert result.count() == expected_count
 
 

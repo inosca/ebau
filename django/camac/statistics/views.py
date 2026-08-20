@@ -94,21 +94,19 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
         return self.queryset.none()
 
     def _resolve_columns_config(self, request):
-        """Resolve columns by service group, then role."""
+        """Resolve columns by service, service group, then role."""
         stats_config = settings.STATISTICS
-        columns_config = None
-
         service = getattr(request.group, "service", None)
+        service_slug = getattr(service, "slug", None) if service else None
         sg_slug = getattr(service.service_group, "slug", None) if service else None
-        sg_columns = stats_config.by_service_group.get(sg_slug) if sg_slug else None
-        if sg_columns:
-            columns_config = sg_columns
-        else:
-            role = getattr(request.group, "role", None)
-            role_slug = getattr(role, "slug", None) if role else None
-            role_columns = stats_config.by_role.get(role_slug) if role_slug else None
-            if role_columns:
-                columns_config = role_columns
+        role = getattr(request.group, "role", None)
+        role_slug = getattr(role, "slug", None) if role else None
+
+        columns_config = stats_config.resolve_columns_config(
+            service_slug,
+            sg_slug,
+            role_slug,
+        )
 
         if columns_config is None:
             raise PermissionDenied
@@ -117,7 +115,10 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
 
     def _get_columns(self, request):
         """Resolve the export columns for this view's base_type."""
-        return getattr(self._resolve_columns_config(request), self.base_type)
+        columns = getattr(self._resolve_columns_config(request), self.base_type)
+        if not columns:  # pragma: no cover
+            raise PermissionDenied
+        return columns
 
     def _get_template(self, request):
         """Resolve the XLSX template for the current export."""

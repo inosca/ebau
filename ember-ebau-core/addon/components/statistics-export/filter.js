@@ -19,7 +19,6 @@ export default class StatisticsExportFilterComponent extends Component {
 
   @service intl;
   @service ebauModules;
-  @service session;
 
   @tracked _filter;
 
@@ -64,10 +63,12 @@ export default class StatisticsExportFilterComponent extends Component {
 
   get exportTypes() {
     const role = this.ebauModules?.baseRole;
-    const serviceGroup = this.session.serviceGroup?.slug;
-    if (!role && !serviceGroup) return [];
+    const service = this.ebauModules?.serviceSlug;
+    const serviceGroup = this.ebauModules?.serviceGroupSlug;
+    if (!role && !serviceGroup && !service) return [];
 
     const allowedExportTypes =
+      statExportCfg?.exportTypes?.byServices?.[service] ??
       statExportCfg?.exportTypes?.byServiceGroups?.[serviceGroup] ??
       statExportCfg?.exportTypes?.byRoles?.[role] ??
       [];

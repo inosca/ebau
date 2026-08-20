@@ -32,6 +32,38 @@ RPG2_URL = reverse("statistics-rpg2")
 
 
 @pytest.mark.parametrize(
+    ("service_slug", "expected_status"),
+    [
+        ("agr-bauen", status.HTTP_200_OK),
+        ("agr-kantonsplanung", status.HTTP_200_OK),
+        ("other-service", status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_rpg2_export_access_be(
+    admin_client,
+    be_decision_settings,
+    be_distribution_settings,
+    be_rpg2_settings,
+    be_statistics_settings,
+    group,
+    role,
+    service_slug,
+    set_application_be,
+    expected_status,
+):
+    group.service.slug = service_slug
+    group.service.save(update_fields=["slug"])
+
+    response = admin_client.get(RPG2_URL)
+
+    assert response.status_code == expected_status
+    if expected_status == status.HTTP_200_OK:
+        book = parse_xlsx_response(response).get_dict()
+        assert len(book["Dossiers"][0]) == 14
+        assert len(book["Flächen"][0]) == 5
+
+
+@pytest.mark.parametrize(
     ("role__name", "setup_instance", "expected_status", "expected_rows"),
     [
         ("Municipality", lf("statistics_ag_instance"), status.HTTP_200_OK, 2),

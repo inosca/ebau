@@ -7,7 +7,7 @@ from camac.settings.modules.statistics_schema import (
 )
 
 DEFAULT_DOSSIER_COLUMNS = [
-    ("dossier_number", _("Instance number")),
+    ("special_id", _("Dossier nr")),
     ("form_name", _("Application Type")),
     ("parcels", _("Parcels")),
     ("submit_date", _("Submission Date")),
@@ -28,7 +28,7 @@ DEFAULT_WORK_ITEM_COLUMNS = [
 ]
 
 DEFAULT_RPG2_DOSSIER_COLUMNS = [
-    ("dossier_number", _("Instance number")),
+    ("special_id", _("Dossier nr")),
     ("form_name", _("Application Type")),
     ("rpg2_legal_basis", _("Legal basis RPG / RPV")),
     ("rpg2_new_buildings", _("Number of new buildings > 6 m²")),
@@ -42,8 +42,8 @@ DEFAULT_RPG2_DOSSIER_COLUMNS = [
 ]
 
 DEFAULT_RPG2_AREAS_COLUMNS = [
-    ("dossier_number", _("Instance number")),
-    ("ebau_number", _("eBau number")),
+    ("special_id", _("Dossier nr")),
+    ("instance_id", _("Instance ID")),
     ("area_type", _("Type of sealing / unsealing")),
     ("area_size", _("Area (m²)")),
     (
@@ -52,6 +52,31 @@ DEFAULT_RPG2_AREAS_COLUMNS = [
     ),
     ("area_materialization_description", _("Beschreibung Materialisierung")),
     ("area_usage", _("Usage of sealed areas")),
+    ("area_sealed_when", _("When was the area sealed")),
+]
+
+BE_RPG2_DOSSIER_COLUMNS = [
+    ("instance_id", _("Instance ID")),
+    ("special_id", _("eBau number")),
+    ("description", _("Description")),
+    ("municipality", _("Municipality")),
+    ("coordinate_x_parcels", _("Coordinates east")),
+    ("coordinate_y_parcels", _("Coordinates north")),
+    ("parcels", _("Parcels")),
+    ("form_name", _("Application Type")),
+    ("rpg2_legal_basis", _("Legal basis RPG / RPV")),
+    ("rpg2_new_buildings", _("Number of new buildings > 6 m²")),
+    ("rpg2_demolished_buildings", _("Number of demolished buildings > 6 m²")),
+    ("rpg2_protected_buildings", _("Number of newly protected buildings > 6 m²")),
+    ("rpg2_approved", _("Approved")),
+    ("rpg2_realized", _("Realized")),
+]
+
+BE_RPG2_AREAS_COLUMNS = [
+    ("instance_id", _("Instance ID")),
+    ("special_id", _("eBau number")),
+    ("area_type", _("Type of sealing / unsealing")),
+    ("area_size", _("Area (m²)")),
     ("area_sealed_when", _("When was the area sealed")),
 ]
 
@@ -80,6 +105,11 @@ AG_AFB_COLUMN_CONFIG = ExportColumnsConfig(
     rpg2_areas=DEFAULT_RPG2_AREAS_COLUMNS,
 )
 
+BE_RPG2_COLUMN_CONFIG = ExportColumnsConfig(
+    rpg2_dossiers=BE_RPG2_DOSSIER_COLUMNS,
+    rpg2_areas=BE_RPG2_AREAS_COLUMNS,
+)
+
 DEFAULT_SLUGS = {
     "gis_coordinates": "gis-map",
     "rpg2_legal_basis": "rpg2-bewilligungsgrund",
@@ -104,6 +134,17 @@ STATISTICS = ModuleConfig[StatisticsConfig](
     default=StatisticsConfig(
         enabled=False,
         slugs=DEFAULT_SLUGS,
+    ),
+    kt_bern=StatisticsConfig(
+        enabled=True,
+        slugs={
+            **DEFAULT_SLUGS,
+            "rpg2_area_unsealed_prefix": "rpg2-art-versiegelung-entsiegelung-entsiegelte-flaechen",
+        },
+        by_service={
+            "agr-bauen": BE_RPG2_COLUMN_CONFIG,
+            "agr-kantonsplanung": BE_RPG2_COLUMN_CONFIG,
+        },
     ),
     kt_ag=StatisticsConfig(
         enabled=True,

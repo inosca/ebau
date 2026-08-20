@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-10 14:56+0200\n"
+"POT-Creation-Date: 2026-08-27 13:10+0200\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -270,7 +270,6 @@ msgid "eBau number"
 msgstr "N. eBau"
 
 #: camac/billing/serializers.py camac/instance/export/serializers.py
-#: camac/settings/modules/statistics.py
 msgid "Instance number"
 msgstr "N. dossier"
 
@@ -633,7 +632,8 @@ msgid "ACL Roles"
 msgstr "Ruoli ACL"
 
 #: camac/core/admin/views.py camac/instance/document_merge_service.py
-#: camac/user/models.py camac/work_items/models.py
+#: camac/settings/modules/statistics.py camac/user/models.py
+#: camac/work_items/models.py
 msgid "Description"
 msgstr "Descrizione"
 
@@ -1520,11 +1520,11 @@ msgstr "SB2 data di inoltro"
 msgid "Tags"
 msgstr "Parole chiave"
 
-#: camac/instance/export/serializers.py
+#: camac/instance/export/serializers.py camac/settings/modules/statistics.py
 msgid "Coordinates east"
 msgstr ""
 
-#: camac/instance/export/serializers.py
+#: camac/instance/export/serializers.py camac/settings/modules/statistics.py
 msgid "Coordinates north"
 msgstr ""
 
@@ -2130,6 +2130,10 @@ msgid "Instance completed by resubmission"
 msgstr "Dossier concluso con nuovo inoltro"
 
 #: camac/settings/modules/statistics.py
+msgid "Dossier nr"
+msgstr "N. dossier"
+
+#: camac/settings/modules/statistics.py
 msgid "Task name"
 msgstr ""
 
@@ -2193,6 +2197,10 @@ msgstr ""
 #: camac/settings/modules/statistics.py camac/statistics/tests/test_views.py
 msgid "Y coordinate"
 msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Instance ID"
+msgstr "ID dossier"
 
 #: camac/settings/modules/statistics.py
 msgid "Type of sealing / unsealing"

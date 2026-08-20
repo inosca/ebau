@@ -192,6 +192,7 @@ WSGI_APPLICATION = "camac.wsgi.application"
 APPLICATIONS = {
     "test": {
         "SHORT_NAME": "test",
+        "SPECIAL_ID_SLUG": "dossier-number",
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": True,
         "AVAILABLE_LANGUAGES": ["de", "fr", "it"],
@@ -308,6 +309,7 @@ APPLICATIONS = {
     },
     "kt_schwyz": {
         "SHORT_NAME": "sz",
+        "SPECIAL_ID_SLUG": "dossier-number",
         "AVAILABLE_LANGUAGES": ["de"],
         "INTERNAL_FRONTEND": "camac",
         "TAGGED_RELEASES": True,
@@ -651,6 +653,7 @@ APPLICATIONS = {
     },
     "kt_bern": {
         "SHORT_NAME": "be",
+        "SPECIAL_ID_SLUG": "ebau-number",
         "AVAILABLE_LANGUAGES": ["de", "fr"],
         "INTERNAL_FRONTEND": "camac",
         "TAGGED_RELEASES": True,
@@ -1093,6 +1096,7 @@ APPLICATIONS = {
     },
     "kt_uri": {
         "SHORT_NAME": "ur",
+        "SPECIAL_ID_SLUG": "dossier-number",
         "AVAILABLE_LANGUAGES": ["de"],
         "INTERNAL_FRONTEND": "camac",
         "USE_CAMAC_ADMIN": True,
@@ -1749,6 +1753,7 @@ APPLICATIONS = {
     },
     "demo": {
         "SHORT_NAME": "demo",
+        "SPECIAL_ID_SLUG": "dossier-number",
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
@@ -1836,6 +1841,7 @@ APPLICATIONS = {
     },
     "kt_gr": {
         "SHORT_NAME": "gr",
+        "SPECIAL_ID_SLUG": "dossier-number",
         "AVAILABLE_LANGUAGES": ["de", "it"],
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": False,
@@ -2084,6 +2090,7 @@ APPLICATIONS = {
     },
     "kt_so": {
         "SHORT_NAME": "so",
+        "SPECIAL_ID_SLUG": "dossier-number",
         "AVAILABLE_LANGUAGES": ["de"],
         "INTERNAL_FRONTEND": "ebau",
         "TAGGED_RELEASES": True,
@@ -2285,6 +2292,7 @@ APPLICATIONS = {
     },
     "kt_ag": {
         "SHORT_NAME": "ag",
+        "SPECIAL_ID_SLUG": "dossier-number",
         "AVAILABLE_LANGUAGES": ["de"],
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": False,
@@ -2505,6 +2513,7 @@ APPLICATIONS = {
     },
     "kt_sg": {
         "SHORT_NAME": "sg",
+        "SPECIAL_ID_SLUG": "dossier-number",
         "AVAILABLE_LANGUAGES": ["de"],
         "INTERNAL_FRONTEND": "ebau",
         "TAGGED_RELEASES": True,

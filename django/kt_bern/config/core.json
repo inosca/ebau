@@ -109783,6 +109783,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 18000002,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 10000,
     "fields": {
@@ -110663,6 +110670,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 18000041,
+    "fields": {
+      "resource": 18000002,
+      "role": 20008
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 10000,
     "fields": {
@@ -110907,6 +110922,19 @@
       "class_field": null,
       "hidden": 0,
       "sort": 7
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 18000002,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/statistics-export.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 18
     }
   },
   {
@@ -111276,6 +111304,26 @@
       "resource": 18000001,
       "language": "fr",
       "name": "Emoluments",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 18000003,
+    "fields": {
+      "resource": 18000002,
+      "language": "de",
+      "name": "Statistik-Export",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 18000004,
+    "fields": {
+      "resource": 18000002,
+      "language": "fr",
+      "name": "Exportation des statistiques",
       "description": null
     }
   },
