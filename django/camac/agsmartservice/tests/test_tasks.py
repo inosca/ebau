@@ -3,17 +3,17 @@ from camac.agsmartservice import tasks
 TITLE = "Baugesuch EB-123 (Aarau): Umbau"
 
 
-def _client(mocker):
+def _client(mocker, settings):
+    settings.PUBLIC_INSTANCE_URL_TEMPLATE = (
+        "https://portal.example.url/instances/{instance_id}"
+    )
     return mocker.patch(
         "camac.agsmartservice.tasks.AGSmartServiceClient.put_procedure",
     )
 
 
 def test_submit_procedure_task(mocker, snapshot, settings, ag_agsmartservice_settings):
-    put_procedure = _client(mocker)
-    settings.PUBLIC_INSTANCE_URL_TEMPLATE = (
-        "https://portal.example.url/instances/{instance_id}"
-    )
+    put_procedure = _client(mocker, settings)
 
     assert tasks.submit_procedure_task("INSTANCEID", TITLE, "N123456") is None
 
@@ -23,8 +23,10 @@ def test_submit_procedure_task(mocker, snapshot, settings, ag_agsmartservice_set
     assert payload == snapshot
 
 
-def test_complete_preliminary_check_task(mocker, snapshot, ag_agsmartservice_settings):
-    put_procedure = _client(mocker)
+def test_complete_preliminary_check_task(
+    mocker, snapshot, settings, ag_agsmartservice_settings
+):
+    put_procedure = _client(mocker, settings)
 
     assert tasks.complete_preliminary_check_task("INSTANCEID", TITLE) is None
 
@@ -35,9 +37,9 @@ def test_complete_preliminary_check_task(mocker, snapshot, ag_agsmartservice_set
 
 
 def test_start_construction_monitoring_task(
-    mocker, snapshot, ag_agsmartservice_settings
+    mocker, snapshot, settings, ag_agsmartservice_settings
 ):
-    put_procedure = _client(mocker)
+    put_procedure = _client(mocker, settings)
 
     assert tasks.start_construction_monitoring_task("INSTANCEID", TITLE) is None
 
@@ -47,8 +49,10 @@ def test_start_construction_monitoring_task(
     assert payload == snapshot
 
 
-def test_complete_procedure_task(mocker, snapshot, ag_agsmartservice_settings):
-    put_procedure = _client(mocker)
+def test_complete_procedure_task(
+    mocker, snapshot, settings, ag_agsmartservice_settings
+):
+    put_procedure = _client(mocker, settings)
 
     assert tasks.complete_procedure_task("INSTANCEID", TITLE) is None
 

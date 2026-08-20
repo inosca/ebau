@@ -2,6 +2,11 @@
 # name: test_complete_preliminary_check_task
   dict({
     'actions': list([
+      dict({
+        'title': 'Zu eBau',
+        'type': 'openUrl',
+        'url': 'https://portal.example.url/instances/INSTANCEID',
+      }),
     ]),
     'status': dict({
       'action': dict({
@@ -10,7 +15,7 @@
       }),
       'details': dict({
         'id': 'decided',
-        'name': 'Im Verfahren',
+        'name': 'In Bearbeitung',
         'text': 'Ihr Dossier befindet sich im Verfahren.',
       }),
       'id': 'IN_PROGRESS',
@@ -21,6 +26,11 @@
 # name: test_complete_procedure_task
   dict({
     'actions': list([
+      dict({
+        'title': 'Zu eBau',
+        'type': 'openUrl',
+        'url': 'https://portal.example.url/instances/INSTANCEID',
+      }),
     ]),
     'status': dict({
       'action': dict({
@@ -40,6 +50,11 @@
 # name: test_start_construction_monitoring_task
   dict({
     'actions': list([
+      dict({
+        'title': 'Zu eBau',
+        'type': 'openUrl',
+        'url': 'https://portal.example.url/instances/INSTANCEID',
+      }),
     ]),
     'status': dict({
       'action': dict({
