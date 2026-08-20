@@ -168,6 +168,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "bohrungen-tabelle",
+    "fields": {
+      "created_at": "2026-08-19T12:59:42.504Z",
+      "modified_at": "2026-08-19T12:59:42.504Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bohrungen Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "brenner-fuer-prozesse-tabelle",
     "fields": {
       "created_at": "2026-08-13T13:20:42.425Z",
@@ -735,6 +753,24 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Wärmeerzeugung Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "wasserbezugsanlage-tabelle",
+    "fields": {
+      "created_at": "2026-08-19T13:04:46.778Z",
+      "modified_at": "2026-08-19T13:04:46.778Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Wasserbezugsanlage Tabelle\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -1908,6 +1944,141 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bohrungen-tabelle.andere-bohrlochversuche",
+    "fields": {
+      "created_at": "2026-08-19T13:00:55.672Z",
+      "modified_at": "2026-08-19T13:00:55.672Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bohrungen-tabelle",
+      "question": "andere-bohrlochversuche",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bohrungen-tabelle.andere-bohrungen",
+    "fields": {
+      "created_at": "2026-08-19T12:59:59.267Z",
+      "modified_at": "2026-08-19T12:59:59.267Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bohrungen-tabelle",
+      "question": "andere-bohrungen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bohrungen-tabelle.anzahl-bohrungen",
+    "fields": {
+      "created_at": "2026-08-19T13:00:02.307Z",
+      "modified_at": "2026-08-19T13:00:02.307Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bohrungen-tabelle",
+      "question": "anzahl-bohrungen",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bohrungen-tabelle.bohrlochversuche",
+    "fields": {
+      "created_at": "2026-08-19T13:00:26.290Z",
+      "modified_at": "2026-08-19T13:00:26.290Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bohrungen-tabelle",
+      "question": "bohrlochversuche",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bohrungen-tabelle.bohrungen",
+    "fields": {
+      "created_at": "2026-08-19T12:59:55.338Z",
+      "modified_at": "2026-08-19T12:59:55.338Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bohrungen-tabelle",
+      "question": "bohrungen",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bohrungen-tabelle.durchmesser-bohrungen-mm",
+    "fields": {
+      "created_at": "2026-08-19T13:00:07.447Z",
+      "modified_at": "2026-08-19T13:00:07.447Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bohrungen-tabelle",
+      "question": "durchmesser-bohrungen-mm",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bohrungen-tabelle.kleinpumpversuch-dauer-h",
+    "fields": {
+      "created_at": "2026-08-19T13:00:43.548Z",
+      "modified_at": "2026-08-19T13:00:43.548Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bohrungen-tabelle",
+      "question": "kleinpumpversuch-dauer-h",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bohrungen-tabelle.kleinpumpversuch-menge-lmin",
+    "fields": {
+      "created_at": "2026-08-19T13:00:42.615Z",
+      "modified_at": "2026-08-19T13:00:42.615Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bohrungen-tabelle",
+      "question": "kleinpumpversuch-menge-lmin",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bohrungen-tabelle.tiefe-bohrungen-m",
+    "fields": {
+      "created_at": "2026-08-19T13:00:04.843Z",
+      "modified_at": "2026-08-19T13:00:04.843Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bohrungen-tabelle",
+      "question": "tiefe-bohrungen-m",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "brenner-fuer-prozesse-tabelle.anderes-medium",
     "fields": {
       "created_at": "2026-08-13T13:22:39.026Z",
@@ -1918,7 +2089,7 @@
       "modified_by_group": null,
       "form": "brenner-fuer-prozesse-tabelle",
       "question": "anderes-medium",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -1948,7 +2119,7 @@
       "modified_by_group": null,
       "form": "brenner-fuer-prozesse-tabelle",
       "question": "brenner-prozess",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -1978,7 +2149,7 @@
       "modified_by_group": null,
       "form": "brenner-fuer-prozesse-tabelle",
       "question": "fabrikat-typ",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -1993,7 +2164,7 @@
       "modified_by_group": null,
       "form": "brenner-fuer-prozesse-tabelle",
       "question": "gesamtleistung",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -2023,7 +2194,7 @@
       "modified_by_group": null,
       "form": "brenner-fuer-prozesse-tabelle",
       "question": "medium",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -2043,16 +2214,16 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "brenner-fuer-prozesse-tabelle.vfk-nr",
+    "pk": "brenner-fuer-prozesse-tabelle.vkf-nr",
     "fields": {
-      "created_at": "2026-08-13T13:24:38.727Z",
-      "modified_at": "2026-08-13T13:24:38.727Z",
+      "created_at": "2026-08-20T08:15:31.917Z",
+      "modified_at": "2026-08-20T08:15:31.917Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "brenner-fuer-prozesse-tabelle",
-      "question": "vfk-nr",
+      "question": "vkf-nr",
       "sort": 5
     }
   },
@@ -3103,7 +3274,7 @@
       "modified_by_group": null,
       "form": "feuerungen-fuer-prozesse-tabelle",
       "question": "bafu-nr",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -3268,22 +3439,22 @@
       "modified_by_group": null,
       "form": "feuerungen-fuer-prozesse-tabelle",
       "question": "svgw-nr",
-      "sort": 10
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "feuerungen-fuer-prozesse-tabelle.vfk-nr",
+    "pk": "feuerungen-fuer-prozesse-tabelle.vkf-nr",
     "fields": {
-      "created_at": "2026-08-13T13:09:20.643Z",
-      "modified_at": "2026-08-13T13:09:20.643Z",
+      "created_at": "2026-08-20T08:14:48.064Z",
+      "modified_at": "2026-08-20T08:14:48.064Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "feuerungen-fuer-prozesse-tabelle",
-      "question": "vfk-nr",
-      "sort": 11
+      "question": "vkf-nr",
+      "sort": 10
     }
   },
   {
@@ -5343,36 +5514,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.andere-bohrlochversuche",
-    "fields": {
-      "created_at": "2026-08-11T14:39:01.943Z",
-      "modified_at": "2026-08-11T14:39:01.943Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "andere-bohrlochversuche",
-      "sort": 16
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.andere-bohrungen",
-    "fields": {
-      "created_at": "2026-08-11T14:32:26.140Z",
-      "modified_at": "2026-08-11T14:32:26.140Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "andere-bohrungen",
-      "sort": 23
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "untergrund-und-grundwasser.andere-fundationsmassnahmen",
     "fields": {
       "created_at": "2026-08-11T14:30:04.727Z",
@@ -5383,22 +5524,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "andere-fundationsmassnahmen",
-      "sort": 26
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.anderer-verwendungszweck",
-    "fields": {
-      "created_at": "2026-08-11T14:56:31.042Z",
-      "modified_at": "2026-08-11T14:56:31.042Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "anderer-verwendungszweck",
-      "sort": 8
+      "sort": 19
     }
   },
   {
@@ -5413,22 +5539,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "andere-thematik",
-      "sort": 39
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.anzahl-bohrungen",
-    "fields": {
-      "created_at": "2026-08-11T14:32:53.946Z",
-      "modified_at": "2026-08-11T14:32:53.946Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "anzahl-bohrungen",
-      "sort": 22
+      "sort": 32
     }
   },
   {
@@ -5443,7 +5554,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "anzahl-pumpen",
-      "sort": 28
+      "sort": 21
     }
   },
   {
@@ -5458,67 +5569,22 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "betroffene-thematiken",
-      "sort": 40
+      "sort": 33
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.bohrlochversuche",
+    "pk": "untergrund-und-grundwasser.bohrungen-tabelle-question",
     "fields": {
-      "created_at": "2026-08-11T14:39:56.264Z",
-      "modified_at": "2026-08-11T14:39:56.264Z",
+      "created_at": "2026-08-19T13:03:06.350Z",
+      "modified_at": "2026-08-19T13:03:06.350Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
-      "question": "bohrlochversuche",
-      "sort": 19
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.bohrungen",
-    "fields": {
-      "created_at": "2026-08-11T14:31:51.270Z",
-      "modified_at": "2026-08-11T14:31:51.270Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "bohrungen",
-      "sort": 24
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.durchmesser-bohrungen-mm",
-    "fields": {
-      "created_at": "2026-08-11T14:36:43.755Z",
-      "modified_at": "2026-08-11T14:36:43.755Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "durchmesser-bohrungen-mm",
-      "sort": 20
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.flurname",
-    "fields": {
-      "created_at": "2026-08-11T15:01:24.955Z",
-      "modified_at": "2026-08-11T15:01:24.955Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "flurname",
-      "sort": 1
+      "question": "bohrungen-tabelle-question",
+      "sort": 17
     }
   },
   {
@@ -5533,22 +5599,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "fundationsmassnahmen",
-      "sort": 27
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.gewuenschter-nutzungsumfang-titel",
-    "fields": {
-      "created_at": "2026-08-11T14:51:23.268Z",
-      "modified_at": "2026-08-11T14:51:23.268Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "gewuenschter-nutzungsumfang-titel",
-      "sort": 14
+      "sort": 20
     }
   },
   {
@@ -5563,7 +5614,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "grundwasserabsenkung-titel",
-      "sort": 36
+      "sort": 29
     }
   },
   {
@@ -5578,7 +5629,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "hoechstmoeglicher-grundwasserstand-m-ue-m",
-      "sort": 32
+      "sort": 25
     }
   },
   {
@@ -5593,22 +5644,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "installierte-pumpleistung-total-lmin",
-      "sort": 29
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.ist-eine-wasserrueckgabe-vorgesehen",
-    "fields": {
-      "created_at": "2026-08-11T15:00:39.172Z",
-      "modified_at": "2026-08-11T15:00:39.172Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "ist-eine-wasserrueckgabe-vorgesehen",
-      "sort": 4
+      "sort": 22
     }
   },
   {
@@ -5623,37 +5659,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "ist-voraussichtlich-eine-grundwasserabsenkung-erforderlich",
-      "sort": 33
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.kleinpumpversuch-dauer-h",
-    "fields": {
-      "created_at": "2026-08-11T14:38:33.433Z",
-      "modified_at": "2026-08-11T14:38:33.433Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "kleinpumpversuch-dauer-h",
-      "sort": 17
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.kleinpumpversuch-menge-lmin",
-    "fields": {
-      "created_at": "2026-08-11T14:38:10.980Z",
-      "modified_at": "2026-08-11T14:38:10.980Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "kleinpumpversuch-menge-lmin",
-      "sort": 18
+      "sort": 26
     }
   },
   {
@@ -5668,7 +5674,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "mittlerer-grundwasserstand-m-ue-m",
-      "sort": 34
+      "sort": 27
     }
   },
   {
@@ -5683,22 +5689,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "sind-bohrungen-vorgesehen",
-      "sort": 25
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.tiefe-bohrungen-m",
-    "fields": {
-      "created_at": "2026-08-11T14:36:13.193Z",
-      "modified_at": "2026-08-11T14:36:13.193Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "tiefe-bohrungen-m",
-      "sort": 21
+      "sort": 18
     }
   },
   {
@@ -5713,7 +5704,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "tiefste-absenkkote-m-ue-m",
-      "sort": 31
+      "sort": 24
     }
   },
   {
@@ -5728,82 +5719,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "unterkante-baukoerper-m-ue-m",
-      "sort": 35
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.verwendungszweck",
-    "fields": {
-      "created_at": "2026-08-11T14:55:47.413Z",
-      "modified_at": "2026-08-11T14:55:47.413Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "verwendungszweck",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.verwendungszweck-brauchwasser",
-    "fields": {
-      "created_at": "2026-08-11T15:00:01.483Z",
-      "modified_at": "2026-08-11T15:00:01.483Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "verwendungszweck-brauchwasser",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.verwendungszweck-des-wassers-titel",
-    "fields": {
-      "created_at": "2026-08-11T14:54:42.580Z",
-      "modified_at": "2026-08-11T14:54:42.580Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "verwendungszweck-des-wassers-titel",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.verwendungszweck-heil-und-mineralwasser",
-    "fields": {
-      "created_at": "2026-08-11T14:59:32.404Z",
-      "modified_at": "2026-08-11T14:59:32.404Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "verwendungszweck-heil-und-mineralwasser",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.verwendungszweck-wasserversorgung",
-    "fields": {
-      "created_at": "2026-08-11T14:58:54.419Z",
-      "modified_at": "2026-08-11T14:58:54.419Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "verwendungszweck-wasserversorgung",
-      "sort": 7
+      "sort": 28
     }
   },
   {
@@ -5818,97 +5734,22 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "voraussichtliche-wasserentnahmemenge-lmin",
-      "sort": 30
+      "sort": 23
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.wasserbezugsanlage-titel",
+    "pk": "untergrund-und-grundwasser.wasserbezugsanlage",
     "fields": {
-      "created_at": "2026-08-11T14:50:56.457Z",
-      "modified_at": "2026-08-11T14:50:56.457Z",
+      "created_at": "2026-08-19T13:17:35.100Z",
+      "modified_at": "2026-08-19T13:17:35.100Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
-      "question": "wasserbezugsanlage-titel",
-      "sort": 15
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.wasserentnahme-hoechstens-lmin",
-    "fields": {
-      "created_at": "2026-08-11T14:53:34.662Z",
-      "modified_at": "2026-08-11T14:53:34.662Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "wasserentnahme-hoechstens-lmin",
-      "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.wasserentnahme-hoechstens-mjahr",
-    "fields": {
-      "created_at": "2026-08-11T14:54:14.532Z",
-      "modified_at": "2026-08-11T14:54:14.532Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "wasserentnahme-hoechstens-mjahr",
-      "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.wasserentnahme-hoechstens-mtag",
-    "fields": {
-      "created_at": "2026-08-11T14:53:52.310Z",
-      "modified_at": "2026-08-11T14:53:52.310Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "wasserentnahme-hoechstens-mtag",
-      "sort": 12
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.wasserrueckgabe-x-koordinaten",
-    "fields": {
-      "created_at": "2026-08-11T15:01:17.802Z",
-      "modified_at": "2026-08-11T15:01:17.802Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "wasserrueckgabe-x-koordinaten",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "untergrund-und-grundwasser.wasserrueckgabe-y-koordinaten",
-    "fields": {
-      "created_at": "2026-08-11T15:01:08.980Z",
-      "modified_at": "2026-08-11T15:01:08.980Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "untergrund-und-grundwasser",
-      "question": "wasserrueckgabe-y-koordinaten",
-      "sort": 3
+      "question": "wasserbezugsanlage",
+      "sort": 16
     }
   },
   {
@@ -5923,7 +5764,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "werden-anlagen-unter-dem-mittleren-grundwasserspiegel-erstellt",
-      "sort": 38
+      "sort": 31
     }
   },
   {
@@ -5938,7 +5779,7 @@
       "modified_by_group": null,
       "form": "untergrund-und-grundwasser",
       "question": "wurden-hydrogeologische-oder-geotechnische-abklaerungen-durchgefuehrt",
-      "sort": 37
+      "sort": 30
     }
   },
   {
@@ -6404,6 +6245,216 @@
       "form": "waermeerzeugung-tabelle",
       "question": "waermeerzeugung-feuerungstyp",
       "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.anderer-verwendungszweck",
+    "fields": {
+      "created_at": "2026-08-19T13:05:46.821Z",
+      "modified_at": "2026-08-19T13:05:46.821Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "anderer-verwendungszweck",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.flurname",
+    "fields": {
+      "created_at": "2026-08-19T13:13:24.747Z",
+      "modified_at": "2026-08-19T13:13:24.747Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "flurname",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.gewuenschter-nutzungsumfang-titel",
+    "fields": {
+      "created_at": "2026-08-19T13:04:58.558Z",
+      "modified_at": "2026-08-19T13:04:58.558Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "gewuenschter-nutzungsumfang-titel",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.ist-eine-wasserrueckgabe-vorgesehen",
+    "fields": {
+      "created_at": "2026-08-19T13:06:07.695Z",
+      "modified_at": "2026-08-19T13:06:07.695Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "ist-eine-wasserrueckgabe-vorgesehen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.verwendungszweck",
+    "fields": {
+      "created_at": "2026-08-19T13:05:44.129Z",
+      "modified_at": "2026-08-19T13:05:44.129Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "verwendungszweck",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.verwendungszweck-brauchwasser",
+    "fields": {
+      "created_at": "2026-08-19T13:05:56.564Z",
+      "modified_at": "2026-08-19T13:05:56.564Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "verwendungszweck-brauchwasser",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.verwendungszweck-des-wassers-titel",
+    "fields": {
+      "created_at": "2026-08-19T13:05:34.067Z",
+      "modified_at": "2026-08-19T13:05:34.067Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "verwendungszweck-des-wassers-titel",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.verwendungszweck-heil-und-mineralwasser",
+    "fields": {
+      "created_at": "2026-08-19T13:05:55.850Z",
+      "modified_at": "2026-08-19T13:05:55.850Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "verwendungszweck-heil-und-mineralwasser",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.verwendungszweck-wasserversorgung",
+    "fields": {
+      "created_at": "2026-08-19T13:05:54.578Z",
+      "modified_at": "2026-08-19T13:05:54.578Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "verwendungszweck-wasserversorgung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.wasserentnahme-hoechstens-lmin",
+    "fields": {
+      "created_at": "2026-08-19T13:05:24.217Z",
+      "modified_at": "2026-08-19T13:05:24.217Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "wasserentnahme-hoechstens-lmin",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.wasserentnahme-hoechstens-mjahr",
+    "fields": {
+      "created_at": "2026-08-19T13:05:25.439Z",
+      "modified_at": "2026-08-19T13:05:25.439Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "wasserentnahme-hoechstens-mjahr",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.wasserentnahme-hoechstens-mtag",
+    "fields": {
+      "created_at": "2026-08-19T13:05:24.885Z",
+      "modified_at": "2026-08-19T13:05:24.885Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "wasserentnahme-hoechstens-mtag",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.wasserrueckgabe-x-koordinaten",
+    "fields": {
+      "created_at": "2026-08-19T13:06:08.990Z",
+      "modified_at": "2026-08-19T13:06:08.990Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "wasserrueckgabe-x-koordinaten",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wasserbezugsanlage-tabelle.wasserrueckgabe-y-koordinaten",
+    "fields": {
+      "created_at": "2026-08-19T13:06:08.190Z",
+      "modified_at": "2026-08-19T13:06:08.190Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserbezugsanlage-tabelle",
+      "question": "wasserrueckgabe-y-koordinaten",
+      "sort": 4
     }
   },
   {
@@ -12507,7 +12558,7 @@
     "pk": "andere-bohrungen",
     "fields": {
       "created_at": "2026-08-11T14:32:26.099Z",
-      "modified_at": "2026-08-11T14:47:19.220Z",
+      "modified_at": "2026-08-19T12:57:27.036Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -12515,7 +12566,7 @@
       "label": "{\"de\": \"andere Bohrungen\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\"andere-bohrungen-andere\" in \"bohrungen\"|answer([]))",
+      "is_hidden": "!(\"bohrungen-andere\" in \"bohrungen\"|answer([]))",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -12609,19 +12660,19 @@
     "pk": "anderer-verwendungszweck",
     "fields": {
       "created_at": "2026-08-11T14:56:30.997Z",
-      "modified_at": "2026-08-11T14:56:30.997Z",
+      "modified_at": "2026-08-19T12:57:45.789Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"anderer Verwendungszweck\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\"verwendungszweck-andere\" in \"verwendungszweck\"|answer([]))",
+      "is_hidden": "!(\"verwendungszweck-anderer\" in \"verwendungszweck\"|answer([]))",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -13039,7 +13090,7 @@
     "pk": "anzahl-bohrungen",
     "fields": {
       "created_at": "2026-08-11T14:32:53.905Z",
-      "modified_at": "2026-08-11T14:49:21.723Z",
+      "modified_at": "2026-08-19T13:21:36.005Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -13047,7 +13098,7 @@
       "label": "{\"de\": \"Anzahl Bohrungen\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "\"sind-bohrungen-vorgesehen\"|answer != \"sind-bohrungen-vorgesehen-ja\"",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -14036,7 +14087,7 @@
     "pk": "bohrlochversuche",
     "fields": {
       "created_at": "2026-08-11T14:39:56.217Z",
-      "modified_at": "2026-08-11T14:49:42.101Z",
+      "modified_at": "2026-08-19T13:21:51.752Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -14044,7 +14095,7 @@
       "label": "{\"de\": \"Bohrlochversuche\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "\"sind-bohrungen-vorgesehen\"|answer != \"sind-bohrungen-vorgesehen-ja\"",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -14067,13 +14118,44 @@
     "pk": "bohrungen",
     "fields": {
       "created_at": "2026-08-11T14:31:51.215Z",
-      "modified_at": "2026-08-11T14:48:50.940Z",
+      "modified_at": "2026-08-19T13:21:28.506Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Bohrungen\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bohrungen-tabelle-question",
+    "fields": {
+      "created_at": "2026-08-19T13:03:06.283Z",
+      "modified_at": "2026-08-19T13:40:29.372Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bohrungen\", \"fr\": null, \"it\": null}",
+      "type": "table",
       "is_required": "false",
       "is_hidden": "\"sind-bohrungen-vorgesehen\"|answer != \"sind-bohrungen-vorgesehen-ja\"",
       "is_archived": false,
@@ -14084,7 +14166,7 @@
       "configuration": {},
       "meta": {},
       "data_source": null,
-      "row_form": null,
+      "row_form": "bohrungen-tabelle",
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -14717,7 +14799,7 @@
     "pk": "durchmesser-bohrungen-mm",
     "fields": {
       "created_at": "2026-08-11T14:36:43.717Z",
-      "modified_at": "2026-08-11T14:49:31.450Z",
+      "modified_at": "2026-08-19T13:21:46.808Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -14725,7 +14807,7 @@
       "label": "{\"de\": \"Durchmesser Bohrungen (mm)\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "\"sind-bohrungen-vorgesehen\"|answer != \"sind-bohrungen-vorgesehen-ja\"",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -16150,7 +16232,7 @@
     "pk": "gewuenschter-nutzungsumfang-titel",
     "fields": {
       "created_at": "2026-08-11T14:51:23.228Z",
-      "modified_at": "2026-08-11T15:19:11.934Z",
+      "modified_at": "2026-08-19T13:16:01.593Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -16158,7 +16240,7 @@
       "label": "{\"de\": \"Gewünschter Nutzungsumfang Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\"betroffene-thematiken-wasserbezugsanlage\" in \"betroffene-thematiken\"|answer([]))",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -16469,7 +16551,7 @@
     "pk": "ist-eine-wasserrueckgabe-vorgesehen",
     "fields": {
       "created_at": "2026-08-11T15:00:39.124Z",
-      "modified_at": "2026-08-11T15:19:39.408Z",
+      "modified_at": "2026-08-19T13:14:45.175Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -16477,7 +16559,7 @@
       "label": "{\"de\": \"Ist eine Wasserrückgabe vorgesehen?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!(\"betroffene-thematiken-wasserbezugsanlage\" in \"betroffene-thematiken\"|answer([]))",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -20567,7 +20649,7 @@
     "pk": "tiefe-bohrungen-m",
     "fields": {
       "created_at": "2026-08-11T14:36:13.148Z",
-      "modified_at": "2026-08-11T14:49:25.829Z",
+      "modified_at": "2026-08-19T13:21:42.357Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -20575,7 +20657,7 @@
       "label": "{\"de\": \"Tiefe Bohrungen (m)\", \"fr\": null, \"it\": null}",
       "type": "float",
       "is_required": "false",
-      "is_hidden": "\"sind-bohrungen-vorgesehen\"|answer != \"sind-bohrungen-vorgesehen-ja\"",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21289,7 +21371,7 @@
     "pk": "verwendungszweck",
     "fields": {
       "created_at": "2026-08-11T14:55:47.361Z",
-      "modified_at": "2026-08-11T15:19:34.613Z",
+      "modified_at": "2026-08-19T13:15:31.262Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -21297,7 +21379,7 @@
       "label": "{\"de\": \"Verwendungszweck\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "!(\"betroffene-thematiken-wasserbezugsanlage\" in \"betroffene-thematiken\"|answer([]))",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21351,7 +21433,7 @@
     "pk": "verwendungszweck-des-wassers-titel",
     "fields": {
       "created_at": "2026-08-11T14:54:42.540Z",
-      "modified_at": "2026-08-11T15:19:29.609Z",
+      "modified_at": "2026-08-19T13:15:41.976Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -21359,7 +21441,7 @@
       "label": "{\"de\": \"Verwendungszweck des Wassers Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\"betroffene-thematiken-wasserbezugsanlage\" in \"betroffene-thematiken\"|answer([]))",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21441,56 +21523,22 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "vfk-nr",
-    "fields": {
-      "created_at": "2026-08-13T13:09:20.606Z",
-      "modified_at": "2026-08-13T13:09:20.606Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"VFK-Nr.\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "vkf-nr",
     "fields": {
       "created_at": "2026-06-04T07:32:50.656Z",
-      "modified_at": "2026-06-04T07:32:50.656Z",
+      "modified_at": "2026-08-20T08:15:46.321Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"VKF-Nr.\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -21812,27 +21860,27 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "wasserbezugsanlage-titel",
+    "pk": "wasserbezugsanlage",
     "fields": {
-      "created_at": "2026-08-11T14:50:56.416Z",
-      "modified_at": "2026-08-11T15:18:41.616Z",
+      "created_at": "2026-08-19T13:17:35.058Z",
+      "modified_at": "2026-08-20T07:46:40.394Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Wasserbezugsanlage Titel\", \"fr\": null, \"it\": null}",
-      "type": "static",
+      "label": "{\"de\": \"Wasserbezugsanlage\", \"fr\": null, \"it\": null}",
+      "type": "table",
       "is_required": "false",
       "is_hidden": "!(\"betroffene-thematiken-wasserbezugsanlage\" in \"betroffene-thematiken\"|answer([]))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"### Wasserbezugsanlage\", \"fr\": \"\", \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
-      "row_form": null,
+      "row_form": "wasserbezugsanlage-tabelle",
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -21846,7 +21894,7 @@
     "pk": "wasserentnahme-hoechstens-lmin",
     "fields": {
       "created_at": "2026-08-11T14:53:34.619Z",
-      "modified_at": "2026-08-11T15:19:16.169Z",
+      "modified_at": "2026-08-19T13:15:56.236Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -21854,7 +21902,7 @@
       "label": "{\"de\": \"Wasserentnahme höchstens (l/min)\", \"fr\": null, \"it\": null}",
       "type": "float",
       "is_required": "false",
-      "is_hidden": "!(\"betroffene-thematiken-wasserbezugsanlage\" in \"betroffene-thematiken\"|answer([]))",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21881,7 +21929,7 @@
     "pk": "wasserentnahme-hoechstens-mjahr",
     "fields": {
       "created_at": "2026-08-11T14:54:14.492Z",
-      "modified_at": "2026-08-11T15:19:25.391Z",
+      "modified_at": "2026-08-19T13:15:48.880Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -21889,7 +21937,7 @@
       "label": "{\"de\": \"Wasserentnahme höchstens (m³/Jahr)\", \"fr\": null, \"it\": null}",
       "type": "float",
       "is_required": "false",
-      "is_hidden": "!(\"betroffene-thematiken-wasserbezugsanlage\" in \"betroffene-thematiken\"|answer([]))",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21916,7 +21964,7 @@
     "pk": "wasserentnahme-hoechstens-mtag",
     "fields": {
       "created_at": "2026-08-11T14:53:52.263Z",
-      "modified_at": "2026-08-11T15:19:21.247Z",
+      "modified_at": "2026-08-19T13:15:52.324Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -21924,7 +21972,7 @@
       "label": "{\"de\": \"Wasserentnahme höchstens (m³/Tag)\", \"fr\": null, \"it\": null}",
       "type": "float",
       "is_required": "false",
-      "is_hidden": "!(\"betroffene-thematiken-wasserbezugsanlage\" in \"betroffene-thematiken\"|answer([]))",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -25137,8 +25185,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bohrlochversuche.bohrlochversuche-andere",
     "fields": {
-      "created_at": "2026-08-11T14:49:42.106Z",
-      "modified_at": "2026-08-11T14:49:42.106Z",
+      "created_at": "2026-08-19T13:21:51.755Z",
+      "modified_at": "2026-08-19T13:21:51.755Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -25152,8 +25200,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bohrlochversuche.bohrlochversuche-kleinpumpversuch",
     "fields": {
-      "created_at": "2026-08-11T14:49:42.108Z",
-      "modified_at": "2026-08-11T14:49:42.108Z",
+      "created_at": "2026-08-19T13:21:51.756Z",
+      "modified_at": "2026-08-19T13:21:51.756Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -25167,8 +25215,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bohrungen.bohrungen-andere",
     "fields": {
-      "created_at": "2026-08-11T14:48:50.942Z",
-      "modified_at": "2026-08-11T14:48:50.942Z",
+      "created_at": "2026-08-19T13:21:28.510Z",
+      "modified_at": "2026-08-19T13:21:28.510Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -25182,8 +25230,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bohrungen.bohrungen-bohrungen-mit-stuetzfluessigkeit",
     "fields": {
-      "created_at": "2026-08-11T14:48:50.943Z",
-      "modified_at": "2026-08-11T14:48:50.943Z",
+      "created_at": "2026-08-19T13:21:28.511Z",
+      "modified_at": "2026-08-19T13:21:28.511Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -25197,8 +25245,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bohrungen.bohrungen-kernbohrungen",
     "fields": {
-      "created_at": "2026-08-11T14:48:50.945Z",
-      "modified_at": "2026-08-11T14:48:50.945Z",
+      "created_at": "2026-08-19T13:21:28.513Z",
+      "modified_at": "2026-08-19T13:21:28.513Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -25212,8 +25260,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bohrungen.bohrungen-spuelbohrungen",
     "fields": {
-      "created_at": "2026-08-11T14:48:50.944Z",
-      "modified_at": "2026-08-11T14:48:50.944Z",
+      "created_at": "2026-08-19T13:21:28.512Z",
+      "modified_at": "2026-08-19T13:21:28.512Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -26097,8 +26145,8 @@
     "model": "caluma_form.questionoption",
     "pk": "ist-eine-wasserrueckgabe-vorgesehen.ist-eine-wasserrueckgabe-vorgesehen-ja",
     "fields": {
-      "created_at": "2026-08-11T15:19:39.413Z",
-      "modified_at": "2026-08-11T15:19:39.413Z",
+      "created_at": "2026-08-19T13:14:45.178Z",
+      "modified_at": "2026-08-19T13:14:45.178Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -26112,8 +26160,8 @@
     "model": "caluma_form.questionoption",
     "pk": "ist-eine-wasserrueckgabe-vorgesehen.ist-eine-wasserrueckgabe-vorgesehen-nein",
     "fields": {
-      "created_at": "2026-08-11T15:19:39.411Z",
-      "modified_at": "2026-08-11T15:19:39.411Z",
+      "created_at": "2026-08-19T13:14:45.177Z",
+      "modified_at": "2026-08-19T13:14:45.177Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -27717,8 +27765,8 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendungszweck.verwendungszweck-anderer",
     "fields": {
-      "created_at": "2026-08-11T15:19:34.615Z",
-      "modified_at": "2026-08-11T15:19:34.615Z",
+      "created_at": "2026-08-19T13:15:31.264Z",
+      "modified_at": "2026-08-19T13:15:31.264Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -27732,8 +27780,8 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendungszweck.verwendungszweck-brauchwasser",
     "fields": {
-      "created_at": "2026-08-11T15:19:34.620Z",
-      "modified_at": "2026-08-11T15:19:34.620Z",
+      "created_at": "2026-08-19T13:15:31.268Z",
+      "modified_at": "2026-08-19T13:15:31.268Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -27747,8 +27795,8 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendungszweck.verwendungszweck-heil-und-mineralwasser",
     "fields": {
-      "created_at": "2026-08-11T15:19:34.621Z",
-      "modified_at": "2026-08-11T15:19:34.621Z",
+      "created_at": "2026-08-19T13:15:31.269Z",
+      "modified_at": "2026-08-19T13:15:31.269Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -27762,8 +27810,8 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendungszweck.verwendungszweck-kuehlwasser",
     "fields": {
-      "created_at": "2026-08-11T15:19:34.619Z",
-      "modified_at": "2026-08-11T15:19:34.619Z",
+      "created_at": "2026-08-19T13:15:31.268Z",
+      "modified_at": "2026-08-19T13:15:31.268Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -27777,8 +27825,8 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendungszweck.verwendungszweck-loeschwasser",
     "fields": {
-      "created_at": "2026-08-11T15:19:34.618Z",
-      "modified_at": "2026-08-11T15:19:34.618Z",
+      "created_at": "2026-08-19T13:15:31.267Z",
+      "modified_at": "2026-08-19T13:15:31.267Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -27792,8 +27840,8 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendungszweck.verwendungszweck-notwasser",
     "fields": {
-      "created_at": "2026-08-11T15:19:34.617Z",
-      "modified_at": "2026-08-11T15:19:34.617Z",
+      "created_at": "2026-08-19T13:15:31.265Z",
+      "modified_at": "2026-08-19T13:15:31.265Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -27807,8 +27855,8 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendungszweck.verwendungszweck-wasserversorgung",
     "fields": {
-      "created_at": "2026-08-11T15:19:34.622Z",
-      "modified_at": "2026-08-11T15:19:34.622Z",
+      "created_at": "2026-08-19T13:15:31.270Z",
+      "modified_at": "2026-08-19T13:15:31.270Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
