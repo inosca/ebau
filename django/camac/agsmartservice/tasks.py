@@ -8,6 +8,18 @@ IN_PROGRESS = "IN_PROGRESS"
 DONE = "DONE"
 
 
+def _actions(instance_id):
+    return [
+        {
+            "type": "openUrl",
+            "title": "Zu eBau",
+            "url": settings.PUBLIC_INSTANCE_URL_TEMPLATE.format(
+                instance_id=instance_id
+            ),
+        }
+    ]
+
+
 @shared_task()
 def submit_procedure_task(instance_id, title, assignee_id):
     payload = {
@@ -28,15 +40,7 @@ def submit_procedure_task(instance_id, title, assignee_id):
                 "deadline": None,
             },
         },
-        "actions": [
-            {
-                "type": "openUrl",
-                "title": "Zu eBau",
-                "url": settings.PUBLIC_INSTANCE_URL_TEMPLATE.format(
-                    instance_id=instance_id
-                ),
-            }
-        ],
+        "actions": _actions(instance_id),
     }
 
     AGSmartServiceClient.put_procedure(instance_id, payload)
@@ -50,7 +54,7 @@ def complete_preliminary_check_task(instance_id, title):
             "id": IN_PROGRESS,
             "details": {
                 "id": "decided",
-                "name": "Im Verfahren",
+                "name": "In Bearbeitung",
                 "text": "Ihr Dossier befindet sich im Verfahren.",
             },
             "action": {
@@ -58,7 +62,7 @@ def complete_preliminary_check_task(instance_id, title):
                 "deadline": None,
             },
         },
-        "actions": [],
+        "actions": _actions(instance_id),
     }
 
     AGSmartServiceClient.put_procedure(instance_id, payload)
@@ -80,7 +84,7 @@ def start_construction_monitoring_task(instance_id, title):
                 "deadline": None,
             },
         },
-        "actions": [],
+        "actions": _actions(instance_id),
     }
 
     AGSmartServiceClient.put_procedure(instance_id, payload)
@@ -102,7 +106,7 @@ def complete_procedure_task(instance_id, title):
                 "deadline": None,
             },
         },
-        "actions": [],
+        "actions": _actions(instance_id),
     }
 
     AGSmartServiceClient.put_procedure(instance_id, payload)
