@@ -847,8 +847,8 @@ importers:
         specifier: workspace:*
         version: link:../ember-ebau-core
       ember-ebau-gwr:
-        specifier: 8.1.3
-        version: 8.1.3(mvjuqeghvymomdpwoz533i3z4y)
+        specifier: 9.0.0
+        version: 9.0.0(mvjuqeghvymomdpwoz533i3z4y)
       ember-engines:
         specifier: 0.11.0
         version: 0.11.0(@glint/template@1.5.0)(ember-engines-router-service@0.6.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
@@ -1150,8 +1150,8 @@ importers:
         specifier: workspace:*
         version: link:../ember-ebau-core
       ember-ebau-gwr:
-        specifier: 8.1.3
-        version: 8.1.3(mvjuqeghvymomdpwoz533i3z4y)
+        specifier: 9.0.0
+        version: 9.0.0(mvjuqeghvymomdpwoz533i3z4y)
       ember-engines:
         specifier: 0.11.0
         version: 0.11.0(@glint/template@1.5.0)(ember-engines-router-service@0.6.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
@@ -5156,9 +5156,9 @@ packages:
     resolution: {integrity: sha512-TovtNqCumzyAiW0/OisSkkVK93xnVF4NRU6+FN0ubpfwEOpRrmM2RqDwXI6YAChCgSHON1cz0DfQStpA1Gjuuw==}
     engines: {node: 10.* || >= 12}
 
-  ember-ebau-gwr@8.1.3:
-    resolution: {integrity: sha512-bOChmA5s6+ImMvWTx7TLAmJjrDdjECMCOR1DDuoUMykO6WIT2Cm5aIddX6SIBJiylaqyUsFt79D5EgFCtRVhTw==}
-    engines: {node: '>= 18'}
+  ember-ebau-gwr@9.0.0:
+    resolution: {integrity: sha512-OX7tHGNvc9cZt/RRshk5etTqrR8IVU4M0LEd0lndVjFqyZSSd/tU8CNnH6kdS9dMgq8hLm7oe5gmDtfCpq81gw==}
+    engines: {node: '>= 20'}
     peerDependencies:
       '@ember-data/model': ~4.12.8 || >= 5.0.0
       ember-data: ~4.12.8 || >= 5.0.0
@@ -14585,7 +14585,7 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-ebau-gwr@8.1.3(mvjuqeghvymomdpwoz533i3z4y):
+  ember-ebau-gwr@9.0.0(mvjuqeghvymomdpwoz533i3z4y):
     dependencies:
       '@babel/core': 7.26.10
       '@ember-data/model': 4.12.8(@babel/core@7.26.10)(@ember-data/debug@4.12.8)(@ember-data/graph@4.12.8)(@ember-data/json-api@4.12.8)(@ember-data/legacy-compat@4.12.8)(@ember-data/store@4.12.8)(@ember-data/tracking@4.12.8(@glint/template@1.5.0))(@ember/string@4.0.0)(@glint/template@1.5.0)(ember-inflector@4.0.3(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
