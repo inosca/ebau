@@ -9,7 +9,9 @@
   {{/if}}
 
   {{#if (has-feature "instanceOverview.statusTimeline")}}
-    <StatusTimeline @instanceId={{@model}} class="uk-margin" />
+    {{! Don't use `@model` here as it invalidates on **every** route transition,
+    which would refetch the timeline on each tab switch. }}
+    <StatusTimeline @instanceId={{this.model}} class="uk-margin" />
   {{/if}}
 
   <UkTab class="uk-margin-remove-top" as |Tab|>
