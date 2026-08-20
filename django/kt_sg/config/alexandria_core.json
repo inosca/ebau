@@ -1,12 +1,12 @@
 [
   {
     "model": "alexandria_core.category",
-    "pk": "alle-beteiligten",
+    "pk": "abnahme",
     "fields": {
-      "created_at": "2026-02-18T10:33:44.962Z",
+      "created_at": "2026-08-20T08:28:19.480Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-02-18T13:24:19.826Z",
+      "modified_at": "2026-08-20T10:50:32.001Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -17,30 +17,70 @@
           "support": {
             "visibility": "all"
           },
-          "applicant": {},
           "municipality": {
             "visibility": "all"
           }
         }
       },
-      "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Hier werden von der Gemeinde Dokumente hochgeladen, welche für alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter *Rückmeldungen* angezeigt.\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Abnahme\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": {
-        "application/pdf": null,
-        "image/jpeg": null,
         "image/png": null,
-        "image/gif": null,
-        "application/msword": null,
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
-        "application/vnd.ms-excel": null,
+        "image/jpeg": null,
+        "text/plain": ["ili"],
+        "image/vnd.dwg": null,
+        "application/pdf": null,
+        "application/vnd.ms-outlook": null,
+        "application/geopackage+sqlite3": null,
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
-        "application/vnd.ms-powerpoint": null,
-        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
-        "application/vnd.ms-outlook": null
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null
+      },
+      "color": "#92580D",
+      "parent": null,
+      "sort": 15
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "baubegleitung",
+    "fields": {
+      "created_at": "2026-08-20T08:28:11.576Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-08-20T10:50:37.192Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        }
+      },
+      "name": "{\"de\": \"Baubegleitung\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "text/plain": ["ili"],
+        "image/vnd.dwg": null,
+        "application/pdf": null,
+        "application/vnd.ms-outlook": null,
+        "application/geopackage+sqlite3": null,
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null
       },
       "color": "#2E8501",
       "parent": null,
-      "sort": 7
+      "sort": 14
     }
   },
   {
@@ -50,7 +90,7 @@
       "created_at": "2026-02-18T10:33:44.962Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-02-18T13:25:18.455Z",
+      "modified_at": "2026-08-20T09:34:23.240Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -72,10 +112,9 @@
       "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind für alle am Verfahren beteiligten Behörden einsehbar.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": {
-        "application/pdf": null,
-        "image/jpeg": null,
         "image/png": null,
-        "image/gif": null
+        "image/jpeg": null,
+        "application/pdf": null
       },
       "color": "#B6DBA3",
       "parent": null,
@@ -89,17 +128,16 @@
       "created_at": "2026-02-18T10:33:44.962Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-02-18T13:25:15.319Z",
+      "modified_at": "2026-08-20T09:34:26.562Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {},
       "name": "{\"de\": \"Grundstücksangaben\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": {
-        "application/pdf": null,
-        "image/jpeg": null,
         "image/png": null,
-        "image/gif": null
+        "image/jpeg": null,
+        "application/pdf": null
       },
       "color": "#B6DBA3",
       "parent": "beilagen-zum-gesuch",
@@ -113,17 +151,16 @@
       "created_at": "2026-02-18T10:33:44.962Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-02-18T13:25:11.897Z",
+      "modified_at": "2026-08-20T09:34:30.301Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begründungen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": {
-        "application/pdf": null,
-        "image/jpeg": null,
         "image/png": null,
-        "image/gif": null
+        "image/jpeg": null,
+        "application/pdf": null
       },
       "color": "#B6DBA3",
       "parent": "beilagen-zum-gesuch",
@@ -137,17 +174,16 @@
       "created_at": "2026-02-18T12:45:14.974Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-02-18T13:25:08.625Z",
+      "modified_at": "2026-08-20T09:34:33.637Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {},
       "name": "{\"de\": \"Projektpläne, Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": {
-        "application/pdf": null,
-        "image/jpeg": null,
         "image/png": null,
-        "image/gif": null
+        "image/jpeg": null,
+        "application/pdf": null
       },
       "color": "#B6DBA3",
       "parent": "beilagen-zum-gesuch",
@@ -161,17 +197,16 @@
       "created_at": "2026-02-18T10:33:44.962Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-02-18T13:25:05.239Z",
+      "modified_at": "2026-08-20T09:34:37.891Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": {
-        "application/pdf": null,
-        "image/jpeg": null,
         "image/png": null,
-        "image/gif": null
+        "image/jpeg": null,
+        "application/pdf": null
       },
       "color": "#B6DBA3",
       "parent": "beilagen-zum-gesuch",
@@ -180,12 +215,12 @@
   },
   {
     "model": "alexandria_core.category",
-    "pk": "beteiligte-behörden",
+    "pk": "beteiligte-behoerden",
     "fields": {
       "created_at": "2026-02-18T10:33:44.962Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-02-18T13:23:22.542Z",
+      "modified_at": "2026-08-20T10:50:52.570Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -194,9 +229,6 @@
             "visibility": "all"
           },
           "support": {
-            "visibility": "all"
-          },
-          "applicant": {
             "visibility": "all"
           },
           "municipality": {
@@ -207,21 +239,152 @@
       "name": "{\"de\": \"Beteiligte Behörden\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Hier werden die von den beteiligten Behörden erfassten Dokumente (z.B. Verfügungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur für die am Verfahren beteiligten Behörden sichtbar, nicht aber für die Gesuchstellenden.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": {
-        "application/pdf": null,
-        "image/jpeg": null,
         "image/png": null,
-        "image/gif": null,
-        "application/msword": null,
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
-        "application/vnd.ms-excel": null,
+        "image/jpeg": null,
+        "text/plain": ["ili"],
+        "image/vnd.dwg": null,
+        "application/pdf": null,
+        "application/vnd.ms-outlook": null,
+        "application/geopackage+sqlite3": null,
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
-        "application/vnd.ms-powerpoint": null,
-        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
-        "application/vnd.ms-outlook": null
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null
       },
       "color": "#006CD1",
       "parent": null,
       "sort": 8
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beteiligte-behoerden-bund",
+    "fields": {
+      "created_at": "2026-08-20T08:27:14.443Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-08-20T09:33:01.469Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Bund\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "text/plain": ["ili"],
+        "image/vnd.dwg": null,
+        "application/pdf": null,
+        "application/vnd.ms-outlook": null,
+        "application/geopackage+sqlite3": null,
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null
+      },
+      "color": "#006CD1",
+      "parent": "beteiligte-behoerden",
+      "sort": 9
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beteiligte-behoerden-kanton",
+    "fields": {
+      "created_at": "2026-08-20T08:27:24.991Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-08-20T09:33:06.424Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Kanton\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "text/plain": ["ili"],
+        "image/vnd.dwg": null,
+        "application/pdf": null,
+        "application/vnd.ms-outlook": null,
+        "application/geopackage+sqlite3": null,
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null
+      },
+      "color": "#006CD1",
+      "parent": "beteiligte-behoerden",
+      "sort": 10
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beteiligte-behoerden-kommunal",
+    "fields": {
+      "created_at": "2026-08-20T08:27:36.771Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-08-20T09:33:10.772Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Kommunal\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "text/plain": ["ili"],
+        "image/vnd.dwg": null,
+        "application/pdf": null,
+        "application/vnd.ms-outlook": null,
+        "application/geopackage+sqlite3": null,
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null
+      },
+      "color": "#006CD1",
+      "parent": "beteiligte-behoerden",
+      "sort": 11
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "einsprachen-rechtsmittel",
+    "fields": {
+      "created_at": "2026-08-20T08:29:28.222Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-08-20T10:51:01.747Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        }
+      },
+      "name": "{\"de\": \"Einsprachen / Rechtsmittel\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "text/plain": ["ili"],
+        "image/vnd.dwg": null,
+        "application/pdf": null,
+        "application/vnd.ms-outlook": null,
+        "application/geopackage+sqlite3": null,
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null
+      },
+      "color": "#CE180F",
+      "parent": null,
+      "sort": 7
     }
   },
   {
@@ -231,7 +394,7 @@
       "created_at": "2026-02-18T10:33:44.962Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-02-18T13:22:51Z",
+      "modified_at": "2026-08-20T09:33:14.803Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -242,7 +405,6 @@
           "support": {
             "visibility": "all"
           },
-          "applicant": {},
           "municipality": {
             "visibility": "service"
           }
@@ -251,21 +413,104 @@
       "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation (ohne Unterfachstellen) sichtbar sein sollen. In diesem Ordner bestehen keine Einschränkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": {
-        "application/pdf": null,
-        "image/jpeg": null,
         "image/png": null,
-        "image/gif": null,
-        "application/msword": null,
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
-        "application/vnd.ms-excel": null,
+        "image/jpeg": null,
+        "text/plain": ["ili"],
+        "image/vnd.dwg": null,
+        "application/pdf": null,
+        "application/vnd.ms-outlook": null,
+        "application/geopackage+sqlite3": null,
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
-        "application/vnd.ms-powerpoint": null,
-        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null,
-        "application/vnd.ms-outlook": null
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null
       },
-      "color": "#92580D",
+      "color": "#033330",
       "parent": null,
-      "sort": 9
+      "sort": 12
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "intern-mit-unterfachstellen",
+    "fields": {
+      "created_at": "2026-08-20T08:29:07.628Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-08-20T09:33:18.304Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "service": {
+            "visibility": "service-and-subservice"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "service-and-subservice"
+          }
+        }
+      },
+      "name": "{\"de\": \"Intern (mit Unterfachstellen)\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "text/plain": ["ili"],
+        "image/vnd.dwg": null,
+        "application/pdf": null,
+        "application/vnd.ms-outlook": null,
+        "application/geopackage+sqlite3": null,
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null
+      },
+      "color": "#355C59",
+      "parent": null,
+      "sort": 13
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "migrierte-dokumente",
+    "fields": {
+      "created_at": "2026-08-20T08:28:47.345Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-08-20T10:50:26.119Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        }
+      },
+      "name": "{\"de\": \"Migrierte Dokumente\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": {
+        "image/png": null,
+        "image/jpeg": null,
+        "text/plain": ["ili"],
+        "image/vnd.dwg": null,
+        "application/pdf": null,
+        "application/vnd.ms-outlook": null,
+        "application/geopackage+sqlite3": null,
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": null,
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": null
+      },
+      "color": "#000000",
+      "parent": null,
+      "sort": 16
     }
   },
   {
@@ -275,7 +520,7 @@
       "created_at": "2026-02-18T10:33:44.962Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-02-18T13:24:05.991Z",
+      "modified_at": "2026-08-20T09:34:19.449Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -297,10 +542,9 @@
       "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Ergänzungen zu den Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": {
-        "application/pdf": null,
-        "image/jpeg": null,
         "image/png": null,
-        "image/gif": null
+        "image/jpeg": null,
+        "application/pdf": null
       },
       "color": "#F49216",
       "parent": null,

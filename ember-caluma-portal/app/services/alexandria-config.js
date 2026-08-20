@@ -15,4 +15,15 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
       },
     };
   }
+
+  // Must be kept in sync with the `customMimeTypes` of the alexandria config
+  // service in `ember-ebau-core`. This service intentionally doesn't extend
+  // that one, so the types have to be duplicated here.
+  customMimeTypes = {
+    "application/vnd.ms-outlook": ["msg"],
+    "application/geopackage+sqlite3": ["gpkg"],
+    // txt needs to be first in order to be the extension that is returned when
+    // calling `mime.getExtension("text/plain")`
+    "text/plain": ["txt", "ili"],
+  };
 }
