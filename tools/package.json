@@ -30,5 +30,6 @@
   "type": "module",
   "tap": {
     "disable-coverage": true
-  }
+  },
+  "packageManager": "pnpm@9.15.4"
 }
