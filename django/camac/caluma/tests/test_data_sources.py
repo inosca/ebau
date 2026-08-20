@@ -13,8 +13,10 @@ from camac.caluma.extensions.data_sources import (
     Authorities,
     Buildings,
     Countries,
+    FacilitiesAndProcesses,
     Landowners,
     Locations,
+    Materials,
     Mitberichtsverfahren,
     Municipalities,
     PreliminaryClarificationTargets,
@@ -796,3 +798,78 @@ def test_per_instance_data_source_cache_per_question(mocker, caluma_question_fac
         [other_question.pk, "Test"]
     ]
     assert fetch_data.call_count == 2
+
+
+def test_materials(
+    caluma_admin_user, caluma_question_factory, sg_instance, form_utils: FormUtils
+):
+    question = caluma_question_factory(
+        slug="stoffe-erzeugnisse",
+        type=caluma_form_models.Question.TYPE_TABLE,
+    )
+
+    form_utils.add_table_answer(
+        sg_instance.case.document,
+        question,
+        [
+            {"stoffbezeichnung": "MFH 1"},
+            {"stoffbezeichnung": "MFH 2"},
+            {"stoffbezeichnung": "ETH 1"},
+        ],
+    )
+
+    data = Materials().get_data(
+        caluma_admin_user,
+        question,
+        None,
+    )
+    assert len(data) == 0
+
+    data = Materials().get_data(
+        caluma_admin_user,
+        question,
+        {"instanceId": sg_instance.pk},
+    )
+
+    names = {item[1] for item in data}
+
+    assert len(data) == 3
+    assert names == {"MFH 1", "MFH 2", "ETH 1"}
+
+
+@pytest.mark.django_db
+def test_facilities_and_processes(
+    caluma_admin_user, caluma_question_factory, sg_instance, form_utils: FormUtils
+):
+    question = caluma_question_factory(
+        slug="beschreibung-der-anlagen-und-prozesse",
+        type=caluma_form_models.Question.TYPE_TABLE,
+    )
+
+    form_utils.add_table_answer(
+        sg_instance.case.document,
+        question,
+        [
+            {"anlage-prozess": "MFH 1"},
+            {"anlage-prozess": "MFH 2"},
+            {"anlage-prozess": "ETH 1"},
+        ],
+    )
+
+    data = FacilitiesAndProcesses().get_data(
+        caluma_admin_user,
+        question,
+        None,
+    )
+    assert len(data) == 0
+
+    data = FacilitiesAndProcesses().get_data(
+        caluma_admin_user,
+        question,
+        {"instanceId": sg_instance.pk},
+    )
+
+    names = {item[1] for item in data}
+
+    assert len(data) == 3
+    assert names == {"MFH 1", "MFH 2", "ETH 1"}
