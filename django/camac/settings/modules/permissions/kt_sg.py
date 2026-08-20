@@ -4,6 +4,7 @@ from camac.permissions.conditions import (
     HasApplicantRole,
     HasRole,
     IsService,
+    IsServiceGroup,
     RequireInstanceState,
     RequireWorkItem,
     Static,
@@ -43,6 +44,16 @@ ROLES_COORDINATION = HasRole(["service-lead"]) & IsService(["coordination"])
 # 4. Other
 MODULE_ADDITIONAL_DEMANDS = RequireWorkItem("init-additional-demand")
 MODULE_BILLING = STATES_ALL
+# The lead authority can always charge
+MODULE_BILLING_CHARGE_LEAD_AUTHORITY = MODULE_BILLING
+# For involved services, municipalities and subservices are not allowed to
+# charge. All municipality entries will be charged by the lead authority. The
+# entries of subservices will be charged by their parent organisation.
+MODULE_BILLING_CHARGE_DISTRIBUTION_SERVICE = (
+    MODULE_BILLING
+    & ~IsServiceGroup(["service-cantonal", "municipality"])
+    & ~HasRole(["subservice"])
+)
 MODULE_COMMUNICATIONS = STATES_ALL
 MODULE_COMPLETE_INSTANCE = RequireWorkItem("complete-instance", "ready")
 MODULE_CONSTRUCTION_MONITORING = RequireWorkItem("init-construction-monitoring")
@@ -152,7 +163,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
             ("billing-read", MODULE_BILLING),
             ("billing-write", MODULE_BILLING),
-            ("billing-charge", MODULE_BILLING),
+            ("billing-charge", MODULE_BILLING_CHARGE_DISTRIBUTION_SERVICE),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
             ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
@@ -185,7 +196,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("applicant-confirmation-read", Static()),
             ("billing-read", MODULE_BILLING),
             ("billing-write", MODULE_BILLING),
-            ("billing-charge", MODULE_BILLING),
+            ("billing-charge", MODULE_BILLING_CHARGE_LEAD_AUTHORITY),
             ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
