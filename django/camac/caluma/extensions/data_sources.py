@@ -1,3 +1,4 @@
+import functools
 import uuid
 
 from alexandria.core.models import Document as AlexandriaDocument
@@ -81,6 +82,62 @@ def on_copy_from_reference_document(
     )
 
     return (str(reference_doc.pk), old_label) if reference_doc else (None, None)
+
+
+def per_instance_data_source_cache(timeout: int, per_question: bool = False):
+    """Decorate `get_data` method to cache data source scoped to a single instance.
+
+    Caluma's own `data_source_cache` builds the cache key from the data source
+    class name alone. For data sources returning data of one instance that would
+    make all dossiers share a single entry, so the instance of the context has
+    to be part of the key as well.
+
+    Requests without an instance in their context are answered with no data and
+    are not cached.
+
+    The user is not part of the key, so data sources returning different data
+    per user **must not use this decorator**.
+
+    Example:
+        >>> @per_instance_data_source_cache(timeout=5, per_question=True)
+        ... def get_data(self, user, question, context):
+        ...     # do the thing
+        ...     ...
+
+    Args:
+        timeout: Number of seconds the data of an instance is cached for.
+        per_question: Whether the question slug is part of the key as well.
+                      Needed for data sources whose data depends on the question
+                      (e.g on it's meta). Requests without a question are then
+                      answered with no data, as it cannot be determined without
+                      one.
+
+    Returns:
+        A decorator for the `get_data` method of a data source.
+    """
+
+    def decorator(get_data):
+        @functools.wraps(get_data)
+        def wrapper(self, user, question, context):
+            instance_id = context.get("instanceId") if context else None
+
+            if not instance_id or (per_question and not question):
+                return []
+
+            cache_key = f"data_source_{type(self).__name__}_{instance_id}"
+
+            if per_question:
+                cache_key += f"_{question.pk}"
+
+            return cache.get_or_set(
+                cache_key,
+                lambda: get_data(self, user, question, context),
+                timeout,
+            )
+
+        return wrapper
+
+    return decorator
 
 
 class Municipalities(BaseDataSource):
@@ -327,51 +384,36 @@ class Authorities(BaseDataSource):
 class Attachments(BaseDataSource):
     info = "List of attachments in a given attachment section"
 
-    @data_source_cache(timeout=5)
-    def get_data(self, user, question, context):
-        if not context:  # pragma: no cover
-            return []
-
-        instance_id = context.get("instanceId")
-
+    @per_instance_data_source_cache(timeout=5, per_question=True)
+    def get_data(self, user, question, context: dict | None) -> list[list[str]]:
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
             attachment_section_id = question.meta.get("attachmentSection")
 
-            if not attachment_section_id or not instance_id:
+            if not attachment_section_id:
                 return []
 
             return Attachment.objects.filter(
                 attachment_sections__pk=attachment_section_id,
-                instance_id=instance_id,
+                instance_id=context["instanceId"],
             ).values_list("pk", flat=True)
 
         category = question.meta.get("alexandriaCategory")
 
-        if not category or not instance_id:
+        if not category:
             return []
 
         return AlexandriaDocument.objects.filter(
             category=category,
-            instance_document__instance_id=instance_id,
+            instance_document__instance_id=context["instanceId"],
         ).values_list("pk", flat=True)
 
 
 class Landowners(BaseDataSource):
     info = "Selection of the landowners from the current instance"
 
+    @per_instance_data_source_cache(timeout=5)
     def get_data(self, user, question, context):
-        if not context:  # pragma: no cover
-            return []
-
-        instance_id = context.get("instanceId")
-        if not instance_id:  # pragma: no cover
-            return []
-
-        cache_key = f"data_source_{type(self).__name__}_{instance_id}"
-        return cache.get_or_set(cache_key, lambda: self._get_data(instance_id), 5)
-
-    def _get_data(self, instance_id):
-        case = Case.objects.get(instance__pk=instance_id)
+        case = Case.objects.get(instance__pk=context["instanceId"])
         master_data = MasterData(case)
 
         people = master_data.landowners
@@ -428,19 +470,9 @@ class PreliminaryClarificationTargets(BaseDataSource):
 class Buildings(BaseDataSource):
     info = "Selection of the buildings from the current instance"
 
+    @per_instance_data_source_cache(timeout=5)
     def get_data(self, user, question, context):
-        if not context:  # pragma: no cover
-            return []
-
-        instance_id = context.get("instanceId")
-        if not instance_id:  # pragma: no cover
-            return []
-
-        cache_key = f"data_source_{type(self).__name__}_{instance_id}"
-        return cache.get_or_set(cache_key, lambda: self._get_data(instance_id), 5)
-
-    def _get_data(self, instance_id):
-        document = Document.objects.get(case__instance__pk=instance_id)
+        document = Document.objects.get(case__instance__pk=context["instanceId"])
         buildings = find_answer(document, "gebaeude")
 
         return (
@@ -521,11 +553,8 @@ class Sanctions(BaseDataSource):
 class Applicants(BaseDataSource):
     info = "All involved applicants"
 
-    @data_source_cache(timeout=5)
-    def get_data(self, user, question, context: dict) -> list[list[str, str]]:
-        if not context or "instanceId" not in context:
-            return []
-
+    @per_instance_data_source_cache(timeout=5)
+    def get_data(self, user, question, context: dict | None) -> list[list[str]]:
         applicants = (
             Applicant.objects.filter(instance_id=context["instanceId"])
             .select_related("invitee")

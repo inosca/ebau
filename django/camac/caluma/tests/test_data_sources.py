@@ -1,6 +1,7 @@
 from collections import namedtuple
 
 import pytest
+from caluma.caluma_data_source.data_sources import BaseDataSource
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.factories import QuestionFactory
 from django.core.cache import cache
@@ -20,6 +21,7 @@ from camac.caluma.extensions.data_sources import (
     Sanctions,
     Services,
     ServicesForFinalReport,
+    per_instance_data_source_cache,
 )
 from camac.tests.data import so_personal_row_factory
 from camac.tests.form_utils import FormUtils
@@ -729,3 +731,68 @@ def test_applicants(instance_factory, applicant_factory, django_assert_num_queri
             [str(a2.pk), "John Doe"],
             [str(a1.pk), "test@example.com"],
         ]
+
+
+@pytest.mark.django_db
+def test_per_instance_data_source_cache(mocker, caluma_question_factory):
+    fetch_data = mocker.Mock(
+        side_effect=lambda instance_id: [[str(instance_id), "Test"]]
+    )
+
+    class InstanceDataSource(BaseDataSource):
+        @per_instance_data_source_cache(timeout=5)
+        def get_data(self, user, question, context):
+            return fetch_data(context["instanceId"])
+
+    question = caluma_question_factory()
+    data_source = InstanceDataSource()
+
+    # without an instance in the context, nothing is fetched nor cached
+    assert data_source.get_data(None, question, None) == []
+    assert data_source.get_data(None, question, {}) == []
+    fetch_data.assert_not_called()
+
+    assert data_source.get_data(None, question, {"instanceId": 1}) == [["1", "Test"]]
+    assert data_source.get_data(None, question, {"instanceId": 1}) == [["1", "Test"]]
+    fetch_data.assert_called_once_with(1)
+
+    # another instance must not be served the data of the first one
+    assert data_source.get_data(None, question, {"instanceId": 2}) == [["2", "Test"]]
+    assert fetch_data.call_count == 2
+
+    # the question is not part of the key, so it is served from the cache
+    other_question = caluma_question_factory()
+    assert data_source.get_data(None, other_question, {"instanceId": 1}) == [
+        ["1", "Test"]
+    ]
+    assert data_source.get_data(None, None, {"instanceId": 1}) == [["1", "Test"]]
+    assert fetch_data.call_count == 2
+
+
+@pytest.mark.django_db
+def test_per_instance_data_source_cache_per_question(mocker, caluma_question_factory):
+    fetch_data = mocker.Mock(side_effect=lambda question: [[question.pk, "Test"]])
+
+    class QuestionDataSource(BaseDataSource):
+        @per_instance_data_source_cache(timeout=5, per_question=True)
+        def get_data(self, user, question, context):
+            return fetch_data(question)
+
+    question = caluma_question_factory()
+    other_question = caluma_question_factory()
+    data_source = QuestionDataSource()
+
+    # the data cannot be determined without a question
+    assert data_source.get_data(None, None, {"instanceId": 1}) == []
+    fetch_data.assert_not_called()
+
+    expected = [[question.pk, "Test"]]
+    assert data_source.get_data(None, question, {"instanceId": 1}) == expected
+    assert data_source.get_data(None, question, {"instanceId": 1}) == expected
+    fetch_data.assert_called_once_with(question)
+
+    # another question must not be served the data of the first one
+    assert data_source.get_data(None, other_question, {"instanceId": 1}) == [
+        [other_question.pk, "Test"]
+    ]
+    assert fetch_data.call_count == 2
