@@ -28,6 +28,16 @@ migrate() {
 }
 
 run_gunicorn() {
+  # extend $@ commandline with --preload if requested
+  case "${DJANGO_GUNICORN_PRELOAD:-false}" in
+    true|True|1) set -- --preload ;;
+    false|False|0) set -- ;;
+    *)
+      echo "ERROR: DJANGO_GUNICORN_PRELOAD must be true/false, got '$DJANGO_GUNICORN_PRELOAD'" >&2
+      exit 1
+      ;;
+  esac
+
   exec gunicorn \
     --workers "${DJANGO_GUNICORN_WORKERS:-10}" \
     --threads "${DJANGO_GUNICORN_THREADS:-1}" \
@@ -37,6 +47,7 @@ run_gunicorn() {
     --bind :"${DJANGO_SERVER_PORT:-80}" \
     --max-requests "${DJANGO_GUNICORN_MAX_REQUESTS:-0}" \
     --max-requests-jitter "${DJANGO_GUNICORN_MAX_REQUESTS_JITTER:-0}" \
+    "$@" \
     camac.wsgi_gunicorn
 }
 

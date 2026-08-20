@@ -12,7 +12,7 @@ from django.core.wsgi import get_wsgi_application
 
 from camac.wsgi_common import get_dav_application, setup_environment
 
-setup_environment()
+setup_environment(is_dav=False)
 
 if settings.MANABI_ENABLE:
     wsgi_django = get_wsgi_application()

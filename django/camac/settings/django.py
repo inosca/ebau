@@ -49,6 +49,7 @@ DEBUG = env.bool("DJANGO_DEBUG", default=default(True, False))
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=default(["*"]))
 API_HOST = env.str("DJANGO_API_HOST", default="http://localhost:80")
 ENABLE_SILK = env.bool("DJANGO_ENABLE_SILK", default=False)
+EAGER_LOAD_URLCONF = env.bool("DJANGO_EAGER_LOAD_URLCONF", default=False)
 
 DEMO_MODE = env.bool("DEMO_MODE", default=False)
 
