@@ -1,14 +1,21 @@
 import csv
 
-from alexandria.core.models import Category
+from alexandria.core.models import Category, Mark
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import models as caluma_workflow_models
 from django.core.management.base import BaseCommand
 
-from camac.core.models import InstanceResource, MultilingualModel, Resource
+from camac.core.models import (
+    InstanceResource,
+    MultilingualModel,
+    Resource,
+    StaticContent,
+)
+from camac.deadlines.models import DeadlineType
+from camac.instance.models import InstanceState
 from camac.notification.models import NotificationTemplate
 from camac.permissions.models import AccessLevel
-from camac.user.models import Role, ServiceGroup
+from camac.user.models import Group, Role, Service, ServiceGroup
 
 MODELS = [
     {
@@ -19,10 +26,15 @@ MODELS = [
         "model": InstanceResource,
         "columns": ["name"],
     },
+    {"model": StaticContent, "columns": ["content"]},
+    {"model": DeadlineType, "columns": ["name"]},
+    {"model": InstanceState, "columns": ["name", "description"]},
     {
         "model": NotificationTemplate,
         "columns": ["purpose", "subject", "body"],
     },
+    {"model": Service, "columns": ["name", "description"]},
+    {"model": Group, "columns": ["name"]},
     {"model": Role, "columns": ["name", "group_prefix"]},
     {"model": ServiceGroup, "columns": ["name"]},
     {
@@ -46,7 +58,8 @@ MODELS = [
         "columns": ["name"],
     },
     {"model": Category, "columns": ["name", "description"]},
-    {"model": AccessLevel, "columns": ["name"]},
+    {"model": Mark, "columns": ["name", "description"]},
+    {"model": AccessLevel, "columns": ["name", "description"]},
 ]
 
 
@@ -58,7 +71,7 @@ def _write_translations(model, columns):
             writer = csv.writer(file)
             writer.writerow(["id", f"{column}"])
             for inst in model.objects.all():
-                if isinstance(model, MultilingualModel):
+                if issubclass(model, MultilingualModel):
                     row = [inst.get_trans_attr(column, "de", fallback=False)]
                 else:
                     row = [getattr(getattr(inst, column), "de", None)]

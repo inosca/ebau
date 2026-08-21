@@ -352,20 +352,32 @@ compare-dump: # Compares two given .json dump files
 gr-extract-translations: # Export translation files
 	@mkdir -p "django/extracted_translations"
 	@mkdir -p "django/extracted_translations/csv_files" "django/extracted_translations/keycloak" "django/extracted_translations/po_files" "django/extracted_translations/yaml_files"
+	@rm -rf "django/extracted_translations/third_party"
 	@mkdir -p "django/extracted_translations/keycloak/email" "django/extracted_translations/keycloak/login"
 	@mkdir -p "django/extracted_translations/yaml_files/ember-caluma-portal" "django/extracted_translations/yaml_files/ember-ebau" "django/extracted_translations/yaml_files/ember-ebau-core"
+	@rm -rf "django/extracted_translations/yaml_files/ember-caluma" "django/extracted_translations/yaml_files/ember-alexandria" "django/extracted_translations/yaml_files/ember-ebau-gwr"
+	@rm -f "django/extracted_translations/po_files/caluma_de.po" "django/extracted_translations/po_files/caluma_it.po" "django/extracted_translations/po_files/alexandria_de.po" "django/extracted_translations/po_files/alexandria_it.po"
+	@rm -rf "django/extracted_translations/yaml_files/ember-camac-ng"
 	@cp keycloak/themes/src/main/resources/theme/kanton-gr/email/messages/messages_de.properties django/extracted_translations/keycloak/email/messages_de.properties
+	@cp keycloak/themes/src/main/resources/theme/kanton-gr/email/messages/messages_it.properties django/extracted_translations/keycloak/email/messages_it.properties
 	@cp keycloak/themes/src/main/resources/theme/kanton-gr/login/messages/messages_de.properties django/extracted_translations/keycloak/login/messages_de.properties
+	@cp keycloak/themes/src/main/resources/theme/kanton-gr/login/messages/messages_it.properties django/extracted_translations/keycloak/login/messages_it.properties
 	@cp django/locale/de/LC_MESSAGES/django.po django/extracted_translations/po_files/django_de.po
 	@cp django/locale/fr/LC_MESSAGES/django.po django/extracted_translations/po_files/django_fr.po
 	@cp django/locale/it/LC_MESSAGES/django.po django/extracted_translations/po_files/django_it.po
+	@curl -L --fail --silent --show-error --create-dirs 'https://raw.githubusercontent.com/projectcaluma/caluma/main/caluma/caluma_form/locale/{de,it}/LC_MESSAGES/django.po' -o 'django/extracted_translations/third_party/caluma/django_#1.po'
+	@curl -L --fail --silent --show-error --create-dirs 'https://raw.githubusercontent.com/projectcaluma/alexandria/main/alexandria/core/locale/{de,it}/LC_MESSAGES/django.po' -o 'django/extracted_translations/third_party/alexandria/django_#1.po'
 	@cp django/camac/instance/placeholders/locale/de/LC_MESSAGES/django.po django/extracted_translations/po_files/placeholders_de.po
 	@cp django/camac/instance/placeholders/locale/fr/LC_MESSAGES/django.po django/extracted_translations/po_files/placeholders_fr.po
 	@cp django/camac/instance/placeholders/locale/it/LC_MESSAGES/django.po django/extracted_translations/po_files/placeholders_it.po
 	@cp -r ember-ebau/translations django/extracted_translations/yaml_files/ember-ebau
 	@cp -r ember-caluma-portal/translations django/extracted_translations/yaml_files/ember-caluma-portal
-	@cp -r ember-camac-ng/translations django/extracted_translations/yaml_files/ember-camac-ng
 	@cp -r ember-ebau-core/translations django/extracted_translations/yaml_files/ember-ebau-core
+	@curl -L --fail --silent --show-error --create-dirs 'https://raw.githubusercontent.com/projectcaluma/ember-caluma/main/packages/{core,distribution,form,form-builder,workflow}/translations/{de,en,fr,it}.yaml' -o 'django/extracted_translations/third_party/ember-caluma/ember-#1/translations/#2.yaml'
+	@curl -L --fail --silent --show-error --create-dirs 'https://raw.githubusercontent.com/projectcaluma/ember-alexandria/main/translations/{de,en,it}.yaml' -o 'django/extracted_translations/third_party/ember-alexandria/translations/#1.yaml'
+	@curl -L --fail --silent --show-error --create-dirs 'https://raw.githubusercontent.com/inosca/ember-ebau-gwr/main/translations/{de,fr,it}.yaml' -o 'django/extracted_translations/third_party/ember-ebau-gwr/translations/#1.yaml'
+	@curl -L --fail --silent --show-error --create-dirs 'https://raw.githubusercontent.com/inosca/ember-ebau-gwr/main/translations/{building-entrance,building,construction-project,dwelling,locality,quarterly-closure,street,validation-errors}/{de,fr,it}.yaml' -o 'django/extracted_translations/third_party/ember-ebau-gwr/translations/#1/#2.yaml'
+	@find django/extracted_translations/yaml_files -type f \( -name '[a-z][a-z]-*.yaml' -o -name '[a-z][a-z]-*.yml' \) ! -name '*-gr.yaml' ! -name '*-gr.yml' -delete
 	@mkdir -p "django/translations"
 	docker compose exec django python manage.py translate_extract
 	@cp -r django/translations/. django/extracted_translations/csv_files/
@@ -433,4 +445,3 @@ unlink-ember-caluma:
 .PHONY: dump-db-schema
 dump-db-schema:
 	@docker compose exec db pg_dump --schema-only --no-owner --no-acl -h 127.0.0.1 -p 5432 -U camac $(APPLICATION)  > elixir-ebau/priv/repo/ebau_schema.sql;
-
