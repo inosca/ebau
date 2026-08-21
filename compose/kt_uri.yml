@@ -133,7 +133,7 @@ services:
     build:
       context: ../keycloak
       args:
-        VERSION: 26.5.3
+        VERSION: 26.7.2
       cache_from:
         - acr.run/camac-ng/camac-ng/keycloak:main
     environment:
