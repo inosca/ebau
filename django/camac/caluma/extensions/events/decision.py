@@ -115,13 +115,14 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
 
     permissions_events.Trigger.decision_decreed(None, instance)
 
-    # trigger ech message for status change
-    ruling.send(
-        sender="post_complete_decision",
-        instance=instance,
-        user_pk=camac_user.pk,
-        group_pk=user.camac_group,
-    )
+    if is_module_enabled("ECH0211"):
+        # trigger ech message for status change
+        ruling.send(
+            sender="post_complete_decision",
+            instance=instance,
+            user_pk=camac_user.pk,
+            group_pk=user.camac_group,
+        )
     send_notifications(instance, context, user, work_item)
 
     history_text = gettext_noop("Evaluation completed")
