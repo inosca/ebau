@@ -119,6 +119,7 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
                     else []
                 ),
                 "complete-instance",
+                "withdrawal-check",
                 "archive-instance",
             ],
             "service": ["inquiry", "check-inquiries", "check-additional-demand"],

@@ -137,6 +137,7 @@ def load_fixtures_gr(
     # gr_construction_monitoring_settings,
     gr_decision_settings,
     gr_distribution_settings,
+    gr_withdrawal_settings,
     service_factory,
 ):
     caluma_workflow_config_gr.allow_forms.add("migriertes-dossier")
