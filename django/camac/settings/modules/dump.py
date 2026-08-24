@@ -839,6 +839,9 @@ DUMP = {
                     regex=r"^kantonale-pruefung"
                 ),
                 "caluma_decision_form": generate_form_dump_config(regex=r"^entscheid"),
+                "caluma_withdrawal_check_form": generate_form_dump_config(
+                    regex=r"^withdrawal-check$"
+                ),
                 "caluma_rpg2_form": generate_form_dump_config(regex=r"^rpg2"),
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,

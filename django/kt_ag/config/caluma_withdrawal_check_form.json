@@ -1,0 +1,165 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "withdrawal-check",
+    "fields": {
+      "created_at": "2026-08-24T14:20:00Z",
+      "modified_at": "2026-08-24T14:20:00Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Rückzug prüfen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "withdrawal-check.withdrawal-check-hinweis",
+    "fields": {
+      "created_at": "2026-08-24T14:20:00Z",
+      "modified_at": "2026-08-24T14:20:00Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "withdrawal-check",
+      "question": "withdrawal-check-hinweis",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "withdrawal-check.withdrawal-check-submit",
+    "fields": {
+      "created_at": "2026-08-24T14:20:00Z",
+      "modified_at": "2026-08-24T14:20:00Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "withdrawal-check",
+      "question": "withdrawal-check-submit",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "withdrawal-check.withdrawal-check-title",
+    "fields": {
+      "created_at": "2026-08-24T14:20:00Z",
+      "modified_at": "2026-08-24T14:20:00Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "withdrawal-check",
+      "question": "withdrawal-check-title",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "withdrawal-check-hinweis",
+    "fields": {
+      "created_at": "2026-08-24T14:20:00Z",
+      "modified_at": "2026-08-24T14:20:00Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\"><p>Diese Aufgabe wurde erstellt, weil die gesuchstellende Person im Bürgerportal die Aktion «Rückzug beantragen» ausgeführt hat. Prüfen Sie, ob dem Rückzug zugestimmt werden kann.</p><p><strong>Rückzug ablehnen:</strong> Informieren Sie die gesuchstellende Person über das Kommunikationsmodul über die Ablehnung und deren Begründung. Das Dossier wird anschliessend im normalen Verfahren weiterbearbeitet.</p><p><strong>Rückzug gewähren:</strong> Bearbeiten oder beenden Sie zuerst alle noch offenen Aufgaben, beispielsweise die vorläufige Prüfung, eine laufende Publikation oder offene Stellungnahmen. Erstellen Sie danach den entsprechenden Entscheid und schliessen Sie das Dossier mit dem Status «Rückzug» ab.</p><p>Mit «Aufgabe abschliessen» bestätigen Sie, dass Sie den Rückzugsantrag erhalten haben.</p></div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "withdrawal-check-submit",
+    "fields": {
+      "created_at": "2026-08-24T14:20:00Z",
+      "modified_at": "2026-08-24T14:20:00Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aufgabe abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": true,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "withdrawal-check-title",
+    "fields": {
+      "created_at": "2026-08-24T14:20:00Z",
+      "modified_at": "2026-08-24T14:20:00Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rückzug prüfen Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Rückzug prüfen\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  }
+]
