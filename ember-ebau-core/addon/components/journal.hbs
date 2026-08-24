@@ -6,16 +6,28 @@
       @showJournalEntryDuration={{this.showJournalEntryDuration}}
     />
   {{else}}
-    <UkButton
-      @type="button"
-      @color="primary"
-      @onClick={{perform this.initializeNewEntry}}
-      data-test-create
-    >
-      {{t "journal.create"}}
-    </UkButton>
+    <div class="uk-flex uk-flex-between">
+      <UkButton
+        @type="button"
+        @color="primary"
+        @onClick={{perform this.initializeNewEntry}}
+        data-test-create
+      >
+        {{t "journal.create"}}
+      </UkButton>
+      {{#if this.showJournalEntryDuration}}
+        <div
+          class="uk-flex uk-flex-middle uk-margin-small-right"
+          {{uk-tooltip (t "journal.totalDuration")}}
+        >
+          <span class="uk-icon" uk-icon="icon: future; ratio:0.9" />
+          <span
+            class="uk-text-large inline-icon-margin"
+          >{{this.journalTotalDuration}}</span>
+        </div>
+      {{/if}}
+    </div>
   {{/if}}
-
   <hr />
 {{/if}}
 

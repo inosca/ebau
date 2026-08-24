@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 import pytest
 from django.urls import reverse
 from pytest_lazy_fixtures import lf
@@ -358,3 +360,35 @@ def test_journal_entry_destroy(
 
     response = admin_client.delete(url)
     assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_journal_root_meta(admin_client, journal_entry_factory, instance, service):
+    """Test journal entry check meta dict in request."""
+    j0 = journal_entry_factory(
+        instance=instance,
+        visibility="own_organization",
+        service=service,
+        duration=timedelta(days=1, hours=4, minutes=59),
+    )
+    j1 = journal_entry_factory(
+        instance=instance,
+        visibility="authorities",
+        # service=service_factory() is already implied by the journal entry factory
+        duration=timedelta(days=7, hours=10, minutes=47),
+    )
+    journal_entry_factory(
+        instance=instance,
+        visibility="own_organization",
+        duration=timedelta(days=1, hours=16, minutes=47),
+    )
+    total_duration = (
+        j0.duration + j1.duration
+    )  # the last journal entry is not counted, as it is not visible for the admin_client
+    countable_journal_entries = 2
+
+    response = admin_client.get(reverse("journal-entry-list"))
+    json = response.json()
+    assert response.status_code == status.HTTP_200_OK
+    assert len(json["data"]) == countable_journal_entries
+    assert json["meta"]["total-duration-seconds"] == total_duration.total_seconds()

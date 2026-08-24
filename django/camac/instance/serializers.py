@@ -3,6 +3,7 @@ from __future__ import annotations
 import itertools
 import json
 import re
+from datetime import timedelta
 from functools import singledispatchmethod
 from logging import getLogger
 from typing import TYPE_CHECKING, Literal
@@ -16,7 +17,7 @@ from dateutil.parser import ParserError, parse
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import transaction
-from django.db.models import Q
+from django.db.models import Q, Sum
 from django.utils import timezone
 from django.utils.translation import gettext as _, gettext_noop
 from generic_permissions.visibilities import (
@@ -2769,6 +2770,22 @@ class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer)
     def update(self, instance, validated_data):
         validated_data["modification_date"] = timezone.now()
         return super().update(instance, validated_data)
+
+    def get_root_meta(self, resource, many):
+        """
+        Add a meta dict to the response containing the 'total_duration_minutes'.
+
+        This data is used by the Note module in the 'interne geschaefte' to
+        display the total amount of work time.
+        """
+        if many:
+            view = self.context.get("view")
+            filtered_results = view.filter_queryset(view.get_queryset())
+            summary = filtered_results.aggregate(
+                total_duration=Sum("duration", default=timedelta(0))
+            )
+            return {"total_duration_seconds": summary["total_duration"].total_seconds()}
+        return {}
 
     class Meta:
         model = models.JournalEntry

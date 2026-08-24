@@ -1,6 +1,7 @@
 journal:
   title: "Journal"
   create: "Eintrag erstellen"
+  totalDuration: "Arbeitsdauer insgesamt (HH:MM)"
   edit: "Bearbeiten"
   textareaEdit: "Textbereich zum editieren eines Eintrages"
   noEntries: "Keine Journaleinträge vorhanden"
