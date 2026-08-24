@@ -172,7 +172,11 @@ export default {
     uso: 20, // Umweltschutzorganisationen
   },
   communication: {
-    rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
+    rolesWithApplicantContact: [
+      "activeOrInolvedLeadAuthority",
+      "service",
+      "geometer",
+    ],
   },
   dossierImport: {
     municipalityAdminRole: 5, // Administration Gemeinde

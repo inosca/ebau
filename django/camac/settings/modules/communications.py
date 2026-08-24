@@ -27,6 +27,7 @@ COMMUNICATIONS = {
         "ROLES_WITH_APPLICANT_CONTACT": [
             "active_or_involved_lead_authority",
             "service",
+            "geometer",
         ],
     },
     "kt_so": {

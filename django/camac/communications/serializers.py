@@ -242,6 +242,8 @@ class TopicSerializer(VisibilitySerializerMixin, serializers.ModelSerializer):
             return False
 
         roles = settings.COMMUNICATIONS["ROLES_WITH_APPLICANT_CONTACT"]
+        if "geometer" in roles and get_role_name(group) == "geometer":
+            return True
         if "service" in roles and instance.has_inquiry(my_entity):
             return True
         return (
