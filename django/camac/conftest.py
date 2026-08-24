@@ -772,6 +772,7 @@ def caluma_workflow_config_gr(
 
     call_command(
         "loaddata",
+        settings.ROOT_DIR("kt_gr/config/caluma_withdrawal_check_form.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_workflow.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_distribution.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_additional_demand.json"),

@@ -166,7 +166,7 @@ instances:
   withdrawalRequestedSuccess: "Richiesta di ritiro inoltrata"
   withdrawalRequestedText: "Il ritiro è stato richiesto. Il Comune esaminerà la richiesta di ritiro e Le fornirà un riscontro. Se desidera inoltre trasmettere un messaggio al Comune, utilizzi la scheda "
   withdrawalRequestCommunicationText: '"{communication}".'
-  withdrawalRequest: "Richiedere il ritiro"
+  withdrawalRequest: "Chiedere il ritiro"
   withdrawalRequestDisabledText: "Die Rückzugsfunktion ist in Ihre Gemeinde nicht verfügbar. Um einen Antrag auf Rückzug zu stellen, wenden Sie sich bitte telefonisch oder per E-Mail an Ihre Gemeinde."
 
   categories:
