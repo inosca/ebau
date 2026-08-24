@@ -1,3 +1,4 @@
+import io
 import json
 
 import pytest
@@ -127,6 +128,90 @@ def test_create_message_with_alexandria_attachment(
     assert attachment.file_attachment.read()
 
 
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
+def test_convert_linked_alexandria_attachment_from_hidden_category(
+    admin_client,
+    communications_attachment,
+    service_factory,
+    topic_with_admin_involved,
+    use_alexandria_backend,
+):
+    recipient_service = admin_client.user.get_default_group().service
+    sender_service = service_factory()
+
+    source_category = CategoryFactory(
+        metainfo={"access": {"Municipality": {"visibility": "service"}}}
+    )
+    source_file = FileFactory(
+        document__category=source_category,
+        document__created_by_group=str(sender_service.pk),
+        document__modified_by_group=str(sender_service.pk),
+        name="hidden.pdf",
+    )
+
+    target_category = CategoryFactory(
+        metainfo={
+            "access": {
+                "Municipality": {
+                    "visibility": "all",
+                    "permissions": [{"permission": "create", "scope": "All"}],
+                }
+            }
+        }
+    )
+
+    communications_attachment.message.topic.involved_entities = [
+        sender_service.pk,
+        recipient_service.pk,
+    ]
+    communications_attachment.message.topic.save()
+
+    communications_attachment.document_attachment = None
+    communications_attachment.alexandria_file = source_file
+    communications_attachment.file_type = "application/pdf"
+    communications_attachment.file_attachment.save(
+        "hidden.pdf",
+        io.BytesIO(b"communication attachment"),
+        save=False,
+    )
+    communications_attachment.save()
+
+    response = admin_client.patch(
+        reverse(
+            "communications-attachment-convert-to-document",
+            args=[communications_attachment.pk],
+        ),
+        {
+            "data": {
+                "type": "communications-attachments",
+                "id": communications_attachment.pk,
+                "attributes": {},
+                "relationships": {
+                    "category": {
+                        "data": {
+                            "id": str(target_category.pk),
+                            "type": "categories",
+                        }
+                    }
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    communications_attachment.refresh_from_db()
+
+    assert communications_attachment.alexandria_file_id != source_file.pk
+    assert (
+        communications_attachment.alexandria_file.document.category == target_category
+    )
+    assert communications_attachment.alexandria_file.created_by_group == str(
+        recipient_service.pk
+    )
+
+
 @pytest.mark.parametrize(
     ("role__name", "has_permission", "is_converted", "has_key", "expected_status"),
     [
@@ -184,7 +269,13 @@ def test_convert_to_alexandria_attachment(
     )
 
     if is_converted:
-        communications_attachment.alexandria_file = FileFactory()
+        communications_attachment.alexandria_file = FileFactory(
+            document__metainfo={
+                "copied-from-communications-attachment": str(
+                    communications_attachment.pk
+                )
+            }
+        )
 
     communications_attachment.document_attachment = None
     communications_attachment.save()
