@@ -14,6 +14,7 @@ from camac.caluma.extensions.data_sources import (
     Buildings,
     Countries,
     FacilitiesAndProcesses,
+    HeatPumps,
     Landowners,
     Locations,
     Materials,
@@ -873,3 +874,41 @@ def test_facilities_and_processes(
 
     assert len(data) == 3
     assert names == {"MFH 1", "MFH 2", "ETH 1"}
+
+
+@pytest.mark.django_db
+def test_heat_pumps(
+    caluma_admin_user, caluma_question_factory, sg_instance, form_utils: FormUtils
+):
+    question = caluma_question_factory(
+        slug="waermepumpen",
+        type=caluma_form_models.Question.TYPE_TABLE,
+    )
+
+    form_utils.add_table_answer(
+        sg_instance.case.document,
+        question,
+        [
+            {"waermepumpe-bezeichnung": "WP 1"},
+            {"waermepumpe-bezeichnung": "WP 2"},
+            {"waermepumpe-bezeichnung": "WP 3"},
+        ],
+    )
+
+    data = HeatPumps().get_data(
+        caluma_admin_user,
+        question,
+        None,
+    )
+    assert len(data) == 0
+
+    data = HeatPumps().get_data(
+        caluma_admin_user,
+        question,
+        {"instanceId": sg_instance.pk},
+    )
+
+    names = {item[1] for item in data}
+
+    assert len(data) == 3
+    assert names == {"WP 1", "WP 2", "WP 3"}

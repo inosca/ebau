@@ -516,6 +516,12 @@ class Materials(CalumaTableDataSource, BaseDataSource):
     label_question = "stoffbezeichnung"
 
 
+class HeatPumps(CalumaTableDataSource, BaseDataSource):
+    info = "Selection of heat pumps from the current instance"
+    table_question = "waermepumpen"
+    label_question = "waermepumpe-bezeichnung"
+
+
 class ServicesForFinalReport(BaseDataSource):
     info = "Services which asked to be invited to the 'Schlussabnahme' (final report) during the distribution phase"
 

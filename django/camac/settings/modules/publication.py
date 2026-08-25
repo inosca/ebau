@@ -146,6 +146,13 @@ PUBLICATION = {
     "kt_sg": {
         "ENABLED": True,
         "SHOW_MAIN_FORM": True,
+        "SCRUBBED_ANSWERS": [
+            "e-mail",
+            "telefon",
+            "telefon-optional",
+            "medium-erdreich-bohrunternehmen-e-mail",
+            "medium-erdreich-bohrunternehmen-telefon",
+        ],
         "RANGE_QUESTIONS": {
             "PUBLIC": [("publikation-start", "publikation-ende")],
             "NEIGHBORS": [("bauanzeige-start", "bauanzeige-ende")],
