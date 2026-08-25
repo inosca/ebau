@@ -1,4 +1,3 @@
-# Remember to update volume mounts for certificates in kt_uri-prod.yml when updating version
 FROM python:3.12-slim
 
 # Needs to be set for users with manually set UID
