@@ -3183,7 +3183,11 @@ DOCUMENT_MERGE_SERVICE_URL = build_url(
     env.str("DOCUMENT_MERGE_SERVICE_URL", "http://document-merge-service:8000/api/v1/")
 )
 
-ECH_EXCLUDED_WORKFLOWS = ["internal"]
+# TODO: make the ECH_EXCLUDED_* configs canton-specific
+ECH_EXCLUDED_WORKFLOWS = [
+    "internal",
+    "demolition-payment",  # AG
+]
 ECH_EXCLUDED_FORMS = [
     "verlaengerung-geltungsdauer",
     "antrag-auf-auszahlung",
