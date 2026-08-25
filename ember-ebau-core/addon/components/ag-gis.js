@@ -53,6 +53,7 @@ export default class AgGisComponent extends MultiPointGisComponent {
   minZoom = 8;
   maxZoom = 20;
   wmsLayerMaxZoom = 25;
+  queryRadius = 5;
   origins = ["gg25", "district", "address", "parcel"];
   searchUrlParams = {
     sr: "2056",
