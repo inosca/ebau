@@ -726,6 +726,7 @@ def test_send_submit_ag(
     for question_slug in [
         "anzahl-gebaeude-greater-6-m-die-abgebrochen-werden",
         "anzahl-neue-gebaeude-greater-6m",
+        "baukosten",
         "projektkennzeichnung-even",
         "typ-der-baute",
         "unterschriebene-eingabequittung",
