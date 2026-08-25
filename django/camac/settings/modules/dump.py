@@ -1,6 +1,10 @@
 from dataclasses import dataclass
+from datetime import UTC, datetime
 
 from django.db.models.expressions import Q
+
+# Sentinel used for datetime fields that hold runtime state, see FROZEN_FIELDS
+FROZEN_DATETIME = datetime.min.replace(tzinfo=UTC)
 
 
 @dataclass
@@ -368,6 +372,17 @@ DUMP = {
                 # "user.Group",
                 # "user.GroupT",
             ],
+            # Fields that hold runtime state which changes on every run and
+            # would therefore produce a diff in the dumped fixtures each time.
+            # They are dumped with the fixed value configured here instead of
+            # the current one.
+            "FROZEN_FIELDS": {
+                "django_celery_beat.PeriodicTask": {
+                    "last_run_at": None,
+                    "total_run_count": 0,
+                    "date_changed": FROZEN_DATETIME,
+                },
+            },
             # Define custom config groups that will be dumped in an extracted
             # fixture file. This will most likely be configured in the
             # application section of this config file.

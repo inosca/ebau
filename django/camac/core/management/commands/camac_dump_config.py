@@ -12,6 +12,17 @@ from camac.settings.modules.dump import DumpConfig
 
 
 class CamacDumpSerializer(Serializer):
+    def handle_field(self, obj, field):
+        frozen_fields = settings.DUMP["CONFIG"]["FROZEN_FIELDS"].get(
+            obj._meta.label, {}
+        )
+
+        if field.name in frozen_fields:
+            self._current[field.name] = frozen_fields[field.name]
+            return
+
+        super().handle_field(obj, field)
+
     def handle_m2m_field(self, obj, field):
         super().handle_m2m_field(obj, field)
 
