@@ -7,6 +7,7 @@ from django.core.management import call_command
 from django.urls import reverse
 from rest_framework import status
 
+from camac.gis.clients.ag import AgGisClient
 from camac.gis.models import GISDataSource
 
 TEST_SCENARIOS = [
@@ -15,6 +16,7 @@ TEST_SCENARIOS = [
         "coords": (2635082.564072413, 1241236.536643672),
         "checked_questions": [
             "gemeinde",
+            "grundstuecksflaeche",
             "ort-grundstueck",
             "parzelle",
         ],
@@ -230,6 +232,7 @@ def ag_data_sources(
 ):
     gis_questions = [
         ("gemeinde", Question.TYPE_DYNAMIC_CHOICE),
+        ("grundstuecksflaeche", Question.TYPE_FLOAT),
         ("ort-grundstueck", Question.TYPE_TEXT),
         ("parzellen", Question.TYPE_TABLE),
         ("parzellennummer", Question.TYPE_TEXT),
@@ -283,6 +286,70 @@ def ag_config(gis_data_source_factory, caluma_question_factory):
     call_command("loaddata", settings.ROOT_DIR("kt_ag/config/gis.json"))
 
     return GISDataSource.objects.all()
+
+
+def test_ag_client_returns_all_buildings():
+    client = AgGisClient({})
+    agis_info = [
+        {
+            "layerName": "AV: Assekuranznummern",
+            "attributes": {"EGID": "123", "ASSNR": "10"},
+        },
+        {"layerName": "AV: Parzellen", "attributes": {"NUMMER": "42"}},
+        {
+            "layerName": "AV: Assekuranznummern",
+            "attributes": {"EGID": "456", "ASSNR": "11"},
+        },
+    ]
+
+    assert client.get_building_data(agis_info) == [
+        {"egid-nr": "123", "amtliche-gebaeudenummer": "10"},
+        {"egid-nr": "456", "amtliche-gebaeudenummer": "11"},
+    ]
+
+
+def test_ag_client_uses_only_first_layer_when_configured(mocker):
+    markers = [{"x": 2634951.5, "y": 1241103.9}]
+    client = AgGisClient(
+        {"query": json.dumps({"markers": markers, "geometry": "POINT"})}
+    )
+    mocker.patch.object(
+        client,
+        "get_agis_identify_response",
+        side_effect=[
+            {
+                "results": [
+                    {
+                        "layerName": "AV: Parzellen",
+                        "attributes": {"NUMMER": "541", "FLAECHE": "112"},
+                    },
+                    {
+                        "layerName": "AV: Parzellen",
+                        "attributes": {"NUMMER": "534", "FLAECHE": "255"},
+                    },
+                ]
+            },
+            {"results": []},
+        ],
+    )
+    config = [
+        {
+            "mapper": "properties",
+            "identifier": "AV: Parzellen",
+            "take_first": True,
+            "properties": [
+                {
+                    "question": "grundstuecksflaeche",
+                    "propertyName": "FLAECHE",
+                }
+            ],
+        }
+    ]
+
+    result = client.process_data_source(config, None)
+
+    assert result["grundstuecksflaeche"] == "112"
+    assert result["parzelle"][0]["parzellennummer"] == "541"
 
 
 @pytest.mark.parametrize(

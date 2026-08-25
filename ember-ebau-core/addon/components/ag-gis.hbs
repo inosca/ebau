@@ -77,6 +77,15 @@
       />
 
       {{#each this.markers as |point index|}}
+        <map.circle
+          @lat={{point.lat}}
+          @lng={{point.lng}}
+          @radius={{this.queryRadius}}
+          @color="red"
+          @dashArray="6 2"
+          @fillOpacity={{0.15}}
+          @interactive={{false}}
+        />
         <map.marker
           @lat={{point.lat}}
           @lng={{point.lng}}

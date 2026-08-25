@@ -22,7 +22,7 @@ class AgGisClient(GISBaseClient):
         query = json.loads(self.params.get("query"))
         markers = query["markers"]
 
-        point_response_json = self.get_agis_identify_response(markers, 1)
+        point_response_json = self.get_agis_identify_response(markers, 5)
         area_response_json = self.get_agis_identify_response(markers, 20)
 
         agis_info_from_point = point_response_json.get("results", [])
@@ -48,6 +48,8 @@ class AgGisClient(GISBaseClient):
                 layers = self.get_all_layers_by_identifier(
                     agis_data, layer["identifier"]
                 )
+                if layer.get("take_first", False):
+                    layers = layers[:1]
                 for layer_info in layers:
                     for prop in layer["properties"]:
                         question = prop["question"]
@@ -171,20 +173,19 @@ class AgGisClient(GISBaseClient):
         containing information from _multiple_ layers,
         joined in a specific way.
         """
-        result = []
+        building_infos = self.get_all_layers_by_identifier(
+            agis_info, "AV: Assekuranznummern"
+        )
 
-        building_info = self.get_layer_by_identifier(agis_info, "AV: Assekuranznummern")
-
-        if building_info:
-            result.append(
-                {
-                    "egid-nr": building_info.get("attributes", {}).get("EGID", None),
-                    "amtliche-gebaeudenummer": building_info.get("attributes", {}).get(
-                        "ASSNR", None
-                    ),
-                }
-            )
-        return result
+        return [
+            {
+                "egid-nr": building_info.get("attributes", {}).get("EGID", None),
+                "amtliche-gebaeudenummer": building_info.get("attributes", {}).get(
+                    "ASSNR", None
+                ),
+            }
+            for building_info in building_infos
+        ]
 
     @staticmethod
     def get_layer_by_identifier(agis_info, identifier):
