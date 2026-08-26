@@ -45,7 +45,7 @@ class Command(BaseCommand):
             app_config = apps.get_app_config(app_label)
 
             for model in app_config.get_models():
-                model_identifier = f"{app_label}.{model.__name__}"
+                model_identifier = model._meta.label
                 excluded_pks = []
 
                 if (
