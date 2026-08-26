@@ -4,8 +4,10 @@ from caluma.caluma_form.models import Question
 
 from camac.instance.utils import (
     be_should_prevent_process_step_for_deactivated_municipality,
+    get_municipality,
     set_construction_control,
 )
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(
@@ -45,13 +47,24 @@ def test_set_construction_control(
     is_rsta,
     involved_municipality_name,
     caluma_form_municipality_name,
+    caluma_dynamic_option_factory,
     expected_service_name,
+    form_utils: FormUtils,
 ):
     # create construction control service
     construction_control = service_factory(
         trans__name=expected_service_name,
         trans__language="de",
         service_group__name="construction-control",
+    )
+
+    form_utils.add_answer(
+        be_instance.case.document, "gemeinde", str(construction_control.pk)
+    )
+    caluma_dynamic_option_factory(
+        slug=str(construction_control.pk),
+        question_id="gemeinde",
+        document=be_instance.case.document,
     )
 
     # create currently responsible municipality or district
@@ -168,3 +181,127 @@ def test_deactivated_municipality(
         be_should_prevent_process_step_for_deactivated_municipality(be_instance)
         == expected_result
     )
+
+
+@pytest.mark.django_db
+def test_get_municipality_returns_active_municipality(
+    be_instance, service_factory, instance_service_factory
+):
+    """
+    Verify get_municipality() behaviour when active service is a municipality.
+
+    When the active service is a municipality return it, disregarding any
+    attached inactive municipalities and active non-municipality services.
+    """
+
+    active_municipality = service_factory(service_group__name="municipality")
+    instance_service_factory(
+        instance=be_instance, active=1, service=active_municipality
+    )
+
+    # Inactive municipality attached to the same instance
+    inactive_municipality = service_factory(service_group__name="municipality")
+    instance_service_factory(
+        instance=be_instance, active=0, service=inactive_municipality
+    )
+
+    # Active non-municipality service attached to the same instance
+    other_service = service_factory(service_group__name="other")
+    instance_service_factory(instance=be_instance, active=1, service=other_service)
+
+    result = get_municipality(be_instance)
+
+    assert result == active_municipality
+
+
+@pytest.mark.django_db
+def test_get_municipality_fallback_to_form_answer(
+    be_instance,
+    service_factory,
+    instance_service_factory,
+    form_utils: FormUtils,
+):
+    """
+    Ensure get_municipality() behavour when active service is not a municipality.
+
+    If the active service isn't a municipality, or there is no active
+    service, we expect to get the involved but not active municipality
+    as a result.
+
+    If multiple municipalities are involved, we expect the Caluma form to be
+    consulted, and the selected municipality from the form to be returned.
+    """
+
+    first_municipality = service_factory(service_group__name="municipality")
+    involved_municipality = service_factory(service_group__name="municipality")
+
+    instance_service_factory(instance=be_instance, active=0, service=first_municipality)
+    instance_service_factory(
+        instance=be_instance, active=0, service=involved_municipality
+    )
+
+    form_utils.add_answer(
+        be_instance.case.document, "gemeinde", str(involved_municipality.pk)
+    )
+
+    result = get_municipality(be_instance)
+
+    assert result == involved_municipality
+
+
+@pytest.mark.django_db
+def test_get_municipality_fallback_to_first_involved(
+    be_instance,
+    service_factory,
+    instance_service_factory,
+    form_utils: FormUtils,
+):
+    """
+    Ensure get_municipality() behavour when active service is not a municipality.
+
+    If the active service isn't a municipality, or there is no active
+    service, we expect to get the involved but not active municipality
+    as a result.
+
+    If multiple municipalities are involved and the question "gemeinde" does not
+    match an involved municipality, we expect the first involved municipality to
+    be returned.
+    """
+
+    first_municipality = service_factory(service_group__name="municipality")
+    involved_municipality = service_factory(service_group__name="municipality")
+
+    instance_service_factory(instance=be_instance, active=0, service=first_municipality)
+    instance_service_factory(
+        instance=be_instance, active=0, service=involved_municipality
+    )
+
+    form_utils.add_answer(be_instance.case.document, "gemeinde", "999999")
+
+    result = get_municipality(be_instance)
+
+    assert result == first_municipality
+
+
+@pytest.mark.django_db
+def test_get_municipality_fallback_to_form_answer_no_involved_municipality(
+    be_instance,
+    service_factory,
+    form_utils: FormUtils,
+):
+    """
+    Ensure get_municipality() fallback when there are no active or involved municipalities.
+
+    If no municipalities are active or involved, we expect the Caluma form to be
+    consulted, and the selected municipality from the form to be returned.
+    """
+
+    form_municipality = service_factory(service_group__name="municipality")
+
+    form_utils.add_answer(
+        be_instance.case.document, "gemeinde", str(form_municipality.pk)
+    )
+
+    result = get_municipality(be_instance)
+
+    assert result == form_municipality
