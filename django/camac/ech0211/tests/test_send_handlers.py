@@ -46,6 +46,7 @@ from camac.settings.modules.caluma_simple_workflow_schema import (
     EventConfig,
     NotificationConfig,
 )
+from camac.tests.form_utils import FormUtils
 from camac.timelines.models import FormTimeline
 
 
@@ -209,6 +210,7 @@ def test_notice_ruling_send_handler(
     attachment_section_factory,
     service_factory,
     instance_service_factory,
+    caluma_dynamic_option_factory,
     multilang,
     caluma_admin_user,
     notification_template_factory,
@@ -222,6 +224,7 @@ def test_notice_ruling_send_handler(
     mock_request_get,
     mocked_request_object,
     mocker,
+    form_utils: FormUtils,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["DOCUMENT_BACKEND"] = document_backend
@@ -316,6 +319,13 @@ def test_notice_ruling_send_handler(
     data = CreateFromDocument(xml_data("notice_ruling"))
 
     data.eventNotice.decisionRuling.judgement = judgement
+
+    form_utils.add_answer(case.document, "gemeinde", str(service_gemeinde.pk))
+    caluma_dynamic_option_factory(
+        slug=str(service_gemeinde.pk),
+        question_id="gemeinde",
+        document=case.document,
+    )
 
     # append an existing alexandria document, to check that it is moved
     # to the configured category via the notice ruling event.
