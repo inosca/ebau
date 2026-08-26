@@ -87,6 +87,7 @@ export default class ConstructionMonitoringNavigationControlsComponent extends C
       yield this.constructionMonitoring.refetchControls();
       // reload instance for case header updates
       this.store.findRecord("instance", this.ebauModules.instanceId);
+      this.ebauModules.redirectToCaseWorkItems();
     } catch (e) {
       console.error(e);
       this.notification.danger(
@@ -119,6 +120,7 @@ export default class ConstructionMonitoringNavigationControlsComponent extends C
       yield this.constructionMonitoring.refetchControls();
       // reload instance for case header updates
       this.store.findRecord("instance", this.ebauModules.instanceId);
+      this.ebauModules.redirectToCaseWorkItems();
     } catch (e) {
       console.error(e);
       this.notification.danger(
