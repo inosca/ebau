@@ -59,6 +59,8 @@ export default {
   workItems: {
     cancel: true,
     v2: true,
+    showTaskFilter: true,
+    showTaskFilterAsDropdown: true,
   },
   withdrawal: {
     light: true,

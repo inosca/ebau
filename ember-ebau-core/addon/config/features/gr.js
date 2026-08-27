@@ -53,6 +53,7 @@ export default {
   workItems: {
     v2: true,
     targetDeadlineDate: true,
+    showTaskFilter: true,
   },
   changeGeometer: {
     enabled: false,

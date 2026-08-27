@@ -72,6 +72,8 @@ export default {
   workItems: {
     hideImportedWorkItems: true,
     v2: true,
+    showTaskFilter: true,
+    showTaskFilterAsDropdown: true,
   },
   changeGeometer: {
     enabled: false,

@@ -1,5 +1,4 @@
 export default {
-  showTaskFilter: true,
   availableTasks: {},
   columns(status, role) {
     return [

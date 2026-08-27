@@ -1,3 +1,1 @@
-export default {
-  showTaskFilter: false,
-};
+export default {};

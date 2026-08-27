@@ -50,8 +50,8 @@
         @options={{this.orderOptions}}
         @onChange={{this.setFilter}}
       />
-      {{#if this.workItemListConfig.showTaskFilter}}
-        {{#if this.workItemListConfig.taskFilterAsDropdown}}
+      {{#if (has-feature "workItems.showTaskFilter")}}
+        {{#if (has-feature "workItems.showTaskFilterAsDropdown")}}
           <Filter.Select
             @name="task"
             @searchEnabled={{true}}

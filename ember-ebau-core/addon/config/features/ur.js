@@ -21,6 +21,7 @@ export default {
   workItems: {
     showDocument: true,
     v2: true,
+    showTaskFilter: true,
   },
   dashboard: {
     useLegacy: true,
