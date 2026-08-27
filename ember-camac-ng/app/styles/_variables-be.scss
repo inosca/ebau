@@ -36,6 +36,7 @@ $form-placeholder-color: color.adjust($global-muted-color, $lightness: 30%);
 // Misc
 $modal-z-index: 1;
 $button-disabled-background: $global-muted-background;
+$button-small-font-size: 11px;
 
 // Power select
 $ember-power-select-border-color: $global-border;
