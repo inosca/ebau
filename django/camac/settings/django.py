@@ -3458,6 +3458,7 @@ PERMISSIONS = load_module_settings("permissions")
 PERMISSIONS_ALEXANDRIA = load_module_settings("permissions.alexandria")
 ALEXANDRIA = load_module_settings("alexandria")
 ALEXANDRIA_MIGRATION = load_module_settings("alexandria_migration")
+CHANGE_RESPONSIBLE_SERVICE = load_module_settings("change_responsible_service")
 # NOTE: When adding or removing a module, it also has to be added to or removed
 # from the `module-settings-name` util rule in
 # `ast-grep/utils/module_settings.yaml`, which is what makes its enable checks
