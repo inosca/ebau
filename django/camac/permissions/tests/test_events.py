@@ -465,6 +465,7 @@ def test_change_responsible_service(
     service_factory,
     service,
     disable_ech0211_settings,
+    be_change_responsible_service_settings,
     be_access_levels,
     instance_acl_factory,
     be_permissions_settings,
@@ -482,9 +483,16 @@ def test_change_responsible_service(
     )
     be_instance.save()
 
-    new_responsible = service_factory()
+    service_group = (
+        "construction-control"
+        if service_type == "construction_control"
+        else "municipality"
+    )
+    new_responsible = service_factory(service_group__name=service_group)
 
     old_responsible = be_instance.instance_services.get(active=1).service
+    old_responsible.service_group.name = service_group
+    old_responsible.service_group.save()
 
     lead_access_level = (
         "construction-control"

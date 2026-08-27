@@ -583,6 +583,7 @@ def test_change_responsibility_send_handler(
     notification_template_factory,
     ech_snapshot,
     be_distribution_settings,
+    be_change_responsible_service_settings,
 ):
     notification_template_factory(slug="02-benachrichtigung-baubewilligungsbehorde")
 

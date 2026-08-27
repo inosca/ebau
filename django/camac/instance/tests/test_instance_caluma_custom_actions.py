@@ -263,7 +263,7 @@ def test_archive(
         assert be_instance.instance_state.name == "archived"
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize(
     ("service_type", "expected_status"),
     [
@@ -283,6 +283,10 @@ def test_reassign_distribution_and_complete_distribution_workitems(
     caluma_admin_user,
     instance_state_factory,
     be_ech0211_settings,
+    be_change_responsible_service_settings,
+    be_permissions_settings,
+    instance_acl_factory,
+    access_level_factory,
 ):
     application_settings["SHORT_NAME"] = "be"
     notification_template.slug = "03-verfahren-vorzeitig-beendet"
@@ -291,9 +295,18 @@ def test_reassign_distribution_and_complete_distribution_workitems(
         "template_slug": notification_template.slug,
         "recipient_types": ["leitbehoerde"],
     }
+    be_instance.instance_state = instance_state_factory(name="subm")
+    be_instance.save()
+
+    access_level_factory(slug="involved-authority")
 
     old_service = be_instance.responsible_service(filter_type=service_type)
-    new_service = service_factory()
+    instance_acl_factory(
+        access_level=access_level_factory(slug="lead-authority"),
+        instance=be_instance,
+        service=old_service,
+    )
+    new_service = service_factory(service_group__name="municipality")
 
     group.service = old_service
     group.save()
@@ -367,18 +380,32 @@ def test_reassign_distribution_and_complete_distribution_workitems(
     )
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.django_db
 def test_change_responsible_service_audit_validation(
     admin_client,
     be_instance,
     instance_service,
     role,
+    service,
     service_factory,
     caluma_audit,
     caluma_admin_user,
+    instance_state_factory,
+    be_change_responsible_service_settings,
+    be_permissions_settings,
+    access_level_factory,
+    instance_acl_factory,
 ):
-    new_service = service_factory()
+    be_instance.instance_state = instance_state_factory(name="subm")
+    be_instance.save()
+    instance_acl_factory(
+        instance=be_instance,
+        access_level=access_level_factory(slug="lead-authority"),
+        service=service,
+    )
+
+    new_service = service_factory(service_group__name="municipality")
 
     for task_id in ["submit", "ebau-number"]:
         workflow_api.complete_work_item(

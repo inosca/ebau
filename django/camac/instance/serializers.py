@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import itertools
 import json
+import logging
 import re
 from datetime import timedelta
 from functools import singledispatchmethod
@@ -85,10 +86,12 @@ from camac.user.relations import (
     ServiceResourceRelatedField,
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
+from camac.user.utils import get_allowed_responsible_services_for_instance
 from camac.utils import clean_join, get_paper_settings, get_unversioned_slug
 
 from . import domain_logic, models, validators
 
+logger = logging.getLogger(__name__)
 if TYPE_CHECKING:
     from camac.document.models import Attachment
     from camac.settings.modules.instance_copy import InstanceCopyConfig
@@ -2402,10 +2405,7 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
     to = serializers.ResourceRelatedField(queryset=Service.objects.all())
 
     def validate_service_type(self, value):
-        expected = [
-            key.lower() for key in settings.APPLICATION.get("ACTIVE_SERVICES", {})
-        ]
-
+        expected = settings.CHANGE_RESPONSIBLE_SERVICE.responsible_service_types()
         if value not in expected:
             raise exceptions.ValidationError(
                 _(
@@ -2417,6 +2417,25 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
         return value
 
     def validate(self, data):
+        to_service = data.get("to")
+        service_type = data.get("service_type")
+
+        allowed_services = get_allowed_responsible_services_for_instance(
+            instance_id=self.instance.pk, service_type=service_type
+        )
+
+        if to_service not in allowed_services:
+            # TODO: Raise validation error instead, as soon as validation behavior
+            # change can also be applied for eCH-0211 API (changes might be
+            # necessary on the municipality software side, before this can be
+            # enforced).
+            logger.error(
+                _(
+                    "Invalid responsible service `%(to_service)s` for service type `%(service_type)s`."
+                )
+                % {"to_service": to_service.get_name(), "service_type": service_type}
+            )
+
         # validate audit documents
         try:
             CalumaApi().validate_existing_audit_documents(

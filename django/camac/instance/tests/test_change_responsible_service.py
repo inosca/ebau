@@ -1,6 +1,7 @@
 import pytest
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
+from django.utils.translation import gettext as _
 from rest_framework import status
 
 from camac.ech0211.models import Message
@@ -9,7 +10,7 @@ from camac.permissions import api as permissions_api
 from camac.permissions.switcher import PERMISSION_MODE
 
 
-@pytest.mark.parametrize("role__name", ["Municipality", "Support"])
+@pytest.mark.parametrize("role__name", ["municipality-lead", "support"])
 @pytest.mark.parametrize(
     ("service_type", "expected_status"),
     [
@@ -36,6 +37,10 @@ def test_change_responsible_service(
     expected_status,
     caluma_admin_user,
     be_distribution_settings,
+    be_change_responsible_service_settings,
+    be_permissions_settings,
+    access_level_factory,
+    instance_state_factory,
 ):
     application_settings["SHORT_NAME"] = "be"
     application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_SERVICE"] = {
@@ -43,11 +48,34 @@ def test_change_responsible_service(
         "recipient_types": ["leitbehoerde"],
     }
 
+    be_instance.instance_state = instance_state_factory(
+        name="sb1" if service_type == "construction_control" else "subm"
+    )
+    be_instance.save()
+    access_level_factory(pk="involved-authority")
+    access_level_factory(pk="involved-construction-control")
+    lead_authority = access_level_factory(pk="lead-authority")
+    construction_control = access_level_factory(pk="construction-control")
+
+    permissions_api.grant(
+        be_instance,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level=construction_control
+        if service_type == "construction_control"
+        else lead_authority,
+        service=group.service,
+    )
+
     if expected_status == status.HTTP_400_BAD_REQUEST:
         old_service = be_instance.responsible_service()
     else:
         old_service = be_instance.responsible_service(filter_type=service_type)
-    new_service = service_factory()
+
+    new_service = service_factory(
+        service_group__name="construction-control"
+        if service_type == "construction_control"
+        else "municipality"
+    )
 
     group.service = old_service
     group.save()
@@ -163,6 +191,59 @@ def test_change_responsible_service(
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.django_db
+def test_change_responsible_service_invalid_service(
+    admin_client,
+    caplog,
+    be_instance,
+    be_permissions_settings,
+    be_change_responsible_service_settings,
+    access_level_factory,
+    service,
+    service_factory,
+    instance_state_factory,
+    disable_ech0211_settings,
+):
+    be_instance.instance_state = instance_state_factory(name="subm")
+    be_instance.save()
+
+    access_level_factory(slug="involved-authority")
+    permissions_api.grant(
+        be_instance,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level=access_level_factory(pk="lead-authority"),
+        service=service,
+    )
+    new_service = service_factory()
+
+    response = admin_client.post(
+        reverse("instance-change-responsible-service", args=[be_instance.pk]),
+        {
+            "data": {
+                "type": "instance-change-responsible-services",
+                "attributes": {"service-type": "municipality"},
+                "relationships": {
+                    "to": {"data": {"id": new_service.pk, "type": "services"}}
+                },
+            }
+        },
+    )
+
+    # TODO: In the future, an invalid service selected during a responsible
+    # service change should raise an error instead of only being logged. As
+    # soon as the validation throws an error (CalumaInstanceChangeResponsibleServiceSerializer),
+    # the test should check for the validation error instead.
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+    assert (
+        _(
+            "Invalid responsible service `%(to_service)s` for service type `%(service_type)s`."
+        )
+        % {"to_service": new_service.get_name(), "service_type": "municipality"}
+        in caplog.text
+    )
+
+
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize(
     ("access_level_name", "change_to_municipality", "expected_status"),
     [
@@ -176,6 +257,7 @@ def test_change_responsible_service_with_permission_module(
     admin_client,
     be_instance,
     be_permissions_settings,
+    be_change_responsible_service_settings,
     access_level_factory,
     service,
     access_level_name,
@@ -203,7 +285,7 @@ def test_change_responsible_service_with_permission_module(
     new_service = (
         service_factory(service_group__name="municipality")
         if change_to_municipality
-        else service_factory()
+        else service_factory(service_group__name="district")
     )
     response = admin_client.post(
         reverse("instance-change-responsible-service", args=[be_instance.pk]),
