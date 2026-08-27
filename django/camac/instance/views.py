@@ -374,18 +374,10 @@ class InstanceView(
             instance, "instance-change-responsible-service"
         )
 
-    @permission_aware
     def has_object_set_ebau_number_permission(self, instance):
-        return False
-
-    def has_object_set_ebau_number_permission_for_municipality(self, instance):
-        return (
-            instance.responsible_service(filter_type="municipality")
-            == self.request.group.service
+        return permissions_api.PermissionManager.from_request(self.request).has_any(
+            instance, ["assign-ebau-number-write", "instance-change-ebau-number"]
         )
-
-    def has_object_set_ebau_number_permission_for_support(self, instance):
-        return True
 
     def has_object_archive_permission(self, instance):
         return permissions_api.PermissionManager.from_request(self.request).has_all(

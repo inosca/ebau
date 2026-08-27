@@ -10,7 +10,7 @@
         @type="text"
         @value={{this.ebauNumber}}
         aria-label={{t "corrections.ebau-number.label"}}
-        disabled={{cannot "set ebau number of instance" @instance}}
+        disabled={{await (cannot "set ebau number of instance" @instance)}}
         pattern="\d{4}-\d+"
         class="uk-input uk-form-small"
       />
@@ -22,7 +22,7 @@
         @label={{t "global.save"}}
         @disabled={{or
           this.changeEbauNumber.isRunning
-          (cannot "set ebau number of instance" @instance)
+          (await (cannot "set ebau number of instance" @instance))
         }}
       />
     </div>
