@@ -82,6 +82,13 @@ export default class extends Ability {
     }
 
     if (
+      rolesWithApplicantContact.includes("geometer") &&
+      this.ebauModules.baseRole === "geometer"
+    ) {
+      return true;
+    }
+
+    if (
       rolesWithApplicantContact.includes("activeOrInolvedLeadAuthority") &&
       this.isActiveOrInvolvedLeadAuthority
     ) {

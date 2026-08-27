@@ -244,33 +244,63 @@ def test_validate_entities(
     ],
 )
 @pytest.mark.parametrize(
-    ("role__name", "can_add_applicant"),
-    [("Municipality", True), ("Municipality", False)],
+    (
+        "role__name",
+        "roles_with_applicant_contact",
+        "is_instance_service",
+        "can_add_applicant",
+    ),
+    [
+        (
+            "Municipality",
+            ["active_or_involved_lead_authority", "service"],
+            True,
+            True,
+        ),
+        (
+            "Municipality",
+            ["active_or_involved_lead_authority", "service"],
+            False,
+            False,
+        ),
+        ("Geometer", ["geometer"], True, True),
+        ("Geometer", [], True, False),
+    ],
 )
 @pytest.mark.django_db
 def test_validate_entities_can_add_applicant(
     role,
+    roles_with_applicant_contact,
+    is_instance_service,
     can_add_applicant,
     has_involved_service,
     be_instance,
     instance_service,
+    instance_acl_factory,
     service_factory,
     admin_client,
     entities,
     expect_status,
     communications_settings,
 ):
-    communications_settings["ROLES_WITH_APPLICANT_CONTACT"] = [
-        "active_or_involved_lead_authority",
-        "service",
-    ]
+    communications_settings["ROLES_WITH_APPLICANT_CONTACT"] = (
+        roles_with_applicant_contact
+    )
 
+    if role.name == "Geometer":
+        instance_acl_factory(
+            instance=be_instance,
+            grant_type="SERVICE",
+            service=admin_client.user.get_default_group().service,
+        )
+
+    entity_ids = [*entities]
     if has_involved_service:
-        entities.append(str(service_factory().pk))
+        entity_ids.append(str(service_factory().pk))
 
-    entities = [{"id": e} for e in entities]  # No need to write the name here
+    entities = [{"id": entity_id} for entity_id in entity_ids]
 
-    if not can_add_applicant:
+    if not is_instance_service:
         instance_service.delete()
 
     resp = admin_client.post(
