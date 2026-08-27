@@ -55,6 +55,13 @@ COMMUNICATIONS = {
             "service",
         ],
     },
+    "kt_uri": {
+        "ENABLED": True,
+        "ROLES_WITH_APPLICANT_CONTACT": [
+            "active_or_involved_lead_authority",
+            "service",
+        ],
+    },
     "demo": {
         "ENABLED": True,
     },

@@ -12,6 +12,9 @@ export default {
     revert: true,
   },
   constructionMonitoring: true,
+  communications: {
+    enabled: true,
+  },
   additionalDemands: {
     enabled: true,
   },

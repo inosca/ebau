@@ -598,5 +598,29 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1508,
+    "fields": {
+      "slug": "communications-new-message",
+      "purpose": "Neue Nachricht (Gesuchsteller)",
+      "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Neue Nachricht",
+      "body": "URec System Info (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nNEUE NACHRICHT\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nSie haben im Dossier mit der ID Nr. {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} eine neue Nachricht erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt zur Nachricht:\r\n{{PUBLIC_DOSSIER_LINK}}/communications\r\n\r\nFreundliche Grüsse",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1509,
+    "fields": {
+      "slug": "communications-new-message-internal",
+      "purpose": "Neue Nachricht (Behörden)",
+      "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Neue Nachricht",
+      "body": "URec System Info (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nNEUE NACHRICHT\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nSie haben im Dossier mit der ID Nr. {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} eine neue Nachricht erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt zur Nachricht:\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=communication\r\n\r\nFreundliche Grüsse",
+      "service": null,
+      "type": "email"
+    }
   }
 ]

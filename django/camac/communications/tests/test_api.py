@@ -266,6 +266,29 @@ def test_included_dossier_number(
     )
 
 
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db
+def test_included_dossier_number_ur(
+    ur_instance,
+    admin_client,
+    communications_topic,
+    ur_communications_settings,
+):
+    ur_instance.case.meta["dossier-number"] = "1201-24-001"
+    ur_instance.case.save()
+    communications_topic.instance = ur_instance
+    communications_topic.involved_entities = [
+        admin_client.user.get_default_group().service_id,
+        "APPLICANT",
+    ]
+    communications_topic.save()
+
+    resp = admin_client.get(reverse("communications-topic-list"))
+
+    assert resp.status_code == status.HTTP_200_OK
+    assert resp.json()["data"][0]["attributes"]["dossier-number"] == "1201-24-001"
+
+
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
 @pytest.mark.parametrize("notifications_enabled", [1, 0])
 @pytest.mark.django_db
