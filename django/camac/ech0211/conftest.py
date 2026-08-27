@@ -588,9 +588,10 @@ def file_setup(
 def category_setup(db, application_settings, attachment_section_factory, mocker):
     def fn_alexandria():
         visible_category = CategoryFactory(
-            metainfo={"access": {"Municipality": {"visibility": "all"}}}
+            sort=1, metainfo={"access": {"Municipality": {"visibility": "all"}}}
         )
         uploadable_category = CategoryFactory(
+            sort=2,
             metainfo={
                 "access": {
                     "Municipality": {
@@ -598,10 +599,10 @@ def category_setup(db, application_settings, attachment_section_factory, mocker)
                         "permissions": [{"permission": "create"}],
                     }
                 }
-            }
+            },
         )
         invisible_category = CategoryFactory(
-            metainfo={"access": {"Support": {"visibility": "all"}}}
+            sort=3, metainfo={"access": {"Support": {"visibility": "all"}}}
         )
 
         return visible_category, uploadable_category, invisible_category
