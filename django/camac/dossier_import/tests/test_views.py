@@ -253,13 +253,16 @@ def test_file_validation(
         else expected_status[1]
     )
     if resp.status_code != status.HTTP_201_CREATED:
-        assert expected_result in str(resp.data[0]["detail"])
+        assert expected_result in str(resp.json()["errors"][0]["detail"])
     else:
+        data = resp.json()["data"]
         if isinstance(expected_result, dict):
             for key, value in expected_result.items():
-                for msg in sorted(resp.data["messages"]["validation"]["summary"][key]):
+                for msg in sorted(
+                    data["attributes"]["messages"]["validation"]["summary"][key]
+                ):
                     assert msg in value
-        admin_client.delete(reverse("dossier-import-detail", args=(resp.data["id"],)))
+        admin_client.delete(reverse("dossier-import-detail", args=(data["id"],)))
 
 
 @pytest.mark.parametrize(

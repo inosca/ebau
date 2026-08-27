@@ -154,10 +154,11 @@ def test_suspension_list_default(
     response = admin_client.get(url, {"filter[deadline]": deadline_current.pk})
 
     assert response.status_code == status.HTTP_200_OK
-    assert len(response.data) == expected_count
+    data = response.json()["data"]
+    assert len(data) == expected_count
 
     if expected_count > 0:
-        assert {entry["id"] for entry in response.data} == {
+        assert {entry["id"] for entry in data} == {
             str(entry.pk) for entry in instance_suspensions
         }
 
@@ -228,10 +229,11 @@ def test_suspension_list_gr(
     response = admin_client.get(url, {"filter[deadline]": deadline_current.pk})
 
     assert response.status_code == status.HTTP_200_OK
-    assert len(response.data) == expected_count
+    data = response.json()["data"]
+    assert len(data) == expected_count
 
     if expected_count > 0:
-        assert {entry["id"] for entry in response.data} == {
+        assert {entry["id"] for entry in data} == {
             str(entry.pk) for entry in instance_suspensions
         }
 
@@ -323,10 +325,11 @@ def test_suspension_list_ag(
     response = admin_client.get(url, {"filter[deadline]": deadline.pk})
 
     assert response.status_code == status.HTTP_200_OK
-    assert len(response.data) == expected_count
+    data = response.json()["data"]
+    assert len(data) == expected_count
 
     if expected_count > 0:
-        assert {entry["id"] for entry in response.data} == {
+        assert {entry["id"] for entry in data} == {
             str(entry.pk) for entry in instance_suspensions
         }
 

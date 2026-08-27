@@ -79,11 +79,12 @@ def test_instance_deadlines_list_gr(
     response = admin_client.get(url, {"filter[instance]": gr_instance.pk})
 
     assert response.status_code == status.HTTP_200_OK
-    assert len(response.data) == expected_count
+    data = response.json()["data"]
+    assert len(data) == expected_count
 
     if expected_count > 0:
-        assert response.data[0]["id"] == str(instance_deadlines[0].pk)
-        assert response.data[1]["id"] == str(instance_deadlines[1].pk)
+        assert data[0]["id"] == str(instance_deadlines[0].pk)
+        assert data[1]["id"] == str(instance_deadlines[1].pk)
 
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])

@@ -1,0 +1,26 @@
+id: response-data-in-tests
+language: python
+severity: error
+files:
+  - "**/test_*.py"
+  - "**/tests/*.py"
+  - "**/conftest.py"
+message: |
+  Do not assert on the `.data` attribute of a response in tests
+note: |
+  `.data` is the un-rendered serializer output, so it skips the renderer
+  entirely: on a JSON:API endpoint it carries neither the
+  `data`/`attributes`/`relationships` envelope nor the dasherized field names
+  that clients actually receive, errors are a bare `ErrorDetail` list instead
+  of `{"errors": [...]}`, and values can still be `datetime` or `Decimal`
+  objects. Assert on `response.json()` instead, which is the parsed response
+  body. This is not a drop-in replacement, the assertion has to be adjusted to
+  the rendered shape.
+rule:
+  pattern: "$RESPONSE.data"
+constraints:
+  RESPONSE:
+    # any name containing `response` (`response_with_included`,
+    # `history_response`, `response1`, ...), plus bare `res`/`resp` and their
+    # numbered and suffixed forms.
+    regex: "(?i)response|(^|_)resp?_?\\d*$"
