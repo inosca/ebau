@@ -2458,9 +2458,21 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
         config = settings.APPLICATION["NOTIFICATIONS"].get("CHANGE_RESPONSIBLE_SERVICE")
 
         if config:
-            send_mail(
+            # Use send_mail_without_request because the instance access (and
+            # the necessary permission for the responsible service change)
+            # have already been checked in the instance view
+            # (has_object_change_responsible_service_permission).
+            # Using send_mail would additionally check the instance access
+            # through InstanceEditableMixin, which relies on checking the
+            # requesting service's involvement in the instance (using
+            # pre-permissions module rbac logic). For responsible service changes
+            # on demolition payment instances, where a service is the
+            # responsible service, it would result in a permission error.
+            caluma_user = self.context["request"].caluma_info.context.user
+            send_mail_without_request(
                 config["template_slug"],
-                self.context,
+                caluma_user.username,
+                caluma_user.camac_group,
                 recipient_types=config["recipient_types"],
                 instance={"type": "instances", "id": self.instance.pk},
             )
