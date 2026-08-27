@@ -9,7 +9,12 @@ from django.db.models import Q
 
 from camac.instance.models import Instance
 from camac.instance.validators import FormDataValidator
-from camac.user.models import Group, Role, Service
+from camac.settings.modules.change_responsible_service_schema import (
+    ResponsibleServiceType,
+)
+from camac.settings.utils import is_module_enabled
+from camac.user.models import Group, Role, Service, ServiceQuerySet
+from camac.utils import get_unversioned_slug
 
 from . import models
 from .permissions import is_public_access
@@ -233,3 +238,57 @@ def get_tax_administration() -> Service | None:
         return None  # pragma: no cover
 
     return Service.objects.filter(slug=tax_admin_slug).first()
+
+
+def get_allowed_responsible_services_for_instance(
+    instance_id: int,
+    service_type: ResponsibleServiceType = None,
+    queryset: ServiceQuerySet = None,
+) -> ServiceQuerySet:
+    """Get the allowed services as the target of a responsible service change.
+
+    If a service type is given, the allowed services are limited to that
+    particular service type, as configured in the change responsible service
+    module settings.
+    """
+    if not is_module_enabled("CHANGE_RESPONSIBLE_SERVICE"):  # pragma: no cover
+        return Service.objects.none()
+
+    module_settings = settings.CHANGE_RESPONSIBLE_SERVICE
+
+    instance = Instance.objects.get(pk=instance_id)
+    form_slug = get_unversioned_slug(instance.case.document.form.slug)
+
+    if service_type:
+        responsible_service_types = [service_type]
+    else:
+        responsible_service_types = module_settings.responsible_service_types()
+
+    if not responsible_service_types:  # pragma: no cover
+        return Service.objects.none()
+
+    if queryset is None:
+        queryset = Service.objects.enabled_services()
+
+    filters = Q()
+    exclude = Q()
+    for responsible_service_type in responsible_service_types:
+        config = module_settings.get_responsible_service_type_config(
+            responsible_service_type
+        )
+
+        allowed_services = config.get_allowed_services_for_change(form_slug)
+        filters |= Q(slug__in=allowed_services)
+
+        allowed_service_groups = config.get_allowed_service_groups_for_change(form_slug)
+        filters |= Q(service_group__name__in=allowed_service_groups)
+
+        current_responsible_service = instance.responsible_service(
+            filter_type=responsible_service_type
+        )
+        if current_responsible_service:
+            exclude |= Q(pk=current_responsible_service.pk)
+
+    return (
+        queryset.exclude(service_parent__isnull=False).exclude(exclude).filter(filters)
+    )

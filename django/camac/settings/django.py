@@ -1038,6 +1038,7 @@ APPLICATIONS = {
                         "municipality",
                         "district",
                         "lead-service",
+                        "service",
                     ]
                 },
                 "DEFAULT": True,

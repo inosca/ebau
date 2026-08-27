@@ -276,6 +276,41 @@ def test_public_service_filter_is_active_service_for_instance(
     assert len(data) == expected_count
 
 
+@pytest.mark.parametrize(
+    ("has_involved_instance_service", "expected_count"), [(True, 1), (False, 0)]
+)
+def test_public_service_filter_is_involved_service_for_instance(
+    admin_client,
+    be_instance,
+    instance_service_factory,
+    service_factory,
+    has_involved_instance_service,
+    expected_count,
+):
+    be_instance.instance_services.all().delete()
+
+    instance_service_factory(instance=be_instance, service=service_factory(), active=1)
+    if has_involved_instance_service:
+        instance_service = instance_service_factory(
+            instance=be_instance, service=service_factory(), active=0
+        )
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        data={"is_involved_service_for_instance": be_instance.pk},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    data = response.json()["data"]
+
+    assert len(data) == expected_count
+    if has_involved_instance_service:
+        assert [i["attributes"]["name"] for i in data] == [
+            instance_service.service.name
+        ]
+
+
 @pytest.mark.parametrize("service__name", ["my-service"])
 @pytest.mark.parametrize(
     ("value", "expected"),
