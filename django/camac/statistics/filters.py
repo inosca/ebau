@@ -39,7 +39,7 @@ from rest_framework.filters import BaseFilterBackend
 
 from camac.caluma.models import Inquiry
 from camac.deadlines.models import InstanceDeadline
-from camac.instance.export.filters import JsonbText, StringAggSubquery
+from camac.instance.export.filters import JsonbText, StringAggSubquery, caluma_answer
 from camac.instance.models import Instance, InstanceStateT
 from camac.responsible.models import ResponsibleService
 from camac.user.models import Service, ServiceT, User
@@ -273,18 +273,18 @@ class _BaseFilterBackend(BaseFilterBackend):
             else "instance_state_id"
         )
 
-    def annotate_dossier_number(self):
+    @property
+    def _special_id_slug(self):
+        return settings.APPLICATION["SPECIAL_ID_SLUG"]
+
+    def annotate_special_id(self):
         return NullIf(
-            Replace(
-                KeyTextTransform(
-                    "dossier-number",
-                    self._case_meta_path,
-                    output_field=CharField(),
-                ),
-                Value('"'),
-                Value(""),
+            KeyTextTransform(
+                self._special_id_slug,
+                self._case_meta_path,
+                output_field=CharField(),
             ),
-            Value("null"),
+            Value(""),
         )
 
     def annotate_type(self):
@@ -506,7 +506,7 @@ class _BaseFilterBackend(BaseFilterBackend):
         """Return the dict of dossier-level annotation kwargs."""
 
         available_annotations = {
-            "dossier_number": lambda: self.annotate_dossier_number(),
+            "special_id": lambda: self.annotate_special_id(),
             "form_name": lambda: self.annotate_type(),
             "parcels": lambda: self.annotate_plot_number(),
             "submit_date": lambda: self.annotate_submit_date(),
@@ -778,6 +778,38 @@ class RPG2FilterBackend(_BaseFilterBackend):
             output_field=IntegerField(),
         )
 
+    def annotate_instance_id(self):
+        return F(self._instance_pk_ref)
+
+    def annotate_description(self):
+        return caluma_answer(
+            "beschreibung-bauvorhaben",
+            ref=self._document_id_ref,
+        )
+
+    def annotate_parcel_coordinates(self, axis):
+        question_slug = {
+            "x": "lagekoordinaten-ost",
+            "y": "lagekoordinaten-nord",
+        }[axis]
+
+        return StringAggSubquery(
+            Answer.objects.filter(
+                question_id=question_slug,
+                document__family=OuterRef(self._document_id_ref),
+                value__isnull=False,
+            )
+            .annotate(
+                string_value=NullIf(
+                    Trim(JsonbText(F("value"))),
+                    Value(""),
+                )
+            )
+            .values("string_value"),
+            column_name="string_value",
+            delimiter=", ",
+        )
+
     def annotate_coordinate(self, axis):
         coordinates = Cast(
             NullIf(JsonbText(F("value")), Value("")), output_field=JSONField()
@@ -861,7 +893,11 @@ class RPG2FilterBackend(_BaseFilterBackend):
     def _rpg2_annotations(self, requested_columns=None):
         slugs = self._slugs
         available = {
-            "dossier_number": lambda: self.annotate_dossier_number(),
+            "instance_id": lambda: self.annotate_instance_id(),
+            "special_id": lambda: self.annotate_special_id(),
+            "description": lambda: self.annotate_description(),
+            "municipality": lambda: self.annotate_municipality(),
+            "parcels": lambda: self.annotate_plot_number(),
             "form_name": lambda: self.annotate_type(),
             "rpg2_legal_basis": lambda: self.annotate_rpg2_choice_label(
                 slugs["rpg2_legal_basis"]
@@ -882,6 +918,8 @@ class RPG2FilterBackend(_BaseFilterBackend):
             ),
             "coordinate_x": lambda: self.annotate_coordinate("x"),
             "coordinate_y": lambda: self.annotate_coordinate("y"),
+            "coordinate_x_parcels": lambda: self.annotate_parcel_coordinates("x"),
+            "coordinate_y_parcels": lambda: self.annotate_parcel_coordinates("y"),
         }
 
         columns = (
@@ -918,6 +956,10 @@ class RPG2FilterBackend(_BaseFilterBackend):
         requested_columns = requested_annotations
 
         instance_pks = self._filtered_instance_pks(request, queryset)
+        annotations = self._rpg2_annotations(requested_columns)
+
+        # for potentially `instance_id` duplicated annotation(primary key)
+        annotations.pop("instance_id", None)
 
         return (
             Instance.objects.filter(pk__in=instance_pks)
@@ -929,7 +971,7 @@ class RPG2FilterBackend(_BaseFilterBackend):
                 "case__family_id",
                 "case__document_id",
             )
-            .annotate(**self._rpg2_annotations(requested_columns))
+            .annotate(**annotations)
         )
 
     # without request and queryset parameter because AfB is the only
@@ -1008,8 +1050,8 @@ class RPG2FilterBackend(_BaseFilterBackend):
 
             rows.append(
                 {
-                    "dossier_number": (case.meta or {}).get("dossier-number"),
-                    "ebau_number": instance.pk,
+                    "instance_id": instance.pk,
+                    "special_id": (case.meta or {}).get(self._special_id_slug),
                     "area_type": _label_of_answer(
                         doc_answers, slugs["rpg2_area_type"], labels
                     ),

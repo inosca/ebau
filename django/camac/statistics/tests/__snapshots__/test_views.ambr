@@ -9,7 +9,6 @@
 # name: test_dossier_annotations_all_columns
   list([
     'completing_date',
-    'dossier_number',
     'first_inquiry_date',
     'form_name',
     'instance_status',
@@ -18,6 +17,7 @@
     'parcels',
     'processing_time',
     'responsible_user',
+    'special_id',
     'submit_date',
   ])
 # ---

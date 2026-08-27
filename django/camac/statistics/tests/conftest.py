@@ -18,12 +18,6 @@ def _clear_inquiry_service_cache():
     get_inquiry_service_id.cache_clear()
 
 
-@pytest.fixture(autouse=True)
-def _autouse_ag_statistics_settings(ag_statistics_settings):
-    """Apply AG statistics settings to every test in this module."""
-    return ag_statistics_settings
-
-
 @pytest.fixture
 def role(role):
     """Ensure role has a slug matching its name lowercase."""

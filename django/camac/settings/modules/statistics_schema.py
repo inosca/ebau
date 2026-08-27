@@ -32,7 +32,7 @@ class ExportColumnsConfig(EBauConfig):
 
 
 class StatisticsConfig(ModuleApplicationConfig):
-    """Statistics XLSX export config; resolution order: by_service_group → by_role."""
+    """Statistics XLSX export config; resolution order: service -> service group -> role."""
 
     slugs: dict[str, str] = Field(
         description=(
@@ -45,7 +45,24 @@ class StatisticsConfig(ModuleApplicationConfig):
         description="Column overrides keyed by Role.slug.",
         default_factory=dict,
     )
+    by_service: dict[str, ExportColumnsConfig] = Field(
+        description="Column overrides keyed by Service.slug. Takes highest priority.",
+        default_factory=dict,
+    )
     by_service_group: dict[str, ExportColumnsConfig] = Field(
         description="Column overrides keyed by ServiceGroup.slug. Takes priority over by_role.",
         default_factory=dict,
     )
+
+    def resolve_columns_config(
+        self,
+        service_slug: str | None = None,
+        service_group_slug: str | None = None,
+        role_slug: str | None = None,
+    ) -> ExportColumnsConfig | None:
+        """Resolve export columns for the most specific configured group attribute."""
+        return (
+            self.by_service.get(service_slug)
+            or self.by_service_group.get(service_group_slug)
+            or self.by_role.get(role_slug)
+        )
