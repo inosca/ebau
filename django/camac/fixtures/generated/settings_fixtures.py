@@ -1219,6 +1219,24 @@ def sg_communications_settings(
 
 
 @pytest.fixture
+def ur_communications_settings(
+    request,
+    settings,
+    communications_settings,
+):
+    """Module-specific settings for communications (canton UR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=communications_settings,
+        settings_name="COMMUNICATIONS",
+        import_path="camac.settings.modules.communications.COMMUNICATIONS",
+        canton="kt_uri",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def demo_communications_settings(
     request,
     settings,

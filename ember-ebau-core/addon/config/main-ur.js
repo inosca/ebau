@@ -36,6 +36,9 @@ export default {
     33, // old
     34, // control
   ],
+  communication: {
+    rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
+  },
   answerSlugs: {
     objectStreet: "parcel-street",
     objectNumber: "street-number",

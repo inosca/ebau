@@ -55,6 +55,12 @@ ROLES_INTERNAL = HasRole(
 # 2. Form rules
 # 3. Role rules
 # 4. Other
+MODULE_COMMUNICATIONS = (
+    STATES_ALL_INTERNAL
+    & ROLES_INTERNAL
+    & ~HasRole(["Organisation mit Leseberechtigung"])
+)
+
 MODULE_DASHBOARD_READ = STATES_ALL_INTERNAL & ~RequireInstanceState(["subm"])
 
 MODULE_DOCUMENTS_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
@@ -67,6 +73,8 @@ MODULE_HISTORY = STATES_ALL_INTERNAL & ROLES_INTERNAL
 UR_PERMISSIONS_SETTINGS = {
     "ACCESS_LEVELS": {
         "read": [
+            ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
             ("dashboard-read", MODULE_DASHBOARD_READ),
             ("documents-read", MODULE_DOCUMENTS_READ),
             ("form-read", MODULE_FORM),
