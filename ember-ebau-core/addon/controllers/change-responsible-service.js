@@ -5,9 +5,6 @@ import { tracked } from "@glimmer/tracking";
 import { task } from "ember-concurrency";
 import { findRecord, query } from "ember-data-resources";
 import { confirm } from "ember-uikit";
-import { trackedFunction } from "reactiveweb/function";
-
-import mainConfig from "ember-ebau-core/config/main";
 
 export default class ChangeResponsibleServiceController extends Controller {
   @service fetch;
@@ -17,55 +14,37 @@ export default class ChangeResponsibleServiceController extends Controller {
 
   @tracked selectedService;
 
-  get readableServiceGroups() {
-    return mainConfig.changeResponsibleService.serviceGroupsForType[this.model];
-  }
-
-  get selectableServiceGroups() {
-    const config = mainConfig.changeResponsibleService;
-    const serviceGroupConfig =
-      config.selectableServiceGroupsForType || config.serviceGroupsForType;
-    return serviceGroupConfig[this.model];
-  }
-
   get activeService() {
-    return this.activeServices?.records?.[0];
+    return this.#activeServices?.records?.[0];
   }
 
-  get selectableServicesWithoutOwnService() {
-    return this.selectableServices?.records?.filter(
-      (service) => service.id !== this.activeService?.id,
-    );
+  get involvedServices() {
+    return this.#involvedServices?.records;
+  }
+  get selectableServices() {
+    return this.#selectableServices?.records;
   }
 
-  instance = findRecord(this, "instance", () => [
-    this.ebauModules.instanceId,
-    { include: "services,services.service_group" },
-  ]);
+  instance = findRecord(this, "instance", () => [this.ebauModules.instanceId]);
 
-  activeServices = query(this, "public-service", () => ({
+  #selectableServices = query(this, "public-service", () => ({
     filter: {
-      service_group_name: this.readableServiceGroups.join(","),
-      has_parent: false,
-      is_active_service_for_instance: this.ebauModules.instanceId,
+      available_responsible_service_for_instance: this.ebauModules.instanceId,
+      is_responsible_service_type: this.model,
     },
-    include: "service_group",
   }));
 
-  involvedServices = trackedFunction(this, async () => {
-    const services = await this.instance?.record?.services;
-
-    return (services ?? []).filter(
-      (service) =>
-        service.id !== this.activeService?.id &&
-        this.readableServiceGroups.includes(service.get("serviceGroup.slug")),
-    );
-  });
-
-  selectableServices = query(this, "public-service", () => ({
+  #activeServices = query(this, "public-service", () => ({
     filter: {
-      service_group_name: this.selectableServiceGroups.join(","),
-      has_parent: false,
+      is_active_service_for_instance: this.ebauModules.instanceId,
+      is_responsible_service_type: this.model,
+    },
+  }));
+
+  #involvedServices = query(this, "public-service", () => ({
+    filter: {
+      is_involved_service_for_instance: this.ebauModules.instanceId,
+      is_responsible_service_type: this.model,
     },
   }));
 

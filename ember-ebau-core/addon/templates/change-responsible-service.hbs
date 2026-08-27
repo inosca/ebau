@@ -18,7 +18,7 @@
           {{t "change-responsible-service.involved"}}
         </th>
         <td>
-          {{join ", " (map-by "name" this.involvedServices.value)}}
+          {{join ", " (map-by "name" this.involvedServices)}}
         </td>
       </tr>
     </tbody>
@@ -39,7 +39,7 @@
         @searchField="name"
         @allowClear={{true}}
         @renderInPlace={{true}}
-        @options={{this.selectableServicesWithoutOwnService}}
+        @options={{this.selectableServices}}
         @disabled={{this.change.isRunning}}
         @selected={{this.selectedService}}
         @noMatchesMessage={{t "global.noMatch"}}
@@ -65,16 +65,13 @@
         (can
           "unsubscribe responsible service of instance"
           this.instance.record
-          involvedServices=this.involvedServices.value
+          involvedServices=this.involvedServices
         )
       )
     }}
       <UkButton
         @onClick={{this.unsubscribe.perform}}
-        @disabled={{or
-          this.unsubscribe.isRunning
-          (not this.involvedServices.value)
-        }}
+        @disabled={{or this.unsubscribe.isRunning (not this.involvedServices)}}
         @loading={{this.unsubscribe.isRunning}}
         @color="default"
       >
