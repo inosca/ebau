@@ -57,6 +57,12 @@ services:
       context: ../gotenberg
       cache_from:
         - acr.run/camac-ng/camac-ng/gotenberg:${CI_COMMIT_TAG:-main}
+    healthcheck:
+      test: curl -f http://localhost:3000/health
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
   garage:
     image: acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-main}
