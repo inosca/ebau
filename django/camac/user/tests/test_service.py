@@ -652,7 +652,7 @@ def test_check_change_geometer_status(
     resp = admin_client.get(reverse("service-check-change-geometer-status"))
 
     if task_status == "failed":
-        assert resp.data["errors"] == "There is an error"
+        assert resp.json()["data"]["errors"] == "There is an error"
     assert resp.status_code == expected_status
 
 

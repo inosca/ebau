@@ -33,7 +33,7 @@ def test_eeba_check_integration_view_success(
     response = admin_client.post(url, format="json", data={})
 
     assert response.status_code == status.HTTP_200_OK
-    assert response.data == dummy_result
+    assert response.json() == dummy_result
 
 
 @pytest.mark.parametrize(
@@ -66,7 +66,7 @@ def test_eeba_check_integration_view_instance_not_found(
     response = admin_client.post(url, format="json", data={})
 
     assert response.status_code == status.HTTP_404_NOT_FOUND
-    assert response.data == {"error": "No Instance matches the given query."}
+    assert response.json() == {"error": "No Instance matches the given query."}
 
 
 @pytest.mark.parametrize(
@@ -84,7 +84,7 @@ def test_eeba_check_integration_view_instance_server_error(
     response = admin_client.post(url, format="json", data={})
 
     assert response.status_code == status.HTTP_500_INTERNAL_SERVER_ERROR
-    assert response.data == {"error": "An unexpected error occurred."}
+    assert response.json() == {"error": "An unexpected error occurred."}
 
 
 @pytest.mark.parametrize(
@@ -99,7 +99,7 @@ def test_eeba_patch_integration_view_missing_new_instance_id(
     response = admin_client.patch(url, format="json", data={})
 
     assert response.status_code == status.HTTP_400_BAD_REQUEST
-    assert response.data == {"error": "new_instance_id is required."}
+    assert response.json() == {"error": "new_instance_id is required."}
 
 
 @pytest.mark.parametrize(
@@ -119,7 +119,7 @@ def test_eeba_patch_integration_view_success(
     response = admin_client.patch(url, format="json", data=data)
 
     assert response.status_code == status.HTTP_200_OK
-    assert response.data == {"success": "Integration patched successfully."}
+    assert response.json() == {"success": "Integration patched successfully."}
 
 
 @pytest.mark.parametrize(
@@ -139,4 +139,4 @@ def test_eeba_patch_integration_view_failure(
     response = admin_client.patch(url, format="json", data=data)
 
     assert response.status_code == status.HTTP_500_INTERNAL_SERVER_ERROR
-    assert response.data == {"error": "Integration patching failed."}
+    assert response.json() == {"error": "Integration patching failed."}

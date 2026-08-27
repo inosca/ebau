@@ -256,4 +256,4 @@ def test_withdraw_instance_light_completed(
     response = admin_client.post(url)
 
     assert response.status_code == status.HTTP_400_BAD_REQUEST
-    assert response.data[0]["detail"] == "Rückzug nicht möglich."
+    assert response.json()["errors"][0]["detail"] == "Rückzug nicht möglich."

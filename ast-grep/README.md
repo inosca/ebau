@@ -87,6 +87,35 @@ import { isApplication } from "ember-ebau-core/helpers/is-application";
 In templates, use the `is-application` helper instead. The rules only cover
 `.js` files, `ast-grep` cannot parse `.hbs`.
 
+### Response assertions in tests
+
+This rule forbids asserting on the `.data` attribute of a response in tests.
+
+[`.data`][drf-data] is DRF's "unrendered, serialized data of the response": it
+never passes through the renderer, whereas [`.json()`][django-json] is Django's
+test client method that parses the bytes the response actually sent.
+
+On a JSON:API endpoint `.data` therefore lacks the
+`data`/`attributes`/`relationships` envelope and the dasherized field names the
+frontend receives, error responses are a bare `ErrorDetail` list instead of
+`{"errors": [...]}`, and values can still be `datetime` or `Decimal` objects.
+Asserting on it silently skips the layer most likely to break.
+
+[drf-data]: https://www.django-rest-framework.org/api-guide/responses/#data
+[django-json]: https://docs.djangoproject.com/en/5.2/topics/testing/tools/#django.test.Response.json
+
+Use `response.json()` instead. The rule has no autofix, because the two are not
+interchangeable, the assertion has to be adjusted to the rendered shape:
+
+```python
+# JSON:API list
+assert len(response.json()["data"]) == 2
+# JSON:API detail
+assert response.json()["data"]["attributes"]["some-field"] == "foo"
+# errors
+assert response.json()["errors"][0]["detail"] == "Nope"
+```
+
 ## Running the fixes
 
 If CI reports violations of these rules, you can automatically apply the

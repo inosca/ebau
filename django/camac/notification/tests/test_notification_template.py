@@ -1330,7 +1330,7 @@ def test_notification_validate_slug_update(admin_client, notification_template):
 
     response = admin_client.patch(url, data=data)
     assert response.status_code == status.HTTP_400_BAD_REQUEST
-    assert response.data[0]["detail"] == "Updating a slug is not allowed!"
+    assert response.json()["errors"][0]["detail"] == "Updating a slug is not allowed!"
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -1353,7 +1353,7 @@ def test_notification_validate_slug_create(admin_client, notification_template):
     response = admin_client.post(url, data=data)
     assert response.status_code == status.HTTP_400_BAD_REQUEST
     assert (
-        response.data[0]["detail"]
+        response.json()["errors"][0]["detail"]
         == "Vorlage für Benachrichtigung mit diesem Wert für das Feld slug existiert bereits."
     )
 
