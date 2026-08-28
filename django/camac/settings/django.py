@@ -3178,7 +3178,7 @@ ADMIN_GIS_VERIFY_SSL = env.bool("ADMIN_GIS_VERIFY_SSL", default=True)
 # GIS API (KT. AG)
 AG_GIS_BASE_URL = env.str(
     "AG_GIS_BASE_URL",
-    default="https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer",
+    default="https://www.ag.ch/geoportal/rest/services/",
 )
 
 # ÖREB extract API (currently only SG)

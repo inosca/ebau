@@ -24,18 +24,21 @@ class AgGisClient(GISBaseClient):
 
         point_response_json = self.get_agis_identify_response(markers, 5)
         area_response_json = self.get_agis_identify_response(markers, 20)
+        isos_response_json = self.get_isos_identify_response(markers)
 
         agis_info_from_point = point_response_json.get("results", [])
         agis_info_from_area = area_response_json.get("results", [])
+        agis_info_from_isos = isos_response_json.get("results", [])
         result = {}
 
         for layer in config:
             mapper = layer.get("mapper", "properties")
-            agis_data = (
-                agis_info_from_area
-                if layer.get("in_20m_radius", False)
-                else agis_info_from_point
-            )
+            if layer.get("source") == "isos":
+                agis_data = agis_info_from_isos
+            elif layer.get("in_20m_radius", False):
+                agis_data = agis_info_from_area
+            else:
+                agis_data = agis_info_from_point
             if mapper == "exists":
                 question = layer["question"]
                 result_answer = self.get_result_for_exists_mapper(
@@ -52,6 +55,13 @@ class AgGisClient(GISBaseClient):
                     layers = layers[:1]
                 for layer_info in layers:
                     for prop in layer["properties"]:
+                        property_value = layer_info["attributes"].get(
+                            prop["propertyName"], ""
+                        )
+                        if (
+                            allowed_values := prop.get("allowedValues")
+                        ) and property_value not in allowed_values:
+                            continue
                         question = prop["question"]
                         result[question] = self.get_result_for_properties_mapper(
                             result, prop, layer_info
@@ -105,16 +115,29 @@ class AgGisClient(GISBaseClient):
         return new_value
 
     def get_agis_identify_response(self, markers, tolerance):
-        base_url = build_url(
-            settings.AG_GIS_BASE_URL,
-            "/identify",
+        return self.get_identify_response(
+            markers,
+            tolerance,
+            "afb_gischeck_diba/MapServer",
+            "all",
         )
+
+    def get_isos_identify_response(self, markers):
+        return self.get_identify_response(
+            markers,
+            0,
+            "are_isos/MapServer",
+            "all:15",
+        )
+
+    def get_identify_response(self, markers, tolerance, service, layers):
+        identify_url = build_url(settings.AG_GIS_BASE_URL, service, "/identify")
         margin = Decimal(tolerance)
         x = Decimal(markers[0].get("x", ""))
         y = Decimal(markers[0].get("y", ""))
         payload = {
             "geometry": f"{x - margin},{y - margin},{x + margin},{y + margin}",
-            "layers": "all",
+            "layers": layers,
             "tolerance": "0",
             "mapExtent": "2608986,1211613,2690520,1288912",
             "geometryType": "esriGeometryEnvelope",
@@ -123,7 +146,7 @@ class AgGisClient(GISBaseClient):
             "f": "json",
         }
         response = self.session.post(
-            base_url,
+            identify_url,
             data=payload,
             headers={"Content-Type": "application/x-www-form-urlencoded"},
         )

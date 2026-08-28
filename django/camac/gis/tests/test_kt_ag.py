@@ -24,6 +24,7 @@ TEST_SCENARIOS = [
     {
         # Waldnaturschutzinventar
         "coords": (2657749, 1240978),
+        "isos": "national",
         "checked_questions": [
             "zonenplan",
             "ueberlagerte-schutzzonen-und-schutzobjekte",
@@ -32,11 +33,13 @@ TEST_SCENARIOS = [
     {
         # Landschaftsschutzdekrete (detailliert Legende)
         "coords": (2657686.7954999995, 1241576.6492766952),
+        "isos": "regional",
         "checked_questions": ["ueberlagerte-schutzzonen-und-schutzobjekte"],
     },
     {
         # BLN - Bundesinventar der Landschaften und Naturdenkmäler von nationaler Bedeutung
         "coords": (2657645.3687233045, 1241677.0886165234),
+        "isos": "lokal",
         "checked_questions": ["ueberlagerte-schutzzonen-und-schutzobjekte"],
     },
     {
@@ -288,6 +291,22 @@ def ag_config(gis_data_source_factory, caluma_question_factory):
     return GISDataSource.objects.all()
 
 
+def test_ag_client_isos_request(mocker, settings):
+    settings.AG_GIS_BASE_URL = "https://example.com/rest/services"
+    markers = [{"x": 2659704.2, "y": 1238402.6}]
+    client = AgGisClient({})
+    get_identify_response = mocker.patch.object(client, "get_identify_response")
+
+    client.get_isos_identify_response(markers)
+
+    get_identify_response.assert_called_once_with(
+        markers,
+        0,
+        "are_isos/MapServer",
+        "all:15",
+    )
+
+
 def test_ag_client_returns_all_buildings():
     client = AgGisClient({})
     agis_info = [
@@ -366,7 +385,21 @@ def test_ag_client(
     ag_config,
     scenario,
     ag_data_sources,
+    mocker,
 ):
+    isos_results = []
+    if significance := scenario.get("isos"):
+        isos_results.append(
+            {
+                "layerName": "Ortsbilder PDF-Perimeter (ISOS-I-basiert)",
+                "attributes": {"Bedeutung": significance},
+            }
+        )
+    mocker.patch.object(
+        AgGisClient,
+        "get_isos_identify_response",
+        return_value={"results": isos_results},
+    )
     x, y = scenario["coords"]
     response_0 = admin_client.get(
         reverse("gis-data"),
