@@ -14,8 +14,15 @@ defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
 
   @impl true
   def run(_args) do
-    Mix.Task.run("app.start")
+    # Only the repo, not the application: this runs before `ecto.migrate` on a
+    # fresh database, and starting the supervision tree here would boot Oban
+    # before its tables exist.
+    Mix.Task.run("app.config")
 
+    {:ok, _result, _started} = Ecto.Migrator.with_repo(Ebau.Repo, fn _repo -> bootstrap() end)
+  end
+
+  defp bootstrap do
     repo_config = Application.fetch_env!(:ebau, Ebau.Repo)
 
     sql_path =

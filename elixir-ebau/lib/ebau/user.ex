@@ -27,7 +27,11 @@ defmodule Ebau.User do
       define :set_default_language, args: [:language]
     end
 
-    resource Ebau.User.Token
+    resource Ebau.User.Token do
+      define :get_token, action: :get_token, args: [:jti, :purpose]
+      define :session_tokens_by_keycloak_sid, action: :by_keycloak_sid, args: [:sid]
+      define :set_keycloak_session, action: :set_keycloak_session
+    end
 
     resource Ebau.User.Role do
       define :create_role, action: :create

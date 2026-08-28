@@ -19,7 +19,10 @@ defmodule Mix.Tasks.Ebau.LoadConfig do
 
   @impl true
   def run(args) do
-    Mix.Task.run("app.start")
+    # Only the repo, not the application: this can be run against a database
+    # that has not been migrated yet, and starting the supervision tree would
+    # boot Oban before its tables exist.
+    Mix.Task.run("app.config")
 
     {opts, _argv, invalid} =
       OptionParser.parse(args,
@@ -46,10 +49,13 @@ defmodule Mix.Tasks.Ebau.LoadConfig do
       "Loading legacy config for #{application} (scope=#{scope}, init=#{include_init?})"
     )
 
-    ConfigLoader.load_application_config!(application,
-      scope: scope,
-      include_init?: include_init?
-    )
+    {:ok, _result, _started} =
+      Ecto.Migrator.with_repo(Ebau.Repo, fn _repo ->
+        ConfigLoader.load_application_config!(application,
+          scope: scope,
+          include_init?: include_init?
+        )
+      end)
 
     Mix.shell().info("Legacy config loaded for #{application}")
   end

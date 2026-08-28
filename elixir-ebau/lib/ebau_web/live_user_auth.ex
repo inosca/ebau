@@ -16,27 +16,30 @@ defmodule EbauWeb.LiveUserAuth do
   end
 
   def on_mount(:live_user_required, _params, session, socket) do
-    # Try to load user from session if not already assigned
-    socket =
-      if socket.assigns[:current_user] do
-        socket
-      else
-        case session["user"] do
-          nil ->
-            socket
-
-          subject when is_binary(subject) ->
-            case AshAuthentication.subject_to_user(subject, Ebau.User.User) do
-              {:ok, user} -> assign(socket, :current_user, user)
-              {:error, _} -> socket
-            end
-        end
-      end
-
     if socket.assigns[:current_user] do
-      {:cont, socket}
+      {:cont, watch_for_revocation(socket, session)}
     else
       {:halt, Phoenix.LiveView.redirect(socket, to: ~p"/elixir/sign-in")}
     end
   end
+
+  # The mount check above cannot see a revocation that happens while the socket
+  # is already connected, so listen for one and end the session when it lands.
+  defp watch_for_revocation(socket, session) do
+    with true <- Phoenix.LiveView.connected?(socket),
+         token when is_binary(token) <- session["user_token"],
+         {:ok, %{"jti" => jti}} <- AshAuthentication.Jwt.peek(token) do
+      :ok = EbauWeb.SessionRevocation.subscribe(jti)
+
+      Phoenix.LiveView.attach_hook(socket, :session_revoked, :handle_info, &handle_revocation/2)
+    else
+      _ -> socket
+    end
+  end
+
+  defp handle_revocation(:session_revoked, socket) do
+    {:halt, Phoenix.LiveView.redirect(socket, to: ~p"/elixir/sign-in")}
+  end
+
+  defp handle_revocation(_message, socket), do: {:cont, socket}
 end

@@ -35,6 +35,13 @@ defmodule EbauWeb.Router do
     forward "/", EbauWeb.AshJsonApiRouter
   end
 
+  # Outside the :browser pipeline on purpose: Keycloak posts this
+  # server-to-server with no cookie and no CSRF token, and the logout token's
+  # own signature is what authenticates it.
+  scope "/", EbauWeb do
+    post "/elixir/backchannel-logout", BackchannelLogoutController, :create
+  end
+
   scope "/", EbauWeb do
     pipe_through :browser
 
@@ -48,7 +55,7 @@ defmodule EbauWeb.Router do
     end
 
     auth_routes AuthController, Ebau.User.User, path: "/elixir/auth"
-    sign_out_route AuthController, "/elixir/sign-out"
+    get "/elixir/sign-out", AuthController, :sign_out
     get "/elixir/sign-in", AuthController, :sign_in
 
     scope "/" do
