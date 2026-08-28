@@ -23,9 +23,13 @@ config :ebau, EbauWeb.Endpoint,
 config :ebau, :keycloak,
   url: "http://localhost:1/",
   realm: "test",
+  client_id: "camac",
   email_claim: "email",
   username_claim: "sub",
   scopes: "openid"
+
+# Routes the JWKS fetch through `Req.Test`, see `Ebau.Test.KeycloakHelper.stub_jwks/0`.
+config :ebau, :keycloak_jwks_req, plug: {Req.Test, EbauWeb.LogoutToken}
 
 # Use the dummy Keycloak adapter in tests; token is just the user id
 config :ebau, :oauth2_module, EbauWeb.OAuth2Dummy

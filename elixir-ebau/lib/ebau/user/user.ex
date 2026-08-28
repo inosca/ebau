@@ -21,9 +21,15 @@ defmodule Ebau.User.User do
       enabled? true
       token_resource Ebau.User.Token
       signing_secret Ebau.Secrets
-    end
+      store_all_tokens? true
+      require_token_presence_for_authentication? true
 
-    session_identifier :jti
+      # Matches Keycloak's `ssoSessionMaxLifespan`. Keycloak only sends a
+      # back-channel logout token on an explicit logout, never when a session
+      # expires (keycloak#25171), so without this a session here would outlive
+      # the Keycloak session that created it by the default 14 days.
+      token_lifetime {10, :hours}
+    end
 
     strategies do
       oidc :ebau do
@@ -79,6 +85,9 @@ defmodule Ebau.User.User do
     read :sign_in_with_ebau do
       argument :user_info, :map, allow_nil?: false
       argument :oauth_tokens, :map, allow_nil?: false
+      # Read after_action hooks run in reverse order of registration, so this
+      # must come before `SignInPreparation`, whose token it records.
+      prepare Ebau.User.Preparations.RecordKeycloakSession
       prepare AshAuthentication.Strategy.OAuth2.SignInPreparation
       prepare Ebau.User.Preparations.SignInFilter
     end

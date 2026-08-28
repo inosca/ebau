@@ -1,5 +1,17 @@
 defmodule Ebau.User.Token do
-  @moduledoc false
+  @moduledoc """
+  AshAuthentication token store, doubling as the map from Keycloak SSO
+  sessions to Phoenix sessions.
+
+  `store_all_tokens?` writes one row per sign-in, keyed by the token's `jti`.
+  Keycloak's back-channel logout token identifies the session being ended by
+  its `sid`, so `Ebau.User.Preparations.RecordKeycloakSession` stores the
+  `sid` and the raw `id_token` in `extra_data` at sign-in. A logout token can
+  then find every Phoenix session belonging to that `sid`, and sign-out can
+  hand the `id_token` back to Keycloak as `id_token_hint`.
+
+  Expired rows are removed by `AshAuthentication.TokenResource.Expunger`.
+  """
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.User,
@@ -30,6 +42,13 @@ defmodule Ebau.User.Token do
       prepare AshAuthentication.TokenResource.GetTokenPreparation
     end
 
+    read :by_keycloak_sid do
+      description "All live session tokens belonging to one Keycloak SSO session."
+      argument :sid, :string, allow_nil?: false
+
+      filter expr(purpose == "user" and extra_data[:sid] == ^arg(:sid))
+    end
+
     action :revoked?, :boolean do
       description "Returns true if a revocation token is found for the provided token"
       argument :token, :string, sensitive?: true
@@ -53,6 +72,11 @@ defmodule Ebau.User.Token do
       change AshAuthentication.TokenResource.StoreTokenChange
     end
 
+    update :set_keycloak_session do
+      description "Attaches (or with `nil`, detaches) the Keycloak `sid` and `id_token`."
+      accept [:extra_data]
+    end
+
     destroy :expunge_expired do
       description "Deletes expired tokens."
       change filter expr(expires_at < now())
@@ -63,6 +87,11 @@ defmodule Ebau.User.Token do
     bypass AshAuthentication.Checks.AshAuthenticationInteraction do
       description "AshAuthentication can interact with the token resource"
       authorize_if always()
+    end
+
+    bypass action([:get_token, :by_keycloak_sid, :set_keycloak_session]) do
+      description "Sign-in, sign-out and back-channel logout run on behalf of no user"
+      authorize_if Ebau.Policies.Checks.ActorIsSystem
     end
 
     policy always() do

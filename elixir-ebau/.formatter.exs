@@ -3,6 +3,7 @@
     :ash_json_api,
     :ash_authentication_phoenix,
     :ash_authentication,
+    :ash_oban,
     :ash_postgres,
     :ash,
     :ecto,

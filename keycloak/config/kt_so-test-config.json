@@ -2177,14 +2177,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-sha256-pairwise-sub-mapper",
-              "saml-role-list-mapper",
-              "saml-user-property-mapper",
               "oidc-usermodel-attribute-mapper",
+              "oidc-usermodel-property-mapper",
               "oidc-full-name-mapper",
-              "oidc-address-mapper",
               "saml-user-attribute-mapper",
-              "oidc-usermodel-property-mapper"
+              "saml-role-list-mapper",
+              "oidc-address-mapper",
+              "saml-user-property-mapper",
+              "oidc-sha256-pairwise-sub-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2208,14 +2208,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-user-property-mapper",
-              "oidc-full-name-mapper",
-              "oidc-usermodel-property-mapper",
-              "oidc-address-mapper",
-              "saml-user-attribute-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "saml-role-list-mapper",
-              "oidc-usermodel-attribute-mapper"
+              "saml-user-property-mapper",
+              "saml-user-attribute-mapper",
+              "oidc-usermodel-attribute-mapper",
+              "oidc-address-mapper",
+              "oidc-usermodel-property-mapper",
+              "oidc-full-name-mapper",
+              "saml-role-list-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -3044,7 +3044,6 @@
       ],
       "client": {
         "camac-admin": [],
-        "camac": [],
         "realm-management": [
           {
             "id": "cdd3b3bc-a68d-4eb3-a30d-b04cc0ac4aa5",
@@ -3261,8 +3260,6 @@
           }
         ],
         "security-admin-console": [],
-        "test-gemeinde": [],
-        "admin-cli": [],
         "account-console": [],
         "broker": [
           {
@@ -3275,8 +3272,13 @@
             "attributes": {}
           }
         ],
+        "token-exchange": [],
+        "camac": [],
+        "test-gemeinde": [],
+        "admin-cli": [],
         "dossier-import": [],
         "portal": [],
+        "sogis": [],
         "account": [
           {
             "id": "7ab116c7-e4e1-4e41-a6d7-8debedd1baad",
@@ -3360,8 +3362,7 @@
             "containerId": "dd79d3ce-4edc-4d01-8dd3-929733ce59bf",
             "attributes": {}
           }
-        ],
-        "token-exchange": []
+        ]
       }
     },
     "groups": [],
@@ -4126,9 +4127,9 @@
         "clientAuthenticatorType": "client-secret",
         "redirectUris": [
           "http://localhost:4400/*",
-          "http://localhost:4000/*",
           "http://ember-ebau.localhost/*",
-          "https://oauth.pstmn.io/*"
+          "https://oauth.pstmn.io/*",
+          "http://localhost:4000/*"
         ],
         "webOrigins": ["+"],
         "notBefore": 0,
@@ -4152,13 +4153,17 @@
           "use.refresh.tokens": "true",
           "realm_client": "false",
           "oidc.ciba.grant.enabled": "false",
-          "backchannel.logout.session.required": "false",
+          "backchannel.logout.url": "http://elixir:4000/elixir/backchannel-logout",
+          "backchannel.logout.session.required": "true",
           "client_credentials.use_refresh_token": "false",
           "require.pushed.authorization.requests": "false",
           "saml.client.signature": "false",
           "saml.allow.ecp.flow": "false",
+          "dpop.bound.access.tokens": "false",
+          "logout.confirmation.enabled": "false",
           "id.token.as.detached.signature": "false",
           "saml.assertion.signature": "false",
+          "standard.token.exchange.enabled": "false",
           "saml.encrypt": "false",
           "saml.server.signature": "false",
           "exclude.session.state.from.auth.response": "false",
@@ -5032,10 +5037,10 @@
                   "name": "user-impersonated"
                 },
                 {
-                  "name": "manage-group-membership"
+                  "name": "view"
                 },
                 {
-                  "name": "view"
+                  "name": "manage-group-membership"
                 },
                 {
                   "name": "impersonate"
@@ -5061,6 +5066,36 @@
               }
             },
             {
+              "name": "map-roles-composite.permission.client.e1610afe-fdf2-43b5-bdb3-09f0ee5d9f1b",
+              "type": "scope",
+              "logic": "POSITIVE",
+              "decisionStrategy": "UNANIMOUS",
+              "config": {
+                "resources": "[\"client.resource.e1610afe-fdf2-43b5-bdb3-09f0ee5d9f1b\"]",
+                "scopes": "[\"map-roles-composite\"]"
+              }
+            },
+            {
+              "name": "map-roles.permission.users",
+              "type": "scope",
+              "logic": "POSITIVE",
+              "decisionStrategy": "UNANIMOUS",
+              "config": {
+                "resources": "[\"Users\"]",
+                "scopes": "[\"map-roles\"]"
+              }
+            },
+            {
+              "name": "manage-group-membership.permission.users",
+              "type": "scope",
+              "logic": "POSITIVE",
+              "decisionStrategy": "UNANIMOUS",
+              "config": {
+                "resources": "[\"Users\"]",
+                "scopes": "[\"manage-group-membership\"]"
+              }
+            },
+            {
               "name": "manage.permission.users",
               "type": "scope",
               "logic": "POSITIVE",
@@ -5068,6 +5103,16 @@
               "config": {
                 "resources": "[\"Users\"]",
                 "scopes": "[\"manage\"]"
+              }
+            },
+            {
+              "name": "view.permission.users",
+              "type": "scope",
+              "logic": "POSITIVE",
+              "decisionStrategy": "UNANIMOUS",
+              "config": {
+                "resources": "[\"Users\"]",
+                "scopes": "[\"view\"]"
               }
             },
             {
@@ -5080,16 +5125,6 @@
                 "resources": "[\"client.resource.e1610afe-fdf2-43b5-bdb3-09f0ee5d9f1b\"]",
                 "scopes": "[\"token-exchange\"]",
                 "applyPolicies": "[\"token-exchange\"]"
-              }
-            },
-            {
-              "name": "view.permission.users",
-              "type": "scope",
-              "logic": "POSITIVE",
-              "decisionStrategy": "UNANIMOUS",
-              "config": {
-                "resources": "[\"Users\"]",
-                "scopes": "[\"view\"]"
               }
             },
             {
@@ -5140,36 +5175,6 @@
               "config": {
                 "resources": "[\"client.resource.e1610afe-fdf2-43b5-bdb3-09f0ee5d9f1b\"]",
                 "scopes": "[\"map-roles-client-scope\"]"
-              }
-            },
-            {
-              "name": "map-roles-composite.permission.client.e1610afe-fdf2-43b5-bdb3-09f0ee5d9f1b",
-              "type": "scope",
-              "logic": "POSITIVE",
-              "decisionStrategy": "UNANIMOUS",
-              "config": {
-                "resources": "[\"client.resource.e1610afe-fdf2-43b5-bdb3-09f0ee5d9f1b\"]",
-                "scopes": "[\"map-roles-composite\"]"
-              }
-            },
-            {
-              "name": "map-roles.permission.users",
-              "type": "scope",
-              "logic": "POSITIVE",
-              "decisionStrategy": "UNANIMOUS",
-              "config": {
-                "resources": "[\"Users\"]",
-                "scopes": "[\"map-roles\"]"
-              }
-            },
-            {
-              "name": "manage-group-membership.permission.users",
-              "type": "scope",
-              "logic": "POSITIVE",
-              "decisionStrategy": "UNANIMOUS",
-              "config": {
-                "resources": "[\"Users\"]",
-                "scopes": "[\"manage-group-membership\"]"
               }
             },
             {
@@ -5407,6 +5412,7 @@
           "client.secret.creation.time": "1784646055",
           "backchannel.logout.session.required": "true",
           "standard.token.exchange.enabled": "false",
+          "post.logout.redirect.uris": "+",
           "oauth2.device.authorization.grant.enabled": "false",
           "backchannel.logout.revoke.offline.tokens": "false",
           "dpop.bound.access.tokens": "false"
@@ -5718,6 +5724,37 @@
     ],
     "clientScopes": [
       {
+        "id": "6f323617-0881-4e50-b634-8105ceb3e4cc",
+        "name": "address",
+        "description": "OpenID Connect built-in scope: address",
+        "protocol": "openid-connect",
+        "attributes": {
+          "include.in.token.scope": "true",
+          "consent.screen.text": "${addressScopeConsentText}",
+          "display.on.consent.screen": "true"
+        },
+        "protocolMappers": [
+          {
+            "id": "730a180e-353d-4ddd-881f-1052d13cf768",
+            "name": "address",
+            "protocol": "openid-connect",
+            "protocolMapper": "oidc-address-mapper",
+            "consentRequired": false,
+            "config": {
+              "user.attribute.formatted": "formatted",
+              "user.attribute.country": "country",
+              "user.attribute.postal_code": "postal_code",
+              "userinfo.token.claim": "true",
+              "user.attribute.street": "street",
+              "id.token.claim": "true",
+              "user.attribute.region": "region",
+              "access.token.claim": "true",
+              "user.attribute.locality": "locality"
+            }
+          }
+        ]
+      },
+      {
         "id": "4b98a2db-f5cb-4fa9-aef7-29153a3cd759",
         "name": "email",
         "description": "OpenID Connect built-in scope: email",
@@ -5756,37 +5793,6 @@
               "claim.name": "email",
               "jsonType.label": "String",
               "userinfo.token.claim": "true"
-            }
-          }
-        ]
-      },
-      {
-        "id": "6f323617-0881-4e50-b634-8105ceb3e4cc",
-        "name": "address",
-        "description": "OpenID Connect built-in scope: address",
-        "protocol": "openid-connect",
-        "attributes": {
-          "include.in.token.scope": "true",
-          "consent.screen.text": "${addressScopeConsentText}",
-          "display.on.consent.screen": "true"
-        },
-        "protocolMappers": [
-          {
-            "id": "730a180e-353d-4ddd-881f-1052d13cf768",
-            "name": "address",
-            "protocol": "openid-connect",
-            "protocolMapper": "oidc-address-mapper",
-            "consentRequired": false,
-            "config": {
-              "user.attribute.formatted": "formatted",
-              "user.attribute.country": "country",
-              "user.attribute.postal_code": "postal_code",
-              "userinfo.token.claim": "true",
-              "user.attribute.street": "street",
-              "id.token.claim": "true",
-              "user.attribute.region": "region",
-              "access.token.claim": "true",
-              "user.attribute.locality": "locality"
             }
           }
         ]
@@ -6540,14 +6546,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-usermodel-attribute-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "oidc-usermodel-property-mapper",
-              "saml-user-attribute-mapper",
-              "saml-role-list-mapper",
               "oidc-address-mapper",
+              "oidc-usermodel-property-mapper",
+              "saml-role-list-mapper",
               "oidc-full-name-mapper",
-              "saml-user-property-mapper"
+              "oidc-usermodel-attribute-mapper",
+              "saml-user-property-mapper",
+              "saml-user-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -6617,14 +6623,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
+              "saml-user-property-mapper",
               "oidc-usermodel-attribute-mapper",
+              "saml-role-list-mapper",
               "saml-user-attribute-mapper",
               "oidc-usermodel-property-mapper",
               "oidc-full-name-mapper",
-              "saml-user-property-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "oidc-address-mapper",
-              "saml-role-list-mapper"
+              "oidc-address-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }

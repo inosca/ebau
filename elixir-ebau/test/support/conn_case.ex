@@ -51,9 +51,17 @@ defmodule EbauWeb.ConnCase do
       """
       @spec log_in_actor(Plug.Conn.t(), Ebau.Actor.t()) :: Plug.Conn.t()
       def log_in_actor(conn, actor) do
-        # `session_identifier :jti` requires a token in the user metadata so
-        # its jti can be stored in (and later verified against) the session.
+        # `require_token_presence_for_authentication?` means the session holds
+        # the whole token and every request checks it against the token table,
+        # so the row has to exist for the session to authenticate.
         {:ok, token, _claims} = AshAuthentication.Jwt.token_for_user(actor.user)
+
+        :ok =
+          AshAuthentication.TokenResource.Actions.store_token(
+            Ebau.User.Token,
+            %{"token" => token, "purpose" => "user"}
+          )
+
         user = Ash.Resource.put_metadata(actor.user, :token, token)
 
         conn

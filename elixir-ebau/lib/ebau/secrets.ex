@@ -56,5 +56,29 @@ defmodule Ebau.Secrets do
     Endpoint.url() <> url_path <> "/elixir/auth"
   end
 
+  @doc """
+  The issuer Keycloak stamps on tokens for the configured realm.
+  """
+  @spec issuer() :: String.t()
+  def issuer, do: oauth2_secret(:base_url)
+
+  @doc """
+  The Keycloak client both this app and the Ember app authenticate through.
+  """
+  @spec client_id() :: String.t()
+  def client_id, do: oauth2_secret(:client_id)
+
+  @doc """
+  Keycloak's RP-initiated logout endpoint.
+  """
+  @spec end_session_url() :: String.t()
+  def end_session_url, do: issuer() <> "/protocol/openid-connect/logout"
+
+  @doc """
+  Keycloak's JWKS endpoint, used to verify back-channel logout tokens.
+  """
+  @spec jwks_url() :: String.t()
+  def jwks_url, do: issuer() <> "/protocol/openid-connect/certs"
+
   def keycloak_config, do: Application.fetch_env!(:ebau, :keycloak)
 end
