@@ -1,6 +1,5 @@
 export default {
   pageSize: 50,
-  showTaskFilter: true,
   availableTasks: {},
   columns(status) {
     return [

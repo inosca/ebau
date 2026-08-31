@@ -72,6 +72,12 @@ workItems:
     urgent: "Dringend"
     new: "Neu"
     targetDeadlineDate: "Verfahrensfrist"
+    workflows:
+      label: "Dossiertyp"
+      option:
+        all: "Alle"
+        building-permit: "Gesuche"
+        internal-document: "Interne Geschäfte"
 
   templates:
     info: "Eine Vorlage anwenden"

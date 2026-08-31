@@ -1,7 +1,5 @@
 export default {
-  showTaskFilter: true,
   showFilterPresets: true,
-  taskFilterAsDropdown: true,
   completeAction: true,
   availableTasks: {},
   columns(status, role) {

@@ -1,4 +1,4 @@
 export default {
-  showTaskFilter: true,
+  workflowFilterOptions: ["all", "building-permit", "internal-document"],
   availableTasks: {},
 };

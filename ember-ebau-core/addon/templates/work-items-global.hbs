@@ -50,8 +50,8 @@
         @options={{this.orderOptions}}
         @onChange={{this.setFilter}}
       />
-      {{#if this.workItemListConfig.showTaskFilter}}
-        {{#if this.workItemListConfig.taskFilterAsDropdown}}
+      {{#if (has-feature "workItems.showTaskFilter")}}
+        {{#if (has-feature "workItems.showTaskFilterAsDropdown")}}
           <Filter.Select
             @name="task"
             @searchEnabled={{true}}
@@ -71,6 +71,15 @@
             @onChange={{this.setFilter}}
           />
         {{/if}}
+      {{/if}}
+      {{#if (has-feature "workItems.showWorkflowFilter")}}
+        <Filter.RadioButtons
+          @name="workflow"
+          @label={{t "workItems.filters.workflows.label"}}
+          @selected={{this.workflow}}
+          @options={{this.workflowFilterOptions}}
+          @onChange={{this.setFilter}}
+        />
       {{/if}}
     </Filters>
 
