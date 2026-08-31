@@ -1991,12 +1991,6 @@ APPLICATIONS = {
             "additional_demand_cancel_gr",
         ],
         "NOTIFICATIONS": {
-            "WORKITEM_DEADLINE_OVERDUE": {
-                "create-manual-workitems": {
-                    "template_slug": "expired-manual-work-item",
-                    "recipient_types": ["work_item_controlling"],
-                }
-            },
             "SUBMIT": [
                 {
                     "template_slug": "empfang-anfragebaugesuch-gesuchsteller",
@@ -2210,15 +2204,6 @@ APPLICATIONS = {
         "USE_INSTANCE_SERVICE": True,
         "CUSTOM_NOTIFICATION_TYPES": [],
         "NOTIFICATIONS": {
-            "WORKITEM_DEADLINE_OVERDUE": {
-                "create-manual-workitems": {
-                    "template_slug": "expired-manual-work-item",
-                    "recipient_types": ["work_item_controlling"],
-                },
-            },
-            "PROCESS_DEADLINES_FROM": env.str(
-                "NOTIFICATIONS_PROCESS_DEADLINES_FROM", default=None
-            ),
             "SUBMIT": [
                 {
                     "template_slug": "empfang-baugesuch-bauherrschaft",
@@ -3452,6 +3437,9 @@ TIMELINES = load_module_settings("timelines")
 STATISTICS = load_module_settings("statistics")
 APPLICANTS = load_module_settings("applicants")
 CALUMA_SIMPLE_WORKFLOW = load_module_settings("caluma_simple_workflow")
+WORK_ITEM_OVERDUE_NOTIFICATIONS = load_module_settings(
+    "work_item_overdue_notifications"
+)
 INSTANCE_SUBMIT = load_module_settings("instance_submit")
 INSTANCE_COPY = load_module_settings("instance_copy")
 PROCEDURE_STATUS = load_module_settings("procedure_status")

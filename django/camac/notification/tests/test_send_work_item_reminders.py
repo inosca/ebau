@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 import pytest
 from django.core.management import call_command
@@ -6,6 +6,10 @@ from django.utils import timezone
 from django_celery_beat.models import ClockedSchedule, PeriodicTask
 
 from camac.notification.tasks import send_notification_for_overdue_workitems
+from camac.settings.modules.work_item_overdue_notifications_schema import (
+    OverdueNotificationConfig,
+    WorkItemOverdueNotificationsConfig,
+)
 
 
 @pytest.mark.freeze_time("2020-08-10")
@@ -110,6 +114,7 @@ def test_dont_send_reminders_caluma(
 
 
 @pytest.mark.freeze_time("2020-08-10")
+@pytest.mark.parametrize("work_item_list", ["allowlist", "denylist"])
 @pytest.mark.django_db
 def test_notify_manual_work_item(
     caluma_admin_user,
@@ -117,23 +122,16 @@ def test_notify_manual_work_item(
     instance,
     caluma_work_item_factory,
     mailoutbox,
+    caplog,
     application_settings,
     notification_template_factory,
     caluma_task_factory,
     support_role,
     settings,
     celery_fake_worker,
+    work_item_list,
 ):
-    application_settings["NOTIFICATIONS"]["PROCESS_DEADLINES_FROM"] = "2020-08-09"
-
     notification_template_expired = notification_template_factory()
-    application_settings["NOTIFICATIONS"]["WORKITEM_DEADLINE_OVERDUE"] = {
-        "create-manual-workitems": {
-            "template_slug": notification_template_expired.slug,
-            "recipient_types": ["work_item_controlling"],
-        },
-    }
-
     controlling_service = service_factory()
     addressed_service = service_factory()
 
@@ -144,6 +142,25 @@ def test_notify_manual_work_item(
         slug=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
     )
     task_ignored = caluma_task_factory()
+    work_item_filter = (
+        [task.slug] if work_item_list == "allowlist" else [task_ignored.slug]
+    )
+    # Replace the complete config because direct assignment skips Pydantic validation,
+    # which converts the date string to a datetime.
+    settings.WORK_ITEM_OVERDUE_NOTIFICATIONS = WorkItemOverdueNotificationsConfig(
+        enabled=True,
+        process_deadlines_from="2020-08-09",
+        notifications=[
+            OverdueNotificationConfig(
+                template_slug=notification_template_expired.slug,
+                recipient_types=["work_item_controlling"],
+                **{f"work_item_{work_item_list}": work_item_filter},
+            )
+        ],
+    )
+    assert settings.WORK_ITEM_OVERDUE_NOTIFICATIONS.process_deadlines_from == datetime(
+        2020, 8, 9
+    )
     work_item_args = {
         "status": "ready",
         "addressed_groups": [str(addressed_service.pk)],
@@ -235,3 +252,17 @@ def test_notify_manual_work_item(
     assert len(mailoutbox) == 1
 
     assert mailoutbox[0].recipients()[0] == controlling_service.email
+    assert f"{work_item_list}={work_item_filter!r}" in caplog.text
+
+
+def test_overdue_notification_config_validation():
+    with pytest.raises(
+        ValueError,
+        match="Exactly one of work_item_allowlist or work_item_denylist must be set.",
+    ):
+        OverdueNotificationConfig(
+            template_slug="overdue",
+            recipient_types=["work_item_controlling"],
+            work_item_allowlist=["task-1"],
+            work_item_denylist=["task-2"],
+        )

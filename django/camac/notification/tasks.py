@@ -1,8 +1,16 @@
+from __future__ import annotations
+
 from logging import getLogger
+from typing import TYPE_CHECKING
 
 from caluma.caluma_form.models import Answer, Document
 from celery import shared_task
-from django.db.models import Exists, OuterRef
+from django.db.models import Exists, OuterRef, Q
+
+if TYPE_CHECKING:
+    from camac.settings.modules.work_item_overdue_notifications_schema import (
+        WorkItemOverdueNotificationsConfig,
+    )
 
 log = getLogger(__name__)
 
@@ -14,27 +22,16 @@ def send_notification_for_overdue_workitems(self):
 
     This is a refactor of the existing management command `send_work_item_reminders which doesn't reimplement
     the mailsending and follows the configuration we use for most notifications.
-    The notifications can be confiured in django/camac/settings/django.py with the  NOTIFICATIONS key:
+    Notifications are configured in the WORK_ITEM_OVERDUE_NOTIFICATIONS module:
     ```
-    "NOTIFICATIONS": {
-        "WORKITEM_DEADLINE_OVERDUE": {
-            "create-manual-workitems": {
-                "template_slug": "expired-manual-work-item",
-                "recipient_types": ["work_item_controlling"],
-            }
-        }
-    }
+    OverdueNotificationConfig(
+        template_slug="expired-manual-work-item",
+        recipient_types=["work_item_controlling"],
+        work_item_allowlist=["create-manual-workitems"],
+    )
     ```
 
-    Notifications can be configured by task:
-    "WORKITEM_DEADLINE_OVERDUE": {
-        "task_id_1": {
-            ...
-        },
-        "task_id_2": {
-            ...
-        }
-    }
+    Each notification block must define either a work item allowlist or denylist.
 
     Make sure you never have more than one scheduler for this task.
     """
@@ -43,21 +40,20 @@ def send_notification_for_overdue_workitems(self):
     from caluma.caluma_workflow.models import WorkItem
     from django.conf import settings
     from django.utils import timezone
-    from django.utils.dateparse import parse_datetime
     from django_celery_beat.models import PeriodicTask
 
     from camac.caluma.extensions.events.general import get_instance_id
     from camac.notification.utils import send_mail_without_request
+    from camac.settings.utils import is_module_enabled
 
-    config = settings.APPLICATION["NOTIFICATIONS"].get("WORKITEM_DEADLINE_OVERDUE")
-    if not config:  # pragma: no cover
+    if not is_module_enabled("WORK_ITEM_OVERDUE_NOTIFICATIONS"):  # pragma: no cover
         return
 
+    config: WorkItemOverdueNotificationsConfig = (
+        settings.WORK_ITEM_OVERDUE_NOTIFICATIONS
+    )
     task = PeriodicTask.objects.filter(task=self.name).first()
     now = timezone.now()
-    process_deadlines_from = settings.APPLICATION["NOTIFICATIONS"].get(
-        "PROCESS_DEADLINES_FROM"
-    )
     # Dont send notification's for missed work items more than 2 days in the past
     # While this is running daily, givin one day additional might prevent missing
     # notifications if a server was restarted while the task would be running or
@@ -65,36 +61,42 @@ def send_notification_for_overdue_workitems(self):
     cut_off_date = now - timedelta(days=2)
 
     # When deploying for the first time, dont send a notification for all workitems in the past.
-    if process_deadlines_from := parse_datetime(str(process_deadlines_from) or ""):
+    if process_deadlines_from := config.process_deadlines_from:
         if timezone.is_naive(process_deadlines_from):
             process_deadlines_from = timezone.make_aware(process_deadlines_from)
         if process_deadlines_from > cut_off_date:
             cut_off_date = process_deadlines_from
             log.info(f"Use configured value for process_deadlines_from: {cut_off_date}")
 
-    for task_id in config:
+    for notification in config.notifications:
+        if notification.work_item_allowlist is not None:
+            work_item_filter_text = f"allowlist={notification.work_item_allowlist!r}"
+            work_item_filter = Q(task_id__in=notification.work_item_allowlist)
+        else:
+            work_item_filter_text = f"denylist={notification.work_item_denylist!r}"
+            work_item_filter = ~Q(task_id__in=notification.work_item_denylist)
+
         try:
             work_items = WorkItem.objects.filter(
                 **{
-                    "task": task_id,
                     "meta__notify-deadline": True,
                     "meta__deadline_notification_sent_at__isnull": True,
                     "deadline__range": [cut_off_date, now],
                     "closed_at__isnull": True,
                 }
-            )
+            ).filter(work_item_filter)
+
             log.info(
-                f"Send notifications for {work_items.count()} overdue WorkItems ({task_id}) in range {cut_off_date} to {now}. Task last run at: {task.last_run_at or 'Never'}."
+                f"Send notifications for {work_items.count()} overdue WorkItems ({work_item_filter_text}) in range {cut_off_date} to {now}. Task last run at: {task.last_run_at or 'Never'}."
             )
 
             for work_item in work_items:
                 try:
                     instance_id = get_instance_id(work_item)
-                    notification = config[task_id]
                     send_mail_without_request(
-                        notification["template_slug"],
+                        notification.template_slug,
                         instance={"id": instance_id, "type": "instances"},
-                        recipient_types=notification["recipient_types"],
+                        recipient_types=notification.recipient_types,
                         work_item={"id": work_item.pk, "type": "work-items"},
                     )
                     work_item.meta["deadline_notification_sent_at"] = now.isoformat()
@@ -105,7 +107,7 @@ def send_notification_for_overdue_workitems(self):
                     )
         except Exception as e:  # pragma: no cover
             log.error(
-                f"Failed sending notification for WorkItem's for Task {task_id}: {e}"
+                f"Failed sending overdue WorkItem notifications ({work_item_filter_text}): {e}"
             )
 
 
