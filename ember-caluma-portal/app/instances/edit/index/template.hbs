@@ -439,9 +439,43 @@
             {{/if}}
           </UkButton>
           {{#if this.withdrawalRequestDisabled}}
-            <p class="uk-alert-primary" uk-alert>
-              {{t "instances.withdrawalRequestDisabledText"}}
-            </p>
+            <div class="uk-alert-primary" uk-alert>
+              <p>{{t "instances.withdrawalRequestDisabledText"}}</p>
+              {{#let
+                (maybe-translate
+                  "instances.withdrawalRequestDisabledCommunication"
+                )
+                (maybe-translate "instances.withdrawalRequestDisabledWebsite")
+                as |communicationText websiteText|
+              }}
+                {{#if
+                  (or
+                    communicationText (and websiteText this.municipalityWebsite)
+                  )
+                }}
+                  <div>
+                    {{#if communicationText}}
+                      <LinkTo
+                        @route="instances.edit.communications"
+                        class="uk-button uk-button-default uk-margin-small-right"
+                      >
+                        {{communicationText}}
+                      </LinkTo>
+                    {{/if}}
+                    {{#if (and websiteText this.municipalityWebsite)}}
+                      <a
+                        href={{this.municipalityWebsite}}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="uk-button uk-button-default"
+                      >
+                        {{websiteText}}
+                      </a>
+                    {{/if}}
+                  </div>
+                {{/if}}
+              {{/let}}
+            </div>
           {{/if}}
         {{/if}}
       {{/if}}

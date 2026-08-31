@@ -252,6 +252,19 @@ export default class InstancesEditIndexController extends Controller {
     );
   }
 
+  get municipalityWebsite() {
+    const url = this.editController.instance?.get("activeService.website");
+    if (!url) {
+      return null;
+    }
+
+    if (url.startsWith("https://") || url.startsWith("http://")) {
+      return url;
+    }
+
+    return `https://${url}`;
+  }
+
   @dropTask
   *withdrawInstance() {
     if (!(yield confirm(this.intl.t("instances.withdrawInstanceModal")))) {
