@@ -561,7 +561,16 @@ class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
     )
 
     def validate(self, data):
-        if self.instance.document_attachment_id or self.instance.alexandria_file_id:
+        if self.instance.document_attachment_id or (
+            self.instance.alexandria_file_id
+            and (
+                not self.instance.file_attachment
+                or self.instance.alexandria_file.document.metainfo.get(
+                    "copied-from-communications-attachment"
+                )
+                == str(self.instance.pk)
+            )
+        ):
             raise ValidationError(
                 gettext("This attachment is already a document module attachment")
             )
