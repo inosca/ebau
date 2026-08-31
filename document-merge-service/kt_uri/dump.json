@@ -171,10 +171,180 @@
   },
   {
     "model": "api.template",
+    "pk": "invoice_3_bew",
+    "fields": {
+      "description": "Rechnung KOOR BG (Baubewilligung)",
+      "template": "invoice_3_bew.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_3_bgl",
+    "fields": {
+      "description": "Rechnung KOOR BG (Baubegleitung)",
+      "template": "invoice_3_bgl.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1061_bew",
+    "fields": {
+      "description": "Rechnung KOOR NP (Baubewilligung)",
+      "template": "invoice_1061_bew.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1061_bgl",
+    "fields": {
+      "description": "Rechnung KOOR NP (Baubegleitung)",
+      "template": "invoice_1061_bgl.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1101_bew",
+    "fields": {
+      "description": "Rechnung KOOR BD (Baubewilligung)",
+      "template": "invoice_1101_bew.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1101_bgl",
+    "fields": {
+      "description": "Rechnung KOOR BD (Baubegleitung)",
+      "template": "invoice_1101_bgl.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1106_bew",
+    "fields": {
+      "description": "Rechnung KOOR AfU (Baubewilligung)",
+      "template": "invoice_1106_bew.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1106_bgl",
+    "fields": {
+      "description": "Rechnung KOOR AfU (Baubegleitung)",
+      "template": "invoice_1106_bgl.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1107_bew",
+    "fields": {
+      "description": "Rechnung KOOR ALA (Baubewilligung)",
+      "template": "invoice_1107_bew.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1107_bgl",
+    "fields": {
+      "description": "Rechnung KOOR ALA (Baubegleitung)",
+      "template": "invoice_1107_bgl.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1127_bew",
+    "fields": {
+      "description": "Rechnung KOOR AfE (Baubewilligung)",
+      "template": "invoice_1127_bew.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1127_bgl",
+    "fields": {
+      "description": "Rechnung KOOR AfE (Baubegleitung)",
+      "template": "invoice_1127_bgl.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1128_bew",
+    "fields": {
+      "description": "Rechnung KOOR AFJ (Baubewilligung)",
+      "template": "invoice_1128_bew.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1128_bgl",
+    "fields": {
+      "description": "Rechnung KOOR AFJ (Baubegleitung)",
+      "template": "invoice_1128_bgl.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1129_bew",
+    "fields": {
+      "description": "Rechnung KOOR SD (Baubewilligung)",
+      "template": "invoice_1129_bew.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1129_bgl",
+    "fields": {
+      "description": "Rechnung KOOR SD (Baubegleitung)",
+      "template": "invoice_1129_bgl.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
     "pk": "invoice_1133_bew",
     "fields": {
-      "description": "Invoice 1133 BEW",
+      "description": "Rechnung KOOR AfG (Baubewilligung)",
       "template": "invoice_1133_bew.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1133_bgl",
+    "fields": {
+      "description": "Rechnung KOOR AfG (Baubegleitung)",
+      "template": "invoice_1133_bgl.docx",
       "engine": "docx-template",
       "meta": {}
     }
