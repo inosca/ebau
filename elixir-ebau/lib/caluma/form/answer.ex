@@ -31,6 +31,21 @@ defmodule Caluma.Form.Answer do
 
   actions do
     defaults [:read, :destroy, create: :*, update: :*]
+
+    read :by_document do
+      argument :document_id, :uuid, allow_nil?: false
+      filter expr(document_id == ^arg(:document_id))
+    end
+
+    create :upsert_answer do
+      description "Writes an answer, replacing the value of the document's existing answer to the same question or inserts a new answer."
+
+      accept [:document_id, :question_id, :value]
+
+      upsert? true
+      upsert_identity :document_question
+      upsert_fields [:value]
+    end
   end
 
   attributes do

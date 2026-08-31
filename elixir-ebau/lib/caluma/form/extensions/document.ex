@@ -7,8 +7,7 @@ defmodule Caluma.Form.Extensions.Document do
   Adding this extension to an Ash resource does two things:
 
   1. **Adds base document infrastructure** — a UUID primary key, relationships
-     to `answers`, `answer_documents`, and `family`, an aggregate, and a
-     default `:read` action (skipped if one already exists).
+     to `answers`, `answer_documents`, and `family`.
 
   2. **Provides the `caluma_document` DSL** — a declarative way to map Caluma
      question slugs to Ash calculations. Each `answer` you declare becomes a
@@ -30,6 +29,10 @@ defmodule Caluma.Form.Extensions.Document do
           table "caluma_form_document"
           repo MyApp.Repo
           migrate? false
+        end
+
+        actions do
+          defaults [:read]
         end
       end
 
@@ -77,7 +80,7 @@ defmodule Caluma.Form.Extensions.Document do
 
   For slugs that aren't known statically (different cantons use
   different Caluma question slugs). The module must
-  implement `Caluma.Form.Resolver`. Resolution happens **at compile
+  implement `Caluma.Form.Behaviours.SlugResolver`. Resolution happens **at compile
   time**: the `AnswerTransformer` calls `module.resolve(opts)` while the
   resource is compiled and bakes the returned slug(s) into the relationship
   filter (no query context is available).
@@ -91,7 +94,7 @@ defmodule Caluma.Form.Extensions.Document do
       answer :name, :string,
         question_id: {Ebau.Caluma.CantonResolver, %{default: "nachname", gr: "familienname"}}
 
-  See `Caluma.Form.Resolver` and `Ebau.Caluma.CantonResolver` for how to implement a resolver.
+  See `Caluma.Form.Behaviours.SlugResolver` and `Ebau.Caluma.CantonResolver` for how to implement a resolver.
 
   ## The `mapping` option
 
@@ -104,7 +107,7 @@ defmodule Caluma.Form.Extensions.Document do
   At compile time, two Spark transformers run in order:
 
   1. `Transformer` — adds the base infrastructure (primary key, relationships,
-     aggregates, read action).
+     aggregates).
   2. `AnswerTransformer` — reads each entity from the `caluma_document`
      section and creates the appropriate Ash calculation or relationship.
 
@@ -140,7 +143,7 @@ defmodule Caluma.Form.Extensions.Document do
   # -- Shared schema types --
 
   @question_id_type {:or, [:string, {:list, :string}, :mod_arg]}
-  @question_id_doc "A question ID string, a list of question ID strings, or a {resolver_module, opts} tuple. See `Caluma.Form.Resolver`."
+  @question_id_doc "A question ID string, a list of question ID strings, or a {resolver_module, opts} tuple. See `Caluma.Form.Behaviours.SlugResolver`."
 
   @mapping_type {:or,
                  [
@@ -236,217 +239,6 @@ defmodule Caluma.Form.Extensions.Document do
     transformers: [
       Caluma.Form.Extensions.Document.Transformer,
       Caluma.Form.Extensions.Document.AnswerTransformer
-    ]
-end
-
-defmodule Caluma.Form.Extensions.Document.Transformer do
-  @moduledoc false
-
-  use Spark.Dsl.Transformer
-
-  def before?(Caluma.Form.Extensions.Document.AnswerTransformer), do: true
-  def before?(_), do: false
-
-  def transform(dsl_state) do
-    {:ok, dsl_state} = maybe_add_action(dsl_state)
-    {:ok, dsl_state} = add_attribute(dsl_state)
-    {:ok, dsl_state} = add_aggregates(dsl_state)
-    {:ok, dsl_state} = add_relationships(dsl_state)
-
-    {:ok, dsl_state}
-  end
-
-  defp maybe_add_action(dsl_state) do
-    existing_actions = Spark.Dsl.Transformer.get_entities(dsl_state, [:actions])
-    has_read? = Enum.any?(existing_actions, &(&1.name == :read && &1.type == :read))
-
-    if has_read? do
-      {:ok, dsl_state}
-    else
-      {:ok, action} =
-        Spark.Dsl.Transformer.build_entity(Ash.Resource.Dsl, [:actions], :read,
-          name: :read,
-          primary?: true
-        )
-
-      {:ok, Spark.Dsl.Transformer.add_entity(dsl_state, [:actions], action)}
-    end
-  end
-
-  defp add_attribute(dsl_state) do
-    {:ok, attr} =
-      Spark.Dsl.Transformer.build_entity(Ash.Resource.Dsl, [:attributes], :uuid_primary_key,
-        name: :id
-      )
-
-    {:ok, Spark.Dsl.Transformer.add_entity(dsl_state, [:attributes], attr)}
-  end
-
-  defp add_aggregates(dsl_state) do
-    {:ok, agg} =
-      Ash.Resource.Builder.build_aggregate(
-        :sort,
-        :min,
-        :answer_documents,
-        field: :sort
-      )
-
-    {:ok, Spark.Dsl.Transformer.add_entity(dsl_state, [:aggregates], agg)}
-  end
-
-  defp add_relationships(dsl_state) do
-    {:ok, answers} =
-      Ash.Resource.Builder.build_relationship(:has_many, :answers, Caluma.Form.Answer,
-        destination_attribute: :document_id
-      )
-
-    {:ok, answer_documents} =
-      Ash.Resource.Builder.build_relationship(
-        :has_many,
-        :answer_documents,
-        Caluma.Form.AnswerDocument,
-        destination_attribute: :document_id
-      )
-
-    {:ok, family} =
-      Ash.Resource.Builder.build_relationship(:belongs_to, :family, Caluma.Form.Document, [])
-
-    dsl_state =
-      dsl_state
-      |> Spark.Dsl.Transformer.add_entity([:relationships], answers)
-      |> Spark.Dsl.Transformer.add_entity([:relationships], answer_documents)
-      |> Spark.Dsl.Transformer.add_entity([:relationships], family)
-
-    {:ok, dsl_state}
-  end
-end
-
-defmodule Caluma.Form.Extensions.Document.AnswerTransformer do
-  @moduledoc false
-
-  use Spark.Dsl.Transformer
-
-  alias Caluma.Form.Extensions.Document
-
-  def transform(dsl_state) do
-    source = Spark.Dsl.Transformer.get_persisted(dsl_state, :module)
-    entities = Spark.Dsl.Transformer.get_entities(dsl_state, [:caluma_document])
-
-    dsl_state =
-      entities
-      |> Enum.reduce(dsl_state, fn
-        %Document.Answer{} = answer, dsl ->
-          add_answer_calc(dsl, answer)
-
-        %Document.MappedAnswer{} = mapped, dsl ->
-          add_mapped_answer_calc(dsl, mapped)
-
-        %Document.MappedListAnswer{} = mapped, dsl ->
-          add_mapped_list_answer_calc(dsl, mapped)
-
-        %Document.Table{} = table, dsl ->
-          add_table_relationship(dsl, table, source)
-
-        _, dsl ->
-          dsl
-      end)
-
-    {:ok, dsl_state}
-  end
-
-  defp add_answer_calc(dsl, answer) do
-    rel_name = answer_relationship_name(answer.name)
-
-    dsl
-    |> add_answer_relationship(rel_name, answer.question_id)
-    |> add_calc(answer.name, answer.type, Caluma.Form.Calculations.DocumentAnswer,
-      relationship: rel_name
-    )
-  end
-
-  defp add_mapped_answer_calc(dsl, mapped) do
-    rel_name = answer_relationship_name(mapped.name)
-
-    dsl
-    |> add_answer_relationship(rel_name, mapped.question_id)
-    |> add_calc(mapped.name, mapped.type, Caluma.Form.Calculations.MappedDocumentAnswer,
-      relationship: rel_name,
-      mapping: mapped.mapping
-    )
-  end
-
-  defp add_mapped_list_answer_calc(dsl, mapped) do
-    rel_name = answer_relationship_name(mapped.name)
-
-    dsl
-    |> add_answer_relationship(rel_name, mapped.question_id)
-    |> add_calc(
-      mapped.name,
-      {:array, mapped.type},
-      Caluma.Form.Calculations.MappedListDocumentAnswer,
-      relationship: rel_name,
-      mapping: mapped.mapping
-    )
-  end
-
-  def add_calc(dsl, name, type, mod, opts) do
-    {:ok, calc} = Ash.Resource.Builder.build_calculation(name, type, {mod, opts})
-    Spark.Dsl.Transformer.add_entity(dsl, [:calculations], calc)
-  end
-
-  # The resource IS the document, so the parent's primary key is `id`.
-  @parent_doc_id_ref %Ash.Query.Ref{attribute: :id}
-
-  def answer_relationship_name(name), do: :"_#{name}_answer"
-
-  @doc false
-  def add_answer_relationship(dsl, rel_name, question_id, parent_doc_id_ref) do
-    source = Spark.Dsl.Transformer.get_persisted(dsl, :module)
-    slugs = all_question_slugs(question_id)
-
-    {:ok, rel} =
-      Ash.Resource.Builder.build_relationship(:has_one, rel_name, Caluma.Form.Answer,
-        no_attributes?: true
-      )
-
-    rel_with_filter = %{
-      rel
-      | source: source,
-        filter: Caluma.Form.AnswerFilters.answer_filter(parent_doc_id_ref, slugs)
-    }
-
-    Spark.Dsl.Transformer.add_entity(dsl, [:relationships], rel_with_filter)
-  end
-
-  defp add_answer_relationship(dsl, rel_name, question_id) do
-    add_answer_relationship(dsl, rel_name, question_id, @parent_doc_id_ref)
-  end
-
-  @doc false
-  def add_table_relationship(dsl, table, source, parent_doc_id_ref) do
-    question_ids = all_question_slugs(table.question_id)
-
-    {:ok, rel} =
-      Ash.Resource.Builder.build_relationship(:has_many, table.name, table.resource,
-        no_attributes?: true,
-        sort: [sort: :desc]
-      )
-
-    rel_with_filter = %{
-      rel
-      | source: source,
-        filter: Caluma.Form.AnswerFilters.table_filter(parent_doc_id_ref, question_ids)
-    }
-
-    Spark.Dsl.Transformer.add_entity(dsl, [:relationships], rel_with_filter)
-  end
-
-  defp add_table_relationship(dsl, table, source) do
-    add_table_relationship(dsl, table, source, @parent_doc_id_ref)
-  end
-
-  @doc false
-  def all_question_slugs(id) when is_binary(id), do: [id]
-  def all_question_slugs(ids) when is_list(ids), do: Enum.uniq(ids)
-  def all_question_slugs({mod, opts}), do: {mod, opts}
+    ],
+    verifiers: [Caluma.Form.Extensions.Document.Verifier]
 end

@@ -31,4 +31,8 @@ defmodule Ebau.MasterData.ProjectAuthor do
       authorize_if accessing_from(Ebau.Instances.Instance, :project_authors)
     end
   end
+
+  actions do
+    defaults [:read]
+  end
 end

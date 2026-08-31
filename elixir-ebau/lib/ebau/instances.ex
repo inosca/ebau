@@ -22,6 +22,7 @@ defmodule Ebau.Instances do
     resource Ebau.Instances.Instance do
       define :get_instance_by_id, action: :read, get_by: [:id]
       define :create_instance
+      define :update_instance, action: :update
     end
 
     resource Ebau.Instances.GisLink do

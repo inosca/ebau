@@ -9,7 +9,7 @@ defmodule EbauWeb.Instances.GisLinksTest do
 
     gis_link =
       Ebau.Instances.create_gis_link!(
-        %{name: "My GIS link", placeholder: "https://geo.so.ch?x={x}&y={y}"},
+        %{name: "My GIS link", placeholder: "https://map.geo.admin.ch?x={x}&y={y}"},
         actor: actor
       )
 
@@ -31,7 +31,7 @@ defmodule EbauWeb.Instances.GisLinksTest do
 
       other_gis_link =
         Ebau.Instances.create_gis_link!(
-          %{name: "Other GIS link", placeholder: "https://geo.so.ch?x={x}&y={y}"},
+          %{name: "Other GIS link", placeholder: "https://map.geo.admin.ch?x={x}&y={y}"},
           actor: other_actor
         )
 
@@ -54,7 +54,7 @@ defmodule EbauWeb.Instances.GisLinksTest do
 
       assert data["type"] == "gis-links"
       assert data["attributes"]["name"] == "Created"
-      assert data["attributes"]["placeholder"] == "https://geo.so.ch?x={x}&y={y}"
+      assert data["attributes"]["placeholder"] == "https://map.geo.admin.ch?x={x}&y={y}"
 
       %{"data" => gis_links} =
         conn
@@ -81,7 +81,7 @@ defmodule EbauWeb.Instances.GisLinksTest do
           type: "gis-links",
           attributes: %{
             name: name,
-            placeholder: "https://geo.so.ch?x={x}&y={y}"
+            placeholder: "https://map.geo.admin.ch?x={x}&y={y}"
           },
           relationships: %{
             service: %{

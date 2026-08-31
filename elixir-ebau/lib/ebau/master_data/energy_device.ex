@@ -41,4 +41,8 @@ defmodule Ebau.MasterData.EnergyDevice do
     # - is_main_heating (heizsystem-art, value_mapping to boolean)
     # - energy_source (hauptheizungsanlage, value_mapping to integer codes)
   end
+
+  actions do
+    defaults [:read]
+  end
 end

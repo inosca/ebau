@@ -34,6 +34,8 @@ defmodule Caluma.Form.Document do
   end
 
   actions do
+    defaults [:read]
+
     create :create_document do
       argument :form, :map do
         allow_nil? false
@@ -47,18 +49,14 @@ defmodule Caluma.Form.Document do
     end
 
     create :create_row_document do
-      argument :document, :map do
-        allow_nil? false
-      end
-
-      argument :question, :map do
-        allow_nil? false
-      end
-
+      argument :document_id, :uuid, allow_nil?: false
+      argument :question_id, :string, allow_nil?: false
       argument :answers, {:array, :map}
 
       change manage_relationship(:answers, type: :create)
-      change Caluma.Form.Changes.CreateRowDocument
+
+      change {Caluma.Form.Changes.AddTableRow,
+              question_argument: :question_id, document_argument: :document_id}
     end
   end
 

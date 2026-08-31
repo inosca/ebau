@@ -30,4 +30,8 @@ defmodule Ebau.MasterData.Landowner do
       authorize_if accessing_from(Ebau.Instances.Instance, :landowners)
     end
   end
+
+  actions do
+    defaults [:read]
+  end
 end

@@ -32,6 +32,25 @@ You can now access the application under [http://localhost:4000](http://localhos
 The application runs under the `/elixir` path which gets rewritten by the proxy. So as an example you can
 access the live dashboard at [http://ember-ebau.localhost/elixir/dev/dashboard](http://ember-ebau.localhost/elixir/dev/dashboard).
 
+### Switching cantons
+To compile / test a specific canton:
+
+```bash
+mix clean
+APPLICATION=kt_so mix compile
+APPLICATION=kt_so mix test
+```
+
+Always run `mix clean` before switching canton otherwise you will get
+a compile config mismatch error.
+
+Currently supported cantons are:
+- kt_so
+- kt_gr
+- No canton set which will default to demo
+
+For an example look at ./Makefile test-all.
+
 ### Language server
 
 #### Expert (official LSP)
@@ -106,50 +125,11 @@ merge-request specific path prefix when the GitLab instance supports parallel Pa
 deployments. The Elixir docs still live under the `elixir-ebau/` subpath inside
 that preview.
 
-## Test fixtures
+## Legacy config fixtures
 
-Some Elixir tests load legacy JSON fixture data that originates from Django canton config.
-
-In test environment, fixture loading uses vendored files under:
-
-```text
-priv/test_fixtures/
-```
-
-The vendored fixture set is intentionally minimal. Right now it only contains the
-small SO subset required by the current Elixir test suite.
-
-This avoids making CI depend on a full `../django` checkout just to run Elixir
-tests without pulling a large fixture dump into this app.
-
-Refresh vendored fixtures by copying the required files from a `../django`
-checkout into `priv/test_fixtures/`.
-
-### Explicit loading in tests
-
-Keep fixture setup explicit in test `setup` blocks:
-
-```elixir
-setup do
-  Ebau.Test.CantonFixtures.load_canton_config!(:so)
-  :ok
-end
-```
-
-For smaller and faster setup, load only selected files:
-
-```elixir
-setup do
-  Ebau.Test.CantonFixtures.load_canton_files!(:so, [
-    "user.json",
-    "caluma_workflow.json"
-  ])
-
-  :ok
-end
-```
-
-### Overriding fixture root
+`Ebau.Legacy.ConfigLoader` (used by `mix ebau.load_config`) reads legacy JSON
+config from a Django canton checkout. Tests do not load these fixtures; they build
+forms and workflows with the helpers in `test/support/` instead.
 
 Fixture root can be overridden with:
 

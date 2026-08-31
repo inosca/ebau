@@ -48,7 +48,17 @@ defmodule Caluma.Workflow.Case do
     create :create_case do
       argument :workflow, :map, allow_nil?: false
 
+      argument :document, :map do
+        description "The case's document, e.g. `%{form: %{slug: \"baugesuch\"}}`. Mirrors upstream Caluma's `StartCaseLogic.pre_start`: a case gets a document if and only if it is started with one."
+      end
+
       change manage_relationship(:workflow, type: :append_and_remove)
+
+      change manage_relationship(:document,
+               on_lookup: :relate,
+               on_no_match: {:create, :create_document},
+               on_match: :ignore
+             )
     end
   end
 

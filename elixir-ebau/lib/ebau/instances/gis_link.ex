@@ -20,19 +20,43 @@ defmodule Ebau.Instances.GisLink do
   """
   alias Ebau.Instances.Validations.ValidGisLinkProvider
 
+  @canton Application.compile_env(:ebau, :canton)
+
   def supported_providers do
-    %{
-      "geo.so.ch" => %{
-        "c" => fn x, y -> "#{x},#{y}" end
+    Map.merge(
+      %{
+        "map.geo.admin.ch" => %{
+          "center" => fn x, y -> "#{x},#{y}" end
+        }
       },
-      "map.geo.gr.ch" => %{
-        "map_x" => fn x, _y -> x end,
-        "map_y" => fn _x, y -> y end
-      },
-      "map.geo.admin.ch" => %{
-        "center" => fn x, y -> "#{x},#{y}" end
-      }
-    }
+      case @canton do
+        :so ->
+          %{
+            "geo.so.ch" => %{
+              "c" => fn x, y -> "#{x},#{y}" end
+            }
+          }
+
+        :gr ->
+          %{
+            "map.geo.gr.ch" => %{
+              "map_x" => fn x, _y -> x end,
+              "map_y" => fn _x, y -> y end
+            },
+            "poschiavo.mapplus.ch" => %{
+              "x" => fn x, _y -> x end,
+              "y" => fn _x, y -> y end
+            },
+            "www.geo-surselva.ch" => %{
+              "x" => fn x, _y -> x end,
+              "y" => fn _x, y -> y end
+            }
+          }
+
+        _ ->
+          %{}
+      end
+    )
   end
 
   use Ash.Resource,

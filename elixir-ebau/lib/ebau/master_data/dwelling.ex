@@ -54,4 +54,8 @@ defmodule Ebau.MasterData.Dwelling do
     # - multiple_floors (maisonette, value_mapping to boolean)
     # - usage_limitation (zwg, value_mapping to integer codes)
   end
+
+  actions do
+    defaults [:read]
+  end
 end

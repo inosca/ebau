@@ -31,4 +31,8 @@ defmodule Ebau.MasterData.InvoiceRecipient do
       authorize_if accessing_from(Ebau.Instances.Instance, :invoice_recipients)
     end
   end
+
+  actions do
+    defaults [:read]
+  end
 end

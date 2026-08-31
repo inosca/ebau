@@ -21,6 +21,8 @@ defmodule Caluma.Form do
   resources do
     resource Caluma.Form.Answer do
       define :create_answer, action: :create
+      define :save_answer, action: :upsert_answer, args: [:document_id, :question_id, :value]
+      define :list_answers_by_document, action: :by_document, args: [:document_id]
 
       define :get_answer_by_document_and_question,
         action: :read,
@@ -31,7 +33,8 @@ defmodule Caluma.Form do
 
     resource Caluma.Form.Document do
       define :create_document
-      define :create_row_document, args: [:document, :question, {:optional, :answers}]
+      define :create_row_document, args: [:document_id, :question_id, {:optional, :answers}]
+      define :get_document, action: :read, get_by: [:id]
     end
 
     resource Caluma.Form.Form do

@@ -32,7 +32,7 @@ defmodule Ebau.Caluma.CantonResolver do
       end
   """
 
-  @behaviour Caluma.Form.Resolver
+  @behaviour Caluma.Form.Behaviours.SlugResolver
 
   @impl true
   def resolve(mapping) do
