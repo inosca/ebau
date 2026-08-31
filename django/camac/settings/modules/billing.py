@@ -166,6 +166,9 @@ BILLING = ModuleConfig[BillingConfig](
             enabled=True,
             # Category - Gebühren
             document_category=12000006,
+            # The invoices are post-processed manually, so they must stay editable
+            convert_to_pdf=False,
+            file_name="Rechnung_{identifier}_{datetime}",
         ),
     ),
 )

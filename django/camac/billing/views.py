@@ -40,6 +40,7 @@ from camac.core.utils import (
 )
 from camac.document.models import AttachmentSection
 from camac.instance.document_merge_service import DMSClient
+from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.permissions.api import PermissionManager
@@ -213,16 +214,33 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
         auth = get_authorization_header(request)
         dms_client = DMSClient(auth)
 
-        pdf = ContentFile(
+        extension, mime_type = (
+            ("pdf", "application/pdf")
+            if invoice_config.convert_to_pdf
+            else (
+                "docx",
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            )
+        )
+
+        file_name = template
+        if invoice_config.file_name:
+            file_name = invoice_config.file_name.format(
+                identifier=MasterData(instance.case).dossier_number,
+                datetime=timezone.localtime().strftime("%Y-%m-%d-%H%M%S"),
+            )
+
+        document = ContentFile(
             dms_client.merge(
                 placeholders,
                 template,
                 [],
+                convert="pdf" if invoice_config.convert_to_pdf else None,
                 add_headers={"x-camac-group": str(request.group.pk)},
             ),
-            f"{template}.pdf",
+            f"{file_name}.{extension}",
         )
-        pdf.content_type = "application/pdf"
+        document.content_type = mime_type
 
         alexandria_file = None
         document_attachment = None
@@ -233,11 +251,11 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
                 category=alexandria_models.Category.objects.get(
                     pk=invoice_config.document_category
                 ),
-                document_title=pdf.name,
-                file_name=pdf.name,
-                file_content=pdf,
-                mime_type=pdf.content_type,
-                file_size=pdf.size,
+                document_title=document.name,
+                file_name=document.name,
+                file_content=document,
+                mime_type=document.content_type,
+                file_size=document.size,
                 additional_document_attributes={
                     "metainfo": {
                         "camac-instance-id": str(instance.pk),
@@ -253,10 +271,10 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
             )
             document_attachment = attachment_section.attachments.create(
                 instance=instance,
-                path=pdf,
-                name=pdf.name,
-                size=pdf.size,
-                mime_type=pdf.content_type,
+                path=document,
+                name=document.name,
+                size=document.size,
+                mime_type=document.content_type,
                 user=request.user,
                 group=request.group,
                 service=request.group.service,

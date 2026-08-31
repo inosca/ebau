@@ -11,6 +11,18 @@ class InvoiceConfig(EBauConfig):
     document_category: str | int = Field(
         description=("Document category to save the generated invoice to.")
     )
+    convert_to_pdf: bool = Field(
+        description="Convert the generated invoice to PDF instead of keeping the DOCX.",
+        default=True,
+    )
+    file_name: str | None = Field(
+        description=(
+            "File name of the generated invoice without extension. Supports the "
+            "placeholders `{identifier}` (dossier number) and `{datetime}`. "
+            "Defaults to the name of the used template."
+        ),
+        default=None,
+    )
 
 
 class BillingDjangoAdminConfig(EBauConfig):

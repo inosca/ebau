@@ -1,3 +1,4 @@
+import re
 from types import SimpleNamespace
 
 import pytest
@@ -12,6 +13,8 @@ from camac.settings.modules.billing_schema import InvoiceConfig
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
 @pytest.mark.parametrize("document_backend", ["dms", "alexandria"])
+@pytest.mark.parametrize("convert_to_pdf", [True, False])
+@pytest.mark.parametrize("file_name", [None, "Rechnung_{identifier}_{datetime}"])
 @pytest.mark.parametrize(
     ("test_action", "expected_status"),
     [
@@ -24,20 +27,24 @@ from camac.settings.modules.billing_schema import InvoiceConfig
 def test_billing_entries_invoice(
     admin_client,
     billing_v2_entry_factory,
-    instance,
+    ur_instance,
     service,
     document_backend,
     alexandria_category_factory,
     attachment_section_factory,
     alexandria_mark_factory,
     alexandria_settings,
+    ur_master_data_settings,
     mocker,
     billing_settings,
     application_settings,
     test_action,
     expected_status,
+    convert_to_pdf,
+    file_name,
 ):
-    mocker.patch("camac.billing.views.DMSClient.merge").return_value = "pdf-content"
+    merge_mock = mocker.patch("camac.billing.views.DMSClient.merge")
+    merge_mock.return_value = "document-content"
     alexandria_settings["MARK_VISIBILITY"] = {"SENSITIVE": ["sensitive"]}
     alexandria_mark_factory(slug="sensitive")
     application_settings["DOCUMENT_BACKEND"] = document_backend
@@ -56,12 +63,14 @@ def test_billing_entries_invoice(
         document_category=attachment_section.pk
         if document_backend == "dms"
         else alexandria_category.pk,
+        convert_to_pdf=convert_to_pdf,
+        file_name=file_name,
     )
 
     # already billed entries
     billing_v2_entry_factory.create_batch(
         3,
-        instance=instance,
+        instance=ur_instance,
         date_charged=timezone.now().date(),
     )
 
@@ -69,7 +78,7 @@ def test_billing_entries_invoice(
     if test_action != "no_unbilled_entries":
         billing_v2_entries_unbilled = billing_v2_entry_factory.create_batch(
             3,
-            instance=instance,
+            instance=ur_instance,
             date_charged=None,
         )
 
@@ -78,7 +87,7 @@ def test_billing_entries_invoice(
         url,
         data={
             "text": "test invoice",
-            "instance": instance.pk,
+            "instance": ur_instance.pk,
             "placeholders": {},
         },
         headers={"Content-Type": "application/json"},
@@ -88,7 +97,7 @@ def test_billing_entries_invoice(
 
     if expected_status == status.HTTP_204_NO_CONTENT:
         # verify invoice has been created.
-        invoices = Invoice.objects.filter(instance=instance)
+        invoices = Invoice.objects.filter(instance=ur_instance)
         assert invoices.count() == 1
 
         # verify invoice details
@@ -106,6 +115,25 @@ def test_billing_entries_invoice(
         for entry in billing_v2_entries_unbilled:
             entry.refresh_from_db()
             assert entry.date_charged == timezone.now().date()
+
+        # the invoice is only converted to PDF if the canton wants it that way
+        expected_extension = "pdf" if convert_to_pdf else "docx"
+        assert merge_mock.call_args.kwargs["convert"] == (
+            "pdf" if convert_to_pdf else None
+        )
+
+        document = (
+            invoice.document_attachment
+            if document_backend == "dms"
+            else invoice.alexandria_file
+        )
+        assert document.name.endswith(f".{expected_extension}")
+
+        if file_name:
+            assert re.fullmatch(
+                rf"Rechnung_[\w-]*_\d{{4}}-\d{{2}}-\d{{2}}-\d{{6}}\.{expected_extension}",
+                document.name,
+            )
 
 
 @pytest.mark.parametrize(
