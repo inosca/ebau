@@ -28,6 +28,8 @@ export default class PublicationFillEndDate extends Component {
   }
 
   saveAndFill = task({ drop: true }, async (value) => {
+    await this.args.onSave(value);
+
     const endQuestion = this.args.field.document.findField(
       this.#config.question,
     );
@@ -37,6 +39,5 @@ export default class PublicationFillEndDate extends Component {
 
     endQuestion.answer.value = endDate;
     await endQuestion.save.perform();
-    await this.args.onSave(value);
   });
 }
