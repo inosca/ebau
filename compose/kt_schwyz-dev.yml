@@ -45,13 +45,20 @@ services:
       - ../django:/app
       - /app/staticfiles # prevent staticfiles from leaking to the host system
     depends_on:
-      - cache
-      - clamav
-      - db
-      - document-merge-service
-      - keycloak
-      - mailpit
-      - unoconv
+      cache:
+        condition: service_started
+      clamav:
+        condition: service_started
+      db:
+        condition: service_healthy
+      document-merge-service:
+        condition: service_started
+      keycloak:
+        condition: service_started
+      mailpit:
+        condition: service_started
+      unoconv:
+        condition: service_started
     environment:
       APPLICATION: ${APPLICATION}
       APPLICATION_ENV: development
@@ -161,16 +168,30 @@ services:
     volumes:
       - pg16data:/var/lib/postgresql/data
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
+      - ../db/init.sql:/tmp/init.sql:ro
     command: -c max_locks_per_transaction=128
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          'psql -U camac -d ${APPLICATION} -h 127.0.0.1 -c ''SELECT 1 FROM "USER" LIMIT 1;'' || exit 1',
+        ]
+      interval: 3s
+      timeout: 3s
+      retries: 10
 
   document-merge-service:
     tty: true
     stdin_open: true
     depends_on:
-      - cache
-      - db
-      - garage
-      - gotenberg
+      cache:
+        condition: service_started
+      db:
+        condition: service_healthy
+      garage:
+        condition: service_started
+      gotenberg:
+        condition: service_started
     environment:
       CACHE_LOCATION: cache:11211
       DATABASE_HOST: db
@@ -195,7 +216,8 @@ services:
 
   keycloak:
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
       - "8080:8080"
     volumes:

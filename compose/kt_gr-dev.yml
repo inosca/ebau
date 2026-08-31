@@ -42,8 +42,18 @@ services:
       - POSTGRES_PASSWORD=camac
       - POSTGRES_DATABASE=${APPLICATION}
     volumes:
-      - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
       - pg15data:/var/lib/postgresql/data
+      - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
+      - ../db/init.sql:/tmp/init.sql:ro
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          'psql -U camac -d ${APPLICATION} -h 127.0.0.1 -c ''SELECT 1 FROM "USER" LIMIT 1;'' || exit 1',
+        ]
+      interval: 3s
+      timeout: 3s
+      retries: 10
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:main

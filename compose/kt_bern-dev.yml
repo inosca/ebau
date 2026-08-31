@@ -46,15 +46,30 @@ services:
     volumes:
       - pg15data:/var/lib/postgresql/data
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
+      - ../db/init.sql:/tmp/init.sql:ro
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          'psql -U camac -d ${APPLICATION} -h 127.0.0.1 -c ''SELECT 1 FROM "USER" LIMIT 1;'' || exit 1',
+        ]
+      interval: 3s
+      timeout: 3s
+      retries: 10
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:main
     depends_on:
-      - cache
-      - db
-      - document-merge-service
-      - mailpit
-      - clamav
+      cache:
+        condition: service_started
+      db:
+        condition: service_healthy
+      document-merge-service:
+        condition: service_started
+      mailpit:
+        condition: service_started
+      clamav:
+        condition: service_started
     build:
       args:
         REQUIREMENTS: requirements-dev.txt
@@ -179,7 +194,8 @@ services:
   keycloak:
     image: acr.run/camac-ng/camac-ng/keycloak:main
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     build:
       context: ../keycloak
       args:
@@ -224,9 +240,12 @@ services:
   document-merge-service:
     image: acr.run/camac-ng/camac-ng/document-merge-service:main
     depends_on:
-      - db
-      - cache
-      - gotenberg
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_started
+      gotenberg:
+        condition: service_started
     environment:
       ENV: dev
       OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo

@@ -73,8 +73,7 @@ dumpdata: ## Dump the current camac and caluma data
 
 .PHONY: loadconfig-camac
 loadconfig-camac: ## Load the camac configuration
-	@printf '\033[31m⚠️  Loading CAMAC config. This can take a moment, especially if migrations are running.\033[0m\n'
-	@printf '\033[31m   While this is in progress, do not use the web-interface yet!\033[0m\n'
+	@printf '\033[31m⚠️  Loading CAMAC config. While this is in progress, do not use the web-interface yet!\033[0m\n'
 	@docker compose exec django ./wait-for-it.sh -t 300 127.0.0.1:80 -- python manage.py camac_load --user $(GIT_USER)
 
 .PHONY: loadconfig-dms
@@ -164,6 +163,12 @@ makemigrations: ## Create schema migrations
 flush:
 	@docker compose exec django /app/manage.py flush --no-input
 
+.PHONY: update-init-dump
+update-init-dump: ## Update the init dump file (run this right after migrate, before loadconfig).
+	# cleanup: don't drop and recreate public schema to prevent errors on import
+	docker compose exec -T db pg_dump $(APPLICATION) -Ucamac -n public -n dms -c --if-exists \
+		| sed -e '/^DROP SCHEMA IF EXISTS public;$$/d' -e '/^CREATE SCHEMA public;$$/d' \
+		> db/init.sql
 
 .PHONY: db_dump
 db_dump: ## Dump the databse into an SQL dump file. Needs SNAPSHOT=xyz parameter

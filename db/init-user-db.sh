@@ -34,9 +34,19 @@ psql -d template1 -U $POSTGRES_USER <<-EOSQL
         deterministic = false
     );
 EOSQL
+if [[ -z "${CI:-}" ]]; then
+  # Load an "init dump" so we don't always have to run every migration when setting up in development.
+  # Run "make update-init-dump" and commit the result if the init dump is out of date.
+  # This is done with a new template so the test db is not polluted with existing and potentially outdated tables.
+  createdb -U "$POSTGRES_USER" template_with_init_dump
+  echo "Importing init dump..."
+  psql -v --username "$POSTGRES_USER" --dbname template_with_init_dump -f /tmp/init.sql -o /dev/null
+  echo "Init dump imported."
 
-# Create DB for each canton to make switching easier. Those will inherit
-# extensions, schemas and collations from template1 defined above.
-for db in kt_schwyz kt_uri kt_bern kt_gr kt_so kt_ag kt_sg demo; do
-    createdb -U "$POSTGRES_USER" "$db"
-done
+  # Create DB for each canton to make switching easier. Those will inherit
+  # extensions, schemas and collations from template1 defined above.
+  for db in kt_schwyz kt_uri kt_bern kt_gr kt_so kt_ag kt_sg demo; do
+      createdb -U "$POSTGRES_USER" -T template_with_init_dump "$db"
+  done
+fi
+
