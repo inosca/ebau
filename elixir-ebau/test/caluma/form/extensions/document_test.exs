@@ -22,12 +22,6 @@ defmodule Caluma.Form.Extensions.DocumentTest do
       assert attr.primary_key?
     end
 
-    test "adds a primary :read action" do
-      action = Enum.find(Ash.Resource.Info.actions(TestResource), &(&1.name == :read))
-      assert action != nil
-      assert action.primary?
-    end
-
     test "adds a has_many :answers relationship to Caluma.Form.Answer" do
       rel = Ash.Resource.Info.relationship(TestResource, :answers)
       assert rel != nil

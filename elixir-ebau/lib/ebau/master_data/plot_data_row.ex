@@ -33,6 +33,50 @@ defmodule Ebau.MasterData.PlotDataRow do
     end
   end
 
+  actions do
+    defaults [:read]
+
+    create :create do
+      argument :document_id, :uuid, allow_nil?: false
+      argument :plot_number, :string
+      argument :egrid_number, :string
+      argument :coord_east, :string
+      argument :coord_north, :string
+      argument :zip, :string
+
+      change {Caluma.Form.Changes.AddTableRow,
+              question: {Ebau.Instances.Instance, :plot_data}, document_argument: :document_id}
+
+      change {Caluma.Form.Changes.SaveDocumentAnswers,
+              answers: [:plot_number, :egrid_number, :coord_east, :coord_north, :zip]}
+    end
+
+    update :update do
+      argument :plot_number, :string
+      argument :egrid_number, :string
+      argument :coord_east, :string
+      argument :coord_north, :string
+      argument :zip, :string
+
+      change {Caluma.Form.Changes.SaveDocumentAnswers,
+              answers: [:plot_number, :egrid_number, :coord_east, :coord_north, :zip]}
+    end
+
+    destroy :destroy do
+      require_atomic? false
+
+      # Destroy the answers before the row document itself: the Caluma tables
+      # have no ON DELETE CASCADE, so deleting the document first would
+      # violate their foreign keys.
+      change cascade_destroy(:answers, after_action?: false, return_notifications?: false)
+
+      change cascade_destroy(:answer_documents,
+               after_action?: false,
+               return_notifications?: false
+             )
+    end
+  end
+
   caluma_document do
     answer :plot_number, :string,
       question_id: {Ebau.Caluma.CantonResolver, %{default: "parzellennummer"}}
@@ -40,12 +84,10 @@ defmodule Ebau.MasterData.PlotDataRow do
     answer :egrid_number, :string, question_id: {Ebau.Caluma.CantonResolver, %{default: "e-grid"}}
 
     answer :coord_east, :string,
-      question_id:
-        {Ebau.Caluma.CantonResolver, %{default: "lagekoordinaten-ost", gr: "coordinates-east"}}
+      question_id: {Ebau.Caluma.CantonResolver, %{default: "lagekoordinaten-ost"}}
 
     answer :coord_north, :string,
-      question_id:
-        {Ebau.Caluma.CantonResolver, %{default: "lagekoordinaten-nord", gr: "coordinates-north"}}
+      question_id: {Ebau.Caluma.CantonResolver, %{default: "lagekoordinaten-nord"}}
 
     answer :zip, :string, question_id: {Ebau.Caluma.CantonResolver, %{default: "plz"}}
   end

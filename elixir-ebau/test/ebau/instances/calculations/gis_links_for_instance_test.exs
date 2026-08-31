@@ -1,176 +1,117 @@
 defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
   use Ebau.DataCase, async: true
 
+  import Ebau.Test.InstanceFixtures
+
+  @geometry %{
+    "markers" => [%{"x" => 2_760_907.75, "y" => 1_191_927.88}],
+    "geometry" => "POINT",
+    "center" => %{"x" => 2_760_907.75, "y" => 1_191_927.88}
+  }
+
+  setup [:create_workflow, :create_form]
+
   setup do
     Ebau.User.create_role!(%{slug: "municipality-admin"}, authorize?: false, actor: nil)
 
-    Caluma.Workflow.create_workflow!(%{slug: "building-permit", name: %{"de" => "workflow"}},
-      authorize?: false,
-      actor: nil
-    )
-
     actor = Ebau.Test.UserHelper.create_actor!(%{role: %{slug: "municipality-admin"}})
-
-    caluma_case =
-      Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}},
-        authorize?: false,
-        actor: nil
-      )
-
-    instance =
-      Ebau.Instances.create_instance!(%{case: %{id: caluma_case.id}},
-        authorize?: false,
-        actor: nil
-      )
-
-    Caluma.Form.create_form_tree!(
-      %{
-        slug: "baugesuch",
-        name: "Baugesuch",
-        questions: [
-          %{
-            slug: "parzellen",
-            label: "Grundstücke",
-            type: :table,
-            form: %{
-              slug: "parzelle-tabelle",
-              name: "Grundstück Tabelle"
-            },
-            questions: [
-              %{
-                slug: "lagekoordinaten-nord",
-                label: "Lagekoordinaten - Nord",
-                type: :float
-              },
-              %{
-                slug: "lagekoordinaten-ost",
-                label: "Lagekoordinaten - Ost",
-                type: :float
-              }
-            ]
-          }
-        ]
-      },
-      authorize?: false,
-      actor: nil
-    )
-
-    doc =
-      Caluma.Form.create_document!(%{form: %{slug: "baugesuch"}, case: %{id: caluma_case.id}},
-        authorize?: false,
-        actor: nil
-      )
-
-    Caluma.Form.create_row_document!(
-      doc,
-      %{slug: "parzellen"},
-      [
-        %{question_id: "lagekoordinaten-nord", value: 123.0},
-        %{question_id: "lagekoordinaten-ost", value: 456.0}
-      ],
-      authorize?: false,
-      actor: nil
-    )
 
     gis_link =
       Ebau.Instances.create_gis_link!(
-        %{name: "test", placeholder: "https://geo.so.ch?c=999%2C999"},
+        %{name: "test", placeholder: "https://map.geo.admin.ch?center=999%2C999"},
         actor: actor
       )
 
-    %{
-      actor: actor,
-      instance: instance,
-      gis_link: gis_link,
-      doc: doc
-    }
+    %{actor: actor, gis_link: gis_link}
   end
 
-  test "replaces coordinate placeholders with first plot's coordinates", %{
+  test "replaces coordinate placeholders with the plot's coordinates", %{
     actor: actor,
-    instance: instance,
     gis_link: gis_link
   } do
-    Ebau.Permissions.grant_acl_for_instance!(
-      %{instance: %{id: instance.id}, user: %{id: actor.user.id}},
-      authorize?: false,
-      actor: nil
-    )
+    instance = instance_with(plots: [%{east: "456.0", north: "123.0"}])
 
-    gis_link =
-      Ash.load!(gis_link, [gis_link_for_instance: %{instance_id: instance.id}], actor: actor)
-
-    assert gis_link.gis_link_for_instance == "https://geo.so.ch?c=456%2C123"
+    assert link_for(gis_link, instance, actor) == "https://map.geo.admin.ch?center=456%2C123"
   end
 
   test "uses coordinates from the first plot when multiple exist", %{
     actor: actor,
-    instance: instance,
-    gis_link: gis_link,
-    doc: doc
+    gis_link: gis_link
   } do
-    Caluma.Form.create_row_document!(
-      doc,
-      %{slug: "parzellen"},
-      [
-        %{question_id: "lagekoordinaten-nord", value: 999.0},
-        %{question_id: "lagekoordinaten-ost", value: 888.0}
-      ],
-      authorize?: false,
-      actor: nil
-    )
+    instance =
+      instance_with(plots: [%{east: "456.0", north: "123.0"}, %{east: "888.0", north: "999.0"}])
 
+    assert link_for(gis_link, instance, actor) == "https://map.geo.admin.ch?center=456%2C123"
+  end
+
+  test "prefers the drawn geometry over the plot's coordinates", %{
+    actor: actor,
+    gis_link: gis_link
+  } do
+    instance =
+      instance_with(geometry: @geometry, plots: [%{east: "456.0", north: "123.0"}])
+
+    assert link_for(gis_link, instance, actor) ==
+             "https://map.geo.admin.ch?center=2760907%2C1191927"
+  end
+
+  test "returns the placeholder if instance has no coordinates", %{
+    actor: actor,
+    gis_link: gis_link
+  } do
+    instance = instance_with([])
+
+    assert link_for(gis_link, instance, actor) == "https://map.geo.admin.ch?center=999%2C999"
+  end
+
+  test "returns the placeholder if the first plot row has no coordinates", %{
+    actor: actor,
+    gis_link: gis_link
+  } do
+    instance = instance_with(plots: [%{}])
+
+    assert link_for(gis_link, instance, actor) == "https://map.geo.admin.ch?center=999%2C999"
+  end
+
+  test "denies access to gis links for instances without an ACL", %{
+    actor: actor,
+    gis_link: gis_link
+  } do
+    instance = instance_with(plots: [%{east: "456.0", north: "123.0"}])
+
+    assert_raise Ash.Error.Invalid, fn ->
+      Ash.load!(gis_link, [gis_link_for_instance: %{instance_id: instance.id}], actor: actor)
+    end
+  end
+
+  defp link_for(gis_link, instance, actor) do
     Ebau.Permissions.grant_acl_for_instance!(
       %{instance: %{id: instance.id}, user: %{id: actor.user.id}},
       authorize?: false,
       actor: nil
     )
 
-    gis_link =
-      Ash.load!(gis_link, [gis_link_for_instance: %{instance_id: instance.id}], actor: actor)
-
-    assert gis_link.gis_link_for_instance == "https://geo.so.ch?c=456%2C123"
+    gis_link
+    |> Ash.load!([gis_link_for_instance: %{instance_id: instance.id}], actor: actor)
+    |> Map.fetch!(:gis_link_for_instance)
   end
 
-  test "returns the placeholder if instance has no plot data", %{
-    actor: actor,
-    gis_link: gis_link
-  } do
-    empty_case =
-      Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}},
+  defp instance_with(opts) do
+    instance =
+      create_instance!(gis_map_geometry_json: opts[:geometry] && JSON.encode!(opts[:geometry]))
+
+    Enum.each(opts[:plots] || [], fn plot ->
+      Ebau.MasterData.create_plot_data_row!(
+        %{
+          document_id: document_id!(instance),
+          coord_east: plot[:east],
+          coord_north: plot[:north]
+        },
         authorize?: false,
         actor: nil
       )
+    end)
 
-    empty_instance =
-      Ebau.Instances.create_instance!(%{case: %{id: empty_case.id}},
-        authorize?: false,
-        actor: nil
-      )
-
-    Ebau.Permissions.grant_acl_for_instance!(
-      %{instance: %{id: empty_instance.id}, user: %{id: actor.user.id}},
-      authorize?: false,
-      actor: nil
-    )
-
-    gis_link =
-      Ash.load!(
-        gis_link,
-        [gis_link_for_instance: %{instance_id: empty_instance.id}],
-        actor: actor
-      )
-
-    assert "https://geo.so.ch?c=999%2C999" == gis_link.gis_link_for_instance
-  end
-
-  test "denies access to gis links for instances without an ACL", %{
-    actor: actor,
-    instance: instance,
-    gis_link: gis_link
-  } do
-    assert_raise Ash.Error.Invalid, fn ->
-      Ash.load!(gis_link, [gis_link_for_instance: %{instance_id: instance.id}], actor: actor)
-    end
+    instance
   end
 end

@@ -36,18 +36,28 @@ defmodule Caluma.Form.AnswerDocument do
   actions do
     defaults [:read, :destroy, create: :*, update: :*]
 
-    read :get_by_document_and_question do
-      argument :question_id, :string
-      argument :document_id, :uuid
+    read :by_answer do
+      argument :answer_id, :uuid, allow_nil?: false
+      filter expr(answer_id == ^arg(:answer_id))
+    end
 
-      filter expr(
-               answer.document_id == ^arg(:document_id) and
-                 answer.question_id == ^arg(:question_id)
-             )
+    create :prepend do
+      description "Links a row document at sort 0, shifting the answer's existing rows up."
+
+      change before_action(fn changeset, context ->
+               Caluma.Form.AnswerDocument
+               |> Ash.Query.for_read(
+                 :by_answer,
+                 %{answer_id: Ash.Changeset.get_attribute(changeset, :answer_id)},
+                 scope: context
+               )
+               |> Ash.bulk_update!(:shift_sort_up, %{}, scope: context)
+
+               changeset
+             end)
     end
 
     update :shift_sort_up do
-      description "Atomically increments sort by 1. Called before inserting a new row document at position 0."
       change atomic_update(:sort, expr(sort + 1))
     end
   end

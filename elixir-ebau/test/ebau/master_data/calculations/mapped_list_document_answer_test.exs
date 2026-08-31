@@ -177,23 +177,14 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswerTest do
   end
 
   defp create_instance_with_answers(answers) do
-    case_record =
-      Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}},
-        authorize?: false,
-        actor: nil
-      )
-
     instance =
-      Ebau.Instances.create_instance!(%{case: %{id: case_record.id}},
+      Ebau.Instances.create_instance!(%{case: %{workflow: %{slug: "building-permit"}}},
         authorize?: false,
-        actor: nil
+        actor: nil,
+        load: [case: [:document]]
       )
 
-    document =
-      Caluma.Form.create_document!(%{form: %{slug: "baugesuch"}, case: %{id: case_record.id}},
-        authorize?: false,
-        actor: nil
-      )
+    document = instance.case.document
 
     Enum.each(answers, fn {question_id, value} ->
       Caluma.Form.create_answer!(
@@ -207,6 +198,6 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswerTest do
       )
     end)
 
-    %{instance: instance, case: case_record, document: document}
+    %{instance: instance, case: instance.case, document: document}
   end
 end

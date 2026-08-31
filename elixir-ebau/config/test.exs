@@ -33,10 +33,6 @@ config :ebau, :keycloak_jwks_req, plug: {Req.Test, EbauWeb.LogoutToken}
 
 # Use the dummy Keycloak adapter in tests; token is just the user id
 config :ebau, :oauth2_module, EbauWeb.OAuth2Dummy
-
-config :ebau,
-  legacy_fixture_root: Path.expand("../priv/test_fixtures", __DIR__)
-
 config :ebau, token_signing_secret: "9sflOmq636a7ftJq2gp72FlyeWS4/yIl"
 
 # Print only warnings and errors during test

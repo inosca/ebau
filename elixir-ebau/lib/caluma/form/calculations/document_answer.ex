@@ -34,6 +34,11 @@ defmodule Caluma.Form.Calculations.DocumentAnswer do
     answer_expr(opts[:relationship], field_for_type(Map.get(context, :type)))
   end
 
+  @impl true
+  def load(_query, opts, context) do
+    [{opts[:relationship], [field_for_type(Map.get(context, :type))]}]
+  end
+
   @doc """
   Returns the typed value calculation name on `Caluma.Form.Answer` matching
   the parent calc's Ash type.
@@ -48,8 +53,7 @@ defmodule Caluma.Form.Calculations.DocumentAnswer do
   filtered `has_one` relationship. Reused by mapped/mapped-list calcs.
   """
   def answer_expr(relationship, field \\ :value_string) when is_atom(relationship) do
-    ref = %Ash.Query.Ref{relationship_path: [relationship], attribute: field}
-    expr(^ref)
+    expr(^ref([relationship], field))
   end
 
   @doc """

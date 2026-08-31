@@ -34,6 +34,10 @@ defmodule Ebau.MasterData.Applicant do
     end
   end
 
+  actions do
+    defaults [:read]
+  end
+
   # TODO: Fields requiring value_parser (not yet supported):
   # - salutation (anrede, option parser)
   # - country_code (land, value_mapping to country codes)

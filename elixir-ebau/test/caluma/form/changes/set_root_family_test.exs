@@ -42,8 +42,8 @@ defmodule Caluma.Form.Changes.SetRootFamilyTest do
 
     row =
       Caluma.Form.create_row_document!(
-        root,
-        %{slug: "rows"},
+        root.id,
+        "rows",
         [%{question_id: "field", value: "x"}],
         authorize?: false,
         actor: nil

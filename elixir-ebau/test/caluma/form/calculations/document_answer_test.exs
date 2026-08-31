@@ -4,7 +4,7 @@ defmodule Caluma.Form.Calculations.DocumentAnswerTest do
   alias Caluma.Form.Calculations.DocumentAnswer
 
   defmodule TestResolver do
-    @behaviour Caluma.Form.Resolver
+    @behaviour Caluma.Form.Behaviours.SlugResolver
 
     @impl true
     def resolve(%{ids: ids}), do: ids

@@ -81,4 +81,8 @@ defmodule Ebau.MasterData.PersonFields do
     answer :representative_po_box, :string,
       question_id: {Ebau.Caluma.CantonResolver, %{default: "vertretung-postfach"}}
   end
+
+  actions do
+    defaults [:read]
+  end
 end

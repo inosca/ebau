@@ -12,6 +12,7 @@ defmodule Ebau.Instances.Instance do
   (for table questions like applicants or plots) and calculations (for
   scalar answers like street or proposal) at compile time. This gives a
   typed, uniform interface over canton-specific Caluma question slugs.
+  Actions write answers through `Caluma.Form.Changes.SaveDocumentAnswers`.
   """
 
   use Ash.Resource,
@@ -33,7 +34,7 @@ defmodule Ebau.Instances.Instance do
     caluma_document do
       # Tables
       table :plot_data, Ebau.MasterData.PlotDataRow,
-        question_id: {Ebau.Caluma.CantonResolver, %{default: "parzellen"}}
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "parzelle", so: "parzellen"}}
 
       table :applicants, Ebau.MasterData.Applicant,
         question_id: {Ebau.Caluma.CantonResolver, %{default: "bauherrin"}}
@@ -94,6 +95,9 @@ defmodule Ebau.Instances.Instance do
 
       answer :national_inventory, :string,
         question_id: {Ebau.Caluma.CantonResolver, %{default: "bundesinventare"}}
+
+      answer :gis_map_geometry_json, :string,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "gis-map", so: "gis-karte"}}
     end
 
     meta do
@@ -107,6 +111,26 @@ defmodule Ebau.Instances.Instance do
     # TODO: Not yet supported by the DSL:
     # - static values (joined_street_and_number)
     # - document_from_work_item (decision_date)
+  end
+
+  aggregates do
+    first :first_plot_coord_east, :plot_data, :coord_east do
+      sort sort: :desc
+    end
+
+    first :first_plot_coord_north, :plot_data, :coord_north do
+      sort sort: :desc
+    end
+  end
+
+  calculations do
+    calculate :dossier_center_coordinates_x,
+              :float,
+              {Ebau.Instances.Calculations.InstanceCenterCoordinate, axis: :x}
+
+    calculate :dossier_center_coordinates_y,
+              :float,
+              {Ebau.Instances.Calculations.InstanceCenterCoordinate, axis: :y}
   end
 
   attributes do
@@ -157,6 +181,12 @@ defmodule Ebau.Instances.Instance do
 
   relationships do
     belongs_to :case, Caluma.Workflow.Case, domain: Caluma.Workflow
+
+    has_one :document, Caluma.Form.Document do
+      domain Caluma.Form
+      through [:case, :document]
+    end
+
     has_many :instance_acls, Ebau.Permissions.InstanceACL, domain: Ebau.Permissions
 
     has_many :active_instance_acls, Ebau.Permissions.InstanceACL do
@@ -166,14 +196,32 @@ defmodule Ebau.Instances.Instance do
   end
 
   actions do
-    defaults [:read, :destroy, create: :*, update: :*]
+    defaults [:read, :destroy, create: :*]
 
     read :list_instances
 
     create :create_instance do
       argument :case, :map
+      argument :proposal, :string
+      argument :is_paper, :boolean
+      argument :gis_map_geometry_json, :string
 
-      change manage_relationship(:case, type: :append)
+      change {Caluma.Workflow.Changes.StartCase,
+              form: {Ebau.Caluma.CantonResolver, %{default: "baugesuch"}}}
+
+      change manage_relationship(:case, on_no_match: {:create, :create_case})
+
+      change {Caluma.Form.Changes.SaveDocumentAnswers,
+              answers: [:proposal, :is_paper, :gis_map_geometry_json], relationship: :document}
+    end
+
+    update :update do
+      argument :proposal, :string
+      argument :is_paper, :boolean
+      argument :gis_map_geometry_json, :string
+
+      change {Caluma.Form.Changes.SaveDocumentAnswers,
+              answers: [:proposal, :is_paper, :gis_map_geometry_json], relationship: :document}
     end
   end
 

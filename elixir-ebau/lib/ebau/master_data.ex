@@ -50,7 +50,12 @@ defmodule Ebau.MasterData do
   end
 
   resources do
-    resource Ebau.MasterData.PlotDataRow
+    resource Ebau.MasterData.PlotDataRow do
+      define :create_plot_data_row, action: :create
+      define :update_plot_data_row, action: :update
+      define :destroy_plot_data_row, action: :destroy
+    end
+
     resource Ebau.MasterData.Applicant
     resource Ebau.MasterData.Landowner
     resource Ebau.MasterData.ProjectAuthor

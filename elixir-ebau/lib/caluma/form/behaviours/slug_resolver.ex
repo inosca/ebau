@@ -1,4 +1,4 @@
-defmodule Caluma.Form.Resolver do
+defmodule Caluma.Form.Behaviours.SlugResolver do
   @moduledoc """
   Behaviour for resolving a `{module, opts}` tuple to a Caluma value — a
   question slug in most cases, or a value map for the `mapping` option.
@@ -24,7 +24,7 @@ defmodule Caluma.Form.Resolver do
 
   - `question_id: {mod, opts}` — **compile time**, in
     `Caluma.Form.Extensions.Document.AnswerTransformer` (via
-    `Caluma.Form.AnswerFilters`). The result is baked into the resource's
+    `Caluma.Form.QuestionId`). The result is baked into the resource's
     relationship filter. Returns a slug string or list of strings.
   - `key: {mod, opts}` on `Caluma.Workflow.Calculations.CaseMeta` — **query
     time**, from `expression/2`. Returns a meta-key string.
@@ -36,7 +36,7 @@ defmodule Caluma.Form.Resolver do
   ## Example: tenant-based resolver
 
       defmodule Ebau.Caluma.TenantResolver do
-        @behaviour Caluma.Form.Resolver
+        @behaviour Caluma.Form.Behaviours.SlugResolver
 
         @tenant Application.compile_env(:ebau, :tenant)
 

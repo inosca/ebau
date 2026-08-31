@@ -37,4 +37,8 @@ defmodule Ebau.MasterData.TypeOfConstruction do
     answer :art_der_hochbaute, :string,
       question_id: {Ebau.Caluma.CantonResolver, %{default: "typ-des-bauwerks"}}
   end
+
+  actions do
+    defaults [:read]
+  end
 end

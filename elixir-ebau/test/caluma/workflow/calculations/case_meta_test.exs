@@ -3,18 +3,24 @@ defmodule Caluma.Workflow.Calculations.CaseMetaTest do
 
   alias Caluma.Workflow.Calculations.CaseMeta
 
+  defmodule TestResolver do
+    @behaviour Caluma.Form.Behaviours.SlugResolver
+
+    @impl true
+    def resolve(%{key: key}), do: key
+  end
+
   describe "init/1" do
     test "accepts a plain string key" do
       assert {:ok, _} = CaseMeta.init(key: "dossier-number")
     end
 
     test "accepts a {module, opts} resolver tuple" do
-      assert {:ok, _} =
-               CaseMeta.init(key: {Ebau.Caluma.CantonResolver, %{default: "dossier-number"}})
+      assert {:ok, _} = CaseMeta.init(key: {TestResolver, %{key: "dossier-number"}})
     end
 
     test "preserves opts through init" do
-      resolver = {Ebau.Caluma.CantonResolver, %{default: "dossier-number", gr: "gr-dossier"}}
+      resolver = {TestResolver, %{key: "dossier-number"}}
       {:ok, opts} = CaseMeta.init(key: resolver)
       assert opts[:key] == resolver
     end

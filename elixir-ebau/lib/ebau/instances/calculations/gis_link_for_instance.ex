@@ -21,9 +21,8 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
   def calculate(records, _opts, context) do
     case Ebau.Instances.get_instance_by_id(
            context.arguments.instance_id,
-           Keyword.put(Ash.Context.to_opts(context), :load,
-             plot_data: [:coord_north, :coord_east]
-           )
+           scope: context,
+           load: [:dossier_center_coordinates_x, :dossier_center_coordinates_y]
          ) do
       {:ok, instance} ->
         Enum.map(records, fn gis_link -> replace_placeholder(gis_link, instance) end)
@@ -37,9 +36,16 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
     end
   end
 
-  defp replace_placeholder(gis_link, %{plot_data: []}), do: gis_link.placeholder
+  defp replace_placeholder(gis_link, %{
+         dossier_center_coordinates_x: coordinate_x,
+         dossier_center_coordinates_y: coordinate_y
+       })
+       when is_nil(coordinate_x) or is_nil(coordinate_y), do: gis_link.placeholder
 
-  defp replace_placeholder(gis_link, %{plot_data: [first_plot_data | _]}) do
+  defp replace_placeholder(gis_link, %{
+         dossier_center_coordinates_x: coordinate_x,
+         dossier_center_coordinates_y: coordinate_y
+       }) do
     supported_providers = Ebau.Instances.GisLink.supported_providers()
     uri = URI.parse(gis_link.placeholder)
     chosen_provider = Map.get(supported_providers, uri.host)
@@ -48,8 +54,8 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
       # Some providers carry their query in the fragment (e.g. hash-routed maps).
       original_query = URI.decode_query(uri.query || uri.fragment || "")
 
-      east_str = coord_to_string(first_plot_data.coord_east)
-      north_str = coord_to_string(first_plot_data.coord_north)
+      east_str = coord_to_string(coordinate_x)
+      north_str = coord_to_string(coordinate_y)
 
       provider_query =
         Map.new(chosen_provider, fn {param, coordinate_function} ->
@@ -64,16 +70,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
     end
   end
 
-  defp coord_to_string(value) when is_integer(value), do: Integer.to_string(value)
+  # The coordinate calculations always yield a float, and the clause above
+  # already returned for nil.
   defp coord_to_string(value) when is_float(value), do: Integer.to_string(trunc(value))
-
-  defp coord_to_string(value) when is_binary(value) do
-    case Float.parse(value) do
-      {float, _rest} ->
-        Integer.to_string(trunc(float))
-
-      :error ->
-        raise ArgumentError, "invalid coordinate value: #{inspect(value)}"
-    end
-  end
 end

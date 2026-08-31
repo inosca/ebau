@@ -50,7 +50,7 @@ defmodule Caluma.Workflow.Extensions.Case do
 
   These accept the same forms as `Caluma.Form.Extensions.Document` — a
   plain string, a list of strings, or a `{resolver_module, opts}` tuple.
-  See `Caluma.Form.Resolver`.
+  See `Caluma.Form.Behaviours.SlugResolver`.
 
   ## The `mapping` option
 
@@ -78,7 +78,8 @@ defmodule Caluma.Workflow.Extensions.Case do
       key: [
         type: {:or, [:string, :mod_arg]},
         required: true,
-        doc: "A meta key string or a {resolver_module, opts} tuple. See `Caluma.Form.Resolver`."
+        doc:
+          "A meta key string or a {resolver_module, opts} tuple. See `Caluma.Form.Behaviours.SlugResolver`."
       ]
     ],
     args: [:name, :type]
@@ -119,104 +120,6 @@ defmodule Caluma.Workflow.Extensions.Case do
 
   use Spark.Dsl.Extension,
     sections: [@caluma_case],
-    transformers: [Caluma.Workflow.Extensions.Case.Transformer]
-end
-
-defmodule Caluma.Workflow.Extensions.Case.Transformer do
-  @moduledoc false
-
-  use Spark.Dsl.Transformer
-
-  alias Caluma.Form.Extensions.Document
-  alias Caluma.Workflow.Extensions.Case
-  alias Document.AnswerTransformer
-
-  def transform(dsl_state) do
-    through = Spark.Dsl.Transformer.get_option(dsl_state, [:caluma_case], :through)
-
-    dsl_state =
-      dsl_state
-      |> add_document_entities(through)
-      |> add_meta_attributes(through)
-
-    {:ok, dsl_state}
-  end
-
-  # When `through` is nil, the resource IS the case, so the parent's document FK
-  # is `document_id` directly. Otherwise, traverse `<through>.document_id`.
-  defp parent_doc_id_ref(nil), do: %Ash.Query.Ref{attribute: :document_id}
-
-  defp parent_doc_id_ref(through),
-    do: %Ash.Query.Ref{relationship_path: [through], attribute: :document_id}
-
-  # -- Entity builders --
-
-  defp add_document_entities(dsl_state, through) do
-    source = Spark.Dsl.Transformer.get_persisted(dsl_state, :module)
-    doc_id_ref = parent_doc_id_ref(through)
-
-    dsl_state
-    |> Spark.Dsl.Transformer.get_entities([:caluma_case, :caluma_document])
-    |> Enum.reduce(dsl_state, fn
-      %Document.Answer{} = answer, dsl ->
-        rel_name = AnswerTransformer.answer_relationship_name(answer.name)
-
-        dsl
-        |> AnswerTransformer.add_answer_relationship(rel_name, answer.question_id, doc_id_ref)
-        |> AnswerTransformer.add_calc(
-          answer.name,
-          answer.type,
-          Caluma.Form.Calculations.DocumentAnswer,
-          relationship: rel_name
-        )
-
-      %Document.MappedAnswer{} = mapped, dsl ->
-        rel_name = AnswerTransformer.answer_relationship_name(mapped.name)
-
-        dsl
-        |> AnswerTransformer.add_answer_relationship(rel_name, mapped.question_id, doc_id_ref)
-        |> AnswerTransformer.add_calc(
-          mapped.name,
-          mapped.type,
-          Caluma.Form.Calculations.MappedDocumentAnswer,
-          relationship: rel_name,
-          mapping: mapped.mapping
-        )
-
-      %Document.MappedListAnswer{} = mapped, dsl ->
-        rel_name = AnswerTransformer.answer_relationship_name(mapped.name)
-
-        dsl
-        |> AnswerTransformer.add_answer_relationship(rel_name, mapped.question_id, doc_id_ref)
-        |> AnswerTransformer.add_calc(
-          mapped.name,
-          {:array, mapped.type},
-          Caluma.Form.Calculations.MappedListDocumentAnswer,
-          relationship: rel_name,
-          mapping: mapped.mapping
-        )
-
-      %Document.Table{} = table, dsl ->
-        AnswerTransformer.add_table_relationship(dsl, table, source, doc_id_ref)
-
-      _, dsl ->
-        dsl
-    end)
-  end
-
-  defp add_meta_attributes(dsl_state, through) do
-    dsl_state
-    |> Spark.Dsl.Transformer.get_entities([:caluma_case, :meta])
-    |> Enum.filter(&is_struct(&1, Case.MetaAttribute))
-    |> Enum.reduce(dsl_state, fn meta, dsl ->
-      {:ok, calc} =
-        Ash.Resource.Builder.build_calculation(
-          meta.name,
-          meta.type,
-          {Caluma.Workflow.Calculations.CaseMeta, key: meta.key, through: through}
-        )
-
-      Spark.Dsl.Transformer.add_entity(dsl, [:calculations], calc)
-    end)
-  end
+    transformers: [Caluma.Workflow.Extensions.Case.Transformer],
+    verifiers: [Caluma.Workflow.Extensions.Case.Verifier]
 end

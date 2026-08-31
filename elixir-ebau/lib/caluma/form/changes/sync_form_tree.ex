@@ -14,7 +14,7 @@ defmodule Caluma.Form.Changes.SyncFormTree do
   @impl true
   def change(changeset, _opts, context) do
     questions = Changeset.get_argument(changeset, :questions) || []
-    action_opts = Ash.Context.to_opts(context)
+    action_opts = [scope: context]
 
     Changeset.after_action(changeset, fn _changeset, form ->
       create_questions!(form.slug, questions, action_opts)
