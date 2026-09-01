@@ -35,7 +35,11 @@ defmodule Ebau.MixProject do
         ]
       ],
       usage_rules: usage_rules(),
-      hex: [cooldown: "7d"]
+      hex: [cooldown: "7d"],
+      gettext: [
+        write_reference_line_numbers: false,
+        fuzzy_threshold: 0
+      ]
     ]
   end
 

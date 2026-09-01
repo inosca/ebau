@@ -11,59 +11,57 @@
 msgid ""
 msgstr ""
 
-#: lib/ebau_web/live/service_permissions/gis_links.ex:103
+#: lib/ebau_web/live/service_permissions/gis_links.ex
 #, elixir-autogen, elixir-format
 msgid "Delete"
 msgstr ""
 
-#: lib/ebau_web/live/service_permissions/gis_links.ex:85
+#: lib/ebau_web/live/service_permissions/gis_links.ex
 #, elixir-autogen, elixir-format
 msgid "Description"
 msgstr ""
 
-#: lib/ebau_web/live/service_permissions/gis_links.ex:34
+#: lib/ebau_web/live/service_permissions/gis_links.ex
 #, elixir-autogen, elixir-format
 msgid "GIS links"
 msgstr ""
 
-#: lib/ebau_web/live/service_permissions/gis_links.ex:24
+#: lib/ebau_web/live/service_permissions/gis_links.ex
 #, elixir-autogen, elixir-format
 msgid "Invitations"
 msgstr ""
 
-#: lib/ebau_web/live/service_permissions/gis_links.ex:57
-#: lib/ebau_web/live/service_permissions/gis_links.ex:86
+#: lib/ebau_web/live/service_permissions/gis_links.ex
 #, elixir-autogen, elixir-format
 msgid "Link"
 msgstr ""
 
-#: lib/ebau_web/live/service_permissions/gis_links.ex:27
+#: lib/ebau_web/live/service_permissions/gis_links.ex
 #, elixir-autogen, elixir-format
 msgid "Master data"
 msgstr ""
 
-#: lib/ebau_web/live/service_permissions/gis_links.ex:49
+#: lib/ebau_web/live/service_permissions/gis_links.ex
 #, elixir-autogen, elixir-format
 msgid "Name"
 msgstr ""
 
-#: lib/ebau_web/live/service_permissions/gis_links.ex:21
+#: lib/ebau_web/live/service_permissions/gis_links.ex
 #, elixir-autogen, elixir-format
 msgid "Permissions"
 msgstr ""
 
-#: lib/ebau_web/live/service_permissions/gis_links.ex:63
+#: lib/ebau_web/live/service_permissions/gis_links.ex
 #, elixir-autogen, elixir-format
 msgid "Save"
 msgstr ""
 
-#: lib/ebau_web/live/service_permissions/gis_links.ex:68
-#: lib/ebau_web/live/service_permissions/gis_links.ex:75
+#: lib/ebau_web/live/service_permissions/gis_links.ex
 #, elixir-autogen, elixir-format
 msgid "Search"
 msgstr ""
 
-#: lib/ebau_web/live/service_permissions/gis_links.ex:30
+#: lib/ebau_web/live/service_permissions/gis_links.ex
 #, elixir-autogen, elixir-format
 msgid "Sub-services"
 msgstr ""
