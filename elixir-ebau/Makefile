@@ -1,4 +1,4 @@
-.PHONY: test
+.PHONY: test-all
 test-all:
 	mix clean
 	mix test
@@ -11,3 +11,6 @@ test-all:
 setup-test:
 	@cd .. && docker compose exec -e MIX_ENV=test elixir mix ebau.bootstrap_legacy_schema
 
+.PHONY: makemessages
+makemessages:
+	@mix gettext.extract --merge
