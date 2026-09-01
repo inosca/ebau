@@ -125,6 +125,32 @@ merge-request specific path prefix when the GitLab instance supports parallel Pa
 deployments. The Elixir docs still live under the `elixir-ebau/` subpath inside
 that preview.
 
+## Dependency audit
+
+The `audit-elixir` CI job runs `mix hex.audit`, which reports dependencies whose
+authors have retired the published version (deprecated, security issue, invalid
+or pulled release). The job is `allow_failure: true`, so a finding shows up as a
+warning on the pipeline rather than blocking the merge request - but it should
+still be dealt with.
+
+To reproduce the warning locally, run:
+
+```bash
+mix clean
+mix deps.get
+mix hex.audit
+```
+
+The output lists each affected package with its locked version and the
+retirement reason. Update those packages to a non-retired version:
+
+```bash
+mix deps.update <package> [<package> ...]
+```
+
+Then re-run `mix hex.audit` to confirm the warning is gone and commit the
+resulting `mix.lock` change.
+
 ## Legacy config fixtures
 
 `Ebau.Legacy.ConfigLoader` (used by `mix ebau.load_config`) reads legacy JSON
