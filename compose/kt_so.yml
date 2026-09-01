@@ -58,7 +58,7 @@ services:
     build:
       context: ../keycloak
       args:
-        VERSION: 26.5.3
+        VERSION: 26.7.3
       cache_from:
         - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-main}
 
