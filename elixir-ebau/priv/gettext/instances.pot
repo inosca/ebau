@@ -65,3 +65,8 @@ msgstr ""
 #, elixir-autogen, elixir-format
 msgid "Sub-services"
 msgstr ""
+
+#: lib/ebau_web/live/service_permissions/gis_links.ex
+#, elixir-autogen, elixir-format
+msgid "No entries found"
+msgstr ""

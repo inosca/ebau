@@ -135,4 +135,19 @@ $mandatory-asterisk-color: $text-danger-color !default;
 }
 
 /* Make LiveView wrapper divs transparent for layout */
-[data-phx-session], [data-phx-teleported-src] { display: contents }
+[data-phx-session],
+[data-phx-teleported-src] {
+  display: contents;
+}
+
+.uk-table .uk-icon {
+  min-height: 16px;
+  min-width: 16px;
+}
+
+.empty-row {
+  display: none;
+}
+.empty-row:only-child {
+  display: table-row;
+}

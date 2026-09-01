@@ -21,6 +21,7 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinksTest do
       |> visit(~p"/service-permissions/gis-links")
       |> assert_has("td", text: gis_link.name)
       |> assert_has("td", text: gis_link.placeholder)
+      |> refute_has(".empty-row:only-child")
     end
 
     test "does not render gis links from other services", %{conn: conn} do
@@ -35,6 +36,15 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinksTest do
       conn
       |> visit(~p"/service-permissions/gis-links")
       |> refute_has("td", text: other_link.name)
+    end
+
+    test "shows an empty state", %{conn: conn, actor: actor, gis_link: gis_link} do
+      Ebau.Instances.destroy_gis_link!(gis_link, actor: actor)
+
+      conn
+      |> visit(~p"/service-permissions/gis-links")
+      |> assert_has(".empty-row:only-child")
+      |> refute_has("td", text: gis_link.name)
     end
   end
 
