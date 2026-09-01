@@ -204,7 +204,10 @@ INSTANCE_COPY = ModuleConfig[InstanceCopyConfig](
     kt_uri=InstanceCopyConfig(),
     kt_gr=InstanceCopyConfig(
         ebbw_next_phase=DenyListedCopyFormConfig(
-            exclude_questions=["einleitung-des-verfahrens"],
+            exclude_questions=[
+                "einleitung-des-verfahrens",
+                "ebbw-default-default-einreichen-hinweis",
+            ],
             exclude_forms=["dokumente-ebbw"],
             copy_attachments=False,
         )

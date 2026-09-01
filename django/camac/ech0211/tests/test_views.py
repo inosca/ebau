@@ -602,7 +602,9 @@ def test_send_submit_gr(
         "loaddata",
         settings.ROOT_DIR("kt_gr/config/caluma_form.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_form_v2.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_form_v3.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_form_common.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_baubeitragswesen.json"),
     )
     notification_template_factory(slug="empfang-anfragebaugesuch-gesuchsteller")
     notification_template_factory(slug="empfang-anfragebaugesuch-behorden")

@@ -25,6 +25,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     return this.session.service?.id;
   }
 
+  get currentServiceGroupSlug() {
+    return this.session.service?.serviceGroup?.get("slug");
+  }
+
   get currentInstanceId() {
     return this.ebauModules.instanceId;
   }
@@ -165,6 +169,29 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           },
           geometer: {
             label: "distribution.geometer",
+          },
+        };
+      }
+
+      if (
+        [
+          "baubeitragswesen-investitionsanmeldung",
+          "baubeitragswesen-phase-1",
+          "baubeitragswesen-phase-2",
+          "baubeitragswesen-teilzahlungen",
+          "baubeitragswesen-bauabrechnung",
+        ].includes(instance.calumaForm) &&
+        this.currentServiceGroupSlug === "authority-contribution"
+      ) {
+        // For baubeitragswesen forms, the authority-contribution service group
+        // services can only select other authority-contribution services, or
+        // the building-department service group services.
+        return {
+          "authority-contribution": {
+            label: "distribution.authority-contribution-services",
+          },
+          "building-department": {
+            label: "distribution.building-department-services",
           },
         };
       }

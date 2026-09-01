@@ -139,6 +139,13 @@ def test_ur_get_responsible_service(
             ),
         ),
         (
+            "baubeitragswesen-investitionsanmeldung",
+            (
+                "empfang-anfragebaugesuch-behorden",
+                "empfang-anfragebaugesuch-gesuchsteller-ebbw",
+            ),
+        ),
+        (
             "other",
             (
                 "empfang-anfragebaugesuch-behorden",

@@ -151,6 +151,7 @@ def load_fixtures_gr(
         "kt_gr/config/caluma_form_v5.json",
         "kt_gr/config/caluma_form_v6.json",
         "kt_gr/config/caluma_form_common.json",
+        "kt_gr/config/caluma_baubeitragswesen.json",
         "kt_gr/config/caluma_decision_form.json",
         # TODO: This should be removed when the reference to the question
         # "complete-material-exam" in the `caluma_form.json` fixture is removed.

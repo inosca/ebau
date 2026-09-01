@@ -375,6 +375,24 @@
     }
   },
   {
+    "model": "user.servicegroup",
+    "pk": 6,
+    "fields": {
+      "slug": "authority-contribution",
+      "name": "authority-contribution",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 7,
+    "fields": {
+      "slug": "building-department",
+      "name": "building-department",
+      "sort": null
+    }
+  },
+  {
     "model": "user.servicegroupt",
     "pk": 20000,
     "fields": {
@@ -462,6 +480,42 @@
       "service_group": 5,
       "language": "it",
       "name": "Geometra"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20010,
+    "fields": {
+      "service_group": 6,
+      "language": "de",
+      "name": "Dienststelle Beitragswesen"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20011,
+    "fields": {
+      "service_group": 6,
+      "language": "it",
+      "name": "Ufficio contributi"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20012,
+    "fields": {
+      "service_group": 7,
+      "language": "de",
+      "name": "Hochbauamt"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20013,
+    "fields": {
+      "service_group": 7,
+      "language": "it",
+      "name": "Hochbauamt"
     }
   }
 ]

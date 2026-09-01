@@ -32,7 +32,7 @@ from camac.agsmartservice import api as ag_smartservice
 from camac.applicants.models import Applicant
 from camac.caluma.api import CalumaApi
 from camac.caluma.models import Inquiry, Instance
-from camac.constants import kt_uri as uri_constants
+from camac.constants import kt_gr as gr_constants, kt_uri as uri_constants
 from camac.core.models import (
     AuthorityLocation,
     HistoryActionConfig,
@@ -1703,6 +1703,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             notification_key = "SUBMIT_OTHERS"
 
         if settings.APPLICATION_NAME == "kt_gr" and case.document.form_id.startswith(
+            "baubeitragswesen"
+        ):
+            notification_key = "SUBMIT_EBBW"
+
+        if settings.APPLICATION_NAME == "kt_gr" and case.document.form_id.startswith(
             "vorlaeufige-beurteilung"
         ):
             notification_key = "SUBMIT_PRELIMINARY_CLARIFICATION"
@@ -1848,6 +1853,18 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 .values_list("pk", flat=True)
                 .first()
             )
+
+        return None  # pragma: no cover
+
+    def _get_custom_instance_service_gr(self, case):
+        if case.document.form_id in gr_constants.BAUBEITRAGSWESEN_FORMS:
+            return Service.objects.get(
+                slug=case.document.answers.get(
+                    question_id="ebbw-default-default-art-des-gesuchs"
+                ).value,
+                service_group__name=gr_constants.AUTHORITY_CONTRIBUTION_SERVICE_GROUP,
+                service_parent__isnull=True,
+            ).pk
 
         return None  # pragma: no cover
 

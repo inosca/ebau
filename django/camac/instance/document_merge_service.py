@@ -162,6 +162,9 @@ class DMSHandler:
             else created_at
         )
 
+        construction_cost = graceful_get(
+            master_data, "construction_costs", default=None
+        )
         data = {
             "caseId": instance.pk,
             "caseType": str(instance.case.document.form.name),
@@ -191,6 +194,9 @@ class DMSHandler:
                 "full_name": request_user.get_full_name(),
                 "username": request_user.username,
             },
+            "constructionCosts": f"{construction_cost:n}"
+            if construction_cost
+            else None,
         }
 
         if settings.DMS.get("ADD_ADDRESS_DATA") and (

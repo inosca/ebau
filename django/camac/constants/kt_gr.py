@@ -1,6 +1,8 @@
 ARE_SERVICE_GROUP = "authority-bab"
 CANTON_SERVICE_GROUP = "service"
 MUNICIPALITY_SERVICE_GROUP = "municipality"
+AUTHORITY_CONTRIBUTION_SERVICE_GROUP = "authority-contribution"
+BUILDING_DEPARTMENT_SERVICE_GROUP = "building-department"
 
 # Services that receive "special" notifications after decision / acceptance
 ARE_SERVICE_SLUG = "are"
@@ -47,8 +49,8 @@ BAUBEITRAGSWESEN_FORMS = [
     BAUBEITRAGSWESEN_FORM_BAUABRECHNUNG,
 ]
 
-
 MIGRATED_INSTANCE_FORMS = ["migriertes-dossier"]
+
 
 PUBLIC_INSTANCES_URL_PREFIXES = {
     "de": "/oeffentliche-auflage",

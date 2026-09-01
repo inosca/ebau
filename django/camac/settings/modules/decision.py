@@ -99,6 +99,7 @@ DECISION = {
                 "NEGATIVE": "decision-decision-negative",
                 "POSITIVE_WITH_RESERVATION": "decision-decision-positive-with-reservation",
                 "WITHDRAWAL": "decision-decision-retreat",
+                "DEFERRED": "decision-decision-deferred",
                 "OTHER": "decision-decision-other",
             },
         },
@@ -199,6 +200,7 @@ DECISION["kt_gr"]["ECH_JUDGEMENT_MAP"] = {
             "WRITTEN_OFF"
         ]: ECH_JUDGEMENT_WRITTEN_OFF,
         DECISION["kt_gr"]["ANSWERS"]["DECISION"]["NEGATIVE"]: ECH_JUDGEMENT_DECLINED,
+        DECISION["kt_gr"]["ANSWERS"]["DECISION"]["DEFERRED"]: ECH_JUDGEMENT_DECLINED,
         DECISION["kt_gr"]["ANSWERS"]["DECISION"]["REJECTED"]: ECH_JUDGEMENT_DECLINED,
         DECISION["kt_gr"]["ANSWERS"]["DECISION"][
             "WITHDRAWAL"
@@ -216,6 +218,7 @@ DECISION["kt_gr"]["ECH_JUDGEMENT_MAP"] = {
         DECISION["kt_gr"]["ANSWERS"]["DECISION"][
             "WITHDRAWAL"
         ]: ECH_JUDGEMENT_WRITTEN_OFF,
+        DECISION["kt_gr"]["ANSWERS"]["DECISION"]["DEFERRED"]: ECH_JUDGEMENT_DECLINED,
         DECISION["kt_gr"]["ANSWERS"]["DECISION"]["NEGATIVE"]: ECH_JUDGEMENT_DECLINED,
     },
 }

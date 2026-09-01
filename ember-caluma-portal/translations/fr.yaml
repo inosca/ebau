@@ -145,6 +145,9 @@ instances:
   demolitionPaymentText: ""
   demolitionPaymentButton: ""
   demolitionPaymentError: ""
+  nextPhaseTitle: "Nächste Phase"
+  nextPhaseText: "Hier können Sie die nächste Phase erfassen."
+  nextPhaseConfirm: "<strong>Sind Sie sicher, dass Sie die nächste Phase erfassen möchten?</strong>"
   rejectionTitle: "Soumettre à nouveau le dossier"
   rejectionTitleSuffix: "(Motifs de rejet)"
   rejectionText: "Vous pouvez traiter et soumettre à nouveau le dossier
@@ -263,6 +266,10 @@ instances:
 
     internal-procedure-canton:
       title: ""
+      info: ""
+
+    baubeitragswesen:
+      title: "Baubeitragswesen"
       info: ""
 
     others:

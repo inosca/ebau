@@ -86,6 +86,9 @@ def test_dms_placeholders_gr(
     caluma_document_factory,
     caluma_question_factory,
     caluma_form_question_factory,
+    communications_message_factory,
+    communications_topic_factory,
+    journal_entry_factory,
     keyword_factory,
     active_inquiry_factory,
     set_application_gr,
@@ -93,7 +96,9 @@ def test_dms_placeholders_gr(
     gr_dms_settings,
     gr_publication_settings,
     instance_service_factory,
+    freezer,
     group,
+    mocker,
     user_factory,
     responsible_service_factory,
     form_utils: FormUtils,
@@ -292,11 +297,116 @@ def test_dms_placeholders_gr(
     kw_other1 = keyword_factory(name="keyword1", service=service_factory())
     gr_instance.keywords.set([kw_current1, kw_current2, kw_other1])
 
+    # communications
+    other_service = service_factory()
+    current_service_name = group.service.get_name()
+    other_service_name = other_service.get_name()
+    topic = communications_topic_factory(
+        instance=gr_instance,
+        subject="Ein Thema",
+        involved_entities=[str(group.service.pk), str(other_service.pk), "APPLICANT"],
+    )
+    freezer.move_to("2026-06-12 06:00:00+00:00")
+    communications_message_factory(
+        topic=topic,
+        created_by=str(other_service.pk),
+        body="Test",
+    )
+    freezer.move_to("2026-06-12 10:00:00+00:00")
+    communications_message_factory(
+        topic=topic,
+        created_by=str(group.service.pk),
+        body="Test 2",
+    )
+    freezer.move_to("2021-08-30")
+    hidden_service = service_factory()
+    hidden_topic = communications_topic_factory(
+        instance=gr_instance,
+        subject="Unsichtbares Thema",
+        involved_entities=[str(hidden_service.pk)],
+    )
+    communications_message_factory(
+        topic=hidden_topic, created_by=str(hidden_service.pk)
+    )
+
+    # journal entries
+    note_author = user_factory()
+    journal_entry_factory(
+        instance=gr_instance,
+        user=note_author,
+        service=group.service,
+        text="Ein Test",
+        visibility="own_organization",
+    )
+    journal_entry_factory(
+        instance=gr_instance,
+        service=hidden_service,
+        visibility="own_organization",
+    )
+
     url = reverse("instance-dms-placeholders", args=[gr_instance.pk])
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
+    communication_topics = response.json()["KOMMUNIKATIONS_THEMEN"]
+    assert [
+        {
+            "THEMA": topic["THEMA"],
+            "TEILNEHMER": topic["TEILNEHMER"],
+            "NACHRICHTEN": [
+                {
+                    "SENDER": message["SENDER"],
+                    "NACHRICHT": message["NACHRICHT"],
+                    "DATUMZEIT": message["DATUMZEIT"],
+                }
+                for message in topic["NACHRICHTEN"]
+            ],
+        }
+        for topic in communication_topics
+    ] == [
+        {
+            "THEMA": "Ein Thema",
+            "TEILNEHMER": (
+                f"{current_service_name}, {other_service_name}, Gesuchsteller/in"
+            ),
+            "NACHRICHTEN": [
+                {
+                    "SENDER": other_service_name,
+                    "NACHRICHT": "Test",
+                    "DATUMZEIT": "12. Juni 2026, 08:00",
+                },
+                {
+                    "SENDER": current_service_name,
+                    "NACHRICHT": "Test 2",
+                    "DATUMZEIT": "12. Juni 2026, 12:00",
+                },
+            ],
+        }
+    ]
+    notes = response.json()["NOTIZEN"]
+    assert [
+        {
+            "AUTHOR": note["AUTHOR"],
+            "AMT": note["AMT"],
+            "TEXT": note["TEXT"],
+        }
+        for note in notes
+    ] == [
+        {
+            "AUTHOR": note_author.get_full_name(),
+            "AMT": current_service_name,
+            "TEXT": "Ein Test",
+        }
+    ]
     snapshot.assert_match(response.json())
+
+    mocker.patch(
+        "camac.instance.placeholders.serializers.entity_for_current_user",
+        return_value=None,
+    )
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    assert response.json()["KOMMUNIKATIONS_THEMEN"] == []
 
 
 @pytest.mark.freeze_time("2024-01-18 13:37")

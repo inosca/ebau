@@ -1,0 +1,656 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "baubeitragswesen-bauabrechnung",
+    "fields": {
+      "created_at": "2026-07-20T14:41:48.315Z",
+      "modified_at": "2026-07-21T14:12:29.791Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bauabrechnung / Bauabnahme\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 5,
+        "category": "baubeitragswesen",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "baubeitragswesen-teilzahlungen"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "baubeitragswesen-investitionsanmeldung",
+    "fields": {
+      "created_at": "2026-07-20T10:59:50.975Z",
+      "modified_at": "2026-07-20T11:00:03.941Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Investitionsanmeldung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "baubeitragswesen",
+        "is-creatable": true,
+        "is-main-form": true,
+        "next-phase-form": "baubeitragswesen-phase-1"
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "baubeitragswesen-phase-1"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "baubeitragswesen-phase-1",
+    "fields": {
+      "created_at": "2026-07-09T12:24:34.903Z",
+      "modified_at": "2026-07-20T14:42:12.359Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Phase 1 - Grundlagen / Raumprogramm\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 2,
+        "category": "baubeitragswesen",
+        "is-creatable": true,
+        "is-main-form": true,
+        "next-phase-form": "baubeitragswesen-phase-2"
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "bauanzeige-v3"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "baubeitragswesen-phase-2",
+    "fields": {
+      "created_at": "2026-07-15T12:39:58.441Z",
+      "modified_at": "2026-07-20T14:42:19.015Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Phase 2 - Vorprojekt\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 3,
+        "category": "baubeitragswesen",
+        "is-creatable": true,
+        "is-main-form": true,
+        "next-phase-form": "baubeitragswesen-teilzahlungen"
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "baubeitragswesen-phase-1"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "baubeitragswesen-teilzahlungen",
+    "fields": {
+      "created_at": "2026-07-16T11:57:30.849Z",
+      "modified_at": "2026-07-20T14:42:25.317Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Teilzahlung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 4,
+        "category": "baubeitragswesen",
+        "is-creatable": true,
+        "is-main-form": true,
+        "next-phase-form": "baubeitragswesen-bauabrechnung"
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "baubeitragswesen-phase-2"
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-bauabrechnung.allgemeine-angaben",
+    "fields": {
+      "created_at": "2026-07-20T14:41:48.320Z",
+      "modified_at": "2026-07-20T14:41:48.320Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-bauabrechnung",
+      "question": "allgemeine-angaben",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-bauabrechnung.bauvorhaben",
+    "fields": {
+      "created_at": "2026-07-20T14:41:48.326Z",
+      "modified_at": "2026-07-20T14:41:48.326Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-bauabrechnung",
+      "question": "bauvorhaben",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-bauabrechnung.dokumente-ebbw",
+    "fields": {
+      "created_at": "2026-07-20T14:41:48.328Z",
+      "modified_at": "2026-07-20T14:41:48.328Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-bauabrechnung",
+      "question": "dokumente-ebbw",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-bauabrechnung.einreichen",
+    "fields": {
+      "created_at": "2026-07-20T14:41:48.330Z",
+      "modified_at": "2026-07-20T14:41:48.330Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-bauabrechnung",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-bauabrechnung.personalien",
+    "fields": {
+      "created_at": "2026-07-20T14:41:48.323Z",
+      "modified_at": "2026-07-20T14:41:48.323Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-bauabrechnung",
+      "question": "personalien",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-investitionsanmeldung.allgemeine-angaben",
+    "fields": {
+      "created_at": "2026-07-20T10:59:50.994Z",
+      "modified_at": "2026-07-20T10:59:50.994Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-investitionsanmeldung",
+      "question": "allgemeine-angaben",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-investitionsanmeldung.bauvorhaben",
+    "fields": {
+      "created_at": "2026-07-20T10:59:50.999Z",
+      "modified_at": "2026-07-20T10:59:50.999Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-investitionsanmeldung",
+      "question": "bauvorhaben",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-investitionsanmeldung.dokumente-ebbw",
+    "fields": {
+      "created_at": "2026-07-20T10:59:51.002Z",
+      "modified_at": "2026-07-20T10:59:51.002Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-investitionsanmeldung",
+      "question": "dokumente-ebbw",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-investitionsanmeldung.einreichen",
+    "fields": {
+      "created_at": "2026-07-20T10:59:51.005Z",
+      "modified_at": "2026-07-20T10:59:51.005Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-investitionsanmeldung",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-investitionsanmeldung.personalien",
+    "fields": {
+      "created_at": "2026-07-20T10:59:50.997Z",
+      "modified_at": "2026-07-20T10:59:50.997Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-investitionsanmeldung",
+      "question": "personalien",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-phase-1.allgemeine-angaben",
+    "fields": {
+      "created_at": "2026-07-09T12:24:34.911Z",
+      "modified_at": "2026-07-09T12:24:34.911Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-phase-1",
+      "question": "allgemeine-angaben",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-phase-1.bauvorhaben",
+    "fields": {
+      "created_at": "2026-07-09T12:24:34.919Z",
+      "modified_at": "2026-07-09T12:24:34.919Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-phase-1",
+      "question": "bauvorhaben",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-phase-1.dokumente-ebbw",
+    "fields": {
+      "created_at": "2026-07-09T12:24:34.926Z",
+      "modified_at": "2026-07-09T12:24:34.926Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-phase-1",
+      "question": "dokumente-ebbw",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-phase-1.einreichen",
+    "fields": {
+      "created_at": "2026-07-09T12:24:34.929Z",
+      "modified_at": "2026-07-09T12:24:34.929Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-phase-1",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-phase-1.personalien",
+    "fields": {
+      "created_at": "2026-07-09T12:24:34.917Z",
+      "modified_at": "2026-07-09T12:24:34.917Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-phase-1",
+      "question": "personalien",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-phase-2.allgemeine-angaben",
+    "fields": {
+      "created_at": "2026-07-15T12:39:58.447Z",
+      "modified_at": "2026-07-15T12:39:58.447Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-phase-2",
+      "question": "allgemeine-angaben",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-phase-2.bauvorhaben",
+    "fields": {
+      "created_at": "2026-07-15T12:39:58.453Z",
+      "modified_at": "2026-07-15T12:39:58.453Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-phase-2",
+      "question": "bauvorhaben",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-phase-2.dokumente-ebbw",
+    "fields": {
+      "created_at": "2026-07-15T12:39:58.455Z",
+      "modified_at": "2026-07-15T12:39:58.455Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-phase-2",
+      "question": "dokumente-ebbw",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-phase-2.einreichen",
+    "fields": {
+      "created_at": "2026-07-15T12:39:58.457Z",
+      "modified_at": "2026-07-15T12:39:58.457Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-phase-2",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-phase-2.personalien",
+    "fields": {
+      "created_at": "2026-07-15T12:39:58.451Z",
+      "modified_at": "2026-07-15T12:39:58.451Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-phase-2",
+      "question": "personalien",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-teilzahlungen.allgemeine-angaben",
+    "fields": {
+      "created_at": "2026-07-16T11:57:30.857Z",
+      "modified_at": "2026-07-16T11:57:30.857Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-teilzahlungen",
+      "question": "allgemeine-angaben",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-teilzahlungen.bauvorhaben",
+    "fields": {
+      "created_at": "2026-07-16T11:57:30.864Z",
+      "modified_at": "2026-07-16T11:57:30.864Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-teilzahlungen",
+      "question": "bauvorhaben",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-teilzahlungen.dokumente-ebbw",
+    "fields": {
+      "created_at": "2026-07-16T11:57:30.866Z",
+      "modified_at": "2026-07-16T11:57:30.866Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-teilzahlungen",
+      "question": "dokumente-ebbw",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-teilzahlungen.einreichen",
+    "fields": {
+      "created_at": "2026-07-16T11:57:30.868Z",
+      "modified_at": "2026-07-16T11:57:30.868Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-teilzahlungen",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubeitragswesen-teilzahlungen.personalien",
+    "fields": {
+      "created_at": "2026-07-16T11:57:30.861Z",
+      "modified_at": "2026-07-16T11:57:30.861Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baubeitragswesen-teilzahlungen",
+      "question": "personalien",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-angaben",
+    "fields": {
+      "created_at": "2022-09-21T12:18:28.632Z",
+      "modified_at": "2024-09-11T14:58:33.834Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lage des Vorhabens\", \"fr\": null, \"it\": \"Ubicazione del progetto\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "allgemeine-angaben-kurz",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauvorhaben",
+    "fields": {
+      "created_at": "2023-04-05T10:44:17.764Z",
+      "modified_at": "2024-09-11T14:58:35.340Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorhaben\", \"fr\": null, \"it\": \"Progetto\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "bauvorhaben",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-ebbw",
+    "fields": {
+      "created_at": "2023-05-01T09:33:04.773Z",
+      "modified_at": "2026-07-21T14:55:32.923Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": \"Documenti\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "alexandria-documents-form",
+        "alexandria-categories": [
+          "beilagen-zum-gesuch-weitere-gesuchsunterlagen"
+        ]
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-ebbw",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einreichen",
+    "fields": {
+      "created_at": "2022-09-21T12:52:11.818Z",
+      "modified_at": "2024-09-11T14:58:37.974Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einreichen\", \"fr\": null, \"it\": \"Inoltra\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "einreichen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "personalien",
+    "fields": {
+      "created_at": "2022-09-21T12:18:04.569Z",
+      "modified_at": "2024-09-11T14:58:43.777Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Personalien\", \"fr\": null, \"it\": \"Dati personali\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "personalien",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  }
+]

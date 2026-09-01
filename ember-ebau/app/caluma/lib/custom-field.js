@@ -40,6 +40,7 @@ export default class CustomField extends Field {
         const formName = this.caseInformation?.value?.form ?? "";
 
         return (
+          formName.startsWith("baubeitragswesen") ||
           formName.startsWith("bauanzeige") ||
           formName.startsWith("vorlaeufige-beurteilung") ||
           formName.startsWith("solaranlage")
@@ -59,6 +60,7 @@ export default class CustomField extends Field {
         }
 
         return (
+          formName.startsWith("baubeitragswesen") ||
           formName.startsWith("bauanzeige") ||
           formName.startsWith("vorlaeufige-beurteilung") ||
           formName.startsWith("solaranlage")
@@ -79,7 +81,15 @@ export default class CustomField extends Field {
 
       const { form } = this.caseInformation.value;
 
-      if (form.startsWith("baugesuch")) {
+      if (form.startsWith("baubeitragswesen")) {
+        // EBBW forms
+        return [
+          "decision-decision-approved",
+          "decision-decision-approved-with-reservation",
+          "decision-decision-rejected",
+          "decision-decision-deferred",
+        ];
+      } else if (form.startsWith("baugesuch")) {
         // Baugesuche
         return [
           "decision-decision-approved",

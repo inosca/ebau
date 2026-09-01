@@ -237,6 +237,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "decision-decision-deferred",
+    "fields": {
+      "created_at": "2026-08-19T14:00:00Z",
+      "modified_at": "2026-08-19T14:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zurückgestellt\", \"fr\": null, \"it\": \"Sospesa\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "decision-decision-negative",
     "fields": {
       "created_at": "2023-06-21T11:17:40.962Z",
@@ -743,6 +760,21 @@
       "question": "decision-decision",
       "option": "decision-decision-approved-with-reservation",
       "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision.decision-decision-deferred",
+    "fields": {
+      "created_at": "2026-08-19T14:00:00Z",
+      "modified_at": "2026-08-19T14:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "decision-decision",
+      "option": "decision-decision-deferred",
+      "sort": 1
     }
   },
   {

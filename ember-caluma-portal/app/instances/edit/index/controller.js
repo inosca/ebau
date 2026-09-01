@@ -10,6 +10,7 @@ import { confirm } from "ember-uikit";
 import config from "caluma-portal/config/environment";
 
 export default class InstancesEditIndexController extends Controller {
+  @service store;
   @service fetch;
   @service notification;
   @service intl;
@@ -93,6 +94,18 @@ export default class InstancesEditIndexController extends Controller {
   }
 
   @dropTask
+  *createNextPhase() {
+    if (
+      hasFeature("nextPhaseConfirm") &&
+      !(yield confirm(this.intl.t("instances.nextPhaseConfirm")))
+    ) {
+      return;
+    }
+
+    yield this.nextPhase.perform(true);
+  }
+
+  @dropTask
   *createCopy() {
     yield this.copy.perform();
   }
@@ -119,6 +132,30 @@ export default class InstancesEditIndexController extends Controller {
       "instances.edit.form",
       data.id,
       this.editController.instance.calumaForm,
+    );
+  }
+
+  @dropTask
+  *nextPhase() {
+    const response = yield this.fetch.fetch(`/api/v1/instances`, {
+      method: "POST",
+      body: JSON.stringify({
+        data: {
+          attributes: {
+            "copy-source": this.editController.model,
+            "copy-type": "ebbw_next_phase",
+          },
+          type: "instances",
+        },
+      }),
+    });
+    const { data } = yield response.json();
+    const newInstance = yield this.store.findRecord("instance", data.id);
+
+    yield this.router.transitionTo(
+      "instances.edit.form",
+      data.id,
+      newInstance.calumaForm,
     );
   }
 

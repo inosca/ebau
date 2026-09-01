@@ -15,6 +15,9 @@ distribution:
   own-cantonal-services: ""
   non-cantonal-services: ""
   geometer: "Geometra"
+  # GR
+  authority-contribution-services: "Dienststelle Beitragswesen"
+  building-department-services: "Hochbauamt"
 
   send-answer: "Invia risposta"
   release-for-review: "Rilascia per la verifica"

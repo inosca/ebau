@@ -11,15 +11,17 @@
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2026-05-05T08:43:42.895Z",
-      "metainfo": {},
+      "last_login": "2026-07-14T07:39:39.710Z",
       "address": null,
       "city": null,
       "zip": null,
       "title": null,
       "position": null,
       "mobile": null,
-      "division": null
+      "division": null,
+      "metainfo": {
+        "baubeitragswesen": true
+      }
     }
   },
   {

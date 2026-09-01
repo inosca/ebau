@@ -1,5 +1,9 @@
 from camac.caluma.models import Instance
-from camac.constants.kt_gr import ARE_SERVICE_GROUP
+from camac.constants.kt_gr import (
+    ARE_SERVICE_GROUP,
+    BAUBEITRAGSWESEN_FORMS,
+    BUILDING_DEPARTMENT_SERVICE_GROUP,
+)
 from camac.core.utils import canton_aware
 from camac.settings.utils import is_module_enabled
 from camac.user.models import Service
@@ -12,8 +16,12 @@ class DeadlinePermissionMixin:
         return ["municipality"]
 
     def allowed_service_groups_gr(self):
-        """In GR, deadlines are also enabled for ARE."""
-        return ["municipality", ARE_SERVICE_GROUP]
+        """In GR, deadlines are also enabled for ARE and HBA."""
+        return [
+            "municipality",
+            ARE_SERVICE_GROUP,
+            BUILDING_DEPARTMENT_SERVICE_GROUP,
+        ]
 
     def allowed_service_groups_so(self):
         """In SO, deadlines are also enabled for services handling BAB."""
@@ -49,12 +57,24 @@ class DeadlinePermissionMixin:
 
     def has_instance_access_gr(self, instance: Instance, service: Service) -> bool:
         """In GR, some dossier types do not allow deadlines."""
-        if str(instance.case.family.document.form.pk).startswith(
-            "vorlaeufige-beurteilung"
-        ):
+        form_slug = str(instance.case.family.document.form.pk)
+
+        if not self.has_deadline_access(service):
             return False
 
-        return self.has_deadline_access(service) and (
-            service.pk == instance.responsible_service().pk
-            or instance.has_inquiry(service.pk)
+        if form_slug.startswith("vorlaeufige-beurteilung"):
+            return False
+
+        if form_slug in BAUBEITRAGSWESEN_FORMS:
+            return (
+                service.service_group.name == BUILDING_DEPARTMENT_SERVICE_GROUP
+                and instance.has_inquiry(service.pk)
+            )
+
+        # HBA is only allowed to use deadlines for EBBW dossiers.
+        if service.service_group.name == BUILDING_DEPARTMENT_SERVICE_GROUP:
+            return False
+
+        return service.pk == instance.responsible_service().pk or instance.has_inquiry(
+            service.pk
         )

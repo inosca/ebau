@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-03 14:11+0200\n"
+"POT-Creation-Date: 2026-08-20 11:57+0200\n"
 "PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -158,6 +158,7 @@ msgid "OPINION"
 msgstr "STELLUNGNAHME"
 
 #: camac/instance/placeholders/fields.py
+#: camac/instance/placeholders/serializers.py
 msgid "TEXT"
 msgstr "TEXT"
 
@@ -1461,6 +1462,58 @@ msgstr "ALLE_ANLAGEERRICHTER_NAME_ADRESSE"
 #: camac/instance/placeholders/serializers.py
 msgid "Names and addresses of all system builders"
 msgstr "Namen und Adressen aller Errichter der Anlagen"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_TOPICS"
+msgstr "KOMMUNIKATIONS_THEMEN"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Communication topics of the instance"
+msgstr "Kommunikationsthemen des Dossiers"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_TOPIC"
+msgstr "THEMA"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_PARTICIPANTS"
+msgstr "TEILNEHMER"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_MESSAGES"
+msgstr "NACHRICHTEN"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_MESSAGE_SENDER"
+msgstr "SENDER"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_MESSAGE"
+msgstr "NACHRICHT"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_MESSAGE_DATETIME"
+msgstr "DATUMZEIT"
+
+#: camac/instance/placeholders/serializers.py
+msgid "NOTES"
+msgstr "NOTIZEN"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Journal entries of the instance"
+msgstr "Liste der Notizen"
+
+#: camac/instance/placeholders/serializers.py
+msgid "AUTHOR"
+msgstr "AUTHOR"
+
+#: camac/instance/placeholders/serializers.py
+msgid "OFFICE"
+msgstr "AMT"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Applicant"
+msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "PROJECT"

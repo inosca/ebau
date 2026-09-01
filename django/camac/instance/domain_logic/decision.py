@@ -144,7 +144,11 @@ class DecisionLogic:
         ) and not can_perform_construction_monitoring(instance):
             return False
         elif not is_module_enabled("CONSTRUCTION_MONITORING") and (
-            instance.case.document.form_id in gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS
+            instance.case.document.form_id
+            in [
+                *gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
+                *gr_constants.BAUBEITRAGSWESEN_FORMS,
+            ]
         ):
             return False
 

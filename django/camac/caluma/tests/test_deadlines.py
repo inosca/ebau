@@ -13,7 +13,11 @@ from camac.caluma.extensions.events.deadlines import (
     post_create_withdrawal_check_closes_suspensions,
     post_redo_inquiry_ag,
 )
-from camac.constants.kt_gr import ARE_SERVICE_GROUP
+from camac.constants.kt_gr import (
+    ARE_SERVICE_GROUP,
+    BAUBEITRAGSWESEN_FORM_PHASE_1,
+    BUILDING_DEPARTMENT_SERVICE_GROUP,
+)
 from camac.deadlines import models as deadlines_models
 from camac.tests.form_utils import FormUtils
 
@@ -144,6 +148,13 @@ def test_events_deadlines_additional_demand_suspensions_gr(
         ),
         # Inquiry, set to inquiry date.
         (ARE_SERVICE_GROUP, "service-lead", "invited", "2025-03-03"),
+        # HBA inquiry in EBBW, set to inquiry date.
+        (
+            BUILDING_DEPARTMENT_SERVICE_GROUP,
+            "service-lead",
+            "invited_ebbw",
+            "2025-03-03",
+        ),
         # Not allowed service, don't create deadline
         ("municipality", "municipality-lead", "none", None),
     ],
@@ -152,6 +163,7 @@ def test_events_deadlines_additional_demand_suspensions_gr(
 def test_events_deadlines_publication_inquiry_gr(
     admin_user,
     gr_instance,
+    caluma_form_factory,
     caluma_case_factory,
     caluma_work_item_factory,
     test_case,
@@ -177,6 +189,12 @@ def test_events_deadlines_publication_inquiry_gr(
     group = admin_user.groups.first()
     service = group.service
     case = gr_instance.case
+    if test_case == "invited_ebbw":
+        case.family.document.form = caluma_form_factory(
+            slug=BAUBEITRAGSWESEN_FORM_PHASE_1
+        )
+        case.family.document.save(update_fields=["form"])
+
     gr_instance.case.meta["submit-date"] = "2025-01-01T12:00:00+0000"
     gr_instance.case.save()
 
@@ -188,7 +206,7 @@ def test_events_deadlines_publication_inquiry_gr(
     )
     mocker.patch(
         "camac.instance.models.Instance.has_inquiry",
-        return_value=test_case == "invited",
+        return_value=test_case.startswith("invited"),
     )
     mocker.patch(
         "camac.deadlines.models.InstanceDeadline.trigger_side_effect",

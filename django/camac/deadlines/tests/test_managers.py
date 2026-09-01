@@ -5,7 +5,12 @@ from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow.models import Task, WorkItem
 from django.utils.timezone import make_aware
 
-from camac.constants.kt_gr import ARE_SERVICE_GROUP
+from camac.constants.kt_gr import (
+    ARE_SERVICE_GROUP,
+    AUTHORITY_CONTRIBUTION_SERVICE_GROUP,
+    BAUBEITRAGSWESEN_FORM_PHASE_1,
+    BUILDING_DEPARTMENT_SERVICE_GROUP,
+)
 from camac.core.models import HistoryActionConfig
 from camac.core.utils import create_history_entry
 from camac.deadlines import models as deadlines_models
@@ -17,6 +22,7 @@ from camac.tests.form_utils import FormUtils
     [
         ("service", "service-lead"),
         ("applicant", "applicant"),
+        (AUTHORITY_CONTRIBUTION_SERVICE_GROUP, "service-lead"),
     ],
 )
 @pytest.mark.django_db
@@ -38,21 +44,58 @@ def test_update_deadline_no_access(
 
 
 @pytest.mark.parametrize(
-    ("service_group__name", "role__name"),
+    (
+        "service_group__name",
+        "role__name",
+        "form_slug",
+        "has_inquiry",
+        "expected_count",
+    ),
     [
-        ("municipality", "municipality-lead"),
-        (ARE_SERVICE_GROUP, "service-lead"),
-    ],
-)
-@pytest.mark.parametrize(
-    ("form_slug", "expected_count"),
-    [
-        ("baugesuch", 1),
-        ("baugesuch-v1", 1),
-        ("baugesuch-v2", 1),
-        ("bauanzeige", 1),
-        ("vorlaeufige-beurteilung", 0),
-        ("vorlaeufige-beurteilung-v1", 0),
+        ("municipality", "municipality-lead", "baugesuch", False, 1),
+        (
+            "municipality",
+            "municipality-lead",
+            "vorlaeufige-beurteilung",
+            False,
+            0,
+        ),
+        (
+            "municipality",
+            "municipality-lead",
+            BAUBEITRAGSWESEN_FORM_PHASE_1,
+            False,
+            0,
+        ),
+        (ARE_SERVICE_GROUP, "service-lead", "baugesuch", True, 1),
+        (
+            ARE_SERVICE_GROUP,
+            "service-lead",
+            BAUBEITRAGSWESEN_FORM_PHASE_1,
+            True,
+            0,
+        ),
+        (
+            BUILDING_DEPARTMENT_SERVICE_GROUP,
+            "service-lead",
+            BAUBEITRAGSWESEN_FORM_PHASE_1,
+            True,
+            1,
+        ),
+        (
+            BUILDING_DEPARTMENT_SERVICE_GROUP,
+            "service-lead",
+            BAUBEITRAGSWESEN_FORM_PHASE_1,
+            False,
+            0,
+        ),
+        (
+            BUILDING_DEPARTMENT_SERVICE_GROUP,
+            "service-lead",
+            "baugesuch",
+            True,
+            0,
+        ),
     ],
 )
 @pytest.mark.django_db
@@ -60,6 +103,7 @@ def test_create_deadline_form_type_gr(
     service,
     gr_instance,
     form_slug,
+    has_inquiry,
     expected_count,
     service_group,
     service_factory,
@@ -80,7 +124,7 @@ def test_create_deadline_form_type_gr(
     )
     mocker.patch(
         "camac.instance.models.Instance.has_inquiry",
-        return_value=service_group.name == ARE_SERVICE_GROUP,
+        return_value=has_inquiry,
     )
 
     deadlines_models.InstanceDeadline.objects.create_deadline(

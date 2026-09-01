@@ -6,34 +6,40 @@
       "created_at": "2020-08-04T13:24:00.704Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-08-28T12:24:54.790Z",
+      "modified_at": "2026-07-14T09:07:21.072Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "sort": 4,
         "access": {
-          "applicant": {
-            "visibility": "all"
-          },
-          "municipality-lead": {
-            "visibility": "all"
-          },
           "are": {
-            "visibility": "all"
-          },
-          "service-lead": {
-            "visibility": "all"
-          },
-          "subservice": {
-            "visibility": "all"
-          },
-          "geometer": {
             "visibility": "all"
           },
           "uso": {
             "visibility": "all"
           },
           "support": {
+            "visibility": "all"
+          },
+          "geometer": {
+            "visibility": "all"
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "subservice": {
+            "visibility": "all"
+          },
+          "service-lead": {
+            "visibility": "all"
+          },
+          "ebbw-hochbauamt": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
+            "visibility": "all"
+          },
+          "ebbw-dienststellen": {
             "visibility": "all"
           }
         }
@@ -67,13 +73,13 @@
           "are": {
             "visibility": "all"
           },
-          "service-lead": {
+          "support": {
             "visibility": "all"
           },
           "subservice": {
             "visibility": "all"
           },
-          "support": {
+          "service-lead": {
             "visibility": "all"
           }
         }
@@ -104,25 +110,25 @@
       "metainfo": {
         "sort": 6,
         "access": {
-          "applicant": {
-            "visibility": "all"
-          },
-          "municipality-lead": {
-            "visibility": "all"
-          },
           "are": {
             "visibility": "all"
           },
-          "service-lead": {
-            "visibility": "all"
-          },
-          "subservice": {
+          "support": {
             "visibility": "all"
           },
           "geometer": {
             "visibility": "all"
           },
-          "support": {
+          "applicant": {
+            "visibility": "all"
+          },
+          "subservice": {
+            "visibility": "all"
+          },
+          "service-lead": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
             "visibility": "all"
           }
         }
@@ -148,33 +154,39 @@
       "created_at": "2020-08-04T13:24:00.677Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-08-28T12:24:54.800Z",
+      "modified_at": "2026-07-14T09:06:52.434Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "applicant": {
-            "visibility": "all"
-          },
-          "municipality-lead": {
-            "visibility": "all"
-          },
           "are": {
-            "visibility": "all"
-          },
-          "service-lead": {
-            "visibility": "all"
-          },
-          "subservice": {
-            "visibility": "all"
-          },
-          "geometer": {
             "visibility": "all"
           },
           "uso": {
             "visibility": "all"
           },
           "support": {
+            "visibility": "all"
+          },
+          "geometer": {
+            "visibility": "all"
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "subservice": {
+            "visibility": "all"
+          },
+          "service-lead": {
+            "visibility": "all"
+          },
+          "ebbw-hochbauamt": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
+            "visibility": "all"
+          },
+          "ebbw-dienststellen": {
             "visibility": "all"
           }
         }
@@ -324,25 +336,31 @@
       "created_at": "2020-08-04T13:24:00.699Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-08-28T12:24:54.815Z",
+      "modified_at": "2026-07-14T09:07:23.321Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "sort": 5,
         "access": {
-          "municipality-lead": {
-            "visibility": "all"
-          },
           "are": {
             "visibility": "all"
           },
-          "service-lead": {
+          "support": {
             "visibility": "all"
           },
           "subservice": {
             "visibility": "all"
           },
-          "support": {
+          "service-lead": {
+            "visibility": "all"
+          },
+          "ebbw-hochbauamt": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
+            "visibility": "all"
+          },
+          "ebbw-dienststellen": {
             "visibility": "all"
           }
         }
@@ -398,17 +416,17 @@
       "metainfo": {
         "sort": 3,
         "access": {
-          "municipality-lead": {
-            "visibility": "service-and-subservice"
-          },
           "are": {
+            "visibility": "all"
+          },
+          "support": {
             "visibility": "all"
           },
           "subservice": {
             "visibility": "service-and-subservice"
           },
-          "support": {
-            "visibility": "all"
+          "municipality-lead": {
+            "visibility": "service-and-subservice"
           }
         }
       },
@@ -432,31 +450,37 @@
       "created_at": "2020-08-04T13:24:00.708Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-08-28T12:24:54.818Z",
+      "modified_at": "2026-07-14T09:07:25.299Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "sort": 7,
         "access": {
-          "municipality-lead": {
-            "visibility": "service"
-          },
           "are": {
-            "visibility": "service"
-          },
-          "service-lead": {
-            "visibility": "service"
-          },
-          "subservice": {
-            "visibility": "service"
-          },
-          "geometer": {
             "visibility": "service"
           },
           "uso": {
             "visibility": "service"
           },
           "support": {
+            "visibility": "all"
+          },
+          "geometer": {
+            "visibility": "service"
+          },
+          "subservice": {
+            "visibility": "service"
+          },
+          "service-lead": {
+            "visibility": "service"
+          },
+          "ebbw-hochbauamt": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
+            "visibility": "service"
+          },
+          "ebbw-dienststellen": {
             "visibility": "all"
           }
         }
@@ -489,25 +513,31 @@
       "created_at": "2023-11-13T00:00:00Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-08-28T12:24:54.821Z",
+      "modified_at": "2026-07-14T09:07:27.920Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "sort": 8,
         "access": {
-          "municipality-lead": {
+          "are": {
             "visibility": "service-and-subservice"
           },
-          "are": {
+          "support": {
+            "visibility": "all"
+          },
+          "subservice": {
             "visibility": "service-and-subservice"
           },
           "service-lead": {
             "visibility": "service-and-subservice"
           },
-          "subservice": {
+          "ebbw-hochbauamt": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
             "visibility": "service-and-subservice"
           },
-          "support": {
+          "ebbw-dienststellen": {
             "visibility": "all"
           }
         }
@@ -545,22 +575,22 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "municipality-lead": {
-            "visibility": "all"
-          },
           "are": {
-            "visibility": "all"
-          },
-          "service-lead": {
-            "visibility": "all"
-          },
-          "subservice": {
             "visibility": "all"
           },
           "uso": {
             "visibility": "all"
           },
           "support": {
+            "visibility": "all"
+          },
+          "subservice": {
+            "visibility": "all"
+          },
+          "service-lead": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
             "visibility": "all"
           }
         }
@@ -593,33 +623,39 @@
       "created_at": "2020-08-04T13:24:00.690Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-08-28T12:24:54.824Z",
+      "modified_at": "2026-07-14T09:07:18.429Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "applicant": {
-            "visibility": "all"
-          },
-          "municipality-lead": {
-            "visibility": "all"
-          },
           "are": {
-            "visibility": "all"
-          },
-          "service-lead": {
-            "visibility": "all"
-          },
-          "subservice": {
-            "visibility": "all"
-          },
-          "geometer": {
             "visibility": "all"
           },
           "uso": {
             "visibility": "all"
           },
           "support": {
+            "visibility": "all"
+          },
+          "geometer": {
+            "visibility": "all"
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "subservice": {
+            "visibility": "all"
+          },
+          "service-lead": {
+            "visibility": "all"
+          },
+          "ebbw-hochbauamt": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
+            "visibility": "all"
+          },
+          "ebbw-dienststellen": {
             "visibility": "all"
           }
         }
@@ -653,14 +689,14 @@
           "are": {
             "visibility": "all"
           },
-          "service-lead": {
-            "visibility": "service"
-          },
           "uso": {
             "visibility": "service"
           },
           "support": {
             "visibility": "all"
+          },
+          "service-lead": {
+            "visibility": "service"
           }
         },
         "hideInBab": true
@@ -691,10 +727,10 @@
       "metainfo": {
         "sort": 8,
         "access": {
-          "applicant": {
+          "support": {
             "visibility": "all"
           },
-          "support": {
+          "applicant": {
             "visibility": "all"
           }
         }

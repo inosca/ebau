@@ -2,6 +2,8 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
+from camac.constants import kt_gr as gr_constants
+
 
 @pytest.mark.parametrize(
     ("role__name", "localized", "group_visibility", "count"),
@@ -243,6 +245,83 @@ def test_distribution_services_callable_condition(
         ("service-2", "some-other"),
     ]:
         service_factory(slug=slug, name=slug, service_group__name=service_group_name)
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        {
+            "available_in_distribution_for_instance": instance.pk,
+            "exclude_own_service": True,
+        },
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert {
+        i["attributes"]["name"] for i in response.json()["data"]
+    } == expected_services
+
+
+@pytest.mark.parametrize(
+    ("form_id", "service_group__name", "expected_services"),
+    [
+        # normal forms below.
+        (None, "service", {"service-1", "service-are"}),
+        (None, "municipality", {"service-1", "service-are"}),
+        # baubeitragswesen forms below.
+        # building department will see services as normal.
+        (
+            gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+            gr_constants.BUILDING_DEPARTMENT_SERVICE_GROUP,
+            {"service-1", "service-are"},
+        ),
+        # authority-contribution will only see other authority-contribution and
+        # building-department services.
+        (
+            gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+            gr_constants.AUTHORITY_CONTRIBUTION_SERVICE_GROUP,
+            {"service-ac", "service-bd"},
+        ),
+    ],
+)
+def test_distribution_services_ebbw_gr(
+    admin_client,
+    service_factory,
+    service,
+    instance,
+    mocker,
+    caluma_case_factory,
+    caluma_form_factory,
+    caluma_document_factory,
+    form_id,
+    expected_services,
+    gr_distribution_settings,
+    settings,
+    application_settings,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    application_settings["SHORT_NAME"] = "gr"
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service,
+    )
+    instance.case = caluma_case_factory(
+        document=caluma_document_factory(
+            form=caluma_form_factory(pk=form_id or "test-form"),
+        )
+    )
+    instance.save()
+
+    for slug, service_group_name, service_parent in [
+        ("service-1", "service", None),
+        ("service-bd", gr_constants.BUILDING_DEPARTMENT_SERVICE_GROUP, None),
+        ("service-ac", gr_constants.AUTHORITY_CONTRIBUTION_SERVICE_GROUP, None),
+        ("service-are", gr_constants.ARE_SERVICE_GROUP, None),
+    ]:
+        service_factory(
+            slug=slug,
+            name=slug,
+            service_group__name=service_group_name,
+            service_parent=service_parent,
+        )
 
     response = admin_client.get(
         reverse("publicservice-list"),

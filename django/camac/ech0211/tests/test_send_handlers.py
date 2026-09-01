@@ -1590,7 +1590,9 @@ def test_submit_send_handler(
         "loaddata",
         settings.ROOT_DIR("kt_gr/config/caluma_form.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_form_v2.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_form_v3.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_form_common.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_baubeitragswesen.json"),
     )
     response = Mock(spec=requests.models.Response)
     response.status_code = 200

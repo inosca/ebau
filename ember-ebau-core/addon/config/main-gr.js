@@ -113,6 +113,7 @@ export default {
       "decision-decision-written-off": "uk-alert-warning",
       "decision-decision-positive": "uk-alert-success",
       "decision-decision-negative": "uk-alert-danger",
+      "decision-decision-deferred": "uk-alert-danger",
       "decision-decision-positive-with-reservation": "uk-alert-success",
       "decision-decision-retreat": "uk-alert-warning",
     },
@@ -194,7 +195,11 @@ export default {
     disallowStates: ["new"],
   },
   receipt: {
-    templateName: (locale) => `eingabequittung-${locale}`,
+    templateName: (locale, instance) => {
+      return `${instance.calumaForm}`.startsWith("baubeitragswesen")
+        ? `eingabequittung-ebbw-de` // no IT for now, always DE for EBBW
+        : `eingabequittung-${locale}`; // localized template for all other forms;
+    },
   },
   submitComponent: {
     requiredPermissions: {

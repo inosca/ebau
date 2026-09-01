@@ -17,7 +17,7 @@ from django_filters.rest_framework import (
 
 from camac.billing.views import BillingV2EntryViewset
 from camac.caluma.api import CalumaApi
-from camac.constants import kt_uri as uri_constants
+from camac.constants import kt_gr as gr_constants, kt_uri as uri_constants
 from camac.core.utils import canton_aware
 from camac.document.filters import RESTJSONFilter
 from camac.filters import (
@@ -173,7 +173,6 @@ class PublicServiceFilterSet(FilterSet):
         service = self.request.group.service
         instance = Instance.objects.get(pk=value)
         config_key = self.get_config_key_for_distribution_filter(service, instance)
-
         applied_config = config.get(config_key, config.get("default", []))
 
         filters = {
@@ -228,6 +227,18 @@ class PublicServiceFilterSet(FilterSet):
             return "authority"
 
         return service.service_group.name
+
+    def get_config_key_for_distribution_filter_gr(self, service, instance):
+        # for baubeitragswesen forms, always use the service group key
+        # configuration.
+        if instance.case.document.form_id in gr_constants.BAUBEITRAGSWESEN_FORMS:
+            return service.service_group.name
+
+        return (
+            "authority"
+            if instance.responsible_service() == service
+            else service.service_group.name
+        )
 
     def get_config_key_for_distribution_filter_ag(self, service, instance):
         service_group = service.service_group.name

@@ -163,6 +163,17 @@ export default class InstanceAbility extends Ability {
     );
   }
 
+  async canCreateNextPhase() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "instance-request-ebbw-next-phase",
+      );
+    }
+
+    return false;
+  }
+
   async canCreateCopy() {
     if (this.permissions.fullyEnabled) {
       return await this.permissions.hasAll(
