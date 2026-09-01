@@ -77,7 +77,21 @@ def get_municipality(instance: Instance) -> Service:
         municipality = active_municipality.service
     elif involved_municipalities.exists():
         # active service is an RSTA, take involved (but not active) municipality
-        municipality = involved_municipalities.first().service
+        municipality_id = str(
+            instance.case.document.answers.get(question_id="gemeinde").value
+        )
+
+        matching_instance_service = (
+            involved_municipalities.select_related("service")
+            .filter(service_id=municipality_id)
+            .first()
+        )
+
+        if matching_instance_service:
+            municipality = matching_instance_service.service
+        else:
+            first_involved = involved_municipalities.select_related("service").first()
+            municipality = first_involved.service if first_involved else None
     else:
         # no involved municipality, take fallback from form
         municipality = Service.objects.get(pk=CalumaApi().get_municipality(instance))
