@@ -1,3 +1,5 @@
+from camac.constants import kt_gr as gr_constants
+
 from .alexandria_config.kt_ag import CONFIG as AG_CONFIG
 
 ALEXANDRIA = {
@@ -54,7 +56,11 @@ ALEXANDRIA = {
             "SENSITIVE": ["sensitive"],
         },
         "PERMISSION_KEY": {
-            "SERVICE_GROUP_MAPPING": {"authority-bab": "are"},
+            "SERVICE_GROUP_MAPPING": {
+                gr_constants.ARE_SERVICE_GROUP: "are",
+                gr_constants.AUTHORITY_CONTRIBUTION_SERVICE_GROUP: "ebbw-dienststellen",
+                gr_constants.BUILDING_DEPARTMENT_SERVICE_GROUP: "ebbw-hochbauamt",
+            },
         },
         "INSTANCE_COPY_CATEGORIES": ["beilagen-zum-gesuch", "nachforderung", "system"],
         "INSTANCE_COPY_ON_MODIFICATION": False,

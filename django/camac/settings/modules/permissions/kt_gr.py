@@ -1,10 +1,10 @@
 from camac.constants.kt_gr import (
     ARE_SERVICE_GROUP,
-    BAUBEITRAGSWESEN_FORM_INVESTITIONSANMELDUNG,
-    BAUBEITRAGSWESEN_FORM_PHASE_1,
-    BAUBEITRAGSWESEN_FORM_PHASE_2,
-    BAUBEITRAGSWESEN_FORM_TEILZAHLUNGEN,
+    AUTHORITY_CONTRIBUTION_SERVICE_GROUP,
+    BAUBEITRAGSWESEN_FORM_BAUABRECHNUNG,
+    BAUBEITRAGSWESEN_FORMS,
     BAUGESUCH_FORMS,
+    BUILDING_DEPARTMENT_SERVICE_GROUP,
     SOLARANLAGE_FORMS,
 )
 from camac.permissions.conditions import (
@@ -44,13 +44,9 @@ STATES_POST_DECISION = RequireInstanceState(
 
 # Form rules
 FORMS_ONLY_BUILDING_PERMIT = IsForm([*BAUGESUCH_FORMS, *SOLARANLAGE_FORMS])
-FORMS_ONLY_BAUBEITRAGSWESEN_UNTIL_LAST_PHASE = IsForm(
-    [
-        BAUBEITRAGSWESEN_FORM_INVESTITIONSANMELDUNG,
-        BAUBEITRAGSWESEN_FORM_PHASE_1,
-        BAUBEITRAGSWESEN_FORM_PHASE_2,
-        BAUBEITRAGSWESEN_FORM_TEILZAHLUNGEN,
-    ]
+FORMS_ONLY_BAUBEITRAGSWESEN = IsForm([*BAUBEITRAGSWESEN_FORMS])
+FORMS_ONLY_BAUBEITRAGSWESEN_UNTIL_LAST_PHASE = FORMS_ONLY_BAUBEITRAGSWESEN & ~IsForm(
+    [BAUBEITRAGSWESEN_FORM_BAUABRECHNUNG]
 )
 
 # Role rules
@@ -58,13 +54,23 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 ROLES_GEOMETER = HasRole(["geometer"])
 APPLICANT_WRITE = HasApplicantRole(["ADMIN", "EDITOR"])
 
+# Service group rules
+SERVICE_GROUP_AUTHORITY_CONTRIBUTION = IsServiceGroup(
+    [AUTHORITY_CONTRIBUTION_SERVICE_GROUP]
+)
 
 MODULE_PORTAL_ADDITIONAL_DEMAND_CHANGES = (
     APPLICANT_WRITE & HasAdditionalDemandWithFormEdit()
 )
 
 ADDITIONAL_DEMAND_REQUEST_CHANGES = (
-    IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
+    IsServiceGroup(
+        [
+            "municipality",
+            ARE_SERVICE_GROUP,
+            AUTHORITY_CONTRIBUTION_SERVICE_GROUP,
+        ]
+    )
     & HasRole(["municipality-lead", "service-lead"])
     & RequireInstanceState(["subm", "init-distribution", "circulation", "decision"])
 )
@@ -80,8 +86,10 @@ ADDITIONAL_DEMAND_REQUEST_CHANGES = (
 # 4. Other
 MODULE_ADDITIONAL_DEMANDS = STATES_ALL & RequireWorkItem("init-additional-demand")
 
-MODULE_CONSTRUCTION_ACCEPTANCE = RequireWorkItem("construction-acceptance")
-MODULE_CONSTRUCTION_MONITORING = (
+MODULE_CONSTRUCTION_ACCEPTANCE = ~FORMS_ONLY_BAUBEITRAGSWESEN & RequireWorkItem(
+    "construction-acceptance"
+)
+MODULE_CONSTRUCTION_MONITORING = ~FORMS_ONLY_BAUBEITRAGSWESEN & (
     RequireWorkItem("init-construction-monitoring") | ROLES_GEOMETER
 )
 # todo: the instance state check should not be needed. Once we fix skipping/completing
@@ -133,21 +141,41 @@ ACTION_INSTANCE_CHANGE_FORM = RequireInstanceState(
 )
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_PERMISSIONS = STATES_ALL
-MODULE_PUBLICATION = RequireWorkItem("fill-publication")
+MODULE_PUBLICATION = ~FORMS_ONLY_BAUBEITRAGSWESEN & RequireWorkItem("fill-publication")
 MODULE_REJECTION = STATES_ALL
 MODULE_RELATED_GWR_PROJECTS = STATES_ALL & FORMS_ONLY_BUILDING_PERMIT
 MODULE_RESPONSIBLE = STATES_ALL
 MODULE_WORK_ITEMS = STATES_ALL
 MODULE_DEADLINES_SUSPENSION = (
     STATES_ALL
-    & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
-    & HasRole(["municipality-lead", "service-lead"])
+    & (
+        (
+            ~FORMS_ONLY_BAUBEITRAGSWESEN
+            & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
+            & HasRole(["municipality-lead", "service-lead"])
+        )
+        | (
+            FORMS_ONLY_BAUBEITRAGSWESEN
+            & IsServiceGroup([BUILDING_DEPARTMENT_SERVICE_GROUP])
+            & HasRole(["service-lead"])
+        )
+    )
     & RequireDeadline()
 )
 MODULE_DEADLINES_DEADLINE = (
     STATES_ALL
-    & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
-    & HasRole(["municipality-lead", "service-lead"])
+    & (
+        (
+            ~FORMS_ONLY_BAUBEITRAGSWESEN
+            & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
+            & HasRole(["municipality-lead", "service-lead"])
+        )
+        | (
+            FORMS_ONLY_BAUBEITRAGSWESEN
+            & IsServiceGroup([BUILDING_DEPARTMENT_SERVICE_GROUP])
+            & HasRole(["service-lead"])
+        )
+    )
     & RequireDeadline()
 )
 
@@ -179,10 +207,13 @@ MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE = (
 ACTION_INSTANCE_CREATE_MODIFICATION = (
     HasApplicantRole(["ADMIN"])
     & STATES_POST_DECISION
-    & IsForm(BAUGESUCH_FORMS)
+    & (IsForm(BAUGESUCH_FORMS) | FORMS_ONLY_BAUBEITRAGSWESEN)
     & (
         RequireWorkItem("construction-acceptance")
         | RequireWorkItem("init-construction-monitoring")
+        # EBBW forms don't have construction acceptance/monitoring
+        # but should still allow a project modification
+        | FORMS_ONLY_BAUBEITRAGSWESEN
     )
 ) | (ROLES_MUNICIPALITY & IsPaper())
 ACTION_INSTANCE_CREATE_NEXT_PHASE = (
@@ -268,14 +299,17 @@ GR_PERMISSIONS_SETTINGS = {
             ),
         ],
         "distribution-service": [
-            ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
+            (
+                "additional-demands-read",
+                MODULE_ADDITIONAL_DEMANDS & ~FORMS_ONLY_BAUBEITRAGSWESEN,
+            ),
             (
                 "additional-demands-internal-write",
-                ACTION_INSTANCE_CREATE_ADDITIONAL_DEMAND,
+                ACTION_INSTANCE_CREATE_ADDITIONAL_DEMAND & ~FORMS_ONLY_BAUBEITRAGSWESEN,
             ),
             (
                 "additional-demands-correction-request",
-                ADDITIONAL_DEMAND_REQUEST_CHANGES,
+                ADDITIONAL_DEMAND_REQUEST_CHANGES & ~FORMS_ONLY_BAUBEITRAGSWESEN,
             ),
             ("audit-read", MODULE_AUDIT),
             ("communications-read", MODULE_COMMUNICATIONS),

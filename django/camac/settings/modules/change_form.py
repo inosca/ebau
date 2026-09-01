@@ -1,3 +1,5 @@
+from camac.constants import kt_gr as gr_constants
+
 CHANGE_FORM = {
     "default": {
         "INTERCHANGEABLE_FORMS": [],
@@ -93,9 +95,10 @@ CHANGE_FORM = {
     "kt_gr": {
         "ENABLED": True,
         "INTERCHANGEABLE_FORMS": [
+            ["baugesuch-v6", "bauanzeige-v3"],
             [
-                "baugesuch-v6",
-                "bauanzeige-v3",
+                gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+                gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_2,
             ],
         ],
     },

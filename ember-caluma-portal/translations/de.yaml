@@ -137,6 +137,9 @@ instances:
   demolitionPaymentText: "Bitte beachten Sie, dass der Antrag auf Auszahlung der Abbruchprämie erst nach erfolgtem Abbruch gestellt werden kann."
   demolitionPaymentButton: "Auszahlung der Abbruchprämie beantragen"
   demolitionPaymentError: "Bei der Erstellung des Dossiers ist ein Fehler aufgetreten."
+  nextPhaseTitle: "Nächste Phase"
+  nextPhaseText: "Hier können Sie die nächste Phase erfassen."
+  nextPhaseConfirm: "<strong>Sind Sie sicher, dass Sie die nächste Phase erfassen möchten?</strong>"
   rejectionTitle: "Dossier neu einreichen"
   rejectionTitleSuffix: "(Rückweisung)"
   rejectionText: "Sie können das ursprünglich eingereichte Dossier entsprechend
@@ -245,6 +248,10 @@ instances:
     internal-procedure-canton:
       title: "Interne kantonale Verfahren"
       info: "Dieses Gesuch fasst folgende Gesuche zusammen:\n\n<ul><li>Internes Genehmigungsverfahren</li>\n\n <li>Internes Mitberichtsverfahren</li>\n\n <li>Mitberichtsverfahren / PGV für militärische Bauten</li>\n\n <li>Mitberichtsverfahren / PGV nach Luftfahrtgesetz</li>\n\n <li>Internes Mitberichtsverfahren AFJ</li>\n\n <li>Internes Mitberichtsverfahren ALA</li>\n\n <li>Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)</li>\n\n <li>Internes Mitberichtsverfahren AfE</li>\n\n <li>Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG)</li>\n\n <li>Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG)</li>\n\n <li>Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG)</li>\n\n <li>Konzessionsverfahren Korporationsgewässer mit Genehmigung durch Regierungsrat (Artikel 15 GNG)</li>\n\n <li>Internes Mitberichtsverfahren SD AfKP</li>\n\n <li>Internes Mitberichtsverfahren SD</li>\n\n <li>PGV Kantonsstrasse (Artikel 30 StrG)</li>\n\n <li>PGV Gemeindestrasse (Artikel 30 StrG)</li>\n\n <li>PGV Korporationsstrasse (Artikel 30 StrG)</li>\n\n <li>PGV vereinfachtes Verfahren (Artikel 31 StrG)</li>\n\n <li>PGV öffentliche Gewässer (Artikel 12 WBG)</li>\n\n <li>PGV private Gewässer (Artikel 19 WBG)</li>\n\n <li>Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)</li>\n\n <li>Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)</li>\n\n <li>Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2 (Artikel 3 ORR)</li>\n\n <li>Internes Mitberichtsverfahren BD</li>\n\n <li>Land- und Rechtserweb</li>\n\n <li>Internes Mitberichtsverfahren AfU</li>\n\n <li>Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz</li>\n\n <li>Internes Mitberichtsverfahren / Bewilligungsverfahren gemäss UVP</li></ul>"
+
+    baubeitragswesen:
+      title: "Baubeitragswesen"
+      info: ""
 
     others:
       title: "Andere"

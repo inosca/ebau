@@ -142,6 +142,22 @@ class CustomDynamicTasks(BaseDynamicTasks):
             prev_work_item,
         )
 
+        # we need to manually check the decision here because "should_continue" takes
+        # into account if construction-acceptance/construction-monitoring should continue.
+        # For ebbw forms we don't continue with construction-acceptance or
+        # construction-monitoring, but we still want to archive the instance after
+        # a positive decision.
+        decision = domain_logic.DecisionLogic.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+            work_item=prev_work_item,
+        )
+        # only ebbw forms with a positive decision should get the archive-instance
+        # work item.
+        should_archive = (
+            case.document.form_id in gr_constants.BAUBEITRAGSWESEN_FORMS
+            and domain_logic.DecisionLogic.is_positive_decision(decision)
+        )
+
         if is_module_enabled("CONSTRUCTION_MONITORING"):
             init_task = settings.CONSTRUCTION_MONITORING[
                 "INIT_CONSTRUCTION_MONITORING_TASK"
@@ -156,7 +172,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
                     task_id=init_task
                 ).exists()
 
-                return [init_task] if not init_exists else []
+                tasks = [init_task] if not init_exists else []
             else:
                 # if construction monitoring init item has been completed, we
                 # don't want to create the complete instance work item yet, because it
@@ -166,16 +182,25 @@ class CustomDynamicTasks(BaseDynamicTasks):
                     status=WorkItem.STATUS_COMPLETED,
                 ).first()
 
-                return [] if init_completed else [complete_instance_task]
+                tasks = [] if init_completed else [complete_instance_task]
         else:
             if should_continue:
                 # we always create the construction-acceptance work item after a
                 # decision that will continue the workflow.
-                return ["construction-acceptance"]
+                tasks = ["construction-acceptance"]
             else:
                 # we always create the complete instance workitem after a decision
                 # that will not continue the workflow.
-                return [complete_instance_task]
+                tasks = [complete_instance_task]
+
+        if should_archive:
+            # complete-instance will be created after the archive-instance,
+            # so never create both at the same time.
+            if complete_instance_task in tasks:
+                tasks.remove(complete_instance_task)
+            tasks.append("archive-instance")
+
+        return tasks
 
     @register_dynamic_task("after-decision-ur")
     def resolve_after_decision_ur(self, case, user, prev_work_item, context):
@@ -798,6 +823,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
             gr_constants.BAUANZEIGE_FORMS,
             gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
             gr_constants.SOLARANLAGE_FORMS,
+            gr_constants.BAUBEITRAGSWESEN_FORMS,
         )
         if (
             settings.PUBLICATION.get("AFTER_FORMAL_EXAM_PUBLICATION_TASKS", [])
@@ -816,6 +842,14 @@ class CustomDynamicTasks(BaseDynamicTasks):
             return ["construction-control"]
 
         return []
+
+    @register_dynamic_task("after-complete-archive-instance")
+    def after_complete_archive_instance(self, case, user, prev_work_item, context):
+        return (
+            []
+            if case.work_items.filter(task_id="complete-instance").exists()
+            else ["complete-instance"]
+        )
 
     @register_dynamic_task("after-construction-control")
     def after_construction_control(self, case, user, prev_work_item, context):

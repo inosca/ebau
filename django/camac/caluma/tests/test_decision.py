@@ -11,6 +11,7 @@ from caluma.caluma_workflow.events import post_complete_work_item, post_create_w
 from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 from django.core.management import call_command
 
+from camac.constants import kt_gr as gr_constants
 from camac.constants.kt_bern import (
     ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG,
     ECH_STATUS_NOTIFICATION_ENTSCHIEDEN,
@@ -43,7 +44,23 @@ def construction_control(instance_service_factory, be_instance, service_factory)
 
 
 @pytest.mark.parametrize("construction_monitoring_enabled", [True, False])
-@pytest.mark.parametrize("decision", ["APPROVED", "REJECTED"])
+@pytest.mark.parametrize(
+    ("decision", "form_slug", "expected_final_state"),
+    [
+        ("APPROVED", "baugesuch", "construction-acceptance"),
+        ("REJECTED", "baugesuch", "decided"),
+        (
+            "APPROVED",
+            gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+            "decided",
+        ),
+        (
+            "DEFERRED",
+            gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+            "decided",
+        ),
+    ],
+)
 @pytest.mark.parametrize("has_are_inquiry", [True, False])
 @pytest.mark.django_db
 def test_complete_decision_gr(
@@ -56,6 +73,8 @@ def test_complete_decision_gr(
     instance_state_factory,
     service_factory,
     decision,
+    form_slug,
+    expected_final_state,
     has_are_inquiry,
     decision_settings,
     construction_monitoring_enabled,
@@ -68,7 +87,7 @@ def test_complete_decision_gr(
     request,
 ):
     are_service = service_factory(name="are", slug="are")
-    gr_instance.case.document.form = caluma_form_factory(slug="baugesuch")
+    gr_instance.case.document.form = caluma_form_factory(slug=form_slug)
     gr_instance.case.document.save()
 
     mocker.patch(
@@ -77,7 +96,9 @@ def test_complete_decision_gr(
     )
 
     expected_are_message = (
-        construction_monitoring_enabled and has_are_inquiry and decision == "APPROVED"
+        construction_monitoring_enabled
+        and has_are_inquiry
+        and expected_final_state == "construction-acceptance"
     )
 
     if construction_monitoring_enabled:
@@ -115,7 +136,10 @@ def test_complete_decision_gr(
         context={},
     )
 
-    if construction_monitoring_enabled and decision == "APPROVED":
+    if (
+        construction_monitoring_enabled
+        and expected_final_state == "construction-acceptance"
+    ):
         stage_work_item = caluma_work_item_factory(
             case=gr_instance.case,
             child_case__family=gr_instance.case,
@@ -142,11 +166,7 @@ def test_complete_decision_gr(
         )
 
     gr_instance.refresh_from_db()
-    assert (
-        gr_instance.instance_state.name == "construction-acceptance"
-        if decision == "APPROVED"
-        else "finished"
-    )
+    assert gr_instance.instance_state.name == expected_final_state
 
     assert HistoryEntryT.objects.filter(
         history_entry__instance=gr_instance, title="Bauentscheid verfügt", language="de"
@@ -665,6 +685,7 @@ def test_should_continue_after_decision_so(
         ("REJECTED", False),
         ("WRITTEN_OFF", False),
         ("NEGATIVE", False),
+        ("DEFERRED", False),
         ("WITHDRAWAL", False),
         ("OTHER", False),
         # positive states

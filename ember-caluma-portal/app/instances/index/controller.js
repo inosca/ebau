@@ -165,11 +165,13 @@ export default class InstancesIndexController extends Controller {
   }
 
   get forms() {
+    const isBaubeitragswesen = this.session?.user?.metainfo?.baubeitragswesen;
     const permissions = config.APPLICATION.formCreationPermissions.filter(
       (perm) =>
         perm.roles.includes(parseInt(this.session.group?.role.get("id"))) ||
         (perm.roles.includes("internal") && this.session.isInternal) ||
-        (perm.roles.includes("public") && !this.session.isInternal),
+        (perm.roles.includes("public") && !this.session.isInternal) ||
+        (perm.roles.includes("baubeitragswesen") && isBaubeitragswesen),
     );
     const raw = (this.rootForms.value ?? []).filter((edge) =>
       permissions.find((perm) =>

@@ -15,6 +15,9 @@ distribution:
   own-cantonal-services: ""
   non-cantonal-services: ""
   geometer: ""
+  # GR
+  authority-contribution-services: "Dienststelle Beitragswesen"
+  building-department-services: "Hochbauamt"
 
   send-answer: "Envoyer la réponse"
   release-for-review: "Valider pour contrôle"

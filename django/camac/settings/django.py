@@ -11,7 +11,7 @@ from deepmerge import always_merger
 from django.utils.module_loading import import_string
 from django.utils.translation import gettext_lazy as _
 
-from camac.constants import kt_bern as be_constants
+from camac.constants import kt_bern as be_constants, kt_gr as gr_constants
 from camac.constants.kt_uri import KOOR_SERVICE_IDS as URI_KOOR_SERVICE_IDS
 from camac.settings.ebau_schema import ModuleApplicationConfig, ModuleConfig
 from camac.settings.env import ROOT_DIR, env
@@ -1971,6 +1971,7 @@ APPLICATIONS = {
                 "FILTERS": {
                     "service__service_group__name__in": [
                         "municipality",
+                        gr_constants.AUTHORITY_CONTRIBUTION_SERVICE_GROUP,
                     ]
                 },
                 "DEFAULT": True,
@@ -1994,6 +1995,16 @@ APPLICATIONS = {
             "SUBMIT": [
                 {
                     "template_slug": "empfang-anfragebaugesuch-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "empfang-anfragebaugesuch-behorden",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
+            "SUBMIT_EBBW": [
+                {
+                    "template_slug": "empfang-anfragebaugesuch-gesuchsteller-ebbw",
                     "recipient_types": ["applicant"],
                 },
                 {

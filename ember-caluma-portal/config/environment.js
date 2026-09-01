@@ -389,7 +389,8 @@ module.exports = function (environment) {
         ],
       },
       instanceStates: instanceStatesGr,
-      // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
+      // Who can create which forms. Roles can be given by ID, or magic key ("internal",
+      // "baubeitragswesen" or "public")
       formCreationPermissions: [
         {
           roles: ["public", "internal"],
@@ -410,6 +411,16 @@ module.exports = function (environment) {
             "solaranlage-v2",
             "solaranlage-v6",
             "solaranlage-andere",
+          ],
+        },
+        {
+          roles: ["baubeitragswesen"],
+          forms: [
+            "baubeitragswesen-investitionsanmeldung",
+            "baubeitragswesen-phase-1",
+            "baubeitragswesen-phase-2",
+            "baubeitragswesen-teilzahlungen",
+            "baubeitragswesen-bauabrechnung",
           ],
         },
       ],

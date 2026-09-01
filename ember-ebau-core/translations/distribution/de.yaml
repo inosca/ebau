@@ -15,7 +15,9 @@ distribution:
   own-cantonal-services: "Eigene Fachstellen"
   non-cantonal-services: "Ausserkantonale Fachstellen"
   geometer: "Geometer"
-
+  # GR
+  authority-contribution-services: "Dienststelle Beitragswesen"
+  building-department-services: "Hochbauamt"
   # SG
   coordination-service: "Koordinationsstelle"
   own-subservices: "Eigene Unterfachstellen"

@@ -349,6 +349,27 @@ DMS = {
                     "eeba-link",
                 ],
             },
+            "baubeitragswesen": {
+                "forms": gr_constants.BAUBEITRAGSWESEN_FORMS,
+                "template": "form",
+                "personalien": "personalien",
+                "exclude_slugs": [
+                    "is-paper",
+                    "einreichen-button",
+                    "dokumente-ebbw",
+                    "dokumente-platzhalter",
+                    "einreichen",
+                    "bestaetigung",
+                    "gis-map",
+                    # eeba questions that are technical and need to be excluded
+                    "eeba-confirmation",
+                    "eeba-state",
+                    "eeba-error",
+                    "eeba-integration-id",
+                    "eeba-is-dirty",
+                    "eeba-link",
+                ],
+            },
         },
         "ALEXANDRIA_DOCUMENT_CATEGORIES": [
             "beilagen-zum-gesuch-grundstuecksangaben",

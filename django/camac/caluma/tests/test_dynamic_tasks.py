@@ -8,6 +8,7 @@ from caluma.caluma_workflow.models import Case, WorkItem
 
 from camac.caluma.extensions.dynamic_tasks import CustomDynamicTasks
 from camac.conftest import yes_no
+from camac.constants import kt_gr as gr_constants
 from camac.instance import domain_logic
 from camac.tests.form_utils import FormUtils
 
@@ -284,6 +285,23 @@ def test_dynamic_task_after_decision_with_check_prevent_submit(
         (True, True, True, True, "baugesuch-v3", []),
         # create complete-instance, no construction monitoring in bauanzeige
         (True, True, False, True, "bauanzeige-v3", ["complete-instance"]),
+        # create archive-instance for Baubeitragswesen
+        (
+            True,
+            False,
+            False,
+            True,
+            gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+            ["archive-instance"],
+        ),
+        (
+            True,
+            False,
+            False,
+            False,
+            gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+            ["complete-instance"],
+        ),
         # create complete-instance after negative decision and construction
         # monitoring not yet started.
         (True, True, False, False, "baugesuch-v3", ["complete-instance"]),
@@ -296,6 +314,22 @@ def test_dynamic_task_after_decision_with_check_prevent_submit(
         (False, False, False, True, "baugesuch-v3", ["construction-acceptance"]),
         (False, False, False, True, "bauanzeige-v3", ["construction-acceptance"]),
         (False, False, False, True, "solaranlage-v2", ["construction-acceptance"]),
+        (
+            False,
+            False,
+            False,
+            True,
+            gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+            ["archive-instance"],
+        ),
+        (
+            False,
+            False,
+            False,
+            False,
+            gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+            ["complete-instance"],
+        ),
         # create complete-instance after negative decision on baugesuch
         (False, False, False, False, "baugesuch-v3", ["complete-instance"]),
         # create complete-instance after any decision on vorlaufige-beurteilung
@@ -357,6 +391,34 @@ def test_after_decision_gr(
     custom_dynamic_task = CustomDynamicTasks()
     assert (
         custom_dynamic_task.resolve_after_decision_gr(
+            gr_instance.case, None, None, None
+        )
+        == expected_tasks
+    )
+
+
+@pytest.mark.parametrize(
+    ("complete_instance_exists", "expected_tasks"),
+    [
+        (True, []),
+        (False, ["complete-instance"]),
+    ],
+)
+@pytest.mark.django_db
+def test_after_complete_archive_instance(
+    caluma_work_item_factory,
+    complete_instance_exists,
+    expected_tasks,
+    gr_instance,
+):
+    if complete_instance_exists:
+        caluma_work_item_factory(
+            case=gr_instance.case,
+            task_id="complete-instance",
+        )
+
+    assert (
+        CustomDynamicTasks().after_complete_archive_instance(
             gr_instance.case, None, None, None
         )
         == expected_tasks

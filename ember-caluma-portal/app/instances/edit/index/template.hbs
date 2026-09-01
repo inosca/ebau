@@ -210,6 +210,28 @@
 
       {{#if
         (await
+          (can "create next phase of instance" this.editController.instance)
+        )
+      }}
+        <h3 class="instance-overview__action-title">
+          {{t "instances.nextPhaseTitle"}}
+        </h3>
+        {{#unless (has-feature "instanceOverview.hideActionDescription")}}
+          <p>
+            {{t "instances.nextPhaseText"}}
+          </p>
+        {{/unless}}
+        <UkButton
+          @onClick={{perform this.createNextPhase}}
+          @disabled={{this.createNextPhase.isRunning}}
+          @loading={{this.createNextPhase.isRunning}}
+        >
+          {{t "instances.nextPhaseTitle"}}
+        </UkButton>
+      {{/if}}
+
+      {{#if
+        (await
           (can
             "create demolition payment for instance"
             this.editController.instance

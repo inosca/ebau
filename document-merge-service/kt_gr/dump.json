@@ -68,5 +68,25 @@
       "engine": "docx-template",
       "meta": {}
     }
+  },
+  {
+    "model": "api.template",
+    "pk": "eingabequittung-ebbw-de",
+    "fields": {
+      "description": "EBBW eingabequittung",
+      "template": "eingabequittung_ebbw_de.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "archiv-ebbw-de",
+    "fields": {
+      "description": "EBBW archiv",
+      "template": "archiv_ebbw_de.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
   }
 ]

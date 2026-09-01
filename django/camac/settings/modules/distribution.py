@@ -2,6 +2,7 @@ from datetime import timedelta
 
 from django.utils.translation import gettext_lazy as _
 
+from camac.constants import kt_gr as gr_constants
 from camac.settings.env import env
 from camac.utils import (
     has_permission_for_inquiry_answer_document,
@@ -281,6 +282,19 @@ DISTRIBUTION = {
                                     )
                                     else []
                                 ),
+                            ],
+                        )
+                    ]
+                },
+            ],
+            gr_constants.AUTHORITY_CONTRIBUTION_SERVICE_GROUP: [
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            [
+                                gr_constants.AUTHORITY_CONTRIBUTION_SERVICE_GROUP,
+                                gr_constants.BUILDING_DEPARTMENT_SERVICE_GROUP,
                             ],
                         )
                     ]

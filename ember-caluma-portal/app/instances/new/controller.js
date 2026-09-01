@@ -66,11 +66,13 @@ export default class InstancesNewController extends Controller {
       "allForms.edges",
     );
 
+    const isBaubeitragswesen = this.session?.user?.metainfo?.baubeitragswesen;
     const permissions = config.APPLICATION.formCreationPermissions.filter(
       (perm) =>
         perm.roles.includes(parseInt(this.session.group?.role.get("id"))) ||
         (perm.roles.includes("internal") && this.session.isInternal) ||
-        (perm.roles.includes("public") && !this.session.isInternal),
+        (perm.roles.includes("public") && !this.session.isInternal) ||
+        (perm.roles.includes("baubeitragswesen") && isBaubeitragswesen),
     );
 
     return forms

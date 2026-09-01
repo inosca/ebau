@@ -302,6 +302,8 @@ omit = [
     "camac/core/management/commands/grant_read_permissions_to_tax_administration_if_decided.py",
     "camac/core/management/commands/heat_generator_statistics_be.py",
     "camac/instance/management/commands/migrate_bab_case_ag.py",
+    "camac/instance/management/commands/migrate_services_authority_contribution_gr.py",
+    "camac/core/management/commands/verify_ebbw_jexl_gr.py",
     "camac/core/management/commands/migrate_publications_ur.py",
     "camac/instance/management/commands/identify_lu_bw_incorrect_calculations.py",
     # Audit migration"

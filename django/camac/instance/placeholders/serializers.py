@@ -9,19 +9,24 @@ import inflection
 from caluma.caluma_form.models import Answer, AnswerDocument, Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.db.models import Exists, OuterRef, Q
-from django.utils.timezone import now
-from django.utils.translation import get_language, gettext_noop as _
+from django.db.models import Exists, OuterRef, Prefetch, Q
+from django.utils.timezone import localtime, now
+from django.utils.translation import get_language, gettext, gettext_noop as _
 from rest_framework import serializers
 
 from camac.billing.models import BillingV2Entry
 from camac.caluma.api import CalumaApi
 from camac.caluma.utils import get_answer_display_value
+from camac.communications.models import (
+    CommunicationsMessage,
+    CommunicationsTopic,
+    entity_for_current_user,
+)
 from camac.constants import kt_gr as gr_constants, kt_uri as ur_constants
 from camac.core.translations import get_translations_canton_aware
 from camac.document.models import Attachment
 from camac.instance.master_data import MasterData
-from camac.instance.models import Instance
+from camac.instance.models import Instance, JournalEntry
 from camac.instance.placeholders.utils import (
     format_gis_center_coordinates,
     to_configured_case,
@@ -1051,6 +1056,29 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("ALL_SYSTEM_BUILDER_NAME_ADDRESS")],
         description=_("Names and addresses of all system builders"),
     )
+    communication_topics = fields.AliasedMethodField(
+        aliases=[_("COMMUNICATION_TOPICS")],
+        description=_("Communication topics of the instance"),
+        is_collection=True,
+        nested_aliases={
+            "topic": [_("COMMUNICATION_TOPIC")],
+            "participants": [_("COMMUNICATION_PARTICIPANTS")],
+            "messages": [_("COMMUNICATION_MESSAGES")],
+            "messages.sender": [_("COMMUNICATION_MESSAGE_SENDER")],
+            "messages.message": [_("COMMUNICATION_MESSAGE")],
+            "messages.datetime": [_("COMMUNICATION_MESSAGE_DATETIME")],
+        },
+    )
+    notes = fields.AliasedMethodField(
+        aliases=[_("NOTES")],
+        description=_("Journal entries of the instance"),
+        is_collection=True,
+        nested_aliases={
+            "author": [_("AUTHOR")],
+            "office": [_("OFFICE")],
+            "text": [_("TEXT")],
+        },
+    )
 
     def get_zonenplan(self, instance):
         answer = Answer.objects.filter(
@@ -1187,6 +1215,85 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             if published
             else ""
         )
+
+    def get_communication_topics(self, instance):
+        entity = entity_for_current_user(self.context["request"])
+        if not entity:
+            return []
+
+        messages = CommunicationsMessage.objects.filter(
+            topic__involved_entities__contains=[entity]
+        ).order_by("created_at", "pk")
+        topics = list(
+            CommunicationsTopic.objects.filter(
+                instance_id=instance.pk,
+                involved_entities__contains=[entity],
+            )
+            .prefetch_related(
+                Prefetch("messages", queryset=messages, to_attr="visible_messages")
+            )
+            .order_by("created", "pk")
+        )
+        entity_ids = {
+            str(entity)
+            for topic in topics
+            for entity in topic.involved_entities
+            if entity != "APPLICANT"
+        }
+        entity_ids.update(
+            str(message.created_by)
+            for topic in topics
+            for message in topic.visible_messages
+            if message.created_by != "APPLICANT"
+        )
+        services = Service.objects.filter(pk__in=entity_ids).prefetch_related("trans")
+        entity_names = {str(service.pk): service.get_name() for service in services}
+        entity_names["APPLICANT"] = gettext("Applicant")
+
+        return [
+            {
+                "topic": topic.subject,
+                "participants": clean_join(
+                    *[
+                        entity_names.get(str(entity), str(entity))
+                        for entity in topic.involved_entities
+                    ],
+                    separator=", ",
+                ),
+                "messages": [
+                    {
+                        "sender": entity_names.get(
+                            str(message.created_by), str(message.created_by)
+                        ),
+                        "message": message.body,
+                        "datetime": (
+                            f"{human_readable_date(localtime(message.created_at))}, "
+                            f"{localtime(message.created_at):%H:%M}"
+                        ),
+                    }
+                    for message in topic.visible_messages
+                ],
+            }
+            for topic in topics
+        ]
+
+    def get_notes(self, instance):
+        entries = (
+            JournalEntry.objects.filter(instance=instance)
+            .visible_for(self.context["request"])
+            .select_related("user", "service")
+            .prefetch_related("service__trans")
+            .order_by("creation_date", "pk")
+        )
+
+        return [
+            {
+                "author": entry.user.get_full_name(),
+                "office": entry.service.get_name() if entry.service else "",
+                "text": entry.text,
+            }
+            for entry in entries
+        ]
 
     class Meta:
         exclude = [

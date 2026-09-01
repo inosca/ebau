@@ -143,6 +143,17 @@ ADDITIONAL_DEMAND_DUMP_CONFIG = {
     }
 }
 
+BAUBEITRAGSWESEN_DUMP_CONFIG = {
+    "caluma_baubeitragswesen": {
+        **generate_form_dump_config(
+            r"baubeitragswesen-(investitionsanmeldung|phase-1|phase-2|teilzahlungen|bauabrechnung)"
+        ),
+        **generate_workflow_dump_config(
+            r"baubeitragswesen-(investitionsanmeldung|phase-1|phase-2|teilzahlungen|bauabrechnung)"
+        ),
+    }
+}
+
 CONSTRUCTION_MONITORING_REGEX = r"(construction-monitoring|construction-stage|construction-step|complete-instance(-municipality|-canton)*)"
 
 CONSTRUCTION_MONITORING_DUMP_CONFIG = {
@@ -695,6 +706,9 @@ DUMP = {
                 "caluma_objection_form": generate_form_dump_config(
                     regex=r"^einsprache(n)?"
                 ),
+                "caluma_archive_form": generate_form_dump_config(
+                    regex=r"^archive-instance$"
+                ),
                 "caluma_formal_exam_form": generate_form_dump_config(
                     regex=r"^formal-exam$"
                 ),
@@ -722,6 +736,7 @@ DUMP = {
                     **generate_form_dump_config(regex=r"^publikation?$"),
                 },
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,
+                **BAUBEITRAGSWESEN_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",

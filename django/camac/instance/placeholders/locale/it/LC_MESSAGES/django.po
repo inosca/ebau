@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-03 14:11+0200\n"
+"POT-Creation-Date: 2026-08-20 11:57+0200\n"
 "PO-Revision-Date: 2025-05-26 15:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -161,6 +161,7 @@ msgid "OPINION"
 msgstr "PRESA_DI_POSIZIONE"
 
 #: camac/instance/placeholders/fields.py
+#: camac/instance/placeholders/serializers.py
 msgid "TEXT"
 msgstr "TESTO"
 
@@ -1470,6 +1471,58 @@ msgstr "TUTTE_COSTRUTTOREIMPIANTO_NOME_INDIRIZZO"
 #: camac/instance/placeholders/serializers.py
 msgid "Names and addresses of all system builders"
 msgstr "Nomi e indirizzi di tutte costruttore dell'impianto"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_TOPICS"
+msgstr "TEMI_COMUNICAZIONE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Communication topics of the instance"
+msgstr "Temi di comunicazione del dossier"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_TOPIC"
+msgstr "TEMA"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_PARTICIPANTS"
+msgstr "PARTECIPANTI"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_MESSAGES"
+msgstr "MESSAGGI"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_MESSAGE_SENDER"
+msgstr "MITTENTE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_MESSAGE"
+msgstr "MESSAGGIO"
+
+#: camac/instance/placeholders/serializers.py
+msgid "COMMUNICATION_MESSAGE_DATETIME"
+msgstr "DATA_ORA"
+
+#: camac/instance/placeholders/serializers.py
+msgid "NOTES"
+msgstr "NOTE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Journal entries of the instance"
+msgstr "Elenco delle note"
+
+#: camac/instance/placeholders/serializers.py
+msgid "AUTHOR"
+msgstr "AUTORE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "OFFICE"
+msgstr "UFFICIO"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Applicant"
+msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "PROJECT"

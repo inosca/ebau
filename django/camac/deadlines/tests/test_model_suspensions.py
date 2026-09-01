@@ -3,7 +3,11 @@ from django.urls import reverse
 from django.utils.translation import gettext as _
 from rest_framework import status
 
-from camac.constants.kt_gr import ARE_SERVICE_GROUP
+from camac.constants.kt_gr import (
+    ARE_SERVICE_GROUP,
+    BAUBEITRAGSWESEN_FORM_PHASE_1,
+    BUILDING_DEPARTMENT_SERVICE_GROUP,
+)
 from camac.deadlines import models
 from camac.permissions import api as permissions_api
 from camac.user.factories import GroupFactory, UserFactory
@@ -164,23 +168,56 @@ def test_suspension_list_default(
 
 
 @pytest.mark.parametrize(
-    ("access_level__slug", "role__name", "service_group__name", "expected_count"),
+    (
+        "access_level__slug",
+        "role__name",
+        "service_group__name",
+        "form_slug",
+        "expected_count",
+    ),
     [
-        ("lead-authority", "municipality-lead", "municipality", 2),
-        ("distribution-service", "service-lead", "service", 0),
-        ("distribution-service", "service-lead", ARE_SERVICE_GROUP, 2),
-        ("distribution-service", "service-lead", "service-afb", 0),
+        (
+            "lead-authority",
+            "municipality-lead",
+            "municipality",
+            "baugesuch-v6",
+            2,
+        ),
+        ("distribution-service", "service-lead", "service", "baugesuch-v6", 0),
+        (
+            "distribution-service",
+            "service-lead",
+            ARE_SERVICE_GROUP,
+            "baugesuch-v6",
+            2,
+        ),
+        (
+            "distribution-service",
+            "service-lead",
+            BUILDING_DEPARTMENT_SERVICE_GROUP,
+            BAUBEITRAGSWESEN_FORM_PHASE_1,
+            2,
+        ),
+        (
+            "distribution-service",
+            "service-lead",
+            "service-afb",
+            "baugesuch-v6",
+            0,
+        ),
     ],
 )
 @pytest.mark.django_db
 def test_suspension_list_gr(
     admin_client,
     gr_instance,
+    caluma_form_factory,
     instance_deadline_factory,
     suspension_factory,
     instance_factory,
     caluma_case_factory,
     expected_count,
+    form_slug,
     service,
     service_factory,
     access_level,
@@ -193,6 +230,9 @@ def test_suspension_list_gr(
     mocker,
 ):
     """Test the suspension list visibility for GR."""
+    gr_instance.case.family.document.form = caluma_form_factory(slug=form_slug)
+    gr_instance.case.family.document.save(update_fields=["form"])
+
     permissions_api.grant(
         gr_instance,
         grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
@@ -336,28 +376,71 @@ def test_suspension_list_ag(
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.parametrize(
-    ("access_level__slug", "role__name", "service_group__name", "expected_status"),
+    (
+        "access_level__slug",
+        "role__name",
+        "service_group__name",
+        "form_slug",
+        "expected_status",
+    ),
     [
         # municipality can create suspensions
         (
             "lead-authority",
             "municipality-lead",
             "municipality",
+            "baugesuch-v6",
             status.HTTP_201_CREATED,
+        ),
+        (
+            "lead-authority",
+            "municipality-lead",
+            "municipality",
+            BAUBEITRAGSWESEN_FORM_PHASE_1,
+            status.HTTP_403_FORBIDDEN,
         ),
         # in GR also the ARE can create suspensions
         (
             "distribution-service",
             "service-lead",
             ARE_SERVICE_GROUP,
+            "baugesuch-v6",
             status.HTTP_201_CREATED,
         ),
+        (
+            "distribution-service",
+            "service-lead",
+            ARE_SERVICE_GROUP,
+            BAUBEITRAGSWESEN_FORM_PHASE_1,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "distribution-service",
+            "service-lead",
+            BUILDING_DEPARTMENT_SERVICE_GROUP,
+            BAUBEITRAGSWESEN_FORM_PHASE_1,
+            status.HTTP_201_CREATED,
+        ),
+        (
+            "distribution-service",
+            "service-lead",
+            BUILDING_DEPARTMENT_SERVICE_GROUP,
+            "baugesuch-v6",
+            status.HTTP_403_FORBIDDEN,
+        ),
         # other services can not create suspensions
-        ("distribution-service", "service-lead", "service", status.HTTP_403_FORBIDDEN),
+        (
+            "distribution-service",
+            "service-lead",
+            "service",
+            "baugesuch-v6",
+            status.HTTP_403_FORBIDDEN,
+        ),
         (
             "distribution-service",
             "service-lead",
             "service-afb",
+            "baugesuch-v6",
             status.HTTP_403_FORBIDDEN,
         ),
     ],
@@ -365,7 +448,9 @@ def test_suspension_list_ag(
 @pytest.mark.django_db
 def test_suspension_creation_gr(
     admin_client,
+    caluma_form_factory,
     expected_status,
+    form_slug,
     gr_instance,
     service,
     access_level,
@@ -379,6 +464,9 @@ def test_suspension_creation_gr(
     mocker,
 ):
     """Test the suspension creation for GR."""
+    gr_instance.case.family.document.form = caluma_form_factory(slug=form_slug)
+    gr_instance.case.family.document.save(update_fields=["form"])
+
     permissions_api.grant(
         gr_instance,
         grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
@@ -424,6 +512,7 @@ def test_suspension_creation_gr(
         "access_level__slug",
         "role__name",
         "service_group__name",
+        "form_slug",
         "method",
         "reason",
         "success",
@@ -434,6 +523,7 @@ def test_suspension_creation_gr(
             "lead-authority",
             "municipality-lead",
             "municipality",
+            "baugesuch-v6",
             "delete",
             "manual",
             True,
@@ -443,6 +533,7 @@ def test_suspension_creation_gr(
             "lead-authority",
             "municipality-lead",
             "municipality",
+            "baugesuch-v6",
             "delete",
             "additional_demand",
             True,
@@ -452,6 +543,16 @@ def test_suspension_creation_gr(
             "distribution-service",
             "service-lead",
             ARE_SERVICE_GROUP,
+            "baugesuch-v6",
+            "delete",
+            "manual",
+            True,
+        ),
+        (
+            "distribution-service",
+            "service-lead",
+            BUILDING_DEPARTMENT_SERVICE_GROUP,
+            BAUBEITRAGSWESEN_FORM_PHASE_1,
             "delete",
             "manual",
             True,
@@ -461,16 +562,26 @@ def test_suspension_creation_gr(
             "distribution-service",
             "service-lead",
             "service-afb",
+            "baugesuch-v6",
             "delete",
             "manual",
             False,
         ),
-        ("distribution-service", "service-lead", "service", "delete", "manual", False),
+        (
+            "distribution-service",
+            "service-lead",
+            "service",
+            "baugesuch-v6",
+            "delete",
+            "manual",
+            False,
+        ),
         # municipality can update suspensions in GR
         (
             "lead-authority",
             "municipality-lead",
             "municipality",
+            "baugesuch-v6",
             "patch",
             "manual",
             True,
@@ -480,16 +591,35 @@ def test_suspension_creation_gr(
             "distribution-service",
             "service-lead",
             ARE_SERVICE_GROUP,
+            "baugesuch-v6",
+            "patch",
+            "manual",
+            True,
+        ),
+        (
+            "distribution-service",
+            "service-lead",
+            BUILDING_DEPARTMENT_SERVICE_GROUP,
+            BAUBEITRAGSWESEN_FORM_PHASE_1,
             "patch",
             "manual",
             True,
         ),
         # other services can not update suspensions
-        ("distribution-service", "service-lead", "service", "patch", "manual", False),
+        (
+            "distribution-service",
+            "service-lead",
+            "service",
+            "baugesuch-v6",
+            "patch",
+            "manual",
+            False,
+        ),
         (
             "distribution-service",
             "service-lead",
             "service-afb",
+            "baugesuch-v6",
             "patch",
             "manual",
             False,
@@ -499,6 +629,7 @@ def test_suspension_creation_gr(
 @pytest.mark.django_db
 def test_suspension_deletion_and_update_gr(
     admin_client,
+    caluma_form_factory,
     instance_deadline_factory,
     suspension_factory,
     access_level,
@@ -507,6 +638,7 @@ def test_suspension_deletion_and_update_gr(
     role,
     service_factory,
     gr_instance,
+    form_slug,
     method,
     reason,
     success,
@@ -516,6 +648,9 @@ def test_suspension_deletion_and_update_gr(
     mocker,
 ):
     """Test the suspension deletion and update for GR."""
+    gr_instance.case.family.document.form = caluma_form_factory(slug=form_slug)
+    gr_instance.case.family.document.save(update_fields=["form"])
+
     permissions_api.grant(
         gr_instance,
         grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,

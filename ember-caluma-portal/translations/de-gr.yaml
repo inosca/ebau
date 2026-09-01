@@ -23,6 +23,39 @@ instances:
 
     modal-title: "Hinweis"
 
+    baubeitragswesen:
+      title: "Baubeitragswesen"
+      info: |
+        <h2>Genehmigungsverfahren für Baubeiträge</h2>
+        <p>Für Liegenschaften:</p>
+        <ul>
+          <li>im Sonderschulbereich</li>
+          <li>im Wohn-, Arbeits,-und Tagesstrukturbereich für Erwachsene mit Behinderung</li>
+          <li>im Bildungsbereich</li>
+          <li>gemäss Krankenpflegegesetz</li>
+        </ul>
+        <h2>Erläuterungen zur Gesuchseingabe</h2>
+        <h3>Phase I, Grundlagen / Raumprogramm</h3>
+        <p>In der Phase I hat die Trägerschaft den Bedarf für das Bauvorhaben nachzuweisen. Die dafür erforderlichen Unterlagen sind im Rahmen eines <strong>schriftlichen Gesuchs</strong> inkl. Beilagen, nach Vorgaben des zuständigen Amts, einzureichen.</p>
+        <p>Das <strong>schriftliche Gesuch</strong> für die Genehmigung des Raumprogramms ist <strong>digital</strong>, dem zuständigen Amt, per Mail einzureichen. Das zuständige Amt zieht zur bautechnischen Prüfung des Gesuchs das Hochbauamt Graubünden bei.</p>
+        <h3>Phase II, Vorprojekt</h3>
+        <p>Gestützt auf die von der Regierung genehmigte Phase I hat die Trägerschaft für Phase II die dafür erforderlichen Unterlagen im Rahmen eines <strong>schriftlichen Gesuchs</strong> inkl. Beilagen nach Vorgaben des zuständigen Amts, einzureichen.</p>
+        <p>Das <strong>schriftliche Gesuch</strong> um einen kantonalen Baubeitrag ist <strong>digital</strong>, dem zuständigen Amt, per Mail einzureichen. Das zuständige Amt zieht zur bautechnischen Prüfung des Gesuchs das Hochbauamt Graubünden bei.</p>
+        <h3>Teilzahlungen / Bauabrechnung / Bauabnahme</h3>
+        <p>Die erforderlichen Unterlagen sind im Rahmen eines <strong>schriftlichen Gesuchs</strong> inkl. Beilagen <strong>digital</strong>, nach Vorgaben des zuständigen Amts, per Mail einzureichen.</p>
+        <p>Teilzahlungen werden unter Berücksichtigung des jeweiligen Baufortschrittes gemäss den budgetierten Mitteln auf Gesuch der Trägerschaft ausgerichtet.</p>
+        <p>Nach Bauvollendung und Vorliegen der Bauabrechnung überprüft das zuständige Amt unter Einbezug des Hochbauamts Graubünden – allenfalls mit einer Begehung vor Ort - die Einhaltung sämtlicher Auflagen, Bedingungen und Gesetzesgrundlagen und rechnet den kantonalen Baubeitrag ab.</p>
+        <p>Anfallende Mehrkosten durch Unvorhergesehenes sind dem zuständigen kantonalen Amt unverzüglich zu melden um eine Verwirkung des Baubeitrages gemäss Art. 45 Abs. 1 des Gesetzes über den Finanzhaushalt des Kantons Graubünden (Finanzhaushaltsgesetz, FHG, BR 710.100) zu verhindern</p>
+        <h3>Vorgaben, Bemerkungen und Hinweise</h3>
+        <ul>
+          <li>Die Beschaffungsbestimmungen sind einzuhalten.</li>
+          <li>Die einschlägigen Normen (Behindertengerechtigkeit, Arbeitssicherheit, etc.), die vom Kanton zur Verfügung gestellten Richtlinien und Raumblätter sind massgebend und anzuwenden.</li>
+          <li>Die Nachhaltigkeit (<strong>Green Deal</strong> Graubünden) ist bei Bauvorhaben zu berücksichtigen.</li>
+          <li>Das Gesuch ist von der <strong>Trägerschaft zu unterschreiben</strong> und mit sämtlichen Unterlagen einzureichen.</li>
+          <li>Das Gesuch wird erst behandelt, wenn alle geforderten <strong>Unterlagen vollständig eingereicht</strong> sind.</li>
+          <li>Die Behandlung eines vollständigen Gesuchs dauert in der Regel rund drei Monate. Die Ferien der Regierung verlängern den Bewilligungsprozess entsprechend, dies gilt für die Monate Juli, August und Dezember.</li>
+        </ul>
+
 support:
   professional: |
     Bei spezifischen Fragen zum Verfahren oder zum Formular kontaktieren Sie bitte

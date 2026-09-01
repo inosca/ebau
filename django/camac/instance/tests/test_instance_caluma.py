@@ -26,6 +26,7 @@ from camac.conftest import CALUMA_FORM_TYPES_SLUGS
 from camac.constants import (
     kt_ag as ag_constants,
     kt_bern as be_constants,
+    kt_gr as gr_constants,
     kt_uri as uri_constants,
 )
 from camac.core.models import Chapter, QuestionType
@@ -1374,6 +1375,64 @@ def test_set_instance_service_ur_bgbb(
     assert ur_instance.responsible_service() == koor_afg_group.service, (
         "should assign the KOOR AFG as the responsible service"
     )
+
+
+@pytest.mark.parametrize(
+    ("form_id", "answer_value", "expected_responsible_slug"),
+    [
+        ("baugesuch-v6", "apsp", "municipality"),
+        ("baugesuch-v6", "sssh", "municipality"),
+        (gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1, "apsp", "apsp"),
+        (gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1, "sssh", "sssh"),
+        (gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1, "wate", "wate"),
+        (gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1, "bfgb", "bfgb"),
+        (gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1, "wbah", "wbah"),
+    ],
+)
+@pytest.mark.django_db
+def test_set_instance_service_gr_ebbw(
+    instance,
+    caluma_form_factory,
+    caluma_document_factory,
+    caluma_case_factory,
+    service_factory,
+    answer_value,
+    form_id,
+    expected_responsible_slug,
+    form_utils: FormUtils,
+    mocker,
+    set_application_gr,
+):
+    """Verify we pick the correct EBBW dienststelle as responsible service."""
+    municipality = service_factory(
+        slug="municipality", service_group__name="municipality"
+    )
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer.get_master_data"
+    ).return_value = mocker.Mock(municipality_slug=municipality.pk)
+
+    instance.case = caluma_case_factory(
+        document=caluma_document_factory(form=caluma_form_factory(pk=form_id))
+    )
+
+    for i in ["apsp", "sssh", "wate", "bfgb", "wbah"]:
+        service_factory(
+            slug=i,
+            name=i,
+            service_group__name=gr_constants.AUTHORITY_CONTRIBUTION_SERVICE_GROUP,
+        )
+
+    form_utils.add_answer(
+        instance.case.document,
+        "ebbw-default-default-art-des-gesuchs",
+        answer_value,
+    )
+
+    serializer = CalumaInstanceSubmitSerializer()
+    serializer.instance = instance
+
+    serializer._set_instance_service(instance.case, instance)
+    assert instance.responsible_service().slug == expected_responsible_slug
 
 
 @pytest.mark.parametrize("form_slug", ["oereb", "oereb-verfahren-gemeinde"])
