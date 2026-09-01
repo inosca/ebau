@@ -133,3 +133,7 @@ def get_or_create_ebau_nr(
             return match
 
     return generate_ebau_nr(None, submit_date.year)
+
+
+def normalize_dossier_id_for_file_path(dossier_id: str) -> Any:
+    return dossier_id.replace("/", "")

@@ -74,6 +74,7 @@ def test_undo_import(
     [
         ("import-example-no-errors.zip", "import-example-no-errors.zip"),
         ("import-example-no-errors.zip", "import-example-no-errors-reimport.zip"),
+        ("import-example-slash-in-id.zip", "import-example-slash-in-id.zip"),
     ],
 )
 @pytest.mark.parametrize("config", ["kt_schwyz", "kt_bern", "kt_so"])
@@ -107,7 +108,11 @@ def test_perform_reimport(  # noqa: C901
     perform_import(first_import.pk)
 
     # The dossier_id marks the tested re-import line in the import source file
-    dossier_id = "2017-84"
+    dossier_id = (
+        "2017/84"
+        if first_import_file == "import-example-slash-in-id.zip"
+        else "2017-84"
+    )
     imported_dossier = writer.find_existing_instance(
         Dossier(id=dossier_id, proposal=""), writer._caluma_user
     )

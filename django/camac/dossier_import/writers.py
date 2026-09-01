@@ -53,7 +53,10 @@ from camac.dossier_import.messages import (
     Severity,
     get_message_max_level,
 )
-from camac.dossier_import.utils import get_or_create_ebau_nr
+from camac.dossier_import.utils import (
+    get_or_create_ebau_nr,
+    normalize_dossier_id_for_file_path,
+)
 from camac.dossier_import.validation import TargetStatus
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
@@ -1514,7 +1517,7 @@ class DossierWriter:
 
             filename = re.sub(
                 # ensure that dossier.id is only removed at the beginning of a path
-                rf"^{dossier.id}/",
+                rf"^{normalize_dossier_id_for_file_path(dossier.id)}/",
                 "",
                 document.name.encode("utf-8", errors="ignore").decode(
                     "utf-8", errors="ignore"

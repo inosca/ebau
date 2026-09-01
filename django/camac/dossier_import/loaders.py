@@ -23,7 +23,10 @@ from camac.dossier_import.messages import (
     Severity,
 )
 from camac.dossier_import.models import DossierImport
-from camac.dossier_import.utils import get_worksheet_headings_and_rows
+from camac.dossier_import.utils import (
+    get_worksheet_headings_and_rows,
+    normalize_dossier_id_for_file_path,
+)
 
 from .exceptions import InvalidImportDataError
 
@@ -398,11 +401,15 @@ class XlsxFileDossierLoader(DossierLoader):
             if dossier.id is None:  # pragma: no cover
                 continue
             dossier = self._load_attachments(dossier, archive)
+            print(f"Loaded attachments: {dossier.attachments}")
             yield dossier
 
     def _load_attachments(self, dossier, archive):
         for document_name in filter(
-            lambda x: x.filename.startswith(f"{dossier.id}/"), archive.infolist()
+            lambda x: x.filename.startswith(
+                f"{normalize_dossier_id_for_file_path(dossier.id)}/"
+            ),
+            archive.infolist(),
         ):
             if document_name.filename.endswith("/"):
                 continue
