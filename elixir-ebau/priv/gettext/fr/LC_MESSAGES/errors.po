@@ -1,4 +1,4 @@
-#: lib/ebau/instances/validations/valid_gis_link_provider.ex:18
+#: lib/ebau/instances/validations/valid_gis_link_provider.ex
 #, elixir-autogen, elixir-format
 msgid "Invalid GIS provider. The following providers are supported: %{providers}"
 msgstr ""
