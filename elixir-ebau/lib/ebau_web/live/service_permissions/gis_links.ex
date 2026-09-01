@@ -64,7 +64,9 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinks do
           </div>
         </.uk_form>
 
-        <form phx-change="search" id="search-form" class="uk-margin-large-top uk-margin-bottom">
+        <hr />
+
+        <form phx-change="search" id="search-form">
           <label for="gis-link-search" class="uk-hidden">{dgettext("instances", "Search")}</label>
           <.uk_form_icon icon="search" wrapper_class="uk-width-1-1">
             <input
@@ -82,22 +84,26 @@ defmodule EbauWeb.Live.ServicePermissions.GisLinks do
         <.uk_table striped middle>
           <.uk_thead>
             <tr>
-              <th class="uk-table-shrink">{dgettext("instances", "Description")}</th>
+              <th class="uk-width-1-5">{dgettext("instances", "Description")}</th>
               <th>{dgettext("instances", "Link")}</th>
-              <th class="uk-table-shrink"></th>
+              <th></th>
             </tr>
           </.uk_thead>
           <.uk_tbody phx-update="stream" id="gis-links">
+            <tr id="gis-links-empty" class="empty-row">
+              <td class="uk-text-center uk-text-italic" colspan="3">
+                {dgettext("instances", "No entries found")}
+              </td>
+            </tr>
             <tr :for={{dom_id, gis_link} <- @streams.gis_links} id={dom_id}>
               <td>{gis_link.name}</td>
-              <td class="uk-text-truncate">{gis_link.placeholder}</td>
-              <td>
+              <td>{gis_link.placeholder}</td>
+              <td class="uk-text-right">
                 <.uk_button
                   :if={Ebau.Instances.can_destroy_gis_link?(@actor, gis_link, reuse_values?: true)}
                   variant="link"
                   phx-click="delete"
                   phx-value-id={gis_link.id}
-                  class="uk-icon-button"
                 >
                   <.uk_icon name="trash" />
                   <span class="uk-hidden">{dgettext("instances", "Delete")}</span>
