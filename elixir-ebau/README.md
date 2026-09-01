@@ -16,9 +16,29 @@ to the ones specified in the Dockerfile in the `elixir-ebau` folder.
 ##### Starting the dev server
 You can then start the development server with:
 
-```ex
-mix phx.server
+```bash
+APPLICATION=kt_xy mix phx.server
 ```
+
+The `APPLICATION` variable is only needed at **build time**, where it selects
+the canton whose SCSS (`css/app-<canton>.scss`) gets compiled into `app.css`. At
+runtime the canton is read from the dotenv file (`../.env`). To avoid passing it
+manually on the host, use [`direnv`](https://direnv.net): this folder contains
+an `.envrc` that loads the repo-root `.env` (the same file docker compose
+reads), so the build picks up your active canton automatically. Set it up once:
+
+```bash
+# Install `direnv` (e.g. `apt install direnv`), then hook it into your shell by
+# adding this to ~/.bashrc:
+eval "$(direnv hook bash)"
+
+# Reload your shell, then allow the .envrc (run once, from elixir-ebau/):
+direnv allow .
+```
+
+Afterwards you can just run `mix phx.server` (if you changed canton, make sure
+to run `mix clean` first, see [switching cantons](#switching-cantons)) and it
+picks up the canton from `.env`.
 
 You can now access the application under [http://localhost:4000](http://localhost:4000). As an example the dev dashboard lives under:
 [http://localhost:4000/dev/dashboard](http://localhost:4000/dev/dashboard).
@@ -37,8 +57,8 @@ To compile / test a specific canton:
 
 ```bash
 mix clean
-APPLICATION=kt_so mix compile
-APPLICATION=kt_so mix test
+mix compile
+mix test
 ```
 
 Always run `mix clean` before switching canton otherwise you will get
@@ -69,7 +89,7 @@ If you find that you are struggling with `Expert` you might want to give `Elixir
 Elixir also has a REPL (similar to the django shell) which can be started with `iex -S mix`. You can also start
 your webserver with an active REPL:
 
-```ex
+```bash
 cd elixir-ebau
 iex -S mix phx.server
 ```
@@ -77,7 +97,7 @@ iex -S mix phx.server
 This is slightly different to most(?) languages that might be used to since you are effectively starting the entire **system** with an active REPL.
 As an example you can then open a LiveView in the browser and inspect its process in the iex shell:
 
-```ex
+```elixir
 # open a liveview in the browser, as an example http://localhost:4000/dev/dashboard and then run this in your iex
 Phoenix.LiveView.Debug.list_liveviews()
 # Lets mess around with this liveview process a bit:
@@ -106,7 +126,7 @@ mix docs
 
 This writes the generated site to:
 
-```text
+```
 doc/index.html
 ```
 
