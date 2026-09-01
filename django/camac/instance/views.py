@@ -358,23 +358,13 @@ class InstanceView(
             self.has_base_permission(instance) and instance.instance_state.name == "sb2"
         )
 
-    @permission_switching_method
     def has_object_unsubscribe_responsible_service_permission(self, instance):
+        if not is_module_enabled("CHANGE_RESPONSIBLE_SERVICE"):  # pragma: no cover
+            return False
+
         return permissions_api.PermissionManager.from_request(self.request).has_all(
             instance, "instance-unsubscribe-responsible-service"
         )
-
-    @has_object_unsubscribe_responsible_service_permission.register_old
-    @permission_aware
-    def _has_object_unsubscribe_responsible_service_permission(self, instance):
-        return instance.instance_services.filter(
-            active=0, service=self.request.group.service
-        ).exists()
-
-    def _has_object_unsubscribe_responsible_service_permission_for_support(
-        self, instance
-    ):
-        return True
 
     def has_object_change_responsible_service_permission(self, instance):
         if not is_module_enabled("CHANGE_RESPONSIBLE_SERVICE"):  # pragma: no cover
