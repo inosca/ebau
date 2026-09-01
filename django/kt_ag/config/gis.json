@@ -21,6 +21,17 @@
           ]
         },
         {
+          "mapper": "properties",
+          "identifier": "AV: Parzellen",
+          "take_first": true,
+          "properties": [
+            {
+              "question": "grundstuecksflaeche",
+              "propertyName": "FLAECHE"
+            }
+          ]
+        },
+        {
           "type": "Choice",
           "answer": "ja",
           "mapper": "exists",

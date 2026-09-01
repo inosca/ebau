@@ -7,6 +7,11 @@
       'label': 'gemeinde',
       'value': '1',
     }),
+    'grundstuecksflaeche': dict({
+      'hidden': False,
+      'label': 'grundstuecksflaeche',
+      'value': '1428',
+    }),
     'ort-grundstueck': dict({
       'hidden': False,
       'label': 'ort-grundstueck',
