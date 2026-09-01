@@ -37,14 +37,14 @@
       "disabled": 0,
       "language": "de",
       "last_login": null,
-      "metainfo": {},
       "address": null,
       "city": null,
       "zip": null,
       "title": null,
       "position": null,
       "mobile": null,
-      "division": null
+      "division": null,
+      "metainfo": {}
     }
   },
   {
@@ -60,14 +60,14 @@
       "disabled": 0,
       "language": "de",
       "last_login": null,
-      "metainfo": {},
       "address": null,
       "city": null,
       "zip": null,
       "title": null,
       "position": null,
       "mobile": null,
-      "division": null
+      "division": null,
+      "metainfo": {}
     }
   },
   {
@@ -83,14 +83,14 @@
       "disabled": 0,
       "language": "de",
       "last_login": null,
-      "metainfo": {},
       "address": null,
       "city": null,
       "zip": null,
       "title": null,
       "position": null,
       "mobile": null,
-      "division": null
+      "division": null,
+      "metainfo": {}
     }
   },
   {
@@ -106,14 +106,14 @@
       "disabled": 0,
       "language": "de",
       "last_login": "2023-11-28T08:56:15.064Z",
-      "metainfo": {},
       "address": null,
       "city": null,
       "zip": null,
       "title": null,
       "position": null,
       "mobile": null,
-      "division": null
+      "division": null,
+      "metainfo": {}
     }
   },
   {
@@ -4145,6 +4145,198 @@
       "city": null,
       "address": null,
       "email": "geometer@example.com",
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10334,
+    "fields": {
+      "role": 5,
+      "service": 172,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10335,
+    "fields": {
+      "role": 3,
+      "service": 172,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10336,
+    "fields": {
+      "role": 5,
+      "service": 173,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10337,
+    "fields": {
+      "role": 3,
+      "service": 173,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10338,
+    "fields": {
+      "role": 5,
+      "service": 174,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10339,
+    "fields": {
+      "role": 3,
+      "service": 174,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10340,
+    "fields": {
+      "role": 5,
+      "service": 175,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10341,
+    "fields": {
+      "role": 3,
+      "service": 175,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10342,
+    "fields": {
+      "role": 5,
+      "service": 176,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10343,
+    "fields": {
+      "role": 3,
+      "service": 176,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10344,
+    "fields": {
+      "role": 6,
+      "service": 177,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10345,
+    "fields": {
+      "role": 4,
+      "service": 177,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
       "website": null
     }
   },
@@ -9159,6 +9351,246 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 27481,
+    "fields": {
+      "group": 10334,
+      "language": "de",
+      "name": "Administration Alters- und Pflegeheim sowie Pflegegruppen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27482,
+    "fields": {
+      "group": 10334,
+      "language": "it",
+      "name": "Administration Alters- und Pflegeheim sowie Pflegegruppen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27483,
+    "fields": {
+      "group": 10335,
+      "language": "de",
+      "name": "Sachbearbeitung Alters- und Pflegeheim sowie Pflegegruppen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27484,
+    "fields": {
+      "group": 10335,
+      "language": "it",
+      "name": "Sachbearbeitung Alters- und Pflegeheim sowie Pflegegruppen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27485,
+    "fields": {
+      "group": 10336,
+      "language": "de",
+      "name": "Administration Sonderschulen/Sonderschullheime",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27486,
+    "fields": {
+      "group": 10336,
+      "language": "it",
+      "name": "Administration Sonderschulen/Sonderschullheime",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27487,
+    "fields": {
+      "group": 10337,
+      "language": "de",
+      "name": "Sachbearbeitung Sonderschulen/Sonderschullheime",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27488,
+    "fields": {
+      "group": 10337,
+      "language": "it",
+      "name": "Sachbearbeitung Sonderschulen/Sonderschullheime",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27489,
+    "fields": {
+      "group": 10338,
+      "language": "de",
+      "name": "Administration Wohn-, Arbeits- und Tagesstrukturplätze Erwachsene",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27490,
+    "fields": {
+      "group": 10338,
+      "language": "it",
+      "name": "Administration Wohn-, Arbeits- und Tagesstrukturplätze Erwachsene",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27491,
+    "fields": {
+      "group": 10339,
+      "language": "de",
+      "name": "Sachbearbeitung Wohn-, Arbeits- und Tagesstrukturplätze Erwachsene",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27492,
+    "fields": {
+      "group": 10339,
+      "language": "it",
+      "name": "Sachbearbeitung Wohn-, Arbeits- und Tagesstrukturplätze Erwachsene",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27493,
+    "fields": {
+      "group": 10340,
+      "language": "de",
+      "name": "Administration Berufliche Grundbildung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27494,
+    "fields": {
+      "group": 10340,
+      "language": "it",
+      "name": "Administration Berufliche Grundbildung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27495,
+    "fields": {
+      "group": 10341,
+      "language": "de",
+      "name": "Sachbearbeitung Berufliche Grundbildung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27496,
+    "fields": {
+      "group": 10341,
+      "language": "it",
+      "name": "Sachbearbeitung Berufliche Grundbildung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27497,
+    "fields": {
+      "group": 10342,
+      "language": "de",
+      "name": "Administration Weiterführende Bildungsangebote Hochschule",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27498,
+    "fields": {
+      "group": 10342,
+      "language": "it",
+      "name": "Administration Weiterführende Bildungsangebote Hochschule",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27499,
+    "fields": {
+      "group": 10343,
+      "language": "de",
+      "name": "Sachbearbeitung Weiterführende Bildungsangebote Hochschule",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27500,
+    "fields": {
+      "group": 10343,
+      "language": "it",
+      "name": "Sachbearbeitung Weiterführende Bildungsangebote Hochschule",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27501,
+    "fields": {
+      "group": 10344,
+      "language": "de",
+      "name": "Administration Hochbauamt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27502,
+    "fields": {
+      "group": 10344,
+      "language": "it",
+      "name": "Administration Hochbauamt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27503,
+    "fields": {
+      "group": 10345,
+      "language": "de",
+      "name": "Sachbearbeitung Hochbauamt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27504,
+    "fields": {
+      "group": 10345,
+      "language": "it",
+      "name": "Sachbearbeitung Hochbauamt",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -9321,6 +9753,138 @@
       "default_group": 0,
       "created_at": "2026-05-05T08:43:51.932Z",
       "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 16,
+    "fields": {
+      "user": 1,
+      "group": 10334,
+      "default_group": 1,
+      "created_at": "2026-09-01T09:44:34.808Z",
+      "created_by": null
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 17,
+    "fields": {
+      "user": 1,
+      "group": 10335,
+      "default_group": 1,
+      "created_at": "2026-09-01T09:44:34.810Z",
+      "created_by": null
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 18,
+    "fields": {
+      "user": 1,
+      "group": 10336,
+      "default_group": 1,
+      "created_at": "2026-09-01T09:44:34.817Z",
+      "created_by": null
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 19,
+    "fields": {
+      "user": 1,
+      "group": 10337,
+      "default_group": 1,
+      "created_at": "2026-09-01T09:44:34.818Z",
+      "created_by": null
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 20,
+    "fields": {
+      "user": 1,
+      "group": 10338,
+      "default_group": 1,
+      "created_at": "2026-09-01T09:44:34.824Z",
+      "created_by": null
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 21,
+    "fields": {
+      "user": 1,
+      "group": 10339,
+      "default_group": 1,
+      "created_at": "2026-09-01T09:44:34.826Z",
+      "created_by": null
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 22,
+    "fields": {
+      "user": 1,
+      "group": 10340,
+      "default_group": 1,
+      "created_at": "2026-09-01T09:44:34.832Z",
+      "created_by": null
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 23,
+    "fields": {
+      "user": 1,
+      "group": 10341,
+      "default_group": 1,
+      "created_at": "2026-09-01T09:44:34.835Z",
+      "created_by": null
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 24,
+    "fields": {
+      "user": 1,
+      "group": 10342,
+      "default_group": 1,
+      "created_at": "2026-09-01T09:44:34.840Z",
+      "created_by": null
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 25,
+    "fields": {
+      "user": 1,
+      "group": 10343,
+      "default_group": 1,
+      "created_at": "2026-09-01T09:44:34.842Z",
+      "created_by": null
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 26,
+    "fields": {
+      "user": 1,
+      "group": 10344,
+      "default_group": 1,
+      "created_at": "2026-09-01T09:44:34.849Z",
+      "created_by": null
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 27,
+    "fields": {
+      "user": 1,
+      "group": 10345,
+      "default_group": 1,
+      "created_at": "2026-09-01T09:44:34.850Z",
+      "created_by": null
     }
   },
   {
@@ -12687,6 +13251,162 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 172,
+    "fields": {
+      "slug": "apsp",
+      "service_group": 6,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 9999,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "example-apsp@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 173,
+    "fields": {
+      "slug": "sssh",
+      "service_group": 6,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 9999,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "example-sssh@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 174,
+    "fields": {
+      "slug": "wate",
+      "service_group": 6,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 9999,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "example-wate@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 175,
+    "fields": {
+      "slug": "bfgb",
+      "service_group": 6,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 9999,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "example-bfgb@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 176,
+    "fields": {
+      "slug": "wbah",
+      "service_group": 6,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 9999,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "example-wbah@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 177,
+    "fields": {
+      "slug": "hochbauamt",
+      "service_group": 7,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 9999,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "example-hochbauamt@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 1,
     "fields": {
@@ -15742,6 +16462,150 @@
       "language": "fr",
       "name": "Great GR Geometers GmbH",
       "description": "geometra",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 297,
+    "fields": {
+      "service": 172,
+      "language": "de",
+      "name": "Alters- und Pflegeheim sowie Pflegegruppen",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 298,
+    "fields": {
+      "service": 172,
+      "language": "it",
+      "name": "Alters- und Pflegeheim sowie Pflegegruppen",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 299,
+    "fields": {
+      "service": 173,
+      "language": "de",
+      "name": "Sonderschulen/Sonderschullheime",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 300,
+    "fields": {
+      "service": 173,
+      "language": "it",
+      "name": "Sonderschulen/Sonderschullheime",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 301,
+    "fields": {
+      "service": 174,
+      "language": "de",
+      "name": "Wohn-, Arbeits- und Tagesstrukturplätze Erwachsene",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 302,
+    "fields": {
+      "service": 174,
+      "language": "it",
+      "name": "Wohn-, Arbeits- und Tagesstrukturplätze Erwachsene",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 303,
+    "fields": {
+      "service": 175,
+      "language": "de",
+      "name": "Berufliche Grundbildung",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 304,
+    "fields": {
+      "service": 175,
+      "language": "it",
+      "name": "Berufliche Grundbildung",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 305,
+    "fields": {
+      "service": 176,
+      "language": "de",
+      "name": "Weiterführende Bildungsangebote Hochschule",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 306,
+    "fields": {
+      "service": 176,
+      "language": "it",
+      "name": "Weiterführende Bildungsangebote Hochschule",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 307,
+    "fields": {
+      "service": 177,
+      "language": "de",
+      "name": "Hochbauamt",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 308,
+    "fields": {
+      "service": 177,
+      "language": "it",
+      "name": "Hochbauamt",
+      "description": null,
       "city": null,
       "department": null
     }
