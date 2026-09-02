@@ -24,17 +24,9 @@ export default class MainNavigationComponent extends Component {
 
   languages = languages;
 
-  get logoClasses() {
-    if (name === "sg") return "logo-sg";
-
-    return "";
-  }
-
   get logoPath() {
-    if (["gr", "so", "ag"].includes(name)) {
+    if (["gr", "so", "ag", "sg"].includes(name)) {
       return `/assets/images/ebau-${name}-logo.svg`;
-    } else if (name === "sg") {
-      return null;
     }
 
     return "/assets/images/ebau-inosca-logo.svg";
