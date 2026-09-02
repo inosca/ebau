@@ -241,6 +241,19 @@
           ]
         },
         {
+          "mapper": "properties",
+          "identifier": "Ortsbilder PDF-Perimeter (ISOS-I-basiert)",
+          "source": "isos",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "propertyName": "Bedeutung",
+              "template": "ISOS {{property}}",
+              "allowedValues": ["national", "regional"]
+            }
+          ]
+        },
+        {
           "type": "Text",
           "answer": "Landschaften und Naturdenkmäler von nationaler Bedeutung (BLN)",
           "mapper": "exists",
