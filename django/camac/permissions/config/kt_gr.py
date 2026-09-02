@@ -42,6 +42,9 @@ def _should_include_special_service(instance, service_name):
         task_id = settings.DECISION["TASK"]
 
     elif service_name == gr_constants.AIB_SERVICE_SLUG:
+        if instance.case.document.form_id in gr_constants.BAUBEITRAGSWESEN_FORMS:
+            return False
+
         question_id = "fuer-aib-freigeben"
         # if a construction-acceptance task workitem exists, we check the
         # checkbox answer in that workitem, otherwise fallback to the

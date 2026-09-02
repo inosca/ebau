@@ -1001,6 +1001,24 @@ def test_decision_acls_sz(
             "decision",
             ["aib"],
         ),
+        (
+            False,
+            False,
+            gr_constants.BAUBEITRAGSWESEN_FORM_INVESTITIONSANMELDUNG,
+            False,
+            True,
+            "decision",
+            [],
+        ),
+        (
+            False,
+            True,
+            gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+            False,
+            False,
+            "decision",
+            [],
+        ),
     ],
 )
 @pytest.mark.django_db
