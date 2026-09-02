@@ -6,8 +6,9 @@ info-table-errors:
 instances:
   downloadFormAsPdf: "Télécharger le formulaire de demande"
   downloadFormAsPdfText: "Vous pouvez télécharger à nouveau le formulaire de demande ici."
-  demolitionPaymentTitle: ""
-  demolitionPaymentText: ""
-  demolitionPaymentButton: ""
+  demolitionPaymentTitle: "Demande de versement de la prime de démolition"
+  demolitionPaymentText: "Une fois la démolition effectuée et la remise en culture, le cas échéant, vous pouvez déposer ici votre demande de versement de la prime de démolition."
+  demolitionPaymentButton: "Demander le versement"
+  demolitionPaymentError: "Une erreur s'est produite lors de la création du dossier"
   instance-id: "Numéro de dossier"
   special-id: "Numéro eBau"
