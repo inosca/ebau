@@ -164,6 +164,7 @@ INSTANCE_COPY = ModuleConfig[InstanceCopyConfig](
             instance_id_slug="antrag-auf-auszahlung-dossiernummer-gesuch",
             form_slug="antrag-auf-auszahlung",
             link_source_document=True,
+            copy_attachments=False,
             simple_questions=[
                 "gemeinde",
             ],
