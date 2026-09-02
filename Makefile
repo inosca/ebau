@@ -7,6 +7,7 @@ include .env
 .DEFAULT_GOAL := help
 
 GIT_USER=$(shell git config user.email)
+PRETTIER=npx --yes prettier@3.0.3
 DB_CONTAINER=$(shell docker compose ps -q db)
 APPLICATION_ENV=$(shell docker compose exec django bash -c 'echo $$APPLICATION_ENV')
 APPLICATION_NAME=$(shell docker compose exec django bash -c 'echo $$APPLICATION')
@@ -63,12 +64,12 @@ clear-cache: ## Clear memcache, redis or valkey (only django (DB #2) and DMS cac
 .PHONY: dumpconfig
 dumpconfig: ## Dump the current camac and caluma configuration
 	docker compose exec django python manage.py camac_dump_config
-	@npx --yes prettier@3.0.3 --log-level silent --write "django/${APPLICATION}/config/*.json"
+	@$(PRETTIER) -wl "django/${APPLICATION}/config/*.json"
 
 .PHONY: dumpdata
 dumpdata: ## Dump the current camac and caluma data
 	docker compose exec django /app/manage.py camac_dump_data
-	@npx --yes prettier@3.0.3 --log-level silent --write "django/${APPLICATION}/data/*.json"
+	@$(PRETTIER) -wl "django/${APPLICATION}/data/*.json"
 
 .PHONY: loadconfig-camac
 loadconfig-camac: ## Load the camac configuration
@@ -87,7 +88,7 @@ loadconfig-dms: ## Load the DMS configuration
 dumpconfig-dms: ## Dump the DMS configuration
 	@if docker compose config|grep -q document-merge-service; then \
 		docker compose exec -u root document-merge-service bash -c "python manage.py dumpdata api.Template > /data/document-merge-service/dump.json" ; \
-		npx --yes prettier@3.0.3 --log-level silent --write "document-merge-service/${APPLICATION}/dump.json"; \
+		$(PRETTIER) -wl "document-merge-service/${APPLICATION}/dump.json"; \
 	fi
 
 
@@ -102,7 +103,7 @@ loadconfig-keycloak: ## Load the keycloak configuration
 .PHONY: dumpconfig-keycloak
 dumpconfig-keycloak: ## Dump the keycloak configuration
 	docker compose exec keycloak /opt/keycloak/bin/kc.sh export --http-management-port 9001 --file /opt/keycloak/data/import/test-config.json
-	@npx --yes prettier@3.0.3 --log-level silent --write "keycloak/config/${APPLICATION}-test-config.json"
+	@$(PRETTIER) -wl "keycloak/config/${APPLICATION}-test-config.json"
 
 .PHONY: loadconfig
 loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak ## Load all configuration
@@ -153,8 +154,7 @@ format:
 	@pnpm -C ember install
 	@pnpm -C ember lint:js --fix
 	@(cd django && ruff format)
-	@npx --yes prettier@3.0.3 --write *.yml
-	@npx --yes prettier@3.0.3 --write compose/*.yml
+	@$(PRETTIER) -wl *.yml "compose/**/*.yml"
 
 .PHONY: makemigrations
 makemigrations: ## Create schema migrations
@@ -337,11 +337,11 @@ update-templatefiles: # Upload DMS templates to the local S3
 
 .PHONY: prettier-check
 prettier-check: # Check formatting of yml and config files with prettier
-	@npx --yes prettier@3.0.3 -c **/*.yml "django/**/*.json"
+	@$(PRETTIER) -c *.yml "compose/**/*.yml" "django/**/*.json"
 
 .PHONY: prettier-fix
 prettier-fix: # Fix formatting of yml and config files with prettier
-	@npx --yes prettier@3.0.3 --write **/*.yml "django/**/*.json"
+	@$(PRETTIER) -wl *.yml "compose/**/*.yml" "django/**/*.json"
 
 .PHONY: compare-dump
 compare-dump: # Compares two given .json dump files

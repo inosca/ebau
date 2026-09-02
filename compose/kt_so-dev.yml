@@ -1,3 +1,6 @@
+include:
+  - path: services/elixir-dev.yml
+
 services:
   cache:
     image: memcached:1.6-alpine
@@ -15,10 +18,6 @@ services:
       - ../proxy/snippets:/etc/nginx/conf.d/snippets:ro
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
-    # Required so the nginx upstream can resolve `host.docker.internal` to the
-    # host machine on Linux (already works out-of-the-box on macOS/Windows).
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     depends_on:
       - django
       - document-merge-service
@@ -309,45 +308,11 @@ services:
       BROKER_URL: redis://default:redis@redis:6379/0 # gitleaks:allow
       FLOWER_URL_PREFIX: celery-flower
 
-  elixir:
-    build:
-      context: ../elixir-ebau
-      target: dev
-    # We cache _build, deps and language server folders to prevent having to recompile
-    # the entire project everytime. However, if you use the container to develop
-    # you don't have formatting (run `mix format` in the container for that) and you don't
-    # have any language server integration in your editor (which is highly recommended).
-    volumes:
-      - ../elixir-ebau:/app # mounting the source code
-      - ../django/kt_so/config:/app/priv/test_fixtures/kt_so/config # mounting the source code
-      - elixir-ebau_build:/app/_build # caching the _build folder to a local volume
-      - elixir-ebau_dependencies:/app/deps # caching the dependencies to a local volume
-      - elixir-ebau_language-server:/app/.elixir_ls # caching the language server to a local volume
-    depends_on:
-      - db
-    environment:
-      - APPLICATION=${APPLICATION}
-      - DATABASE_PASSWORD=camac
-      - DATABASE_USER=camac
-      - DATABASE_NAME=${APPLICATION}
-      - DATABASE_HOST=db
-      - KEYCLOAK_URL=http://ebau-keycloak.localhost/auth/
-      - KEYCLOAK_REALM=ebau
-      - KEYCLOAK_CLIENT=camac
-      - KEYCLOAK_SCOPES=openid email
-      - DJANGO_OIDC_EMAIL_CLAIM=email
-      - OIDC_USERNAME_CLAIM=sub
-      - ENABLE_WATERMARK=true
-      - WATERMARK=local
-
 volumes:
   pg15data:
   djangomedia:
   djangotmpmedia:
   redis_data:
-  elixir-ebau_build:
-  elixir-ebau_dependencies:
-  elixir-ebau_language-server:
   garage_meta:
     driver: local
   garage_data:
