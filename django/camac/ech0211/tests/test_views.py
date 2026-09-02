@@ -729,6 +729,7 @@ def test_send_submit_ag(
         "anzahl-gebaeude-greater-6-m-die-abgebrochen-werden",
         "anzahl-neue-gebaeude-greater-6m",
         "baukosten",
+        "gis-map",
         "projektkennzeichnung-even",
         "typ-der-baute",
         "unterschriebene-eingabequittung",
