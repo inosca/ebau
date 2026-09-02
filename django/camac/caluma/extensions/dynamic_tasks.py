@@ -151,10 +151,10 @@ class CustomDynamicTasks(BaseDynamicTasks):
             question_id=settings.DECISION["QUESTIONS"]["DECISION"],
             work_item=prev_work_item,
         )
-        # only ebbw forms with a positive decision should get the archive-instance
-        # work item.
+        # only ebbw form Bauabrechnung with a positive decision should get the
+        # archive-instance work item.
         should_archive = (
-            case.document.form_id in gr_constants.BAUBEITRAGSWESEN_FORMS
+            case.document.form_id == gr_constants.BAUBEITRAGSWESEN_FORM_BAUABRECHNUNG
             and domain_logic.DecisionLogic.is_positive_decision(decision)
         )
 

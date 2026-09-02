@@ -285,13 +285,22 @@ def test_dynamic_task_after_decision_with_check_prevent_submit(
         (True, True, True, True, "baugesuch-v3", []),
         # create complete-instance, no construction monitoring in bauanzeige
         (True, True, False, True, "bauanzeige-v3", ["complete-instance"]),
-        # create archive-instance for Baubeitragswesen
+        # create complete-instance for EBBW forms before the final form
         (
             True,
             False,
             False,
             True,
             gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+            ["complete-instance"],
+        ),
+        # create archive-instance for the final EBBW form
+        (
+            True,
+            False,
+            False,
+            True,
+            gr_constants.BAUBEITRAGSWESEN_FORM_BAUABRECHNUNG,
             ["archive-instance"],
         ),
         (
@@ -299,7 +308,7 @@ def test_dynamic_task_after_decision_with_check_prevent_submit(
             False,
             False,
             False,
-            gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+            gr_constants.BAUBEITRAGSWESEN_FORM_BAUABRECHNUNG,
             ["complete-instance"],
         ),
         # create complete-instance after negative decision and construction
@@ -320,6 +329,14 @@ def test_dynamic_task_after_decision_with_check_prevent_submit(
             False,
             True,
             gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+            ["complete-instance"],
+        ),
+        (
+            False,
+            False,
+            False,
+            True,
+            gr_constants.BAUBEITRAGSWESEN_FORM_BAUABRECHNUNG,
             ["archive-instance"],
         ),
         (
@@ -327,7 +344,7 @@ def test_dynamic_task_after_decision_with_check_prevent_submit(
             False,
             False,
             False,
-            gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
+            gr_constants.BAUBEITRAGSWESEN_FORM_BAUABRECHNUNG,
             ["complete-instance"],
         ),
         # create complete-instance after negative decision on baugesuch
