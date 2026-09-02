@@ -28,19 +28,41 @@
 {{/if}}
 
 {{#if this.allRequiredTags.length}}
-  <p class="uk-text-bold">
-    {{t "documents.confirm" count=this.allRequiredTags.length}}
-  </p>
-  {{#if (t "documents.no-special-forms")}}
-    <div class="uk-padding-small uk-margin-bottom border-highlight">
-      {{t "documents.no-special-forms"}}
-    </div>
-  {{/if}}
-  {{#if (t "documents.uploadPlansIndividually")}}
-    <div class="uk-padding-small uk-margin-bottom border-highlight">
-      {{t "documents.uploadPlansIndividually"}}
-    </div>
-  {{/if}}
+  {{#let
+    (maybe-translate
+      (concat "documents" this.documentTranslationPrefix ".confirm")
+      count=this.allRequiredTags.length
+    )
+    as |confirm|
+  }}
+    <p class="uk-text-bold">{{confirm}}</p>
+  {{/let}}
+  {{#let
+    (maybe-translate
+      (concat "documents" this.documentTranslationPrefix ".no-special-forms")
+    )
+    as |noSpecialForms|
+  }}
+    {{#if noSpecialForms}}
+      <div class="uk-padding-small uk-margin-bottom border-highlight">
+        {{noSpecialForms}}
+      </div>
+    {{/if}}
+  {{/let}}
+  {{#let
+    (maybe-translate
+      (concat
+        "documents" this.documentTranslationPrefix ".uploadPlansIndividually"
+      )
+    )
+    as |uploadPlansIndividually|
+  }}
+    {{#if uploadPlansIndividually}}
+      <div class="uk-padding-small uk-margin-bottom border-highlight">
+        {{uploadPlansIndividually}}
+      </div>
+    {{/if}}
+  {{/let}}
   {{#each-in this.requiredTags as |title fields|}}
     {{#if (gt this.amountOfCategories 1)}}
       <p class="uk-margin">{{t (concat "documents.tags." title)}}</p>
