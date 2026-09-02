@@ -229,14 +229,6 @@ export default {
     "rejected",
     "archived",
   ],
-  changeResponsibleService: {
-    serviceGroupsForType: {
-      // This should match the "ACTIVE_SERVICE" configuration in the django
-      // settings
-      municipality: ["municipality", "district", "lead-service"],
-      "construction-control": ["construction-control"],
-    },
-  },
   alexandria: {
     feedbackCategories: ["alle-beteiligten", "rechtsbegehren"],
     marks: {

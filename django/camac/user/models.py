@@ -665,6 +665,9 @@ class ServiceQuerySet(models.QuerySet):
             disabled=False,
         )
 
+    def enabled_services(self):
+        return self.filter(disabled=False)
+
 
 class Service(core_models.MultilingualModel, models.Model):
     """Represents an organisational entity which can be hierarchically structured.

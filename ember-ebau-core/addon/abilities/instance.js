@@ -203,20 +203,9 @@ export default class InstanceAbility extends Ability {
   }
 
   async canUnsubscribeResponsibleService() {
-    if (this.permissions.fullyEnabled) {
-      return await this.permissions.hasAll(
-        this.model?.id,
-        "instance-unsubscribe-responsible-service",
-      );
-    }
-
-    return (
-      this.ebauModules.isSupportRole ||
-      (!this.ebauModules.isReadOnlyRole &&
-        // Involved services are passed into the permission check
-        (this.involvedServices ?? [])
-          .map((service) => parseInt(service.id))
-          .includes(this.ebauModules.serviceId))
+    return await this.permissions.hasAll(
+      this.model?.id,
+      "instance-unsubscribe-responsible-service",
     );
   }
 

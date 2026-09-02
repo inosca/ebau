@@ -37,7 +37,10 @@ from camac.utils import get_unversioned_slug
 
 from . import models
 from .permissions import get_permission_func, permission_aware
-from .utils import get_service_suggestions
+from .utils import (
+    get_allowed_responsible_services_for_instance,
+    get_service_suggestions,
+)
 
 
 class LocationFilterSet(FilterSet):
@@ -78,6 +81,15 @@ class PublicServiceFilterSet(FilterSet):
     )
     is_active_service_for_instance = NumberFilter(
         method="filter_is_active_service_for_instance"
+    )
+    is_involved_service_for_instance = NumberFilter(
+        method="filter_is_involved_service_for_instance"
+    )
+    is_responsible_service_type = CharFilter(
+        method="filter_is_responsible_service_type"
+    )
+    available_responsible_service_for_instance = NumberFilter(
+        method="filter_available_responsible_service_for_instance"
     )
     exclude_disabled = ExcludeDisabledFilter(field_name="disabled")
 
@@ -260,6 +272,37 @@ class PublicServiceFilterSet(FilterSet):
         return queryset.filter(
             instance_services__active=1,
             instance_services__instance_id=value,
+        )
+
+    def filter_is_involved_service_for_instance(self, queryset, name, value):
+        return queryset.filter(
+            instance_services__active=0,
+            instance_services__instance_id=value,
+        )
+
+    def filter_is_responsible_service_type(self, queryset, name, value):
+        if not is_module_enabled("CHANGE_RESPONSIBLE_SERVICE"):  # pragma: no cover
+            return queryset.none()
+
+        service_type = value.replace("-", "_")
+
+        config = (
+            settings.CHANGE_RESPONSIBLE_SERVICE.get_responsible_service_type_config(
+                service_type
+            )
+        )
+
+        services = config.services_for_type
+        filters = Q(slug__in=services)
+
+        service_groups = config.service_groups_for_type
+        filters |= Q(service_group__name__in=service_groups)
+
+        return queryset.exclude(service_parent__isnull=False).filter(filters)
+
+    def filter_available_responsible_service_for_instance(self, queryset, name, value):
+        return get_allowed_responsible_services_for_instance(
+            instance_id=value, queryset=queryset
         )
 
     def _condition_is_bab(self, instance, service):

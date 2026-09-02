@@ -1076,6 +1076,77 @@ def gr_change_form_settings(
 
 
 @pytest.fixture
+def change_responsible_service_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for change responsible service (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        settings_name="CHANGE_RESPONSIBLE_SERVICE",
+        import_path="camac.settings.modules.change_responsible_service.CHANGE_RESPONSIBLE_SERVICE",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_change_responsible_service_settings(
+    request,
+    settings,
+    change_responsible_service_settings,
+):
+    """Disable the change responsible service module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=change_responsible_service_settings,
+        settings_name="CHANGE_RESPONSIBLE_SERVICE",
+        import_path="camac.settings.modules.change_responsible_service.CHANGE_RESPONSIBLE_SERVICE",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def be_change_responsible_service_settings(
+    request,
+    settings,
+    change_responsible_service_settings,
+):
+    """Module-specific settings for change responsible service (canton BE)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=change_responsible_service_settings,
+        settings_name="CHANGE_RESPONSIBLE_SERVICE",
+        import_path="camac.settings.modules.change_responsible_service.CHANGE_RESPONSIBLE_SERVICE",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ag_change_responsible_service_settings(
+    request,
+    settings,
+    change_responsible_service_settings,
+):
+    """Module-specific settings for change responsible service (canton AG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=change_responsible_service_settings,
+        settings_name="CHANGE_RESPONSIBLE_SERVICE",
+        import_path="camac.settings.modules.change_responsible_service.CHANGE_RESPONSIBLE_SERVICE",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def communications_settings(
     request,
     settings,

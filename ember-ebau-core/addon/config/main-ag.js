@@ -133,14 +133,6 @@ export default {
       "decision",
     ],
   },
-  changeResponsibleService: {
-    serviceGroupsForType: {
-      municipality: ["municipality", "municipality-light", "service-afb"],
-    },
-    selectableServiceGroupsForType: {
-      municipality: ["service-afb"],
-    },
-  },
   alexandria: {
     feedbackCategories: ["alle-beteiligten", "bauabnahme"],
     marks: {

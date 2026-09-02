@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-27 13:10+0200\n"
+"POT-Creation-Date: 2026-09-02 10:22+0200\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1655,6 +1655,14 @@ msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 "%(value)s n'est pas un type de service correct - les types corrects sont "
 "%(expected)s"
+
+#: camac/instance/serializers.py
+#: camac/instance/tests/test_change_responsible_service.py
+#, python-format
+msgid ""
+"Invalid responsible service `%(to_service)s` for service type "
+"`%(service_type)s`."
+msgstr ""
 
 #: camac/instance/serializers.py
 msgid "Invalid audit"
