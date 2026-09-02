@@ -46518,7 +46518,7 @@
       "template": null,
       "class_field": "menu-category-process appeal",
       "hidden": 0,
-      "sort": 16,
+      "sort": 17,
       "form_group": 40000,
       "require_permission": "appeal-read"
     }
@@ -46712,6 +46712,22 @@
       "hidden": 0,
       "sort": 6,
       "form_group": 20001,
+      "require_permission": "form-rpg2-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 18000009,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 16,
+      "form_group": 40000,
       "require_permission": "form-rpg2-read"
     }
   },
@@ -48296,6 +48312,26 @@
     "pk": 18000013,
     "fields": {
       "instance_resource": 18000008,
+      "language": "fr",
+      "name": "Saisie des données LAT",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 18000014,
+    "fields": {
+      "instance_resource": 18000009,
+      "language": "de",
+      "name": "RPG Datenerfassung",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 18000015,
+    "fields": {
+      "instance_resource": 18000009,
       "language": "fr",
       "name": "Saisie des données LAT",
       "description": null
@@ -58733,6 +58769,13 @@
   {
     "model": "core.irtaskform",
     "pk": 18000008,
+    "fields": {
+      "task": "rpg2"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 18000009,
     "fields": {
       "task": "rpg2"
     }
@@ -109807,30 +109850,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 20016,
-    "fields": {
-      "resource": 20007,
-      "role": 4
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 20017,
-    "fields": {
-      "resource": 20007,
-      "role": 20000
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 20018,
-    "fields": {
-      "resource": 20007,
-      "role": 20002
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 20019,
     "fields": {
       "resource": 20006,
@@ -110678,6 +110697,30 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 18000042,
+    "fields": {
+      "resource": 20006,
+      "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 18000043,
+    "fields": {
+      "resource": 20006,
+      "role": 20002
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 18000044,
+    "fields": {
+      "resource": 20006,
+      "role": 20000
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 10000,
     "fields": {
@@ -110712,7 +110755,7 @@
       "description": null,
       "template": null,
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 4
     }
   },
