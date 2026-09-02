@@ -191,8 +191,12 @@ export default class PublicationPreview extends CfFieldInputTextareaComponent {
       location: instance.location.get("name"),
       authority: authority.name,
       date: DateTime.now().toFormat("dd.MM.yyyy"),
-      comments: mainConfig.remarkMapping[comments],
-      commentsToTheOfficialGazette,
+      comments: [
+        mainConfig.remarkMapping[comments],
+        commentsToTheOfficialGazette,
+      ]
+        .filter(Boolean)
+        .join(", "),
       publishDate: publishDateIso
         ? DateTime.fromISO(publishDateIso).toFormat("dd.MM.yyyy")
         : "",
