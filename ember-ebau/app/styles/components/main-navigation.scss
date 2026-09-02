@@ -1,5 +1,3 @@
-@use "sass:meta";
-
 .main-navigation.uk-navbar-container {
   position: fixed;
   left: 0;
@@ -39,11 +37,5 @@
     width: 100%;
     max-width: $sidebar-width - ($padding-small-padding * 2);
     max-height: 50px;
-  }
-
-  @if meta.variable-exists($name: "sg-olivgreen") {
-    .logo-sg {
-      color: $sg-olivgreen;
-    }
   }
 }
