@@ -974,9 +974,7 @@ class RPG2FilterBackend(_BaseFilterBackend):
             .annotate(**annotations)
         )
 
-    # without request and queryset parameter because AfB is the only
-    # service using this rpg2 export
-    def area_rows(self):
+    def area_rows(self, requested_columns: set[str]):
         """Return one row per sealed/unsealed area."""
         slugs = self._slugs
 
@@ -1030,6 +1028,28 @@ class RPG2FilterBackend(_BaseFilterBackend):
             )
         )
 
+        dossier_annotations = {}
+        if "rpg2_approved" in requested_columns:
+            dossier_annotations["rpg2_approved"] = self.annotate_rpg2_approved()
+        if "rpg2_realized" in requested_columns:
+            dossier_annotations["rpg2_realized"] = self.annotate_rpg2_choice_label(
+                slugs["rpg2_realized"]
+            )
+
+        dossier_values_by_instance = {}
+        if dossier_annotations:
+            instance_pks = {
+                link.answer.document.work_item.case.instance.pk for link in row_links
+            }
+            dossier_values = (
+                Instance.objects.filter(pk__in=instance_pks)
+                .annotate(**dossier_annotations)
+                .values("pk", *dossier_annotations)
+            )
+            dossier_values_by_instance = {
+                values["pk"]: values for values in dossier_values
+            }
+
         unsealed_prefix = slugs.get("rpg2_area_unsealed_prefix", "")
 
         rows = []
@@ -1048,6 +1068,7 @@ class RPG2FilterBackend(_BaseFilterBackend):
             ):
                 area_size = -area_size
 
+            dossier_values = dossier_values_by_instance.get(instance.pk, {})
             rows.append(
                 {
                     "instance_id": instance.pk,
@@ -1071,6 +1092,8 @@ class RPG2FilterBackend(_BaseFilterBackend):
                     "area_soemmerung": _label_of_answer(
                         doc_answers, slugs.get("rpg2_area_soemmerung"), labels
                     ),
+                    "rpg2_approved": dossier_values.get("rpg2_approved"),
+                    "rpg2_realized": dossier_values.get("rpg2_realized"),
                 }
             )
         return rows

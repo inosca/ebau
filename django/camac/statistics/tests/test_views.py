@@ -9,7 +9,6 @@ import pyexcel
 import pytest
 from caluma.caluma_form.models import Form, Option
 from django.urls import reverse
-from django.utils.translation import gettext
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
@@ -60,7 +59,44 @@ def test_rpg2_export_access_be(
     if expected_status == status.HTTP_200_OK:
         book = parse_xlsx_response(response).get_dict()
         assert len(book["Dossiers"][0]) == 14
-        assert len(book["Flächen"][0]) == 5
+        assert len(book["Flächen"][0]) == 7
+
+
+def test_rpg2_export_area_dossier_values_be(
+    admin_client,
+    be_decision_settings,
+    be_distribution_settings,
+    be_master_data_case,
+    be_rpg2_settings,
+    be_statistics_settings,
+    decision_factory,
+    group,
+    rpg2_data,
+    set_application_be,
+):
+    """BE area sheet has dossier-level values for every area."""
+    group.service.slug = "agr-bauen"
+    group.service.save(update_fields=["slug"])
+    be_statistics_settings.rpg2_autofilter["Dossiers"]["Missing header"] = ["Yes"]
+
+    instance = be_master_data_case.instance
+    rpg2_data(instance)
+    decision_factory(instance=instance)
+
+    response = admin_client.get(RPG2_URL)
+
+    assert response.status_code == status.HTTP_200_OK
+    content = b"".join(response.streaming_content)
+    sheet = pyexcel.get_book(file_content=content, file_type="xlsx").get_dict()[
+        "Flächen"
+    ]
+    workbook = openpyxl.load_workbook(io.BytesIO(content))
+
+    assert sheet[0][-2:] == ["Bewilligt", "Realisiert"]
+    assert {(row[-2], row[-1]) for row in sheet[1:]} == {("Ja", "Ja")}
+    assert workbook["Dossiers"].auto_filter.ref == "A1:N2"
+    assert workbook["Dossiers"].auto_filter.filterColumn[0].colId == 12
+    assert workbook["Dossiers"].auto_filter.filterColumn[0].filters.filter == ["Ja"]
 
 
 @pytest.mark.parametrize(
@@ -301,6 +337,10 @@ def test_write_data_sheet_non_native_types_and_excess_columns():
     assert sheet.cell(row=2, column=1).value == "3.14"
     assert sheet.cell(row=2, column=2).value == "normal"
     assert sheet.cell(row=2, column=3).value is None  # not written
+    assert sheet.auto_filter.ref is None
+
+    view._write_grid_sheet(wb, "Dossiers", 0, ["Col1"], [("x",)])
+    assert wb["Dossiers"].auto_filter.ref == "A1:A2"
 
 
 def test_set_pivot_refresh():
@@ -500,7 +540,7 @@ def test_rpg2_export(
 
     assert len(sheet) == 2  # header + 1 data row
     assert len(sheet[0]) == 11
-    assert sheet[0][-2:] == [gettext("X coordinate"), gettext("Y coordinate")]
+    assert sheet[0][-2:] == ["X-Koordinate", "Y-Koordinate"]
 
     legal_basis_label = str(Option.objects.get(pk="rpg2-bewilligungsgrund-a01").label)
 
@@ -532,11 +572,15 @@ def test_rpg2_export_areas_sheet(
 
     assert response.status_code == status.HTTP_200_OK
 
-    book = parse_xlsx_response(response)
+    content = b"".join(response.streaming_content)
+    book = pyexcel.get_book(file_content=content, file_type="xlsx")
     sheet = book.get_dict()["Flächen"]
+    workbook = openpyxl.load_workbook(io.BytesIO(content))
 
     assert len(sheet) == 3  # header + 2 area rows
     assert len(sheet[0]) == EXPECTED_RPG2_AREAS_COLUMNS
+    assert workbook["Dossiers"].auto_filter.ref == "A1:K2"
+    assert workbook["Flächen"].auto_filter.ref == "A1:H3"
     assert sheet[0][4] == "Materialisierung der neu ver- bzw. entsiegelten Flächen"
     assert sheet[0][5] == "Beschreibung Materialisierung"
 

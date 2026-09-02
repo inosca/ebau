@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-02 10:22+0200\n"
+"POT-Creation-Date: 2026-09-03 13:40+0200\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2183,11 +2183,11 @@ msgstr ""
 msgid "Realized"
 msgstr ""
 
-#: camac/settings/modules/statistics.py camac/statistics/tests/test_views.py
+#: camac/settings/modules/statistics.py
 msgid "X coordinate"
 msgstr ""
 
-#: camac/settings/modules/statistics.py camac/statistics/tests/test_views.py
+#: camac/settings/modules/statistics.py
 msgid "Y coordinate"
 msgstr ""
 
@@ -2227,6 +2227,11 @@ msgstr ""
 msgid "Completing date"
 msgstr ""
 
+#: camac/settings/modules/statistics.py camac/statistics/filters.py
+#: camac/user/admin/filters.py
+msgid "Yes"
+msgstr "Oui"
+
 #: camac/settings/modules/withdrawal.py
 msgid "Instance withdrawn"
 msgstr ""
@@ -2242,10 +2247,6 @@ msgstr "Retrait du dossier demandé"
 #: camac/statistics/apps.py
 msgid "Statistics"
 msgstr ""
-
-#: camac/statistics/filters.py camac/user/admin/filters.py
-msgid "Yes"
-msgstr "Oui"
 
 #: camac/statistics/filters.py camac/user/admin/filters.py
 msgid "No"
