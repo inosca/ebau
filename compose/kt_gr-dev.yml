@@ -1,3 +1,6 @@
+include:
+  - path: services/elixir-dev.yml
+
 services:
   cache:
     ports:
@@ -22,10 +25,6 @@ services:
       - garage
     ports:
       - "80:80"
-    # Required so the nginx upstream can resolve `host.docker.internal` to the
-    # host machine on Linux (already works out-of-the-box on macOS/Windows).
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     networks:
       default:
         aliases:
@@ -236,39 +235,7 @@ services:
     ports: []
     command: celery-beat-dev
 
-  elixir:
-    build:
-      context: ../elixir-ebau
-      target: dev
-    # We cache _build, deps and language server folders to prevent having to recompile
-    # the entire project everytime. However, if you use the container to develop
-    # you don't have formatting (run `mix format` in the container for that) and you don't
-    # have any language server integration in your editor (which is highly recommended).
-    volumes:
-      - ../elixir-ebau:/app # mounting the source code
-      - elixir-ebau_build:/app/_build # caching the _build folder to a local volume
-      - elixir-ebau_dependencies:/app/deps # caching the dependencies to a local volume
-      - elixir-ebau_language-server:/app/.elixir_ls # caching the language server to a local volume
-    depends_on:
-      - db
-    environment:
-      - APPLICATION=${APPLICATION}
-      - DATABASE_PASSWORD=camac
-      - DATABASE_USER=camac
-      - DATABASE_NAME=${APPLICATION}
-      - DATABASE_HOST=db
-      - KEYCLOAK_URL=http://ebau-keycloak.localhost/auth/
-      - KEYCLOAK_REALM=ebau
-      - KEYCLOAK_CLIENT=camac
-      - KEYCLOAK_SCOPES=openid email
-      - DJANGO_OIDC_EMAIL_CLAIM=email
-      - OIDC_USERNAME_CLAIM=sub
-      - ENABLE_WATERMARK=true
-
 volumes:
-  elixir-ebau_build:
-  elixir-ebau_dependencies:
-  elixir-ebau_language-server:
   garage_meta:
     driver: local
   garage_data:

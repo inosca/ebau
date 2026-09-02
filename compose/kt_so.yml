@@ -1,3 +1,6 @@
+include:
+  - path: services/elixir.yml
+
 # This configuration is much slimmer than in other cantons as it is only being
 # used for building and pushing the application images into the registry and not
 # for running an environment via `-prod` or `-stage` compose configuration.
@@ -77,14 +80,3 @@ services:
       context: ../garage
       cache_from:
         - acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-main}
-
-  elixir:
-    image: acr.run/camac-ng/camac-ng/elixir-ebau:${CI_COMMIT_TAG:-main}
-    build:
-      context: ../elixir-ebau
-      target: final
-      args:
-        APPLICATION: ${APPLICATION}
-        EBAU_VERSION: ${EBAU_VERSION:-0.0.0-main}
-      cache_from:
-        - acr.run/camac-ng/camac-ng/elixir-ebau:${CI_COMMIT_TAG:-main}
