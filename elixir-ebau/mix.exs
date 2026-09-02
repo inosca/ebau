@@ -38,7 +38,7 @@ defmodule Ebau.MixProject do
       hex: [cooldown: "7d"],
       gettext: [
         write_reference_line_numbers: false,
-        fuzzy_threshold: 0
+        fuzzy_threshold: 1
       ]
     ]
   end
