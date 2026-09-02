@@ -200,6 +200,7 @@ cases:
     preliminary-clarification: "Vorabklärung"
     building-permit: "Gesuch"
     special-procedure: "Spezialverfahren"
+    baubeitragswesen: "EBBW"
     others: "Andere"
 
   export:
