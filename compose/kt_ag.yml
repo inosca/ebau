@@ -74,6 +74,14 @@ services:
         - acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-main}
       args:
         APPLICATION: ${APPLICATION}
+        DMS_VERSION: 10.0.1
+
+  gotenberg:
+    image: acr.run/camac-ng/camac-ng/gotenberg:${CI_COMMIT_TAG:-main}
+    build:
+      context: ../gotenberg
+      cache_from:
+        - acr.run/camac-ng/camac-ng/gotenberg:${CI_COMMIT_TAG:-main}
 
   clamav:
     image: acr.run/camac-ng/camac-ng/clamav:2.6.99

@@ -214,10 +214,6 @@ services:
         condition: service_started
       garage:
         condition: service_started
-    cap_add:
-      - CAP_SYS_ADMIN
-    security_opt:
-      - apparmor:unconfined
     environment:
       CACHE_LOCATION: cache:11211
       DATABASE_HOST: db
@@ -228,7 +224,6 @@ services:
       ENV: dev
       EXTENSIONS_ARGUMENTS: DJANGO_API=http://django
       FILE_STORAGE: storages.backends.s3.S3Storage
-      ISOLATE_UNOCONV: true
       OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       URL_PREFIX: document-merge-service/
     volumes:
