@@ -241,6 +241,7 @@ export default class CaseFilterComponent extends Component {
       "preliminary-clarification",
       "building-permit",
       "special-procedure",
+      "baubeitragswesen",
       "others",
     ];
 

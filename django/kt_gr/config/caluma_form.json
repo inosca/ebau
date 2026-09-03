@@ -4822,21 +4822,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "bauvorhaben.ebbw-phase1-bfgb-wbah-termin-bauvollendung-und-bezug",
-    "fields": {
-      "created_at": "2026-07-15T07:50:15.181Z",
-      "modified_at": "2026-07-15T07:50:15.181Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "bauvorhaben",
-      "question": "ebbw-phase1-bfgb-wbah-termin-bauvollendung-und-bezug",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "bauvorhaben.ebbw-phase1-default-subdivider",
     "fields": {
       "created_at": "2026-07-15T08:36:24.911Z",
@@ -4848,21 +4833,6 @@
       "form": "bauvorhaben",
       "question": "ebbw-phase1-default-subdivider",
       "sort": 26
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauvorhaben.ebbw-phase1-default-termin-bauvollendung-und-bezug",
-    "fields": {
-      "created_at": "2026-07-15T07:48:48.046Z",
-      "modified_at": "2026-07-15T07:48:48.046Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "bauvorhaben",
-      "question": "ebbw-phase1-default-termin-bauvollendung-und-bezug",
-      "sort": 4
     }
   },
   {
@@ -4882,17 +4852,32 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "bauvorhaben.ebbw-phase2-bfgb-wbah-termin-bauvollendung-und-bezug",
+    "pk": "bauvorhaben.ebbw-phase1-phase2-bfgb-wbah-termin-bauvollendung-und-bezug",
     "fields": {
-      "created_at": "2026-07-15T08:04:52.464Z",
-      "modified_at": "2026-07-15T08:04:52.464Z",
+      "created_at": "2026-07-15T07:50:15.181Z",
+      "modified_at": "2026-07-15T07:50:15.181Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "bauvorhaben",
-      "question": "ebbw-phase2-bfgb-wbah-termin-bauvollendung-und-bezug",
-      "sort": 1
+      "question": "ebbw-phase1-phase2-bfgb-wbah-termin-bauvollendung-und-bezug",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.ebbw-phase1-phase2-default-termin-bauvollendung-und-bezug",
+    "fields": {
+      "created_at": "2026-07-15T07:48:48.046Z",
+      "modified_at": "2026-07-15T07:48:48.046Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "ebbw-phase1-phase2-default-termin-bauvollendung-und-bezug",
+      "sort": 4
     }
   },
   {
@@ -4938,21 +4923,6 @@
       "form": "bauvorhaben",
       "question": "ebbw-phase2-default-termin-bauprojektphase",
       "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauvorhaben.ebbw-phase2-default-termin-bauvollendung-und-bezug",
-    "fields": {
-      "created_at": "2026-07-15T08:03:10.266Z",
-      "modified_at": "2026-07-15T08:03:10.266Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "bauvorhaben",
-      "question": "ebbw-phase2-default-termin-bauvollendung-und-bezug",
-      "sort": 2
     }
   },
   {
@@ -61726,37 +61696,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "ebbw-phase1-bfgb-wbah-termin-bauvollendung-und-bezug",
-    "fields": {
-      "created_at": "2026-07-15T07:50:15.132Z",
-      "modified_at": "2026-07-15T08:54:17.516Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bauvollendung und Bezug / voraussichtlicher Mietbeginn\", \"fr\": null, \"it\": null}",
-      "type": "date",
-      "is_required": "true",
-      "is_hidden": "!(\"baubeitragswesen-phase-1\" == info.root.form && (\"ebbw-default-default-art-des-gesuchs\"|answer == \"bfgb\" || \"ebbw-default-default-art-des-gesuchs\"|answer == \"wbah\"))",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "ebbw-phase1-default-bauliche-massnahmen",
     "fields": {
       "created_at": "2026-07-13T14:03:16.122Z",
@@ -62085,37 +62024,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "ebbw-phase1-default-termin-bauvollendung-und-bezug",
-    "fields": {
-      "created_at": "2026-07-15T07:48:47.982Z",
-      "modified_at": "2026-07-15T08:54:12.833Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bauvollendung und Bezug\", \"fr\": null, \"it\": null}",
-      "type": "date",
-      "is_required": "true",
-      "is_hidden": "!(\"baubeitragswesen-phase-1\" == info.root.form && (\"ebbw-default-default-art-des-gesuchs\"|answer == \"sssh\" || \"ebbw-default-default-art-des-gesuchs\"|answer == \"wate\" || \"ebbw-default-default-art-des-gesuchs\"|answer == \"apsp\"))",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "ebbw-phase1-default-termin-eingabe-phase2",
     "fields": {
       "created_at": "2026-07-15T07:44:56.781Z",
@@ -62168,6 +62076,68 @@
       "meta": {
         "hideLabel": true
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ebbw-phase1-phase2-bfgb-wbah-termin-bauvollendung-und-bezug",
+    "fields": {
+      "created_at": "2026-07-15T07:50:15.132Z",
+      "modified_at": "2026-07-15T08:54:17.516Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauvollendung und Bezug / voraussichtlicher Mietbeginn\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "!((\"baubeitragswesen-phase-1\" == info.root.form || \"baubeitragswesen-phase-2\" == info.root.form) && (\"ebbw-default-default-art-des-gesuchs\"|answer == \"bfgb\" || \"ebbw-default-default-art-des-gesuchs\"|answer == \"wbah\"))",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ebbw-phase1-phase2-default-termin-bauvollendung-und-bezug",
+    "fields": {
+      "created_at": "2026-07-15T07:48:47.982Z",
+      "modified_at": "2026-07-15T08:54:12.833Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauvollendung und Bezug\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "!((\"baubeitragswesen-phase-1\" == info.root.form || \"baubeitragswesen-phase-2\" == info.root.form) && (\"ebbw-default-default-art-des-gesuchs\"|answer == \"sssh\" || \"ebbw-default-default-art-des-gesuchs\"|answer == \"wate\" || \"ebbw-default-default-art-des-gesuchs\"|answer == \"apsp\"))",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -62432,37 +62402,6 @@
       "meta": {
         "hideLabel": false
       },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "ebbw-phase2-bfgb-wbah-termin-bauvollendung-und-bezug",
-    "fields": {
-      "created_at": "2026-07-15T08:04:52.416Z",
-      "modified_at": "2026-07-15T09:06:02.041Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bauvollendung und Bezug / voraussichtlicher Mietbeginn\", \"fr\": null, \"it\": null}",
-      "type": "date",
-      "is_required": "true",
-      "is_hidden": "!(\"baubeitragswesen-phase-2\" == info.root.form && (\"ebbw-default-default-art-des-gesuchs\"|answer == \"bfgb\" || \"ebbw-default-default-art-des-gesuchs\"|answer == \"wbah\"))",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -62846,37 +62785,6 @@
       "type": "date",
       "is_required": "true",
       "is_hidden": "!(\"baubeitragswesen-phase-2\" == info.root.form)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "ebbw-phase2-default-termin-bauvollendung-und-bezug",
-    "fields": {
-      "created_at": "2026-07-15T08:03:10.219Z",
-      "modified_at": "2026-07-15T09:06:10.197Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bauvollendung und Bezug\", \"fr\": null, \"it\": null}",
-      "type": "date",
-      "is_required": "true",
-      "is_hidden": "!(\"baubeitragswesen-phase-2\" == info.root.form && (\"ebbw-default-default-art-des-gesuchs\"|answer == \"sssh\" || \"ebbw-default-default-art-des-gesuchs\"|answer == \"wate\" || \"ebbw-default-default-art-des-gesuchs\"|answer == \"apsp\"))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",

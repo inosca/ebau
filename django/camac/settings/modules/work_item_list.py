@@ -105,6 +105,25 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
     kt_gr=WorkItemListConfig(
         enabled=True,
         available_tasks_for_role={
+            "subservice": ["inquiry"],
+            "uso": ["inquiry"],
+        },
+        available_tasks_for_service_group={
+            "service": [
+                "inquiry",
+                "check-inquiries",
+                "check-additional-demand",
+            ],
+            "authority-bab": [
+                "inquiry",
+                "check-inquiries",
+                "check-additional-demand",
+            ],
+            "building-department": [
+                "inquiry",
+                "check-inquiries",
+                "check-additional-demand",
+            ],
             "municipality": [
                 "formal-exam",
                 "publication",
@@ -121,9 +140,16 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
                 "complete-instance",
                 "archive-instance",
             ],
-            "service": ["inquiry", "check-inquiries", "check-additional-demand"],
-            "subservice": ["inquiry"],
-            "uso": ["inquiry"],
+            "authority-contribution": [
+                "formal-exam",
+                "init-distribution",
+                "inquiry",
+                "check-distribution",
+                "check-inquiries",
+                "decision",
+                "complete-instance",
+                "archive-instance",
+            ],
         },
         annotations=AnnotationsConfig(
             description=["beschreibung-projektaenderung", "beschreibung-bauvorhaben"],

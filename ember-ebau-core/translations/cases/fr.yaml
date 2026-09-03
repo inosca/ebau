@@ -184,6 +184,7 @@ cases:
     preliminary-clarification: "Demande préalable"
     building-permit: "Requête"
     special-procedure: "Procédure spéciale"
+    baubeitragswesen: "EBBW"
     others: "Autres"
 
   export:

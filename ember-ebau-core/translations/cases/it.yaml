@@ -188,6 +188,7 @@ cases:
     preliminary-clarification: "Esame preliminare"
     building-permit: "Domanda"
     special-procedure: "Procedura speciale"
+    baubeitragswesen: "EBBW"
     others: "Altro"
 
   export:
