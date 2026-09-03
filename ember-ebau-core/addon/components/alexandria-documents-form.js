@@ -8,6 +8,7 @@ import { query } from "ember-data-resources";
 import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
 
@@ -111,6 +112,13 @@ export default class AlexandriaDocumentsFormComponent extends Component {
 
   get document() {
     return this.args.document ?? this.args.field.fieldset.document;
+  }
+
+  get documentTranslationPrefix() {
+    return isApplication("gr") &&
+      this.document?.rootForm?.raw?.meta?.category === "baubeitragswesen"
+      ? ".baubeitragswesen"
+      : "";
   }
 
   get documentId() {
