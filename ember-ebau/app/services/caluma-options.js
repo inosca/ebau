@@ -173,14 +173,16 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         };
       }
 
+      const isEbbwForm = [
+        "baubeitragswesen-investitionsanmeldung",
+        "baubeitragswesen-phase-1",
+        "baubeitragswesen-phase-2",
+        "baubeitragswesen-teilzahlungen",
+        "baubeitragswesen-bauabrechnung",
+      ].includes(instance.calumaForm);
+
       if (
-        [
-          "baubeitragswesen-investitionsanmeldung",
-          "baubeitragswesen-phase-1",
-          "baubeitragswesen-phase-2",
-          "baubeitragswesen-teilzahlungen",
-          "baubeitragswesen-bauabrechnung",
-        ].includes(instance.calumaForm) &&
+        isEbbwForm &&
         this.currentServiceGroupSlug === "authority-contribution"
       ) {
         // For baubeitragswesen forms, the authority-contribution service group
@@ -192,6 +194,32 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           },
           "building-department": {
             label: "distribution.building-department-services",
+          },
+        };
+      }
+
+      if (
+        isEbbwForm &&
+        this.currentServiceGroupSlug === "building-department"
+      ) {
+        // For baubeitragswesen forms, the building-department service group
+        // services can select all other service groups,
+        // except subservices.
+        return {
+          "authority-contribution": {
+            label: "distribution.authority-contribution-services",
+          },
+          "authority-bab": {
+            label: "distribution.authority-bab",
+          },
+          service: {
+            label: "distribution.services",
+          },
+          municipality: {
+            label: "distribution.municipalities",
+          },
+          geometer: {
+            label: "distribution.geometer",
           },
         };
       }

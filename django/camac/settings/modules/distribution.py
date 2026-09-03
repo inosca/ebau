@@ -300,6 +300,31 @@ DISTRIBUTION = {
                     ]
                 },
             ],
+            gr_constants.BUILDING_DEPARTMENT_SERVICE_GROUP: [
+                {"exclude": [("services", ["aib", "gvg"])]},
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            [
+                                gr_constants.AUTHORITY_CONTRIBUTION_SERVICE_GROUP,
+                                "municipality",
+                                "service",
+                                "authority-bab",
+                                "uso",
+                                *(
+                                    ["geometer"]
+                                    if env.bool(
+                                        "CONSTRUCTION_MONITORING_ENABLED",
+                                        default=False,
+                                    )
+                                    else []
+                                ),
+                            ],
+                        )
+                    ]
+                },
+            ],
         },
     },
     "kt_so": {

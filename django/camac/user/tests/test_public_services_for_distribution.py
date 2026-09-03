@@ -271,7 +271,7 @@ def test_distribution_services_callable_condition(
         (
             gr_constants.BAUBEITRAGSWESEN_FORM_PHASE_1,
             gr_constants.BUILDING_DEPARTMENT_SERVICE_GROUP,
-            {"service-1", "service-are"},
+            {"service-1", "service-ac", "service-are"},
         ),
         # authority-contribution will only see other authority-contribution and
         # building-department services.
@@ -315,6 +315,8 @@ def test_distribution_services_ebbw_gr(
         ("service-bd", gr_constants.BUILDING_DEPARTMENT_SERVICE_GROUP, None),
         ("service-ac", gr_constants.AUTHORITY_CONTRIBUTION_SERVICE_GROUP, None),
         ("service-are", gr_constants.ARE_SERVICE_GROUP, None),
+        ("aib", "service", None),
+        ("gvg", "service", None),
     ]:
         service_factory(
             slug=slug,
