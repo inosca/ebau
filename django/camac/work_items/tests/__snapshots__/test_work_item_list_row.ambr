@@ -605,7 +605,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '5686178b-ddcc-44bd-a828-082d66447018',
+              '590a7d38-f9ab-4912-85e9-30725ca3220d',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -627,7 +627,7 @@
           'task': 'from-template-and-read',
           'unread': False,
         }),
-        'id': '5686178b-ddcc-44bd-a828-082d66447018',
+        'id': '590a7d38-f9ab-4912-85e9-30725ca3220d',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -660,7 +660,7 @@
           'direct-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'role-dog-large-mind',
+              'which-cultural',
               'no-placeholder',
             ]),
             'route': 'foo.bar.baz',
@@ -668,7 +668,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'cee1b885-8e02-4ef3-a5b6-ee16bd576141',
+              '479554b3-2284-4d13-951a-d4f7459e0eab',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -690,7 +690,7 @@
           'task': 'from-task',
           'unread': True,
         }),
-        'id': 'cee1b885-8e02-4ef3-a5b6-ee16bd576141',
+        'id': '479554b3-2284-4d13-951a-d4f7459e0eab',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -724,7 +724,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'a8f84502-b431-4446-bc5f-ed3e20e0c73a',
+              '6f21a59f-a7d2-4106-96f0-621e4b24c339',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -746,7 +746,7 @@
           'task': 'assigned',
           'unread': True,
         }),
-        'id': 'a8f84502-b431-4446-bc5f-ed3e20e0c73a',
+        'id': '6f21a59f-a7d2-4106-96f0-621e4b24c339',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -783,13 +783,13 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '36159958-c158-4e69-b4f5-d55a3713c342',
+              '262d6450-df77-4d64-be8d-d0211d282d2b',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
-          'instance-name': 'Prof. Babette Junk',
+          'instance-name': 'Renate Warmer MBA.',
           'is-addressed-to-current-service': True,
           'is-assigned-to-current-user': False,
           'is-controlled-by-current-service': False,
@@ -805,7 +805,7 @@
           'task': 'target-deadline-date',
           'unread': True,
         }),
-        'id': '36159958-c158-4e69-b4f5-d55a3713c342',
+        'id': '262d6450-df77-4d64-be8d-d0211d282d2b',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -842,7 +842,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'ea18a2e9-b398-4e5e-8e17-b61db3d291dd',
+              'c5427b73-3ee0-4380-91f6-c5f370fd93ab',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -864,7 +864,7 @@
           'task': 'completed',
           'unread': True,
         }),
-        'id': 'ea18a2e9-b398-4e5e-8e17-b61db3d291dd',
+        'id': 'c5427b73-3ee0-4380-91f6-c5f370fd93ab',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({

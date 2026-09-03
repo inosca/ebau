@@ -2617,6 +2617,8 @@
       dict({
         'address_1': '',
         'address_2': '',
+        'country': '',
+        'country_code': '',
         'email': '',
         'first_name': 'Foo',
         'full_address': '',
@@ -2668,6 +2670,8 @@
       dict({
         'address_1': '',
         'address_2': '',
+        'country': '',
+        'country_code': '',
         'email': '',
         'first_name': 'Grund',
         'full_address': '',
@@ -2697,6 +2701,8 @@
       dict({
         'address_1': '',
         'address_2': '',
+        'country': '',
+        'country_code': '',
         'email': '',
         'first_name': 'Projekt',
         'full_address': '',

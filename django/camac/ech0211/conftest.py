@@ -178,6 +178,7 @@ def ech_instance_gr(
                 "juristische-person-gesuchstellerin": "Nein",
                 "telefon-oder-mobile-gesuchstellerin": int("0311234567"),
                 "e-mail-gesuchstellerin": "a@b.ch",
+                "land-gesuchstellerin": "Deutschland",
             }
         ],
     )

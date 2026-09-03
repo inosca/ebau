@@ -1,4 +1,5 @@
 import os.path
+from types import SimpleNamespace
 
 import pytest
 import xmlschema
@@ -80,3 +81,30 @@ def test_generate_delivery(
 )
 def test_split_street_and_housenumber(value, expected):
     assert formatters.split_street_and_housenumber(value) == expected
+
+
+@pytest.mark.parametrize(("country_code", "expected"), [("DE", "DE"), (None, "CH")])
+def test_get_location_address_country(country_code, expected):
+    md = SimpleNamespace(
+        joined_street_and_number=False,
+        street="Teststrasse",
+        street_number="1",
+        zip="1234",
+        city="Testort",
+    )
+    if country_code:
+        md.country_code = country_code
+
+    assert formatters.get_location_address(md).country.countryNameShort == expected
+
+
+@pytest.mark.parametrize(
+    ("person", "expected"),
+    [
+        ({"country_code": "DE"}, "DE"),
+        ({"country_code": None}, "CH"),
+        ({}, "CH"),
+    ],
+)
+def test_get_country_code(person, expected):
+    assert formatters.get_country_code(person) == expected

@@ -146,7 +146,7 @@
           <ns4:town>Winterthur</ns4:town>
           <ns4:swissZipCode>8408</ns4:swissZipCode>
           <ns4:country>
-            <ns4:countryNameShort>Schweiz</ns4:countryNameShort>
+            <ns4:countryNameShort>CH</ns4:countryNameShort>
           </ns4:country>
         </ns3:address>
       </ns1:person>

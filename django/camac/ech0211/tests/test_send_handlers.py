@@ -1677,6 +1677,10 @@ def test_submit_send_handler(
             applicant_person.answers.get(question_id="name-gesuchstellerin").value
             == "Muster"
         )
+        assert (
+            applicant_person.answers.get(question_id="land-gesuchstellerin").value
+            == "Schweiz"
+        )
         applicant_org = (
             instance.case.document.answers.get(
                 question_id="personalien-gesuchstellerin"
@@ -1692,6 +1696,10 @@ def test_submit_send_handler(
                 question_id="name-juristische-person-gesuchstellerin"
             ).value
             == "BAUAG"
+        )
+        assert (
+            applicant_org.answers.get(question_id="land-gesuchstellerin").value
+            == "Schweiz"
         )
 
         assert instance.alexandria_instance_documents.count() == 1
