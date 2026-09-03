@@ -7,7 +7,6 @@ import requests
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.utils.translation import gettext
-from pathvalidate import sanitize_filename
 from rapidfuzz import fuzz
 
 from camac.core.models import InstanceService
@@ -134,7 +133,3 @@ def get_or_create_ebau_nr(
             return match
 
     return generate_ebau_nr(None, submit_date.year)
-
-
-def normalize_dossier_id_for_file_path(dossier_id: str) -> Any:
-    return sanitize_filename(dossier_id)
