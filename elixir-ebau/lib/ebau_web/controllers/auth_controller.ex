@@ -2,6 +2,10 @@ defmodule EbauWeb.AuthController do
   use EbauWeb, :controller
   use AshAuthentication.Phoenix.Controller
 
+  alias AshAuthentication.Errors.AuthenticationFailed
+
+  require Logger
+
   def success(conn, activity, user, _token) do
     return_to = get_session(conn, :return_to) || "/"
 
@@ -25,10 +29,15 @@ defmodule EbauWeb.AuthController do
   end
 
   def failure(conn, activity, reason) do
+    Logger.warning("""
+    Authentication failed: #{describe_failure(reason)}
+      activity: #{inspect(activity)}
+    """)
+
     message =
       case {activity, reason} do
         {_,
-         %AshAuthentication.Errors.AuthenticationFailed{
+         %AuthenticationFailed{
            caused_by: %Ash.Error.Forbidden{
              errors: [%AshAuthentication.Errors.CannotConfirmUnconfirmedUser{}]
            }
@@ -46,6 +55,13 @@ defmodule EbauWeb.AuthController do
     |> put_flash(:error, message)
     |> redirect(to: ~p"/elixir/sign-in")
   end
+
+  defp describe_failure(%AuthenticationFailed{caused_by: caused_by}),
+    do: describe_failure(caused_by)
+
+  defp describe_failure(exception) when is_exception(exception), do: Exception.message(exception)
+  defp describe_failure(%{message: message}) when is_binary(message), do: message
+  defp describe_failure(other), do: inspect(other)
 
   @doc """
   Signs the user out of Phoenix and then out of Keycloak.

@@ -1,5 +1,7 @@
 import Config
 
+config :ash_authentication, debug_authentication_failures?: true
+
 config :ebau, EbauWeb.Endpoint,
   # Bound to all interfaces — accessible from other machines (e.g. Docker host).
   # Change to `ip: {127, 0, 0, 1}` to restrict to loopback only.
