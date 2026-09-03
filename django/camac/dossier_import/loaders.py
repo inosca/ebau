@@ -401,7 +401,6 @@ class XlsxFileDossierLoader(DossierLoader):
             if dossier.id is None:  # pragma: no cover
                 continue
             dossier = self._load_attachments(dossier, archive)
-            print(f"Loaded attachments: {dossier.attachments}")
             yield dossier
 
     def _load_attachments(self, dossier, archive):

@@ -18,6 +18,7 @@ from camac.dossier_import.domain_logic import (
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import MessageCodes
 from camac.dossier_import.models import DossierImport
+from camac.dossier_import.utils import normalize_dossier_id_for_file_path
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.settings.modules.master_data import MASTER_DATA
@@ -426,3 +427,8 @@ def test_update_orphaned_imports(dossier_import_factory, mocker, freezer):
     assert still_running.status == DossierImport.Status.UNDO_IN_PROGRESS
     assert recently_modified.status == DossierImport.Status.IMPORT_IN_PROGRESS
     assert not_running.status == DossierImport.Status.IMPORTED
+
+
+def test_normalize_dossier_id_for_file_path():
+    assert normalize_dossier_id_for_file_path("1:2/3\\4|5*6") == "123456"
+    assert normalize_dossier_id_for_file_path("12345/test.txt") == "12345test.txt"
