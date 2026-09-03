@@ -1032,6 +1032,9 @@ class SubmitPlanningPermissionApplicationSendHandler(
             if "static_value" in question_config:
                 value = question_config["static_value"]
 
+        if value_mapping := question_config.get("value_mapping"):
+            value = value_mapping.get(value, value)
+
         if value is None:
             return
 

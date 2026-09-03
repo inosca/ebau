@@ -1261,7 +1261,8 @@ def caluma_forms_gr(settings, add_general_questions):
         data_source="Municipalities",
     )
     settings.DATA_SOURCE_CLASSES = [
-        "camac.caluma.extensions.data_sources.Municipalities"
+        "camac.caluma.extensions.data_sources.Municipalities",
+        "camac.caluma.extensions.data_sources.Countries",
     ]
 
     for slug in ["eeba-integration-id", "eeba-required", "eeba-state", "eeba-web-url"]:
@@ -2352,6 +2353,7 @@ def gr_master_data_case(
                 "nummer-gesuchstellerin": 321,
                 "ort-gesuchstellerin": "Testingen",
                 "plz-gesuchstellerin": 4321,
+                "land-gesuchstellerin": "Schweiz",
                 "e-mail-gesuchstellerin": "example@example.com",
                 "telefon-oder-mobile-gesuchstellerin": "+417878787",
             }
@@ -2369,6 +2371,7 @@ def gr_master_data_case(
                 "nummer-gesuchstellerin": 3,
                 "plz-gesuchstellerin": 3600,
                 "ort-gesuchstellerin": "Thun",
+                "land-gesuchstellerin": "Schweiz",
                 "telefon-oder-mobile-gesuchstellerin": "+41781234567",
                 "e-mail-gesuchstellerin": "hans.muster@example.com",
             },
@@ -2386,6 +2389,7 @@ def gr_master_data_case(
                 "nummer-gesuchstellerin": 16,
                 "plz-gesuchstellerin": 2222,
                 "ort-gesuchstellerin": "Beispieldorf",
+                "land-gesuchstellerin": "Schweiz",
                 "telefon-oder-mobile-gesuchstellerin": "+417676767",
                 "e-mail-gesuchstellerin": "sandra.beispiel@example.com",
             },
@@ -2404,6 +2408,7 @@ def gr_master_data_case(
                 "nummer-gesuchstellerin": 12,
                 "ort-gesuchstellerin": "Zizers",
                 "plz-gesuchstellerin": 2312,
+                "land-gesuchstellerin": "Schweiz",
                 "e-mail-gesuchstellerin": "invoice@example.com",
                 "telefon-oder-mobile-gesuchstellerin": "+417979797",
             }
@@ -2444,6 +2449,7 @@ def gr_master_data_case(
                 "nummer-gesuchstellerin": 100,
                 "ort-gesuchstellerin": "Musterdorf",
                 "plz-gesuchstellerin": 1234,
+                "land-gesuchstellerin": "Schweiz",
                 "e-mail-gesuchstellerin": "qss@example.com",
                 "telefon-oder-mobile-gesuchstellerin": "+417979797",
             }
@@ -2462,6 +2468,7 @@ def gr_master_data_case(
                 "nummer-gesuchstellerin": 100,
                 "ort-gesuchstellerin": "Musterdorf",
                 "plz-gesuchstellerin": 1234,
+                "land-gesuchstellerin": "Schweiz",
                 "e-mail-gesuchstellerin": "anlagen@example.com",
                 "telefon-oder-mobile-gesuchstellerin": "+417979797",
             }

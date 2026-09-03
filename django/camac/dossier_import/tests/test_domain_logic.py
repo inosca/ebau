@@ -219,6 +219,9 @@ def test_perform_reimport(  # noqa: C901
                     [imported["street"], imported["street_number"]]
                 )
                 del imported["street_number"]
+            # kt_schwyz has static country values
+            if "country" in imported:
+                del imported["country"]
             # coordinates for kt_schwyz are handled separately
             if key == "coordinates":
                 continue

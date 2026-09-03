@@ -43,6 +43,7 @@ class Person:
     street_and_number: str | None = field(init=False)
     zip: int | None
     town: str | None
+    country: str | None
     phone: str | None
     email: str | None
     is_juristic_person: bool = field(init=False)

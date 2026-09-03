@@ -44,7 +44,7 @@
         'street_number': '13',
         'tel': '+1 101 10 01 101',
         'town': 'Wonderland',
-        'zip': None,
+        'zip': 1234,
       }),
     ]),
     'project_authors': list([
@@ -59,7 +59,7 @@
         'street_number': None,
         'tel': '+1 101 10 01 101',
         'town': 'Wonderland',
-        'zip': None,
+        'zip': 1234,
       }),
     ]),
   })
@@ -109,7 +109,7 @@
         'street_number': '13',
         'tel': '+1 101 10 01 101',
         'town': 'Wonderland',
-        'zip': None,
+        'zip': 1234,
       }),
     ]),
     'project_authors': list([
@@ -124,7 +124,7 @@
         'street_number': None,
         'tel': '+1 101 10 01 101',
         'town': 'Wonderland',
-        'zip': None,
+        'zip': 1234,
       }),
     ]),
   })
@@ -176,7 +176,7 @@
         'street': 'Candy Lane',
         'street_number': '13',
         'town': 'Wonderland',
-        'zip': None,
+        'zip': 1234,
       }),
     ]),
     'project_authors': list([
@@ -188,7 +188,7 @@
         'street': 'Candy Lane',
         'street_number': None,
         'town': 'Wonderland',
-        'zip': None,
+        'zip': 1234,
       }),
     ]),
   })
@@ -240,7 +240,7 @@
         'street': 'Candy Lane',
         'street_number': '13',
         'town': 'Wonderland',
-        'zip': None,
+        'zip': 1234,
       }),
     ]),
     'project_authors': list([
@@ -252,7 +252,7 @@
         'street': 'Candy Lane',
         'street_number': None,
         'town': 'Wonderland',
-        'zip': None,
+        'zip': 1234,
       }),
     ]),
   })
@@ -276,6 +276,8 @@
     'completion_date': None,
     'applicants': list([
       dict({
+        'country': 'Vereinigtes Königreich (Großbritannien, England)',
+        'country_code': 'GB',
         'email': 'candy@example.com',
         'first_name': 'Willy',
         'is_juristic_person': True,
@@ -290,6 +292,8 @@
     ]),
     'landowners': list([
       dict({
+        'country': 'Vereinigtes Königreich (Großbritannien, England)',
+        'country_code': 'GB',
         'email': 'candy@example.com',
         'first_name': 'Willy',
         'is_juristic_person': True,
@@ -299,11 +303,13 @@
         'street_number': '13',
         'tel': '+1 101 10 01 101',
         'town': 'Wonderland',
-        'zip': None,
+        'zip': 1234,
       }),
     ]),
     'project_authors': list([
       dict({
+        'country': 'Vereinigtes Königreich (Großbritannien, England)',
+        'country_code': 'GB',
         'email': 'candy@example.com',
         'first_name': 'Willy',
         'is_juristic_person': False,
@@ -313,7 +319,7 @@
         'street_number': None,
         'tel': '+1 101 10 01 101',
         'town': 'Wonderland',
-        'zip': None,
+        'zip': 1234,
       }),
     ]),
   })
@@ -337,6 +343,8 @@
     'completion_date': None,
     'applicants': list([
       dict({
+        'country': 'Vereinigtes Königreich (Großbritannien, England)',
+        'country_code': 'GB',
         'email': 'candy@example.com',
         'first_name': 'Willy',
         'is_juristic_person': True,
@@ -351,6 +359,8 @@
     ]),
     'landowners': list([
       dict({
+        'country': 'Vereinigtes Königreich (Großbritannien, England)',
+        'country_code': 'GB',
         'email': 'candy@example.com',
         'first_name': 'Willy',
         'is_juristic_person': True,
@@ -360,11 +370,13 @@
         'street_number': '13',
         'tel': '+1 101 10 01 101',
         'town': 'Wonderland',
-        'zip': None,
+        'zip': 1234,
       }),
     ]),
     'project_authors': list([
       dict({
+        'country': 'Vereinigtes Königreich (Großbritannien, England)',
+        'country_code': 'GB',
         'email': 'candy@example.com',
         'first_name': 'Willy',
         'is_juristic_person': False,
@@ -374,7 +386,7 @@
         'street_number': None,
         'tel': '+1 101 10 01 101',
         'town': 'Wonderland',
-        'zip': None,
+        'zip': 1234,
       }),
     ]),
   })
@@ -828,7 +840,7 @@
         'salutation': None,
         'street': 'Candy Lane 13',
         'town': 'Wonderland',
-        'zip': '1234',
+        'zip': 1234,
       }),
     ]),
     'project_authors': list([
@@ -844,7 +856,7 @@
         'salutation': None,
         'street': 'Candy Lane',
         'town': 'Wonderland',
-        'zip': '1234',
+        'zip': 1234,
       }),
     ]),
   })
@@ -906,7 +918,7 @@
         'salutation': None,
         'street': 'Candy Lane 13',
         'town': 'Wonderland',
-        'zip': '1234',
+        'zip': 1234,
       }),
     ]),
     'project_authors': list([
@@ -922,7 +934,7 @@
         'salutation': None,
         'street': 'Candy Lane',
         'town': 'Wonderland',
-        'zip': '1234',
+        'zip': 1234,
       }),
     ]),
   })

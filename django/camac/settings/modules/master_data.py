@@ -1811,6 +1811,16 @@ MASTER_DATA = {
                         "street_number": "nummer-gesuchstellerin",
                         "zip": "plz-gesuchstellerin",
                         "town": "ort-gesuchstellerin",
+                        "country": "land-gesuchstellerin",
+                        "country_code": (
+                            "land-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {"mapping": COUNTRIES},
+                                )
+                            },
+                        ),
                         "email": "e-mail-gesuchstellerin",
                         "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
@@ -1842,6 +1852,16 @@ MASTER_DATA = {
                         "street_number": "nummer-gesuchstellerin",
                         "zip": "plz-gesuchstellerin",
                         "town": "ort-gesuchstellerin",
+                        "country": "land-gesuchstellerin",
+                        "country_code": (
+                            "land-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {"mapping": COUNTRIES},
+                                )
+                            },
+                        ),
                         "email": "e-mail-gesuchstellerin",
                         "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
@@ -1873,6 +1893,16 @@ MASTER_DATA = {
                         "street_number": "nummer-gesuchstellerin",
                         "zip": "plz-gesuchstellerin",
                         "town": "ort-gesuchstellerin",
+                        "country": "land-gesuchstellerin",
+                        "country_code": (
+                            "land-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {"mapping": COUNTRIES},
+                                )
+                            },
+                        ),
                         "email": "e-mail-gesuchstellerin",
                         "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
@@ -1904,6 +1934,16 @@ MASTER_DATA = {
                         "street_number": "nummer-gesuchstellerin",
                         "zip": "plz-gesuchstellerin",
                         "town": "ort-gesuchstellerin",
+                        "country": "land-gesuchstellerin",
+                        "country_code": (
+                            "land-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {"mapping": COUNTRIES},
+                                )
+                            },
+                        ),
                         "email": "e-mail-gesuchstellerin",
                         "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
@@ -1935,6 +1975,16 @@ MASTER_DATA = {
                         "street_number": "nummer-gesuchstellerin",
                         "zip": "plz-gesuchstellerin",
                         "town": "ort-gesuchstellerin",
+                        "country": "land-gesuchstellerin",
+                        "country_code": (
+                            "land-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {"mapping": COUNTRIES},
+                                )
+                            },
+                        ),
                         "email": "e-mail-gesuchstellerin",
                         "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
@@ -1966,6 +2016,16 @@ MASTER_DATA = {
                         "street_number": "nummer-gesuchstellerin",
                         "zip": "plz-gesuchstellerin",
                         "town": "ort-gesuchstellerin",
+                        "country": "land-gesuchstellerin",
+                        "country_code": (
+                            "land-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {"mapping": COUNTRIES},
+                                )
+                            },
+                        ),
                         "email": "e-mail-gesuchstellerin",
                         "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
@@ -1997,6 +2057,16 @@ MASTER_DATA = {
                         "street_number": "nummer-gesuchstellerin",
                         "zip": "plz-gesuchstellerin",
                         "town": "ort-gesuchstellerin",
+                        "country": "land-gesuchstellerin",
+                        "country_code": (
+                            "land-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {"mapping": COUNTRIES},
+                                )
+                            },
+                        ),
                         "email": "e-mail-gesuchstellerin",
                         "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
@@ -2028,6 +2098,16 @@ MASTER_DATA = {
                         "street_number": "nummer-gesuchstellerin",
                         "zip": "plz-gesuchstellerin",
                         "town": "ort-gesuchstellerin",
+                        "country": "land-gesuchstellerin",
+                        "country_code": (
+                            "land-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {"mapping": COUNTRIES},
+                                )
+                            },
+                        ),
                         "email": "e-mail-gesuchstellerin",
                         "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (

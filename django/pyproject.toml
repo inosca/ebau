@@ -179,6 +179,7 @@ omit = [
     "camac/instance/management/commands/migrate_bab_case_gr.py",
     "camac/instance/management/commands/migrate_service_plot_numbers.py",
     "camac/core/management/commands/repair_sz_workflow.py",
+    "camac/instance/management/commands/create_document_answers.py",
     # Permission module temporary commands. These are used during the transition
     # phase and will be removed again later on.
     "camac/permissions/management/commands/migrate_permissions.py",

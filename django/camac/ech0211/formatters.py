@@ -264,8 +264,12 @@ def get_location_address(md):
         street=assure_string_length(street or "unknown", max_length=60),
         town=assure_string_length(md.city or "unknown", max_length=40),
         swissZipCode=get_zip(md.zip),
-        country="CH",
+        country=getattr(md, "country_code", None) or "CH",
     )
+
+
+def get_country_code(person):
+    return person.get("country_code") or "CH"
 
 
 def get_parking_lots(md):
@@ -359,7 +363,7 @@ def application(instance: Instance, request: HttpRequest):
                             town=assure_string_length(owner.get("town"), max_length=40),
                             swissZipCode=get_zip(owner.get("zip")),
                             # foreignZipCode minOccurs=0
-                            country=owner.get("country_code", "CH"),
+                            country=get_country_code(owner),
                         ),
                     )
                 )
@@ -578,7 +582,7 @@ def person_to_ech0129_personIdentifcationType(person):
             ),
             town=assure_string_length(person.get("town", ""), max_length=40),
             swissZipCode=get_zip(person.get("zip", "")),
-            country=person.get("country_code", "CH"),
+            country=get_country_code(person),
         ),
     )
 

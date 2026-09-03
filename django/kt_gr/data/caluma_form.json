@@ -642,7 +642,7 @@
       "id": "bf4a9afc-cb7b-4ddd-be1f-5fec746110db",
       "meta": {},
       "family": "bf4a9afc-cb7b-4ddd-be1f-5fec746110db",
-      "form": "baugesuch",
+      "form": "baugesuch-v6",
       "source": null,
       "history_date": "2026-02-25T13:33:52.304Z",
       "history_change_reason": null,
@@ -2036,7 +2036,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "family": "7471d5b5-e33e-40c3-a12d-1289eeec3da0",
-      "form": "baugesuch",
+      "form": "baugesuch-v6",
       "source": null,
       "meta": {}
     }
@@ -3362,6 +3362,29 @@
       "question": "wird-material-vor-ort-aufbereitet",
       "document": "0699ef59-51b2-7bd5-8000-820fadbe488f",
       "history_date": "2026-02-25T13:18:49.810Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "14218260-0ef3-48c2-ac86-c5803a2f9250",
+    "fields": {
+      "created_at": "2026-07-24T09:39:28.627Z",
+      "modified_at": "2026-07-24T09:39:28.627Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "dynamic_choice",
+      "id": "06a6332d-0a08-7ca5-8000-d65fb0ade359",
+      "value": "Schweiz",
+      "meta": {},
+      "date": null,
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "question": "land-gesuchstellerin",
+      "document": "0699efac-b2d3-733d-8000-501edbe763ef",
+      "history_date": "2026-07-24T09:39:28.627Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -12612,6 +12635,29 @@
       "question": "waermeerzeuger-warmwasser",
       "document": "0699efef-6b1a-7797-8000-9274b54f5848",
       "history_date": "2026-02-25T13:53:58.721Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "b675db50-1960-42db-905a-f4f1907988cf",
+    "fields": {
+      "created_at": "2026-07-24T09:32:34.307Z",
+      "modified_at": "2026-07-24T09:32:34.307Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "06a63313-24eb-7afd-8000-99f14249f2fb",
+      "value": "entsorgung-triage-no",
+      "meta": {},
+      "date": null,
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "question": "entsorgung-triage",
+      "document": "7471d5b5-e33e-40c3-a12d-1289eeec3da0",
+      "history_date": "2026-07-24T09:32:34.309Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -22919,6 +22965,125 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "06a63313-24eb-7afd-8000-99f14249f2fb",
+    "fields": {
+      "created_at": "2026-07-24T09:32:34.307Z",
+      "modified_at": "2026-07-24T09:32:34.307Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entsorgung-triage",
+      "value": "entsorgung-triage-no",
+      "meta": {},
+      "document": "7471d5b5-e33e-40c3-a12d-1289eeec3da0",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a6332d-0a08-7ca5-8000-d65fb0ade359",
+    "fields": {
+      "created_at": "2026-07-24T09:39:28.627Z",
+      "modified_at": "2026-07-24T09:39:28.627Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "land-gesuchstellerin",
+      "value": "Schweiz",
+      "meta": {},
+      "document": "0699efac-b2d3-733d-8000-501edbe763ef",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a63362-8fec-7b93-8000-b4dfc4b1f74e",
+    "fields": {
+      "created_at": "2026-07-24T09:53:44.996Z",
+      "modified_at": "2026-07-24T09:53:44.996Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "land-gesuchstellerin",
+      "value": "Schweiz",
+      "meta": {},
+      "document": "0699ef5e-7b1e-7bdf-8000-4de85139193e",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a63362-8fed-717b-8000-5cb190ad8bee",
+    "fields": {
+      "created_at": "2026-07-24T09:53:44.997Z",
+      "modified_at": "2026-07-24T09:53:44.997Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "land-gesuchstellerin",
+      "value": "Schweiz",
+      "meta": {},
+      "document": "0699eff0-9b52-7191-8000-8d06aa44e165",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a63362-8fed-733a-8000-8c56d2a4e480",
+    "fields": {
+      "created_at": "2026-07-24T09:53:44.997Z",
+      "modified_at": "2026-07-24T09:53:44.997Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "land-gesuchstellerin",
+      "value": "Schweiz",
+      "meta": {},
+      "document": "0699f001-e534-796e-8000-f1fac5fe3496",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a63362-8fed-74a4-8000-6455b45ed011",
+    "fields": {
+      "created_at": "2026-07-24T09:53:44.997Z",
+      "modified_at": "2026-07-24T09:53:44.997Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "land-gesuchstellerin",
+      "value": "Schweiz",
+      "meta": {},
+      "document": "0699f01a-8667-706f-8000-4f76bc14cda3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a63362-8fed-75e1-8000-e3731b3f33d3",
+    "fields": {
+      "created_at": "2026-07-24T09:53:44.997Z",
+      "modified_at": "2026-07-24T09:53:44.997Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "land-gesuchstellerin",
+      "value": "Schweiz",
+      "meta": {},
+      "document": "205723a5-da93-4e82-b179-8749bb4c4701",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "0be194b5-7392-43fd-8587-9aaff949f118",
     "fields": {
       "created_at": "2023-10-27T08:54:49.408Z",
@@ -24724,6 +24889,27 @@
   },
   {
     "model": "caluma_form.historicaldynamicoption",
+    "pk": "6932398a-1989-40f3-b5bb-71788f35b972",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2026-07-24T09:39:28.624Z",
+      "modified_at": "2026-07-24T09:39:28.624Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "06a6332d-09fd-75a7-8000-95c2aaf51fcd",
+      "slug": "Schweiz",
+      "label": "{\"de\": \"Schweiz\", \"fr\": null, \"it\": null}",
+      "document": "0699efac-b2d3-733d-8000-501edbe763ef",
+      "question": "land-gesuchstellerin",
+      "history_date": "2026-07-24T09:39:28.624Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldynamicoption",
     "pk": "7c1023a7-a75a-416e-a179-c3978ddb0d97",
     "fields": {
       "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -25010,6 +25196,102 @@
       "label": "{\"de\": \"Chur\", \"fr\": \"Chur\", \"it\": \"Coira\"}",
       "document": "0699f017-de75-730a-8000-60c9b53dc0ca",
       "question": "gemeinde"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "06a6332d-09fd-75a7-8000-95c2aaf51fcd",
+    "fields": {
+      "created_at": "2026-07-24T09:39:28.624Z",
+      "modified_at": "2026-07-24T09:39:28.624Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "Schweiz",
+      "label": "{\"de\": \"Schweiz\", \"fr\": null, \"it\": null}",
+      "document": "0699efac-b2d3-733d-8000-501edbe763ef",
+      "question": "land-gesuchstellerin"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "06a63362-8fec-7fd4-8000-bb54d6c6b1f2",
+    "fields": {
+      "created_at": "2026-07-24T09:53:44.995Z",
+      "modified_at": "2026-07-24T09:53:44.995Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "Schweiz",
+      "label": "{\"de\": \"Schweiz\", \"fr\": null, \"it\": null}",
+      "document": "0699ef5e-7b1e-7bdf-8000-4de85139193e",
+      "question": "land-gesuchstellerin"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "06a63362-8fed-727a-8000-7c202d1bef20",
+    "fields": {
+      "created_at": "2026-07-24T09:53:44.995Z",
+      "modified_at": "2026-07-24T09:53:44.995Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "Schweiz",
+      "label": "{\"de\": \"Schweiz\", \"fr\": null, \"it\": null}",
+      "document": "0699eff0-9b52-7191-8000-8d06aa44e165",
+      "question": "land-gesuchstellerin"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "06a63362-8fed-73fc-8000-7ba5536626da",
+    "fields": {
+      "created_at": "2026-07-24T09:53:44.995Z",
+      "modified_at": "2026-07-24T09:53:44.995Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "Schweiz",
+      "label": "{\"de\": \"Schweiz\", \"fr\": null, \"it\": null}",
+      "document": "0699f001-e534-796e-8000-f1fac5fe3496",
+      "question": "land-gesuchstellerin"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "06a63362-8fed-7543-8000-4676c4016cd9",
+    "fields": {
+      "created_at": "2026-07-24T09:53:44.995Z",
+      "modified_at": "2026-07-24T09:53:44.995Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "Schweiz",
+      "label": "{\"de\": \"Schweiz\", \"fr\": null, \"it\": null}",
+      "document": "0699f01a-8667-706f-8000-4f76bc14cda3",
+      "question": "land-gesuchstellerin"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "06a63362-8fed-7683-8000-0c5528a40f33",
+    "fields": {
+      "created_at": "2026-07-24T09:53:44.995Z",
+      "modified_at": "2026-07-24T09:53:44.995Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "Schweiz",
+      "label": "{\"de\": \"Schweiz\", \"fr\": null, \"it\": null}",
+      "document": "205723a5-da93-4e82-b179-8749bb4c4701",
+      "question": "land-gesuchstellerin"
     }
   },
   {

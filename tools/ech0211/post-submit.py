@@ -154,7 +154,7 @@ xml_payload = f"""<?xml version="1.0"?>
           <ns4:town>Testgemeinde</ns4:town>
           <ns4:swissZipCode>3008</ns4:swissZipCode>
           <ns4:country>
-            <ns4:countryNameShort>Schweiz</ns4:countryNameShort>
+            <ns4:countryNameShort>CH</ns4:countryNameShort>
           </ns4:country>
         </ns3:address>
       </ns1:person>

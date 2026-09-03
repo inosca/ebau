@@ -150,6 +150,7 @@ class XlsxFileDossierLoader(DossierLoader):
         applicant_town = "APPLICANT-CITY"
         applicant_phone = "APPLICANT-PHONE"
         applicant_email = "APPLICANT-EMAIL"
+        applicant_country = "APPLICANT-COUNTRY"
         landowner_first_name = "LANDOWNER-FIRST-NAME"
         landowner_last_name = "LANDOWNER-LAST-NAME"
         landowner_company = "LANDOWNER-COMPANY"
@@ -159,6 +160,7 @@ class XlsxFileDossierLoader(DossierLoader):
         landowner_town = "LANDOWNER-CITY"
         landowner_phone = "LANDOWNER-PHONE"
         landowner_email = "LANDOWNER-EMAIL"
+        landowner_country = "LANDOWNER-COUNTRY"
         projectauthor_first_name = "PROJECTAUTHOR-FIRST-NAME"
         projectauthor_last_name = "PROJECTAUTHOR-LAST-NAME"
         projectauthor_company = "PROJECTAUTHOR-COMPANY"
@@ -168,6 +170,7 @@ class XlsxFileDossierLoader(DossierLoader):
         projectauthor_town = "PROJECTAUTHOR-CITY"
         projectauthor_phone = "PROJECTAUTHOR-PHONE"
         projectauthor_email = "PROJECTAUTHOR-EMAIL"
+        projectauthor_country = "PROJECTAUTHOR-COUNTRY"
         responsible = "RESPONSIBLE"
 
     def load_person(self, dossier_row, prefix):

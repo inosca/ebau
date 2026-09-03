@@ -5,7 +5,7 @@
     'client': dict({
       'address': dict({
         'country': dict({
-          'countryNameShort': None,
+          'countryNameShort': 'ch',
         }),
         'houseNumber': 321,
         'street': 'Testweg',

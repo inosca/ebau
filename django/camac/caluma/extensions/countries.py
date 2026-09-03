@@ -232,3 +232,7 @@ COUNTRIES = {
     "Zentralafrikanische Republik": "CF",
     "Zypern": "CY",
 }
+
+COUNTRY_NAMES_BY_CODE = {}
+for country_name, country_code in COUNTRIES.items():
+    COUNTRY_NAMES_BY_CODE.setdefault(country_code, country_name)

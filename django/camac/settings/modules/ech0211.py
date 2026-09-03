@@ -2,6 +2,7 @@ import enum
 
 from django.utils.translation import gettext_lazy as _
 
+from camac.caluma.extensions.countries import COUNTRY_NAMES_BY_CODE
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_BEILAGEN_GESUCH,
     ATTACHMENT_SECTION_BEILAGEN_SB1,
@@ -657,6 +658,11 @@ ECH0211 = {
                             "ech0211:person/ech0129:email/ech0129:emailAddress": {
                                 "question_slug": "e-mail-gesuchstellerin",
                                 "default": "-@-.-",
+                            },
+                            "ech0211:person/ech0129:address/ech0010:country/ech0010:countryNameShort": {
+                                "question_slug": "land-gesuchstellerin",
+                                "default": "CH",
+                                "value_mapping": COUNTRY_NAMES_BY_CODE,
                             },
                         },
                         "personalien-gesuchstellerin",

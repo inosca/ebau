@@ -39,6 +39,7 @@ PERSON_MAPPING = {
     "town": "ort-gesuchstellerin",
     "phone": "telefon-oder-mobile-gesuchstellerin",
     "email": "e-mail-gesuchstellerin",
+    "country": "land-gesuchstellerin",
 }
 
 PLOT_DATA_MAPPING = {

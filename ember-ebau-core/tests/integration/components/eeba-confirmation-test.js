@@ -29,6 +29,7 @@ module("Integration | Component | eeba-confirmation", function (hooks) {
         "nummer-gesuchstellerin",
         "plz-gesuchstellerin",
         "ort-gesuchstellerin",
+        "land-gesuchstellerin",
         "e-mail-gesuchstellerin",
         "telefon-oder-mobile-gesuchstellerin",
         "hinweis-personalien",
