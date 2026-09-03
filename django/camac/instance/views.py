@@ -486,24 +486,13 @@ class InstanceView(
             instance, "instance-copy"
         )
 
-    @permission_aware
     def has_object_correction_permission(self, instance):
-        return False
-
-    def has_object_correction_permission_for_municipality(self, instance):
         if not is_module_enabled("CORRECTION"):  # pragma: no cover
             return False
 
-        if self.request.group.role.name != "municipality-lead":
-            return False
-
-        return instance.instance_state.name in [
-            *settings.CORRECTION["ALLOWED_INSTANCE_STATES"],
-            settings.CORRECTION["INSTANCE_STATE"],
-        ]
-
-    def has_object_correction_permission_for_support(self, instance):
-        return True
+        return permissions_api.PermissionManager.from_request(self.request).has_any(
+            instance, ["instance-correction-start", "instance-correction-finish"]
+        )
 
     def has_object_rejection_permission(self, instance):
         return RejectionLogic.has_permission(instance, self.request.group)

@@ -4,6 +4,7 @@ from camac.permissions.conditions import (
     HasApplicantRole,
     HasRole,
     IsAppeal,
+    IsCorrectionTransitionAllowed,
     IsPaper,
     IsServiceGroup,
     IsUnversionedForm,
@@ -182,6 +183,16 @@ MODULE_DEADLINES_DEADLINE = (
 ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(["rejected"]) & (
     HasApplicantRole(["ADMIN", "PROJECT_OWNER"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
+INSTANCE_CORRECTION_START_CONDITION = IsCorrectionTransitionAllowed(transition="start")
+INSTANCE_CORRECTION_FINISH_CONDITION = IsCorrectionTransitionAllowed(
+    transition="finish"
+)
+ACTION_INSTANCE_CORRECTION_START = (
+    HasRole(["municipality-lead"]) & INSTANCE_CORRECTION_START_CONDITION
+)
+ACTION_INSTANCE_CORRECTION_FINISH = (
+    HasRole(["municipality-lead"]) & INSTANCE_CORRECTION_FINISH_CONDITION
+)
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
     HasApplicantRole(["ADMIN", "PROJECT_OWNER"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
@@ -316,6 +327,8 @@ SO_PERMISSIONS_SETTINGS = {
             ("formal-exam-read", MODULE_FORMAL_EXAM),
             ("history-read", MODULE_HISTORY),
             ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
+            ("instance-correction-start", ACTION_INSTANCE_CORRECTION_START),
+            ("instance-correction-finish", ACTION_INSTANCE_CORRECTION_FINISH),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
@@ -364,6 +377,8 @@ SO_PERMISSIONS_SETTINGS = {
             ("form-write", Always()),
             ("history-read", Always()),
             ("instance-delete", RequireInstanceState(["new"])),
+            ("instance-correction-start", INSTANCE_CORRECTION_START_CONDITION),
+            ("instance-correction-finish", INSTANCE_CORRECTION_FINISH_CONDITION),
             ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
             ("permissions-read-any", Always()),
             ("permissions-read", Always()),

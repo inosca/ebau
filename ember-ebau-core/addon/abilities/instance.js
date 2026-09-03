@@ -110,45 +110,18 @@ export default class InstanceAbility extends Ability {
     return (this.model.meta?.permissions?.main || []).includes("write");
   }
 
-  // GR & SO & BE
-  get canCorrect() {
-    if (isApplication("be")) {
-      return (
-        (this.ebauModules.isSupportRole ||
-          this.ebauModules.isMunicipalityLeadRole) &&
-        hasInstanceState(
-          this.model,
-          mainConfig.correction?.allowedInstanceStates,
-        ) &&
-        !this.hasActiveDistribution
-      );
-    }
-
-    return (
-      // don't allow corrections during additional demand changes.
-      !this.model.additionalDemandChanges?.length &&
-      // disabled until isMunicipalityLeadRole works in ember-ebau
-      // (this.ebauModules.isSupportRole ||
-      //   this.ebauModules.isMunicipalityLeadRole) &&
-      hasInstanceState(this.model, mainConfig.correction?.allowedInstanceStates)
+  // GR & SO & BE & AG
+  async canCorrect() {
+    return await this.permissions.hasAll(
+      this.model?.id,
+      "instance-correction-start",
     );
   }
 
-  get canFinishCorrect() {
-    if (isApplication("be")) {
-      return (
-        ((this.ebauModules.isSupportRole ||
-          this.ebauModules.isMunicipalityLeadRole) &&
-          hasInstanceState(this.model, mainConfig.correction?.instanceState)) ||
-        hasInstanceState(this.model, "new")
-      );
-    }
-    return (
-      // disabled until isMunicipalityLeadRole works in ember-ebau
-      // (this.ebauModules.isSupportRole ||
-      //   this.ebauModules.isMunicipalityLeadRole) &&
-      hasInstanceState(this.model, mainConfig.correction?.instanceState) ||
-      hasInstanceState(this.model, "new")
+  async canFinishCorrect() {
+    return await this.permissions.hasAll(
+      this.model?.id,
+      "instance-correction-finish",
     );
   }
 

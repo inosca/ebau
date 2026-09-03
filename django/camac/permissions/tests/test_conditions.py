@@ -7,6 +7,8 @@ from camac.permissions.conditions import (
     HasAdditionalDemandWithFormEdit,
     HasApplicantConfirmationRound,
     HasApplicantRole,
+    HasPendingInquiries,
+    IsCorrectionTransitionAllowed,
     IsCreatedByService,
     IsModification,
     IsPaper,
@@ -415,4 +417,73 @@ def test_condition_require_running_case(
     assert (
         RequireRunningCase().apply(userinfo, PermissionContext(instance))
         is expected_result
+    )
+
+
+@pytest.mark.parametrize("has_pending_inquiries", [True, False])
+@pytest.mark.django_db
+def test_condition_has_pending_inquiries(
+    be_instance,
+    userinfo,
+    active_inquiry_factory,
+    has_pending_inquiries,
+):
+    active_inquiry_factory(
+        for_instance=be_instance,
+        status=WorkItem.STATUS_SUSPENDED,
+    )
+    active_inquiry_factory(
+        for_instance=be_instance,
+        status=WorkItem.STATUS_COMPLETED,
+    )
+    if has_pending_inquiries:
+        active_inquiry_factory(
+            for_instance=be_instance,
+            status=WorkItem.STATUS_READY,
+        )
+
+    assert (
+        HasPendingInquiries().apply(userinfo, PermissionContext(be_instance))
+        == has_pending_inquiries
+    )
+
+
+@pytest.mark.parametrize(
+    ("transition", "is_correction_transition_allowed"),
+    [
+        ("start", True),
+        ("start", False),
+        ("finish", False),
+        ("finish", True),
+        ("invalidtransition", False),
+    ],
+)
+@pytest.mark.django_db
+def test_condition_is_correction_transition_allowed(
+    be_instance,
+    userinfo,
+    instance_state_factory,
+    transition,
+    correction_settings,
+    is_correction_transition_allowed,
+):
+    allowed_instance_state = "submitted"
+    correction_instance_state = "in-correction"
+    correction_settings["ALLOWED_INSTANCE_STATES"] = [allowed_instance_state]
+    correction_settings["INSTANCE_STATE"] = correction_instance_state
+
+    if is_correction_transition_allowed:
+        instance_state_name = (
+            allowed_instance_state
+            if transition == "start"
+            else correction_instance_state
+        )
+        be_instance.instance_state = instance_state_factory(name=instance_state_name)
+        be_instance.save()
+
+    assert (
+        IsCorrectionTransitionAllowed(transition).apply(
+            userinfo, PermissionContext(be_instance)
+        )
+        == is_correction_transition_allowed
     )

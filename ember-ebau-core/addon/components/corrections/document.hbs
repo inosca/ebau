@@ -1,5 +1,5 @@
 <p class="uk-text-large">{{t "corrections.document.title"}}</p>
-{{#if (can "finish correct instance" @instance)}}
+{{#if (await (can "finish correct instance" @instance))}}
   <p>
     {{t "corrections.document.description-finish-start"}}
     <a
@@ -84,20 +84,10 @@
     @onClick={{this.startCorrection.perform}}
     @disabled={{or
       this.documentCorrection.isRunning
-      (cannot
-        "correct instance"
-        @instance
-        hasActiveDistribution=this.hasActiveDistribution.value
-      )
+      (await (cannot "correct instance" @instance))
     }}
   />
-  {{#if
-    (cannot
-      "correct instance"
-      @instance
-      hasActiveDistribution=this.hasActiveDistribution.value
-    )
-  }}
+  {{#if (await (cannot "correct instance" @instance))}}
     <p class="uk-text-muted">{{t "corrections.not-available"}}</p>
   {{/if}}
 {{/if}}
