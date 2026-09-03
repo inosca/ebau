@@ -65,7 +65,7 @@
       "modified_by_group": null,
       "form": "check-additional-demand",
       "question": "additional-demand-comment",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -80,7 +80,7 @@
       "modified_by_group": null,
       "form": "check-additional-demand",
       "question": "additional-demand-complete-check",
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -95,7 +95,7 @@
       "modified_by_group": null,
       "form": "check-additional-demand",
       "question": "additional-demand-deadline",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -110,7 +110,22 @@
       "modified_by_group": null,
       "form": "check-additional-demand",
       "question": "additional-demand-decision",
-      "sort": 6
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "check-additional-demand.additional-demand-files-service",
+    "fields": {
+      "created_at": "2026-09-03T13:31:34.192Z",
+      "modified_at": "2026-09-03T13:31:34.192Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "check-additional-demand",
+      "question": "additional-demand-files-service",
+      "sort": 2
     }
   },
   {
@@ -170,7 +185,7 @@
       "modified_by_group": null,
       "form": "send-additional-demand",
       "question": "additional-demand-comment",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -200,6 +215,21 @@
       "modified_by_group": null,
       "form": "send-additional-demand",
       "question": "additional-demand-deadline",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "send-additional-demand.additional-demand-files-service",
+    "fields": {
+      "created_at": "2026-09-03T13:37:25.280Z",
+      "modified_at": "2026-09-03T13:37:25.280Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "send-additional-demand",
+      "question": "additional-demand-files-service",
       "sort": 2
     }
   },
@@ -450,7 +480,7 @@
     "pk": "additional-demand-files",
     "fields": {
       "created_at": "2025-01-31T13:48:43.102Z",
-      "modified_at": "2026-03-18T10:05:48.172Z",
+      "modified_at": "2026-09-03T13:42:35.366Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -463,9 +493,46 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"x\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
+        "hideLabel": true,
+        "widgetOverride": "alexandria-documents-form",
+        "alexandria-categories": ["nachforderung"],
+        "alexandriaEnableDocumentFilter": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "additional-demand-files-service",
+    "fields": {
+      "created_at": "2026-09-03T13:31:34.154Z",
+      "modified_at": "2026-09-03T13:38:12.799Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dateien\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "(\n\tinfo.form == \"check-additional-demand\"\n\t&&\n\t\"additional-demand-decision\"|answer(null) != \"additional-demand-decision-reject\"\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
         "widgetOverride": "alexandria-documents-form",
         "alexandria-categories": ["nachforderung"],
         "alexandriaEnableDocumentFilter": true
