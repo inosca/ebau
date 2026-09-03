@@ -11,6 +11,11 @@ defmodule Ebau.MixProject do
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
+      releases: [
+        ebau: [
+          strip_beams: [keep: ["Dbgi", "Docs"]]
+        ]
+      ],
       compilers: [:phoenix_live_view] ++ Mix.compilers(),
       listeners: [Phoenix.CodeReloader],
       elixirc_options: [module_definition: :interpreted, ignore_already_consolidated: true],
