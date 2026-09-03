@@ -65,13 +65,15 @@
               "-"
             }}</td>
           <td class="uk-text-right">
-            <button
-              type="button"
-              class="uk-button uk-button-link"
-              {{on "click" (perform this.delete row)}}
-            >
-              <UkIcon @icon="trash" />
-            </button>
+            {{#unless row.user.isServiceAccount}}
+              <button
+                type="button"
+                class="uk-button uk-button-link"
+                {{on "click" (perform this.delete row)}}
+              >
+                <UkIcon @icon="trash" />
+              </button>
+            {{/unless}}
           </td>
         </tr>
       {{else}}

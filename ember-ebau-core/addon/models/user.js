@@ -19,4 +19,8 @@ export default class UserModel extends Model {
   get fullName() {
     return `${this.name} ${this.surname}`;
   }
+
+  get isServiceAccount() {
+    return this.name.startsWith("service-account") ?? false;
+  }
 }
