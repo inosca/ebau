@@ -40,6 +40,7 @@ defmodule Ebau.User.User do
         redirect_uri Ebau.Secrets
         registration_enabled? false
         trust_email_verified? true
+        code_verifier true
         identity_resource Ebau.User.UserIdentity
       end
     end
