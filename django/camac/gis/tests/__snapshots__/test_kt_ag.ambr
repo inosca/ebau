@@ -38,6 +38,16 @@
         }),
       ]),
     }),
+    'plz': dict({
+      'hidden': False,
+      'label': 'plz',
+      'value': 4663,
+    }),
+    'street-and-housenumber': dict({
+      'hidden': False,
+      'label': 'street-and-housenumber',
+      'value': 'Bahnhofstrasse 1337; Andere Strasse 32',
+    }),
   })
 # ---
 # name: test_ag_client[scenario10]

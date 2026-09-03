@@ -10,6 +10,49 @@ from rest_framework import status
 from camac.gis.clients.ag import AgGisClient
 from camac.gis.models import GISDataSource
 
+
+def test_get_address_data_with_multiple_results(requests_mock, settings):
+    response = {
+        "results": [
+            {
+                "properties": {
+                    "stn_label": "Bahnhofstrasse",
+                    "adr_number": "1338",
+                    "zip_label": "4663 Aarburg",
+                }
+            },
+            {
+                "properties": {
+                    "stn_label": "Andere Strasse",
+                    "adr_number": "32",
+                    "zip_label": "9999 Nirvana",
+                }
+            },
+            {
+                "properties": {
+                    "stn_label": "Bahnhofstrasse",
+                    "adr_number": "1337",
+                    "zip_label": "4663 Aarburg",
+                }
+            },
+        ]
+    }
+    settings.ADMIN_GIS_BASE_URL = "https://example.com"
+    requests_mock.get(
+        "https://example.com/rest/services/ech/MapServer/identify", json=response
+    )
+
+    address_response = AgGisClient({}).get_address_response(
+        [{"x": 2635082, "y": 1241236}]
+    )
+
+    assert AgGisClient.get_address_data(address_response) == {
+        "street-and-housenumber": "Bahnhofstrasse 1337, 1338; Andere Strasse 32",
+        "plz": 4663,
+    }
+    assert AgGisClient.get_address_data({}) == {}
+
+
 TEST_SCENARIOS = [
     {
         # Grundinformationen (Adresse, Grundstück, Zone, etc.)
@@ -19,6 +62,8 @@ TEST_SCENARIOS = [
             "grundstuecksflaeche",
             "ort-grundstueck",
             "parzelle",
+            "plz",
+            "street-and-housenumber",
         ],
     },
     {
@@ -237,6 +282,8 @@ def ag_data_sources(
         ("gemeinde", Question.TYPE_DYNAMIC_CHOICE),
         ("grundstuecksflaeche", Question.TYPE_FLOAT),
         ("ort-grundstueck", Question.TYPE_TEXT),
+        ("plz", Question.TYPE_INTEGER),
+        ("street-and-housenumber", Question.TYPE_TEXT),
         ("parzellen", Question.TYPE_TABLE),
         ("parzellennummer", Question.TYPE_TEXT),
         ("e-grid-nr", Question.TYPE_TEXT),
@@ -380,12 +427,12 @@ def test_ag_client_uses_only_first_layer_when_configured(mocker):
 def test_ag_client(
     admin_client,
     gis_snapshot,
+    mocker,
     vcr_config,
     celery_fake_worker,
     ag_config,
     scenario,
     ag_data_sources,
-    mocker,
 ):
     isos_results = []
     if significance := scenario.get("isos"):
@@ -399,6 +446,28 @@ def test_ag_client(
         AgGisClient,
         "get_isos_identify_response",
         return_value={"results": isos_results},
+    )
+    mocker.patch.object(
+        AgGisClient,
+        "get_address_response",
+        return_value={
+            "results": [
+                {
+                    "properties": {
+                        "stn_label": "Bahnhofstrasse",
+                        "adr_number": "1337",
+                        "zip_label": "4663 Aarburg",
+                    },
+                },
+                {
+                    "properties": {
+                        "stn_label": "Andere Strasse",
+                        "adr_number": "32",
+                        "zip_label": "9999 Nirvana",
+                    },
+                },
+            ],
+        },
     )
     x, y = scenario["coords"]
     response_0 = admin_client.get(

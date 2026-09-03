@@ -1330,6 +1330,10 @@ msgid "An error occured while fetching data from the AGIS API."
 msgstr ""
 "Beim Abrufen der Daten von der AGIS Schnittstelle ist ein Fehler aufgetreten."
 
+#: camac/gis/clients/ag.py
+msgid "An error occured while fetching address data from swisstopo."
+msgstr ""
+
 #: camac/gis/clients/oereb.py
 #, python-format
 msgid "Error %(code)s while fetching data from the OEREB API"

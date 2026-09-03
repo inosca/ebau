@@ -11,6 +11,7 @@ from camac.utils import build_url
 
 class AgGisClient(GISBaseClient):
     required_params = ["query"]
+    address_layer_id = "ch.swisstopo.amtliches-gebaeudeadressverzeichnis"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -24,6 +25,7 @@ class AgGisClient(GISBaseClient):
 
         point_response_json = self.get_agis_identify_response(markers, 5)
         area_response_json = self.get_agis_identify_response(markers, 20)
+        address_response_json = self.get_address_response(markers)
         isos_response_json = self.get_isos_identify_response(markers)
 
         agis_info_from_point = point_response_json.get("results", [])
@@ -69,6 +71,7 @@ class AgGisClient(GISBaseClient):
 
         return {
             **result,
+            **self.get_address_data(address_response_json),
             "parzelle": self.get_plot_data(agis_info_from_point),
             "gebaeude": self.get_building_data(agis_info_from_point),
         }
@@ -158,6 +161,69 @@ class AgGisClient(GISBaseClient):
                 _("An error occured while fetching data from the AGIS API.")
             ) from exc
         return response.json()
+
+    def get_address_response(self, markers):
+        base_url = build_url(
+            settings.ADMIN_GIS_BASE_URL,
+            "/rest/services/ech/MapServer/identify",
+        )
+        params = {
+            "geometry": f"{markers[0]['x']},{markers[0]['y']}",
+            "geometryType": "esriGeometryPoint",
+            "layers": f"all:{self.address_layer_id}",
+            "mapExtent": "0,0,100,100",
+            "imageDisplay": "100,100,100",
+            "tolerance": "5",
+            "sr": "2056",
+            "returnGeometry": "false",
+            "geometryFormat": "geojson",
+            "lang": "de",
+        }
+        response = self.session.get(base_url, params=params)
+
+        try:
+            response.raise_for_status()
+        except requests.HTTPError as exc:  # pragma: no cover
+            raise RuntimeError(
+                _("An error occured while fetching address data from swisstopo.")
+            ) from exc
+        return response.json()
+
+    @staticmethod
+    def get_address_data(address_response):
+        """Return addresses found around the queried point."""
+        results = address_response.get("results", [])
+        if not results:
+            return {}
+
+        streets_and_numbers = {}
+        for result in results:
+            properties = result["properties"]
+            street = properties.get("stn_label")
+            number = properties.get("adr_number")
+            if street:
+                streets_and_numbers.setdefault(street, [])
+                if number:
+                    streets_and_numbers[street].append(number)
+
+        joined_housenumbers = {
+            street: ", ".join(sorted(numbers))
+            for street, numbers in streets_and_numbers.items()
+        }
+        street_and_housenumber = "; ".join(
+            f"{street} {numbers}" if numbers else street
+            for street, numbers in joined_housenumbers.items()
+        )
+        postal_code = results[0]["properties"].get("zip_label", "").partition(" ")[0]
+
+        return {
+            question: value
+            for question, value in {
+                "street-and-housenumber": street_and_housenumber,
+                "plz": int(postal_code) if postal_code else None,
+            }.items()
+            if value not in (None, "")
+        }
 
     def get_plot_data(self, agis_info):
         """Get data for "parzelle" table.
