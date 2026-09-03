@@ -57,12 +57,8 @@ export default class InstanceAbility extends Ability {
     return false;
   }
 
-  get canArchive() {
-    return (
-      (this.ebauModules.isSupportRole ||
-        this.ebauModules.isMunicipalityLeadRole) &&
-      !hasInstanceState(this.model, "archived")
-    );
+  async canArchive() {
+    return await this.permissions.hasAll(this.model?.id, "instance-archive");
   }
 
   async canChangeForm() {

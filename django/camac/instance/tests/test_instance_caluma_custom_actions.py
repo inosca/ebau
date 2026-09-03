@@ -234,22 +234,40 @@ def test_set_ebau_number_workflow(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    ("role__name", "expected_status"),
+    ("role__name", "access_level_slug", "instance_state_name", "expected_status"),
     [
-        ("Support", status.HTTP_204_NO_CONTENT),
-        ("Municipality", status.HTTP_204_NO_CONTENT),
-        ("Applicant", status.HTTP_403_FORBIDDEN),
+        ("Support", "support", "subm", status.HTTP_204_NO_CONTENT),
+        ("Support", "support", "archived", status.HTTP_403_FORBIDDEN),
+        ("municipality-lead", "lead-authority", "subm", status.HTTP_204_NO_CONTENT),
+        ("municipality-lead", "lead-authority", "archived", status.HTTP_403_FORBIDDEN),
+        ("municipality-clerk", "lead-authority", "subm", status.HTTP_403_FORBIDDEN),
+        ("municipality-readonly", "lead-authority", "subm", status.HTTP_403_FORBIDDEN),
+        ("Applicant", "applicant", "subm", status.HTTP_403_FORBIDDEN),
     ],
 )
 @pytest.mark.django_db
 def test_archive(
     admin_client,
     be_instance,
+    be_permissions_settings,
     role,
     instance_state_factory,
+    instance_acl_factory,
+    access_level_factory,
+    access_level_slug,
+    instance_state_name,
     expected_status,
 ):
-    instance_state_factory(name="archived")
+    if instance_state_name != "archived":
+        instance_state_factory(name="archived")
+    be_instance.instance_state = instance_state_factory(name=instance_state_name)
+    be_instance.save()
+
+    instance_acl_factory(
+        access_level=access_level_factory(slug=access_level_slug),
+        instance=be_instance,
+        service=admin_client.user.get_default_group().service,
+    )
 
     response = admin_client.post(reverse("instance-archive", args=[be_instance.pk]))
 
