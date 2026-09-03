@@ -4,10 +4,9 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
 
   Sets the provider-specific query parameters (see
   `Ebau.Instances.GisLink.supported_providers/0`) on the configured placeholder
-  URL to the truncated east/north coordinates of the instance's first plot.
-  Returns nil when no instance_id is supplied; returns the untouched placeholder
-  when the instance has no plot data or the placeholder host is not a supported
-  provider.
+  URL to the east/north coordinates of the instance's first plot. Returns nil
+  when no instance_id is supplied; returns the untouched placeholder when the
+  instance has no plot data or the placeholder host is not a supported provider.
   """
 
   use Ash.Resource.Calculation
@@ -46,9 +45,8 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
          dossier_center_coordinates_x: coordinate_x,
          dossier_center_coordinates_y: coordinate_y
        }) do
-    supported_providers = Ebau.Instances.GisLink.supported_providers()
     uri = URI.parse(gis_link.placeholder)
-    chosen_provider = Map.get(supported_providers, uri.host)
+    chosen_provider = Ebau.Instances.GisLink.provider_for_host(uri.host)
 
     if chosen_provider do
       # Some providers carry their query in the fragment (e.g. hash-routed maps).
@@ -72,5 +70,5 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
 
   # The coordinate calculations always yield a float, and the clause above
   # already returned for nil.
-  defp coord_to_string(value) when is_float(value), do: Integer.to_string(trunc(value))
+  defp coord_to_string(value) when is_float(value), do: Float.to_string(value)
 end

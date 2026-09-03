@@ -1,0 +1,117 @@
+// WARNING: This file is mirrored with:
+// - `ember-ebau/app/styles/_variables-sg.scss`
+// - `ember-caluma-portal/app/styles/_variables-sg.scss`
+// If you change something here it **must** be changed in those files as well!
+
+@use "sass:color";
+@import "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300..700&display=swap";
+
+// Features
+$enable-form-whitespace-correction: true;
+
+// Font
+$global-font-family: "IBM Plex Sans", sans-serif;
+$base-heading-font-family: "Space Grotesk", sans-serif;
+$base-strong-font-weight: 600;
+
+body {
+  font-optical-sizing: auto;
+  font-variation-settings: "wdth" 100;
+}
+
+// SG main colors (only darkgreen is the primary color)
+$sg-darkgreen: rgb(3 51 48);
+$sg-olivgreen: rgb(182 219 163);
+
+// Base colors
+$global-primary-background: $sg-darkgreen;
+$global-secondary-background: rgb(244 146 22);
+$global-muted-background: rgb(245 244 241);
+$global-success-background: rgb(46 133 1);
+$global-danger-background: rgb(206 24 15);
+$global-warning-background: rgb(146 88 13);
+
+// Font colors
+$global-color: rgb(0 0 0);
+$global-inverse-color: rgb(255 255 255);
+$global-emphasis-color: $global-color;
+$global-muted-color: rgb(100 100 100);
+$global-link-color: $global-primary-background;
+$global-link-hover-color: $global-link-color;
+
+// Other colors
+$watermark-background-color: $global-danger-background;
+$mandatory-asterisk-color: $global-danger-background;
+
+// Button default
+$button-default-color: $global-primary-background;
+$button-default-border: $global-primary-background;
+$button-default-hover-border: $global-primary-background;
+$button-default-hover-background: color.adjust(
+  $global-primary-background,
+  $alpha: -0.95
+);
+$button-default-active-border: $global-primary-background;
+$button-default-active-background: color.adjust(
+  $global-primary-background,
+  $alpha: -0.9
+);
+
+// Button primary
+$button-primary-hover-background: color.adjust(
+  $global-primary-background,
+  $alpha: -0.25
+);
+$button-primary-active-background: color.adjust(
+  $global-primary-background,
+  $alpha: -0.2
+);
+
+// Alerts
+$alert-primary-background: $sg-olivgreen;
+$alert-primary-color: $sg-darkgreen;
+$alert-danger-background: $global-danger-background;
+$alert-danger-color: $global-inverse-color;
+$alert-success-background: $global-success-background;
+$alert-success-color: $global-inverse-color;
+$alert-warning-background: $global-warning-background;
+$alert-warning-color: $global-inverse-color;
+
+// Alert customization
+.uk-alert-primary,
+.uk-alert-danger,
+.uk-alert-success,
+.uk-alert-warning {
+  a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+// Ember-power-select
+$ember-power-select-trigger-icon-color: $global-muted-color;
+$ember-power-select-selected-background: $global-primary-background;
+$ember-power-select-highlighted-background: $global-secondary-background;
+$ember-power-select-disabled-background-color: $global-muted-background;
+
+// Navigation badges
+$nav-badge-color: $global-secondary-background;
+$portal-nav-badge-color: $global-secondary-background;
+
+// GIS
+:root {
+  --sg-gis-search-result: #{$global-secondary-background};
+  --sg-gis-plot: #{$global-success-background};
+}
+
+// Status timeline
+$st-running-background: $sg-olivgreen;
+$st-running-color: $global-color;
+
+// END OF SHARED BLOCK
+@import "base.scss";

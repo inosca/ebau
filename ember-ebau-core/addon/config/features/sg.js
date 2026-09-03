@@ -27,6 +27,7 @@ export default {
   gis: {
     v3: true,
     showChanges: true,
+    links: true,
   },
   distribution: {
     showAllServices: true,

@@ -82,6 +82,15 @@ const config = {
     municipalityAdminRole: 4, // Administration Gemeinde
     municipalityServiceGroup: 1, // Gemeinde
   },
+  servicePermissions: {
+    includeSubRoutes: [
+      { route: "permissions" },
+      { route: "invitations" },
+      { route: "organisation" },
+      { route: "sub-services" },
+      { route: "gis-links", external: true },
+    ],
+  },
 };
 
 config.submittedStates = Object.entries(config.instanceStates)

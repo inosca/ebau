@@ -6,6 +6,7 @@ canton =
   case canton_string do
     "kt_gr" -> :gr
     "kt_so" -> :so
+    "kt_sg" -> :sg
     _ -> :demo
   end
 

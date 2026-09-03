@@ -81,13 +81,16 @@ defmodule Ebau.MasterData.PlotDataRow do
     answer :plot_number, :string,
       question_id: {Ebau.Caluma.CantonResolver, %{default: "parzellennummer"}}
 
-    answer :egrid_number, :string, question_id: {Ebau.Caluma.CantonResolver, %{default: "e-grid"}}
+    answer :egrid_number, :string,
+      question_id: {Ebau.Caluma.CantonResolver, %{default: "e-grid", sg: "e-grid-nr"}}
 
     answer :coord_east, :string,
-      question_id: {Ebau.Caluma.CantonResolver, %{default: "lagekoordinaten-ost"}}
+      question_id:
+        {Ebau.Caluma.CantonResolver, %{default: "lagekoordinaten-ost", sg: "koordinaten-ost"}}
 
     answer :coord_north, :string,
-      question_id: {Ebau.Caluma.CantonResolver, %{default: "lagekoordinaten-nord"}}
+      question_id:
+        {Ebau.Caluma.CantonResolver, %{default: "lagekoordinaten-nord", sg: "koordinaten-nord"}}
 
     answer :zip, :string, question_id: {Ebau.Caluma.CantonResolver, %{default: "plz"}}
   end

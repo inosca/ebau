@@ -1,3 +1,6 @@
+include:
+  - path: services/elixir-dev.yml
+
 services:
   proxy:
     image: nginxinc/nginx-unprivileged:1.31-alpine
@@ -7,6 +10,7 @@ services:
       - ../proxy/csp_headers.inc:/etc/nginx/conf.d/csp_headers.inc:ro
       - ../proxy/csp_headers_default.inc:/etc/nginx/conf.d/csp_headers_default.inc:ro
       - ../proxy/docker-entrypoint.d/90-nameserver.sh:/docker-entrypoint.d/90-nameserver.sh:ro
+      - ../proxy/snippets:/etc/nginx/conf.d/snippets:ro
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
     depends_on:
@@ -36,6 +40,8 @@ services:
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
       - pg18data:/var/lib/postgresql
+    ports:
+      - "5432:5432"
 
   django: &django
     user: ${CONTAINER_UID}
