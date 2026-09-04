@@ -15,8 +15,8 @@ from camac.core.models import FormGroup, InstanceResource, InstanceService, Reso
         ),
         pytest.param(
             Q(service__service_group__name="municipality")
-            | Q(service__slug="specific-service"),
-            {"municipality", "specific-service"},
+            | Q(service__slug="agr-bauen"),
+            {"municipality", "agr-bauen"},
             id="q-object",
         ),
     ],
@@ -37,11 +37,11 @@ def test_instance_service_filter_service_type(
         service__service_group__name="municipality",
     )
     instance_service_factory(
-        service__slug="specific-service",
+        service__slug="agr-bauen",
         service__service_group__name="service",
     )
     instance_service_factory(
-        service__slug="other-service",
+        service__slug="agr-kantonsplanung",
         service__service_group__name="service",
     )
     instance_service_factory(
