@@ -28,7 +28,7 @@ defmodule Ebau.User.Preparations.SignInFilter do
       |> Application.get_env(:keycloak, [])
       |> Keyword.get(:username_claim, "sub")
 
-    user_info = Ash.Query.get_argument(query, :user_info) || %{}
+    user_info = Ash.Query.get_argument(query, :user_info)
 
     case Map.fetch(user_info, username_claim) do
       {:ok, username} when is_binary(username) and username != "" ->
