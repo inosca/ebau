@@ -618,3 +618,20 @@ def test_read_during_sb1(
 
     assert can_write == expect_can_write
     assert can_destroy == expect_can_destroy
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize("invalid_instance", [99999999, "99999999", "abc", "1,2", None])
+def test_section_permissions_invalid_or_nonexistent_instance(group, invalid_instance):
+    result = permissions.section_permissions(group, invalid_instance)
+    assert isinstance(result, dict)
+    assert result == permissions.section_permissions(group, None)
+
+
+@pytest.mark.django_db
+def test_section_permissions_with_instance_pk(group, instance):
+    result_with_obj = permissions.section_permissions(group, instance)
+    result_with_pk = permissions.section_permissions(group, instance.pk)
+    result_with_str_pk = permissions.section_permissions(group, str(instance.pk))
+    assert result_with_pk == result_with_obj
+    assert result_with_str_pk == result_with_obj

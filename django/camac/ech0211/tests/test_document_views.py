@@ -944,3 +944,48 @@ def test_camac_document_with_null_service(
     file_url = reverse("ech-file-detail", args=[doc.pk])
     resp = admin_client.get(file_url)
     assert resp.status_code == status.HTTP_200_OK
+
+
+@pytest.mark.freeze_time("2026-09-04")
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.parametrize("instance_param", ["99999999", "99999998,99999999"])
+@pytest.mark.django_db
+def test_ech_documents_with_nonexistent_instance(
+    set_document_backend,
+    admin_client,
+    attachment_factory,
+    be_instance,
+    attachment_section_factory,
+    mocker,
+    role,
+    instance_param,
+):
+    set_document_backend("camac-ng")
+    camac_cat = attachment_section_factory(description="foo")
+
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"test": {role.name.lower(): {permissions.AdminPermission: [camac_cat.pk]}}},
+    )
+
+    camac_attachment = attachment_factory(
+        instance=be_instance,
+        user=admin_client.user,
+        group=admin_client.user.get_default_group(),
+        size=5,
+    )
+    camac_attachment.attachment_sections.set([camac_cat])
+
+    list_url = reverse("ech-document-list")
+    resp = admin_client.get(
+        list_url,
+        {
+            "instance": instance_param,
+            "page[number]": 1,
+            "page[size]": 10,
+        },
+    )
+    assert resp.status_code == status.HTTP_200_OK
+    list_data = resp.json()
+    assert list_data["meta"]["pagination"]["count"] == 0
+    assert len(list_data["data"]) == 0
