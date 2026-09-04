@@ -1,0 +1,279 @@
+﻿openapi: 3.1.0
+info:
+  title: Schnittstellen betreffend RAPAG
+  version: 1.0.0
+  description:
+paths:
+  /http/rest/salesorder:
+    get:
+      operationId: REST_TO_ERX_REST_SALESORDER
+      description: Kundenauftragsdaten inkl Deb-Adresse werden ins Backend geliefert und in einer Zwischentabelle abgele
+      parameters:
+      - name: ktagBusCase
+        in: header
+        schema:
+          type: string
+        description: DIBA Geschäftsfall
+        maxLength: 4
+        required: false
+      - name: ktagAuftrKey
+        in: header
+        schema:
+          type: string
+        description: DIBA Auftrags Key
+        maxLength: 10
+        required: false
+      - name: ktagStatus
+        in: header
+        schema:
+          type: string
+        description: DIBA Status
+        maxLength: 4
+        required: false
+      - name: ktagEingDatum
+        in: header
+        schema:
+          type: string
+        description: Eingangsdatum
+        maxLength: 10
+        required: false
+      security:
+      - oauth2: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ztt_diba_sst_output_get'
+          description:
+    post:
+      operationId: REST_TO_ERX_REST_SALESORDER1
+      description: Kundenauftragsdaten inkl Deb-Adresse werden ins Backend geliefert und in einer Zwischentabelle abgele
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/zst_diba_sst_input_post'
+      security:
+      - oauth2: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/zst_diba_sst_output_post'
+          description:
+components:
+  schemas:
+    ztt_diba_sst_output_get:
+      type : array
+      items:
+        $ref: '#/components/schemas/zst_diba_sst_output_get'
+    zst_diba_sst_output_get:
+      type : object
+      properties:
+        busCase:
+            type: string
+            description: DIBA Geschäftsfall
+            maxLength: 4
+        eingDatum:
+            type: string
+            description: Eingangsdatum
+            maxLength: 10
+        auftrKey:
+            type: string
+            description: DIBA Auftrags Key
+            maxLength: 10
+        extAufnr:
+            type: string
+            description: Externe Auftragsnummer
+            maxLength: 40
+        bukrs:
+            type: string
+            description: Buchungskreis
+            maxLength: 4
+        status:
+            type: string
+            description: DIBA Status
+            maxLength: 4
+        aedat:
+            type: string
+            description: Datum der letzten Änderung
+            maxLength: 10
+        kunnr:
+            type: string
+            description: Auftraggeber
+            maxLength: 10
+        kdaufnr:
+            type: string
+            description: Verkaufsbeleg
+            maxLength: 10
+        faktnr:
+            type: string
+            description: Faktura
+            maxLength: 10
+        sapFakturaUrl:
+            type: string
+            description: URL
+            maxLength: 255
+    zst_diba_sst_input_post:
+      type : object
+      properties:
+        busCase:
+            type: string
+            description: DIBA Geschäftsfall
+            maxLength: 4
+        auftrKey:
+            type: string
+            description: DIBA Auftrags Key
+            maxLength: 10
+        extAufnr:
+            type: string
+            description: Externe Auftragsnummer
+            maxLength: 40
+        bukrs:
+            type: string
+            description: Buchungskreis
+            maxLength: 4
+        vtweg:
+            type: string
+            description: Vertriebsweg
+            maxLength: 2
+        spart:
+            type: string
+            description: Sparte
+            maxLength: 2
+        vkbur:
+            type: string
+            description: Verkaufsbüro
+            maxLength: 4
+        auart:
+            type: string
+            description: Verkaufsbelegart
+            maxLength: 4
+        name:
+            type: string
+            description: Nachname des Geschäftspartners (Person)
+            maxLength: 40
+        vorname:
+            type: string
+            description: Vorname des Geschäftspartners (Person)
+            maxLength: 40
+        strasse:
+            type: string
+            description: Straße
+            maxLength: 60
+        hausNr:
+            type: string
+            description: Hausnummer
+            maxLength: 10
+        plz:
+            type: string
+            description: Postleitzahl des Ortes
+            maxLength: 10
+        ort:
+            type: string
+            description: Ort
+            maxLength: 40
+        land:
+            type: string
+            description: Länder-/Regionenschlüssel des Referenzkontos
+            maxLength: 3
+        email:
+            type: string
+            description: E-Mail-Adresse
+            maxLength: 241
+        emailReEmpf:
+            type: string
+            description: E-Mail-Adresse
+            maxLength: 241
+        mailVers:
+            type: string
+            description: Feld zum Ankreuzen
+            maxLength: 1
+        telNr:
+            type: string
+            description: Erste Telefonnummer  Vorwahl + Anschluss
+            maxLength: 30
+        besBetr:
+            type: number
+            description: Nettowert der Belegposition in Belegwährung
+            maxLength: 21
+        waerk:
+            type: string
+            description: Währung des Vertriebsbelegs
+            maxLength: 5
+        debitorNrImport:
+            type: string
+            description: Auftraggeber
+            maxLength: 10
+        fileName:
+            type: string
+            description: Filename
+            maxLength: 257
+        binData:
+            type: string
+            description: Base64
+        pos:
+          $ref: '#/components/schemas/ztt_diba_sst_input_post_pos'
+      required:
+      - pos
+    ztt_diba_sst_input_post_pos:
+      type : array
+      items:
+          $ref: '#/components/schemas/zst_diba_sst_input_post_pos'
+    zst_diba_sst_input_post_pos:
+      type : object
+      properties:
+        auftrPos:
+            type: string
+            description: DIBA Auftrag Positionsnummer
+            maxLength: 6
+        matnr:
+            type: string
+            description: Materialnummer
+            maxLength: 40
+        ktext:
+            type: string
+            description: Allgemeine Bezeichnung
+            maxLength: 20
+        menge:
+            type: number
+            description: Zielmenge in Verkaufsmengeneinheit
+            maxLength: 17
+        meins:
+            type: string
+            description: Basismengeneinheit
+            maxLength: 3
+        preis:
+            type: number
+            description: Preis
+            maxLength: 14
+        waers:
+            type: string
+            description: Währungsschlüssel
+            maxLength: 5
+        ltext:
+            type: string
+            description: Langtext
+            maxLength: 40
+    zst_diba_sst_output_post:
+      type : object
+      properties:
+        state:
+            type: string
+            description: String
+        error:
+            type: string
+            description: String
+        message:
+            type: string
+            description: String
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://ktag-is-dev.authentication.eu10.hana.ondemand.com/oauth/token
+servers:
+- url: https://ktag-is-dev.it-cpi026-rt.cfapps.eu10-002.hana.ondemand.com

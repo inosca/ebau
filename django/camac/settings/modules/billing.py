@@ -4,6 +4,7 @@ from camac.settings.modules.billing_schema import (
     BillingConfig,
     BillingDjangoAdminConfig,
     ProductNumberConfig,
+    RapagConfig,
     WilkenConfig,
 )
 
@@ -33,6 +34,25 @@ BILLING = ModuleConfig[BillingConfig](
     kt_ag=BillingConfig(
         enabled=True,
         admin=BillingDjangoAdminConfig(hidden_fields=["organization"]),
+        rapag=RapagConfig(
+            enabled=True,
+            client_id=env.str(
+                "RAPAG_CLIENT_ID",
+                default="<your-client-id>",
+            ),
+            client_secret=env.str(
+                "RAPAG_CLIENT_SECRET",
+                default="<your-client-secret>",
+            ),
+            token_url=env.str(
+                "RAPAG_TOKEN_URL",
+                default="https://ktag-is-dev.authentication.eu10.hana.ondemand.com/oauth/token",
+            ),
+            base_url=env.str(
+                "RAPAG_BASE_URL",
+                default="https://ktag-is-dev.it-cpi026-rt.cfapps.eu10-002.hana.ondemand.com",
+            ),
+        ),
     ),
     kt_schwyz=BillingConfig(
         # Keep this config in sync with ember-ebau-core/addon/config/features/sz.js and
