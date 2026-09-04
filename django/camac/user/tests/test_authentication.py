@@ -13,6 +13,7 @@ from rest_framework.exceptions import AuthenticationFailed
 
 from camac.applicants.models import Applicant
 from camac.user.authentication import JSONWebTokenKeycloakAuthentication
+from camac.user.models import User
 
 
 def test_authenticate_no_headers(rf):
@@ -539,3 +540,34 @@ def test_authenticate_user_email_fallback(
     assert obj.username == values["username"]
     assert obj.email == values["email"]
     assert obj.pk == (user1.pk if not expected_fallback else user2.pk)
+
+
+@pytest.mark.django_db
+def test_update_or_create_user_concurrent_create(mocker):
+    """Two requests that both saw no existing user must not crash.
+
+    Both reach `update_or_create`. As the username is the only lookup value,
+    the second one updates the row the first one created instead of running
+    into an `IntegrityError` that cannot be recovered from.
+    """
+    auth = JSONWebTokenKeycloakAuthentication()
+    defaults = {
+        "language": "de",
+        "email": "concurrent@example.com",
+        "username": "concurrent-user",
+        "name": "Con",
+        "surname": "Current",
+    }
+
+    user, created = auth._update_or_create_user(dict(defaults), "de")
+    assert created
+
+    # The second request negotiated a different language and does not see the
+    # row the first one just created.
+    mocker.patch.object(auth, "_get_existing_user", return_value=None)
+    other, created = auth._update_or_create_user({**defaults, "language": "fr"}, "fr")
+
+    assert not created
+    assert other.pk == user.pk
+    assert other.language == "fr"
+    assert User.objects.filter(username="concurrent-user").count() == 1
