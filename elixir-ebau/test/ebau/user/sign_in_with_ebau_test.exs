@@ -12,11 +12,11 @@ defmodule Ebau.User.SignInWithEbauTest do
     "#{encode.(%{"alg" => "RS256", "typ" => "JWT"})}.#{encode.(claims)}.signature"
   end
 
-  defp sign_in(user, oauth_tokens) do
+  defp sign_in(user, oauth_tokens, email_verified \\ true) do
     user_info = %{
       "sub" => user.username,
       "email" => user.email,
-      "email_verified" => true
+      "email_verified" => email_verified
     }
 
     # Same entry point the OAuth2 callback plug uses.
@@ -72,5 +72,11 @@ defmodule Ebau.User.SignInWithEbauTest do
     signed_in = sign_in(user, %{"id_token" => token})
 
     assert %{extra_data: nil} = session_token(signed_in)
+  end
+
+  test "signs in when keycloak reports the email as unverified", %{user: user} do
+    signed_in = sign_in(user, %{}, false)
+
+    assert signed_in.id == user.id
   end
 end

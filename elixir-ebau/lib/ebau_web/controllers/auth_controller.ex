@@ -59,6 +59,7 @@ defmodule EbauWeb.AuthController do
   defp describe_failure(%AuthenticationFailed{caused_by: caused_by}),
     do: describe_failure(caused_by)
 
+  defp describe_failure(%{errors: [error | _]}), do: describe_failure(error)
   defp describe_failure(exception) when is_exception(exception), do: Exception.message(exception)
   defp describe_failure(%{message: message}) when is_binary(message), do: message
   defp describe_failure(other), do: inspect(other)

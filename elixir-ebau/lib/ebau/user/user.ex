@@ -86,6 +86,7 @@ defmodule Ebau.User.User do
     read :sign_in_with_ebau do
       argument :user_info, :map, allow_nil?: false
       argument :oauth_tokens, :map, allow_nil?: false
+      prepare Ebau.User.Preparations.TrustKeycloakEmail
       # Read after_action hooks run in reverse order of registration, so this
       # must come before `SignInPreparation`, whose token it records.
       prepare Ebau.User.Preparations.RecordKeycloakSession
