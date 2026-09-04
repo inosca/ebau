@@ -238,7 +238,6 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
     kt_sg=WorkItemListConfig(
         enabled=True,
         annotations=AnnotationsConfig(
-            municipality=None,
             applicants=None,
         ),
     ),
