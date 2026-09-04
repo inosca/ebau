@@ -392,6 +392,12 @@ def test_complete_decision_be(
             ebau_number_work_item.task_id
         )
 
+    # A positive decision transitions coordination -> sb1. Set the source state so
+    # responsible_service() exercises the configured INSTANCE_STATES transition.
+    if expected_instance_state == "sb1":
+        be_instance.instance_state = instance_state_factory(name="coordination")
+        be_instance.save()
+
     send_event(
         post_complete_work_item,
         sender="post_complete_work_item",

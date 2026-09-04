@@ -1,4 +1,5 @@
 import uuid
+from typing import Any, Self
 
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
@@ -3862,6 +3863,94 @@ class ServiceAnswerActivation(models.Model):
         db_table = "SERVICE_ANSWER_ACTIVATION"
 
 
+class InstanceServiceQuerySet(models.QuerySet):
+    def filter_service_type(
+        self,
+        filter_type: str,
+        active: int | None = None,
+        required: bool = False,
+        **filters: Any,
+    ) -> Self:
+        """Filter instance services by a configured active-service type.
+
+        `FILTERS` may be either a dictionary of ORM lookups or a `Q` object.
+        The resulting condition is combined with `active` and any additional
+        ORM lookups passed in `filters`.
+
+        Args:
+            filter_type: Key below `APPLICATION["ACTIVE_SERVICES"]`. The value
+                is case-insensitive and hyphens are treated as underscores.
+            active: Value for `InstanceService.active`. If `None`, active
+                state is not filtered.
+            required: Raise an exception when `filter_type` is not configured.
+                If false, only `active` and `filters` are applied.
+            **filters: Additional ORM lookups to AND with the configured query.
+
+        Returns:
+            The filtered instance-service queryset.
+
+        Raises:
+            Exception: If `required` is true and the service type is missing.
+        """
+        from camac.core.utils import get_service_type_query
+
+        if active is not None:
+            filters["active"] = active
+
+        return self.filter(
+            get_service_type_query(filter_type, required=required), **filters
+        )
+
+    def filter_service_type_for_state(
+        self,
+        instance_state: str | None,
+        previous_instance_state: str | None,
+        active: int | None = None,
+        **filters: Any,
+    ) -> Self:
+        """Filter using the service type configured for an instance transition.
+
+        The exact `(instance_state, previous_instance_state)` pair is matched
+        against each service type's `INSTANCE_STATES`. If no pair matches, the
+        service type marked with `DEFAULT` is used.
+
+        Args:
+            instance_state: Name of the instance's current state.
+            previous_instance_state: Name of the instance's previous state.
+            active: Value for `InstanceService.active`. If `None`, active
+                state is not filtered.
+            **filters: Additional ORM lookups to AND with the selected service
+                type query.
+
+        Returns:
+            The instance-service queryset filtered for the selected service type.
+
+        Raises:
+            Exception: If neither a matching nor a default service type exists.
+        """
+        active_services_settings = settings.APPLICATION.get("ACTIVE_SERVICES", {})
+        filter_type = None
+        default_filter_type = None
+
+        for configured_filter_type, config in active_services_settings.items():
+            if config.get("DEFAULT"):
+                default_filter_type = configured_filter_type
+
+            if (instance_state, previous_instance_state) in config.get(
+                "INSTANCE_STATES", []
+            ):
+                filter_type = configured_filter_type
+
+        filter_type = filter_type or default_filter_type
+
+        if filter_type is None:  # pragma: no cover
+            raise Exception("Default active service `filter_type` is not configured")
+
+        return self.filter_service_type(
+            filter_type, active=active, required=True, **filters
+        )
+
+
 class InstanceService(models.Model):
     instance = models.ForeignKey(
         "instance.Instance",
@@ -3879,6 +3968,7 @@ class InstanceService(models.Model):
     activation_date = models.DateTimeField(
         db_column="ACTIVATION_DATE", blank=True, null=True
     )
+    objects = InstanceServiceQuerySet.as_manager()
 
     class Meta:
         managed = True

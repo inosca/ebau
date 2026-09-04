@@ -1,5 +1,8 @@
-from django.db import migrations
 from django.conf import settings
+from django.db import migrations
+
+# Bern service group IDs: municipality=2, district=20000, lead-service=20001.
+MUNICIPALITY_SERVICE_FILTERS = {"service__service_group__pk__in": [2, 20000, 20001]}
 
 
 def fix_ech_circulations(apps, schema_editor):
@@ -11,13 +14,9 @@ def fix_ech_circulations(apps, schema_editor):
     for circulation in apps.get_model("core", "Circulation").objects.filter(
         service__isnull=True
     ):
-        filters = (
-            settings.APPLICATION.get("ACTIVE_SERVICES", {})
-            .get("MUNICIPALITY", {})
-            .get("FILTERS", {})
-        )
         active_instance_service = circulation.instance.instance_services.filter(
-            active=1, **filters
+            active=1,
+            **MUNICIPALITY_SERVICE_FILTERS,
         ).first()
 
         circulation.service = (

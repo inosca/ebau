@@ -66,14 +66,8 @@ class ResponsibleServiceFilter(CharFilter):
         if value in EMPTY_VALUES:
             return qs
 
-        active_services = core_models.InstanceService.objects.filter(
-            active=1,
-            service=value,
-            **(
-                settings.APPLICATION.get("ACTIVE_SERVICES", {})
-                .get("MUNICIPALITY", {})
-                .get("FILTERS", {})
-            ),
+        active_services = core_models.InstanceService.objects.filter_service_type(
+            "municipality", active=1, service=value
         )
 
         return qs.filter(pk__in=active_services.values("instance_id"))

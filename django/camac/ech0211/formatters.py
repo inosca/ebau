@@ -706,14 +706,7 @@ def accompanying_report(
 
 def change_responsibility(instance: Instance):
     prev_municipality = (
-        instance.instance_services.filter(
-            active=0,
-            **(
-                settings.APPLICATION.get("ACTIVE_SERVICES", {})
-                .get("MUNICIPALITY", {})
-                .get("FILTERS", {})
-            ),
-        )
+        instance.instance_services.filter_service_type("municipality", active=0)
         .order_by("-pk")
         .first()
         .service

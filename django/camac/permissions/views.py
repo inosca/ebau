@@ -22,7 +22,6 @@ from camac.user.permissions import (
     get_group,
     get_role_name,
 )
-from camac.utils import get_dict_item
 
 from . import api, filters, mixins, models, permissions, serializers
 
@@ -185,11 +184,8 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
         request_service_id = self.request.group.service.pk
 
         if settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
-            active_service_filters = get_dict_item(
-                settings.APPLICATION, "ACTIVE_SERVICES.MUNICIPALITY.FILTERS"
-            )
-            has_permission = instance.instance_services.filter(
-                **active_service_filters, service_id=request_service_id
+            has_permission = instance.instance_services.filter_service_type(
+                "municipality", required=True, service_id=request_service_id
             ).exists()
 
             # As soon as the permission module is fully activated in UR, this will be handled through the permission module
