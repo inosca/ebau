@@ -31,6 +31,7 @@ from django.utils import timezone
 from django.utils.translation import gettext as _
 from future.moves import itertools
 from graphql import GraphQLError
+from pathvalidate import sanitize_filename
 from rest_framework.exceptions import ValidationError
 
 from camac.core.models import InstanceService, WorkflowEntry
@@ -53,7 +54,9 @@ from camac.dossier_import.messages import (
     Severity,
     get_message_max_level,
 )
-from camac.dossier_import.utils import get_or_create_ebau_nr
+from camac.dossier_import.utils import (
+    get_or_create_ebau_nr,
+)
 from camac.dossier_import.validation import TargetStatus
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
@@ -1514,7 +1517,7 @@ class DossierWriter:
 
             filename = re.sub(
                 # ensure that dossier.id is only removed at the beginning of a path
-                rf"^{dossier.id}/",
+                rf"^{sanitize_filename(dossier.id)}/",
                 "",
                 document.name.encode("utf-8", errors="ignore").decode(
                     "utf-8", errors="ignore"

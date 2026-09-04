@@ -7,6 +7,7 @@ from enum import Enum
 from django.conf import settings
 from django.utils.timezone import datetime
 from django.utils.translation import gettext as _
+from pathvalidate import sanitize_filename
 from pyproj import Transformer
 
 from camac.dossier_import.dossier_classes import (
@@ -23,7 +24,9 @@ from camac.dossier_import.messages import (
     Severity,
 )
 from camac.dossier_import.models import DossierImport
-from camac.dossier_import.utils import get_worksheet_headings_and_rows
+from camac.dossier_import.utils import (
+    get_worksheet_headings_and_rows,
+)
 
 from .exceptions import InvalidImportDataError
 
@@ -405,7 +408,8 @@ class XlsxFileDossierLoader(DossierLoader):
 
     def _load_attachments(self, dossier, archive):
         for document_name in filter(
-            lambda x: x.filename.startswith(f"{dossier.id}/"), archive.infolist()
+            lambda x: x.filename.startswith(f"{sanitize_filename(dossier.id)}/"),
+            archive.infolist(),
         ):
             if document_name.filename.endswith("/"):
                 continue

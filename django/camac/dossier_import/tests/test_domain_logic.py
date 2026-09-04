@@ -8,6 +8,7 @@ from caluma.caluma_workflow.models import Case
 from celery.utils import uuid
 from django.urls import reverse
 from django.utils import timezone
+from pathvalidate import sanitize_filename
 
 from camac.dossier_import.domain_logic import (
     perform_import,
@@ -74,6 +75,7 @@ def test_undo_import(
     [
         ("import-example-no-errors.zip", "import-example-no-errors.zip"),
         ("import-example-no-errors.zip", "import-example-no-errors-reimport.zip"),
+        ("import-example-slash-in-id.zip", "import-example-slash-in-id.zip"),
     ],
 )
 @pytest.mark.parametrize("config", ["kt_schwyz", "kt_bern", "kt_so"])
@@ -107,7 +109,11 @@ def test_perform_reimport(  # noqa: C901
     perform_import(first_import.pk)
 
     # The dossier_id marks the tested re-import line in the import source file
-    dossier_id = "2017-84"
+    dossier_id = (
+        "2017/84"
+        if first_import_file == "import-example-slash-in-id.zip"
+        else "2017-84"
+    )
     imported_dossier = writer.find_existing_instance(
         Dossier(id=dossier_id, proposal=""), writer._caluma_user
     )
@@ -424,3 +430,8 @@ def test_update_orphaned_imports(dossier_import_factory, mocker, freezer):
     assert still_running.status == DossierImport.Status.UNDO_IN_PROGRESS
     assert recently_modified.status == DossierImport.Status.IMPORT_IN_PROGRESS
     assert not_running.status == DossierImport.Status.IMPORTED
+
+
+def test_sanitize_filename():
+    assert sanitize_filename("1:2/3\\4|5*6") == "123456"
+    assert sanitize_filename("12345/test.txt") == "12345test.txt"
