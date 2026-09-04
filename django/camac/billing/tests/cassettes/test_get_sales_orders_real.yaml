@@ -1,0 +1,256 @@
+interactions:
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://ktag-is-dev.authentication.eu10.hana.ondemand.com/oauth/token
+  response:
+    body:
+      string: '{"access_token":"xxx","token_type":"bearer","expires_in":3599,"scope":"yyy","jti":"zzz"}'
+    headers:
+      cache-control:
+      - no-store
+      content-type:
+      - application/json
+      date:
+      - Tue, 01 Sep 2026 11:10:11 GMT
+      pragma:
+      - no-cache
+      server:
+      - nginx
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload;
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-vcap-request-id:
+      - 846331a3-63c8-47b9-67f5-2f3cf170dad1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer xxx
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://ktag-is-dev.it-cpi026-rt.cfapps.eu10-002.hana.ondemand.com/http/rest/salesorder?ktagBusCase=DIBA
+  response:
+    body:
+      string: "[\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-04\",\r\n
+        \   \"auftrKey\": \"DIBA000002\",\r\n    \"extAufnr\": \"ABXL2233\",\r\n    \"bukrs\":
+        \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n    \"kunnr\":
+        \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n    \"sapFakturaUrl\":
+        \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n  },\r\n
+        \ {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-19\",\r\n
+        \   \"auftrKey\": \"DIBA000003\",\r\n    \"extAufnr\": \"ABZPD19.08.2026\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-19\",\r\n
+        \   \"auftrKey\": \"DIBA000004\",\r\n    \"extAufnr\": \"ABZPD19.08.2026\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-03\",\r\n
+        \   \"auftrKey\": \"DIBA000001\",\r\n    \"extAufnr\": \"ABXL2233\",\r\n    \"bukrs\":
+        \"6003\",\r\n    \"status\": \"30\",\r\n    \"aedat\": \"\",\r\n    \"kunnr\":
+        \"0460055570\",\r\n    \"kdaufnr\": \"0151504749\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-25\",\r\n
+        \   \"auftrKey\": \"DIBA000005\",\r\n    \"extAufnr\": \"BAUGES25082026\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"40\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"0460055593\",\r\n    \"kdaufnr\": \"0151504758\",\r\n    \"faktnr\":
+        \"0501285253\",\r\n    \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA260831\",\r\n    \"extAufnr\": \"BAUGES2608311620\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA671970\",\r\n    \"extAufnr\": \"BAUGES162825\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA427786\",\r\n    \"extAufnr\": \"BAUGES20260831163658\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA342686\",\r\n    \"extAufnr\": \"BAUGES20260831164000\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA566408\",\r\n    \"extAufnr\": \"BAUGES20260831164629\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA526250\",\r\n    \"extAufnr\": \"BAUGES20260831164725\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA663575\",\r\n    \"extAufnr\": \"BAUGES20260831164852\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA885828\",\r\n    \"extAufnr\": \"BAUGES20260831170053\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA698863\",\r\n    \"extAufnr\": \"BAUGES20260831170234\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA074149\",\r\n    \"extAufnr\": \"BAUGES20260831163142\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"40\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"0460055597\",\r\n    \"kdaufnr\": \"0151505029\",\r\n    \"faktnr\":
+        \"\",\r\n    \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA576325\",\r\n    \"extAufnr\": \"BAUGES20260831173531\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA721000\",\r\n    \"extAufnr\": \"BAUGES20260831174551\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA244988\",\r\n    \"extAufnr\": \"BAUGES20260831174937\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-26\",\r\n
+        \   \"auftrKey\": \"DIBA000006\",\r\n    \"extAufnr\": \"BAUGES25082026\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"40\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"0460055596\",\r\n    \"kdaufnr\": \"0151505037\",\r\n    \"faktnr\":
+        \"\",\r\n    \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA119125\",\r\n    \"extAufnr\": \"BAUGES20260831165312\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"40\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"0460055599\",\r\n    \"kdaufnr\": \"0151505445\",\r\n    \"faktnr\":
+        \"\",\r\n    \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA123456\",\r\n    \"extAufnr\": \"BAUGES20260831172239\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"40\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"0460055598\",\r\n    \"kdaufnr\": \"0151505444\",\r\n    \"faktnr\":
+        \"\",\r\n    \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA126906\",\r\n    \"extAufnr\": \"BAUGES20260831164914\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"40\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"0460055600\",\r\n    \"kdaufnr\": \"0151505446\",\r\n    \"faktnr\":
+        \"\",\r\n    \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-09-01\",\r\n
+        \   \"auftrKey\": \"DIBA000007\",\r\n    \"extAufnr\": \"BAUGES25082026\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"40\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"0460055601\",\r\n    \"kdaufnr\": \"0151506772\",\r\n    \"faktnr\":
+        \"\",\r\n    \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA162526\",\r\n    \"extAufnr\": \"BAUGES162526\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"40\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"0460055602\",\r\n    \"kdaufnr\": \"0151507676\",\r\n    \"faktnr\":
+        \"\",\r\n    \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA162442\",\r\n    \"extAufnr\": \"BAUGES162442\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"40\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"0460055603\",\r\n    \"kdaufnr\": \"0151507791\",\r\n    \"faktnr\":
+        \"\",\r\n    \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-08-31\",\r\n
+        \   \"auftrKey\": \"DIBA178617\",\r\n    \"extAufnr\": \"BAUGES20260831164311\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"40\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"0460055604\",\r\n    \"kdaufnr\": \"0151508255\",\r\n    \"faktnr\":
+        \"0501285262\",\r\n    \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ },\r\n  {\r\n    \"busCase\": \"DIBA\",\r\n    \"eingDatum\": \"2026-09-01\",\r\n
+        \   \"auftrKey\": \"DIBA910415\",\r\n    \"extAufnr\": \"BAUGES20260901105926\",\r\n
+        \   \"bukrs\": \"6003\",\r\n    \"status\": \"10\",\r\n    \"aedat\": \"\",\r\n
+        \   \"kunnr\": \"\",\r\n    \"kdaufnr\": \"\",\r\n    \"faktnr\": \"\",\r\n
+        \   \"sapFakturaUrl\": \"http://saper1.ads.ktag.ch/sap/its/webgui?transaction=vf03\"\r\n
+        \ }\r\n]"
+    headers:
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      cookie:
+      - sap-usercontext=sap-client=400; path=/; SAP_SESSIONID_ER1_400=LqLhEmVzu26n4HsO4Hz4G7MnXO-l9RHxrnR5Y4vHgMg%3d;
+        path=/; HttpOnly
+      date:
+      - Tue, 01 Sep 2026 11:10:11 GMT
+      expires:
+      - '0'
+      ktagbuscase:
+      - DIBA
+      pragma:
+      - no-cache
+      sap-authenticated:
+      - 'true'
+      sap-perf-fesrec:
+      - '13451.000000'
+      sap-server:
+      - 'true'
+      sap_messageprocessinglogid:
+      - AGqWspP6hyY3AgcIXVDXgL7932DH
+      sap_mplcorrelationid:
+      - AGqWspM61OH9yUhBpWyizQ9PnlVg
+      sap_pregeneratedmplid:
+      - AGqWspOe8b7sDmVdfGGI4uCGgAgu
+      sapenablemplattachments:
+      - 'true'
+      server:
+      - SAP
+      set-cookie:
+      - sap-usercontext=sap-client=400; path=/
+      - SAP_SESSIONID_ER1_400=LqLhEmVzu26n4HsO4Hz4G7MnXO-l9RHxrnR5Y4vHgMg%3d; path=/;
+        HttpOnly
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload;
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-correlationid:
+      - 71f8b049-7ceb-4be1-6d3d-e72cc39bd1b3
+      x-csrf-token:
+      - u7RBVLVxu-P_cBYVSIfuvA==
+      x-frame-options:
+      - DENY
+      x-vcap-request-id:
+      - 71f8b049-7ceb-4be1-6d3d-e72cc39bd1b3
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

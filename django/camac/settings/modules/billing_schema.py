@@ -70,6 +70,16 @@ class WilkenConfig(EBauConfig):
     )
 
 
+class RapagConfig(EBauConfig):
+    """Credentials for the SAP billing API in Kt. AG ("RAPAG")."""
+
+    enabled: bool = Field(description="Enable RAPAG integration", default=False)
+    client_id: str | None = Field(description="OAuth2 client ID", default=None)
+    client_secret: str | None = Field(description="OAuth2 client secret", default=None)
+    token_url: str | None = Field(description="OAuth2 token URL", default=None)
+    base_url: str | None = Field(description="Base URL for RAPAG API", default=None)
+
+
 class BillingConfig(ModuleApplicationConfig):
     product_numbers: list[ProductNumberConfig] = Field(
         description=(
@@ -82,6 +92,10 @@ class BillingConfig(ModuleApplicationConfig):
     wilken: WilkenConfig | None = Field(
         description="Configuration for the wilken export feature (currently for SZ)",
         default=None,
+    )
+    rapag: RapagConfig = Field(
+        description="Configuration for RAPAG interface (only for kt_ag)",
+        default=RapagConfig(),
     )
     cantonal_service_group_slugs: list[str] = Field(
         description="Which ServiceGroup's are cantonal. List of slugs.", default=[]
