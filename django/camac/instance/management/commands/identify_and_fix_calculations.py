@@ -9,11 +9,11 @@ from typing import Any
 
 import openpyxl
 from caluma.caluma_form import calc_questions, structure
-from caluma.caluma_form.models import Answer, Question
+from caluma.caluma_form.models import Answer, Document, FormQuestion, Question
 from caluma.caluma_form.validators import DocumentValidator
 from django.core.management.base import BaseCommand
 from django.db import connections, transaction
-from django.db.models import Exists, OuterRef
+from django.db.models import Exists, OuterRef, Q
 from rest_framework import exceptions
 
 from camac.alexandria_migration.domain_logic.annotate_documents import (
@@ -73,8 +73,6 @@ class Command(BaseCommand):
         # ... none - for now
     ]
 
-    SEARCH_FOR_ANSWER = ["richtlinie-belastungswerte-v5"]
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -96,7 +94,7 @@ class Command(BaseCommand):
             "--parallel",
             action="store_true",
             dest="parallel",
-            help="Check in parallel",
+            help="Check in parallel. Uses as many CPUs as available",
             required=False,
             default=False,
         )
@@ -109,31 +107,44 @@ class Command(BaseCommand):
             default=False,
         )
         parser.add_argument(
-            "--recalc-full",
-            action="store_true",
-            dest="recalc_full",
+            "--analyze-only",
+            type=str,
+            dest="analyze_only",
             help=(
-                "Check full document recalculation instead of "
-                f"only {','.join(self.SEARCH_FOR_ANSWER)}"
+                "Instead of going through all calc questions, only look for "
+                "the given one and the ones depending on it. Can be a "
+                "comma-separated list of question slugs"
             ),
+            required=False,
+            default=None,
+        )
+        parser.add_argument(
+            "--search-only",
+            type=str,
+            dest="search_only",
+            help=(
+                "Find dossiers with existing answers to the given question "
+                "only, instead of all dossiers with calc fields"
+            ),
+            required=False,
+            default=None,
+        )
+
+        parser.add_argument(
+            "--check-recalc",
+            action="store_true",
+            dest="do_recalc",
+            help="Enable recalculation checks",
             required=False,
             default=False,
         )
         parser.add_argument(
-            "--no-recalc",
-            action="store_false",
-            dest="do_recalc",
-            help=("Disable recalculation checks"),
-            required=False,
-            default=True,
-        )
-        parser.add_argument(
-            "--no-validate",
-            action="store_false",
+            "--check-validation",
+            action="store_true",
             dest="do_validate",
-            help=("Disable validation checks"),
+            help="Enable form validation checks",
             required=False,
-            default=True,
+            default=False,
         )
 
         parser.add_argument(
@@ -173,8 +184,11 @@ class Command(BaseCommand):
         do_fix_calculation = options["do_fix_calc"]
         do_commit = options["do_commit"]
         self.excel_out = options["excel_out"]
-
         self.dev_mode = options["dev_mode"]
+        self.analyze_only = (
+            options["analyze_only"].split(",") if options["analyze_only"] else None
+        )
+        self.search_only = options["search_only"]
 
         started_at = datetime.datetime.now()
 
@@ -191,15 +205,15 @@ class Command(BaseCommand):
                     )
 
                 if do_recalc:
-                    if options["recalc_full"]:
+                    if self.analyze_only:
                         log.info(
-                            "Collecting instances for miscalculation checks "
-                            "(checking ALL calc questions)"
+                            "Collecting instances for miscalculation checks (only questions "
+                            f"{', '.join(self.analyze_only)} and dependents)"
                         )
                     else:
                         log.info(
-                            "Collecting instances for miscalculation checks (only questions "
-                            f"{','.join(self.SEARCH_FOR_ANSWER)} and dependents)"
+                            "Collecting instances for miscalculation checks "
+                            "(checking ALL calc questions)"
                         )
                     total, instances = self.iter_instances_for_miscalculation()
                     self._schedule(
@@ -208,7 +222,7 @@ class Command(BaseCommand):
                         self.check_miscalculation,
                         total,
                         instances,
-                        recalc_full=options["recalc_full"],
+                        analyze_only=self.analyze_only,
                         fix_calculation=do_fix_calculation,
                         do_commit=do_commit,
                     )
@@ -224,12 +238,11 @@ class Command(BaseCommand):
         if self.excel_out:
             self.log_to_excel(
                 start_time=started_at,
-                recalc_full=options["recalc_full"],
                 committed_to_db=do_commit,
                 did_fixes=do_fix_calculation,
             )
 
-    def log_to_excel(self, start_time, recalc_full, committed_to_db, did_fixes):
+    def log_to_excel(self, start_time, committed_to_db, did_fixes):
 
         book = openpyxl.Workbook()
 
@@ -250,7 +263,9 @@ class Command(BaseCommand):
 
         info_sheet["A3"] = "Recalculation mode"
         info_sheet["B3"] = (
-            "Check full form" if recalc_full else "Check only suspected fields"
+            f"Check only {', '.join(self.analyze_only)} and dependents"
+            if self.analyze_only
+            else "Check full form"
         )
         info_sheet["B3"].alignment = openpyxl.styles.Alignment(horizontal="left")
 
@@ -590,7 +605,7 @@ class Command(BaseCommand):
     def _municipality(cls, inst):
         try:
             return get_municipality(inst).get_name()
-        except Service.DoesNotExist:
+        except (Service.DoesNotExist, Answer.DoesNotExist):
             # Most likely a new dossier - fetch applicant instead
             return cls._first_applicant(inst) or "?? Unknown"
 
@@ -607,16 +622,15 @@ class Command(BaseCommand):
         cls,
         progressinfo: str,
         inst_id: int,
-        recalc_full: bool,
+        analyze_only: list[str],
         fix_calculation: bool,
         do_commit: bool,
     ) -> list[LogEntry | StatsEntry]:
         """Check the given instance for miscalculation issues.
 
-        Depending on `recalc_full`, do a recalculation of all the calculated
-        fields of the instance's main form, or only of the ones that follow
-        the `richtlinie-belastungswerte-v5` question (which is the one where
-        we know about slow / incomplete recalculations).
+        If user requested only checking a specific question (via
+        `analyze_only`), we find said question and it's dependents, then
+        check these. If not, we check the full form for miscalculations.
 
         Return a loggable tuple, so it can be logged in the main process
         """
@@ -634,14 +648,14 @@ class Command(BaseCommand):
             (0.0, None),
         }
 
-        if recalc_full:
-            # is about 50% slower
-            check_list = cls._all_calc_fields(struc)
-        else:
-            # only relevant ones
+        if analyze_only:
+            # only "interesting" ones
             check_list = calc_questions.DependencyList(
-                *[struc.get_field(f) for f in cls.SEARCH_FOR_ANSWER]
+                *[struc.get_field(f) for f in analyze_only]
             )
+        else:
+            # Full scan - is about 50% slower
+            check_list = cls._all_calc_fields(struc)
 
         municipality_name = cls._municipality(inst)
 
@@ -811,16 +825,63 @@ class Command(BaseCommand):
                 transaction.savepoint_rollback(savepoint)
         return recalc_log
 
-    def _base_qs(self):
-        """Build a base queryset for fetching affected instances."""
-        return Instance.objects.all().filter(
-            Exists(
-                Answer.objects.filter(
-                    question_id__in=self.SEARCH_FOR_ANSWER,
-                    document__case__pk=OuterRef("case"),
+    def _all_forms_with_calc_questions(self) -> list[str]:
+        """Return list of form slugs that contain calculated fields in the structure."""
+
+        seen = set()
+
+        def _collect_forms(questions):
+
+            forms = (
+                FormQuestion.objects.filter(question__in=questions)
+                .exclude(form__in=seen)
+                .values_list("form_id", flat=True)
+            )
+
+            yield from forms
+            seen.update(forms)
+
+            parent_q = Question.objects.filter(
+                Q(row_form__in=forms) | Q(sub_form__in=forms)
+            )
+            if parent_q.count():
+                yield from _collect_forms(parent_q)
+
+        return sorted(
+            set(
+                _collect_forms(
+                    Question.objects.filter(type=Question.TYPE_CALCULATED_FLOAT)
                 )
             )
         )
+
+    def _base_qs(self):
+        """Build a base queryset for fetching affected instances."""
+        if self.search_only:
+            log.info(f"Collecting all instances with an answer to {self.search_only}")
+            return Instance.objects.all().filter(
+                Exists(
+                    Answer.objects.filter(
+                        question_id=self.search_only,
+                        document__case__pk=OuterRef("case"),
+                    )
+                )
+            )
+
+        else:
+            forms = self._all_forms_with_calc_questions()
+            log.info(
+                f"Collecting all instances whose form contains "
+                f"collected fields: {', '.join(forms)}"
+            )
+            return Instance.objects.all().filter(
+                Exists(
+                    Document.objects.filter(
+                        form__in=forms,
+                        case__pk=OuterRef("case"),
+                    )
+                )
+            )
 
     def iter_instances_for_validation(self):
         """Build an iterator for validation checks.
@@ -843,8 +904,11 @@ class Command(BaseCommand):
         Return a 2-tuple, with the total number of records as the first value,
         and a queryset iterator as the second value.
         """
-        qs = self._base_qs().exclude(
-            instance_state__name__in=self.EXCLUDE_STATES_FOR_MISCALCULATION
+        qs = (
+            self._base_qs()
+            .exclude(instance_state__name__in=self.EXCLUDE_STATES_FOR_MISCALCULATION)
+            # order by random to get an early sampling of all situations
+            .order_by("?")
         )
         if self.dev_mode:
             qs = qs[:100]
