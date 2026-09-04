@@ -47,10 +47,12 @@ def test_document_visibilities_camac(
 
     doc_a0 = attachment_factory(instance=be_instance)
     doc_s0 = attachment_factory(instance=be_instance)
+    doc_s1 = attachment_factory(instance=be_instance, service=None)
     doc_i0 = attachment_factory(instance=be_instance, service=service_factory())
     doc_i1 = attachment_factory(instance=be_instance, service=user_service)
     doc_a0.attachment_sections.set([all_involved])
     doc_s0.attachment_sections.set([submission_docs])
+    doc_s1.attachment_sections.set([submission_docs])
     doc_i0.attachment_sections.set([internal])
     doc_i1.attachment_sections.set([internal])
 
@@ -68,6 +70,7 @@ def test_document_visibilities_camac(
     expected_pks = [
         f"{all_involved.pk}-{doc_a0.pk}",
         f"{submission_docs.pk}-{doc_s0.pk}",
+        f"{submission_docs.pk}-{doc_s1.pk}",
         f"{internal.pk}-{doc_i1.pk}",
     ]
 

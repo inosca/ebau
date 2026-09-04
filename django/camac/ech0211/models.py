@@ -166,6 +166,8 @@ class ECH0211Document(models.Model):
         db_column="SERVICE_ID",
         related_name="+",
         on_delete=models.DO_NOTHING,
+        blank=True,
+        null=True,
     )
     mime_type = models.CharField(db_column="MIME_TYPE", max_length=255)
 

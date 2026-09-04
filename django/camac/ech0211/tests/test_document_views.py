@@ -889,3 +889,58 @@ def test_document_update_alexandria(
         move_permission.assert_called_once()
     else:
         move_permission.assert_not_called()
+
+
+@pytest.mark.freeze_time("2026-09-04")
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.django_db
+def test_camac_document_with_null_service(
+    set_document_backend,
+    admin_client,
+    attachment_factory,
+    be_instance,
+    attachment_section_factory,
+    mocker,
+    role,
+):
+    set_document_backend("camac-ng")
+    camac_cat = attachment_section_factory(description="foo")
+
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"test": {role.name.lower(): {permissions.AdminPermission: [camac_cat.pk]}}},
+    )
+
+    camac_attachment = attachment_factory(
+        instance=be_instance,
+        user=admin_client.user,
+        group=admin_client.user.get_default_group(),
+        service=None,
+        size=5,
+    )
+    camac_attachment.attachment_sections.set([camac_cat])
+
+    doc = ECH0211Document.from_attachment(camac_attachment)
+
+    # 1. Detail endpoint
+    detail_url = reverse("ech-document-detail", args=[doc.pk])
+    resp = admin_client.get(detail_url)
+    assert resp.status_code == status.HTTP_200_OK
+    detail_data = resp.json()
+    assert detail_data["data"]["id"] == str(doc.pk)
+    assert detail_data["data"]["relationships"]["created-by-service"]["data"] is None
+
+    # 2. List endpoint
+    list_url = reverse("ech-document-list")
+    resp = admin_client.get(list_url, {"page[number]": 1, "page[size]": 10})
+    assert resp.status_code == status.HTTP_200_OK
+    list_data = resp.json()
+    assert list_data["meta"]["pagination"]["count"] == 1
+    assert len(list_data["data"]) == 1
+    assert list_data["data"][0]["id"] == str(doc.pk)
+    assert list_data["data"][0]["relationships"]["created-by-service"]["data"] is None
+
+    # 3. File download endpoint
+    file_url = reverse("ech-file-detail", args=[doc.pk])
+    resp = admin_client.get(file_url)
+    assert resp.status_code == status.HTTP_200_OK
