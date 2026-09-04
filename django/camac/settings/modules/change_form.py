@@ -41,6 +41,7 @@ CHANGE_FORM = {
                 "baugesuch-reklamegesuch-v10",
                 "baugesuch-reklamegesuch-v11",
                 "baugesuch-reklamegesuch-v12",
+                "baugesuch-reklamegesuch-v13",
                 "projektanderung-v2",
                 "projektanderung-v3",
                 "projektanderung-v4",

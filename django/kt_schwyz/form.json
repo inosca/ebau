@@ -504,6 +504,43 @@
       "fachthemen.bauabfaelle",
       "gesuchsunterlagen"
     ],
+    "baugesuch-reklamegesuch-v13": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-baugesuch-reklamegesuch-v2",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v5",
+      "grundinformationen.baustellenabwasser-v2",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "personalien.vertreter-mit-vollmacht-v2",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
+      "fachthemen.energienachweis",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v3",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "fachthemen.bauabfaelle",
+      "gesuchsunterlagen"
+    ],
     "projektanderung-v3": [
       "projektanderung",
       "grundinformationen",
@@ -2290,6 +2327,16 @@
         "baustellenabwasser-info-unter-3M"
       ]
     },
+    "grundinformationen.baustellenabwasser-v2": {
+      "title": "Baustellenabwasser",
+      "parent": "grundinformationen",
+      "questions": [
+        "baustellenabwasser-gebaeudefussabdruck",
+        "baustellenabwasser-untergeschosse",
+        "baustellenabwasser-info-technische-bewilligung-noetig",
+        "baustellenabwasser-info-technische-bewilligung-nicht-noetig"
+      ]
+    },
     "grundinformationen.ausnahmebewilligungen": {
       "title": "Ausnahmebewilligungen",
       "parent": "grundinformationen",
@@ -2333,7 +2380,10 @@
     "personalien.bauherrschaft-v3": {
       "title": "Bauherrschaft / Bewilligungsnehmer",
       "parent": "personalien",
-      "questions": ["bauherrschaft-v3"]
+      "questions": [
+        "bauherrschaft-v3",
+        "bauherrschaft-baustellenentwasserung-info"
+      ]
     },
     "personalien.projektverfasser-planer": {
       "title": "Projektverfasser / Planer",
@@ -5137,6 +5187,15 @@
             "config": {}
           }
         ]
+      }
+    },
+    "bauherrschaft-baustellenentwasserung-info": {
+      "label": "Die Bauherrschaft ist für die fachgerechte und vorschriftsgemässe Umsetzung der Massnahmen zur Baustellenentwässerung verantwortlich. Eine Übertragung dieser Verantwortung auf eine andere natürliche oder juristische Person ist zulässig, bedarf jedoch einer schriftlichen Vereinbarung. Wird eine andere verantwortliche Person als die Bauherrschaft bezeichnet, ist eine von der verantwortlichen Person unterzeichnete Verantwortungsübernahme im eBau hochzuladen. Ohne entsprechende Vereinbarung gilt die Bauherrschaft als verantwortliche Person.",
+      "type": "checkbox",
+      "active-expression": "form == 'technische-bewilligung' && 'Technische Bewilligung Baustellenentwässerung' in 'tb-zweck-v2'|value",
+      "required": true,
+      "config": {
+        "options": ["Zur Kenntnis genommen"]
       }
     },
     "projektverfasser-planer": {
@@ -10987,6 +11046,44 @@
       "type": "checkbox",
       "required": true,
       "active-expression": "'baustellenabwasser'|value == 'Ja' && 'baukosten'|value < 3000000",
+      "config": {
+        "options": [
+          "Ich habe die Allgemeinverfügung gelesen und verstanden. Die Abwasservorbehandlung wird entsprechend umgesetzt."
+        ]
+      }
+    },
+    "baustellenabwasser-gebaeudefussabdruck": {
+      "label": "Wie gross ist bei Ihrem Bauvorhaben der Gebäudefussabdruck in m²?",
+      "type": "number-separator",
+      "required": true,
+      "active-expression": "'baustellenabwasser'|value == 'Ja'",
+      "config": {
+        "min": 0
+      }
+    },
+    "baustellenabwasser-untergeschosse": {
+      "label": "Sind beim Bauvorhaben ein bzw. mehrere Untergeschosse geplant?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenabwasser'|value == 'Ja'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenabwasser-info-technische-bewilligung-noetig": {
+      "label": "Für Bauvorhaben in einem belasteten Gebiet oder mit einem Gebäudefussabdruck ab 250m² ist eine technische Bewilligung zur Baustellenentwässerung erforderlich. Das Gesuch hierfür ist via eBau (<a href='/gesuche/new' target='_blank'>Technische Bewilligung Baustellenentwässerung</a>) zu stellen.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenabwasser'|value == 'Ja' && ('baustellenabwasser-gebaeudefussabdruck'|value >= 250 || 'ms:ch.sz.a020b.kataster_belasteter_standorte.polygon' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.punkt' in 'layer'|value|mapby('name'))",
+      "config": {
+        "options": ["Zur Kenntnis genommen"]
+      }
+    },
+    "baustellenabwasser-info-technische-bewilligung-nicht-noetig": {
+      "label": "Für Bauvorhaben mit einem Gebäudefussabdruck unter 250m² werden die Anforderungen und Vorgaben zur Baustellenentwässerung durch eine <a href='#' target='_blank'>Allgemeinverfügung</a> festgelegt.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenabwasser'|value == 'Ja' && 'baustellenabwasser-gebaeudefussabdruck'|value < 250 && !('ms:ch.sz.a020b.kataster_belasteter_standorte.polygon' in 'layer'|value|mapby('name')) && !('ms:ch.sz.a020b.kataster_belasteter_standorte.punkt' in 'layer'|value|mapby('name'))",
       "config": {
         "options": [
           "Ich habe die Allgemeinverfügung gelesen und verstanden. Die Abwasservorbehandlung wird entsprechend umgesetzt."
