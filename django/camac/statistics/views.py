@@ -9,7 +9,7 @@ from caluma.caluma_workflow.models import Task
 from django.conf import settings
 from django.http import FileResponse
 from django.utils import timezone
-from django.utils.translation import get_language, gettext_lazy as _
+from django.utils.translation import get_language, gettext, gettext_lazy as _
 from openpyxl.styles import Font
 from openpyxl.utils import get_column_letter
 from rest_framework.exceptions import PermissionDenied
@@ -129,6 +129,24 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
 
         return _resolve_template_path(self.base_type, role_slug, sg_slug)
 
+    def _get_autofilter(self, sheet_name):
+        """Return configured autofilter values for *sheet_name*."""
+        return {}
+
+    @staticmethod
+    def _apply_autofilter_values(data_sheet, header, filters):
+        """Apply configured autofilter values by header label."""
+        for header_label, values in filters.items():
+            try:
+                col_idx = header.index(gettext(header_label))
+            except ValueError:
+                continue
+
+            data_sheet.auto_filter.add_filter_column(
+                col_idx,
+                ["" if value == "" else gettext(value) for value in values],
+            )
+
     def _write_grid_sheet(self, workbook, name, index, header, rows):
         """Clear and rewrite the sheet *name* at *index* with *header* and *rows*."""
         if name in workbook.sheetnames:
@@ -159,6 +177,16 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
         for col_idx, width in enumerate(col_widths):
             col_letter = get_column_letter(col_idx + 1)
             data_sheet.column_dimensions[col_letter].width = min(width + 2, 60)
+
+        if name in {"Dossiers", "Flächen"} and header:
+            data_sheet.auto_filter.ref = (
+                f"A1:{get_column_letter(len(header))}{data_sheet.max_row}"
+            )
+            self._apply_autofilter_values(
+                data_sheet,
+                header,
+                self._get_autofilter(name),
+            )
 
     def _write_data_sheet(self, workbook, header, rows):
         """Clear and rewrite the main data sheet with header and rows."""
@@ -376,6 +404,9 @@ class RPG2StatisticsExportView(_StatisticsExportBaseView):
     def _get_filter_backend(self):
         return RPG2FilterBackend()
 
+    def _get_autofilter(self, sheet_name):
+        return settings.STATISTICS.rpg2_autofilter.get(sheet_name, {})
+
     def _get_columns(self, request):
         columns = self._resolve_columns_config(request).rpg2_dossiers
         if not columns:
@@ -394,7 +425,7 @@ class RPG2StatisticsExportView(_StatisticsExportBaseView):
         header = [str(label) for _, label in columns]
         keys = [key for key, _ in columns]
 
-        area_rows = backend.area_rows()
+        area_rows = backend.area_rows(set(keys))
         rows = [[row.get(key) for key in keys] for row in area_rows]
 
         # Keep the template pivot tables linked to this sheet.

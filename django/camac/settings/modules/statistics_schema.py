@@ -5,6 +5,8 @@ from camac.settings.ebau_schema import EBauConfig, ModuleApplicationConfig
 
 type ColumnLabel = str | Promise
 
+type AutoFilterConfig = dict[str, dict[str, list[str]]]
+
 
 class ExportColumnsConfig(EBauConfig):
     """Column definitions for a single export type; each entry is an (annotation_name, label) tuple."""
@@ -38,6 +40,13 @@ class StatisticsConfig(ModuleApplicationConfig):
         description=(
             "Caluma question/option slugs used by the exports (e.g. RPG2). "
             "Override per canton when different slugs are in use."
+        ),
+        default_factory=dict,
+    )
+    rpg2_autofilter: AutoFilterConfig = Field(
+        description=(
+            "Excel autofilter values for RPG2 sheets, keyed by sheet name and "
+            "column header."
         ),
         default_factory=dict,
     )
