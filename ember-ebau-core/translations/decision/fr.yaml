@@ -1,7 +1,8 @@
 decision:
   info:
     geometer: La commune dépend de la géomètre conservatrice ou du géomètre conservateur <b>{geometer}</b>.
-    demolition-payment: ""
+    demolition-payment: "La vérification de la demande de versement ainsi que la décision de versement relèvent de la compétence de l'Office des affaires communales et de l'aménagement du territoire.
+    À cet effet, les communes transmettent le dossier au Service des constructions de l'Office des affaires communales et de l'aménagement du territoire par le biais d'un changement d'autorité directrice."
 
   submit:
     preliminary-clarification: "Clôturer l'évaluation"
