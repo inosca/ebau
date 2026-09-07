@@ -949,7 +949,6 @@ BE_PERMISSIONS_SETTINGS = {
             ("information-of-neighbors-read", MODULE_INFORMATION_OF_NEIGHBORS_READ),
             ("information-of-neighbors-write", MODULE_INFORMATION_OF_NEIGHBORS_WRITE),
             ("instance-archive", ACTION_INSTANCE_ARCHIVE),
-            # TODO: Permission integration instance-change-ebau-number
             ("instance-change-ebau-number", ACTION_INSTANCE_CHANGE_EBAU_NUMBER),
             ("instance-change-form", ACTION_INSTANCE_CHANGE_FORM),
             (

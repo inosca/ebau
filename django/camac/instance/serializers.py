@@ -2322,20 +2322,25 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
 
         return value
 
-    @permission_aware
     def _update_workflow(self, instance, case):
-        # The workflow should only be updated if the municipality sets the ebau number
-        pass
+        # Only update workflow if ebau number is assigned through
+        # assign ebau number module
+        request = self.context["request"]
+        if not permissions_api.PermissionManager.from_request(request).has_all(
+            instance, "assign-ebau-number-write"
+        ):
+            return
 
-    def _update_workflow_for_municipality(self, instance, case):
         work_item = case.work_items.filter(
-            task_id="ebau-number", status=workflow_models.WorkItem.STATUS_READY
+            task_id="ebau-number",
+            status=workflow_models.WorkItem.STATUS_READY,
+            addressed_groups__contains=[str(request.group.service.pk)],
         ).first()
 
         if work_item:
             workflow_api.complete_work_item(
                 work_item=work_item,
-                user=self.context["request"].caluma_info.context.user,
+                user=request.caluma_info.context.user,
             )
 
     @transaction.atomic

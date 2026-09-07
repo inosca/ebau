@@ -41,10 +41,10 @@ export default class InstanceAbility extends Ability {
   @service store;
 
   // BE
-  get canSetEbauNumber() {
-    return (
-      (this.ebauModules.isMunicipalityLeadRole && this.model.ebauNumber) ||
-      this.ebauModules.isSupportRole
+  async canSetEbauNumber() {
+    return await this.permissions.hasAll(
+      this.model?.id,
+      "instance-change-ebau-number",
     );
   }
 

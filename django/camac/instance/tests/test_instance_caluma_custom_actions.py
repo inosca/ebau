@@ -13,7 +13,7 @@ from camac.timelines.models import FormTimeline
 
 
 @pytest.mark.freeze_time("2020-12-03")
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize(
     ("ebau_number", "expected_ebau_number", "expected_error"),
     [
@@ -35,15 +35,24 @@ def test_set_ebau_number(
     be_instance,
     instance_with_case,
     role,
+    be_permissions_settings,
     instance_factory,
     instance_service_factory,
     instance_state_factory,
+    instance_acl_factory,
+    access_level_factory,
     service_factory,
     ebau_number,
     expected_ebau_number,
     expected_error,
 ):
     instance_state_factory(name="circulation_init")
+
+    instance_acl_factory(
+        access_level=access_level_factory(slug="lead-authority"),
+        instance=be_instance,
+        service=admin_client.user.get_default_group().service,
+    )
 
     # create existing instance with ebau-number 2020-1 in a different municipality
     instance_other = instance_with_case(
@@ -103,6 +112,7 @@ def test_set_ebau_number(
 @pytest.mark.parametrize(
     (
         "role__name",
+        "access_level_slug",
         "expected_status",
         "caluma_workflow",
         "instance_state__name",
@@ -111,7 +121,8 @@ def test_set_ebau_number(
     ),
     [
         (
-            "Municipality",
+            "municipality-lead",
+            "lead-authority",
             status.HTTP_204_NO_CONTENT,
             "building-permit",
             "subm",
@@ -119,7 +130,8 @@ def test_set_ebau_number(
             True,
         ),
         (
-            "Municipality",
+            "municipality-lead",
+            "lead-authority",
             status.HTTP_204_NO_CONTENT,
             "preliminary-clarification",
             "subm",
@@ -127,7 +139,8 @@ def test_set_ebau_number(
             True,
         ),
         (
-            "Municipality",
+            "municipality-lead",
+            "lead-authority",
             status.HTTP_204_NO_CONTENT,
             "internal",
             "in_progress_internal",
@@ -135,7 +148,18 @@ def test_set_ebau_number(
             True,
         ),
         (
-            "Municipality",
+            "municipality-lead",
+            "lead-authority",
+            status.HTTP_204_NO_CONTENT,
+            "building-permit",
+            "circulation_init",
+            "circulation_init",
+            True,
+        ),
+        # municipality-clerk set ebau-number through assign ebau number module
+        (
+            "municipality-clerk",
+            "lead-authority",
             status.HTTP_204_NO_CONTENT,
             "building-permit",
             "circulation_init",
@@ -143,7 +167,17 @@ def test_set_ebau_number(
             True,
         ),
         (
+            "municipality-readonly",
+            "lead-authority",
+            status.HTTP_403_FORBIDDEN,
+            "building-permit",
+            "circulation_init",
+            "circulation_init",
+            True,
+        ),
+        (
             "Support",
+            "support",
             status.HTTP_204_NO_CONTENT,
             "building-permit",
             "subm",
@@ -152,6 +186,7 @@ def test_set_ebau_number(
         ),
         (
             "Support",
+            "support",
             status.HTTP_204_NO_CONTENT,
             "preliminary-clarification",
             "subm",
@@ -160,6 +195,7 @@ def test_set_ebau_number(
         ),
         (
             "Support",
+            "support",
             status.HTTP_204_NO_CONTENT,
             "internal",
             "in_progress_internal",
@@ -168,6 +204,7 @@ def test_set_ebau_number(
         ),
         (
             "Applicant",
+            "applicant",
             status.HTTP_403_FORBIDDEN,
             "building-permit",
             "subm",
@@ -188,6 +225,10 @@ def test_set_ebau_number_workflow(
     instance_state,
     role,
     instance_state_factory,
+    instance_acl_factory,
+    access_level_factory,
+    be_permissions_settings,
+    access_level_slug,
     expected_status,
     caluma_workflow,
     expected_instance_state,
@@ -198,6 +239,12 @@ def test_set_ebau_number_workflow(
     settings.APPLICATION_NAME = "kt_bern"
 
     instance_state_factory(name="circulation_init")
+
+    instance_acl_factory(
+        access_level=access_level_factory(slug=access_level_slug),
+        instance=instance,
+        service=admin_client.user.get_default_group().service,
+    )
 
     instance_with_case(instance, workflow=caluma_workflow)
 
