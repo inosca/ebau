@@ -10,6 +10,10 @@ canton =
     _ -> :demo
   end
 
+# Matches how Postgres counts `varchar(n)`, so `max_length` constraints validate
+# the same in Elixir and in PostgreSQL.
+config :ash, default_string_length_count: :codepoints
+
 config :ash_json_api,
   show_public_calculations_when_loaded?: true,
   authorize_update_destroy_with_error?: true
