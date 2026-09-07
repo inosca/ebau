@@ -1,7 +1,8 @@
 decision:
   info:
     geometer: Dieser Gemeinde ist der Nachführungsgeometer <b>{geometer}</b> zugeordnet.
-    demolition-payment: "Placeholder decision text"
+    demolition-payment: "Die Prüfung des Auszahlungsantrags sowie der Entscheid über die Auszahlung fallen in die Zuständigkeit des Amtes für Gemeinden und Raumordnung.
+    Die Gemeinden übermitteln das Dossier hierzu per Wechsel der Leitbehörde an die Abteilung Bauen des Amtes für Gemeinden und Raumordnung."
 
   submit:
     preliminary-clarification: "Beurteilung abschliessen"
