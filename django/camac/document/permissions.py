@@ -674,12 +674,13 @@ def section_permissions(group, instance=None):
     role = group.role.name
     app_name = settings.APPLICATION_NAME
 
-    if instance:
-        instance = (
-            instance
-            if isinstance(instance, Instance)
-            else Instance.objects.get(pk=instance)
-        )
+    if instance and not isinstance(instance, Instance):
+        try:
+            instance = Instance.objects.get(pk=instance)
+        except (Instance.DoesNotExist, ValueError, TypeError, OverflowError):
+            # no valid instance passed, can't possibly return instance
+            # specific permissions
+            return {}
 
     # use service permissions for municipalities that are involved via
     # activation and not via instance service. Involved instance services
@@ -709,7 +710,7 @@ def section_permissions(group, instance=None):
         return app_permissions
 
     for section, special_permission in special_permissions.items():
-        regular_permission = all_app_permissions[role_name_int].get(section)
+        regular_permission = app_permissions.get(section)
         if not regular_permission or PERMISSION_ORDERED.index(
             special_permission
         ) > PERMISSION_ORDERED.index(regular_permission):

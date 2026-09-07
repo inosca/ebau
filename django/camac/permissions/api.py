@@ -703,7 +703,10 @@ class PermissionManager:
         """
         qs = models.InstanceACL.for_current_user(**self.userinfo.to_kwargs())
         if instance:
-            qs = qs.filter(instance=instance)
+            try:
+                qs = qs.filter(instance=instance)
+            except (ValueError, TypeError, OverflowError):
+                return []
 
         return list(
             qs.distinct("access_level_id").values_list("access_level_id", flat=True)
