@@ -387,18 +387,10 @@ class InstanceView(
     def has_object_set_ebau_number_permission_for_support(self, instance):
         return True
 
-    @permission_aware
     def has_object_archive_permission(self, instance):
-        return False
-
-    def has_object_archive_permission_for_municipality(self, instance):
-        return (
-            instance.responsible_service(filter_type="municipality")
-            == self.request.group.service
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            instance, "instance-archive"
         )
-
-    def has_object_archive_permission_for_support(self, instance):
-        return True
 
     @permission_switching_method
     def has_object_change_form_permission(self, instance):

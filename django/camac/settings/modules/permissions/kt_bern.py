@@ -948,7 +948,6 @@ BE_PERMISSIONS_SETTINGS = {
             ("history-read", MODULE_HISTORY),
             ("information-of-neighbors-read", MODULE_INFORMATION_OF_NEIGHBORS_READ),
             ("information-of-neighbors-write", MODULE_INFORMATION_OF_NEIGHBORS_WRITE),
-            # TODO: Permission integration instance-archive
             ("instance-archive", ACTION_INSTANCE_ARCHIVE),
             # TODO: Permission integration instance-change-ebau-number
             ("instance-change-ebau-number", ACTION_INSTANCE_CHANGE_EBAU_NUMBER),

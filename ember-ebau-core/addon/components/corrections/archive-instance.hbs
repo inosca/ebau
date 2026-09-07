@@ -4,5 +4,8 @@
   @color="primary"
   @label={{t "corrections.archive.button"}}
   @onClick={{this.archive.perform}}
-  @disabled={{or this.archive.isRunning (cannot "archive instance" @instance)}}
+  @disabled={{or
+    this.archive.isRunning
+    (await (cannot "archive instance" @instance))
+  }}
 />
