@@ -25,6 +25,7 @@ export default {
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
   communications: {
     enabled: true,
+    creationActivatedForEchApiUsers: true,
   },
   deadlines: {
     enabled: true,
