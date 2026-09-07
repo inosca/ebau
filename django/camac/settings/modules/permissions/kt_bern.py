@@ -235,9 +235,14 @@ MODULE_DECISION_READ = RequireWorkItem(
 MODULE_DECISION_READ_LEAD_AUTHORITIES = MODULE_DECISION_READ | RequireWorkItem(
     "decision", WORK_ITEM_STATUS_READY
 )
-MODULE_DECISION_WRITE = RequireWorkItem("decision", WORK_ITEM_STATUS_READY, True) & (
-    (ROLES_INTERNAL_LEAD & ~DEMOLITION_PAYMENT)
-    | (DEMOLITION_PAYMENT & IsService(["agr-bauen"]) & HasRole(["service-lead"]))
+# The decision is writable by the lead role of the lead-authority, except on
+# demolition payment instances: There only the lead role of the rpg 2 service
+# has write access to the decision module, other lead-authorities do not
+# have write access on demolition payment instances.
+MODULE_DECISION_WRITE = (
+    RequireWorkItem("decision", WORK_ITEM_STATUS_READY, True)
+    & ROLES_INTERNAL_LEAD
+    & (~DEMOLITION_PAYMENT | IsService(["agr-bauen"]))
 )
 
 # Note: Distribution not available in internal and migrated (RSTA import)
