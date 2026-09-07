@@ -82,9 +82,14 @@ if config_env() == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
-  host =
-    System.get_env("BASE_URL") ||
-      raise("environment variable BASE_URL is missing.")
+  host = System.get_env("HOST") || raise("environment variable HOST is missing.")
+
+  if String.contains?(host, ["://", "/", ":"]) do
+    raise """
+      environment variable HOST must be a bare hostname without protocol, port
+      or path.
+    """
+  end
 
   config :ebau, Ebau.Repo, socket_options: maybe_ipv6
 
