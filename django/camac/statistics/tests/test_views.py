@@ -74,10 +74,9 @@ def test_rpg2_export_area_dossier_values_be(
     rpg2_data,
     set_application_be,
 ):
-    """BE area sheet has dossier-level values for every area."""
+    """BE area sheet has dossier-level values and auto filters without defaults."""
     group.service.slug = "agr-bauen"
     group.service.save(update_fields=["slug"])
-    be_statistics_settings.rpg2_autofilter["Dossiers"]["Missing header"] = ["Yes"]
 
     instance = be_master_data_case.instance
     rpg2_data(instance)
@@ -95,8 +94,9 @@ def test_rpg2_export_area_dossier_values_be(
     assert sheet[0][-2:] == ["Bewilligt", "Realisiert"]
     assert {(row[-2], row[-1]) for row in sheet[1:]} == {("Ja", "Ja")}
     assert workbook["Dossiers"].auto_filter.ref == "A1:N2"
-    assert workbook["Dossiers"].auto_filter.filterColumn[0].colId == 12
-    assert workbook["Dossiers"].auto_filter.filterColumn[0].filters.filter == ["Ja"]
+    assert workbook["Flächen"].auto_filter.ref == "A1:G3"
+    assert workbook["Dossiers"].auto_filter.filterColumn == []
+    assert workbook["Flächen"].auto_filter.filterColumn == []
 
 
 @pytest.mark.parametrize(
@@ -341,6 +341,20 @@ def test_write_data_sheet_non_native_types_and_excess_columns():
 
     view._write_grid_sheet(wb, "Dossiers", 0, ["Col1"], [("x",)])
     assert wb["Dossiers"].auto_filter.ref == "A1:A2"
+
+
+def test_apply_autofilter_values_by_header():
+    sheet = openpyxl.Workbook().active
+
+    DossierStatisticsExportView._apply_autofilter_values(
+        sheet,
+        ["col1", "col2"],
+        {"col2": ["x", ""], "Missing header": ["ignored"]},
+    )
+
+    assert len(sheet.auto_filter.filterColumn) == 1
+    assert sheet.auto_filter.filterColumn[0].colId == 1
+    assert sheet.auto_filter.filterColumn[0].filters.filter == ["x", ""]
 
 
 def test_set_pivot_refresh():

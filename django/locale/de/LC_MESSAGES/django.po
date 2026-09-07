@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-03 13:40+0200\n"
+"POT-Creation-Date: 2026-09-07 14:43+0200\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2269,11 +2269,6 @@ msgstr "Eingegangen"
 msgid "Completing date"
 msgstr "Abgeschlossen"
 
-#: camac/settings/modules/statistics.py camac/statistics/filters.py
-#: camac/user/admin/filters.py
-msgid "Yes"
-msgstr "Ja"
-
 #: camac/settings/modules/withdrawal.py
 msgid "Instance withdrawn"
 msgstr "Dossier zurückgezogen"
@@ -2289,6 +2284,10 @@ msgstr "Rückzug beantragt"
 #: camac/statistics/apps.py
 msgid "Statistics"
 msgstr ""
+
+#: camac/statistics/filters.py camac/user/admin/filters.py
+msgid "Yes"
+msgstr "Ja"
 
 #: camac/statistics/filters.py camac/user/admin/filters.py
 msgid "No"

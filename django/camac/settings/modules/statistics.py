@@ -1,4 +1,4 @@
-from django.utils.translation import gettext_lazy as _, gettext_noop
+from django.utils.translation import gettext_lazy as _
 
 from camac.settings.ebau_schema import ModuleConfig
 from camac.settings.modules.statistics_schema import (
@@ -142,14 +142,6 @@ STATISTICS = ModuleConfig[StatisticsConfig](
         slugs={
             **DEFAULT_SLUGS,
             "rpg2_area_unsealed_prefix": "rpg2-art-versiegelung-entsiegelung-entsiegelte-flaechen",
-        },
-        rpg2_autofilter={
-            "Dossiers": {
-                gettext_noop("Approved"): [gettext_noop("Yes")],
-            },
-            "Flächen": {
-                gettext_noop("Approved"): [gettext_noop("Yes")],
-            },
         },
         by_service={
             "agr-bauen": BE_RPG2_COLUMN_CONFIG,
