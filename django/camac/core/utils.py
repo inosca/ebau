@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
-from django.db.models import CharField, IntegerField, Value
+from django.db.models import CharField, IntegerField, Q, Value
 from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import Cast, Replace
 from django.utils import timezone
@@ -13,12 +13,32 @@ from django.utils.translation import get_language, gettext
 
 from camac.core.models import HistoryActionConfig
 from camac.core.translations import get_translations
+from camac.utils import get_dict_item
 
 if TYPE_CHECKING:
     from collections.abc import Callable
 
     from camac.instance.models import Instance
     from camac.user.models import User
+
+
+def get_service_type_query(filter_type, required=False):
+    filter_type = filter_type.upper().replace("-", "_")
+    active_services_settings = settings.APPLICATION.get("ACTIVE_SERVICES", {})
+
+    if required and filter_type not in active_services_settings:
+        raise Exception(f"Active service `filter_type` {filter_type} is not configured")
+
+    service_filters = get_dict_item(
+        active_services_settings,
+        f"{filter_type}.FILTERS",
+        default={},
+    )
+
+    if isinstance(service_filters, Q):
+        return service_filters
+
+    return Q(**service_filters)
 
 
 def generate_sort_key(special_id: str) -> int:

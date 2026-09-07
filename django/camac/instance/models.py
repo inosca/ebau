@@ -252,43 +252,20 @@ class Instance(models.Model):
         )
 
     def _responsible_service_instance_service(self, filter_type=None, **kwargs):
-        active_services_settings = settings.APPLICATION.get("ACTIVE_SERVICES", {})
-
         if filter_type:
-            filter_type = filter_type.upper()
-
-            if filter_type not in active_services_settings:  # pragma: no cover
-                raise Exception(
-                    f"Active service `filter_type` {filter_type} is not configured"
-                )
-
-            active_service_config = active_services_settings.get(filter_type)
+            instance_services = self.instance_services.filter_service_type(
+                filter_type,
+                active=1,
+                required=True,
+            )
         else:
-            active_service_config = None
-            default_active_service_config = None
-
-            for config in active_services_settings.values():
-                if config.get("DEFAULT"):
-                    default_active_service_config = config
-
-                if any(
-                    self.instance_state.name == current_state
-                    and self.previous_instance_state.name == previous_state
-                    for current_state, previous_state in config.get(
-                        "INSTANCE_STATES", []
-                    )
-                ):
-                    active_service_config = config
-
-            active_service_config = (
-                active_service_config or default_active_service_config
+            instance_services = self.instance_services.filter_service_type_for_state(
+                self.instance_state.name,
+                self.previous_instance_state.name,
+                active=1,
             )
 
-        service_filters = active_service_config.get("FILTERS", {})
-
-        instance_services = self.instance_services.filter(active=1, **service_filters)
         instance_service = instance_services.order_by("-pk").first()
-
         if instance_services.count() > 1:
             log.warning(
                 f"Instance {self.pk}: Multiple active services, picking most recent one: {instance_service.service.get_name()}!"

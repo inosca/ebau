@@ -2383,11 +2383,8 @@ class CalumaInstanceUnsubscribeResponsibleServiceSerializer(serializers.Serializ
     def update_for_support(self, instance, validated_data):
         # The support role can remove all involved services
         filter_type = validated_data["service_type"]
-        instance_services = instance.instance_services.filter(
-            **settings.APPLICATION["ACTIVE_SERVICES"][
-                filter_type.upper().replace("-", "_")
-            ]["FILTERS"],
-            active=0,
+        instance_services = instance.instance_services.filter_service_type(
+            filter_type, active=0, required=True
         )
 
         for instance_service in instance_services:

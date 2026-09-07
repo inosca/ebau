@@ -1,7 +1,70 @@
 import pytest
+from django.db.models import Q
 from django.utils.translation import override
 
-from camac.core.models import FormGroup, InstanceResource, Resource
+from camac.core.models import FormGroup, InstanceResource, InstanceService, Resource
+
+
+@pytest.mark.parametrize(
+    ("active_service_filters", "expected_service_slugs"),
+    [
+        pytest.param(
+            {"service__service_group__name": "municipality"},
+            {"municipality"},
+            id="filters",
+        ),
+        pytest.param(
+            Q(service__service_group__name="municipality")
+            | Q(service__slug="agr-bauen"),
+            {"municipality", "agr-bauen"},
+            id="q-object",
+        ),
+    ],
+)
+@pytest.mark.django_db
+def test_instance_service_filter_service_type(
+    application_settings,
+    instance_service_factory,
+    active_service_filters,
+    expected_service_slugs,
+):
+    application_settings["ACTIVE_SERVICES"] = {
+        "MUNICIPALITY": {"FILTERS": active_service_filters}
+    }
+
+    instance_service_factory(
+        service__slug="municipality",
+        service__service_group__name="municipality",
+    )
+    instance_service_factory(
+        service__slug="agr-bauen",
+        service__service_group__name="service",
+    )
+    instance_service_factory(
+        service__slug="agr-kantonsplanung",
+        service__service_group__name="service",
+    )
+    instance_service_factory(
+        active=0,
+        service__slug="inactive-municipality",
+        service__service_group__name="municipality",
+    )
+
+    assert (
+        set(
+            InstanceService.objects.filter_service_type(
+                "municipality", active=1
+            ).values_list("service__slug", flat=True)
+        )
+        == expected_service_slugs
+    )
+
+
+def test_instance_service_filter_service_type_required(application_settings):
+    application_settings["ACTIVE_SERVICES"] = {}
+
+    with pytest.raises(Exception, match="not configured"):
+        InstanceService.objects.filter_service_type("unknown-type", required=True)
 
 
 @pytest.mark.django_db

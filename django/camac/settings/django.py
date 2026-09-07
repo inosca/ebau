@@ -8,6 +8,7 @@ from datetime import timedelta
 
 import environ
 from deepmerge import always_merger
+from django.db.models import Q
 from django.utils.module_loading import import_string
 from django.utils.translation import gettext_lazy as _
 
@@ -1034,14 +1035,14 @@ APPLICATIONS = {
         "USE_CONSTRUCTION_CONTROL": True,
         "ACTIVE_SERVICES": {
             "MUNICIPALITY": {
-                "FILTERS": {
-                    "service__service_group__name__in": [
+                "FILTERS": Q(
+                    service__service_group__name__in=[
                         "municipality",
                         "district",
                         "lead-service",
-                        "service",
                     ]
-                },
+                )
+                | Q(service__slug="agr-bauen"),
                 "DEFAULT": True,
             },
             "CONSTRUCTION_CONTROL": {
