@@ -1517,8 +1517,52 @@ msgid "AUTHOR"
 msgstr "AUTORE"
 
 #: camac/instance/placeholders/serializers.py
-msgid "OFFICE"
-msgstr "UFFICIO"
+msgid "ORGANISATION"
+msgstr "ORGANIZZAZIONE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "LINKED_DOSSIERS"
+msgstr "DOSSIER_COLLEGATI"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Linked dossiers of the instance"
+msgstr "Dossier collegati al dossier"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMANDS"
+msgstr "RICHIESTE_DI_PRECISAZIONI"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Additional demands of the instance"
+msgstr "Richieste di precisazioni del dossier"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGES"
+msgstr "MESSAGGI"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGE_SENDER"
+msgstr "MITTENTE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGE_ORGANISATION"
+msgstr "ORGANIZZAZIONE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGE"
+msgstr "MESSAGGIO"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGE_DATETIME"
+msgstr "DATA_ORA"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_DEADLINE"
+msgstr "SCADENZA"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_RESULT"
+msgstr "RISULTATO"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Applicant"

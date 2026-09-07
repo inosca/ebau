@@ -1508,8 +1508,52 @@ msgid "AUTHOR"
 msgstr "AUTHOR"
 
 #: camac/instance/placeholders/serializers.py
-msgid "OFFICE"
-msgstr "AMT"
+msgid "ORGANISATION"
+msgstr "ORGANISATION"
+
+#: camac/instance/placeholders/serializers.py
+msgid "LINKED_DOSSIERS"
+msgstr "VERKNUEPFTE_DOSSIERS"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Linked dossiers of the instance"
+msgstr "Verknüpfte Dossiers des Dossiers"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMANDS"
+msgstr "NACHFORDERUNGEN"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Additional demands of the instance"
+msgstr "Nachforderungen des Dossiers"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGES"
+msgstr "NACHRICHTEN"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGE_SENDER"
+msgstr "SENDER"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGE_ORGANISATION"
+msgstr "ORGANISATION"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGE"
+msgstr "NACHRICHT"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGE_DATETIME"
+msgstr "DATUMZEIT"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_DEADLINE"
+msgstr "FRIST"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_RESULT"
+msgstr "ERGEBNIS"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Applicant"

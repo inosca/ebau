@@ -16,6 +16,7 @@ from rest_framework import serializers
 
 from camac.billing.models import BillingV2Entry
 from camac.caluma.api import CalumaApi
+from camac.caluma.extensions.visibilities import CustomVisibility
 from camac.caluma.utils import get_answer_display_value
 from camac.communications.models import (
     CommunicationsMessage,
@@ -32,7 +33,8 @@ from camac.instance.placeholders.utils import (
     to_configured_case,
 )
 from camac.instance.validators import transform_coordinates
-from camac.user.models import Location, Service
+from camac.permissions.api import PermissionManager
+from camac.user.models import Location, Service, User
 from camac.utils import build_url, clean_join
 
 from . import fields
@@ -790,6 +792,56 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
 
 class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    def _has_permission(self, instance, permission):
+        return PermissionManager.from_request(self.context["request"]).has_all(
+            instance, permission
+        )
+
+    def _filter_visible_additional_demands(self, queryset):
+        visibility = CustomVisibility()
+        visibility.request = self.context["request"]
+
+        return queryset.filter(
+            visibility.visible_additional_demands_expression(
+                self.context["request"].group
+            )
+        ).distinct()
+
+    def _get_service_names(self, service_ids):
+        service_ids = {str(service_id) for service_id in service_ids if service_id}
+        service_names = getattr(self, "_service_names", {})
+        missing_service_ids = service_ids - service_names.keys()
+
+        if missing_service_ids:
+            services = Service.objects.filter(
+                pk__in=missing_service_ids
+            ).prefetch_related("trans")
+            service_names.update(
+                {str(service.pk): service.get_name() for service in services}
+            )
+            self._service_names = service_names
+
+        return {
+            service_id: service_names.get(service_id, service_id)
+            for service_id in service_ids
+        }
+
+    def _get_user_names(self, usernames):
+        usernames = {username for username in usernames if username}
+        user_names = getattr(self, "_user_names", {})
+        missing_usernames = usernames - user_names.keys()
+
+        if missing_usernames:
+            user_names.update(
+                {
+                    user.username: user.get_full_name()
+                    for user in User.objects.filter(username__in=missing_usernames)
+                }
+            )
+            self._user_names = user_names
+
+        return {username: user_names.get(username, username) for username in usernames}
+
     instance_id = fields.AliasedIntegerField(
         source="pk",
         aliases=[_("ID")],
@@ -1075,8 +1127,31 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         is_collection=True,
         nested_aliases={
             "author": [_("AUTHOR")],
-            "office": [_("OFFICE")],
+            "organisation": [_("ORGANISATION")],
             "text": [_("TEXT")],
+        },
+    )
+    linked_dossiers = fields.AliasedMethodField(
+        aliases=[_("LINKED_DOSSIERS")],
+        description=_("Linked dossiers of the instance"),
+        is_collection=True,
+        nested_aliases={
+            "dossier_number": [_("DOSSIER_NUMBER")],
+            "form_name": [_("FORM_NAME")],
+        },
+    )
+    additional_demands = fields.AliasedMethodField(
+        aliases=[_("ADDITIONAL_DEMANDS")],
+        description=_("Additional demands of the instance"),
+        is_collection=True,
+        nested_aliases={
+            "messages": [_("ADDITIONAL_DEMAND_MESSAGES")],
+            "messages.sender": [_("ADDITIONAL_DEMAND_MESSAGE_SENDER")],
+            "messages.organisation": [_("ADDITIONAL_DEMAND_MESSAGE_ORGANISATION")],
+            "messages.message": [_("ADDITIONAL_DEMAND_MESSAGE")],
+            "messages.datetime": [_("ADDITIONAL_DEMAND_MESSAGE_DATETIME")],
+            "messages.deadline": [_("ADDITIONAL_DEMAND_DEADLINE")],
+            "messages.result": [_("ADDITIONAL_DEMAND_RESULT")],
         },
     )
 
@@ -1217,6 +1292,9 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         )
 
     def get_communication_topics(self, instance):
+        if not self._has_permission(instance, "communications-read"):
+            return []
+
         entity = entity_for_current_user(self.context["request"])
         if not entity:
             return []
@@ -1246,8 +1324,7 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             for message in topic.visible_messages
             if message.created_by != "APPLICANT"
         )
-        services = Service.objects.filter(pk__in=entity_ids).prefetch_related("trans")
-        entity_names = {str(service.pk): service.get_name() for service in services}
+        entity_names = self._get_service_names(entity_ids)
         entity_names["APPLICANT"] = gettext("Applicant")
 
         return [
@@ -1278,22 +1355,198 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         ]
 
     def get_notes(self, instance):
+        if not self._has_permission(instance, "journal-read"):
+            return []
+
         entries = (
             JournalEntry.objects.filter(instance=instance)
             .visible_for(self.context["request"])
-            .select_related("user", "service")
-            .prefetch_related("service__trans")
+            .select_related("user")
             .order_by("creation_date", "pk")
+        )
+        service_names = self._get_service_names(
+            {entry.service_id for entry in entries if entry.service_id}
         )
 
         return [
             {
                 "author": entry.user.get_full_name(),
-                "office": entry.service.get_name() if entry.service else "",
+                "organisation": service_names.get(
+                    str(entry.service_id), str(entry.service_id or "")
+                ),
                 "text": entry.text,
             }
             for entry in entries
         ]
+
+    def get_linked_dossiers(self, instance):
+        if not self._has_permission(instance, "linked-instances-read"):
+            return []
+
+        linked_instances = (
+            instance.get_linked_instances(self.context["view"].get_queryset())
+            .select_related("case__document__form")
+            .order_by("creation_date", "pk")
+        )
+
+        return [
+            {
+                "dossier_number": linked_instance.case.meta.get("dossier-number", ""),
+                "form_name": self.get_form_name(linked_instance),
+            }
+            for linked_instance in linked_instances
+        ]
+
+    def _get_additional_demand_answer(self, answers_by_document, work_item, question):
+        if not work_item.document_id or not question:
+            return ""
+
+        answer = answers_by_document.get(work_item.document_id, {}).get(question)
+        if not answer:
+            return ""
+
+        if answer.question.type in [
+            Question.TYPE_CHOICE,
+            Question.TYPE_MULTIPLE_CHOICE,
+        ]:
+            values = answer.value if isinstance(answer.value, list) else [answer.value]
+            options = {option.slug: option for option in answer.question.options.all()}
+
+            return ", ".join(
+                options[value].label.get(get_language()) or ""
+                for value in values
+                if value in options
+            )
+
+        return get_answer_display_value(answer)
+
+    def get_additional_demands(self, instance):
+        if not self._has_permission(instance, "additional-demands-read"):
+            return []
+
+        task_questions = {
+            settings.ADDITIONAL_DEMAND["SEND_TASK"]: {
+                "message": settings.ADDITIONAL_DEMAND["QUESTIONS"]["COMMENT"],
+                "deadline": settings.ADDITIONAL_DEMAND["QUESTIONS"]["DEADLINE"],
+            },
+            settings.ADDITIONAL_DEMAND["FILL_TASK"]: {
+                "message": "additional-demand-comment-fill",
+            },
+            settings.ADDITIONAL_DEMAND["CHECK_TASK"]: {
+                "message": settings.ADDITIONAL_DEMAND["QUESTIONS"]["COMMENT"],
+                "deadline": settings.ADDITIONAL_DEMAND["QUESTIONS"]["DEADLINE"],
+                "decision": settings.ADDITIONAL_DEMAND["QUESTIONS"]["DECISION"],
+            },
+        }
+        answer_question_ids = {
+            question
+            for questions in task_questions.values()
+            for question in questions.values()
+        }
+        demand_work_items = list(
+            self._filter_visible_additional_demands(
+                WorkItem.objects.filter(
+                    case__family=instance.case.family,
+                    task_id=settings.ADDITIONAL_DEMAND["TASK"],
+                ).select_related("child_case"),
+            )
+            .prefetch_related(
+                Prefetch(
+                    "child_case__work_items",
+                    queryset=self._filter_visible_additional_demands(
+                        WorkItem.objects.filter(task_id__in=task_questions.keys())
+                    ).order_by("created_at", "pk"),
+                    to_attr="additional_demand_work_items",
+                )
+            )
+            .order_by("created_at", "pk")
+        )
+
+        # Collect all child work items and pre-load all the
+        # used user_names, service_names and answers to avoid
+        # N+1 queries in the loop below.
+        all_child_work_items = [
+            work_item
+            for demand_work_item in demand_work_items
+            if demand_work_item.child_case_id
+            for work_item in demand_work_item.child_case.additional_demand_work_items
+        ]
+        answers_by_document = {}
+        for answer in (
+            Answer.objects.filter(
+                document_id__in={
+                    work_item.document_id
+                    for work_item in all_child_work_items
+                    if work_item.document_id
+                },
+                question_id__in=answer_question_ids,
+            )
+            .select_related("question")
+            .prefetch_related("question__options")
+        ):
+            if answer.document_id not in answers_by_document:
+                answers_by_document[answer.document_id] = {}
+
+            answers_by_document[answer.document_id][answer.question_id] = answer
+        user_names = self._get_user_names(
+            {
+                work_item.closed_by_user
+                for work_item in all_child_work_items
+                if work_item.closed_by_user
+            }
+        )
+        service_names = self._get_service_names(
+            {
+                work_item.closed_by_group
+                for work_item in all_child_work_items
+                if work_item.closed_by_group
+            }
+        )
+
+        result = []
+        for demand_work_item in (
+            work_item for work_item in demand_work_items if work_item.child_case_id
+        ):
+            demand_child_work_items = (
+                demand_work_item.child_case.additional_demand_work_items
+            )
+            messages = []
+            for work_item in demand_child_work_items:
+                if (
+                    work_item.status != WorkItem.STATUS_COMPLETED
+                    or not work_item.closed_at
+                ):
+                    continue
+
+                questions = task_questions[work_item.task_id]
+
+                closed_at = localtime(work_item.closed_at)
+                closed_by_group = str(work_item.closed_by_group or "")
+                messages.append(
+                    {
+                        "sender": user_names.get(
+                            work_item.closed_by_user, work_item.closed_by_user or ""
+                        ),
+                        "organisation": service_names.get(
+                            closed_by_group, closed_by_group
+                        ),
+                        "message": self._get_additional_demand_answer(
+                            answers_by_document, work_item, questions.get("message")
+                        ),
+                        "datetime": f"{human_readable_date(closed_at)}, {closed_at:%H:%M}",
+                        "deadline": self._get_additional_demand_answer(
+                            answers_by_document, work_item, questions.get("deadline")
+                        ),
+                        "result": self._get_additional_demand_answer(
+                            answers_by_document, work_item, questions.get("decision")
+                        ),
+                    }
+                )
+
+            if messages:
+                result.append({"messages": messages})
+
+        return result
 
     class Meta:
         exclude = [
