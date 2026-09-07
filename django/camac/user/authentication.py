@@ -23,7 +23,7 @@ from camac.applicants.models import Applicant
 from camac.core.models import InstancePortal
 from camac.instance.models import Instance
 from camac.permissions.events.core import Trigger
-from camac.user.models import Group, UserGroup, UserGroupInvitation
+from camac.user.models import Group, User, UserGroup, UserGroupInvitation
 from camac.utils import clean_join
 
 request_logger = logging.getLogger("django.request")
@@ -104,14 +104,18 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             raise AuthenticationFailed(_("Error while fetching userinfo")) from e
 
         # TODO: don't use jwt token at all, once Middleware is refactored
-        return self._build_user(resp, accept_language_header), jwt_decoded
+        return self.build_user(resp, accept_language_header), jwt_decoded
 
     @transaction.atomic
     def _update_or_create_user(self, defaults, accept_language_header):
         """Update or create a user based on the defaults.
 
         If the user doesn't exist, we create it with the defaults, using
-        the locking update_or_create method.
+        the locking update_or_create method. Only the username is used as
+        lookup value there: the username identifies the user, and passing the
+        other attributes as lookup values would make the `IntegrityError`
+        recovery of `update_or_create` miss the row a concurrent request just
+        created and re-raise instead.
         If the user already exists we check if the existing user matches
         the defaults. If it doesn't match the defaults, we update the user
         with the defaults and return that user. If it does, we return that
@@ -129,8 +133,8 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         if existing_user:
             return self._update_existing_user(existing_user, defaults), False
 
-        created_user, _ = user_model.objects.update_or_create(**defaults)
-        return created_user, True
+        username = defaults.pop("username")
+        return user_model.objects.update_or_create(username=username, defaults=defaults)
 
     def _get_existing_user(self, defaults):
         user_model = get_user_model()
@@ -157,7 +161,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
         return existing_user
 
-    def _build_user(self, data, accept_language_header):
+    def build_user(self, data: dict, accept_language_header: str | None) -> User:
         language = translation.get_language()
 
         # Different customers use different claims as their username
@@ -282,6 +286,21 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
     def authenticate_header(self, request):
         return f'JWT realm="{settings.KEYCLOAK_REALM}"'
+
+
+def build_camac_user(claims: dict, accept_language_header: str | None = None) -> User:
+    """Create or update the CAMAC user for the given OIDC claims.
+
+    The CAMAC user mirrors the keycloak user and is created lazily on the first
+    request. Both the DRF authentication backend and the GraphQL view need this,
+    as either of them can be the first request a new user makes.
+
+    `claims` is the response of the keycloak userinfo endpoint, which is what
+    both call sites already have.
+    """
+    return JSONWebTokenKeycloakAuthentication().build_user(
+        claims, accept_language_header
+    )
 
 
 class DjangoAdminOIDCAuthenticationBackend(
