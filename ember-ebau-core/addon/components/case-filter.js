@@ -229,8 +229,7 @@ export default class CaseFilterComponent extends Component {
     await Promise.resolve();
 
     const services = await this.store.query("public-service", {
-      service_group_name: "municipality,district",
-      has_parent: false,
+      is_responsible_service_type: "municipality",
     });
 
     return [...services].sort((a, b) => a.name.localeCompare(b.name));
