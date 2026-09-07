@@ -516,6 +516,15 @@ class UserGroupView(ModelViewSet):
             Q(group__service=service) | Q(group__service__service_parent=service)
         )
 
+    def perform_destroy(self, instance):
+        if instance.user.name.startswith("service-account"):
+            raise ValidationError(
+                {
+                    "detail": "Group memberships of service account users cannot be deleted."
+                }
+            )
+        super().perform_destroy(instance)
+
 
 class KeycloakApplyView(CreateAPIView):
     serializer_class = serializers.KeycloakApplySerializer

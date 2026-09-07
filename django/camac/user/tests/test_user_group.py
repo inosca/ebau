@@ -2,6 +2,8 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
+from camac.user.models import UserGroup
+
 
 def test_user_group_list(admin_client, user_group_factory, service, service_factory):
     subservice = service_factory(service_parent=service)
@@ -117,6 +119,32 @@ def test_user_group_delete(admin_client, user_group):
     response = admin_client.delete(reverse("usergroup-detail", args=[user_group.pk]))
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
+
+
+def test_delete_service_account_user_group_fails(
+    admin_client, user_group_factory, group_factory, user_factory
+):
+
+    admin_user_group = UserGroup.objects.get(user=admin_client.user)
+    existing_service = admin_user_group.group.service
+
+    group = group_factory(service=existing_service)
+
+    service_account_user = user_factory(name="service-account-foobar")
+    service_account_user_group = user_group_factory(
+        user=service_account_user, group=group
+    )
+
+    response = admin_client.delete(
+        reverse("usergroup-detail", args=[service_account_user_group.pk])
+    )
+
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+    assert (
+        response.json()["errors"][0]["detail"]
+        == "Group memberships of service account users cannot be deleted."
+    )
+    assert UserGroup.objects.filter(pk=service_account_user_group.pk).exists()
 
 
 def test_user_group_create_token_exchange_enabled(
