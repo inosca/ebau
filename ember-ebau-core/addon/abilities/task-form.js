@@ -1,6 +1,8 @@
 import { service } from "@ember/service";
 import { Ability } from "ember-can";
 
+import { isApplication } from "ember-ebau-core/helpers/is-application";
+
 export default class extends Ability {
   @service ebauModules;
   @service permissions;
@@ -29,6 +31,13 @@ export default class extends Ability {
       );
 
     if (this.task === "decision") {
+      // TODO: remove with the refactoring of task form permission handling
+      if (isApplication("be")) {
+        return await this.permissions.hasAll(
+          this.ebauModules.instanceId,
+          "decision-write",
+        );
+      }
       return basePermission && this.ebauModules.isLeadRole;
     }
 
