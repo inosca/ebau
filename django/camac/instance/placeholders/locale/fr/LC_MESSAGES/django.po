@@ -1510,7 +1510,51 @@ msgid "AUTHOR"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "OFFICE"
+msgid "ORGANISATION"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "LINKED_DOSSIERS"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Linked dossiers of the instance"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMANDS"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Additional demands of the instance"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGES"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGE_SENDER"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGE_ORGANISATION"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_MESSAGE_DATETIME"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_DEADLINE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "ADDITIONAL_DEMAND_RESULT"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py

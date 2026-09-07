@@ -33,6 +33,7 @@ from camac.instance.placeholders.fields import (
 )
 from camac.instance.placeholders.serializers import (
     DMSPlaceholdersSerializer,
+    GrDMSPlaceholdersSerializer,
     SzDMSPlaceholdersSerializer,
 )
 from camac.instance.placeholders.utils import (
@@ -79,11 +80,14 @@ def test_dms_placeholders_gr(
     gr_master_data_case,
     settings,
     gr_instance,
+    caluma_workflow_config_gr,
     snapshot,
     gr_distribution_settings,
+    gr_additional_demand_settings,
     service_factory,
     caluma_work_item_factory,
     caluma_document_factory,
+    caluma_form_factory,
     caluma_question_factory,
     caluma_form_question_factory,
     communications_message_factory,
@@ -91,11 +95,15 @@ def test_dms_placeholders_gr(
     journal_entry_factory,
     keyword_factory,
     active_inquiry_factory,
+    caluma_case_factory,
     set_application_gr,
     gr_placeholders_settings,
     gr_dms_settings,
     gr_publication_settings,
     instance_service_factory,
+    instance_factory,
+    instance_group_factory,
+    instance_with_case,
     freezer,
     group,
     mocker,
@@ -104,6 +112,9 @@ def test_dms_placeholders_gr(
     form_utils: FormUtils,
     gr_master_data_settings,
 ):
+    has_permission = mocker.patch.object(
+        GrDMSPlaceholdersSerializer, "_has_permission", return_value=True
+    )
     instance_service_factory(instance=gr_instance, service=group.service, active=1)
     gr_instance.refresh_from_db()
 
@@ -260,19 +271,28 @@ def test_dms_placeholders_gr(
         active_inquiry_factory(gr_instance, svc)
         for svc in service_factory.create_batch(2, service_group__name="district")
     ]
+    municipality_services = service_factory.create_batch(
+        2, service_group__name="municipality"
+    )
     municipalities_inquiries = [
-        active_inquiry_factory(gr_instance, svc)
-        for svc in service_factory.create_batch(2, service_group__name="municipality")
+        active_inquiry_factory(gr_instance, service)
+        for service in municipality_services
     ]
+    inquiry_services = service_factory.create_batch(2, service_group__name="service")
     service_inquiries = [
         active_inquiry_factory(
             gr_instance,
-            svc,
+            service,
             status=WorkItem.STATUS_COMPLETED,
             closed_at=make_aware(faker.Faker().date_time()),
         )
-        for svc in service_factory.create_batch(2, service_group__name="service")
+        for service in inquiry_services
     ]
+    demand_inquiry = service_inquiries[0]
+    demand_inquiry.closed_by_user = admin_user.username
+    demand_inquiry.closed_by_group = demand_inquiry.addressed_groups[0]
+    demand_inquiry.save(update_fields=["closed_by_user", "closed_by_group"])
+    demand_service_name = inquiry_services[0].get_name()
     inquiries = [*district_inquiries, *municipalities_inquiries, *service_inquiries]
     for i, inquiry in enumerate(inquiries):
         # add stellungnahme and nebenbestimmungen
@@ -338,6 +358,139 @@ def test_dms_placeholders_gr(
         text="Ein Test",
         visibility="own_organization",
     )
+
+    # linked dossiers
+    instance_group = instance_group_factory()
+    gr_instance.instance_group = instance_group
+    gr_instance.save(update_fields=["instance_group"])
+    linked_form = caluma_form_factory(
+        slug="linked-dossier-form",
+        name={"de": "Investitionsanmeldung"},
+    )
+    caluma_workflow_config_gr.allow_forms.add(linked_form)
+    linked_instance = instance_with_case(
+        instance_factory(
+            identifier=None,
+            instance_group=instance_group,
+            location=gr_instance.location,
+            group=gr_instance.group,
+        ),
+        form=linked_form.slug,
+    )
+    linked_instance.case.meta["dossier-number"] = "2026-42"
+    linked_instance.case.save(update_fields=["meta"])
+    instance_service_factory(
+        instance=linked_instance,
+        service=group.service,
+        active=1,
+    )
+    instance_with_case(
+        instance_factory(
+            identifier=None,
+            instance_group=instance_group,
+        ),
+        form=linked_form.slug,
+    )
+
+    # additional demands
+    applicant = gr_instance.involved_applicants.get().invitee
+    additional_demand_case = caluma_case_factory(family=gr_instance.case.family)
+    caluma_work_item_factory(
+        case=gr_instance.case,
+        child_case=additional_demand_case,
+        task_id="additional-demand",
+    )
+    send_document = caluma_document_factory(form_id="send-additional-demand")
+    caluma_work_item_factory(
+        case=additional_demand_case,
+        document=send_document,
+        task_id="send-additional-demand",
+        status=WorkItem.STATUS_COMPLETED,
+        closed_at=make_aware(datetime(2026, 7, 1, 8, 0)),
+        closed_by_user=demand_inquiry.closed_by_user,
+        closed_by_group=demand_inquiry.closed_by_group,
+    )
+    send_document.answers.create(
+        question_id="additional-demand-comment",
+        value="Fehlende Unterlagen einreichen",
+    )
+    send_document.answers.create(
+        question_id="additional-demand-deadline",
+        date=date(2026, 7, 31),
+    )
+    fill_document = caluma_document_factory(form_id="fill-additional-demand")
+    caluma_work_item_factory(
+        case=additional_demand_case,
+        document=fill_document,
+        task_id="fill-additional-demand",
+        status=WorkItem.STATUS_COMPLETED,
+        closed_at=make_aware(datetime(2026, 7, 5, 9, 15)),
+        closed_by_user=applicant.username,
+    )
+    fill_document.answers.create(
+        question_id="additional-demand-comment-fill",
+        value="Unterlagen wurden eingereicht",
+    )
+    first_check_document = caluma_document_factory(form_id="check-additional-demand")
+    caluma_work_item_factory(
+        case=additional_demand_case,
+        document=first_check_document,
+        task_id="check-additional-demand",
+        status=WorkItem.STATUS_COMPLETED,
+        closed_at=make_aware(datetime(2026, 7, 6, 10, 30)),
+        closed_by_user=demand_inquiry.closed_by_user,
+        closed_by_group=demand_inquiry.closed_by_group,
+    )
+    first_check_document.answers.create(
+        question_id="additional-demand-comment",
+        value="Situationsplan fehlt weiterhin",
+    )
+    first_check_document.answers.create(
+        question_id="additional-demand-deadline",
+        date=date(2026, 8, 15),
+    )
+    first_check_document.answers.create(
+        question_id="additional-demand-decision",
+        value="additional-demand-decision-reject",
+    )
+    second_fill_document = caluma_document_factory(form_id="fill-additional-demand")
+    caluma_work_item_factory(
+        case=additional_demand_case,
+        document=second_fill_document,
+        task_id="fill-additional-demand",
+        status=WorkItem.STATUS_COMPLETED,
+        closed_at=make_aware(datetime(2026, 7, 10, 11, 45)),
+        closed_by_user=applicant.username,
+    )
+    second_fill_document.answers.create(
+        question_id="additional-demand-comment-fill",
+        value="Situationsplan wurde nachgereicht",
+    )
+    final_check_document = caluma_document_factory(form_id="check-additional-demand")
+    caluma_work_item_factory(
+        case=additional_demand_case,
+        document=final_check_document,
+        task_id="check-additional-demand",
+        status=WorkItem.STATUS_COMPLETED,
+        closed_at=make_aware(datetime(2026, 7, 11, 13, 0)),
+        closed_by_user=demand_inquiry.closed_by_user,
+        closed_by_group=demand_inquiry.closed_by_group,
+    )
+    final_check_document.answers.create(
+        question_id="additional-demand-decision",
+        value="additional-demand-decision-accept",
+    )
+    canceled_demand_case = caluma_case_factory(family=gr_instance.case.family)
+    caluma_work_item_factory(
+        case=gr_instance.case,
+        child_case=canceled_demand_case,
+        task_id="additional-demand",
+    )
+    caluma_work_item_factory(
+        case=canceled_demand_case,
+        task_id="send-additional-demand",
+        status=WorkItem.STATUS_CANCELED,
+    )
     journal_entry_factory(
         instance=gr_instance,
         service=hidden_service,
@@ -387,15 +540,88 @@ def test_dms_placeholders_gr(
     assert [
         {
             "AUTHOR": note["AUTHOR"],
-            "AMT": note["AMT"],
+            "ORGANISATION": note["ORGANISATION"],
             "TEXT": note["TEXT"],
         }
         for note in notes
     ] == [
         {
             "AUTHOR": note_author.get_full_name(),
-            "AMT": current_service_name,
+            "ORGANISATION": current_service_name,
             "TEXT": "Ein Test",
+        }
+    ]
+    assert [
+        {
+            "DOSSIER_NUMMER": dossier["DOSSIER_NUMMER"],
+            "DOSSIER_TYP": dossier["DOSSIER_TYP"],
+        }
+        for dossier in response.json()["VERKNUEPFTE_DOSSIERS"]
+    ] == [
+        {
+            "DOSSIER_NUMMER": "2026-42",
+            "DOSSIER_TYP": "Investitionsanmeldung",
+        }
+    ]
+    assert [
+        {
+            "NACHRICHTEN": [
+                {
+                    "DATUMZEIT": message["DATUMZEIT"],
+                    "ERGEBNIS": message["ERGEBNIS"],
+                    "FRIST": message["FRIST"],
+                    "NACHRICHT": message["NACHRICHT"],
+                    "ORGANISATION": message["ORGANISATION"],
+                    "SENDER": message["SENDER"],
+                }
+                for message in demand["NACHRICHTEN"]
+            ]
+        }
+        for demand in response.json()["NACHFORDERUNGEN"]
+    ] == [
+        {
+            "NACHRICHTEN": [
+                {
+                    "DATUMZEIT": "1. Juli 2026, 08:00",
+                    "ERGEBNIS": "",
+                    "FRIST": "31.07.2026",
+                    "NACHRICHT": "Fehlende Unterlagen einreichen",
+                    "ORGANISATION": demand_service_name,
+                    "SENDER": admin_user.get_full_name(),
+                },
+                {
+                    "DATUMZEIT": "5. Juli 2026, 09:15",
+                    "ERGEBNIS": "",
+                    "FRIST": "",
+                    "NACHRICHT": "Unterlagen wurden eingereicht",
+                    "ORGANISATION": "",
+                    "SENDER": applicant.get_full_name(),
+                },
+                {
+                    "DATUMZEIT": "6. Juli 2026, 10:30",
+                    "ERGEBNIS": "Unvollständig beantwortet",
+                    "FRIST": "15.08.2026",
+                    "NACHRICHT": "Situationsplan fehlt weiterhin",
+                    "ORGANISATION": demand_service_name,
+                    "SENDER": admin_user.get_full_name(),
+                },
+                {
+                    "DATUMZEIT": "10. Juli 2026, 11:45",
+                    "ERGEBNIS": "",
+                    "FRIST": "",
+                    "NACHRICHT": "Situationsplan wurde nachgereicht",
+                    "ORGANISATION": "",
+                    "SENDER": applicant.get_full_name(),
+                },
+                {
+                    "DATUMZEIT": "11. Juli 2026, 13:00",
+                    "ERGEBNIS": "Vollständig beantwortet",
+                    "FRIST": "",
+                    "NACHRICHT": "",
+                    "ORGANISATION": demand_service_name,
+                    "SENDER": admin_user.get_full_name(),
+                },
+            ]
         }
     ]
     snapshot.assert_match(response.json())
@@ -407,6 +633,15 @@ def test_dms_placeholders_gr(
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
     assert response.json()["KOMMUNIKATIONS_THEMEN"] == []
+
+    # verify that the permission empties sensitive placeholders.
+    mocker.stop(has_permission)
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    assert response.json()["KOMMUNIKATIONS_THEMEN"] == []
+    assert response.json()["NOTIZEN"] == []
+    assert response.json()["VERKNUEPFTE_DOSSIERS"] == []
+    assert response.json()["NACHFORDERUNGEN"] == []
 
 
 @pytest.mark.freeze_time("2024-01-18 13:37")
