@@ -120,7 +120,7 @@ ROLES_INTERNAL_NO_READONLY = HasRole(
     ]
 )
 
-ROLES_INTERNAL_LEAD = HasRole(["municipality-lead"])
+ROLES_INTERNAL_LEAD = HasRole(["municipality-lead", "service-lead"])
 
 NO_CORRECTION_IN_PROGRESS = ~RequireInstanceState(["correction"])
 DEMOLITION_PAYMENT = IsUnversionedForm([DEMOLITION_PAYMENT_FORM_SLUG])
