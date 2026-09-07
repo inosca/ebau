@@ -556,6 +556,7 @@ class PermissionManager:
         starting_at: datetime | None = None,
         ends_at: datetime | None = None,
         event_name: str | None = None,
+        skip_if_exists: bool = False,
         **additional_attrs,
     ):
         """Grant permissions by creating a new ACL on the given Instance.
@@ -574,7 +575,10 @@ class PermissionManager:
         The `access_level` denotes a named group of permissions. The access
         level may also restrict the type of grant that can be allowed
 
-        Return the new ACL object.
+        If `skip_if_exists` is true, creation is skipped when an active ACL
+        exists with the same conditions.
+
+        Return the new ACL object, or `None` if creation was skipped.
         """
         starting_at = starting_at or timezone.now()
         # if default event has been set and no override is given, use it
@@ -594,6 +598,23 @@ class PermissionManager:
             ends_at=ends_at,
             access_level=access_level,
         )
+
+        if (
+            skip_if_exists
+            and InstanceACL.currently_active()
+            .filter(
+                instance=instance,
+                access_level=access_level,
+                grant_type=grant_type,
+                user=user,
+                service=service,
+                service_group=service_group,
+                role=role,
+                token=token,
+            )
+            .exists()
+        ):
+            return None
 
         new_acl = InstanceACL.objects.create(
             grant_type=grant_type,

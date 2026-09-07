@@ -81,6 +81,50 @@ def test_grant_service_permission(
     assert models.InstanceACL.for_current_user(service=other_service).count() == 0
 
 
+@pytest.mark.parametrize(
+    "grant_kwargs",
+    [
+        {
+            "grant_type": models.GRANT_CHOICES.SERVICE,
+            "service": lf("service"),
+        },
+        {
+            "grant_type": models.GRANT_CHOICES.SERVICE_GROUP,
+            "service_group": lf("service_group"),
+        },
+        {
+            "grant_type": models.GRANT_CHOICES.USER,
+            "user": lf("user"),
+        },
+        {
+            "grant_type": models.GRANT_CHOICES.ROLE,
+            "role": lf("role"),
+        },
+        {
+            "grant_type": models.GRANT_CHOICES.TOKEN,
+            "token": "secret-token",
+        },
+    ],
+    ids=["service", "service-group", "user", "role", "token"],
+)
+@pytest.mark.django_db
+def test_grant_skip_if_exists(instance, access_level, grant_kwargs):
+    manager = api.PermissionManager.for_anonymous()
+    grant_kwargs = {
+        "instance": instance,
+        "access_level": access_level,
+        **grant_kwargs,
+    }
+
+    first_acl = manager.grant(**grant_kwargs)
+    skipped_acl = manager.grant(**grant_kwargs, skip_if_exists=True)
+    second_acl = manager.grant(**grant_kwargs)
+
+    assert skipped_acl is None
+    assert first_acl != second_acl
+    assert models.InstanceACL.objects.filter(**grant_kwargs).count() == 2
+
+
 @pytest.mark.django_db
 def test_grant_service_group_permission(
     user,

@@ -481,12 +481,12 @@ def test_dynamic_group_koor_np_ur(service_factory, instance):
         ("create-manual-workitems", "answer_gemeinde", "geometer"),
         ("construction-step-plan-construction-stage", "default", "geometer"),
         ("construction-step-plan-construction-stage", "answer_geometer", "geometer"),
-        # only for a construction monitoring work item, answered
-        # with gemeinde answer should resolve to the municipality.
+        # The municipality is already a separate group in the task expression,
+        # so the dynamic group does not need to resolve it again.
         (
             "construction-step-plan-construction-stage",
             "answer_gemeinde",
-            "municipality",
+            None,
         ),
     ],
 )
@@ -548,11 +548,7 @@ def test_dynamic_group_geometer_schnurgeruestabnahme_gr(
             question_type=Question.TYPE_CHOICE,
         )
 
-    expected_pks = (
-        [str(geometer_service.pk)]
-        if expected_service == "geometer"
-        else [str(municipality_service.pk)]
-    )
+    expected_pks = [str(geometer_service.pk)] if expected_service else []
     resolved = CustomDynamicGroups().resolve("geometer_schnurgeruestabnahme")(
         None, gr_instance.case, None, work_item, None
     )

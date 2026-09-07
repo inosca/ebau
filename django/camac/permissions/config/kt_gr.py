@@ -12,6 +12,7 @@ from .common import (
     ApplicantsEventHandlerMixin,
     ConstructionMonitoringHandlerMixin,
     GeometerHandlerMixin,
+    GVGHandlerMixin,
     InstanceCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,
 )
@@ -104,6 +105,7 @@ class PermissionEventHandlerGR(
     InstanceCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,
     ConstructionMonitoringHandlerMixin,
+    GVGHandlerMixin,
     EmptyEventHandler,
 ):
     def decision_decreed(self, instance: Instance):
@@ -166,28 +168,6 @@ class PermissionEventHandlerGR(
                         access_level="uso",
                         service=service,
                         event_name="inquiry-completed",
-                    )
-
-    def gvg_work_item_created(self, work_item: WorkItem):
-        if (
-            work_item.task.address_groups
-            and "gebaudeversicherung" in work_item.task.address_groups
-        ):
-            for addr in work_item.addressed_groups:
-                if (
-                    not InstanceACL.currently_active()
-                    .filter(
-                        instance=work_item.case.family.instance,
-                        service=addr,
-                    )
-                    .exists()
-                ):
-                    self.manager.grant(
-                        work_item.case.family.instance,
-                        grant_type="SERVICE",
-                        access_level="distribution-service",
-                        service=Service.objects.get(pk=addr),
-                        event_name="received-work-item",
                     )
 
     def instance_completed(self, instance: Instance):

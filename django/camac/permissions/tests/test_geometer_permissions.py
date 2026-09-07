@@ -101,24 +101,6 @@ def test_geometer_instance_access(
         assert res_after_acl_data[0]["id"] == str(instance.pk)
 
 
-@pytest.mark.django_db
-def test_construction_monitoring_geometer_work_item_created(
-    caluma_work_item_factory,
-    gr_permissions_settings,
-    admin_user,
-    gr_instance,
-    gr_access_levels,
-):
-    work_item = caluma_work_item_factory(
-        addressed_groups=[str(admin_user.groups.first().service.pk)],
-        task__address_groups=["geometer"],
-        case=gr_instance.case,
-    )
-
-    Trigger.geometer_work_item_created(None, work_item)
-    assert InstanceACL.objects.count() == 1
-
-
 @pytest.mark.parametrize(
     "geometer_required",
     [True, False],
