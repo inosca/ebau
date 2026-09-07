@@ -114,22 +114,32 @@ def test_dont_send_reminders_caluma(
 
 
 @pytest.mark.freeze_time("2020-08-10")
-@pytest.mark.parametrize("work_item_list", ["allowlist", "denylist"])
+@pytest.mark.parametrize(
+    "work_item_list",
+    ["allowlist", "denylist"],
+)
+@pytest.mark.parametrize(
+    "recipient_type",
+    ["work_item_controlling", "work_item_addressed"],
+)
 @pytest.mark.django_db
-def test_notify_manual_work_item(
+def test_notify_work_item(
     caluma_admin_user,
     service_factory,
     instance,
     caluma_work_item_factory,
     mailoutbox,
     caplog,
-    application_settings,
+    caluma_case_factory,
+    caluma_document_factory,
+    caluma_form_factory,
     notification_template_factory,
     caluma_task_factory,
     support_role,
     settings,
     celery_fake_worker,
     work_item_list,
+    recipient_type,
 ):
     notification_template_expired = notification_template_factory()
     controlling_service = service_factory()
@@ -138,28 +148,10 @@ def test_notify_manual_work_item(
     deadline_past_initial_check = timezone.now() - timedelta(days=3)
     deadline = timezone.now() - timedelta(days=1)
     deadline_future = timezone.now() + timedelta(days=2)
-    task = caluma_task_factory(
-        slug=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
-    )
+    task = caluma_task_factory()
     task_ignored = caluma_task_factory()
     work_item_filter = (
         [task.slug] if work_item_list == "allowlist" else [task_ignored.slug]
-    )
-    # Replace the complete config because direct assignment skips Pydantic validation,
-    # which converts the date string to a datetime.
-    settings.WORK_ITEM_OVERDUE_NOTIFICATIONS = WorkItemOverdueNotificationsConfig(
-        enabled=True,
-        process_deadlines_from="2020-08-09",
-        notifications=[
-            OverdueNotificationConfig(
-                template_slug=notification_template_expired.slug,
-                recipient_types=["work_item_controlling"],
-                **{f"work_item_{work_item_list}": work_item_filter},
-            )
-        ],
-    )
-    assert settings.WORK_ITEM_OVERDUE_NOTIFICATIONS.process_deadlines_from == datetime(
-        2020, 8, 9
     )
     work_item_args = {
         "status": "ready",
@@ -168,8 +160,10 @@ def test_notify_manual_work_item(
         "child_case": None,
         "deadline": deadline,
     }
+    root_case = caluma_case_factory()
     work_item = caluma_work_item_factory(
         task=task,
+        case=caluma_case_factory(family=root_case),
         meta={
             "ebau-number": "2020-01",
             "notify-completed": True,
@@ -177,8 +171,53 @@ def test_notify_manual_work_item(
         },
         **work_item_args,
     )
-    instance.case = work_item.case
+    instance.case = root_case
     instance.save()
+
+    other_case = caluma_case_factory(
+        document=caluma_document_factory(form=caluma_form_factory())
+    )
+    caluma_work_item_factory(
+        task=task,
+        case=caluma_case_factory(family=other_case),
+        meta={
+            "ebau-number": "2020-02",
+            "notify-completed": True,
+            "notify-deadline": True,
+        },
+        **work_item_args,
+    )
+
+    for addressed_groups in (["applicant"], []):
+        caluma_work_item_factory(
+            task=task,
+            case=caluma_case_factory(family=root_case),
+            meta={
+                "ebau-number": "2020-01",
+                "notify-completed": True,
+                "notify-deadline": True,
+            },
+            **{**work_item_args, "addressed_groups": addressed_groups},
+        )
+
+    # Replace the complete config because direct assignment skips Pydantic validation,
+    # which converts the date string to a datetime.
+    settings.WORK_ITEM_OVERDUE_NOTIFICATIONS = WorkItemOverdueNotificationsConfig(
+        enabled=True,
+        process_deadlines_from="2020-08-09",
+        notifications=[
+            OverdueNotificationConfig(
+                template_slug=notification_template_expired.slug,
+                recipient_types=[recipient_type],
+                form_allowlist=[work_item.case.family.document.form_id],
+                addressed_group_denylist=["applicant"],
+                **{f"work_item_{work_item_list}": work_item_filter},
+            )
+        ],
+    )
+    assert settings.WORK_ITEM_OVERDUE_NOTIFICATIONS.process_deadlines_from == datetime(
+        2020, 8, 9
+    )
 
     caluma_work_item_factory(
         task=task,
@@ -251,7 +290,10 @@ def test_notify_manual_work_item(
     celery_fake_worker.run_tasks()
     assert len(mailoutbox) == 1
 
-    assert mailoutbox[0].recipients()[0] == controlling_service.email
+    if recipient_type == "work_item_controlling":
+        assert mailoutbox[0].recipients() == [controlling_service.email]
+    else:
+        assert mailoutbox[0].recipients() == [addressed_service.email]
     assert f"{work_item_list}={work_item_filter!r}" in caplog.text
 
 

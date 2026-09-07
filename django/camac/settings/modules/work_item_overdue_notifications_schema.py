@@ -24,6 +24,20 @@ class OverdueNotificationConfig(EBauConfig):
         default=None,
         description="Task slugs whose overdue work items do not trigger this notification",
     )
+    form_allowlist: list[str] | None = Field(
+        default=None,
+        description=(
+            "Root form slugs whose overdue work items trigger this notification. "
+            "None applies no form filter."
+        ),
+    )
+    addressed_group_denylist: list[str] | None = Field(
+        default=None,
+        description=(
+            "Addressed groups whose overdue work items do not trigger this notification. "
+            "None applies no addressed-group filter."
+        ),
+    )
 
     @model_validator(mode="after")
     def validate_work_item_list(self) -> Self:

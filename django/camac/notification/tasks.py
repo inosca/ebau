@@ -9,10 +9,39 @@ from django.db.models import Exists, OuterRef, Q
 
 if TYPE_CHECKING:
     from camac.settings.modules.work_item_overdue_notifications_schema import (
+        OverdueNotificationConfig,
         WorkItemOverdueNotificationsConfig,
     )
 
 log = getLogger(__name__)
+
+
+def _get_overdue_notification_filter(
+    notification: OverdueNotificationConfig,
+) -> tuple[str, Q]:
+    if notification.work_item_allowlist is not None:
+        filter_text = f"allowlist={notification.work_item_allowlist}"
+        work_item_filter = Q(task_id__in=notification.work_item_allowlist)
+    else:
+        filter_text = f"denylist={notification.work_item_denylist}"
+        work_item_filter = ~Q(task_id__in=notification.work_item_denylist)
+
+    if notification.form_allowlist is not None:
+        filter_text += f", form_allowlist={notification.form_allowlist}"
+        work_item_filter &= Q(
+            case__family__document__form_id__in=notification.form_allowlist
+        )
+
+    if notification.addressed_group_denylist is not None:
+        filter_text += (
+            f", addressed_group_denylist={notification.addressed_group_denylist}"
+        )
+        work_item_filter &= ~Q(addressed_groups=[])
+        work_item_filter &= ~Q(
+            addressed_groups__overlap=notification.addressed_group_denylist
+        )
+
+    return filter_text, work_item_filter
 
 
 @shared_task(bind=True)
@@ -69,12 +98,9 @@ def send_notification_for_overdue_workitems(self):
             log.info(f"Use configured value for process_deadlines_from: {cut_off_date}")
 
     for notification in config.notifications:
-        if notification.work_item_allowlist is not None:
-            work_item_filter_text = f"allowlist={notification.work_item_allowlist!r}"
-            work_item_filter = Q(task_id__in=notification.work_item_allowlist)
-        else:
-            work_item_filter_text = f"denylist={notification.work_item_denylist!r}"
-            work_item_filter = ~Q(task_id__in=notification.work_item_denylist)
+        work_item_filter_text, work_item_filter = _get_overdue_notification_filter(
+            notification
+        )
 
         try:
             work_items = WorkItem.objects.filter(
