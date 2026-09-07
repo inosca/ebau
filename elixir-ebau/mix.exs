@@ -95,6 +95,8 @@ defmodule Ebau.MixProject do
       {:elixir_uikit, "~> 0.8.0"},
       {:esbuild, "~> 0.10", runtime: Mix.env() == :dev},
       {:ex_doc, "~> 0.38", only: :dev, runtime: false},
+      # Required by Swoosh.Adapters.SMTP, used when EMAIL_HOST is set.
+      {:gen_smtp, "~> 1.2"},
       {:gettext, "~> 1.0"},
       {:igniter, "~> 0.6", only: [:dev, :test]},
       {:lazy_html, ">= 0.1.0", only: :test},
@@ -117,6 +119,8 @@ defmodule Ebau.MixProject do
       {:swoosh, "~> 1.16"},
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
+      {:tower, "~> 0.8"},
+      {:tower_email, "~> 0.6"},
       {:usage_rules, "~> 1.0", only: [:dev]}
     ]
   end

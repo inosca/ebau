@@ -22,7 +22,21 @@ end
 
 Nvir.dotenv!(["../.env", ".env", ".env.#{config_env()}"])
 
+config :ebau, :watermark,
+  enabled: config_env() == :dev or System.get_env("ENABLE_WATERMARK", "false") == "true",
+  text: System.get_env("WATERMARK", "dev")
+
 if config_env() != :test do
+  admins = Ebau.Mailer.Config.admins()
+
+  mail_admins? =
+    admins != [] and
+      System.get_env("ENABLE_ADMIN_EMAIL_LOGGING", to_string(config_env() == :prod)) in ~w(true 1)
+
+  adapter = Ebau.Mailer.Config.adapter()
+
+  config :ebau, Ebau.Mailer, adapter
+
   config :ebau, Ebau.Repo,
     username: System.get_env("DATABASE_USER", "camac"),
     password: System.get_env("DATABASE_PASSWORD", "camac"),
@@ -43,13 +57,9 @@ if config_env() != :test do
       port: String.to_integer(System.get_env("URL_PORT", "80")),
       path: System.get_env("URL_PREFIX", "/")
     ]
-end
 
-config :ebau, :watermark,
-  enabled: config_env() == :dev or System.get_env("ENABLE_WATERMARK", "false") == "true",
-  text: System.get_env("WATERMARK", "dev")
+  config :ebau, :admins, admins
 
-if config_env() != :test do
   config :ebau, :keycloak,
     url: System.get_env("KEYCLOAK_URL", "http://ebau-keycloak.localhost/auth/"),
     realm: System.get_env("KEYCLOAK_REALM", "ebau"),
@@ -59,6 +69,16 @@ if config_env() != :test do
     # Keep in sync with Django's OIDC_USERNAME_CLAIM
     username_claim: System.get_env("OIDC_USERNAME_CLAIM", "sub"),
     client_secret: System.get_env("KEYCLOAK_CLIENT_SECRET", "NOTNEEDED")
+
+  config :tower, reporters: if(mail_admins?, do: [TowerEmail], else: [])
+
+  config :tower_email, TowerEmail.Mailer, adapter
+
+  config :tower_email,
+    otp_app: :ebau,
+    environment: System.get_env("DEPLOYMENT_ENV", to_string(config_env())),
+    from: {"eBau", System.get_env("SERVER_EMAIL", "root@localhost")},
+    to: admins
 end
 
 if config_env() == :dev do
@@ -103,16 +123,6 @@ if config_env() == :prod do
       ip: {0, 0, 0, 0, 0, 0, 0, 0}
     ],
     secret_key_base: secret_key_base
-
-  # Production mailer: the default Swoosh.Adapters.Local (set in config.exs) silently
-  # discards all emails. Configure a real adapter here, for example:
-  #
-  #   config :ebau, Ebau.Mailer,
-  #     adapter: Swoosh.Adapters.Mailgun,
-  #     api_key: System.fetch_env!("MAILGUN_API_KEY"),
-  #     domain: System.fetch_env!("MAILGUN_DOMAIN")
-  #
-  # See https://hexdocs.pm/swoosh for available adapters (Req HTTP client is available).
 
   config :ebau, :dns_cluster_query, System.get_env("DNS_CLUSTER_QUERY")
 
