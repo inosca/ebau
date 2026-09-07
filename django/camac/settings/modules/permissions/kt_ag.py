@@ -4,6 +4,7 @@ from camac.permissions.conditions import (
     Callback,
     HasApplicantRole,
     HasRole,
+    IsCorrectionTransitionAllowed,
     IsForm,
     IsPaper,
     IsService,
@@ -257,6 +258,17 @@ ACTION_INSTANCE_CHANGE_FORM = RequireInstanceState(
     ]
 )
 
+INSTANCE_CORRECTION_START_CONDITION = IsCorrectionTransitionAllowed(transition="start")
+INSTANCE_CORRECTION_FINISH_CONDITION = IsCorrectionTransitionAllowed(
+    transition="finish"
+)
+ACTION_INSTANCE_CORRECTION_START = (
+    HasRole(["municipality-lead"]) & INSTANCE_CORRECTION_START_CONDITION
+)
+ACTION_INSTANCE_CORRECTION_FINISH = (
+    HasRole(["municipality-lead"]) & INSTANCE_CORRECTION_FINISH_CONDITION
+)
+
 ACTION_INSTANCE_WITHDRAW = RequireInstanceState(
     [
         "subm",
@@ -403,6 +415,8 @@ AG_PERMISSIONS_SETTINGS = {
                 ACTION_INSTANCE_REQUEST_DEMOLITION_PAYMENT,
             ),
             ("instance-change-responsible-service", MODULE_RESPONSIBLE_SERVICE_WRITE),
+            ("instance-correction-start", ACTION_INSTANCE_CORRECTION_START),
+            ("instance-correction-finish", ACTION_INSTANCE_CORRECTION_FINISH),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-mark-write", ACTION_INSTANCE_MARK),
             ("information-of-neighbors-read", MODULE_INFORMATION_OF_NEIGHBORS),
@@ -505,6 +519,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("form-read", Always()),
             ("form-write", Always()),
             ("history-read", Always()),
+            ("instance-correction-start", INSTANCE_CORRECTION_START_CONDITION),
+            ("instance-correction-finish", INSTANCE_CORRECTION_FINISH_CONDITION),
             ("instance-delete", RequireInstanceState(["new"])),
             ("permissions-read-any", Always()),
             ("permissions-read", Always()),

@@ -5,8 +5,10 @@ from camac.permissions.conditions import (
     Always,
     Callback,
     HasApplicantRole,
+    HasPendingInquiries,
     HasRole,
     IsAppeal,
+    IsCorrectionTransitionAllowed,
     IsCreatedByService,
     IsModification,
     IsPaper,
@@ -386,18 +388,18 @@ ACTION_INSTANCE_CONVERT_MODIFICATION = (
     STATES_ALL_INTERNAL & ROLES_INTERNAL_LEAD & INSTANCE_CONVERT_MODIFICATION_CONDITION
 )
 
-# TODO: Might make sense to split the start and finish of
-# the correction in two permissions
-INSTANCE_CORRECT_CONDITION = RequireInstanceState(
-    [
-        "circulation_init",
-        "circulation",
-        "in_progress",
-        "in_progress_internal",
-        "correction",
-    ]
+INSTANCE_CORRECTION_START_CONDITION = (
+    IsCorrectionTransitionAllowed(transition="start") & ~HasPendingInquiries()
 )
-ACTION_INSTANCE_CORRECT = INSTANCE_CORRECT_CONDITION & ROLES_INTERNAL_LEAD
+INSTANCE_CORRECTION_FINISH_CONDITION = IsCorrectionTransitionAllowed(
+    transition="finish"
+)
+ACTION_INSTANCE_CORRECTION_START = (
+    ROLES_INTERNAL_LEAD & INSTANCE_CORRECTION_START_CONDITION
+)
+ACTION_INSTANCE_CORRECTION_FINISH = (
+    ROLES_INTERNAL_LEAD & INSTANCE_CORRECTION_FINISH_CONDITION
+)
 
 ACTION_SUPPORT_INSTANCE_COPY = RequireInstanceState(
     [
@@ -964,8 +966,8 @@ BE_PERMISSIONS_SETTINGS = {
                 "instance-convert-to-building-permit",
                 ACTION_PORTAL_PAPER_INSTANCE_CONVERT_TO_BUILDING_PERMIT,
             ),
-            # TODO: Permission integration instance-correct
-            ("instance-correct", ACTION_INSTANCE_CORRECT),
+            ("instance-correction-start", ACTION_INSTANCE_CORRECTION_START),
+            ("instance-correction-finish", ACTION_INSTANCE_CORRECTION_FINISH),
             (
                 "instance-create-modification",
                 ACTION_PORTAL_PAPER_INSTANCE_CREATE_MODIFICATION,
@@ -1190,7 +1192,8 @@ BE_PERMISSIONS_SETTINGS = {
                 PORTAL_INSTANCE_CONVERT_TO_BUILDING_PERMIT_CONDITION,
             ),
             ("instance-copy", ACTION_SUPPORT_INSTANCE_COPY),
-            ("instance-correct", INSTANCE_CORRECT_CONDITION),
+            ("instance-correction-start", INSTANCE_CORRECTION_START_CONDITION),
+            ("instance-correction-finish", INSTANCE_CORRECTION_FINISH_CONDITION),
             (
                 "instance-create-modification",
                 PORTAL_INSTANCE_CREATE_MODIFICATION_CONDITION,

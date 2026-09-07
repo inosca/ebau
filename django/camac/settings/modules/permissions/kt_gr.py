@@ -12,6 +12,7 @@ from camac.permissions.conditions import (
     HasAdditionalDemandWithFormEdit,
     HasApplicantRole,
     HasRole,
+    IsCorrectionTransitionAllowed,
     IsForm,
     IsPaper,
     IsServiceGroup,
@@ -139,6 +140,20 @@ ACTION_INSTANCE_CHANGE_FORM = RequireInstanceState(
         "correction",
     ]
 )
+INSTANCE_CORRECTION_START_CONDITION = (
+    IsCorrectionTransitionAllowed(transition="start")
+    & ~HasAdditionalDemandWithFormEdit()
+)
+INSTANCE_CORRECTION_FINISH_CONDITION = IsCorrectionTransitionAllowed(
+    transition="finish"
+)
+ACTION_INSTANCE_CORRECTION_START = (
+    HasRole(["municipality-lead"]) & INSTANCE_CORRECTION_START_CONDITION
+)
+ACTION_INSTANCE_CORRECTION_FINISH = (
+    HasRole(["municipality-lead"]) & INSTANCE_CORRECTION_FINISH_CONDITION
+)
+
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_PERMISSIONS = STATES_ALL
 MODULE_PUBLICATION = ~FORMS_ONLY_BAUBEITRAGSWESEN & RequireWorkItem("fill-publication")
@@ -378,6 +393,8 @@ GR_PERMISSIONS_SETTINGS = {
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
             ("instance-change-form", ACTION_INSTANCE_CHANGE_FORM),
+            ("instance-correction-start", ACTION_INSTANCE_CORRECTION_START),
+            ("instance-correction-finish", ACTION_INSTANCE_CORRECTION_FINISH),
             (
                 "form-write",
                 MODULE_PORTAL_FORM_WRITE
@@ -443,6 +460,8 @@ GR_PERMISSIONS_SETTINGS = {
             ("form-read", Always()),
             ("legal-submissions-read", Always()),
             ("history-read", Always()),
+            ("instance-correction-start", INSTANCE_CORRECTION_START_CONDITION),
+            ("instance-correction-finish", INSTANCE_CORRECTION_FINISH_CONDITION),
             ("instance-delete", RequireInstanceState(["new"])),
             (
                 "instance-download-form-as-pdf",

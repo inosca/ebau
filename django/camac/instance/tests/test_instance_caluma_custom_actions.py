@@ -5,7 +5,7 @@ from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from camac.permissions.conditions import Always, Never
+from camac.permissions.conditions import Always, IsCorrectionTransitionAllowed, Never
 from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.tests.form_utils import FormUtils
@@ -575,23 +575,28 @@ def test_instance_convert_modification(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    ("role__name", "has_inquiry", "expected_status"),
+    ("role__name", "has_inquiry", "has_permission", "expected_status"),
     [
-        ("Support", False, status.HTTP_200_OK),
-        ("municipality-lead", False, status.HTTP_200_OK),
-        ("municipality-lead", True, status.HTTP_400_BAD_REQUEST),
-        ("Applicant", False, status.HTTP_403_FORBIDDEN),
-        ("Municipality", False, status.HTTP_403_FORBIDDEN),
+        ("Support", False, True, status.HTTP_200_OK),
+        ("municipality-lead", False, True, status.HTTP_200_OK),
+        ("municipality-lead", True, True, status.HTTP_400_BAD_REQUEST),
+        ("Applicant", False, False, status.HTTP_403_FORBIDDEN),
+        ("municipality-clerk", False, False, status.HTTP_403_FORBIDDEN),
     ],
 )
 @pytest.mark.django_db
 def test_correction(
     admin_client,
     be_instance,
+    permissions_settings,
     role,
+    access_level,
     active_inquiry_factory,
     instance_state_factory,
     has_inquiry,
+    has_permission,
+    instance_acl_factory,
+    access_level_factory,
     expected_status,
     correction_settings,
     mocker,
@@ -602,6 +607,25 @@ def test_correction(
     instance_state = instance_state_factory(name="subm")
     be_instance.instance_state = instance_state
     be_instance.save()
+
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            (
+                "instance-correction-start",
+                IsCorrectionTransitionAllowed("start") if has_permission else Never(),
+            ),
+            (
+                "instance-correction-finish",
+                IsCorrectionTransitionAllowed("finish") if has_permission else Never(),
+            ),
+        ]
+    }
+
+    instance_acl_factory(
+        access_level=access_level,
+        service=admin_client.user.get_default_group().service,
+        instance=be_instance,
+    )
 
     regenerate_pdf = mocker.patch(
         "camac.instance.serializers.CalumaInstanceCorrectionSerializer._regenerate_and_store_pdf"

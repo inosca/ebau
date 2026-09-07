@@ -3,7 +3,7 @@ from __future__ import annotations
 import operator
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Literal
 
 from django.conf import ImproperlyConfigured
 
@@ -216,6 +216,22 @@ class HasInquiry(Check):
 
     def __eq__(self, other):  # pragma: no cover
         return isinstance(other, HasInquiry)
+
+
+class HasPendingInquiries(Check):
+    """Permission check: Instance has pending inquiries."""
+
+    def apply(self, userinfo, context: PermissionContext):
+        from camac.caluma.models import Inquiry
+
+        return Inquiry.objects.for_instance(context.instance).only_pending().exists()
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return False
+
+    def __eq__(self, other):  # pragma: no cover
+        return isinstance(other, HasPendingInquiries)
 
 
 class IsAppeal(Check):
@@ -602,3 +618,41 @@ class RequireRunningCase(Check):
 
     def __repr__(self):
         return "RequireRunningCase()"
+
+
+@dataclass
+class IsCorrectionTransitionAllowed(Check):
+    """Check whether starting or finishing a correction is allowed on the instance.
+
+    Depending on the provided transition argument, the conditions for starting
+    or finishing the correction are checked.
+    """
+
+    transition: Literal["start", "finish"]
+
+    def apply(self, userinfo, context: PermissionContext):
+        from django.conf import settings
+
+        module_settings = settings.CORRECTION
+        instance_state = context.instance.instance_state.name
+
+        if self.transition == "start":
+            return instance_state in module_settings["ALLOWED_INSTANCE_STATES"]
+
+        if self.transition == "finish":
+            return instance_state == module_settings["INSTANCE_STATE"]
+
+        return False
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return False
+
+    def __eq__(self, other: Check):  # pragma: no cover
+        return (
+            isinstance(other, IsCorrectionTransitionAllowed)
+            and self.transition == other.transition
+        )
+
+    def __repr__(self):
+        return f"IsCorrectionTransition({self.transition})"
