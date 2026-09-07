@@ -16,7 +16,7 @@ from camac.caluma.extensions.events.construction_monitoring import (
     post_complete_init_construction_monitoring,
     post_create_complete_construction_monitoring,
     post_create_construction_control,
-    post_create_gvg_work_item,
+    post_create_dynamic_addressed_work_item,
     post_create_plan_construction_stage_ur,
     set_construction_monitoring_deadlines_after_decision,
 )
@@ -27,8 +27,56 @@ from camac.instance.domain_logic.construction_monitoring import (
     maybe_start_construction_monitoring_after_decision,
 )
 from camac.instance.models import InstanceState
+from camac.permissions import api as permissions_api
 from camac.permissions.models import InstanceACL
 from camac.tests.form_utils import FormUtils
+from camac.user.models import ServiceRelation
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize(
+    ("address_groups", "expected_events"),
+    [
+        (["geometer"], ["geometer"]),
+        (["geometer_schnurgeruestabnahme"], ["geometer"]),
+        (["geometer-ur"], ["geometer"]),
+        (["gebaudeversicherung"], ["gvg"]),
+        (["geometer", "gebaudeversicherung"], ["geometer", "gvg"]),
+        (["municipality"], []),
+        (None, []),
+    ],
+)
+def test_post_create_dynamic_addressed_work_item_trigger(
+    caluma_work_item_factory,
+    mocker,
+    service_factory,
+    set_application_gr,
+    address_groups,
+    expected_events,
+):
+    addressed_service = service_factory()
+    work_item = caluma_work_item_factory(
+        addressed_groups=[str(addressed_service.pk)],
+        task__address_groups=address_groups,
+    )
+    events = {
+        "geometer": mocker.patch(
+            "camac.caluma.extensions.events.construction_monitoring."
+            "Trigger.geometer_work_item_created"
+        ),
+        "gvg": mocker.patch(
+            "camac.caluma.extensions.events.construction_monitoring."
+            "Trigger.gvg_work_item_created"
+        ),
+    }
+
+    post_create_dynamic_addressed_work_item(None, work_item, None, None)
+
+    for name, event in events.items():
+        if name in expected_events:
+            event.assert_called_once_with(None, work_item)
+        else:
+            event.assert_not_called()
 
 
 @pytest.mark.parametrize(
@@ -965,43 +1013,112 @@ def test_post_create_plan_construction_stage_ur(
 
 
 @pytest.mark.django_db
-def test_construction_monitoring_task_gvg_gr(
+@pytest.mark.parametrize(
+    ("address_group", "target_service", "expected_access_level"),
+    [
+        ("geometer", "geometer", "geometer"),
+        ("geometer_schnurgeruestabnahme", "geometer", "geometer"),
+        ("geometer_schnurgeruestabnahme", None, None),
+        ("gebaudeversicherung", "gvg", "distribution-service"),
+    ],
+)
+@pytest.mark.parametrize("has_read_acl", [False, True])
+def test_post_create_dynamic_addressed_work_item_gr(
     gr_instance,
-    construction_monitoring_settings,
+    instance_service_factory,
     service_factory,
     caluma_task_factory,
     access_level_factory,
     gr_permissions_settings,
     set_application_gr,
+    address_group,
+    target_service,
+    expected_access_level,
+    has_read_acl,
 ):
-    """In kt. GR the gvg should be granted when a workitem is addressed."""
-    access_level = access_level_factory(pk="distribution-service")
-    task = caluma_task_factory(address_groups=["gebaudeversicherung"])
-    gvg_service = service_factory(slug="gvg")
+    read_access_level = access_level_factory(pk="read")
+    if expected_access_level:
+        access_level_factory(pk=expected_access_level)
+
+    task = caluma_task_factory(address_groups=[address_group])
+    municipality = service_factory(service_group__name="municipality")
+    instance_service_factory(
+        instance=gr_instance,
+        service=municipality,
+        active=1,
+    )
+    addressed_services = [municipality]
+
+    specialist = None
+    if target_service == "geometer":
+        specialist = service_factory()
+        ServiceRelation.objects.create(
+            receiver=municipality,
+            provider=specialist,
+            function=ServiceRelation.FUNCTION_GEOMETER,
+        )
+    elif target_service == "gvg":
+        specialist = service_factory(slug="gvg")
+
+    if specialist:
+        addressed_services.append(specialist)
+
     case = gr_instance.case
 
-    assert not (
-        InstanceACL.objects.filter(
-            instance=case.family.instance,
-            service=gvg_service,
-            access_level=access_level,
-        ).exists()
+    permission_manager = permissions_api.PermissionManager.for_anonymous()
+    municipality_read_acl = permission_manager.grant(
+        gr_instance,
+        grant_type="SERVICE",
+        access_level=read_access_level,
+        service=municipality,
     )
+
+    specialist_read_acl = None
+    if has_read_acl and specialist:
+        specialist_read_acl = permission_manager.grant(
+            gr_instance,
+            grant_type="SERVICE",
+            access_level=read_access_level,
+            service=specialist,
+        )
 
     work_item = WorkItem.objects.create(
         case=case,
         task_id=task.pk,
         name="Resolve after submit GR",
-        addressed_groups=[str(gvg_service.pk)],
+        addressed_groups=[str(service.pk) for service in addressed_services],
     )
 
-    post_create_gvg_work_item(None, work_item, None, None)
+    post_create_dynamic_addressed_work_item(None, work_item, None, None)
+    post_create_dynamic_addressed_work_item(None, work_item, None, None)
 
-    assert InstanceACL.objects.filter(
-        instance=case.family.instance,
-        service=gvg_service,
-        access_level=access_level,
-    ).exists()
+    specialist_access_levels = (
+        list(
+            InstanceACL.currently_active()
+            .filter(instance=case.family.instance, service=specialist)
+            .values_list("access_level_id", flat=True)
+        )
+        if specialist
+        else []
+    )
+
+    expected_access_levels = []
+    if has_read_acl and specialist:
+        expected_access_levels.append("read")
+    if expected_access_level:
+        expected_access_levels.append(expected_access_level)
+    assert sorted(specialist_access_levels) == sorted(
+        expected_access_levels,
+    )
+
+    if specialist_read_acl:
+        specialist_read_acl.refresh_from_db()
+        assert specialist_read_acl.end_time is None
+        assert specialist_read_acl.revoked_by_event is None
+
+    municipality_read_acl.refresh_from_db()
+    assert municipality_read_acl.end_time is None
+    assert municipality_read_acl.revoked_by_event is None
 
 
 @pytest.mark.freeze_time("2026-01-01")

@@ -139,8 +139,11 @@ class CustomDynamicGroups(BaseDynamicGroups):
     def resolve_geometer_schnurgeruestabnahme(
         self, task, case, user, prev_work_item, context, **kwargs
     ):
-        # the geometer in construction monitoring work items can resolve to
-        # the responsible service based on a form question answer.
+        """Resolve work item to the configured geometer.
+
+        If the form selects the municipality, return no group because the task
+        already includes the municipality as a separate dynamic group.
+        """
         construction_settings = settings.CONSTRUCTION_MONITORING
         if (
             construction_settings
@@ -161,7 +164,7 @@ class CustomDynamicGroups(BaseDynamicGroups):
                 question_id=construction_monitoring_geometer_config["QUESTION"],
                 value=construction_monitoring_geometer_config["ANSWER"],
             ).exists():
-                return self._get_responsible_service(case, "municipality", context)
+                return []
 
         # otherwise resolve geometer normally.
         return self.resolve_geometer(

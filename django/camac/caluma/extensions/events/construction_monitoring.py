@@ -448,18 +448,14 @@ def post_create_plan_construction_stage_ur(sender, work_item, user, context, **k
 
 @on(post_create_work_item, raise_exception=True)
 @transaction.atomic
-def post_create_geometer_work_item(sender, work_item, user, context, **kwargs):
-    if work_item.task.address_groups and "geometer" in work_item.task.address_groups:
+def post_create_dynamic_addressed_work_item(sender, work_item, user, context, **kwargs):
+    address_groups_expression = str(work_item.task.address_groups or "")
+
+    # Also matches geometer-ur and geometer_schnurgeruestabnahme.
+    if "geometer" in address_groups_expression:
         Trigger.geometer_work_item_created(None, work_item)
 
-
-@on(post_create_work_item, raise_exception=True)
-@transaction.atomic
-def post_create_gvg_work_item(sender, work_item, user, context, **kwargs):
-    if (
-        work_item.task.address_groups
-        and "gebaudeversicherung" in work_item.task.address_groups
-    ):
+    if "gebaudeversicherung" in address_groups_expression:
         Trigger.gvg_work_item_created(None, work_item)
 
 

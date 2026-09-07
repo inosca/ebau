@@ -4,8 +4,12 @@ from typing import Literal
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.api import CalumaApi
+from camac.constants import kt_gr as gr_constants
 from camac.instance.models import Instance
-from camac.instance.utils import get_provider_services
+from camac.instance.utils import (
+    get_municipality_provider_services,
+    get_provider_services,
+)
 from camac.permissions import api as permissions_api
 from camac.permissions.models import AccessLevel, InstanceACL
 from camac.rulesets.utils import assign_responsible_user
@@ -303,23 +307,48 @@ class InstanceCopyHandlerMixin:
 
 class ConstructionMonitoringHandlerMixin:
     def geometer_work_item_created(self, work_item: WorkItem):
-        if "geometer" in work_item.task.address_groups:
-            for addr in work_item.addressed_groups:
-                if (
-                    not InstanceACL.currently_active()
-                    .filter(
-                        instance=work_item.case.family.instance,
-                        service=addr,
-                    )
-                    .exists()
-                ):
-                    self.manager.grant(
-                        work_item.case.family.instance,
-                        grant_type="SERVICE",
-                        access_level="geometer",
-                        service=Service.objects.get(pk=addr),
-                        event_name="received-work-item",
-                    )
+        if (
+            work_item.task.address_groups
+            and "geometer" in work_item.task.address_groups
+        ):
+            addressed_geometers = get_municipality_provider_services(
+                work_item.case.family.instance,
+                ServiceRelation.FUNCTION_GEOMETER,
+            ).filter(
+                pk__in=work_item.addressed_groups,
+            )
+
+            for geometer in addressed_geometers:
+                self.manager.grant(
+                    work_item.case.family.instance,
+                    grant_type="SERVICE",
+                    service=geometer,
+                    access_level="geometer",
+                    event_name="received-work-item",
+                    skip_if_exists=True,
+                )
+
+
+class GVGHandlerMixin:
+    def gvg_work_item_created(self, work_item: WorkItem):
+        if (
+            work_item.task.address_groups
+            and "gebaudeversicherung" in work_item.task.address_groups
+        ):
+            addressed_gvg_services = Service.objects.filter(
+                pk__in=work_item.addressed_groups,
+                slug=gr_constants.GVG_SERVICE_SLUG,
+            )
+
+            for gvg_service in addressed_gvg_services:
+                self.manager.grant(
+                    work_item.case.family.instance,
+                    grant_type="SERVICE",
+                    service=gvg_service,
+                    access_level="distribution-service",
+                    event_name="received-work-item",
+                    skip_if_exists=True,
+                )
 
 
 class GeometerHandlerMixin:
