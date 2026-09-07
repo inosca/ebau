@@ -104,12 +104,15 @@ mutation CreateWithdrawalRequestTask {
 }
 
 mutation CreateWithdrawalCheckTask {
-  saveSimpleTask(
+  saveCompleteTaskFormTask(
     input: {
       slug: "withdrawal-check"
       name: "Rückzug prüfen"
+      form: "withdrawal-check"
       addressGroups: "[\"municipality\"]|groups"
       controlGroups: "[\"municipality\"]|groups"
+      leadTime: 432000 # 5 days
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]},\"redirectToWorkItemsAfterCompletion\":true}"
     }
   ) {
     clientMutationId

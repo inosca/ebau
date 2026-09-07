@@ -138,6 +138,7 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
                     else []
                 ),
                 "complete-instance",
+                "withdrawal-check",
                 "archive-instance",
             ],
             "authority-contribution": [

@@ -8,6 +8,9 @@ index:
 instances:
   rejectionText: "Bitte beachten Sie die Rückmeldung der Leitbehörde (siehe Text «Begründung Rückweisung»). Sollten Sie das Dossier überarbeiten und erneut einreichen wollen, haben Sie hier die Möglichkeit dazu. Beachten Sie dabei, dass eine Kopie dieses Dossiers erstellt wird."
   withdrawalRequestCommunicationText: "«{communications}»."
+  withdrawalRequestDisabledText: "Die Rückzugsfunktion ist in Ihrer Gemeinde nicht verfügbar. Wenn Sie Ihr Gesuch zurückziehen möchten, wenden Sie sich bitte direkt an Ihre Gemeinde:"
+  withdrawalRequestDisabledCommunication: "Kommunikation"
+  withdrawalRequestDisabledWebsite: "Webseite"
   new:
     building-permit:
       title: "Baubewilligungsverfahren"

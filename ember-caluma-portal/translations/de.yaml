@@ -171,6 +171,8 @@ instances:
   withdrawalRequestCommunicationText: "\"{communications}\"."
   withdrawalRequest: "Rückzug beantragen"
   withdrawalRequestDisabledText: "Die Rückzugsfunktion ist in Ihre Gemeinde nicht verfügbar. Um einen Antrag auf Rückzug zu stellen, wenden Sie sich bitte telefonisch oder per E-Mail an Ihre Gemeinde."
+  withdrawalRequestDisabledCommunication: ""
+  withdrawalRequestDisabledWebsite: ""
 
   categories:
     all: "Alle"
