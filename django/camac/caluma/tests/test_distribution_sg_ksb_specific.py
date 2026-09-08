@@ -4,35 +4,16 @@ from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import resume_work_item
 
 from camac.caluma.extensions.events.distribution_sg_ksb_specific import (
-    META_CREATED_BY_KSB_KEY,
     META_FIRST_WEEK_KEY,
 )
 
 
 @pytest.mark.parametrize(
-    ("service__slug", "expected_created_by_ksb"),
+    ("inquiry_type", "expected_first_week"),
     [
-        ("coordination", True),
-        ("some-municipality", False),
-    ],
-)
-@pytest.mark.django_db
-def test_mark_inquiry_as_created_by_ksb(expected_created_by_ksb, inquiry_factory_sg):
-    inquiry = inquiry_factory_sg()
-
-    assert inquiry.meta.get(META_CREATED_BY_KSB_KEY, False) == expected_created_by_ksb
-
-
-@pytest.mark.parametrize(
-    ("service__slug", "inquiry_type", "expected_first_week"),
-    [
-        ("coordination", "inquiry-type-first-week", True),
-        ("coordination", "inquiry-type-statement", False),
-        ("coordination", None, False),
-        # The inquiry type question is only visible for the KSB, so an inquiry
-        # of another service is never a first week inquiry - even if the answer
-        # somehow exists
-        ("some-municipality", "inquiry-type-first-week", False),
+        ("inquiry-type-first-week", True),
+        ("inquiry-type-statement", False),
+        (None, False),
     ],
 )
 @pytest.mark.django_db
