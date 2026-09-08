@@ -13,6 +13,8 @@ export default class AuditIndexController extends Controller {
   @service notification;
   @service intl;
   @service fetch;
+  @service permissions;
+  @service ebauModules;
 
   @queryManager apollo;
 
@@ -29,7 +31,7 @@ export default class AuditIndexController extends Controller {
         variables: { id: this.auditController.auditWorkItem.id },
       });
 
-      yield this.auditController.fetchAudit.perform();
+      yield this.refresh();
 
       this.notification.success(this.intl.t("audit.skipSuccess"));
     } catch {
@@ -46,7 +48,7 @@ export default class AuditIndexController extends Controller {
         variables: { id: this.auditController.auditWorkItem.id },
       });
 
-      yield this.auditController.fetchAudit.perform();
+      yield this.refresh();
 
       this.notification.success(this.intl.t("audit.completeSuccess"));
     } catch (error) {
@@ -63,5 +65,13 @@ export default class AuditIndexController extends Controller {
   @action
   toggleShowSameEbauNumber() {
     this.showSameEbauNumber = !this.showSameEbauNumber;
+  }
+
+  @action
+  async refresh() {
+    // Refresh audit and instance permissions after
+    // completion / skipping of audit
+    await this.auditController.fetchAudit.perform();
+    await this.permissions.populateCacheFor(this.ebauModules.instanceId);
   }
 }
