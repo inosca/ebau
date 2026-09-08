@@ -1,9 +1,15 @@
 import datetime
+import fcntl
 import logging
 import os
+import pickle
+import signal
 from collections import defaultdict
 from concurrent.futures import ProcessPoolExecutor
+from contextlib import contextmanager
 from dataclasses import dataclass, field
+from pathlib import Path
+from tempfile import NamedTemporaryFile
 from types import SimpleNamespace
 from typing import Any
 
@@ -11,7 +17,8 @@ import openpyxl
 from caluma.caluma_form import calc_questions, structure
 from caluma.caluma_form.models import Answer, Document, FormQuestion, Question
 from caluma.caluma_form.validators import DocumentValidator
-from django.core.management.base import BaseCommand
+from django.conf import settings
+from django.core.management.base import BaseCommand, CommandError
 from django.db import connections, transaction
 from django.db.models import Exists, OuterRef, Q
 from rest_framework import exceptions
@@ -47,6 +54,126 @@ class StatsEntry:
     municipality: str
     instance: str
     recalculations: list[RecalcInfo] = field(default_factory=list)
+
+
+@dataclass
+class TaskResult:
+    phase: str
+    instance_id: int
+    entries: list[LogEntry | StatsEntry]
+
+
+def _failed_task(
+    phase: str, progressinfo: str, inst_id: int, operation: str, exc: Exception
+) -> TaskResult:
+    return TaskResult(
+        phase,
+        inst_id,
+        [
+            LogEntry(
+                logging.ERROR,
+                "%s Instance %s: Error during %s (%s)",
+                [progressinfo, inst_id, operation, exc],
+            )
+        ],
+    )
+
+
+@dataclass
+class RunState:
+    configuration: dict[str, Any]
+    started_at: datetime.datetime
+    completed_ids: dict[str, set[int]] = field(default_factory=dict)
+    results: dict[tuple[str, int], list[StatsEntry]] = field(default_factory=dict)
+
+
+class RunStateStore:
+    """Persist and safely merge restart state for calculation runs."""
+
+    def __init__(self, configuration: dict[str, Any]):
+        """Set up the checkpoint paths for the given run configuration."""
+        self.configuration = configuration
+        self.directory = Path(settings.MEDIA_ROOT) / "recalc_fix"
+        self.path = self.directory / "state.pickle"
+        self.lock_path = self.directory / "state.lock"
+
+    @contextmanager
+    def _locked(self):
+        """Exclusively lock the checkpoint while reading or writing its state."""
+        self.directory.mkdir(parents=True, exist_ok=True)
+        with self.lock_path.open("a+b") as lock_file:
+            fcntl.flock(lock_file.fileno(), fcntl.LOCK_EX)
+            try:
+                yield
+            finally:
+                fcntl.flock(lock_file.fileno(), fcntl.LOCK_UN)
+
+    def _load_locked(self) -> RunState | None:
+        if not self.path.exists():
+            return None
+        try:
+            with self.path.open("rb") as state_file:
+                state = pickle.load(state_file)
+        except (EOFError, pickle.UnpicklingError) as exc:
+            raise CommandError(
+                f"Could not load recalculation checkpoint {self.path}: {exc}"
+            ) from exc
+
+        if not isinstance(state, RunState):
+            raise CommandError(
+                "The existing recalculation checkpoint is not valid. "
+                "Use --reset-state to start a new run."
+            )
+        return state
+
+    def _write_locked(self, state: RunState) -> None:
+        with NamedTemporaryFile(
+            mode="wb", dir=self.directory, prefix="state-", delete=False
+        ) as state_file:
+            pickle.dump(state, state_file)
+            state_file.flush()
+            os.fsync(state_file.fileno())
+            temporary_path = Path(state_file.name)
+        os.replace(temporary_path, self.path)
+
+    def start(self, reset: bool = False) -> RunState:
+        """Create or resume the compatible checkpoint, optionally replacing it."""
+        with self._locked():
+            state = None if reset else self._load_locked()
+            if state is None:
+                state = RunState(
+                    configuration=self.configuration,
+                    started_at=datetime.datetime.now(),
+                )
+                self._write_locked(state)
+                return state
+
+            if state.configuration != self.configuration:
+                raise CommandError(
+                    "The existing recalculation checkpoint uses different command "
+                    "options. Use --reset-state to start a new run."
+                )
+            return state
+
+    def record_completed(
+        self, phase: str, instance_id: int, stats_entries: list[StatsEntry]
+    ) -> None:
+        """Atomically store a completed instance outcome unless it is already known."""
+        with self._locked():
+            state = self._load_locked()
+            if state is None:
+                raise CommandError("The recalculation checkpoint does not exist.")
+            if state.configuration != self.configuration:
+                raise CommandError(
+                    "The recalculation checkpoint configuration changed."
+                )
+
+            completed_ids = state.completed_ids.setdefault(phase, set())
+            outcome_key = (phase, instance_id)
+            if instance_id not in completed_ids:
+                completed_ids.add(instance_id)
+                state.results[outcome_key] = stats_entries
+                self._write_locked(state)
 
 
 class Command(BaseCommand):
@@ -170,6 +297,28 @@ class Command(BaseCommand):
             help="Specify excel filename for detailled output",
             required=False,
         )
+        parser.add_argument(
+            "--reset-state",
+            action="store_true",
+            help="Discard the existing recalculation checkpoint before starting",
+            required=False,
+            default=False,
+        )
+
+    @contextmanager
+    def _handle_stop_signals(self):
+        def _interrupt(signum, frame):
+            raise KeyboardInterrupt
+
+        signals = (signal.SIGINT, signal.SIGTERM)
+        previous_handlers = {}
+        try:
+            for stop_signal in signals:
+                previous_handlers[stop_signal] = signal.signal(stop_signal, _interrupt)
+            yield
+        finally:
+            for stop_signal, previous_handler in previous_handlers.items():
+                signal.signal(stop_signal, previous_handler)
 
     def handle(self, *args, **options):
         self.configure_logging(options["verbosity"])
@@ -190,13 +339,19 @@ class Command(BaseCommand):
         )
         self.search_only = options["search_only"]
 
-        started_at = datetime.datetime.now()
+        self.state_store = RunStateStore(self._run_configuration(options))
+        self.run_state = self.state_store.start(reset=options["reset_state"])
+        started_at = self.run_state.started_at
+        self._restore_stats()
 
         if not do_commit:
             log.info("Pretend mode active: Changes will not be committed to DB")
 
-        with chosen_executor() as executor:
-            try:
+        executor = chosen_executor()
+        interrupted = False
+        cancel_futures = False
+        try:
+            with self._handle_stop_signals():
                 if do_validate:
                     log.info("Collecting instances for validation checks")
                     total, qs = self.iter_instances_for_validation()
@@ -227,12 +382,18 @@ class Command(BaseCommand):
                         do_commit=do_commit,
                     )
 
-            except KeyboardInterrupt:
-                log.error("User triggered stop, shutting down")
-                executor.shutdown(wait=True, cancel_futures=True)
-            except Exception as exc:
-                log.error("Some error happened, stopping: %s", str(exc))
-                executor.shutdown(wait=True, cancel_futures=True)
+        except KeyboardInterrupt:
+            interrupted = True
+            cancel_futures = True
+            log.error("Stop signal received, cancelling pending work")
+        except Exception as exc:
+            cancel_futures = True
+            log.error("Some error happened, stopping: %s", str(exc))
+        finally:
+            executor.shutdown(wait=not interrupted, cancel_futures=cancel_futures)
+
+        if interrupted:
+            return
 
         self.log_stats()
         if self.excel_out:
@@ -241,6 +402,24 @@ class Command(BaseCommand):
                 committed_to_db=do_commit,
                 did_fixes=do_fix_calculation,
             )
+
+    @staticmethod
+    def _run_configuration(options: dict[str, Any]) -> dict[str, Any]:
+        return {
+            "do_validate": options["do_validate"],
+            "do_recalc": options["do_recalc"],
+            "do_fix_calc": options["do_fix_calc"],
+            "do_commit": options["do_commit"],
+            "analyze_only": tuple(
+                options["analyze_only"].split(",") if options["analyze_only"] else []
+            ),
+            "search_only": options["search_only"],
+        }
+
+    def _restore_stats(self) -> None:
+        for stats_entries in self.run_state.results.values():
+            for entry in stats_entries:
+                self._merge_stats(entry)
 
     def log_to_excel(self, start_time, committed_to_db, did_fixes):
 
@@ -480,21 +659,45 @@ class Command(BaseCommand):
     def _schedule(self, progress_label, executor, task, total, instances, **kwargs):
         for i, inst in enumerate(instances, start=1):
             progressinfo = f"[{progress_label} {i}/{total}]"
-            fut = executor.submit(task, progressinfo, inst.pk, **kwargs)
+            fut = executor.submit(
+                task,
+                progressinfo,
+                inst.pk,
+                state_configuration=self.run_state.configuration,
+                **kwargs,
+            )
             fut.add_done_callback(self._log_result)
 
     def _log_result(self, logdata):
         result = logdata.result()
-        assert isinstance(result, list)
-        for entry in result:
+        assert isinstance(result, TaskResult)
+        for entry in result.entries:
             match entry:
                 case LogEntry(level, message, args):
                     log.log(level, message, *args)
 
                 case StatsEntry(municipality, instance, recalculations):
-                    self.stats[municipality][instance].extend(recalculations)
+                    self._merge_stats(
+                        StatsEntry(municipality, instance, recalculations)
+                    )
                 case _:
                     raise RuntimeError(f"Unknown result received: {result}")
+
+    def _merge_stats(self, entry: StatsEntry) -> None:
+        self.stats[entry.municipality][entry.instance].extend(entry.recalculations)
+
+    @staticmethod
+    def _checkpoint_on_commit(
+        state_configuration: dict[str, Any], result: TaskResult
+    ) -> None:
+        stats_entries = [
+            entry for entry in result.entries if isinstance(entry, StatsEntry)
+        ]
+        transaction.get_connection().on_commit(
+            lambda: RunStateStore(state_configuration).record_completed(
+                result.phase, result.instance_id, stats_entries
+            )
+        )
 
     def configure_logging(self, verbosity):
         """Configure logging to the commandline's verbosity level."""
@@ -521,7 +724,14 @@ class Command(BaseCommand):
         _config_handler(log)
 
     @classmethod
-    def check_validation(cls, progressinfo, inst_id):
+    def check_validation(cls, progressinfo, inst_id, state_configuration):
+        try:
+            return cls._check_validation(progressinfo, inst_id, state_configuration)
+        except Exception as exc:
+            return _failed_task("validation", progressinfo, inst_id, "validation", exc)
+
+    @classmethod
+    def _check_validation(cls, progressinfo, inst_id, state_configuration):
         """Check the given instance for validation issues.
 
         Validate the main form of the given instance, and give a warning
@@ -530,59 +740,50 @@ class Command(BaseCommand):
         Return a loggable tuple, so it can be logged in the main process
         """
         cls._clean_env()
-        inst = Instance.objects.prefetch_related("case", "case__document").get(
-            pk=inst_id
-        )
-
-        struc = cls._struc(inst)
-        validator = DocumentValidator()
-
-        mun = cls._municipality(inst)
-
-        try:
-            validator.validate(
-                struc._document, user=cls._user, validation_context=struc
+        with transaction.atomic():
+            inst = Instance.objects.prefetch_related("case", "case__document").get(
+                pk=inst_id
             )
-        except exceptions.ValidationError as exc:
-            return [
-                LogEntry(
-                    logging.WARNING,
-                    "%s Instance %s (%s) for %s: Invalid form found (%s)",
-                    [
-                        progressinfo,
-                        inst.pk,
-                        inst.instance_state.get_name(),
-                        mun,
-                        exc,
-                    ],
+
+            struc = cls._struc(inst)
+            validator = DocumentValidator()
+            mun = cls._municipality(inst)
+
+            try:
+                validator.validate(
+                    struc._document, user=cls._user, validation_context=struc
                 )
-            ]
-        except Exception as exc:
-            return [
-                LogEntry(
-                    logging.WARNING,
-                    "%s Instance %s (%s) for %s: Error during validation (%s)",
-                    [
-                        progressinfo,
-                        inst.pk,
-                        inst.instance_state.get_name(),
-                        mun,
-                        exc,
-                    ],
-                )
-            ]
-        return [
-            LogEntry(
-                logging.DEBUG,
-                "%s Instance %s (%s) for %s: Validation seems OK",
-                [
-                    progressinfo,
-                    inst.pk,
-                    str(inst.instance_state.get_name()),
-                    mun,
-                ],
-            )
-        ]
+            except exceptions.ValidationError as exc:
+                entries = [
+                    LogEntry(
+                        logging.WARNING,
+                        "%s Instance %s (%s) for %s: Invalid form found (%s)",
+                        [
+                            progressinfo,
+                            inst.pk,
+                            inst.instance_state.get_name(),
+                            mun,
+                            exc,
+                        ],
+                    )
+                ]
+            else:
+                entries = [
+                    LogEntry(
+                        logging.DEBUG,
+                        "%s Instance %s (%s) for %s: Validation seems OK",
+                        [
+                            progressinfo,
+                            inst.pk,
+                            str(inst.instance_state.get_name()),
+                            mun,
+                        ],
+                    )
+                ]
+
+            result = TaskResult("validation", inst_id, entries)
+            cls._checkpoint_on_commit(state_configuration, result)
+        return result
 
     @staticmethod
     def _struc(instance) -> structure.FieldSet:
@@ -625,6 +826,34 @@ class Command(BaseCommand):
         analyze_only: list[str],
         fix_calculation: bool,
         do_commit: bool,
+        state_configuration: dict[str, Any],
+    ) -> TaskResult:
+        try:
+            cls._clean_env()
+            with transaction.atomic():
+                entries = cls._check_miscalculation(
+                    progressinfo,
+                    inst_id,
+                    analyze_only,
+                    fix_calculation,
+                    do_commit,
+                )
+                result = TaskResult("recalculation", inst_id, entries)
+                cls._checkpoint_on_commit(state_configuration, result)
+            return result
+        except Exception as exc:
+            return _failed_task(
+                "recalculation", progressinfo, inst_id, "recalculation", exc
+            )
+
+    @classmethod
+    def _check_miscalculation(
+        cls,
+        progressinfo: str,
+        inst_id: int,
+        analyze_only: list[str],
+        fix_calculation: bool,
+        do_commit: bool,
     ) -> list[LogEntry | StatsEntry]:
         """Check the given instance for miscalculation issues.
 
@@ -634,7 +863,6 @@ class Command(BaseCommand):
 
         Return a loggable tuple, so it can be logged in the main process
         """
-        cls._clean_env()
         inst = Instance.objects.prefetch_related("case", "case__document").get(
             pk=inst_id
         )
@@ -779,50 +1007,48 @@ class Command(BaseCommand):
             LogEntry(logging.INFO, "    Instance %s: Recalculating fields", [inst])
         ]
 
-        with transaction.atomic():
-            savepoint = transaction.savepoint()
-            calc_questions.recalculate_all_calc_fields(struc)
-            after_values = {
-                fld.get_path(): (fld.is_hidden(), fld.get_value(ignore_hidden=True))
-                for fld in cls._all_calc_fields(struc)
-            }
+        savepoint = transaction.savepoint()
+        calc_questions.recalculate_all_calc_fields(struc)
+        after_values = {
+            fld.get_path(): (fld.is_hidden(), fld.get_value(ignore_hidden=True))
+            for fld in cls._all_calc_fields(struc)
+        }
 
-            recalcs = []
+        recalcs = []
 
-            for path, value_before in before_values.items():
-                after_is_hidden, after_value = after_values[path]
-                hiddenstate = "hidden " if after_is_hidden else ""
+        for path, value_before in before_values.items():
+            after_is_hidden, after_value = after_values[path]
+            hiddenstate = "hidden " if after_is_hidden else ""
 
-                if value_before != after_value:
-                    recalc_log.append(
-                        LogEntry(
-                            logging.DEBUG,
-                            "    Instance %s: %sfield %s was recalculated (old: %s, new: %s)",
-                            [inst, hiddenstate, path, value_before, after_value],
-                        )
-                    )
-                    recalcs.append(
-                        RecalcInfo(
-                            name=path,
-                            hidden=after_is_hidden,
-                            before=value_before,
-                            after=after_value,
-                            event="fixed",
-                        )
-                    )
-
-            if recalcs:
-                recalc_log.append(StatsEntry(municipality, inst, recalcs))
-            if not do_commit:
+            if value_before != after_value:
                 recalc_log.append(
                     LogEntry(
                         logging.DEBUG,
-                        "    Rolling back changes, pass --commit to save permanently",
-                        [],
+                        "    Instance %s: %sfield %s was recalculated (old: %s, new: %s)",
+                        [inst, hiddenstate, path, value_before, after_value],
+                    )
+                )
+                recalcs.append(
+                    RecalcInfo(
+                        name=path,
+                        hidden=after_is_hidden,
+                        before=value_before,
+                        after=after_value,
+                        event="fixed",
                     )
                 )
 
-                transaction.savepoint_rollback(savepoint)
+        if recalcs:
+            recalc_log.append(StatsEntry(municipality, inst, recalcs))
+        if not do_commit:
+            recalc_log.append(
+                LogEntry(
+                    logging.DEBUG,
+                    "    Rolling back changes, pass --commit to save permanently",
+                    [],
+                )
+            )
+            transaction.savepoint_rollback(savepoint)
         return recalc_log
 
     def _all_forms_with_calc_questions(self) -> list[str]:
@@ -893,6 +1119,7 @@ class Command(BaseCommand):
         qs = self._base_qs().exclude(
             instance_state__name__in=self.EXCLUDE_STATES_FOR_VALIDATION
         )
+        qs = self._exclude_completed(qs, "validation", "checked for validation")
         if self.dev_mode:
             qs = qs[:100]
 
@@ -910,10 +1137,21 @@ class Command(BaseCommand):
             # order by random to get an early sampling of all situations
             .order_by("?")
         )
+        qs = self._exclude_completed(qs, "recalculation", "checked or fixed")
         if self.dev_mode:
             qs = qs[:100]
 
         return (qs.count(), qs.iterator(chunk_size=200))
+
+    def _exclude_completed(self, qs, phase: str, description: str):
+        completed_ids = self.run_state.completed_ids.get(phase, set())
+        if not completed_ids:
+            return qs
+
+        skipped = qs.filter(pk__in=completed_ids).count()
+        if skipped:
+            log.info("Skipping %d instances already %s", skipped, description)
+        return qs.exclude(pk__in=completed_ids)
 
     @classmethod
     def _clean_env(cls):
