@@ -100,11 +100,22 @@ def test_instance_list(
 
 @pytest.mark.freeze_time("2023-12-01")
 @pytest.mark.parametrize(
-    ("deadline_date", "workitem_status", "expected_count"),
+    (
+        "deadline_date",
+        "workitem_status",
+        "automatic_answer",
+        "active_acl",
+        "expected_count",
+    ),
     [
-        ("2023-12-02 00:00:00+00", "completed", 1),
-        ("2023-11-30 00:00:00+00", "completed", 1),
-        ("2023-11-30 00:00:00+00", "ready", 0),
+        ("2023-12-02 00:00:00+00", "completed", False, False, 1),
+        ("2023-11-30 00:00:00+00", "completed", False, False, 1),
+        ("2023-11-30 00:00:00+00", "ready", False, False, 0),
+        # Automatic renounce must not grant continued dossier visibility.
+        ("2023-11-30 00:00:00+00", "completed", True, False, 0),
+        ("2023-12-02 00:00:00+00", "completed", True, False, 0),
+        # A separate active ACL still grants access.
+        ("2023-11-30 00:00:00+00", "completed", True, True, 1),
     ],
 )
 @pytest.mark.parametrize(("role__name", "instance__user"), [("uso", lf("user"))])
@@ -115,16 +126,35 @@ def test_instance_list_for_uso_gr(
     service_factory,
     caluma_case_factory,
     caluma_work_item_factory,
+    caluma_answer_factory,
+    instance_acl_factory,
     workitem_status,
     role,
     deadline_date,
     expected_count,
     distribution_settings,
+    automatic_answer,
+    active_acl,
 ):
     gr_instance.case = caluma_case_factory(workflow_id="inquiry")
+    child_case = caluma_case_factory()
+    if automatic_answer:
+        caluma_answer_factory(
+            document=child_case.document,
+            question_id=distribution_settings["QUESTIONS"]["STATUS"],
+            value=distribution_settings["INQUIRY_ANSWER_AUTOMATIC_RENOUNCED"],
+        )
+    if active_acl:
+        instance_acl_factory(
+            instance=gr_instance,
+            service=gr_instance.group.service,
+            grant_type="SERVICE",
+            access_level__slug="read",
+        )
     gr_instance.case.work_items.add(
         caluma_work_item_factory(
             task_id="inquiry",
+            child_case=child_case,
             addressed_groups=[gr_instance.group.service.pk],
             deadline=deadline_date,
             status=workitem_status,

@@ -217,7 +217,20 @@ class InstanceQuerysetMixin:
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
         instances_for_activation = self._instances_with_activation(
-            group, Q(deadline__date__gte=timezone.localdate()) | Q(status="completed")
+            group,
+            (Q(deadline__date__gte=timezone.localdate()) | Q(status="completed"))
+            # Automatic renounced inquiries do not grant continued access for USO.
+            & ~Q(
+                Exists(
+                    Answer.objects.filter(
+                        document_id=OuterRef("child_case__document_id"),
+                        question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
+                        value=settings.DISTRIBUTION[
+                            "INQUIRY_ANSWER_AUTOMATIC_RENOUNCED"
+                        ],
+                    )
+                )
+            ),
         )
 
         return queryset.filter(
