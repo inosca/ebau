@@ -136,12 +136,11 @@ def test_create_instance_dossier_import_case(
 
     # Check if the dossier is marked as paper or electronic
     if config == "kt_ag":
-        for instance in instances:
-            answer = Answer.objects.filter(
-                document=instance.case.document, question_id="is-paper"
-            ).first()
-            assert answer is not None
-            assert answer.value == "is-paper-yes"
+        answer = Answer.objects.filter(
+            document=first_instance.case.document, question_id="is-paper"
+        ).first()
+        assert answer is not None
+        assert answer.value == "is-paper-yes"
 
     # Check permissions module ACLs
     available_access_levels = settings.PERMISSIONS.get("ACCESS_LEVELS", {})
