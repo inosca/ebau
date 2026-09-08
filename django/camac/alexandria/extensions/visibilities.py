@@ -118,9 +118,7 @@ class CustomVisibility(InstanceQuerysetMixin):
     @filter_queryset_for(File)
     def filter_queryset_for_file(self, queryset, request):
         # Limitations for `Document` should also be enforced on `File`.
-        return queryset.filter(
-            self.document_and_file_filter(request, "document__")
-        ).distinct()
+        return queryset.filter(self.document_and_file_filter(request, "document__"))
 
     @filter_queryset_for(Category)
     def filter_queryset_for_category(self, queryset, request):
@@ -144,7 +142,7 @@ class CustomVisibility(InstanceQuerysetMixin):
 
         if settings.ALEXANDRIA["TAG_VISIBILITY"] == "all":
             return queryset
-        elif settings.ALEXANDRIA["TAG_VISIBILITY"] == "service-subservice":
+        elif settings.ALEXANDRIA["TAG_VISIBILITY"] == "service-subservice-municipality":
             return queryset.filter(
                 Q(
                     created_by_group__in=get_service_parent_and_children(

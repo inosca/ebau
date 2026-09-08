@@ -69,7 +69,7 @@ ALEXANDRIA = {
     "kt_so": {
         "ENABLED": True,
         "LOG_MARKS_IN_HISTORY": True,
-        "TAG_VISIBILITY": "service-subservice",
+        "TAG_VISIBILITY": "service-subservice-municipality",
         "MARK_VISIBILITY": {
             "APPLICANT": ["objection"],
             "SENSITIVE": ["sensitive"],
