@@ -7,9 +7,7 @@ from datetime import datetime
 from typing import Any
 
 from caluma.caluma_form.api import save_answer
-from caluma.caluma_form.models import (
-    Question,
-)
+from caluma.caluma_form.models import Question
 from caluma.caluma_user.models import BaseUser
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -378,9 +376,6 @@ class KtAargauDossierWriter(DossierWriter):
     )
 
     responsible = ResponsibleUserWriter(target="responsible")
-
-    def create_instance(self, dossier: Dossier, is_paper=False) -> Instance:
-        return super().create_instance(dossier, True)
 
     def find_existing_instance(self, dossier, user):
         # 1. directly check for dossier.id in the keywords (formerly migrated or imported dossier with that communal id)

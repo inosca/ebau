@@ -810,7 +810,7 @@ class DossierWriter:
             )
         )
 
-    def create_instance(self, dossier: Dossier, is_paper=False) -> Instance:
+    def create_instance(self, dossier: Dossier) -> Instance:
         """Create the instance."""
 
         instance_state = self.get_instance_state(dossier)
@@ -832,7 +832,7 @@ class DossierWriter:
                 pk=settings.DOSSIER_IMPORT["CALUMA_FORM"]
             ),
             start_caluma=True,
-            is_paper=is_paper,
+            is_paper=settings.DOSSIER_IMPORT["IMPORT_AS_PAPER"],
         )
 
         InstanceService.objects.create(
@@ -1268,13 +1268,6 @@ class DossierWriter:
         self, instance: Instance, dossier: Dossier
     ) -> list[Message] | None:
         """Do stuff in import_dossier after a new instance was created.
-
-        Overwrite this in your config for custom behaviour.
-        """
-        return
-
-    def _pre_create_instance(self, dossier: Dossier) -> None:
-        """Do stuff in import_dossier before a new instance is created.
 
         Overwrite this in your config for custom behaviour.
         """
