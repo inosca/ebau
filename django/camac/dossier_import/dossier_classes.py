@@ -91,7 +91,6 @@ class Dossier:
     project_author: list[Person] | str | None = None
     attachments: list[Attachment] | str | None = None
     responsible: str | None = field(default=None)
-    is_paper: bool = False
 
     _meta: Optional["Dossier.Meta"] = field(
         default_factory=lambda: Dossier.Meta(target_state="DRAFT")

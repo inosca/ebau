@@ -810,7 +810,7 @@ class DossierWriter:
             )
         )
 
-    def create_instance(self, dossier: Dossier) -> Instance:
+    def create_instance(self, dossier: Dossier, is_paper=False) -> Instance:
         """Create the instance."""
 
         instance_state = self.get_instance_state(dossier)
@@ -832,7 +832,7 @@ class DossierWriter:
                 pk=settings.DOSSIER_IMPORT["CALUMA_FORM"]
             ),
             start_caluma=True,
-            is_paper=dossier.is_paper,
+            is_paper=is_paper,
         )
 
         InstanceService.objects.create(
@@ -938,7 +938,6 @@ class DossierWriter:
                 )
                 dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
                 return dossier_summary
-            self._pre_create_instance(dossier)
             instance = self.create_instance(dossier)
             dossier_summary.instance_id = str(instance.pk)
             self._post_create_instance(instance, dossier)

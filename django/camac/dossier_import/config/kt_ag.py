@@ -379,8 +379,8 @@ class KtAargauDossierWriter(DossierWriter):
 
     responsible = ResponsibleUserWriter(target="responsible")
 
-    def _pre_create_instance(self, dossier: Dossier) -> None:
-        dossier.is_paper = True
+    def create_instance(self, dossier: Dossier, is_paper=False) -> Instance:
+        return super().create_instance(dossier, True)
 
     def find_existing_instance(self, dossier, user):
         # 1. directly check for dossier.id in the keywords (formerly migrated or imported dossier with that communal id)
