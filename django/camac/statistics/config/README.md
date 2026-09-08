@@ -1,6 +1,6 @@
 # Statistics Workbook Formulas
 
-Example: `kt_ag/rpg2_service-afb.xlsx`, sheet `Auswertung`.
+Example: `kt_ag/rpg2_export.xlsx`, sheet `Auswertung`.
 
 The workbook contains two calculated cells: the area balance and the building balance. This README documents Excel's special handling of array constants.
 

@@ -48,10 +48,12 @@ FILTER_LABELS = [
 ]
 
 
-def _resolve_template_path(export_type, role_slug=None, service_group_slug=None):
+def _resolve_template_path(
+    export_type, role_slug=None, service_group_slug=None, service_slug=None
+):
     """Return the best-matching XLSX template path, or None.
 
-    Priority: service_group > role > type-only default.
+    Priority: service > service_group > role > type-only default.
     """
 
     # normalize export_type _ to - to get base of template name
@@ -64,6 +66,8 @@ def _resolve_template_path(export_type, role_slug=None, service_group_slug=None)
     )
 
     candidates = []
+    if service_slug:
+        candidates.append(f"{base_type}_{service_slug}.xlsx")
     if service_group_slug:
         candidates.append(f"{base_type}_{service_group_slug}.xlsx")
     if role_slug:
@@ -123,11 +127,12 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
     def _get_template(self, request):
         """Resolve the XLSX template for the current export."""
         service = getattr(request.group, "service", None)
+        service_slug = getattr(service, "slug", None) if service else None
         sg_slug = getattr(service.service_group, "slug", None) if service else None
         role = getattr(request.group, "role", None)
         role_slug = getattr(role, "slug", None) if role else None
 
-        return _resolve_template_path(self.base_type, role_slug, sg_slug)
+        return _resolve_template_path(self.base_type, role_slug, sg_slug, service_slug)
 
     def _get_autofilter(self, sheet_name):
         """Return configured autofilter values for *sheet_name*."""
