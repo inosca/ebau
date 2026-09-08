@@ -104,12 +104,12 @@ def test_create_sales_order_real(
     )
 
     response = client.create_sales_order(order)
-    assert response.state == "success"
+    assert response.state == "success", response
     assert not response.error
 
     # Verify that the order can be retrieved and check its status
     auftr_key = mock_rapag_sequence
-    retrieved_orders = client.get_sales_orders(ktag_auftr_key=auftr_key)
+    retrieved_orders = client.get_sales_orders(ktag_auftr_key=[auftr_key])
     assert len(retrieved_orders) == 1
     retrieved_order = retrieved_orders[0]
     assert isinstance(retrieved_order, RapagSalesOrderGetItem)

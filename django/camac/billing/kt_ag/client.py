@@ -37,7 +37,7 @@ class RapagClient:
 
     def get_sales_orders(
         self,
-        ktag_auftr_key: str | None = None,
+        ktag_auftr_key: list[str] | None = None,
         ktag_status: RapagStatus | str | None = None,
         ktag_eing_datum: str | None = None,
     ) -> list[RapagSalesOrderGetItem]:
@@ -48,7 +48,7 @@ class RapagClient:
         params = {}
         params["ktagBusCase"] = "DIBA"
         if ktag_auftr_key:
-            params["ktagAuftrKey"] = ktag_auftr_key
+            params["ktagAuftrKey"] = ";".join(ktag_auftr_key)
         if ktag_status:  # pragma: no cover
             params["ktagStatus"] = (
                 ktag_status.value
