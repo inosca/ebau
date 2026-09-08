@@ -17,6 +17,7 @@ services:
   db:
     image: postgres:15-bullseye
     environment:
+      CI: "true"
       POSTGRES_USER: camac
       POSTGRES_PASSWORD: camac
       POSTGRES_DATABASE: ${APPLICATION}
