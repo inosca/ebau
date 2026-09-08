@@ -71,7 +71,7 @@ export default class SubmitInstanceComponent extends Component {
       : null;
   }
 
-  disabled = trackedFunction(this, async () => {
+  cannotSubmit = trackedFunction(this, async () => {
     if (!this.requiredPermissions) {
       // If the permissions module is not full enabled, we don't require any
       // permission and fully depend on the disabled state passed to the form
