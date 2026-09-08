@@ -5,7 +5,6 @@ import InquiryFirstWeekIconComponent from "ember-ebau-core/components/inquiry-fi
 import mainConfig from "ember-ebau-core/config/main";
 import { cantonAware } from "ember-ebau-core/decorators";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
-import { isApplication } from "ember-ebau-core/helpers/is-application";
 import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
 import { DateTime } from "luxon";
 import { cached } from "tracked-toolbox";
@@ -600,16 +599,5 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     }
 
     return "0000-01-01";
-  }
-
-  async distributionInquiryWorkItemMeta() {
-    if (
-      isApplication("sg") &&
-      this.ebauModules.serviceSlug === "coordination"
-    ) {
-      return { createdByKsb: true };
-    }
-
-    return super.distributionInquiryWorkItemMeta();
   }
 }
