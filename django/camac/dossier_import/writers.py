@@ -832,6 +832,7 @@ class DossierWriter:
                 pk=settings.DOSSIER_IMPORT["CALUMA_FORM"]
             ),
             start_caluma=True,
+            is_paper=settings.DOSSIER_IMPORT["IMPORT_AS_PAPER"],
         )
 
         InstanceService.objects.create(

@@ -20,6 +20,7 @@ DOSSIER_IMPORT = {
             "UNDO": env.int("DJANGO_DOSSIER_IMPORT_UNDO_STL", default=60 * 60 * 2),
         },
         "CALUMA_FORM": "migriertes-dossier",
+        "IMPORT_AS_PAPER": False,
     },
     "kt_schwyz": {
         "ENABLED": True,
@@ -116,6 +117,7 @@ DOSSIER_IMPORT = {
         "FORM_ID": 1,
         "ALEXANDRIA_CATEGORY": "dossier-import",
         "ALEXANDRIA_UPDATE_EXISTING_DOCUMENTS": False,
+        "IMPORT_AS_PAPER": True,
         "PROD_SUPPORT_GROUP_ID": 10000,
         "PROD_URL": env.str(
             "DJANGO_DOSSIER_IMPORT_PROD_URL",
