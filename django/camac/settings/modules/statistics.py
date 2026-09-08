@@ -151,6 +151,23 @@ STATISTICS = ModuleConfig[StatisticsConfig](
     kt_ag=StatisticsConfig(
         enabled=True,
         slugs=DEFAULT_SLUGS,
+        rpg2_autofilter={
+            "Dossiers": {
+                "Positive AfB assessment": ["Ja"],
+                "Realized": ["Ja", ""],
+            },
+            "Flächen": {
+                "Materialisierung der neu ver- bzw. entsiegelten Flächen": [
+                    "Beton",
+                    "Andere wasserundurchlässige Beläge (z.B. Asphalt)",
+                ],
+                "Usage of sealed areas": [
+                    "Erschliessung, Verkehr (kommunale und private Projekte)",
+                    "Ausnahmebewilligung Artikel 24ff RPG",
+                    "Andere",
+                ],
+            },
+        },
         by_service_group={
             "service-external": AG_SERVICE_COLUMN_CONFIG,
             "service-cantonal": AG_SERVICE_COLUMN_CONFIG,
