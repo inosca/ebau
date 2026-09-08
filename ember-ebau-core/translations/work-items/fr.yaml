@@ -59,6 +59,7 @@ workItems:
 
     all: "Tous"
     own: "Propre"
+    nobody: "Aucun"
     unread: "Non lu"
     open: "Ouvert"
     closed: "Terminé"

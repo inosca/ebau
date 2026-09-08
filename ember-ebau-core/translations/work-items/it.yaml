@@ -62,6 +62,7 @@ workItems:
 
     all: "Tutti"
     own: "Propri"
+    nobody: "Nessuno"
     unread: "Non letti"
     open: "In corso"
     closed: "Concluso"
