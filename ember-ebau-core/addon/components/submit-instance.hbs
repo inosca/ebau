@@ -6,5 +6,6 @@
   @showLoadingHint={{true}}
   @buttonLabel={{this.buttonLabel}}
   @afterValidate={{this.submit.perform}}
-  @disabled={{or this.disabled.isLoading this.disabled.value}}
+  @validateWhileDisabled={{not @disabled}}
+  @disabled={{or this.cannotSubmit.isLoading this.cannotSubmit.value}}
 />
