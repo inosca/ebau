@@ -110,6 +110,7 @@ def _import_dossier(data, bfs_nr):
         is_modification=False,
         caluma_form="building-permit",
         source_instance=None,
+        skip_applicant_creation=True,
     )
 
     submit_date = now().strftime(SUBMIT_DATE_FORMAT)
