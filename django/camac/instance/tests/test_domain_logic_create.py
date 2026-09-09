@@ -1,5 +1,10 @@
 import pytest
-from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFactory
+from alexandria.core.factories import (
+    CategoryFactory,
+    DocumentFactory,
+    FileFactory,
+    MarkFactory,
+)
 from alexandria.core.models import Document, File
 from pytest_lazy_fixtures import lf
 from rest_framework.exceptions import ValidationError
@@ -219,6 +224,60 @@ def test_copy_attachments_alexandria(
 
         assert new_file.name == old_file.name
         assert new_file.id != old_file.id
+
+
+@pytest.mark.parametrize("is_sensitive", [True, False])
+@pytest.mark.django_db
+def test_copy_rejected_instance_preserves_sensitive_mark_state(
+    application_settings,
+    caluma_workflow_config_so,
+    instance_factory,
+    instance_state_factory,
+    instance_with_case,
+    so_alexandria_settings,
+    is_sensitive,
+):
+    application_settings["SHORT_NAME"] = "so"
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+
+    rejected_state = instance_state_factory(name="rejected")
+
+    source_instance = instance_with_case(instance_factory())
+    source_instance.instance_state = rejected_state
+    source_instance.save()
+
+    target_instance = instance_with_case(instance_factory())
+
+    category = CategoryFactory(slug="beilagen-zum-gesuch")
+    sensitive_mark = MarkFactory(
+        pk=so_alexandria_settings["MARK_VISIBILITY"]["SENSITIVE"][0]
+    )
+
+    source_document = DocumentFactory(
+        title="baugesuch",
+        metainfo={
+            "camac-instance-id": str(source_instance.pk),
+            "system-generated": True,
+        },
+        category=category,
+    )
+    FileFactory(document=source_document)
+    if is_sensitive:
+        source_document.marks.add(sensitive_mark)
+
+    CreateInstanceLogic.copy_attachments(
+        source_instance,
+        target_instance,
+        skip_exported_form_attachment=False,
+        is_modification=False,
+    )
+
+    copied_document = Document.objects.get(
+        title="baugesuch",
+        **{"metainfo__camac-instance-id": str(target_instance.pk)},
+    )
+
+    assert copied_document.marks.filter(pk=sensitive_mark.pk).exists() is is_sensitive
 
 
 @pytest.mark.django_db

@@ -607,6 +607,12 @@ class CreateInstanceLogic:
             )
 
         for document in alexandria_documents:
+            sensitive_marks = settings.ALEXANDRIA["MARK_VISIBILITY"].get(
+                "SENSITIVE", []
+            )
+            add_sensitive_mark = document.marks.filter(pk__in=sensitive_marks).exists()
+
+            # document.clone() also sets document to the new document
             new_document = document.clone()
             new_document.metainfo["camac-instance-id"] = str(target.pk)
             new_document.instance_document.instance_id = target.pk
@@ -615,6 +621,10 @@ class CreateInstanceLogic:
                 new_document.metainfo["caluma-document-id"] = str(
                     target.case.document.pk
                 )
+
+            if add_sensitive_mark:
+                new_document.marks.add(*sensitive_marks)
+
             new_document.save()
 
     @staticmethod
