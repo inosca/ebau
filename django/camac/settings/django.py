@@ -1857,6 +1857,10 @@ APPLICATIONS = {
         "STORE_PDF": {
             "CATEGORY": {
                 "MAIN": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+                **{
+                    form.upper(): "ebbw-beilagen-zum-gesuch"
+                    for form in gr_constants.BAUBEITRAGSWESEN_FORMS
+                },
             },
         },
         # Mapping between camac role and instance permission.

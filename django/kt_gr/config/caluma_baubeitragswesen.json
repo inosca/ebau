@@ -577,9 +577,7 @@
       "configuration": {},
       "meta": {
         "widgetOverride": "alexandria-documents-form",
-        "alexandria-categories": [
-          "beilagen-zum-gesuch-weitere-gesuchsunterlagen"
-        ]
+        "alexandria-categories": ["ebbw-beilagen-zum-gesuch"]
       },
       "data_source": null,
       "row_form": null,

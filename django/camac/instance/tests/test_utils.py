@@ -1,13 +1,72 @@
 import pytest
 from caluma.caluma_form.api import save_answer
-from caluma.caluma_form.models import Question
+from caluma.caluma_form.models import Document, Question
+from caluma.caluma_workflow.models import Case
 
+from camac.instance.models import Instance
 from camac.instance.utils import (
     be_should_prevent_process_step_for_deactivated_municipality,
     get_municipality,
+    get_pdf_category,
+    get_pdf_section,
     set_construction_control,
 )
 from camac.tests.form_utils import FormUtils
+
+
+@pytest.mark.parametrize(
+    ("form_slug", "case_form_slug", "expected_category"),
+    [
+        (None, None, "main-category"),
+        ("special-form", None, "special-category"),
+        (None, "special-form", "special-category"),
+        ("special-form", "other-form", "special-category"),
+        (None, "other-form", "main-category"),
+    ],
+)
+def test_get_pdf_category(
+    application_settings, form_slug, case_form_slug, expected_category
+):
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+    application_settings["STORE_PDF"] = {
+        "CATEGORY": {
+            "MAIN": "main-category",
+            "SPECIAL-FORM": "special-category",
+        }
+    }
+    document = Document()
+    if case_form_slug:
+        document.form_id = case_form_slug
+    case = Case(document=document)
+    instance = Instance(case=case)
+
+    assert get_pdf_category(instance, form_slug) == expected_category
+
+
+@pytest.mark.parametrize(
+    ("form_slug", "paper", "expected_section"),
+    [
+        (None, False, 1),  # Beilagen zum Gesuch
+        (None, True, 13),  # Beilagen zum Gesuch (Papier und Nachrichten)
+        ("sb1", False, 6),  # Beilagen SB1
+        ("sb1", True, 10),  # Beilagen SB1 (Papier und Nachrichten)
+        ("sb1-v2", False, 6),  # Beilagen SB1
+        ("sb1-v2", True, 10),  # Beilagen SB1 (Papier und Nachrichten)
+        ("sb2", False, 5),  # Beilagen SB2
+        ("sb2", True, 11),  # Beilagen SB2 (Papier und Nachrichten)
+    ],
+)
+def test_get_pdf_section(
+    set_application_be,
+    mocker,
+    form_slug,
+    paper,
+    expected_section,
+):
+    mocker.patch("camac.instance.utils.CalumaApi.is_paper", return_value=paper)
+    instance = Instance()
+
+    assert get_pdf_section(instance, form_slug) == expected_section
 
 
 @pytest.mark.parametrize(
