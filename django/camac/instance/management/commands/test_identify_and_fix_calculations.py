@@ -83,6 +83,64 @@ def test_run_configuration_ignores_verbosity_and_dev_mode():
     )
 
 
+def test_parallel_argument_accepts_an_optional_worker_count():
+    parser = Command.__new__(Command).create_parser(
+        "manage.py", "identify_and_fix_calculations"
+    )
+
+    assert parser.parse_args([]).parallel is False
+    assert parser.parse_args(["--parallel"]).parallel is None
+    assert parser.parse_args(["--parallel", "2"]).parallel == 2
+
+
+@pytest.mark.parametrize("parallel", [None, 2])
+def test_parallel_worker_count_is_passed_to_executor(monkeypatch, parallel):
+    class RecordingExecutor:
+        instance = None
+
+        def __init__(self, max_workers=None):
+            type(self).instance = self
+            self.max_workers = max_workers
+
+        def shutdown(self, *args, **kwargs):
+            pass
+
+    class StateStoreStub:
+        def __init__(self, configuration):
+            self.configuration = configuration
+
+        def start(self, reset=False):
+            return RunState(
+                configuration=self.configuration,
+                started_at=datetime.datetime.now(),
+            )
+
+    command = Command.__new__(Command)
+    command.configure_logging = lambda verbosity: None
+    command._restore_stats = lambda: None
+    command.log_stats = lambda: None
+    monkeypatch.setattr(
+        identify_and_fix_calculations, "ProcessPoolExecutor", RecordingExecutor
+    )
+    monkeypatch.setattr(identify_and_fix_calculations, "RunStateStore", StateStoreStub)
+
+    command.handle(
+        verbosity=0,
+        parallel=parallel,
+        do_validate=False,
+        do_recalc=False,
+        do_fix_calc=False,
+        do_commit=False,
+        excel_out=None,
+        dev_mode=False,
+        analyze_only=None,
+        search_only=None,
+        reset_state=False,
+    )
+
+    assert RecordingExecutor.instance.max_workers == parallel
+
+
 @pytest.mark.django_db(transaction=True)
 def test_checkpoint_is_written_only_after_document_commit():
     store = RunStateStore(CONFIGURATION)

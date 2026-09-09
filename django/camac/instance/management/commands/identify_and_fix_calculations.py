@@ -219,9 +219,10 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument(
             "--parallel",
-            action="store_true",
+            nargs="?",
+            type=int,
             dest="parallel",
-            help="Check in parallel. Uses as many CPUs as available",
+            help="Check in parallel, optionally limiting the number of workers",
             required=False,
             default=False,
         )
@@ -323,9 +324,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.configure_logging(options["verbosity"])
 
-        chosen_executor = (
-            ProcessPoolExecutor if options["parallel"] else SynchronousExecutor
-        )
         self.verbosity = options["verbosity"]
 
         do_validate = options["do_validate"]
@@ -347,7 +345,11 @@ class Command(BaseCommand):
         if not do_commit:
             log.info("Pretend mode active: Changes will not be committed to DB")
 
-        executor = chosen_executor()
+        executor = (
+            ProcessPoolExecutor(max_workers=options["parallel"])
+            if options["parallel"] is not False
+            else SynchronousExecutor()
+        )
         interrupted = False
         cancel_futures = False
         try:
