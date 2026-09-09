@@ -21,9 +21,9 @@
 </div>
 
 <div class="uk-margin">
-  {{#if (not (has-feature "dms.hideDownloadButton"))}}
+  {{#each this.documentActions as |action|}}
     <UkButton
-      @color="primary"
+      @color={{action.color}}
       @disabled={{or
         this.merge.isRunning
         this.placeholders.isLoading
@@ -32,29 +32,13 @@
       }}
       @loading={{and
         this.merge.isRunning
-        (eq (get this.merge.lastRunning.args 0) false)
+        (eq (get this.merge.lastRunning.args 0) action.saveToDocuments)
       }}
-      @onClick={{perform this.merge false}}
+      @onClick={{perform this.merge action.saveToDocuments}}
     >
-      {{t "dms.merge"}}
+      {{t action.label}}
     </UkButton>
-  {{/if}}
-  <UkButton
-    @color={{if (has-feature "dms.hideDownloadButton") "primary" "default"}}
-    @disabled={{or
-      this.merge.isRunning
-      this.placeholders.isLoading
-      (not this.template)
-      (cannot "merge dms-template")
-    }}
-    @loading={{and
-      this.merge.isRunning
-      (eq (get this.merge.lastRunning.args 0) true)
-    }}
-    @onClick={{perform this.merge true}}
-  >
-    {{t "dms.merge-and-save"}}
-  </UkButton>
+  {{/each}}
 </div>
 
 {{#if this.placeholders.isLoading}}

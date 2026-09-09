@@ -5,6 +5,7 @@ import { dropTask } from "ember-concurrency";
 import { findAll } from "ember-data-resources";
 import { trackedFunction } from "reactiveweb/function";
 
+import mainConfig from "ember-ebau-core/config/main";
 import { sortByDescription } from "ember-ebau-core/utils/dms";
 
 function extractCategories(templates) {
@@ -22,6 +23,24 @@ export default class DmsGenerateComponent extends Component {
   @service dms;
 
   @tracked template;
+
+  get documentActions() {
+    const actions = {
+      save: {
+        label: "dms.merge-and-save",
+        saveToDocuments: true,
+      },
+      download: {
+        label: "dms.merge",
+        saveToDocuments: false,
+      },
+    };
+
+    return mainConfig.dms.documentActions.map((action, index) => ({
+      ...actions[action],
+      color: index === 0 ? "primary" : "default",
+    }));
+  }
 
   allTemplates = findAll(this, "template");
 

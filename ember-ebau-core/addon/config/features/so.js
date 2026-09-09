@@ -40,9 +40,6 @@ export default {
   login: {
     tokenExchange: getOwnConfig().enableTokenExchange,
   },
-  dms: {
-    hideDownloadButton: true,
-  },
   instanceOverview: {
     useSpecialId: true,
     hideActionDescription: true,

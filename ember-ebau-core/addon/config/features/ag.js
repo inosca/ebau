@@ -46,9 +46,6 @@ export default {
     exportExcel: true,
     showNoApplicantRegisteredWarning: true,
   },
-  dms: {
-    hideDownloadButton: true,
-  },
   profile: {
     enabled: true,
     showDivision: false,

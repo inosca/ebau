@@ -1,4 +1,7 @@
 export default {
+  dms: {
+    documentActions: ["save"],
+  },
   languages: ["de"],
   fallbackLanguage: "de",
   prodUrl: "diba.ag.ch",

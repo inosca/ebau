@@ -22,6 +22,9 @@ if (macroCondition(getOwnConfig().application === "be")) {
 }
 
 const sharedConfig = {
+  dms: {
+    documentActions: ["save", "download"],
+  },
   name: getOwnConfig().application,
   maxDossierImportSize: 1500000000, // 1.5GB
   servicePermissions: {
