@@ -2077,7 +2077,7 @@ def test_instance_finalize(
         )
 
 
-@pytest.mark.parametrize("paper", [(True, False)])
+@pytest.mark.parametrize("paper", [True, False])
 @pytest.mark.parametrize("form_slug", [(None), ("ebau-number")])
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.django_db
@@ -2144,8 +2144,8 @@ def test_generate_and_store_pdf(
 
     serializer._generate_and_store_pdf(be_instance, form_slug=form_slug)
 
-    assert attachment_section_paper.attachments.count() == 1 if paper else 0
-    assert attachment_section_default.attachments.count() == 0 if paper else 1
+    assert attachment_section_paper.attachments.count() == (1 if paper else 0)
+    assert attachment_section_default.attachments.count() == (0 if paper else 1)
 
 
 @pytest.mark.django_db

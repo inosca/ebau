@@ -89,11 +89,19 @@ GR_PERMISSIONS_ALEXANDRIA = {
                 "beilagen-zum-gesuch:create",
                 (BEFORE_SUBMIT | HasAdditionalDemandWithFormEdit()),
             ),
+            (
+                "ebbw-beilagen-zum-gesuch:create",
+                (BEFORE_SUBMIT | HasAdditionalDemandWithFormEdit()),
+            ),
             ("beilagen-zum-gesuch:mark:void", HasAdditionalDemandWithFormEdit()),
+            ("ebbw-beilagen-zum-gesuch:mark:void", HasAdditionalDemandWithFormEdit()),
             ("beilagen-zum-gesuch:delete", BEFORE_SUBMIT),
+            ("ebbw-beilagen-zum-gesuch:delete", BEFORE_SUBMIT),
             # 2. Nachforderungen:
             ("nachforderung:create", HasAdditionalDemand()),
+            ("ebbw-nachforderung:create", HasAdditionalDemand()),
             ("nachforderung:delete", HasAdditionalDemand()),
+            ("ebbw-nachforderung:delete", HasAdditionalDemand()),
             # 3. Alle Beteiligten: never
             # 4. Beteiligte Behörden: never
             # 5. Einsprachen Beschwerden: never
@@ -118,12 +126,22 @@ GR_PERMISSIONS_ALEXANDRIA = {
         "lead-authority": [
             # 1. Beilagen zum Gesuch:
             ("beilagen-zum-gesuch:create", BEFORE_DECISION),
+            ("ebbw-beilagen-zum-gesuch:create", BEFORE_DECISION),
             ("beilagen-zum-gesuch:update", BEFORE_DECISION),
+            ("ebbw-beilagen-zum-gesuch:update", BEFORE_DECISION),
             ("beilagen-zum-gesuch:tag", BEFORE_CONSTRUCTION_ACCEPTANCE),
+            ("ebbw-beilagen-zum-gesuch:tag", BEFORE_CONSTRUCTION_ACCEPTANCE),
             ("beilagen-zum-gesuch:move", BEFORE_DECISION & ~ApplicantFile()),
+            ("ebbw-beilagen-zum-gesuch:move", BEFORE_DECISION & ~ApplicantFile()),
             ("beilagen-zum-gesuch:mark:all", BEFORE_DECISION),
+            ("ebbw-beilagen-zum-gesuch:mark:all", BEFORE_DECISION),
             (
                 "beilagen-zum-gesuch:replace",
+                ((IsPaper() & BEFORE_DECISION) | (OwnDocument() & BEFORE_DECISION))
+                & ~ApplicantFile(),
+            ),
+            (
+                "ebbw-beilagen-zum-gesuch:replace",
                 ((IsPaper() & BEFORE_DECISION) | (OwnDocument() & BEFORE_DECISION))
                 & ~ApplicantFile(),
             ),
@@ -131,22 +149,41 @@ GR_PERMISSIONS_ALEXANDRIA = {
                 "beilagen-zum-gesuch:delete",
                 ((IsPaper() & BEFORE_SUBMIT) | (OwnDocument() & BEFORE_DECISION)),
             ),
+            (
+                "ebbw-beilagen-zum-gesuch:delete",
+                ((IsPaper() & BEFORE_SUBMIT) | (OwnDocument() & BEFORE_DECISION)),
+            ),
             # 2. Nachforderung:
             ("nachforderung:create", BEFORE_DECISION),
+            ("ebbw-nachforderung:create", BEFORE_DECISION),
             ("nachforderung:update", BEFORE_DECISION),
+            ("ebbw-nachforderung:update", BEFORE_DECISION),
             ("nachforderung:tag", BEFORE_DECISION),
+            ("ebbw-nachforderung:tag", BEFORE_DECISION),
             (
                 "nachforderung:move",
                 ((OwnDocument() & BEFORE_DECISION) | (IsPaper() & BEFORE_DECISION))
                 & ~ApplicantFile(),
             ),
+            (
+                "ebbw-nachforderung:move",
+                ((OwnDocument() & BEFORE_DECISION) | (IsPaper() & BEFORE_DECISION))
+                & ~ApplicantFile(),
+            ),
             ("nachforderung:mark:all", BEFORE_DECISION),
+            ("ebbw-nachforderung:mark:all", BEFORE_DECISION),
             (
                 "nachforderung:replace",
                 ((OwnDocument() & BEFORE_DECISION) | (IsPaper() & BEFORE_DECISION))
                 & ~ApplicantFile(),
             ),
+            (
+                "ebbw-nachforderung:replace",
+                ((OwnDocument() & BEFORE_DECISION) | (IsPaper() & BEFORE_DECISION))
+                & ~ApplicantFile(),
+            ),
             ("nachforderung:delete", OwnDocument() & BEFORE_DECISION),
+            ("ebbw-nachforderung:delete", OwnDocument() & BEFORE_DECISION),
             # 3. Alle Beteiligten:
             ("alle-beteiligten:create", BEFORE_DECISION),
             ("alle-beteiligten:update", BEFORE_DECISION),
@@ -222,11 +259,17 @@ GR_PERMISSIONS_ALEXANDRIA = {
         "distribution-service": [
             # 1. Beilagen zum Gesuch:
             ("beilagen-zum-gesuch:create", DIST_SERVICE_AND_ARE & BEFORE_DECISION),
+            ("ebbw-beilagen-zum-gesuch:create", DIST_SERVICE_AND_ARE & BEFORE_DECISION),
             (
                 "beilagen-zum-gesuch:update",
                 (DIST_ONLY_ARE | (DIST_ONLY_SERVICE & OwnDocument())) & BEFORE_DECISION,
             ),
+            (
+                "ebbw-beilagen-zum-gesuch:update",
+                (DIST_ONLY_ARE | (DIST_ONLY_SERVICE & OwnDocument())) & BEFORE_DECISION,
+            ),
             ("beilagen-zum-gesuch:tag", BEFORE_DECISION),
+            ("ebbw-beilagen-zum-gesuch:tag", BEFORE_DECISION),
             (
                 "beilagen-zum-gesuch:move",
                 (
@@ -235,9 +278,22 @@ GR_PERMISSIONS_ALEXANDRIA = {
                 )
                 & ~ApplicantFile(),
             ),
+            (
+                "ebbw-beilagen-zum-gesuch:move",
+                (
+                    (DIST_ONLY_ARE | (DIST_ONLY_SERVICE & OwnDocument()))
+                    & BEFORE_DECISION
+                )
+                & ~ApplicantFile(),
+            ),
             ("beilagen-zum-gesuch:mark:all", DIST_ONLY_ARE & BEFORE_DECISION),
+            ("ebbw-beilagen-zum-gesuch:mark:all", DIST_ONLY_ARE & BEFORE_DECISION),
             (
                 "beilagen-zum-gesuch:mark:void",
+                DIST_ONLY_SERVICE & OwnDocument() & BEFORE_DECISION,
+            ),
+            (
+                "ebbw-beilagen-zum-gesuch:mark:void",
                 DIST_ONLY_SERVICE & OwnDocument() & BEFORE_DECISION,
             ),
             (
@@ -249,24 +305,52 @@ GR_PERMISSIONS_ALEXANDRIA = {
                 | (DIST_ONLY_SERVICE & OwnDocument() & BEFORE_DECISION),
             ),
             (
+                "ebbw-beilagen-zum-gesuch:replace",
+                (
+                    (DIST_ONLY_ARE & BEFORE_DECISION & (OwnDocument() | IsPaper()))
+                    & ~ApplicantFile()
+                )
+                | (DIST_ONLY_SERVICE & OwnDocument() & BEFORE_DECISION),
+            ),
+            (
                 "beilagen-zum-gesuch:delete",
+                DIST_SERVICE_AND_ARE & OwnDocument() & BEFORE_DECISION,
+            ),
+            (
+                "ebbw-beilagen-zum-gesuch:delete",
                 DIST_SERVICE_AND_ARE & OwnDocument() & BEFORE_DECISION,
             ),
             # 2. Nachforderung:
             ("nachforderung:create", DIST_SERVICE_AND_ARE & BEFORE_DECISION),
+            ("ebbw-nachforderung:create", DIST_SERVICE_AND_ARE & BEFORE_DECISION),
             (
                 "nachforderung:update",
                 (DIST_ONLY_ARE | (DIST_ONLY_SERVICE & OwnDocument())) & BEFORE_DECISION,
             ),
+            (
+                "ebbw-nachforderung:update",
+                (DIST_ONLY_ARE | (DIST_ONLY_SERVICE & OwnDocument())) & BEFORE_DECISION,
+            ),
             ("nachforderung:tag", BEFORE_DECISION),
+            ("ebbw-nachforderung:tag", BEFORE_DECISION),
             (
                 "nachforderung:move",
                 (DIST_SERVICE_AND_ARE & OwnDocument() & BEFORE_DECISION)
                 & ~ApplicantFile(),
             ),
+            (
+                "ebbw-nachforderung:move",
+                (DIST_SERVICE_AND_ARE & OwnDocument() & BEFORE_DECISION)
+                & ~ApplicantFile(),
+            ),
             ("nachforderung:mark:all", (DIST_ONLY_ARE & BEFORE_DECISION)),
+            ("ebbw-nachforderung:mark:all", (DIST_ONLY_ARE & BEFORE_DECISION)),
             (
                 "nachforderung:mark:void",
+                DIST_ONLY_SERVICE & OwnDocument() & BEFORE_DECISION,
+            ),
+            (
+                "ebbw-nachforderung:mark:void",
                 DIST_ONLY_SERVICE & OwnDocument() & BEFORE_DECISION,
             ),
             (
@@ -279,7 +363,20 @@ GR_PERMISSIONS_ALEXANDRIA = {
                 & ~ApplicantFile(),
             ),
             (
+                "ebbw-nachforderung:replace",
+                (
+                    (DIST_ONLY_ARE & (OwnDocument() | IsPaper()))
+                    | (DIST_ONLY_SERVICE & OwnDocument())
+                )
+                & BEFORE_DECISION
+                & ~ApplicantFile(),
+            ),
+            (
                 "nachforderung:delete",
+                DIST_SERVICE_AND_ARE & OwnDocument() & BEFORE_DECISION,
+            ),
+            (
+                "ebbw-nachforderung:delete",
                 DIST_SERVICE_AND_ARE & OwnDocument() & BEFORE_DECISION,
             ),
             # 3. Alle Beteiligten:
@@ -468,8 +565,10 @@ GR_PERMISSIONS_ALEXANDRIA = {
         "uso": [
             # 1. Beilagen zum Gesuch:
             ("beilagen-zum-gesuch:tag", BEFORE_DECISION),
+            ("ebbw-beilagen-zum-gesuch:tag", BEFORE_DECISION),
             # 2. Nachforderung:
             ("nachforderung:tag", BEFORE_DECISION),
+            ("ebbw-nachforderung:tag", BEFORE_DECISION),
             # 3. Alle Beteiligten: never
             # 4. Beteiligte Behörden: never
             # 5. Einsprachen Beschwerden: never
@@ -511,8 +610,10 @@ GR_PERMISSIONS_ALEXANDRIA = {
             # For support, we Always() allow all actions on all categories
             # 1. Beilagen zum Gesuch:
             ("beilagen-zum-gesuch:all", Always()),
+            ("ebbw-beilagen-zum-gesuch:all", Always()),
             # 2. Nachforderung:
             ("nachforderung:all", Always()),
+            ("ebbw-nachforderung:all", Always()),
             # 3. Alle Beteiligten:
             ("alle-beteiligten:all", Always()),
             # 4. Beteiligte Behörden:

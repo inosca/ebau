@@ -372,6 +372,8 @@ DMS = {
             },
         },
         "ALEXANDRIA_DOCUMENT_CATEGORIES": [
+            "ebbw-beilagen-zum-gesuch",
+            "ebbw-nachforderung",
             "beilagen-zum-gesuch-grundstuecksangaben",
             "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
             "beilagen-zum-gesuch-brandschutz",

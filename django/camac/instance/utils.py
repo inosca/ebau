@@ -253,12 +253,24 @@ def fill_ebau_number(
 
 def get_pdf_section(instance, form_slug):
     form_name = form_slug.upper() if form_slug else "MAIN"
+    section_type = "PAPER" if CalumaApi().is_paper(instance) else "DEFAULT"
+    return settings.APPLICATION["STORE_PDF"]["SECTION"][form_name][section_type]
 
-    if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
-        section_type = "PAPER" if CalumaApi().is_paper(instance) else "DEFAULT"
-        return settings.APPLICATION["STORE_PDF"]["SECTION"][form_name][section_type]
 
-    return settings.APPLICATION["STORE_PDF"]["CATEGORY"][form_name]
+def get_pdf_category(instance, form_slug=None):
+    """Choose the Alexandria category for the generated form PDF."""
+    categories = settings.APPLICATION["STORE_PDF"]["CATEGORY"]
+
+    if form_slug:
+        # SB1/SB2 passes its form slug through generate_and_store_pdf;
+        # the category must be configured for that form.
+        return categories[form_slug.upper()]
+
+    # Dossier submit does not provide a form slug: the PDF uses
+    # `instance.case.document`. Its form may have a dedicated category
+    # (e.g. ebbw forms in kt. gr), fallback to the `MAIN` category.
+    main_category = categories["MAIN"]
+    return categories.get((instance.case.document.form_id or "").upper(), main_category)
 
 
 def generate_and_store_pdf(
@@ -271,12 +283,12 @@ def generate_and_store_pdf(
         instance.pk, request, form_slug
     )
 
-    target_lookup = get_pdf_section(instance, form_slug)
     if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+        category = get_pdf_category(instance, form_slug)
         document, file = create_alexandria_document_file(
             user=request.user.pk,
             group=request.group.service_id,
-            category=alexandria_models.Category.objects.get(pk=target_lookup),
+            category=alexandria_models.Category.objects.get(pk=category),
             document_title=pdf.name,
             file_name=pdf.name,
             file_content=pdf,
@@ -294,7 +306,8 @@ def generate_and_store_pdf(
 
         return document
     else:
-        attachment_section = AttachmentSection.objects.get(pk=target_lookup)
+        section = get_pdf_section(instance, form_slug)
+        attachment_section = AttachmentSection.objects.get(pk=section)
         return attachment_section.attachments.create(
             instance=instance,
             path=pdf,
