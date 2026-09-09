@@ -11,7 +11,7 @@ test-all:
 
 .PHONY: setup-test
 setup-test:
-	@cd .. && docker compose exec -e MIX_ENV=test elixir mix ebau.bootstrap_legacy_schema
+	@cd .. && docker compose up --build -d elixir && docker compose exec -e MIX_ENV=test elixir mix ebau.bootstrap_legacy_schema
 
 .PHONY: makemessages
 makemessages:
