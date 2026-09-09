@@ -124,6 +124,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       icon: "question",
       color: "emphasis",
     },
+    "inquiry-answer-status-koko": {
+      icon: "users",
+      color: "emphasis",
+    },
   };
   static distributionStatusMappingSG = {
     "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,

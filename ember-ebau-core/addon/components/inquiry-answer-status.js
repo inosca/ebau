@@ -93,26 +93,27 @@ export default class InquiryAnswerStatusComponent extends Component {
   filterOptionsAG(options) {
     const isAfB =
       this.calumaOptions.ebauModules.serviceGroupSlug === "service-afb";
+    const isCantonal =
+      this.calumaOptions.ebauModules.serviceGroupSlug === "service-cantonal";
 
-    const selection = isAfB
-      ? [
-          "inquiry-answer-status-positive",
-          "inquiry-answer-status-positive-partially",
-          "inquiry-answer-status-negative",
-          "inquiry-answer-status-negative-deconstruction",
-          "inquiry-answer-status-statement",
-          "inquiry-answer-status-claim",
-          "inquiry-answer-status-not-involved",
-        ]
-      : [
-          "inquiry-answer-status-positive",
-          "inquiry-answer-status-positive-sanctions",
-          "inquiry-answer-status-positive-partially",
-          "inquiry-answer-status-negative",
-          "inquiry-answer-status-negative-deconstruction",
-          "inquiry-answer-status-claim",
-          "inquiry-answer-status-not-involved",
-        ];
+    const selection = [
+      "inquiry-answer-status-positive",
+      "inquiry-answer-status-positive-partially",
+      "inquiry-answer-status-negative",
+      "inquiry-answer-status-negative-deconstruction",
+      "inquiry-answer-status-claim",
+      "inquiry-answer-status-not-involved",
+    ];
+
+    if (isAfB) {
+      selection.push("inquiry-answer-status-statement");
+    } else {
+      selection.push("inquiry-answer-status-positive-sanctions");
+    }
+
+    if (isCantonal || isAfB) {
+      selection.push("inquiry-answer-status-koko");
+    }
 
     return options.filter((option) => selection.includes(option.slug));
   }
