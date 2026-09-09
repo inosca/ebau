@@ -12,6 +12,7 @@ canton =
 
 # Matches how Postgres counts `varchar(n)`, so `max_length` constraints validate
 # the same in Elixir and in PostgreSQL.
+# https://ash.hexdocs.pm/backwards-compatibility-config.html#default_string_length_count
 config :ash, default_string_length_count: :codepoints
 
 config :ash_json_api,

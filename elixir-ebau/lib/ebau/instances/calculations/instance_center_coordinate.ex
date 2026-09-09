@@ -64,18 +64,12 @@ defmodule Ebau.Instances.Calculations.InstanceCenterCoordinate do
 
   defp to_float(value) when is_float(value), do: value
 
-  # A coordinate that lands on a whole number is encoded without a fractional
-  # part, so it decodes as an integer rather than a float.
-  defp to_float(value) when is_integer(value), do: value / 1
-
-  defp to_float(value) when is_binary(value) do
-    case Float.parse(value) do
-      {float, _rest} -> float
+  defp to_float(value) do
+    case Ecto.Type.cast(:float, value) do
+      {:ok, float} -> float
       :error -> nil
     end
   end
-
-  defp to_float(_value), do: nil
 
   defp decode_geometry(%{gis_map_geometry_json: json}) when is_binary(json) do
     case JSON.decode(json) do
