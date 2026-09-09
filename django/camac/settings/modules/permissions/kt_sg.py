@@ -79,7 +79,7 @@ MODULE_PERMISSIONS = STATES_ALL & (ROLES_MUNICIPALITY | ROLES_COORDINATION)
 MODULE_PUBLICATION = RequireWorkItem("create-publication") | RequireWorkItem(
     "fill-publication"
 )
-MODULE_REJECTION = RequireInstanceState(["subm", "rejected"])
+MODULE_REJECTION = RequireInstanceState(["subm", "init-distribution", "rejected"])
 MODULE_RESPONSIBLE = STATES_ALL
 MODULE_WORK_ITEMS = STATES_ALL
 

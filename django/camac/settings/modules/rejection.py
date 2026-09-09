@@ -120,7 +120,7 @@ REJECTION = {
     },
     "kt_sg": {
         "ENABLED": True,
-        "ALLOWED_INSTANCE_STATES": ["subm"],
+        "ALLOWED_INSTANCE_STATES": ["subm", "init-distribution"],
         "INSTANCE_STATE_REJECTION_COMPLETE": None,
     },
     "test": {

@@ -64,7 +64,7 @@ const config = {
   },
   rejection: {
     instanceState: "rejected",
-    allowedInstanceStates: ["subm"],
+    allowedInstanceStates: ["subm", "init-distribution"],
   },
   publication: {
     public: {
