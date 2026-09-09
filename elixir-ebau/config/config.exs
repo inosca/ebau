@@ -90,6 +90,21 @@ config :spark,
     "Ash.Domain": [section_order: [:json_api]]
   ]
 
+# Tower captures errors and hands them to the reporters configured in
+# runtime.exs. `log_level: :none` reports exceptions, exits and throws but not
+# plain Logger messages, which is the same scope django mails on: its
+# mail_admins handler is attached to the `django` and `camac` loggers only,
+# while Elixir's :logger is flat and would otherwise mail every dependency's
+# error logs. DBConnection errors are ignored for volume: an unreachable
+# database logs one error per connection attempt per pool process. Cantons
+# whose database nobody else monitors may want to drop that entry.
+config :tower,
+  reporters: [],
+  log_level: :none,
+  ignored_exceptions: [DBConnection.ConnectionError]
+
+config :tower_email, TowerEmail.Mailer, adapter: Swoosh.Adapters.Local
+
 if config_env() in [:dev, :test] do
   config :ash, :policies, show_policy_breakdown?: true
 

@@ -36,6 +36,7 @@ services:
       - elixir-ebau_language-server:/app/.elixir_ls # caching the language server to a local volume
     depends_on:
       - db
+      - mailpit
     environment:
       - APPLICATION=${APPLICATION}
       - DATABASE_PASSWORD=camac
@@ -50,6 +51,8 @@ services:
       - OIDC_USERNAME_CLAIM=sub
       - ENABLE_WATERMARK=true
       - WATERMARK=local
+      - EMAIL_HOST=mailpit
+      - EMAIL_PORT=1025
 
 volumes:
   elixir-ebau_build:
