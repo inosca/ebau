@@ -29,6 +29,7 @@ DJANGO_ADMIN = {
             "core.Resource",
             "core.ServiceContent",
             "gis.GISDataSource",
+            "work_items.WorkItemListFilterPreset",
             "notification.NotificationTemplate",
             "deadlines.DeadlineType",
             "ech0211.Message",

@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "model": "work_items.workitemlistfilterpreset",
+    "pk": "eb6f01e3-0d04-42ec-acac-bcd3bcf0356d",
+    "fields": {
+      "sort": 1,
+      "name": "{\"de\": \"Baubegleitungsaufgaben\", \"fr\": \"\", \"it\": \"Compiti di accompagnamento dei lavori\"}",
+      "query_params": {
+        "role": "active",
+        "task": "all",
+        "type": "all",
+        "order": "urgent",
+        "status": "READY",
+        "responsible": "all",
+        "workflow": "all"
+      },
+      "prefilter_work_item_templates": false,
+      "prefilter_tasks": true,
+      "services": [],
+      "service_groups": [1, 2, 3, 5],
+      "work_item_templates": [],
+      "tasks": [
+        "complete-construction-monitoring",
+        "construction-stage",
+        "construction-step-adressvergabe",
+        "construction-step-adressvergabe-confirm",
+        "construction-step-baubeginn-melden",
+        "construction-step-baufreigabe",
+        "construction-step-baufreigabe-beantragen",
+        "construction-step-einmessung-leitungskataster",
+        "construction-step-einmessung-melden",
+        "construction-step-kanalisationsabnahme-kontrollieren",
+        "construction-step-kanalisationsabnahme-melden",
+        "construction-step-plan-construction-stage",
+        "construction-step-rohbauabnahme-kontrollieren",
+        "construction-step-rohbauabnahme-kontrollieren-geometer",
+        "construction-step-rohbauabnahme-melden",
+        "construction-step-schlussabnahme-gebaeude",
+        "construction-step-schlussabnahme-gebaeude-melden",
+        "construction-step-schlussabnahme-gebaude-gebaeude-nachtragen",
+        "construction-step-schlussabnahme-projekt",
+        "construction-step-schlussabnahme-projekt-gebaeude-nachtragen",
+        "construction-step-schlussabnahme-projekt-melden",
+        "construction-step-schlussabnahme-projekt-planen",
+        "construction-step-schnurgeruestabnahme-kontrollieren",
+        "construction-step-schnurgeruestabnahme-melden"
+      ]
+    }
+  }
+]
