@@ -3207,6 +3207,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "einreichen.einreichen-info",
+    "fields": {
+      "created_at": "2026-09-09T10:00:07.803Z",
+      "modified_at": "2026-09-09T10:00:07.803Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "einreichen-info",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "einzelfeuerung-tabelle.brennstoff",
     "fields": {
       "created_at": "2026-06-04T07:56:33.604Z",
@@ -21629,6 +21644,37 @@
         "hideLabel": true,
         "widgetOverride": "submit-instance"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einreichen-info",
+    "fields": {
+      "created_at": "2026-09-09T10:00:06.946Z",
+      "modified_at": "2026-09-09T10:02:30.812Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einreichen Info\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">\\nErst mit dem Klick auf «Einreichen» wird das Gesuch an die zuständigen Behörden übermittelt und die Bearbeitung ausgelöst. Dadurch kann ein kostenpflichtiges Verfahren entstehen.\\n<br>\\n<br>\\nMit dem Klick auf «Einreichen» bestätigen Sie zudem, dass das Gesuch dem Willen der gesuchstellenden Person bzw. Organisation sowie der weiteren am Gesuch beteiligten Personen entspricht.\\n</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
