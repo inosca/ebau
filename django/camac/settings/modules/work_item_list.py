@@ -139,7 +139,6 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
                 ),
                 "complete-instance",
                 "withdrawal-check",
-                "archive-instance",
             ],
             "authority-contribution": [
                 "formal-exam",
