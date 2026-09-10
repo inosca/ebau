@@ -1,15 +1,14 @@
 import datetime
-import fcntl
 import logging
 import os
 import pickle
 import signal
+import sqlite3
 from collections import defaultdict
 from concurrent.futures import ProcessPoolExecutor
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from pathlib import Path
-from tempfile import NamedTemporaryFile
 from types import SimpleNamespace
 from typing import Any
 
@@ -94,86 +93,166 @@ class RunStateStore:
         """Set up the checkpoint paths for the given run configuration."""
         self.configuration = configuration
         self.directory = Path(settings.MEDIA_ROOT) / "recalc_fix"
-        self.path = self.directory / "state.pickle"
-        self.lock_path = self.directory / "state.lock"
+        self.path = self.directory / "state.sqlite3"
 
     @contextmanager
-    def _locked(self):
-        """Exclusively lock the checkpoint while reading or writing its state."""
+    def _connection(self):
+        """Open a durable SQLite connection for a short checkpoint operation."""
         self.directory.mkdir(parents=True, exist_ok=True)
-        with self.lock_path.open("a+b") as lock_file:
-            fcntl.flock(lock_file.fileno(), fcntl.LOCK_EX)
-            try:
-                yield
-            finally:
-                fcntl.flock(lock_file.fileno(), fcntl.LOCK_UN)
-
-    def _load_locked(self) -> RunState | None:
-        if not self.path.exists():
-            return None
+        connection = sqlite3.connect(self.path, timeout=30)
         try:
-            with self.path.open("rb") as state_file:
-                state = pickle.load(state_file)
-        except (EOFError, pickle.UnpicklingError) as exc:
-            raise CommandError(
-                f"Could not load recalculation checkpoint {self.path}: {exc}"
-            ) from exc
+            connection.execute("PRAGMA journal_mode = WAL")
+            connection.execute("PRAGMA synchronous = FULL")
+            connection.execute("PRAGMA busy_timeout = 30000")
+            yield connection
+        finally:
+            connection.close()
 
-        if not isinstance(state, RunState):
-            raise CommandError(
-                "The existing recalculation checkpoint is not valid. "
-                "Use --reset-state to start a new run."
+    @staticmethod
+    def _create_schema(connection) -> None:
+        connection.execute(
+            """
+            CREATE TABLE run_metadata (
+                id INTEGER PRIMARY KEY CHECK (id = 1),
+                configuration BLOB NOT NULL,
+                started_at TEXT NOT NULL
             )
-        return state
+            """
+        )
+        connection.execute(
+            """
+            CREATE TABLE completed_instances (
+                phase TEXT NOT NULL,
+                instance_id INTEGER NOT NULL,
+                stats_entries BLOB NOT NULL,
+                PRIMARY KEY (phase, instance_id)
+            )
+            """
+        )
 
-    def _write_locked(self, state: RunState) -> None:
-        with NamedTemporaryFile(
-            mode="wb", dir=self.directory, prefix="state-", delete=False
-        ) as state_file:
-            pickle.dump(state, state_file)
-            state_file.flush()
-            os.fsync(state_file.fileno())
-            temporary_path = Path(state_file.name)
-        os.replace(temporary_path, self.path)
+    def _invalid_state(self, exc: Exception) -> None:
+        raise CommandError(
+            f"Could not load recalculation checkpoint {self.path}: {exc}. "
+            "Use --reset-state to start a new run."
+        ) from exc
+
+    def _load(self) -> RunState:
+        try:
+            with self._connection() as connection:
+                metadata = connection.execute(
+                    "SELECT configuration, started_at FROM run_metadata WHERE id = 1"
+                ).fetchone()
+                if metadata is None:
+                    raise ValueError("run metadata is missing")
+                configuration, started_at = metadata
+                configuration = pickle.loads(configuration)
+                if not isinstance(configuration, dict):
+                    raise TypeError("run configuration is not a dictionary")
+
+                completed_ids = defaultdict(set)
+                results = {}
+                for phase, instance_id, stats_entries in connection.execute(
+                    "SELECT phase, instance_id, stats_entries FROM completed_instances"
+                ):
+                    stats_entries = pickle.loads(stats_entries)
+                    if not isinstance(stats_entries, list) or not all(
+                        isinstance(entry, StatsEntry) for entry in stats_entries
+                    ):
+                        raise TypeError("checkpoint statistics are not valid")
+                    completed_ids[phase].add(instance_id)
+                    results[(phase, instance_id)] = stats_entries
+
+            return RunState(
+                configuration=configuration,
+                started_at=datetime.datetime.fromisoformat(started_at),
+                completed_ids=dict(completed_ids),
+                results=results,
+            )
+        except (
+            AttributeError,
+            EOFError,
+            ImportError,
+            IndexError,
+            pickle.UnpicklingError,
+            sqlite3.Error,
+            TypeError,
+            ValueError,
+        ) as exc:
+            self._invalid_state(exc)
+
+    def _remove_database(self) -> None:
+        for path in (self.path, Path(f"{self.path}-wal"), Path(f"{self.path}-shm")):
+            path.unlink(missing_ok=True)
 
     def start(self, reset: bool = False) -> RunState:
         """Create or resume the compatible checkpoint, optionally replacing it."""
-        with self._locked():
-            state = None if reset else self._load_locked()
-            if state is None:
-                state = RunState(
-                    configuration=self.configuration,
-                    started_at=datetime.datetime.now(),
-                )
-                self._write_locked(state)
-                return state
+        if reset:
+            self._remove_database()
 
-            if state.configuration != self.configuration:
-                raise CommandError(
-                    "The existing recalculation checkpoint uses different command "
-                    "options. Use --reset-state to start a new run."
+        if not self.path.exists():
+            state = RunState(
+                configuration=self.configuration,
+                started_at=datetime.datetime.now(),
+            )
+            with self._connection() as connection, connection:
+                connection.execute("BEGIN IMMEDIATE")
+                self._create_schema(connection)
+                connection.execute(
+                    """
+                    INSERT INTO run_metadata (id, configuration, started_at)
+                    VALUES (1, ?, ?)
+                    """,
+                    (pickle.dumps(state.configuration), state.started_at.isoformat()),
                 )
             return state
+
+        state = self._load()
+        if state.configuration != self.configuration:
+            raise CommandError(
+                "The existing recalculation checkpoint uses different command "
+                "options. Use --reset-state to start a new run."
+            )
+        return state
 
     def record_completed(
         self, phase: str, instance_id: int, stats_entries: list[StatsEntry]
     ) -> None:
         """Atomically store a completed instance outcome unless it is already known."""
-        with self._locked():
-            state = self._load_locked()
-            if state is None:
-                raise CommandError("The recalculation checkpoint does not exist.")
-            if state.configuration != self.configuration:
-                raise CommandError(
-                    "The recalculation checkpoint configuration changed."
-                )
+        if not self.path.exists():
+            raise CommandError("The recalculation checkpoint does not exist.")
 
-            completed_ids = state.completed_ids.setdefault(phase, set())
-            outcome_key = (phase, instance_id)
-            if instance_id not in completed_ids:
-                completed_ids.add(instance_id)
-                state.results[outcome_key] = stats_entries
-                self._write_locked(state)
+        try:
+            with self._connection() as connection:
+                metadata = connection.execute(
+                    "SELECT configuration FROM run_metadata WHERE id = 1"
+                ).fetchone()
+                if metadata is None:
+                    raise ValueError("run metadata is missing")
+                if pickle.loads(metadata[0]) != self.configuration:
+                    raise CommandError(
+                        "The recalculation checkpoint configuration changed."
+                    )
+
+                with connection:
+                    connection.execute(
+                        """
+                        INSERT OR IGNORE INTO completed_instances
+                        (phase, instance_id, stats_entries)
+                        VALUES (?, ?, ?)
+                        """,
+                        (phase, instance_id, pickle.dumps(stats_entries)),
+                    )
+        except (
+            AttributeError,
+            EOFError,
+            ImportError,
+            IndexError,
+            pickle.UnpicklingError,
+            sqlite3.Error,
+            TypeError,
+            ValueError,
+        ) as exc:
+            self._invalid_state(exc)
 
 
 class Command(BaseCommand):

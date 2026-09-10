@@ -1,6 +1,7 @@
 import datetime
 import logging
 import signal
+import sqlite3
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from types import SimpleNamespace
@@ -57,12 +58,16 @@ def test_run_state_is_created_resumed_and_reset():
 
     state = store.start()
     assert store.path.exists()
+    assert store.path.name == "state.sqlite3"
     assert state.configuration == CONFIGURATION
 
     store.record_completed("recalculation", 1, [_stats_entry(1)])
+    store.record_completed("recalculation", 1, [_stats_entry(1, event="fixed")])
+    store.record_completed("validation", 2, [])
     resumed = store.start()
-    assert resumed.completed_ids == {"recalculation": {1}}
+    assert resumed.completed_ids == {"recalculation": {1}, "validation": {2}}
     assert resumed.results[("recalculation", 1)] == [_stats_entry(1)]
+    assert resumed.results[("validation", 2)] == []
 
     incompatible_store = RunStateStore({**CONFIGURATION, "do_fix_calc": False})
     with pytest.raises(CommandError, match="different command options"):
@@ -71,6 +76,43 @@ def test_run_state_is_created_resumed_and_reset():
     reset = incompatible_store.start(reset=True)
     assert reset.configuration == incompatible_store.configuration
     assert reset.completed_ids == {}
+
+
+def test_checkpoint_results_are_stored_as_individual_sqlite_rows():
+    store = RunStateStore(CONFIGURATION)
+    store.start()
+    store.record_completed("validation", 1, [])
+    store.record_completed("recalculation", 1, [_stats_entry(1)])
+
+    with sqlite3.connect(store.path) as connection:
+        rows = connection.execute(
+            "SELECT phase, instance_id FROM completed_instances ORDER BY phase"
+        ).fetchall()
+
+    assert rows == [("recalculation", 1), ("validation", 1)]
+
+
+def test_malformed_sqlite_checkpoint_can_be_reset():
+    store = RunStateStore(CONFIGURATION)
+    store.directory.mkdir(parents=True)
+    store.path.write_text("not an SQLite database")
+
+    with pytest.raises(CommandError, match="Use --reset-state"):
+        store.start()
+
+    assert store.start(reset=True).configuration == CONFIGURATION
+
+
+def test_many_sqlite_checkpoints_restore_all_completed_instances():
+    store = RunStateStore(CONFIGURATION)
+    store.start()
+
+    for instance_id in range(1_000):
+        store.record_completed("validation", instance_id, [])
+
+    resumed = store.start()
+    assert resumed.completed_ids == {"validation": set(range(1_000))}
+    assert len(resumed.results) == 1_000
 
 
 def test_run_configuration_ignores_verbosity_and_dev_mode():
