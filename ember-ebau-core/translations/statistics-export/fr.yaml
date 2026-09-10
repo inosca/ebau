@@ -1,7 +1,7 @@
 statistics-export:
   title: "Statistiques"
   export-success: "Le fichier a été téléchargé avec succès."
-  export-error: "Une erreur s'est produite lors de l'exportation des statistiques"
+  export-error: "Une erreur s'est produite lors de la création de l'exportation des statistiques."
   filter:
     title: "Filtre"
     submit-date-after: ""
