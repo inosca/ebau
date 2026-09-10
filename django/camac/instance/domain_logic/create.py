@@ -733,6 +733,7 @@ class CreateInstanceLogic:
         is_paper,
         skip_exported_form_attachment,
         copy_attachments_from,
+        skip_applicant_creation=False,
     ):
         if is_paper:
             # create instance service for permissions
@@ -743,7 +744,7 @@ class CreateInstanceLogic:
                 activation_date=None,
             )
 
-        if not is_paper:
+        if not is_paper and not skip_applicant_creation:
             CreateInstanceLogic.setup_applicants(
                 instance, source_instance, copy_type, camac_user, is_modification
             )
@@ -796,6 +797,7 @@ class CreateInstanceLogic:
         workflow_slug=None,
         skip_exported_form_attachment=False,
         copy_attachments_from=None,
+        skip_applicant_creation=False,
     ):
         """Create an instance.
 
@@ -899,6 +901,7 @@ class CreateInstanceLogic:
             is_paper,
             skip_exported_form_attachment,
             copy_attachments_from,
+            skip_applicant_creation,
         )
 
         Trigger.instance_created(None, instance)

@@ -180,6 +180,7 @@ class KtBernDossierWriter(DossierWriter):
             ),
             start_caluma=True,
             workflow_slug=workflow_slug[dossier._meta.workflow],
+            skip_applicant_creation=True,
         )
 
         InstanceService.objects.create(
