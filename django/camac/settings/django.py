@@ -1919,12 +1919,14 @@ APPLICATIONS = {
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": [
                 "main",
-                "einsprachen",
                 "formal-exam",
+                "einsprachen",
+                "beschwerden",
             ],
             "FORM_PERMISSIONS_MAPPING": {
                 "form-formal-exam-write": "form-formal-exam-write",
                 "form-einsprachen-write": "legal-submissions-write",
+                "form-beschwerden-write": "legal-appeals-write",
             },
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
