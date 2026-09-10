@@ -111,7 +111,7 @@ export default class InquiryAnswerStatusComponent extends Component {
       selection.push("inquiry-answer-status-positive-sanctions");
     }
 
-    if (isCantonal || isAfB) {
+    if (isCantonal) {
       selection.push("inquiry-answer-status-koko");
     }
 
