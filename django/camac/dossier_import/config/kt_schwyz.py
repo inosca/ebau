@@ -145,6 +145,7 @@ class KtSchwyzDossierWriter(DossierWriter):
                 pk=settings.DOSSIER_IMPORT["CALUMA_FORM"]
             ),
             start_caluma=False,
+            skip_applicant_creation=True,
         )
         instance.location = self._location
         CreateInstanceLogic.update_instance_location(instance)
