@@ -1,4 +1,5 @@
 import datetime
+import json
 import logging
 import os
 import pickle
@@ -256,29 +257,6 @@ class RunStateStore:
 
 
 class Command(BaseCommand):
-    EXCLUDE_STATES_FOR_VALIDATION = [
-        # matches InstanceState.name, which in BE is the untranslated internal name
-        # "new",  # applicants will see errors before submission and can correct themselves
-        # "correction",  # in correction - municipality will see the validation errors
-        # # dossiers that are not being processed anymore don't need to be fixed either
-        # "rejected",
-        # "finished",
-        # "finished_internal",
-    ]
-
-    EXCLUDE_STATES_FOR_MISCALCULATION = [
-        # Here, we do need the new, and in "correction" dossiers as well
-        # dossiers that are not being processed anymore don't need to be fixed either
-        # as discussed - we need to look at all states
-        # "rejected",
-        # "finished",
-        # "finished_internal",
-    ]
-
-    EXCLUDE_STATES_FOR_FIXING = [
-        # ... none - for now
-    ]
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -378,6 +356,20 @@ class Command(BaseCommand):
             required=False,
         )
         parser.add_argument(
+            "--recalc-handoff-out",
+            type=Path,
+            dest="recalc_handoff_out",
+            help="Write detected or fixed dossier IDs and the instance cutoff to JSON",
+            required=False,
+        )
+        parser.add_argument(
+            "--recalc-handoff-in",
+            type=Path,
+            dest="recalc_handoff_in",
+            help="Check exported dossiers and calculation-relevant changes since its cutoff",
+            required=False,
+        )
+        parser.add_argument(
             "--reset-state",
             action="store_true",
             help="Discard the existing recalculation checkpoint before starting",
@@ -410,6 +402,12 @@ class Command(BaseCommand):
         do_fix_calculation = options["do_fix_calc"]
         do_commit = options["do_commit"]
         self.excel_out = options["excel_out"]
+        self.recalc_handoff_out = options.get("recalc_handoff_out")
+        self.recalc_handoff = (
+            self._load_recalculation_handoff(options["recalc_handoff_in"])
+            if options.get("recalc_handoff_in")
+            else None
+        )
         self.dev_mode = options["dev_mode"]
         self.analyze_only = (
             options["analyze_only"].split(",") if options["analyze_only"] else None
@@ -483,6 +481,9 @@ class Command(BaseCommand):
                 committed_to_db=do_commit,
                 did_fixes=do_fix_calculation,
             )
+        if self.recalc_handoff_out:
+            self.run_state = self.state_store.start()
+            self._write_recalculation_handoff(self.recalc_handoff_out)
 
     @staticmethod
     def _run_configuration(options: dict[str, Any]) -> dict[str, Any]:
@@ -495,12 +496,98 @@ class Command(BaseCommand):
                 options["analyze_only"].split(",") if options["analyze_only"] else []
             ),
             "search_only": options["search_only"],
+            "recalc_handoff_in": (
+                str(options["recalc_handoff_in"])
+                if options.get("recalc_handoff_in")
+                else None
+            ),
         }
 
     def _restore_stats(self) -> None:
         for stats_entries in self.run_state.results.values():
             for entry in stats_entries:
                 self._merge_stats(entry)
+
+    def _recalculation_handoff_instance_ids(self) -> list[int]:
+        return sorted(
+            instance_id
+            for (phase, instance_id), entries in self.run_state.results.items()
+            if phase == "recalculation"
+            and any(
+                recalc.event in {"detected", "fixed"}
+                for entry in entries
+                for recalc in entry.recalculations
+            )
+        )
+
+    @staticmethod
+    def _last_instance_creation_date() -> datetime.datetime:
+        creation_date = (
+            Instance.objects.order_by("-creation_date")
+            .values_list("creation_date", flat=True)
+            .first()
+        )
+        if creation_date is None:
+            raise CommandError(
+                "Cannot export recalculation handoff: no instances found"
+            )
+        return creation_date
+
+    def _write_recalculation_handoff(self, path: Path) -> None:
+        handoff = {
+            "instance_ids": self._recalculation_handoff_instance_ids(),
+            "last_instance_created_at": self._last_instance_creation_date().isoformat(),
+        }
+        try:
+            with path.open("w") as handoff_file:
+                json.dump(handoff, handoff_file, indent=2, sort_keys=True)
+                handoff_file.write("\n")
+        except OSError as exc:
+            raise CommandError(
+                f"Could not write recalculation handoff {path}: {exc}"
+            ) from exc
+
+    @staticmethod
+    def _load_recalculation_handoff(path: Path) -> tuple[set[int], datetime.datetime]:
+        try:
+            with path.open() as handoff_file:
+                handoff = json.load(handoff_file)
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+            raise CommandError(
+                f"Could not read recalculation handoff {path}: {exc}"
+            ) from exc
+
+        if not isinstance(handoff, dict) or set(handoff) != {
+            "instance_ids",
+            "last_instance_created_at",
+        }:
+            raise CommandError(
+                "Recalculation handoff must be a JSON object with instance_ids "
+                "and last_instance_created_at"
+            )
+
+        instance_ids = handoff["instance_ids"]
+        if not isinstance(instance_ids, list) or not all(
+            isinstance(instance_id, int) and not isinstance(instance_id, bool)
+            for instance_id in instance_ids
+        ):
+            raise CommandError(
+                "Recalculation handoff instance_ids must contain only integers"
+            )
+        timestamp = handoff["last_instance_created_at"]
+        try:
+            cutoff = datetime.datetime.fromisoformat(timestamp)
+        except (TypeError, ValueError) as exc:
+            raise CommandError(
+                "Recalculation handoff last_instance_created_at must be an "
+                "ISO-8601 timestamp"
+            ) from exc
+        if cutoff.tzinfo is None or cutoff.utcoffset() is None:
+            raise CommandError(
+                "Recalculation handoff last_instance_created_at must include a timezone"
+            )
+
+        return set(instance_ids), cutoff
 
     def log_to_excel(self, start_time, committed_to_db, did_fixes):
 
@@ -1190,6 +1277,28 @@ class Command(BaseCommand):
                 )
             )
 
+    def _recalculation_qs(self):
+        if getattr(self, "recalc_handoff", None) is None:
+            return self._base_qs()
+
+        instance_ids, cutoff = self.recalc_handoff
+        exported_instances = Instance.objects.filter(pk__in=instance_ids)
+        changed_instances = self._base_qs().filter(
+            Exists(
+                Answer.objects.filter(
+                    document__family__case__pk=OuterRef("case")
+                ).filter(Q(created_at__gt=cutoff) | Q(modified_at__gt=cutoff))
+            )
+        )
+        log.info(
+            "Including %d exported instances and %d calculation-relevant changed instances",
+            exported_instances.count(),
+            changed_instances.count(),
+        )
+        return Instance.objects.filter(
+            Q(pk__in=instance_ids) | Q(pk__in=changed_instances.values("pk"))
+        )
+
     def iter_instances_for_validation(self):
         """Build an iterator for validation checks.
 
@@ -1197,9 +1306,7 @@ class Command(BaseCommand):
         and a queryset iterator as the second value.
         """
 
-        qs = self._base_qs().exclude(
-            instance_state__name__in=self.EXCLUDE_STATES_FOR_VALIDATION
-        )
+        qs = self._base_qs()
         qs = self._exclude_completed(qs, "validation", "checked for validation")
         if self.dev_mode:
             qs = qs[:100]
@@ -1212,12 +1319,7 @@ class Command(BaseCommand):
         Return a 2-tuple, with the total number of records as the first value,
         and a queryset iterator as the second value.
         """
-        qs = (
-            self._base_qs()
-            .exclude(instance_state__name__in=self.EXCLUDE_STATES_FOR_MISCALCULATION)
-            # order by random to get an early sampling of all situations
-            .order_by("?")
-        )
+        qs = self._recalculation_qs().order_by("?")
         qs = self._exclude_completed(qs, "recalculation", "checked or fixed")
         if self.dev_mode:
             qs = qs[:100]

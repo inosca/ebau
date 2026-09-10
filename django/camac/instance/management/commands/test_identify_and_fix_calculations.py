@@ -1,4 +1,5 @@
 import datetime
+import json
 import logging
 import signal
 import sqlite3
@@ -10,6 +11,7 @@ import openpyxl
 import pytest
 from django.core.management import CommandError
 from django.db import transaction
+from django.db.models import Q
 
 from camac.instance.management.commands import identify_and_fix_calculations
 from camac.instance.management.commands.identify_and_fix_calculations import (
@@ -28,6 +30,7 @@ CONFIGURATION = {
     "do_commit": True,
     "analyze_only": (),
     "search_only": None,
+    "recalc_handoff_in": None,
 }
 
 
@@ -125,6 +128,20 @@ def test_run_configuration_ignores_verbosity_and_dev_mode():
     )
 
 
+def test_run_configuration_includes_handoff_input_but_not_output(tmp_path):
+    handoff_input = tmp_path / "handoff.json"
+
+    assert Command._run_configuration(
+        {**CONFIGURATION, "recalc_handoff_in": handoff_input}
+    ) == {**CONFIGURATION, "recalc_handoff_in": str(handoff_input)}
+    assert (
+        Command._run_configuration(
+            {**CONFIGURATION, "recalc_handoff_out": tmp_path / "output.json"}
+        )
+        == CONFIGURATION
+    )
+
+
 def test_parallel_argument_accepts_an_optional_worker_count():
     parser = Command.__new__(Command).create_parser(
         "manage.py", "identify_and_fix_calculations"
@@ -133,6 +150,247 @@ def test_parallel_argument_accepts_an_optional_worker_count():
     assert parser.parse_args([]).parallel is False
     assert parser.parse_args(["--parallel"]).parallel is None
     assert parser.parse_args(["--parallel", "2"]).parallel == 2
+    assert (
+        parser.parse_args(["--recalc-handoff-out", "out.json"]).recalc_handoff_out.name
+        == "out.json"
+    )
+    assert (
+        parser.parse_args(["--recalc-handoff-in", "in.json"]).recalc_handoff_in.name
+        == "in.json"
+    )
+
+
+def test_load_recalculation_handoff_normalizes_duplicate_ids(tmp_path):
+    path = tmp_path / "handoff.json"
+    path.write_text(
+        json.dumps(
+            {
+                "instance_ids": [4, 2, 4],
+                "last_instance_created_at": "2025-01-15T10:30:00+00:00",
+            }
+        )
+    )
+
+    instance_ids, cutoff = Command._load_recalculation_handoff(path)
+
+    assert instance_ids == {2, 4}
+    assert cutoff == datetime.datetime(2025, 1, 15, 10, 30, tzinfo=datetime.UTC)
+
+
+@pytest.mark.parametrize(
+    ("content", "message"),
+    [
+        ("[]", "must be a JSON object"),
+        (json.dumps({"instance_ids": []}), "must be a JSON object"),
+        (
+            json.dumps(
+                {
+                    "instance_ids": ["1"],
+                    "last_instance_created_at": "2025-01-15T10:30:00+00:00",
+                }
+            ),
+            "instance_ids must contain only integers",
+        ),
+        (
+            json.dumps(
+                {
+                    "instance_ids": [],
+                    "last_instance_created_at": "not a timestamp",
+                }
+            ),
+            "must be an ISO-8601 timestamp",
+        ),
+        (
+            json.dumps(
+                {
+                    "instance_ids": [],
+                    "last_instance_created_at": "2025-01-15T10:30:00",
+                }
+            ),
+            "must include a timezone",
+        ),
+    ],
+)
+def test_load_recalculation_handoff_rejects_invalid_content(tmp_path, content, message):
+    path = tmp_path / "handoff.json"
+    path.write_text(content)
+
+    with pytest.raises(CommandError, match=message):
+        Command._load_recalculation_handoff(path)
+
+
+def test_load_recalculation_handoff_rejects_missing_or_invalid_json(tmp_path):
+    with pytest.raises(CommandError, match="Could not read recalculation handoff"):
+        Command._load_recalculation_handoff(tmp_path / "missing.json")
+
+    path = tmp_path / "invalid.json"
+    path.write_text("not JSON")
+    with pytest.raises(CommandError, match="Could not read recalculation handoff"):
+        Command._load_recalculation_handoff(path)
+
+
+def test_recalculation_handoff_unions_exported_ids_with_changed_calculations(
+    monkeypatch,
+):
+    cutoff = datetime.datetime(2025, 1, 15, 10, 30, tzinfo=datetime.UTC)
+
+    class QuerySet:
+        def __init__(self, count, values=None):
+            self.count_value = count
+            self.values_value = values
+            self.filter_calls = []
+
+        def filter(self, *args, **kwargs):
+            self.filter_calls.append((args, kwargs))
+            return self
+
+        def count(self):
+            return self.count_value
+
+        def values(self, *fields):
+            assert fields == ("pk",)
+            return self.values_value
+
+    class Manager:
+        def __init__(self, querysets):
+            self.querysets = iter(querysets)
+            self.filter_calls = []
+
+        def filter(self, *args, **kwargs):
+            self.filter_calls.append((args, kwargs))
+            return next(self.querysets)
+
+    answer_query = QuerySet(count=0)
+    changed_instances = QuerySet(count=2, values="changed-instance-ids")
+    exported_instances = QuerySet(count=1)
+    combined_instances = QuerySet(count=3)
+    instance_manager = Manager([exported_instances, combined_instances])
+    answer_manager = Manager([answer_query])
+    monkeypatch.setattr(
+        identify_and_fix_calculations,
+        "Instance",
+        SimpleNamespace(objects=instance_manager),
+    )
+    monkeypatch.setattr(
+        identify_and_fix_calculations, "Answer", SimpleNamespace(objects=answer_manager)
+    )
+    monkeypatch.setattr(identify_and_fix_calculations, "OuterRef", lambda field: field)
+    monkeypatch.setattr(
+        identify_and_fix_calculations, "Exists", lambda queryset: queryset
+    )
+    command = Command.__new__(Command)
+    command.recalc_handoff = ({2, 5}, cutoff)
+    command._base_qs = lambda: changed_instances
+
+    assert command._recalculation_qs() is combined_instances
+
+    assert answer_manager.filter_calls == [
+        ((), {"document__family__case__pk": "case"}),
+    ]
+    assert answer_query.filter_calls == [
+        ((Q(created_at__gt=cutoff) | Q(modified_at__gt=cutoff),), {}),
+    ]
+    assert instance_manager.filter_calls == [
+        ((), {"pk__in": {2, 5}}),
+        (
+            (Q(pk__in={2, 5}) | Q(pk__in="changed-instance-ids"),),
+            {},
+        ),
+    ]
+
+
+def test_recalculation_handoff_export_contains_known_incorrect_ids_and_cutoff(
+    monkeypatch, tmp_path
+):
+    latest_creation_date = datetime.datetime(2025, 1, 15, 10, 30, tzinfo=datetime.UTC)
+    values = SimpleNamespace(first=lambda: latest_creation_date)
+    instances = SimpleNamespace(
+        order_by=lambda *args: SimpleNamespace(
+            values_list=lambda *args, **kwargs: values
+        )
+    )
+    monkeypatch.setattr(
+        identify_and_fix_calculations, "Instance", SimpleNamespace(objects=instances)
+    )
+    command = Command.__new__(Command)
+    command.run_state = RunState(
+        configuration=CONFIGURATION,
+        started_at=datetime.datetime.now(),
+        results={
+            ("recalculation", 3): [_stats_entry(3, event="fixed")],
+            ("recalculation", 1): [_stats_entry(1, event="detected")],
+            ("recalculation", 2): [_stats_entry(2, event="clean")],
+            ("validation", 4): [_stats_entry(4, event="detected")],
+        },
+    )
+    output_path = tmp_path / "handoff.json"
+
+    command._write_recalculation_handoff(output_path)
+
+    assert json.loads(output_path.read_text()) == {
+        "instance_ids": [1, 3],
+        "last_instance_created_at": "2025-01-15T10:30:00+00:00",
+    }
+
+
+def test_handoff_export_reloads_completed_results(monkeypatch, tmp_path):
+    initial_state = RunState(
+        configuration=CONFIGURATION,
+        started_at=datetime.datetime.now(),
+    )
+    completed_state = RunState(
+        configuration=CONFIGURATION,
+        started_at=initial_state.started_at,
+        results={("recalculation", 1): [_stats_entry(1)]},
+    )
+
+    class StateStoreStub:
+        instance = None
+
+        def __init__(self, configuration):
+            type(self).instance = self
+            self.configuration = configuration
+            self.start_calls = []
+
+        def start(self, reset=False):
+            self.start_calls.append(reset)
+            return initial_state if len(self.start_calls) == 1 else completed_state
+
+    class ExecutorStub:
+        def shutdown(self, *args, **kwargs):
+            pass
+
+    command = Command.__new__(Command)
+    command.configure_logging = lambda verbosity: None
+    command._restore_stats = lambda: None
+    command.log_stats = lambda: None
+    written_states = []
+    command._write_recalculation_handoff = lambda path: written_states.append(
+        command.run_state
+    )
+    monkeypatch.setattr(identify_and_fix_calculations, "RunStateStore", StateStoreStub)
+    monkeypatch.setattr(
+        identify_and_fix_calculations, "SynchronousExecutor", ExecutorStub
+    )
+
+    command.handle(
+        verbosity=0,
+        parallel=False,
+        do_validate=False,
+        do_recalc=False,
+        do_fix_calc=False,
+        do_commit=False,
+        excel_out=None,
+        recalc_handoff_in=None,
+        recalc_handoff_out=tmp_path / "handoff.json",
+        dev_mode=False,
+        analyze_only=None,
+        search_only=None,
+        reset_state=False,
+    )
+
+    assert StateStoreStub.instance.start_calls == [False, False]
+    assert written_states == [completed_state]
 
 
 @pytest.mark.parametrize("parallel", [None, 2])
@@ -174,6 +432,8 @@ def test_parallel_worker_count_is_passed_to_executor(monkeypatch, parallel):
         do_fix_calc=False,
         do_commit=False,
         excel_out=None,
+        recalc_handoff_in=None,
+        recalc_handoff_out=None,
         dev_mode=False,
         analyze_only=None,
         search_only=None,
@@ -279,7 +539,9 @@ def test_concurrent_checkpoint_merges_preserve_all_outcomes():
 
 
 @pytest.mark.parametrize("stop_signal", [signal.SIGINT, signal.SIGTERM])
-def test_stop_signals_cancel_pending_work_without_waiting(monkeypatch, stop_signal):
+def test_stop_signals_cancel_pending_work_without_waiting(
+    monkeypatch, stop_signal, tmp_path
+):
     class InterruptingExecutor:
         instance = None
 
@@ -308,6 +570,9 @@ def test_stop_signals_cancel_pending_work_without_waiting(monkeypatch, stop_sign
     command._restore_stats = lambda: None
     command.iter_instances_for_validation = lambda: (1, [SimpleNamespace(pk=1)])
     command.log_stats = lambda: pytest.fail("stats should not be logged on interrupt")
+    command._write_recalculation_handoff = lambda path: pytest.fail(
+        "handoff should not be exported on interrupt"
+    )
     previous_handler = signal.getsignal(stop_signal)
 
     monkeypatch.setattr(
@@ -323,6 +588,8 @@ def test_stop_signals_cancel_pending_work_without_waiting(monkeypatch, stop_sign
         do_fix_calc=False,
         do_commit=False,
         excel_out=None,
+        recalc_handoff_in=None,
+        recalc_handoff_out=tmp_path / "handoff.json",
         dev_mode=False,
         analyze_only=None,
         search_only=None,
@@ -381,6 +648,7 @@ def test_iterators_exclude_instances_completed_by_their_phase(caplog):
     command._base_qs = lambda: QuerySetStub([1, 2, 3])
 
     assert QuerySetStub([1, 2, 3])[1:].instance_ids == [2, 3]
+    assert QuerySetStub([1, 2, 3]).exclude() is not None
 
     with caplog.at_level(logging.INFO):
         validation_total, validation_instances = command.iter_instances_for_validation()
