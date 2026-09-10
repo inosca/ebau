@@ -8,5 +8,8 @@ export default {
       "service-afb": ["dossiers-service", "work-items", "rpg2"],
       "cantonal-service": ["dossiers-service", "work-items"],
     },
+    byServices: {
+      rpg2: ["rpg2"],
+    },
   },
 };

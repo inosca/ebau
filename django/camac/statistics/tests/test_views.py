@@ -282,6 +282,7 @@ def test_copy_template_sheets(
 @pytest.mark.parametrize(
     ("available", "expected_suffix"),
     [
+        ({"service", "sg", "role", "default"}, "service"),
         ({"sg", "role", "default"}, "sg"),
         ({"role", "default"}, "role"),
         ({"default"}, "default"),
@@ -296,7 +297,7 @@ def test_resolve_template_priority(
     expected_suffix,
     set_application_ag,
 ):
-    """Template resolution prefers service-group > role > type-default."""
+    """Template resolution prefers service > service-group > role > type-default."""
 
     base = os.path.join(
         os.path.dirname(os.path.dirname(__file__)),
@@ -305,6 +306,7 @@ def test_resolve_template_priority(
     )
 
     paths = {
+        "service": f"{base}/{expected_base}_rpg2.xlsx",
         "sg": f"{base}/{expected_base}_service-afb.xlsx",
         "role": f"{base}/{expected_base}_municipality.xlsx",
         "default": f"{base}/{expected_base}_export.xlsx",
@@ -315,7 +317,8 @@ def test_resolve_template_priority(
 
     expected = paths[expected_suffix] if expected_suffix else None
     assert (
-        _resolve_template_path(export_type, "municipality", "service-afb") == expected
+        _resolve_template_path(export_type, "municipality", "service-afb", "rpg2")
+        == expected
     )
 
 

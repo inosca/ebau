@@ -152,7 +152,6 @@ STATISTICS = ModuleConfig[StatisticsConfig](
         enabled=True,
         slugs=DEFAULT_SLUGS,
         by_service_group={
-            "service-afb": AG_AFB_COLUMN_CONFIG,
             "service-external": AG_SERVICE_COLUMN_CONFIG,
             "service-cantonal": AG_SERVICE_COLUMN_CONFIG,
             "municipality": ExportColumnsConfig(
@@ -160,6 +159,13 @@ STATISTICS = ModuleConfig[StatisticsConfig](
                     *DEFAULT_DOSSIER_COLUMNS,
                     ("processing_time", _("Processing time")),
                 ],
+            ),
+        },
+        by_service={
+            "afb": AG_AFB_COLUMN_CONFIG,
+            "rpg2": ExportColumnsConfig(
+                rpg2_dossiers=DEFAULT_RPG2_DOSSIER_COLUMNS,
+                rpg2_areas=DEFAULT_RPG2_AREAS_COLUMNS,
             ),
         },
     ),
