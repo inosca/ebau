@@ -23,7 +23,7 @@ class TagsVisibility:
     def filter_static_keywords(self, queryset, request):
         service = request.group.service
         return self._filter_by_service(
-            queryset, request, service.service_parent or service
+            queryset, request, (service.service_parent or service) if service else None
         )
 
     @filter_queryset_for(InstanceMark)
