@@ -29,7 +29,9 @@ def test_keyword_list(admin_client, keyword_factory, service, expected_count):
 )
 def test_static_keyword_list(
     admin_client,
+    support_client,
     static_keyword_factory,
+    role,
     service,
     service_factory,
     expected_count,
@@ -44,7 +46,8 @@ def test_static_keyword_list(
         static_keyword_factory.create_batch(2)
         static_keyword_factory(service=service)
 
-    response = admin_client.get(reverse("static-keyword-list"))
+    client = support_client if role.name == "Support" else admin_client
+    response = client.get(reverse("static-keyword-list"))
 
     assert response.status_code == status.HTTP_200_OK
     assert len(response.json()["data"]) == expected_count
