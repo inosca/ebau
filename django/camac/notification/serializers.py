@@ -289,6 +289,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     decision_de = serializers.SerializerMethodField()
     decision_fr = serializers.SerializerMethodField()
     decision_it = serializers.SerializerMethodField()
+    decision_type_de = serializers.SerializerMethodField()
+    decision_type_fr = serializers.SerializerMethodField()
 
     current_user_name = serializers.SerializerMethodField()
     work_item_name_de = serializers.SerializerMethodField()
@@ -1035,6 +1037,41 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return find_answer(
             decision.document,
             settings.DECISION["QUESTIONS"]["DECISION"],
+            language=language,
+        )
+
+    def get_decision_type_de(self, instance):
+        return self._get_decision_type(instance, "de")
+
+    def get_decision_type_fr(self, instance):
+        return self._get_decision_type(instance, "fr")
+
+    def _get_decision_type(self, instance, language):
+        if not is_module_enabled("DECISION"):  # pragma: no cover
+            return ""
+
+        decision_config = getattr(settings, "DECISION", {}) or {}
+        task_id = decision_config.get("TASK")
+        questions = decision_config.get("QUESTIONS") or {}
+        approval_type = questions.get("APPROVAL_TYPE")
+
+        if not task_id or not approval_type:
+            return ""
+
+        decision = instance.case.work_items.filter(
+            task_id=settings.DECISION["TASK"],
+            status__in=[
+                caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+                caluma_workflow_models.WorkItem.STATUS_SKIPPED,
+            ],
+        ).first()
+
+        if not decision:  # pragma: no cover
+            return ""
+
+        return find_answer(
+            decision.document,
+            approval_type,
             language=language,
         )
 
