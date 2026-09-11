@@ -141,6 +141,9 @@ export default {
     },
   },
   customDeadlineServiceGroupSlugs: ["service-afb"],
+  instanceHeader: {
+    showDeadlineStartDateForServiceGroups: ["service-afb", "service-cantonal"],
+  },
   customDeadlineServiceSlugs: [
     "agv-bs",
     "agv-esp",
