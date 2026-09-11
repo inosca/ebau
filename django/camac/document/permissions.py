@@ -536,6 +536,7 @@ PERMISSIONS_BY_ACCESSLEVEL = {
             AdminPermission: (_has_documents_write_permission, [12]),
             AdminInternalPermission: (_has_documents_write_permission, [7]),
             ReadPermission: (_allow_always, [12]),
+            ReadInternalPermission: (_allow_always, [7]),
         },
     },
     "kt_uri": {
