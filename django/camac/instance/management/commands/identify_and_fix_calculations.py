@@ -1,9 +1,15 @@
 import datetime
+import json
 import logging
 import os
+import pickle
+import signal
+import sqlite3
 from collections import defaultdict
 from concurrent.futures import ProcessPoolExecutor
+from contextlib import contextmanager
 from dataclasses import dataclass, field
+from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
 
@@ -11,7 +17,8 @@ import openpyxl
 from caluma.caluma_form import calc_questions, structure
 from caluma.caluma_form.models import Answer, Document, FormQuestion, Question
 from caluma.caluma_form.validators import DocumentValidator
-from django.core.management.base import BaseCommand
+from django.conf import settings
+from django.core.management.base import BaseCommand, CommandError
 from django.db import connections, transaction
 from django.db.models import Exists, OuterRef, Q
 from rest_framework import exceptions
@@ -49,30 +56,207 @@ class StatsEntry:
     recalculations: list[RecalcInfo] = field(default_factory=list)
 
 
+@dataclass
+class TaskResult:
+    phase: str
+    instance_id: int
+    entries: list[LogEntry | StatsEntry]
+
+
+def _failed_task(
+    phase: str, progressinfo: str, inst_id: int, operation: str, exc: Exception
+) -> TaskResult:
+    return TaskResult(
+        phase,
+        inst_id,
+        [
+            LogEntry(
+                logging.ERROR,
+                "%s Instance %s: Error during %s (%s)",
+                [progressinfo, inst_id, operation, exc],
+            )
+        ],
+    )
+
+
+@dataclass
+class RunState:
+    configuration: dict[str, Any]
+    started_at: datetime.datetime
+    completed_ids: dict[str, set[int]] = field(default_factory=dict)
+    results: dict[tuple[str, int], list[StatsEntry]] = field(default_factory=dict)
+
+
+class RunStateStore:
+    """Persist and safely merge restart state for calculation runs."""
+
+    def __init__(self, configuration: dict[str, Any]):
+        """Set up the checkpoint paths for the given run configuration."""
+        self.configuration = configuration
+        self.directory = Path(settings.MEDIA_ROOT) / "recalc_fix"
+        self.path = self.directory / "state.sqlite3"
+
+    @contextmanager
+    def _connection(self):
+        """Open a durable SQLite connection for a short checkpoint operation."""
+        self.directory.mkdir(parents=True, exist_ok=True)
+        connection = sqlite3.connect(self.path, timeout=30)
+        try:
+            connection.execute("PRAGMA journal_mode = WAL")
+            connection.execute("PRAGMA synchronous = FULL")
+            connection.execute("PRAGMA busy_timeout = 30000")
+            yield connection
+        finally:
+            connection.close()
+
+    @staticmethod
+    def _create_schema(connection) -> None:
+        connection.execute(
+            """
+            CREATE TABLE run_metadata (
+                id INTEGER PRIMARY KEY CHECK (id = 1),
+                configuration BLOB NOT NULL,
+                started_at TEXT NOT NULL
+            )
+            """
+        )
+        connection.execute(
+            """
+            CREATE TABLE completed_instances (
+                phase TEXT NOT NULL,
+                instance_id INTEGER NOT NULL,
+                stats_entries BLOB NOT NULL,
+                PRIMARY KEY (phase, instance_id)
+            )
+            """
+        )
+
+    def _invalid_state(self, exc: Exception) -> None:
+        raise CommandError(
+            f"Could not load recalculation checkpoint {self.path}: {exc}. "
+            "Use --reset-state to start a new run."
+        ) from exc
+
+    def _load(self) -> RunState:
+        try:
+            with self._connection() as connection:
+                metadata = connection.execute(
+                    "SELECT configuration, started_at FROM run_metadata WHERE id = 1"
+                ).fetchone()
+                if metadata is None:
+                    raise ValueError("run metadata is missing")
+                configuration, started_at = metadata
+                configuration = pickle.loads(configuration)
+                if not isinstance(configuration, dict):
+                    raise TypeError("run configuration is not a dictionary")
+
+                completed_ids = defaultdict(set)
+                results = {}
+                for phase, instance_id, stats_entries in connection.execute(
+                    "SELECT phase, instance_id, stats_entries FROM completed_instances"
+                ):
+                    stats_entries = pickle.loads(stats_entries)
+                    if not isinstance(stats_entries, list) or not all(
+                        isinstance(entry, StatsEntry) for entry in stats_entries
+                    ):
+                        raise TypeError("checkpoint statistics are not valid")
+                    completed_ids[phase].add(instance_id)
+                    results[(phase, instance_id)] = stats_entries
+
+            return RunState(
+                configuration=configuration,
+                started_at=datetime.datetime.fromisoformat(started_at),
+                completed_ids=dict(completed_ids),
+                results=results,
+            )
+        except (
+            AttributeError,
+            EOFError,
+            ImportError,
+            IndexError,
+            pickle.UnpicklingError,
+            sqlite3.Error,
+            TypeError,
+            ValueError,
+        ) as exc:
+            self._invalid_state(exc)
+
+    def _remove_database(self) -> None:
+        for path in (self.path, Path(f"{self.path}-wal"), Path(f"{self.path}-shm")):
+            path.unlink(missing_ok=True)
+
+    def start(self, reset: bool = False) -> RunState:
+        """Create or resume the compatible checkpoint, optionally replacing it."""
+        if reset:
+            self._remove_database()
+
+        if not self.path.exists():
+            state = RunState(
+                configuration=self.configuration,
+                started_at=datetime.datetime.now(),
+            )
+            with self._connection() as connection, connection:
+                connection.execute("BEGIN IMMEDIATE")
+                self._create_schema(connection)
+                connection.execute(
+                    """
+                    INSERT INTO run_metadata (id, configuration, started_at)
+                    VALUES (1, ?, ?)
+                    """,
+                    (pickle.dumps(state.configuration), state.started_at.isoformat()),
+                )
+            return state
+
+        state = self._load()
+        if state.configuration != self.configuration:
+            raise CommandError(
+                "The existing recalculation checkpoint uses different command "
+                "options. Use --reset-state to start a new run."
+            )
+        return state
+
+    def record_completed(
+        self, phase: str, instance_id: int, stats_entries: list[StatsEntry]
+    ) -> None:
+        """Atomically store a completed instance outcome unless it is already known."""
+        if not self.path.exists():
+            raise CommandError("The recalculation checkpoint does not exist.")
+
+        try:
+            with self._connection() as connection:
+                metadata = connection.execute(
+                    "SELECT configuration FROM run_metadata WHERE id = 1"
+                ).fetchone()
+                if metadata is None:
+                    raise ValueError("run metadata is missing")
+                if pickle.loads(metadata[0]) != self.configuration:
+                    raise CommandError(
+                        "The recalculation checkpoint configuration changed."
+                    )
+
+                with connection:
+                    connection.execute(
+                        """
+                        INSERT OR IGNORE INTO completed_instances
+                        (phase, instance_id, stats_entries)
+                        VALUES (?, ?, ?)
+                        """,
+                        (phase, instance_id, pickle.dumps(stats_entries)),
+                    )
+        except (
+            AttributeError,
+            EOFError,
+            ImportError,
+            IndexError,
+            pickle.UnpicklingError,
+            sqlite3.Error,
+            TypeError,
+            ValueError,
+        ) as exc:
+            self._invalid_state(exc)
+
+
 class Command(BaseCommand):
-    EXCLUDE_STATES_FOR_VALIDATION = [
-        # matches InstanceState.name, which in BE is the untranslated internal name
-        # "new",  # applicants will see errors before submission and can correct themselves
-        # "correction",  # in correction - municipality will see the validation errors
-        # # dossiers that are not being processed anymore don't need to be fixed either
-        # "rejected",
-        # "finished",
-        # "finished_internal",
-    ]
-
-    EXCLUDE_STATES_FOR_MISCALCULATION = [
-        # Here, we do need the new, and in "correction" dossiers as well
-        # dossiers that are not being processed anymore don't need to be fixed either
-        # as discussed - we need to look at all states
-        # "rejected",
-        # "finished",
-        # "finished_internal",
-    ]
-
-    EXCLUDE_STATES_FOR_FIXING = [
-        # ... none - for now
-    ]
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -92,9 +276,10 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument(
             "--parallel",
-            action="store_true",
+            nargs="?",
+            type=int,
             dest="parallel",
-            help="Check in parallel. Uses as many CPUs as available",
+            help="Check in parallel, optionally limiting the number of workers",
             required=False,
             default=False,
         )
@@ -170,13 +355,46 @@ class Command(BaseCommand):
             help="Specify excel filename for detailled output",
             required=False,
         )
+        parser.add_argument(
+            "--recalc-handoff-out",
+            type=Path,
+            dest="recalc_handoff_out",
+            help="Write detected or fixed dossier IDs and the instance cutoff to JSON",
+            required=False,
+        )
+        parser.add_argument(
+            "--recalc-handoff-in",
+            type=Path,
+            dest="recalc_handoff_in",
+            help="Check exported dossiers and calculation-relevant changes since its cutoff",
+            required=False,
+        )
+        parser.add_argument(
+            "--reset-state",
+            action="store_true",
+            help="Discard the existing recalculation checkpoint before starting",
+            required=False,
+            default=False,
+        )
+
+    @contextmanager
+    def _handle_stop_signals(self):
+        def _interrupt(signum, frame):
+            raise KeyboardInterrupt
+
+        signals = (signal.SIGINT, signal.SIGTERM)
+        previous_handlers = {}
+        try:
+            for stop_signal in signals:
+                previous_handlers[stop_signal] = signal.signal(stop_signal, _interrupt)
+            yield
+        finally:
+            for stop_signal, previous_handler in previous_handlers.items():
+                signal.signal(stop_signal, previous_handler)
 
     def handle(self, *args, **options):
         self.configure_logging(options["verbosity"])
 
-        chosen_executor = (
-            ProcessPoolExecutor if options["parallel"] else SynchronousExecutor
-        )
         self.verbosity = options["verbosity"]
 
         do_validate = options["do_validate"]
@@ -184,19 +402,35 @@ class Command(BaseCommand):
         do_fix_calculation = options["do_fix_calc"]
         do_commit = options["do_commit"]
         self.excel_out = options["excel_out"]
+        self.recalc_handoff_out = options.get("recalc_handoff_out")
+        self.recalc_handoff = (
+            self._load_recalculation_handoff(options["recalc_handoff_in"])
+            if options.get("recalc_handoff_in")
+            else None
+        )
         self.dev_mode = options["dev_mode"]
         self.analyze_only = (
             options["analyze_only"].split(",") if options["analyze_only"] else None
         )
         self.search_only = options["search_only"]
 
-        started_at = datetime.datetime.now()
+        self.state_store = RunStateStore(self._run_configuration(options))
+        self.run_state = self.state_store.start(reset=options["reset_state"])
+        started_at = self.run_state.started_at
+        self._restore_stats()
 
         if not do_commit:
             log.info("Pretend mode active: Changes will not be committed to DB")
 
-        with chosen_executor() as executor:
-            try:
+        executor = (
+            ProcessPoolExecutor(max_workers=options["parallel"])
+            if options["parallel"] is not False
+            else SynchronousExecutor()
+        )
+        interrupted = False
+        cancel_futures = False
+        try:
+            with self._handle_stop_signals():
                 if do_validate:
                     log.info("Collecting instances for validation checks")
                     total, qs = self.iter_instances_for_validation()
@@ -227,12 +461,18 @@ class Command(BaseCommand):
                         do_commit=do_commit,
                     )
 
-            except KeyboardInterrupt:
-                log.error("User triggered stop, shutting down")
-                executor.shutdown(wait=True, cancel_futures=True)
-            except Exception as exc:
-                log.error("Some error happened, stopping: %s", str(exc))
-                executor.shutdown(wait=True, cancel_futures=True)
+        except KeyboardInterrupt:
+            interrupted = True
+            cancel_futures = True
+            log.error("Stop signal received, cancelling pending work")
+        except Exception as exc:
+            cancel_futures = True
+            log.error("Some error happened, stopping: %s", str(exc))
+        finally:
+            executor.shutdown(wait=not interrupted, cancel_futures=cancel_futures)
+
+        if interrupted:
+            return
 
         self.log_stats()
         if self.excel_out:
@@ -241,6 +481,113 @@ class Command(BaseCommand):
                 committed_to_db=do_commit,
                 did_fixes=do_fix_calculation,
             )
+        if self.recalc_handoff_out:
+            self.run_state = self.state_store.start()
+            self._write_recalculation_handoff(self.recalc_handoff_out)
+
+    @staticmethod
+    def _run_configuration(options: dict[str, Any]) -> dict[str, Any]:
+        return {
+            "do_validate": options["do_validate"],
+            "do_recalc": options["do_recalc"],
+            "do_fix_calc": options["do_fix_calc"],
+            "do_commit": options["do_commit"],
+            "analyze_only": tuple(
+                options["analyze_only"].split(",") if options["analyze_only"] else []
+            ),
+            "search_only": options["search_only"],
+            "recalc_handoff_in": (
+                str(options["recalc_handoff_in"])
+                if options.get("recalc_handoff_in")
+                else None
+            ),
+        }
+
+    def _restore_stats(self) -> None:
+        for stats_entries in self.run_state.results.values():
+            for entry in stats_entries:
+                self._merge_stats(entry)
+
+    def _recalculation_handoff_instance_ids(self) -> list[int]:
+        return sorted(
+            instance_id
+            for (phase, instance_id), entries in self.run_state.results.items()
+            if phase == "recalculation"
+            and any(
+                recalc.event in {"detected", "fixed"}
+                for entry in entries
+                for recalc in entry.recalculations
+            )
+        )
+
+    @staticmethod
+    def _last_instance_creation_date() -> datetime.datetime:
+        creation_date = (
+            Instance.objects.order_by("-creation_date")
+            .values_list("creation_date", flat=True)
+            .first()
+        )
+        if creation_date is None:
+            raise CommandError(
+                "Cannot export recalculation handoff: no instances found"
+            )
+        return creation_date
+
+    def _write_recalculation_handoff(self, path: Path) -> None:
+        handoff = {
+            "instance_ids": self._recalculation_handoff_instance_ids(),
+            "last_instance_created_at": self._last_instance_creation_date().isoformat(),
+        }
+        try:
+            with path.open("w") as handoff_file:
+                json.dump(handoff, handoff_file, indent=2, sort_keys=True)
+                handoff_file.write("\n")
+        except OSError as exc:
+            raise CommandError(
+                f"Could not write recalculation handoff {path}: {exc}"
+            ) from exc
+
+    @staticmethod
+    def _load_recalculation_handoff(path: Path) -> tuple[set[int], datetime.datetime]:
+        try:
+            with path.open() as handoff_file:
+                handoff = json.load(handoff_file)
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+            raise CommandError(
+                f"Could not read recalculation handoff {path}: {exc}"
+            ) from exc
+
+        if not isinstance(handoff, dict) or set(handoff) != {
+            "instance_ids",
+            "last_instance_created_at",
+        }:
+            raise CommandError(
+                "Recalculation handoff must be a JSON object with instance_ids "
+                "and last_instance_created_at"
+            )
+
+        instance_ids = handoff["instance_ids"]
+        if not isinstance(instance_ids, list) or not all(
+            isinstance(instance_id, int) and not isinstance(instance_id, bool)
+            for instance_id in instance_ids
+        ):
+            raise CommandError(
+                "Recalculation handoff instance_ids must contain only integers"
+            )
+        timestamp = handoff["last_instance_created_at"]
+        try:
+            cutoff = datetime.datetime.fromisoformat(timestamp)
+        except (TypeError, ValueError) as exc:
+            raise CommandError(
+                "Recalculation handoff last_instance_created_at must be an "
+                "ISO-8601 timestamp"
+            ) from exc
+        if cutoff.tzinfo is None or cutoff.utcoffset() is None:
+            raise CommandError(
+                "Recalculation handoff last_instance_created_at must include a timezone"
+            )
+
+        return set(instance_ids), cutoff
 
     def log_to_excel(self, start_time, committed_to_db, did_fixes):
 
@@ -480,21 +827,45 @@ class Command(BaseCommand):
     def _schedule(self, progress_label, executor, task, total, instances, **kwargs):
         for i, inst in enumerate(instances, start=1):
             progressinfo = f"[{progress_label} {i}/{total}]"
-            fut = executor.submit(task, progressinfo, inst.pk, **kwargs)
+            fut = executor.submit(
+                task,
+                progressinfo,
+                inst.pk,
+                state_configuration=self.run_state.configuration,
+                **kwargs,
+            )
             fut.add_done_callback(self._log_result)
 
     def _log_result(self, logdata):
         result = logdata.result()
-        assert isinstance(result, list)
-        for entry in result:
+        assert isinstance(result, TaskResult)
+        for entry in result.entries:
             match entry:
                 case LogEntry(level, message, args):
                     log.log(level, message, *args)
 
                 case StatsEntry(municipality, instance, recalculations):
-                    self.stats[municipality][instance].extend(recalculations)
+                    self._merge_stats(
+                        StatsEntry(municipality, instance, recalculations)
+                    )
                 case _:
                     raise RuntimeError(f"Unknown result received: {result}")
+
+    def _merge_stats(self, entry: StatsEntry) -> None:
+        self.stats[entry.municipality][entry.instance].extend(entry.recalculations)
+
+    @staticmethod
+    def _checkpoint_on_commit(
+        state_configuration: dict[str, Any], result: TaskResult
+    ) -> None:
+        stats_entries = [
+            entry for entry in result.entries if isinstance(entry, StatsEntry)
+        ]
+        transaction.get_connection().on_commit(
+            lambda: RunStateStore(state_configuration).record_completed(
+                result.phase, result.instance_id, stats_entries
+            )
+        )
 
     def configure_logging(self, verbosity):
         """Configure logging to the commandline's verbosity level."""
@@ -521,7 +892,14 @@ class Command(BaseCommand):
         _config_handler(log)
 
     @classmethod
-    def check_validation(cls, progressinfo, inst_id):
+    def check_validation(cls, progressinfo, inst_id, state_configuration):
+        try:
+            return cls._check_validation(progressinfo, inst_id, state_configuration)
+        except Exception as exc:
+            return _failed_task("validation", progressinfo, inst_id, "validation", exc)
+
+    @classmethod
+    def _check_validation(cls, progressinfo, inst_id, state_configuration):
         """Check the given instance for validation issues.
 
         Validate the main form of the given instance, and give a warning
@@ -530,59 +908,50 @@ class Command(BaseCommand):
         Return a loggable tuple, so it can be logged in the main process
         """
         cls._clean_env()
-        inst = Instance.objects.prefetch_related("case", "case__document").get(
-            pk=inst_id
-        )
-
-        struc = cls._struc(inst)
-        validator = DocumentValidator()
-
-        mun = cls._municipality(inst)
-
-        try:
-            validator.validate(
-                struc._document, user=cls._user, validation_context=struc
+        with transaction.atomic():
+            inst = Instance.objects.prefetch_related("case", "case__document").get(
+                pk=inst_id
             )
-        except exceptions.ValidationError as exc:
-            return [
-                LogEntry(
-                    logging.WARNING,
-                    "%s Instance %s (%s) for %s: Invalid form found (%s)",
-                    [
-                        progressinfo,
-                        inst.pk,
-                        inst.instance_state.get_name(),
-                        mun,
-                        exc,
-                    ],
+
+            struc = cls._struc(inst)
+            validator = DocumentValidator()
+            mun = cls._municipality(inst)
+
+            try:
+                validator.validate(
+                    struc._document, user=cls._user, validation_context=struc
                 )
-            ]
-        except Exception as exc:
-            return [
-                LogEntry(
-                    logging.WARNING,
-                    "%s Instance %s (%s) for %s: Error during validation (%s)",
-                    [
-                        progressinfo,
-                        inst.pk,
-                        inst.instance_state.get_name(),
-                        mun,
-                        exc,
-                    ],
-                )
-            ]
-        return [
-            LogEntry(
-                logging.DEBUG,
-                "%s Instance %s (%s) for %s: Validation seems OK",
-                [
-                    progressinfo,
-                    inst.pk,
-                    str(inst.instance_state.get_name()),
-                    mun,
-                ],
-            )
-        ]
+            except exceptions.ValidationError as exc:
+                entries = [
+                    LogEntry(
+                        logging.WARNING,
+                        "%s Instance %s (%s) for %s: Invalid form found (%s)",
+                        [
+                            progressinfo,
+                            inst.pk,
+                            inst.instance_state.get_name(),
+                            mun,
+                            exc,
+                        ],
+                    )
+                ]
+            else:
+                entries = [
+                    LogEntry(
+                        logging.DEBUG,
+                        "%s Instance %s (%s) for %s: Validation seems OK",
+                        [
+                            progressinfo,
+                            inst.pk,
+                            str(inst.instance_state.get_name()),
+                            mun,
+                        ],
+                    )
+                ]
+
+            result = TaskResult("validation", inst_id, entries)
+            cls._checkpoint_on_commit(state_configuration, result)
+        return result
 
     @staticmethod
     def _struc(instance) -> structure.FieldSet:
@@ -625,6 +994,34 @@ class Command(BaseCommand):
         analyze_only: list[str],
         fix_calculation: bool,
         do_commit: bool,
+        state_configuration: dict[str, Any],
+    ) -> TaskResult:
+        try:
+            cls._clean_env()
+            with transaction.atomic():
+                entries = cls._check_miscalculation(
+                    progressinfo,
+                    inst_id,
+                    analyze_only,
+                    fix_calculation,
+                    do_commit,
+                )
+                result = TaskResult("recalculation", inst_id, entries)
+                cls._checkpoint_on_commit(state_configuration, result)
+            return result
+        except Exception as exc:
+            return _failed_task(
+                "recalculation", progressinfo, inst_id, "recalculation", exc
+            )
+
+    @classmethod
+    def _check_miscalculation(
+        cls,
+        progressinfo: str,
+        inst_id: int,
+        analyze_only: list[str],
+        fix_calculation: bool,
+        do_commit: bool,
     ) -> list[LogEntry | StatsEntry]:
         """Check the given instance for miscalculation issues.
 
@@ -634,7 +1031,6 @@ class Command(BaseCommand):
 
         Return a loggable tuple, so it can be logged in the main process
         """
-        cls._clean_env()
         inst = Instance.objects.prefetch_related("case", "case__document").get(
             pk=inst_id
         )
@@ -779,50 +1175,48 @@ class Command(BaseCommand):
             LogEntry(logging.INFO, "    Instance %s: Recalculating fields", [inst])
         ]
 
-        with transaction.atomic():
-            savepoint = transaction.savepoint()
-            calc_questions.recalculate_all_calc_fields(struc)
-            after_values = {
-                fld.get_path(): (fld.is_hidden(), fld.get_value(ignore_hidden=True))
-                for fld in cls._all_calc_fields(struc)
-            }
+        savepoint = transaction.savepoint()
+        calc_questions.recalculate_all_calc_fields(struc)
+        after_values = {
+            fld.get_path(): (fld.is_hidden(), fld.get_value(ignore_hidden=True))
+            for fld in cls._all_calc_fields(struc)
+        }
 
-            recalcs = []
+        recalcs = []
 
-            for path, value_before in before_values.items():
-                after_is_hidden, after_value = after_values[path]
-                hiddenstate = "hidden " if after_is_hidden else ""
+        for path, value_before in before_values.items():
+            after_is_hidden, after_value = after_values[path]
+            hiddenstate = "hidden " if after_is_hidden else ""
 
-                if value_before != after_value:
-                    recalc_log.append(
-                        LogEntry(
-                            logging.DEBUG,
-                            "    Instance %s: %sfield %s was recalculated (old: %s, new: %s)",
-                            [inst, hiddenstate, path, value_before, after_value],
-                        )
-                    )
-                    recalcs.append(
-                        RecalcInfo(
-                            name=path,
-                            hidden=after_is_hidden,
-                            before=value_before,
-                            after=after_value,
-                            event="fixed",
-                        )
-                    )
-
-            if recalcs:
-                recalc_log.append(StatsEntry(municipality, inst, recalcs))
-            if not do_commit:
+            if value_before != after_value:
                 recalc_log.append(
                     LogEntry(
                         logging.DEBUG,
-                        "    Rolling back changes, pass --commit to save permanently",
-                        [],
+                        "    Instance %s: %sfield %s was recalculated (old: %s, new: %s)",
+                        [inst, hiddenstate, path, value_before, after_value],
+                    )
+                )
+                recalcs.append(
+                    RecalcInfo(
+                        name=path,
+                        hidden=after_is_hidden,
+                        before=value_before,
+                        after=after_value,
+                        event="fixed",
                     )
                 )
 
-                transaction.savepoint_rollback(savepoint)
+        if recalcs:
+            recalc_log.append(StatsEntry(municipality, inst, recalcs))
+        if not do_commit:
+            recalc_log.append(
+                LogEntry(
+                    logging.DEBUG,
+                    "    Rolling back changes, pass --commit to save permanently",
+                    [],
+                )
+            )
+            transaction.savepoint_rollback(savepoint)
         return recalc_log
 
     def _all_forms_with_calc_questions(self) -> list[str]:
@@ -883,6 +1277,28 @@ class Command(BaseCommand):
                 )
             )
 
+    def _recalculation_qs(self):
+        if getattr(self, "recalc_handoff", None) is None:
+            return self._base_qs()
+
+        instance_ids, cutoff = self.recalc_handoff
+        exported_instances = Instance.objects.filter(pk__in=instance_ids)
+        changed_instances = self._base_qs().filter(
+            Exists(
+                Answer.objects.filter(
+                    document__family__case__pk=OuterRef("case")
+                ).filter(Q(created_at__gt=cutoff) | Q(modified_at__gt=cutoff))
+            )
+        )
+        log.info(
+            "Including %d exported instances and %d calculation-relevant changed instances",
+            exported_instances.count(),
+            changed_instances.count(),
+        )
+        return Instance.objects.filter(
+            Q(pk__in=instance_ids) | Q(pk__in=changed_instances.values("pk"))
+        )
+
     def iter_instances_for_validation(self):
         """Build an iterator for validation checks.
 
@@ -890,9 +1306,8 @@ class Command(BaseCommand):
         and a queryset iterator as the second value.
         """
 
-        qs = self._base_qs().exclude(
-            instance_state__name__in=self.EXCLUDE_STATES_FOR_VALIDATION
-        )
+        qs = self._base_qs()
+        qs = self._exclude_completed(qs, "validation", "checked for validation")
         if self.dev_mode:
             qs = qs[:100]
 
@@ -904,16 +1319,22 @@ class Command(BaseCommand):
         Return a 2-tuple, with the total number of records as the first value,
         and a queryset iterator as the second value.
         """
-        qs = (
-            self._base_qs()
-            .exclude(instance_state__name__in=self.EXCLUDE_STATES_FOR_MISCALCULATION)
-            # order by random to get an early sampling of all situations
-            .order_by("?")
-        )
+        qs = self._recalculation_qs().order_by("?")
+        qs = self._exclude_completed(qs, "recalculation", "checked or fixed")
         if self.dev_mode:
             qs = qs[:100]
 
         return (qs.count(), qs.iterator(chunk_size=200))
+
+    def _exclude_completed(self, qs, phase: str, description: str):
+        completed_ids = self.run_state.completed_ids.get(phase, set())
+        if not completed_ids:
+            return qs
+
+        skipped = qs.filter(pk__in=completed_ids).count()
+        if skipped:
+            log.info("Skipping %d instances already %s", skipped, description)
+        return qs.exclude(pk__in=completed_ids)
 
     @classmethod
     def _clean_env(cls):
