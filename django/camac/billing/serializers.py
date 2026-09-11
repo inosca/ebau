@@ -5,7 +5,12 @@ from django.conf import settings
 from django.utils.translation import gettext as _
 from rest_framework_json_api import serializers
 
-from camac.billing.models import BillingV2Entry, BillingV2EntryTemplate
+from camac.billing.models import (
+    BillingV2Account,
+    BillingV2Entry,
+    BillingV2EntryTemplate,
+    Invoice,
+)
 from camac.billing.utils import (
     add_taxes_to_final_rate,
     calculate_final_rate,
@@ -38,10 +43,12 @@ class BillingV2EntryTemplateSerializer(BillingV2CommonEntrySerializer):
 class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
     user = CurrentUserResourceRelatedField()
     group = GroupResourceRelatedField(default=CurrentGroupDefault())
+    invoice = serializers.PrimaryKeyRelatedField(read_only=True)
 
     included_serializers = {
         "user": "camac.user.serializers.UserSerializer",
         "group": "camac.user.serializers.GroupSerializer",
+        "invoice": "camac.billing.serializers.InvoiceSerializer",
     }
 
     product_number_name = serializers.SerializerMethodField()
@@ -87,6 +94,18 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
             tax_mode=validated_data["tax_mode"],
             tax_rate=Decimal(validated_data["tax_rate"]),
         )
+
+        if settings.APPLICATION_NAME == "kt_uri":
+            validated_data["entry_type"] = (
+                "BGL"
+                if validated_data["instance"].instance_state.name
+                in [
+                    "done",  # INSTANCE_STATE_DONE
+                    "control",  # INSTANCE_STATE_CONTROL
+                    "arch",  # INSTANCE_STATE_ARCH
+                ]
+                else "BEW"
+            )
 
         # We want to also validate the product_number
         # if its empty in case the service is required to
@@ -151,12 +170,14 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
         model = BillingV2Entry
         fields = "__all__"
         read_only_fields = (
+            "entry_type",
             "date_added",
             "date_charged",
             "released_for_clearing",
             "final_rate",
             "group",
             "user",
+            "invoice",
         )
 
 
@@ -280,3 +301,26 @@ class BillingV2BulkEntryIdsSerializer(serializers.Serializer):
         allow_empty=False,
         help_text="List of entry IDs to charge",
     )
+
+
+class BillingV2AccountSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BillingV2Account
+        exclude = ("service_group",)
+
+
+class InvoiceSerializer(serializers.ModelSerializer):
+    instance = serializers.PrimaryKeyRelatedField(read_only=True)
+
+    included_serializers = {
+        "instance": "camac.instance.serializers.InstanceSerializer",
+    }
+
+    class Meta:
+        model = Invoice
+        fields = "__all__"
+        read_only_fields = (
+            "invoice_text",
+            "date_added",
+            "instance",
+        )

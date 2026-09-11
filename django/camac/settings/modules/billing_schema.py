@@ -3,6 +3,28 @@ from pydantic import Field
 from camac.settings.ebau_schema import EBauConfig, ModuleApplicationConfig
 
 
+class InvoiceConfig(EBauConfig):
+    enabled: bool = Field(description="Is the invoice feature enabled?")
+    template: str | None = Field(
+        description="Template to use for invoice generation.", default=None
+    )
+    document_category: str | int = Field(
+        description=("Document category to save the generated invoice to.")
+    )
+    convert_to_pdf: bool = Field(
+        description="Convert the generated invoice to PDF instead of keeping the DOCX.",
+        default=True,
+    )
+    file_name: str | None = Field(
+        description=(
+            "File name of the generated invoice without extension. Supports the "
+            "placeholders `{identifier}` (dossier number) and `{datetime}`. "
+            "Defaults to the name of the used template."
+        ),
+        default=None,
+    )
+
+
 class BillingDjangoAdminConfig(EBauConfig):
     hidden_fields: list[str] = Field(
         description="Billing entry fields that should be hidden in the django admin",
@@ -101,3 +123,7 @@ class BillingConfig(ModuleApplicationConfig):
         description="Which ServiceGroup's are cantonal. List of slugs.", default=[]
     )
     admin: BillingDjangoAdminConfig = BillingDjangoAdminConfig()
+    invoice: InvoiceConfig | None = Field(
+        description="Configuration for creating invoices",
+        default=None,
+    )

@@ -52,6 +52,10 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.shoebox.content.serviceId;
   }
 
+  get roleId() {
+    return this.shoebox?.content?.roleId;
+  }
+
   get role() {
     return this.shoebox.role;
   }

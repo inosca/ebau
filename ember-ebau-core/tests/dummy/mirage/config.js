@@ -76,6 +76,8 @@ export default function makeServer(config) {
         return schema.notificationTemplates.create(attrs);
       });
 
+      this.resource("invoices", { only: ["index", "show"] });
+      this.resource("billing-v2-accounts", { only: ["index", "show"] });
       this.resource("billing-v2-entries");
       this.resource("billing-v2-entry-templates", { only: ["index"] });
 

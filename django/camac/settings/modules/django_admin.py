@@ -106,11 +106,15 @@ DJANGO_ADMIN = {
             "alexandria_migration.MigrationLog",
             "alexandria_migration.MigrationRun",
             "alexandria_migration.InstanceMigration",
+            "billing.BillingV2Account",
+            "billing.BillingV2EntryTemplate",
         ],
         "CUSTOMER_MANAGED_MODELS": [
             "alexandria_migration.MigrationLog",
             "alexandria_migration.MigrationRun",
             "alexandria_migration.InstanceMigration",
+            "billing.BillingV2Account",
+            "billing.BillingV2EntryTemplate",
         ],
     },
     "kt_ag": {

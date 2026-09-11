@@ -6,7 +6,7 @@ from django.utils.translation import gettext as _
 from localized_fields.admin import LocalizedFieldsAdminMixin
 
 from camac.admin import EbauAdminMixin
-from camac.billing.models import BillingV2EntryTemplate
+from camac.billing.models import BillingV2Account, BillingV2EntryTemplate
 
 
 class BillingV2EntryTemplateForm(ModelForm):
@@ -82,3 +82,43 @@ class BillingV2EntryTemplateAdmin(
         return ", ".join(
             [service_group.get_name() for service_group in obj.service_groups.all()]
         )
+
+
+class BillingV2AccountForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = BillingV2Account
+        widgets = {
+            "name": TextInput,
+        }
+        fields = (
+            "name",
+            "account_number",
+            "department",
+            "service_group",
+            "instance_states",
+        )
+
+
+@register(BillingV2Account)
+class BillingV2AccountAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
+    list_display = [
+        "name",
+        "account_number",
+        "department",
+        "get_service_group_name",
+        "get_instance_state_names",
+    ]
+    search_fields = ["name"]
+    ordering = ["name"]
+    form = BillingV2AccountForm
+
+    @display(description=_("Service group"))
+    def get_service_group_name(self, obj):
+        return obj.service_group.get_name() if obj.service_group else ""
+
+    @display(description=_("Instance states"))
+    def get_instance_state_names(self, obj):
+        return ", ".join([state.get_name() for state in obj.instance_states.all()])

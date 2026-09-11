@@ -3,9 +3,11 @@ import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
-import { query, findRecord } from "ember-data-resources";
+import { findRecord, query } from "ember-data-resources";
 import { confirm } from "ember-uikit";
 import { trackedFunction } from "reactiveweb/function";
+
+import { isApplication } from "ember-ebau-core/helpers/is-application";
 
 export default class BillingIndexController extends Controller {
   @service intl;
@@ -15,16 +17,28 @@ export default class BillingIndexController extends Controller {
   @service notification;
 
   @tracked selectedRows = [];
+  @tracked invoiceType = null;
 
   entries = query(this, "billing-v2-entry", () => ({
     instance: this.ebauModules.instanceId,
-    include: "user,group,group.service",
+    include: "user,group,group.service,invoice",
   }));
+
+  notChargedEntries = trackedFunction(this, async () => {
+    if (!this.entries?.records) {
+      return [];
+    }
+
+    return this.entries.records.filter((entry) => !entry.dateCharged);
+  });
 
   instance = findRecord(this, "instance", () => [this.ebauModules.instanceId]);
 
   #canCharge = trackedFunction(this, async () => {
-    return await this.abilities.can("charge billing-v2-entries");
+    return (
+      !(await this.abilities.can("invoice billing-v2-entries")) &&
+      (await this.abilities.can("charge billing-v2-entries"))
+    );
   });
 
   get canCharge() {
@@ -34,6 +48,7 @@ export default class BillingIndexController extends Controller {
   #canReleaseForClearing = trackedFunction(this, async () => {
     return (
       this.entries.records &&
+      !(await this.abilities.can("invoice billing-v2-entries")) &&
       (await this.abilities.can("release-for-clearing billing-v2-entries"))
     );
   });
@@ -56,6 +71,40 @@ export default class BillingIndexController extends Controller {
 
   get canEdit() {
     return this.#canEdit.value;
+  }
+
+  get invoiceTypes() {
+    const invoiceTypes = [];
+    if (isApplication("ur")) {
+      invoiceTypes.push("Gemeinde");
+
+      switch (parseInt(this.ebauModules.roleId)) {
+        case 1128: // AFJ
+        case 1129: // SD
+          invoiceTypes.push("Sicherheitsdirektion");
+          break;
+        case 1061: // NP
+        case 3: // BG
+        case 1133: // AFG
+          invoiceTypes.push("Justizdirektion");
+          break;
+        case 1101: // BD
+        case 1127: // AFE
+          invoiceTypes.push("Baudirektion");
+          break;
+        case 1107: // ALA
+          invoiceTypes.push("Volkswirtschaftsdirektion");
+          invoiceTypes.push("Justizdirektion");
+          break;
+        case 1106: // AFU
+          invoiceTypes.push("Gesundheits-, Sozial- und Umweltdirektion");
+          break;
+        default:
+          break;
+      }
+    }
+
+    return invoiceTypes.map((type) => `Inkasso ${type}`);
   }
 
   @action
@@ -93,6 +142,11 @@ export default class BillingIndexController extends Controller {
     }
   }
 
+  @action
+  updateInvoiceType(event) {
+    this.invoiceType = event.target.value;
+  }
+
   charge = dropTask(this, async () => {
     if (
       !this.canCharge ||
@@ -120,6 +174,45 @@ export default class BillingIndexController extends Controller {
       this.selectedRows = [];
     } catch {
       this.notification.danger(this.intl.t("billing.charge-error"));
+    }
+  });
+
+  invoice = dropTask(this, async () => {
+    if (
+      (await this.abilities.cannot("invoice billing-v2-entries")) ||
+      !(await confirm(this.intl.t("billing.confirm-invoice")))
+    ) {
+      return;
+    }
+
+    const response = await this.fetch.fetch(
+      `/api/v1/instances/${this.ebauModules.instanceId}/dms-placeholders`,
+      {
+        headers: { accept: "application/json" },
+      },
+    );
+    const placeholders = await response.json();
+
+    try {
+      await this.fetch.fetch(`/api/v1/billing-v2-entries/invoice`, {
+        method: "POST",
+        body: JSON.stringify({
+          placeholders,
+          instance: this.ebauModules.instanceId,
+          text: this.invoiceType,
+        }),
+        headers: {
+          "content-type": "application/json",
+          accept: "application/json",
+        },
+      });
+
+      // manually refresh in order to update the entries status as well
+      await this.refresh();
+
+      this.notification.success(this.intl.t("billing.invoice-success"));
+    } catch {
+      this.notification.danger(this.intl.t("billing.invoice-error"));
     }
   });
 

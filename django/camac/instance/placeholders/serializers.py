@@ -727,6 +727,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("BILLING_ENTRIES")],
         description=_("Billing entries of the instance"),
     )
+    gebuehren_nicht_verrechnet = fields.BillingEntriesField(
+        only_not_charged=True,
+        aliases=[_("BILLING_ENTRIES_NOT_CHARGED")],
+        description=_("Not charged billing entries of the instance"),
+    )
     dossier_number = fields.MasterDataField(
         aliases=[_("DOSSIER_NUMBER")],
         description=_("Dossier number of the instance"),
@@ -1555,6 +1560,7 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "gebuehren_total",
             "gebuehren_total_nicht_verrechnet",
             "gebuehren",
+            "gebuehren_nicht_verrechnet",
             "gemeinde_webseite",
             "leitbehoerde_name_adresse",
             "leitbehoerde_webseite",

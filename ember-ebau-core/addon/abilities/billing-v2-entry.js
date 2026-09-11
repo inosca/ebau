@@ -57,6 +57,17 @@ export default class BillingV2EntryAbility extends Ability {
     return canCharge && this.model.organization === "municipal";
   }
 
+  async canInvoice() {
+    if (this.permissions.fullyEnabled) {
+      return (
+        this.canEdit &&
+        (await this.permissions.hasAll(this.instance?.id, "billing-invoice"))
+      );
+    }
+
+    return this.canEdit && hasFeature("billing.invoice");
+  }
+
   /*
   This ability check can either be called with or without a model.
 

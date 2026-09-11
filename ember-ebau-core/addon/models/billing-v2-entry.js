@@ -9,10 +9,14 @@ export default class BillingV2EntryModel extends BillingV2CommonEntryModel {
   @attr dateCharged;
   @attr finalRate;
   @attr productNumberName;
+  @attr entryType;
 
   @belongsTo("group", { inverse: null, async: true }) group;
   @belongsTo("user", { inverse: null, async: true }) user;
   @belongsTo("instance", { inverse: null, async: true }) instance;
+  @belongsTo("invoice", { inverse: null, async: true }) invoice;
+  @belongsTo("billing-v2-account", { inverse: null, async: true })
+  billingV2Account;
 
   applyTemplate(template) {
     if (!template) {

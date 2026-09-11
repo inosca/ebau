@@ -30,6 +30,9 @@
           />
         </th>
       {{/if}}
+      {{#if (has-feature "billing.entryType")}}
+        <th data-test-entry-type>{{t "billing.entry-type"}}</th>
+      {{/if}}
       <th data-test-text>{{t "billing.position"}}</th>
       {{#if (has-feature "billing.remark")}}
         <th data-test-text>{{t "billing.remark"}}</th>
@@ -50,6 +53,9 @@
       {{/if}}
       {{#if (has-feature "billing.charge")}}
         <th data-test-charged>{{t "billing.charged-at"}}</th>
+      {{/if}}
+      {{#if (has-feature "billing.invoice")}}
+        <th data-test-invoice-text>{{t "billing.invoice-text"}}</th>
       {{/if}}
       {{#if (has-feature "billing.organization")}}
         <th data-test-organization>{{t "billing.organization"}}</th>

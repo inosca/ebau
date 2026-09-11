@@ -1,0 +1,34 @@
+billing:
+  position: Leistung
+  billing-account:
+    account: Konto
+  cost-center: Fachstelle
+  organization: Verrechnungsart
+  info: |-
+    <div class="uk-alert" data-test-billing-info>
+      <div class="uk-text-danger">
+        <p>Bitte beachten (Hinweis zur Gebührenverordnung RB 3.2512)</p>
+        <p>Bei speziellen Verfahren (z.B. Interne Mitberichtsverfahren, Plangenehmigungsverfahren, Örebverfahren usw.) bei denen eine kantonale Behörde oder eine Bundesstelle Leitbehörde ist, werden keine Gebühren erhoben. Zudem kann, falls eine Amtshandlung überwiegend im öffentlichen Interesse erfolgt, ebenfalls auf die Erhebung von Gebühren verzichtet werden.</p>
+        <p>Im Rahmen der Baubewilligungsverfahren sind, soweit diese als Bauherrschaft auftreten, folgende Behörden und Amtsstellen in der Regel von Gebühren befreit:</p>
+
+        <ul>
+          <li>die politische Gemeinden</li>
+          <li>die Kirchgemeinden</li>
+          <li>die Korporationen Uri und Ursern und die Korporationsbürgergemeinden</li>
+          <li>alle Kantonale Amtsstellen</li>
+          <li>alle Bundesämter / Stellen</li>
+        </ul>
+      </div>
+    </div>
+  info-new: |-
+    <div class="uk-text-danger">
+      <span>Bitte beachten:</span>
+      <ul>
+        <li>
+          Politische Gemeinden, Kirchgemeinden, kantonale Amtsstellen, Kooperationsbürgergemeinden sowie die beiden Korporationen Uri und Ursern sind gemäss Gebührenverordnung in der Regel von Gebühren befreit.
+        </li>
+        <li>
+          Bei Spezialverfahren (z.B. Interne Mitberichtsverfahren oder PGVs) bei denen eine kantonale Behörde oder eine Bundesstelle Leitbehörde ist, werden ebenfalls keine Gebühren erhoben.
+        </li>
+      </ul>
+    </div>

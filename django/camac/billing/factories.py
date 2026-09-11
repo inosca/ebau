@@ -5,6 +5,7 @@ from factory import Faker, LazyAttribute, Maybe, SubFactory, fuzzy
 from factory.django import DjangoModelFactory
 
 from camac.billing.models import (
+    BillingV2Account,
     BillingV2Entry,
     BillingV2EntryTemplate,
     Invoice,
@@ -12,7 +13,7 @@ from camac.billing.models import (
 )
 from camac.billing.utils import add_taxes_to_final_rate, calculate_final_rate
 from camac.instance.factories import InstanceFactory
-from camac.user.factories import GroupFactory, UserFactory
+from camac.user.factories import GroupFactory, ServiceGroupFactory, UserFactory
 from camac.utils import choice_keys
 
 
@@ -111,6 +112,16 @@ class BillingV2EntryTemplateFactory(BillingV2CommonEntryFactory):
 
     class Meta:
         model = BillingV2EntryTemplate
+
+
+class BillingV2AccountFactory(DjangoModelFactory):
+    name = Faker("word")
+    account_number = Faker("word")
+    department = Faker("word")
+    service_group = SubFactory(ServiceGroupFactory)
+
+    class Meta:
+        model = BillingV2Account
 
 
 class InvoiceFactory(DjangoModelFactory):

@@ -116,6 +116,15 @@ msgstr "Organisations"
 msgid "Service groups"
 msgstr "Types d'organisation"
 
+#: camac/billing/admin.py camac/billing/models.py camac/user/admin/views.py
+#: camac/user/models.py
+msgid "Service group"
+msgstr "Type d'organisation"
+
+#: camac/billing/admin.py camac/billing/models.py
+msgid "Instance states"
+msgstr "Statuts de dossier"
+
 #: camac/billing/apps.py
 msgid "Billing"
 msgstr ""
@@ -222,6 +231,10 @@ msgstr ""
 msgid "Remark"
 msgstr "Remarque"
 
+#: camac/billing/models.py
+msgid "Entry Type"
+msgstr ""
+
 #: camac/billing/models.py camac/core/admin/views.py camac/deadlines/models.py
 #: camac/user/admin/views.py camac/user/models.py camac/work_items/models.py
 msgid "Name"
@@ -237,6 +250,22 @@ msgstr ""
 
 #: camac/billing/models.py
 msgid "Billing entry templates"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Account number"
+msgstr ""
+
+#: camac/billing/models.py camac/user/models.py
+msgid "Department"
+msgstr "Département"
+
+#: camac/billing/models.py
+msgid "Billing account"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Billing accounts"
 msgstr ""
 
 #: camac/billing/serializers.py
@@ -310,6 +339,10 @@ msgstr ""
 #: camac/billing/views.py
 msgid "All entries to charge must belong to the same instance"
 msgstr "Toutes les entrées à facturer doivent appartenir au même dossier"
+
+#: camac/billing/views.py
+msgid "No unbilled entries found"
+msgstr "Aucune entrée non facturée trouvée"
 
 #: camac/billing/views.py
 msgid "All entries to release must belong to the same instance"
@@ -2407,10 +2440,6 @@ msgstr ""
 msgid "Enable selected groups"
 msgstr ""
 
-#: camac/user/admin/views.py camac/user/models.py
-msgid "Service group"
-msgstr "Type d'organisation"
-
 #: camac/user/admin/views.py
 msgid "Disable selected services"
 msgstr ""
@@ -2557,10 +2586,6 @@ msgstr ""
 #: camac/user/models.py
 msgid "Apply responsibility in construction control?"
 msgstr "Reprendre la compétence dans le contrôle de la construction ?"
-
-#: camac/user/models.py
-msgid "Department"
-msgstr ""
 
 #: camac/user/models.py
 msgid "External identifier"

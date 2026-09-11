@@ -124,6 +124,21 @@ PLACEHOLDERS = {
         "INQUIRY_FIELD_MAPPINGS": {
             "clerk_decision": ("inquiry-answer", "CLERK_DECISION"),
         },
+        "BILLING_ENTRY_FIELDS": [
+            "POSITION",
+            "BETRAG",
+            "RECHTSGRUNDLAGE",
+            "KOSTENSTELLE",
+            "STUNDEN",
+            "STUNDENSATZ",
+            "ANTEIL_PROZENT",
+            "GESAMTKOSTEN",
+            "BERECHNUNG",
+            "MEHRWERTSTEUER",
+            "ART",
+            "DEPARTEMENT",
+            "KONTO",
+        ],
     },
     "kt_ag": {
         "ENABLED": True,

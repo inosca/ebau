@@ -123,6 +123,15 @@ msgstr "Organisationen"
 msgid "Service groups"
 msgstr "Organisationstypen"
 
+#: camac/billing/admin.py camac/billing/models.py camac/user/admin/views.py
+#: camac/user/models.py
+msgid "Service group"
+msgstr "Organisationstyp"
+
+#: camac/billing/admin.py camac/billing/models.py
+msgid "Instance states"
+msgstr "Dossier Status"
+
 #: camac/billing/apps.py
 msgid "Billing"
 msgstr "Gebühren"
@@ -231,6 +240,10 @@ msgstr "Kantonale Gebührenrechnung bei kantonaler Baubehörde"
 msgid "Remark"
 msgstr "Bemerkung"
 
+#: camac/billing/models.py
+msgid "Entry Type"
+msgstr "Eintragstyp"
+
 #: camac/billing/models.py camac/core/admin/views.py camac/deadlines/models.py
 #: camac/user/admin/views.py camac/user/models.py camac/work_items/models.py
 msgid "Name"
@@ -247,6 +260,22 @@ msgstr "Gebührenvorlage"
 #: camac/billing/models.py
 msgid "Billing entry templates"
 msgstr "Gebührenvorlagen"
+
+#: camac/billing/models.py
+msgid "Account number"
+msgstr "Kontotyp"
+
+#: camac/billing/models.py camac/user/models.py
+msgid "Department"
+msgstr "Departement"
+
+#: camac/billing/models.py
+msgid "Billing account"
+msgstr "Gebühren Konto"
+
+#: camac/billing/models.py
+msgid "Billing accounts"
+msgstr "Gebühren Konten"
 
 #: camac/billing/serializers.py
 msgid "Date added"
@@ -319,6 +348,10 @@ msgstr "Keine Koordinaten verfügbar"
 #: camac/billing/views.py
 msgid "All entries to charge must belong to the same instance"
 msgstr "Alle zu verrechnenden Einträge müssen zum selben Dossier gehören"
+
+#: camac/billing/views.py
+msgid "No unbilled entries found"
+msgstr "Keine nicht verrechneten Einträge gefunden"
 
 #: camac/billing/views.py
 msgid "All entries to release must belong to the same instance"
@@ -2451,10 +2484,6 @@ msgstr "Ausgewählte Gruppen deaktivieren"
 msgid "Enable selected groups"
 msgstr "Ausgewählte Gruppen aktivieren"
 
-#: camac/user/admin/views.py camac/user/models.py
-msgid "Service group"
-msgstr "Organisationstyp"
-
 #: camac/user/admin/views.py
 msgid "Disable selected services"
 msgstr "Ausgewählte Organisationen deaktivieren"
@@ -2597,10 +2626,6 @@ msgstr ""
 #: camac/user/models.py
 msgid "Apply responsibility in construction control?"
 msgstr "Zuständigkeit in Baukontrolle übernehmen?"
-
-#: camac/user/models.py
-msgid "Department"
-msgstr "Departement"
 
 #: camac/user/models.py
 msgid "External identifier"

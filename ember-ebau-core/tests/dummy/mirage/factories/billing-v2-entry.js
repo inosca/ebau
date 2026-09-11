@@ -9,10 +9,12 @@ export default Factory.extend({
   dateAdded: () => DateTime.fromJSDate(faker.date.past()).toISODate(),
   dateCharged: null,
   releasedForClearing: null,
+  entryType: () => faker.helpers.arrayElement(["BEW", "BGL"]),
 
   group: association(),
   user: association(),
   instance: association(),
+  invoice: association(),
 
   charged: trait({
     afterCreate(entry) {

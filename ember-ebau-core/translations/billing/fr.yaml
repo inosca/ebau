@@ -1,12 +1,19 @@
 billing:
   info: |-
-    Dans le menu "Emoluments", il est possible de saisir les emoluments
-    encourus en rapport avec le dossier. Toutefois, les entrées enregistrées ne
-    sont pas automatiquement transmises au service de facturation de votre
-    organisation. La facturation doit être effectuée par chaque organisation
-    participante comme auparavant.
+    <div class="uk-alert" data-test-billing-info>
+      Dans le menu "Emoluments", il est possible de saisir les emoluments
+      encourus en rapport avec le dossier. Toutefois, les entrées enregistrées ne
+      sont pas automatiquement transmises au service de facturation de votre
+      organisation. La facturation doit être effectuée par chaque organisation
+      participante comme auparavant.
+    </div>
+  info-new: ""
+  entry-type:
   position: Position
   legal-basis:
+  billing-account:
+    account: Compte de facturation
+    other: Autre prestation
   cost-center:
   cost-center-short:
   service: Organisation
@@ -16,9 +23,11 @@ billing:
   total: Total (CHF)
   created-at: Capturé sur
   charged-at: Facturé le
+  invoice-text: Type de facture
   dossier: Dossier numéro
   organization: Type
   charge: Facturer
+  invoice: Créer une facture
   hide-charged: Cacher les entrées de frais facturés
   calculation: Calcul
   hours: Heures
@@ -33,10 +42,15 @@ billing:
   confirm-charge: |-
     Veuillez vous assurer que la facture a bien été créée avant que l'entrée des
     frais ne soit mise sur "facturé".
+  confirm-invoice: |-
+    Veuillez vous assurer que la facture a bien été créée avant que l'entrée des
+    frais ne soit mise sur "facturé".
   add-success: L'entrée de frais a été ajoutée avec succès
+  invoice-success: La facture a été générée avec succès et archivée sous "Documents".
   add-error: Erreur lors de l'ajout de l'entrée de frais
   delete-error: Erreur lors de la suppression de l'entrée des frais
   charge-error: Erreur lors de la facturation de l'entrée des frais
+  invoice-error: Erreur lors de la facturation de l'entrée des frais
   paginationInfo: "<strong>{count}</strong> de {total}"
   apply-construction-costs: Reprendre les coûts de construction du formulaire
   apply-construction-costs-empty: Aucun coût de construction n'a pu être trouvé dans le formulaire
@@ -80,6 +94,8 @@ billing:
     by_authority:
     forwarded:
     direct:
+    construction_outside_zone:
+    cantonal_construction_administration:
 
   filters:
     createdAfter: Date de réception (par)

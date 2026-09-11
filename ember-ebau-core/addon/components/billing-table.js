@@ -11,7 +11,17 @@ export default class BillingTableComponent extends Component {
   @tracked hideCharged = false;
 
   #colspanTotalLabel = trackedFunction(this, async () => {
-    return this.args.canCharge ? 5 : 4;
+    let colspan = 4;
+
+    if (this.args.canCharge) {
+      colspan += 1;
+    }
+
+    if (hasFeature("billing.entryType")) {
+      colspan += 1;
+    }
+
+    return colspan;
   });
 
   get colspanTotalLabel() {
@@ -22,6 +32,10 @@ export default class BillingTableComponent extends Component {
     let colspan = 1;
 
     if (hasFeature("billing.charge")) {
+      colspan += 1;
+    }
+
+    if (hasFeature("billing.invoice")) {
       colspan += 1;
     }
 

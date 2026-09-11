@@ -1,10 +1,10 @@
 import {
-  visit,
-  settled,
-  waitFor,
   click,
   currentURL,
   fillIn,
+  settled,
+  visit,
+  waitFor,
 } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { t } from "ember-intl/test-support";
@@ -85,7 +85,7 @@ module("Acceptance | billing", function (hooks) {
       .dom(
         "table[data-test-billing-table] tbody tr:nth-of-type(1) td:nth-of-type(8)",
       )
-      .hasNoText();
+      .hasText("-");
     assert
       .dom(
         "table[data-test-billing-table] tbody tr:nth-of-type(2) td:nth-of-type(8)",
@@ -129,7 +129,7 @@ module("Acceptance | billing", function (hooks) {
       .dom(
         "table[data-test-billing-table] tbody tr:nth-of-type(1) td:nth-of-type(8)",
       )
-      .hasNoText();
+      .hasText("-");
     assert
       .dom(
         "table[data-test-billing-table] tbody tr:nth-of-type(2) td:nth-of-type(8)",
@@ -174,7 +174,7 @@ module("Acceptance | billing", function (hooks) {
       .dom(
         "table[data-test-billing-table] tbody tr:nth-of-type(1) td:nth-of-type(8)",
       )
-      .hasNoText();
+      .hasText("-");
     assert
       .dom(
         "table[data-test-billing-table] tbody tr:nth-of-type(2) td:nth-of-type(8)",
@@ -317,6 +317,7 @@ module("Acceptance | billing", function (hooks) {
       ];
 
       this.features.enable(
+        "billing.entryType",
         "billing.organization",
         "billing.billingType",
         "billing.legalBasis",
@@ -469,5 +470,57 @@ module("Acceptance | billing", function (hooks) {
       await click("button[data-test-submit]");
       assert.strictEqual(currentURL(), "/billing");
     });
+  });
+});
+
+module("Acceptance | billing account selection", function (hooks) {
+  setupApplicationTest(hooks);
+  setupMirage(hooks);
+  setupFeatures(hooks);
+
+  hooks.beforeEach(function () {
+    const service = this.server.create("service");
+    const publicService = this.server.create("public-service", {
+      id: service.id,
+    });
+
+    this.serviceGroup = publicService.serviceGroup;
+    this.server.create("billing-v2-account", {
+      name: "Account A",
+      department: "DeptA",
+    });
+    this.server.create("billing-v2-account", {
+      name: "Account B",
+      department: "DeptB",
+    });
+  });
+
+  test("can select billing account", async function (assert) {
+    this.features.enable("billing.account");
+
+    this.instance = this.server.create("instance", {
+      activeService: this.serviceGroup,
+    });
+    this.owner.lookup("service:ebau-modules").instanceId = this.instance.id;
+
+    await visit("/billing/new");
+
+    await click('select[name="billing_v2_account"]');
+
+    // one empty, two valid, one "other"
+    assert.dom('select[name="billing_v2_account"] option').exists({ count: 4 });
+
+    assert
+      .dom('select[name="billing_v2_account"] option:nth-child(1)')
+      .hasTextContaining("");
+    assert
+      .dom('select[name="billing_v2_account"] option:nth-child(2)')
+      .hasTextContaining("Account A");
+    assert
+      .dom('select[name="billing_v2_account"] option:nth-child(3)')
+      .hasTextContaining("Account B");
+    assert
+      .dom('select[name="billing_v2_account"] option:nth-child(4)')
+      .hasTextContaining("Andere");
   });
 });
