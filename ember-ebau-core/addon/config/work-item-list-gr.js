@@ -1,4 +1,5 @@
 export default {
+  showFilterPresets: true,
   availableTasks: {},
   columns(status, role) {
     return [
