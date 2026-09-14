@@ -40,6 +40,9 @@ ALEXANDRIA = {
     },
     "kt_ag": {
         "ENABLED": True,
+        "MARK_VISIBILITY": {
+            "SENSITIVE": ["sensitive"],
+        },
         "PERMISSION_KEY": {
             "SERVICE_GROUP_MAPPING": {
                 "service-afb": "afb",
