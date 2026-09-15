@@ -348,16 +348,30 @@ def test_write_data_sheet_non_native_types_and_excess_columns():
 
 def test_apply_autofilter_values_by_header():
     sheet = openpyxl.Workbook().active
+    sheet.append(["col1", "col2"])
+    for value in ["x", "X", "", None, "y", 0]:
+        sheet.append(["row", value])
+    sheet.append(["excluded", "x"])
 
     DossierStatisticsExportView._apply_autofilter_values(
         sheet,
         ["col1", "col2"],
-        {"col2": ["x", ""], "Missing header": ["ignored"]},
+        {"col2": ["x", ""], "col1": ["row"], "Missing header": ["ignored"]},
     )
 
-    assert len(sheet.auto_filter.filterColumn) == 1
+    assert len(sheet.auto_filter.filterColumn) == 2
     assert sheet.auto_filter.filterColumn[0].colId == 1
-    assert sheet.auto_filter.filterColumn[0].filters.filter == ["x", ""]
+    assert sheet.auto_filter.filterColumn[0].filters.filter == ["x"]
+    assert sheet.auto_filter.filterColumn[0].filters.blank is True
+    assert [sheet.row_dimensions[i].hidden for i in range(2, 9)] == [
+        False,
+        False,
+        False,
+        False,
+        True,
+        True,
+        True,
+    ]
 
 
 def test_set_pivot_refresh():
@@ -598,6 +612,14 @@ def test_rpg2_export_areas_sheet(
     assert len(sheet[0]) == EXPECTED_RPG2_AREAS_COLUMNS
     assert workbook["Dossiers"].auto_filter.ref == "A1:K2"
     assert workbook["Flächen"].auto_filter.ref == "A1:H3"
+    assert workbook["Flächen"].sheet_properties.filterMode is True
+    assert workbook["Flächen"].row_dimensions[1].hidden is False
+    assert workbook["Flächen"].row_dimensions[2].hidden is False  # Beton, Erschliessung
+    assert (
+        workbook["Flächen"].row_dimensions[3].hidden is False
+    )  # Wasserundurchlässiger Belag
+    # No positive AfB assessment
+    assert workbook["Dossiers"].row_dimensions[2].hidden is True
     assert sheet[0][4] == "Materialisierung der neu ver- bzw. entsiegelten Flächen"
     assert sheet[0][5] == "Beschreibung Materialisierung"
 

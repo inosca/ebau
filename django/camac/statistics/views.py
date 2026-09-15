@@ -140,17 +140,39 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
 
     @staticmethod
     def _apply_autofilter_values(data_sheet, header, filters):
-        """Apply configured autofilter values by header label."""
+        """Configure filters and hide non-matching rows."""
+        column_filters = {}
         for header_label, values in filters.items():
             try:
                 col_idx = header.index(gettext(header_label))
             except ValueError:
                 continue
 
+            translated_values = [gettext(value) if value else "" for value in values]
             data_sheet.auto_filter.add_filter_column(
                 col_idx,
-                ["" if value == "" else gettext(value) for value in values],
+                [value for value in translated_values if value != ""],
+                blank="" in translated_values,
             )
+            column_filters[col_idx] = {value.casefold() for value in translated_values}
+
+        if not column_filters:
+            return
+
+        # openpyxl writes filter criteria but does not apply them to the rows.
+        data_sheet.sheet_properties.filterMode = True
+        for row_idx, row in enumerate(data_sheet.iter_rows(min_row=2), start=2):
+            hidden = False
+            for col_idx, allowed_values in column_filters.items():
+                cell_value = row[col_idx].value
+                normalized_value = (
+                    "" if cell_value is None else str(cell_value).casefold()
+                )
+                if normalized_value not in allowed_values:
+                    hidden = True
+                    break
+
+            data_sheet.row_dimensions[row_idx].hidden = hidden
 
     def _write_grid_sheet(self, workbook, name, index, header, rows):
         """Clear and rewrite the sheet *name* at *index* with *header* and *rows*."""
