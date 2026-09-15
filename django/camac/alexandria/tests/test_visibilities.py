@@ -368,7 +368,7 @@ def test_tag_visibility(
     ],
 )
 @pytest.mark.django_db
-def test_tag_visibility_service_subservice(
+def test_tag_visibility_service_subservice_so(
     caluma_admin_user,
     set_application_so,
     so_alexandria_settings,
@@ -395,6 +395,41 @@ def test_tag_visibility_service_subservice(
     assert response.status_code == HTTP_200_OK
     json = response.json()
     assert len(json["data"]) == expected_count
+
+
+@pytest.mark.parametrize("role__name", ["service", "subservice"])
+@pytest.mark.django_db
+def test_tag_visibility_municipality_so(
+    set_application_so,
+    so_alexandria_settings,
+    admin_client,
+    service,
+    service_factory,
+    service_group_factory,
+    role,
+):
+    if role.name == "subservice":
+        service.service_parent = service_factory()
+        service.save()
+
+    own_tag = TagFactory(created_by_group=service.pk)
+    municipality_tag = TagFactory(
+        created_by_group=service_factory(
+            service_group=service_group_factory(name="municipality")
+        ).pk
+    )
+    # Outside the own service family and not a municipality, so not visible.
+    TagFactory(created_by_group=service_factory().pk)
+
+    url = reverse("tag-list")
+    response = admin_client.get(url)
+
+    assert response.status_code == HTTP_200_OK
+    json = response.json()
+    assert {obj["id"] for obj in json["data"]} == {
+        str(own_tag.pk),
+        str(municipality_tag.pk),
+    }
 
 
 @pytest.mark.parametrize(
