@@ -39,6 +39,7 @@ def is_prod() -> bool:
         and "test" not in settings.INTERNAL_BASE_URL
         and "-int" not in settings.INTERNAL_BASE_URL
         and "-t" not in settings.INTERNAL_BASE_URL
+        and "-stage" not in settings.INTERNAL_BASE_URL
     )
 
 

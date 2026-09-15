@@ -87,3 +87,45 @@ def test_resource_get_queryset_ag(
         assert resource_gwr.pk in returned_ids
     else:
         assert resource_gwr.pk not in returned_ids
+
+
+@pytest.mark.parametrize(
+    ("host", "service_group__name", "expect_dossier_import"),
+    [
+        ("https://ebauintern.ag.ch", "municipality", False),
+        ("https://ebauintern.ag.ch", "something", True),
+        ("https://ebauintern-stage.ag.ch/", "municipality", True),
+        ("https://ebauintern-stage.ag.ch/", "something", True),
+        ("https://ebauintern-test.ag.ch/", "municipality", True),
+        ("https://ebauintern-test.ag.ch/", "something", True),
+    ],
+)
+def test_resource_get_queryset_ag_dossier_import(
+    admin_client,
+    r_role_acl_factory,
+    resource_factory,
+    role,
+    set_application_ag,
+    settings,
+    host,
+    expect_dossier_import,
+):
+    settings.INTERNAL_BASE_URL = host
+
+    resource_regular = resource_factory(template="/some/regular.phtml")
+    resource_dossier_import = resource_factory(
+        template="/ember-camac-ng/dossierimport.phtml"
+    )
+
+    r_role_acl_factory(resource=resource_regular, role=role)
+    r_role_acl_factory(resource=resource_dossier_import, role=role)
+
+    response = admin_client.get(reverse("resource-list"))
+
+    returned_ids = {int(r["id"]) for r in response.json()["data"]}
+
+    assert resource_regular.pk in returned_ids
+    if expect_dossier_import:
+        assert resource_dossier_import.pk in returned_ids
+    else:
+        assert resource_dossier_import.pk not in returned_ids

@@ -12,6 +12,7 @@ from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 from camac.caluma.api import CalumaApi
 from camac.caluma.models import Inquiry
 from camac.core.utils import canton_aware
+from camac.dossier_import.views import is_prod
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import FormField, Instance
 from camac.settings.utils import is_module_enabled
@@ -420,17 +421,24 @@ class ResourceView(ReadOnlyModelViewSet):
     def get_queryset_ag(self):
         # In Kt. AG, "light" municipalities and those using the eCH API should not see
         # the global GWR resource and the statistics export.
+        # On Prod, the dossier import resource is filtered out for municipalities.
         # If we have more use cases for dynamic resource visibility, extract this
         # into something more generic.
+        queryset = self._get_queryset()
         service = self.request.group.service
-        if service and (
-            service.service_group.name == "municipality-light" or service.uses_ech_api
-        ):
-            return self._get_queryset().exclude(
+        if not service:
+            return queryset
+
+        if service.service_group.name == "municipality-light" or service.uses_ech_api:
+            queryset = queryset.exclude(
                 Q(template__contains="gwr-global")
                 | Q(template__contains="statistics-export")
             )
-        return self._get_queryset()
+
+        if is_prod() and service.service_group.name == "municipality":
+            queryset = queryset.exclude(template__contains="dossierimport")
+
+        return queryset
 
 
 class InstanceResourceView(ReadOnlyModelViewSet):
