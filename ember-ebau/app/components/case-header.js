@@ -70,6 +70,14 @@ export default class CaseHeaderComponent extends Component {
     return this.args?.case?.evenProjectNumber;
   }
 
+  get showDeadlineStartDate() {
+    return (
+      mainConfig.instanceHeader?.showDeadlineStartDateForServiceGroups?.includes(
+        this.session.serviceGroup?.slug,
+      ) && this.args.case?.deadline?.startDate
+    );
+  }
+
   get showStaticKeywords() {
     const config = new Set(
       mainConfig.instanceHeader?.showStaticKeywordsFor ?? [],

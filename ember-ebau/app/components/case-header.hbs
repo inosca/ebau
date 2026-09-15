@@ -43,7 +43,13 @@
     </div>
     <div>
       <div class="uk-text-bold">
-        {{t "cases.tableHeaders.submitDate"}}
+        {{t
+          (if
+            this.showDeadlineStartDate
+            "deadlines.deadline.detail.startDate"
+            "cases.tableHeaders.submitDate"
+          )
+        }}
         {{#if
           (and (has-feature "deadlines.enabled") (await (can "read deadline")))
         }}
@@ -61,7 +67,15 @@
           {{/if}}
         {{/if}}
       </div>
-      {{or @case.submitDate "-"}}
+      {{#if this.showDeadlineStartDate}}
+        {{if
+          @case.deadline.startDate
+          (format-date @case.deadline.startDate format="date")
+          "-"
+        }}
+      {{else}}
+        {{or @case.submitDate "-"}}
+      {{/if}}
 
       {{#if
         (and (has-feature "deadlines.enabled") (await (can "read deadline")))
