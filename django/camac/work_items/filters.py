@@ -27,7 +27,7 @@ class WorkItemTemplateFilterSet(FilterSet):
 
 class WorkItemListRowFilterSet(FilterSet):
     preset = filters.CharFilter(method="filter_preset")
-    responsible = filters.CharFilter(field_name="assigned_users", lookup_expr="0")
+    responsible = filters.CharFilter(method="filter_responsible")
     role = filters.CharFilter(method="filter_role", required=True)
     task = filters.CharFilter(method="filter_task")
     unread = filters.BooleanFilter(field_name="meta__not-viewed")
@@ -68,6 +68,16 @@ class WorkItemListRowFilterSet(FilterSet):
             )
 
         return queryset.filter(filters)
+
+    def filter_responsible(self, queryset, name, value):
+        if value == "nobody":
+            value = None
+
+        queryset = queryset.filter(
+            assigned_users__0=value,
+        )
+
+        return queryset
 
     def filter_role(self, queryset, name, value):
         service_id = str(self.request.group.service_id)

@@ -52,6 +52,7 @@ export default class WorkItemsGlobalController extends Controller {
     return [
       { value: "all", label: this.intl.t("workItems.filters.all") },
       { value: "own", label: this.intl.t("workItems.filters.own") },
+      { value: "nobody", label: this.intl.t("workItems.filters.nobody") },
       ...users.map((u) => ({
         label: `${u.name} ${u.surname}`,
         value: u.username,

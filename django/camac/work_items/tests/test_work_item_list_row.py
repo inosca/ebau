@@ -338,9 +338,14 @@ def test_work_item_list_row_list_filters(admin_client, setup_work_item_list, use
             set(),
         ),
         (
-            {"role": "active", "responsible": "placeholder"},
+            {"role": "active", "responsible": "own"},
             status.HTTP_200_OK,
             {"assigned", "target-deadline-date"},
+        ),
+        (
+            {"role": "active", "responsible": "nobody"},
+            status.HTTP_200_OK,
+            {"completed", "from-task", "from-template-and-read"},
         ),
         (
             {"role": "active", "task": "task"},
@@ -379,7 +384,7 @@ def test_work_item_list_row_list_filters(admin_client, setup_work_item_list, use
             },
         ),
     ]:
-        if "responsible" in filters:
+        if filters.get("responsible") == "own":
             filters["responsible"] = user.username
         if filters.get("task") == "task":
             filters["task"] = task.pk
