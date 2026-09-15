@@ -145,7 +145,7 @@
     "testem-multi-reporter": "1.2.0",
     "tracked-built-ins": "3.4.0",
     "uuid": "13.0.0",
-    "webpack": "5.97.1"
+    "webpack": "5.104.1"
   },
   "engines": {
     "node": ">= 18"
