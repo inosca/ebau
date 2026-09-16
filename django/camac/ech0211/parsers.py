@@ -72,23 +72,3 @@ class ComplexSubmitMappings:
     def execute_gr(cls, tree, document, user):
         # combine street and housenumber
         cls._combine_street_and_housenumber(tree, document, user)
-
-    @classmethod
-    def execute_ag(cls, tree, document, user):
-        # combine street and housenumber
-        cls._combine_street_and_housenumber(tree, document, user)
-
-        # set municipality for parcel table rows
-        municipality = CalumaApi().get_answer_value(
-            "gemeinde",
-            document.case.instance,
-        )
-
-        plots = CalumaApi().get_table_answer(
-            "parzelle",
-            document.case.instance,
-        )
-
-        if plots:
-            for row in plots:
-                CalumaApi().update_or_create_answer(row, "gemeinde", municipality, user)
